@@ -16,7 +16,7 @@ const Tomada: React.FC<{visual: string; palavras: Palavra[]; offset: number; dur
   const C = VISUAIS[visual];
   return (
     <AbsoluteFill>
-      <AbsoluteFill style={{transform: `scale(${zoom})`, transformOrigin: '50% 55%'}}>{C ? <C falando={falando} prog={f / Math.max(1, dur * FPS)} /> : null}</AbsoluteFill>
+      <AbsoluteFill style={{transform: `scale(${zoom})`, transformOrigin: '50% 55%'}}>{C ? <C falando={false} prog={f / Math.max(1, dur * FPS)} /> : null}</AbsoluteFill>
       <AbsoluteFill style={{background: '#fff', opacity: interpolate(f, [0, 3], [0.4, 0], {extrapolateRight: 'clamp'})}} />
     </AbsoluteFill>
   );
