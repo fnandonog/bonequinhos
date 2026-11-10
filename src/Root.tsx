@@ -1,5 +1,8 @@
 import React from 'react';
-import {Composition} from 'remotion';
+import {Composition, Still} from 'remotion';
+import {Avatar, Banner, Nicho} from './marca/Marca';
+
+const NICHOS: Nicho[] = ['receitas', 'historia', 'construiu', 'crimes', 'ricos', 'espaco'];
 import {Video, FPS, Roteiro, Timings} from './Video';
 import {Serie, RoteiroSerie} from './v2/Serie';
 import {Construcao, RoteiroConstrucao} from './v3/Construcao';
@@ -23,6 +26,12 @@ export const Root: React.FC = () => {
         defaultProps={{roteiro: roteiroSono as unknown as RoteiroSerie, timings: ts, comAudio: !ts.estimado}} />
       <Composition id="kitnet" component={Construcao} durationInFrames={total(timingsKit as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroKit as unknown as RoteiroConstrucao, timings: timingsKit as Timings, comAudio: !(timingsKit as Timings).estimado, layout: 'kitnet'}} />
+      {NICHOS.map((n) => (
+        <React.Fragment key={n}>
+          <Still id={`avatar-${n}`} component={Avatar} width={1080} height={1080} defaultProps={{nicho: n}} />
+          <Still id={`banner-${n}`} component={Banner} width={2560} height={1440} defaultProps={{nicho: n}} />
+        </React.Fragment>
+      ))}
     </>
   );
 };
