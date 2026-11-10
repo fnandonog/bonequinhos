@@ -27,7 +27,7 @@ export type Roteiro = {id: string; titulo: string; cenas: {id: string; texto: st
 
 export type VideoProps = {roteiro: Roteiro; timings: Timings; comAudio: boolean};
 
-const Legenda: React.FC<{palavras: Palavra[]}> = ({palavras}) => {
+export const Legenda: React.FC<{palavras: Palavra[]}> = ({palavras}) => {
   const f = useCurrentFrame();
   const t = f / FPS;
   // agrupa em blocos de até 3 palavras
