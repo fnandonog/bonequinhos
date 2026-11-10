@@ -5,6 +5,8 @@ import {Serie, RoteiroSerie} from './v2/Serie';
 import {Construcao, RoteiroConstrucao} from './v3/Construcao';
 import roteiroKit from '../roteiros/kitnet.json';
 import timingsKit from '../public/audio/kitnet/timings.json';
+import roteiroKit2 from '../roteiros/kitnet-v2.json';
+import timingsKit2 from '../public/audio/kitnet-v2/timings.json';
 import roteiroAir from '../roteiros/air-fryer.json';
 import timingsAir from '../public/audio/air-fryer/timings.json';
 import roteiroSono from '../roteiros/sem-dormir.json';
@@ -23,6 +25,8 @@ export const Root: React.FC = () => {
         defaultProps={{roteiro: roteiroSono as unknown as RoteiroSerie, timings: ts, comAudio: !ts.estimado}} />
       <Composition id="kitnet" component={Construcao} durationInFrames={total(timingsKit as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroKit as unknown as RoteiroConstrucao, timings: timingsKit as Timings, comAudio: !(timingsKit as Timings).estimado, layout: 'kitnet'}} />
+      <Composition id="kitnet-v2" component={Construcao} durationInFrames={total(timingsKit2 as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroKit2 as unknown as RoteiroConstrucao, timings: timingsKit2 as Timings, comAudio: true, layout: 'kitnet2'}} />
     </>
   );
 };

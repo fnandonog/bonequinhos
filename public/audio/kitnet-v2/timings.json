@@ -1,0 +1,940 @@
+{
+  "id": "kitnet-v2",
+  "voz": "elevenlabs:IKpiSijWzlhOL6uX83EH:eleven_multilingual_v2",
+  "acelerado": 1.25,
+  "cenas": [
+    {
+      "id": "c1",
+      "duracao": 7.717599999999999,
+      "palavras": [
+        {
+          "palavra": "Você",
+          "inicio": 0.0,
+          "fim": 0.1768
+        },
+        {
+          "palavra": "tem",
+          "inicio": 0.2136,
+          "fim": 0.2976
+        },
+        {
+          "palavra": "um",
+          "inicio": 0.344,
+          "fim": 0.38079999999999997
+        },
+        {
+          "palavra": "terreno",
+          "inicio": 0.4088,
+          "fim": 0.6504
+        },
+        {
+          "palavra": "vazio",
+          "inicio": 0.6872,
+          "fim": 1.1144
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.2816,
+          "fim": 1.384
+        },
+        {
+          "palavra": "sessenta",
+          "inicio": 1.4208,
+          "fim": 1.8760000000000001
+        },
+        {
+          "palavra": "mil",
+          "inicio": 1.9136,
+          "fim": 2.0344
+        },
+        {
+          "palavra": "reais",
+          "inicio": 2.0712,
+          "fim": 2.5632
+        },
+        {
+          "palavra": "Dá",
+          "inicio": 3.1304,
+          "fim": 3.2415999999999996
+        },
+        {
+          "palavra": "pra",
+          "inicio": 3.2784,
+          "fim": 3.3624
+        },
+        {
+          "palavra": "construir",
+          "inicio": 3.3904000000000005,
+          "fim": 3.6688
+        },
+        {
+          "palavra": "uma",
+          "inicio": 3.6968000000000005,
+          "fim": 3.808
+        },
+        {
+          "palavra": "kitnet",
+          "inicio": 3.836,
+          "fim": 4.1984
+        },
+        {
+          "palavra": "e",
+          "inicio": 4.2448,
+          "fim": 4.263199999999999
+        },
+        {
+          "palavra": "viver",
+          "inicio": 4.3,
+          "fim": 4.5048
+        },
+        {
+          "palavra": "de",
+          "inicio": 4.5328,
+          "fim": 4.569599999999999
+        },
+        {
+          "palavra": "aluguel",
+          "inicio": 4.5976,
+          "fim": 5.0248
+        },
+        {
+          "palavra": "Bora",
+          "inicio": 5.2944,
+          "fim": 5.4887999999999995
+        },
+        {
+          "palavra": "montar",
+          "inicio": 5.5168,
+          "fim": 5.9352
+        },
+        {
+          "palavra": "mas",
+          "inicio": 6.0184,
+          "fim": 6.1768
+        },
+        {
+          "palavra": "cada",
+          "inicio": 6.232,
+          "fim": 6.4176
+        },
+        {
+          "palavra": "real",
+          "inicio": 6.445600000000001,
+          "fim": 6.632
+        },
+        {
+          "palavra": "conta",
+          "inicio": 6.678400000000001,
+          "fim": 7.5416
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "duracao": 5.6000000000000005,
+      "palavras": [
+        {
+          "palavra": "Primeiro",
+          "inicio": 0.0,
+          "fim": 0.39039999999999997
+        },
+        {
+          "palavra": "a",
+          "inicio": 0.4088,
+          "fim": 0.4272
+        },
+        {
+          "palavra": "fundação",
+          "inicio": 0.45519999999999994,
+          "fim": 1.04
+        },
+        {
+          "palavra": "um",
+          "inicio": 1.3096,
+          "fim": 1.4023999999999999
+        },
+        {
+          "palavra": "radier",
+          "inicio": 1.4304000000000001,
+          "fim": 1.9784
+        },
+        {
+          "palavra": "que",
+          "inicio": 2.2016,
+          "fim": 2.2664
+        },
+        {
+          "palavra": "é",
+          "inicio": 2.2847999999999997,
+          "fim": 2.3032
+        },
+        {
+          "palavra": "uma",
+          "inicio": 2.3312,
+          "fim": 2.4335999999999998
+        },
+        {
+          "palavra": "laje",
+          "inicio": 2.48,
+          "fim": 2.6752
+        },
+        {
+          "palavra": "de",
+          "inicio": 2.7032,
+          "fim": 2.7496
+        },
+        {
+          "palavra": "concreto",
+          "inicio": 2.7864,
+          "fim": 3.084
+        },
+        {
+          "palavra": "direto",
+          "inicio": 3.1208,
+          "fim": 3.3904000000000005
+        },
+        {
+          "palavra": "no",
+          "inicio": 3.4176,
+          "fim": 3.4736
+        },
+        {
+          "palavra": "chão",
+          "inicio": 3.5016,
+          "fim": 3.8176
+        },
+        {
+          "palavra": "Rápido",
+          "inicio": 4.1240000000000006,
+          "fim": 4.4672
+        },
+        {
+          "palavra": "e",
+          "inicio": 4.4864,
+          "fim": 4.5048
+        },
+        {
+          "palavra": "barato",
+          "inicio": 4.5328,
+          "fim": 5.424
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "duracao": 4.4856,
+      "palavras": [
+        {
+          "palavra": "Agora",
+          "inicio": 0.0,
+          "fim": 0.2696
+        },
+        {
+          "palavra": "as",
+          "inicio": 0.288,
+          "fim": 0.3344
+        },
+        {
+          "palavra": "paredes",
+          "inicio": 0.37120000000000003,
+          "fim": 0.6312
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.6592,
+          "fim": 0.6968
+        },
+        {
+          "palavra": "bloco",
+          "inicio": 0.7432000000000001,
+          "fim": 1.152
+        },
+        {
+          "palavra": "já",
+          "inicio": 1.2728,
+          "fim": 1.4023999999999999
+        },
+        {
+          "palavra": "com",
+          "inicio": 1.4487999999999999,
+          "fim": 1.5231999999999999
+        },
+        {
+          "palavra": "a",
+          "inicio": 1.56,
+          "fim": 1.5792
+        },
+        {
+          "palavra": "parede",
+          "inicio": 1.6072,
+          "fim": 1.848
+        },
+        {
+          "palavra": "do",
+          "inicio": 1.8760000000000001,
+          "fim": 1.9224
+        },
+        {
+          "palavra": "banheiro",
+          "inicio": 1.9504000000000001,
+          "fim": 2.3592
+        },
+        {
+          "palavra": "Material",
+          "inicio": 2.6656,
+          "fim": 3.1024000000000003
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.1488,
+          "fim": 3.1952000000000003
+        },
+        {
+          "palavra": "mão",
+          "inicio": 3.2415999999999996,
+          "fim": 3.3528
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.3904000000000005,
+          "fim": 3.4456
+        },
+        {
+          "palavra": "obra",
+          "inicio": 3.5112,
+          "fim": 4.3096
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "duracao": 4.5600000000000005,
+      "palavras": [
+        {
+          "palavra": "Por",
+          "inicio": 0.0,
+          "fim": 0.1392
+        },
+        {
+          "palavra": "dentro",
+          "inicio": 0.18560000000000001,
+          "fim": 0.4176
+        },
+        {
+          "palavra": "das",
+          "inicio": 0.44560000000000005,
+          "fim": 0.5384
+        },
+        {
+          "palavra": "paredes",
+          "inicio": 0.576,
+          "fim": 0.9752000000000001
+        },
+        {
+          "palavra": "passam",
+          "inicio": 1.096,
+          "fim": 1.3656000000000001
+        },
+        {
+          "palavra": "os",
+          "inicio": 1.3928,
+          "fim": 1.4487999999999999
+        },
+        {
+          "palavra": "fios",
+          "inicio": 1.5328,
+          "fim": 1.7832000000000001
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.8207999999999998,
+          "fim": 1.8392
+        },
+        {
+          "palavra": "os",
+          "inicio": 1.8760000000000001,
+          "fim": 1.9408
+        },
+        {
+          "palavra": "canos",
+          "inicio": 2.0064,
+          "fim": 2.4335999999999998
+        },
+        {
+          "palavra": "Elétrica",
+          "inicio": 2.6288,
+          "fim": 3.1672000000000002
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.2504,
+          "fim": 3.2976
+        },
+        {
+          "palavra": "hidráulica",
+          "inicio": 3.316,
+          "fim": 4.384
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "duracao": 4.1144,
+      "palavras": [
+        {
+          "palavra": "Reboco",
+          "inicio": 0.0,
+          "fim": 0.6408
+        },
+        {
+          "palavra": "piso",
+          "inicio": 0.7432000000000001,
+          "fim": 0.9752000000000001
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.0032,
+          "fim": 1.0592000000000001
+        },
+        {
+          "palavra": "porcelanato",
+          "inicio": 1.096,
+          "fim": 1.6440000000000001
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.672,
+          "fim": 1.7
+        },
+        {
+          "palavra": "pintura",
+          "inicio": 1.7271999999999998,
+          "fim": 2.2104
+        },
+        {
+          "palavra": "pra",
+          "inicio": 2.3128,
+          "fim": 2.4152
+        },
+        {
+          "palavra": "ficar",
+          "inicio": 2.4424,
+          "fim": 2.6376
+        },
+        {
+          "palavra": "com",
+          "inicio": 2.6752,
+          "fim": 2.7496
+        },
+        {
+          "palavra": "cara",
+          "inicio": 2.7864,
+          "fim": 2.9256
+        },
+        {
+          "palavra": "de",
+          "inicio": 2.9632,
+          "fim": 3.0184
+        },
+        {
+          "palavra": "nova",
+          "inicio": 3.0463999999999998,
+          "fim": 3.9384
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "duracao": 3.0368000000000004,
+      "palavras": [
+        {
+          "palavra": "Banheiro",
+          "inicio": 0.0,
+          "fim": 0.2696
+        },
+        {
+          "palavra": "completo",
+          "inicio": 0.2976,
+          "fim": 0.8544
+        },
+        {
+          "palavra": "vaso",
+          "inicio": 1.0496,
+          "fim": 1.5135999999999998
+        },
+        {
+          "palavra": "pia",
+          "inicio": 1.6623999999999999,
+          "fim": 1.904
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.9504000000000001,
+          "fim": 1.988
+        },
+        {
+          "palavra": "chuveiro",
+          "inicio": 2.0152,
+          "fim": 2.8608000000000002
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "duracao": 3.7424000000000004,
+      "palavras": [
+        {
+          "palavra": "Na",
+          "inicio": 0.0,
+          "fim": 0.0744
+        },
+        {
+          "palavra": "cozinha",
+          "inicio": 0.11120000000000001,
+          "fim": 0.6872
+        },
+        {
+          "palavra": "bancada",
+          "inicio": 0.8824,
+          "fim": 1.1608
+        },
+        {
+          "palavra": "com",
+          "inicio": 1.1888,
+          "fim": 1.2816
+        },
+        {
+          "palavra": "pia",
+          "inicio": 1.3192,
+          "fim": 1.7271999999999998
+        },
+        {
+          "palavra": "cooktop",
+          "inicio": 1.8760000000000001,
+          "fim": 2.3495999999999997
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.4056,
+          "fim": 2.424
+        },
+        {
+          "palavra": "geladeira",
+          "inicio": 2.4888000000000003,
+          "fim": 3.5664000000000002
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "duracao": 4.4112,
+      "palavras": [
+        {
+          "palavra": "Cama",
+          "inicio": 0.0,
+          "fim": 0.4368
+        },
+        {
+          "palavra": "armário",
+          "inicio": 0.5576,
+          "fim": 1.0496
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.1056,
+          "fim": 1.1328
+        },
+        {
+          "palavra": "um",
+          "inicio": 1.2167999999999999,
+          "fim": 1.2728
+        },
+        {
+          "palavra": "sofá",
+          "inicio": 1.3096,
+          "fim": 1.5976000000000001
+        },
+        {
+          "palavra": "pra",
+          "inicio": 1.6344,
+          "fim": 1.7464
+        },
+        {
+          "palavra": "alugar",
+          "inicio": 1.7648,
+          "fim": 2.0431999999999997
+        },
+        {
+          "palavra": "já",
+          "inicio": 2.1079999999999997,
+          "fim": 2.192
+        },
+        {
+          "palavra": "mobiliada",
+          "inicio": 2.2384,
+          "fim": 2.7960000000000003
+        },
+        {
+          "palavra": "que",
+          "inicio": 2.9168,
+          "fim": 3.0
+        },
+        {
+          "palavra": "rende",
+          "inicio": 3.0368,
+          "fim": 3.2136000000000005
+        },
+        {
+          "palavra": "mais",
+          "inicio": 3.2504,
+          "fim": 4.2352
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "duracao": 1.5135999999999998,
+      "palavras": [
+        {
+          "palavra": "Porta",
+          "inicio": 0.0,
+          "fim": 0.32480000000000003
+        },
+        {
+          "palavra": "e",
+          "inicio": 0.3528,
+          "fim": 0.37120000000000003
+        },
+        {
+          "palavra": "janelas",
+          "inicio": 0.3992,
+          "fim": 0.6504
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.6688,
+          "fim": 0.7056
+        },
+        {
+          "palavra": "alumínio",
+          "inicio": 0.7248,
+          "fim": 1.3376
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "duracao": 3.1112,
+      "palavras": [
+        {
+          "palavra": "E",
+          "inicio": 0.0,
+          "fim": 0.12079999999999999
+        },
+        {
+          "palavra": "pra",
+          "inicio": 0.20400000000000001,
+          "fim": 0.316
+        },
+        {
+          "palavra": "fechar",
+          "inicio": 0.3528,
+          "fim": 0.8824
+        },
+        {
+          "palavra": "o",
+          "inicio": 1.0312,
+          "fim": 1.0776
+        },
+        {
+          "palavra": "telhado",
+          "inicio": 1.1608,
+          "fim": 1.5695999999999999
+        },
+        {
+          "palavra": "com",
+          "inicio": 1.5976000000000001,
+          "fim": 1.6904
+        },
+        {
+          "palavra": "telha",
+          "inicio": 1.7271999999999998,
+          "fim": 1.8943999999999999
+        },
+        {
+          "palavra": "cerâmica",
+          "inicio": 1.9224,
+          "fim": 2.9352
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "duracao": 5.7856,
+      "palavras": [
+        {
+          "palavra": "Parabéns",
+          "inicio": 0.0,
+          "fim": 0.8263999999999999
+        },
+        {
+          "palavra": "Você",
+          "inicio": 0.9752000000000001,
+          "fim": 1.152
+        },
+        {
+          "palavra": "construiu",
+          "inicio": 1.1984,
+          "fim": 1.5135999999999998
+        },
+        {
+          "palavra": "uma",
+          "inicio": 1.5328,
+          "fim": 1.6344
+        },
+        {
+          "palavra": "kitnet",
+          "inicio": 1.6623999999999999,
+          "fim": 2.0152
+        },
+        {
+          "palavra": "por",
+          "inicio": 2.0992,
+          "fim": 2.1824000000000003
+        },
+        {
+          "palavra": "cinquenta",
+          "inicio": 2.2104,
+          "fim": 2.5448
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.5728,
+          "fim": 2.5911999999999997
+        },
+        {
+          "palavra": "oito",
+          "inicio": 2.6192,
+          "fim": 2.7960000000000003
+        },
+        {
+          "palavra": "mil",
+          "inicio": 2.8327999999999998,
+          "fim": 2.9352
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.972,
+          "fim": 2.9904
+        },
+        {
+          "palavra": "quinhentos",
+          "inicio": 3.0184,
+          "fim": 3.2976
+        },
+        {
+          "palavra": "reais",
+          "inicio": 3.3528,
+          "fim": 3.7984
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.9656,
+          "fim": 4.0496
+        },
+        {
+          "palavra": "ainda",
+          "inicio": 4.0776,
+          "fim": 4.263199999999999
+        },
+        {
+          "palavra": "sobrou",
+          "inicio": 4.2912,
+          "fim": 4.5232
+        },
+        {
+          "palavra": "mil",
+          "inicio": 4.569599999999999,
+          "fim": 4.7
+        },
+        {
+          "palavra": "e",
+          "inicio": 4.736800000000001,
+          "fim": 4.7648
+        },
+        {
+          "palavra": "quinhentos",
+          "inicio": 4.7928,
+          "fim": 5.6095999999999995
+        }
+      ]
+    },
+    {
+      "id": "c12",
+      "duracao": 6.5288,
+      "palavras": [
+        {
+          "palavra": "Alugando",
+          "inicio": 0.0,
+          "fim": 0.4088
+        },
+        {
+          "palavra": "por",
+          "inicio": 0.4368,
+          "fim": 0.52
+        },
+        {
+          "palavra": "novecentos",
+          "inicio": 0.5576,
+          "fim": 0.9936
+        },
+        {
+          "palavra": "reais",
+          "inicio": 1.0496,
+          "fim": 1.2816
+        },
+        {
+          "palavra": "por",
+          "inicio": 1.3192,
+          "fim": 1.412
+        },
+        {
+          "palavra": "mês",
+          "inicio": 1.4584,
+          "fim": 1.8296
+        },
+        {
+          "palavra": "ela",
+          "inicio": 1.9968,
+          "fim": 2.164
+        },
+        {
+          "palavra": "se",
+          "inicio": 2.2016,
+          "fim": 2.2664
+        },
+        {
+          "palavra": "paga",
+          "inicio": 2.3032,
+          "fim": 2.5448
+        },
+        {
+          "palavra": "em",
+          "inicio": 2.5632,
+          "fim": 2.6096
+        },
+        {
+          "palavra": "uns",
+          "inicio": 2.6752,
+          "fim": 2.7584
+        },
+        {
+          "palavra": "cinco",
+          "inicio": 2.7768,
+          "fim": 3.056
+        },
+        {
+          "palavra": "anos",
+          "inicio": 3.0744,
+          "fim": 3.2504
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.2976,
+          "fim": 3.316
+        },
+        {
+          "palavra": "meio",
+          "inicio": 3.3624,
+          "fim": 3.6872
+        },
+        {
+          "palavra": "Depois",
+          "inicio": 4.1056,
+          "fim": 4.4208
+        },
+        {
+          "palavra": "disso",
+          "inicio": 4.4672,
+          "fim": 4.8208
+        },
+        {
+          "palavra": "é",
+          "inicio": 4.9688,
+          "fim": 5.0527999999999995
+        },
+        {
+          "palavra": "renda",
+          "inicio": 5.136,
+          "fim": 5.3408
+        },
+        {
+          "palavra": "pra",
+          "inicio": 5.3688,
+          "fim": 5.4704
+        },
+        {
+          "palavra": "sempre",
+          "inicio": 5.5168,
+          "fim": 6.3528
+        }
+      ]
+    },
+    {
+      "id": "c13",
+      "duracao": 3.4824,
+      "palavras": [
+        {
+          "palavra": "Você",
+          "inicio": 0.0,
+          "fim": 0.1488
+        },
+        {
+          "palavra": "faria",
+          "inicio": 0.19519999999999998,
+          "fim": 0.37120000000000003
+        },
+        {
+          "palavra": "isso",
+          "inicio": 0.4272,
+          "fim": 0.7712
+        },
+        {
+          "palavra": "Comenta",
+          "inicio": 0.9936,
+          "fim": 1.384
+        },
+        {
+          "palavra": "aluga",
+          "inicio": 1.4672,
+          "fim": 2.192
+        },
+        {
+          "palavra": "que",
+          "inicio": 2.2944,
+          "fim": 2.3872
+        },
+        {
+          "palavra": "eu",
+          "inicio": 2.4152,
+          "fim": 2.4704
+        },
+        {
+          "palavra": "monto",
+          "inicio": 2.5168,
+          "fim": 2.6752
+        },
+        {
+          "palavra": "a",
+          "inicio": 2.7032,
+          "fim": 2.7216
+        },
+        {
+          "palavra": "próxima",
+          "inicio": 2.7496,
+          "fim": 3.3064
+        }
+      ]
+    }
+  ]
+}

@@ -4,9 +4,10 @@ import {useThree} from '@react-three/fiber';
 import {AbsoluteFill, Audio, Easing, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {FPS, Legenda, Timings} from '../Video';
 import {Ze3D, Acao} from './Ze3D';
-import {KITNET, Peca} from './layouts/kitnet';
+import {KITNET} from './layouts/kitnet';
+import {KITNET2, Peca2} from './layouts/kitnet2';
 
-const LAYOUTS: Record<string, Peca[]> = {kitnet: KITNET};
+const LAYOUTS: Record<string, Peca2[]> = {kitnet: KITNET, kitnet2: KITNET2};
 
 const FONTE = "'Baloo 2', sans-serif";
 const LINHA = '#2b2233';
@@ -21,6 +22,10 @@ export type CenaConstrucao = {
   takes?: {pos: V3; alvo: V3; palavra: number; corte?: boolean}[];
   mostrar?: string[];
   ze?: {de: [number, number]; para?: [number, number]; acao?: Acao};
+  // corte das paredes (casa de bonecas) para ver o interior
+  cutaway?: boolean;
+  // ficha técnica: [descrição, preço] que entram uma a uma
+  ficha?: [string, number | string][];
 };
 export type RoteiroConstrucao = {id: string; serie?: string; titulo: string; orcamento: number; cenas: CenaConstrucao[]};
 export type ConstrucaoProps = {roteiro: RoteiroConstrucao; timings: Timings; comAudio: boolean; layout: string};
@@ -41,7 +46,7 @@ const Camera: React.FC<{takes: Take[]}> = ({takes}) => {
   const prox = takes[i + 1];
   const ant = takes[Math.max(0, i - 1)];
   const dt = f - atual.de;
-  const k = i === 0 || atual.corte ? 1 : ease(Math.min(1, dt / 22));
+  const k = i === 0 || atual.corte ? 1 : ease(Math.min(1, dt / 12));
   const mix = (a: V3, b: V3, t: number): V3 => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
   let p = mix(ant.pos, atual.pos, k);
   const alvo = mix(ant.alvo, atual.alvo, k);
@@ -55,6 +60,8 @@ const Camera: React.FC<{takes: Take[]}> = ({takes}) => {
   const dz = p[2] - alvo[2];
   camera.position.set(alvo[0] + dx * Math.cos(ang) - dz * Math.sin(ang), p[1], alvo[2] + dx * Math.sin(ang) + dz * Math.cos(ang));
   camera.lookAt(alvo[0], alvo[1], alvo[2]);
+  // sobe o assunto na tela para sobrar espaço para a ficha técnica e a legenda
+  (camera as unknown as {setViewOffset: (...a: number[]) => void}).setViewOffset(1080, 1920, 0, 190, 1080, 1920);
   camera.updateProjectionMatrix();
   return null;
 };
@@ -87,7 +94,8 @@ const ZeNaCena: React.FC<{linhas: Linha[]}> = ({linhas}) => {
   const cam = linhas[i].c.camera.pos;
   const olhaCam = Math.atan2(cam[0] - x, cam[2] - zz);
   const dir = Math.atan2(para[0] - z.de[0], para[1] - z.de[1]);
-  return <Ze3D pos={[x, 0, zz]} rotY={andando ? dir : olhaCam} acao={andando ? 'anda' : z.acao ?? 'parado'} />;
+  const dentro = Math.abs(x) < 2.4 && Math.abs(zz) < 2.9;
+  return <Ze3D pos={[x, dentro ? 0.29 : 0, zz]} rotY={andando ? dir : olhaCam} acao={andando ? 'anda' : z.acao ?? 'parado'} />;
 };
 
 const Hud: React.FC<{linhas: Linha[]; orcamento: number}> = ({linhas, orcamento}) => {
@@ -116,7 +124,7 @@ const Hud: React.FC<{linhas: Linha[]; orcamento: number}> = ({linhas, orcamento}
         </div>
       </div>
       {ultimo && ultimo.c.item && desconto < 40 && (
-        <div style={{position: 'absolute', top: 250 - desconto * 2, width: '100%', textAlign: 'center', fontFamily: FONTE, fontWeight: 800, fontSize: 70, color: '#ff4d4d', WebkitTextStroke: '6px #fff', paintOrder: 'stroke fill', opacity: interpolate(desconto, [0, 30, 40], [1, 1, 0])}}>
+        <div style={{position: 'absolute', top: 150 - desconto * 2, left: 790, fontFamily: FONTE, fontWeight: 800, fontSize: 58, color: '#ff4d4d', WebkitTextStroke: '6px #fff', paintOrder: 'stroke fill', opacity: interpolate(desconto, [0, 30, 40], [1, 1, 0])}}>
           − {brl(ultimo.c.item.preco)}
         </div>
       )}
@@ -128,11 +136,62 @@ const Hud: React.FC<{linhas: Linha[]; orcamento: number}> = ({linhas, orcamento}
         </div>
       )}
       {cena.c.zona && (
-        <div style={{position: 'absolute', top: 420, width: '100%', textAlign: 'center', transform: `scale(${popZona})`, fontFamily: FONTE, fontWeight: 800, fontSize: 130, color: '#fff', WebkitTextStroke: `14px ${LINHA}`, paintOrder: 'stroke fill', textShadow: '0 10px 0 rgba(0,0,0,0.25)'}}>
+        <div style={{position: 'absolute', top: 410, width: '100%', textAlign: 'center', transform: `scale(${popZona})`, opacity: interpolate(f - cena.de, [40, 52], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}), fontFamily: FONTE, fontWeight: 800, fontSize: 120, color: '#fff', WebkitTextStroke: `14px ${LINHA}`, paintOrder: 'stroke fill', textShadow: '0 10px 0 rgba(0,0,0,0.25)'}}>
           {cena.c.zona}
         </div>
       )}
     </AbsoluteFill>
+  );
+};
+
+// altura das paredes: 1 normal, ~0.3 no modo casa de bonecas
+const alturaParede = (linhas: Linha[], f: number) => {
+  let i = linhas.findIndex((l) => f >= l.de && f < l.de + l.dur);
+  if (i < 0) i = linhas.length - 1;
+  const alvo = (j: number) => (j >= 0 && linhas[j].c.cutaway ? 0.3 : 1);
+  const k = ease(Math.min(1, (f - linhas[i].de) / 8));
+  return alvo(i - 1) + (alvo(i) - alvo(i - 1)) * k;
+};
+
+const Ficha: React.FC<{itens: [string, number | string][]; dur: number; item?: {nome: string; preco: number}}> = ({itens, dur, item}) => {
+  const f = useCurrentFrame();
+  const fs = itens.length > 6 ? 31 : 40;
+  const passo = Math.max(5, Math.floor((dur * 0.8) / Math.max(1, itens.length)));
+  const entra = spring({frame: f, fps: FPS, config: {damping: 13}});
+  const sai = interpolate(f, [dur - 6, dur], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  return (
+    <div style={{position: 'absolute', left: 40, right: 40, top: 1090, display: 'flex', justifyContent: 'center', opacity: sai}}>
+      <div style={{transform: `translateY(${(1 - entra) * 120}px) scale(${0.9 + entra * 0.1})`, background: 'rgba(255,255,255,0.96)', border: `6px solid ${LINHA}`, borderRadius: 30, padding: '14px 30px 10px', width: 900, boxShadow: '0 12px 0 rgba(0,0,0,0.22)', fontFamily: FONTE, fontWeight: 800, color: LINHA}}>
+        {itens.map(([t, v], i) => {
+          const d = f - i * passo;
+          if (d < 0) return null;
+          const a = spring({frame: d, fps: FPS, config: {damping: 12, stiffness: 180}});
+          return (
+            <div key={i} style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontSize: fs, lineHeight: 1.3, borderBottom: '3px dashed #d6d0c4', transform: `translateX(${(1 - a) * -60}px)`, opacity: a}}>
+              <span>{t}</span>
+              <span style={{color: '#e8222b', marginLeft: 20, whiteSpace: 'nowrap'}}>{typeof v === 'number' ? brl(v) : v}</span>
+            </div>
+          );
+        })}
+        {item && f >= itens.length * passo && (
+          <div style={{display: 'flex', justifyContent: 'space-between', fontSize: 46, marginTop: 4}}>
+            <span>TOTAL</span>
+            <span style={{color: '#e8222b'}}>{brl(item.preco)}</span>
+          </div>
+        )}
+        <div style={{fontSize: 22, color: '#8a8394', textAlign: 'right'}}>valores aproximados de 2026</div>
+      </div>
+    </div>
+  );
+};
+
+const Paredes: React.FC<{linhas: Linha[]; children: React.ReactNode}> = ({linhas, children}) => {
+  const f = useCurrentFrame();
+  const s = alturaParede(linhas, f);
+  return (
+    <group position={[0, 0.25 * (1 - s), 0]} scale={[1, s, 1]}>
+      {children}
+    </group>
   );
 };
 
@@ -170,7 +229,15 @@ export const Construcao: React.FC<ConstrucaoProps> = ({roteiro, timings, comAudi
   takes.sort((a, b) => a.de - b.de);
   // quando cada peça aparece
   const aparece = new Map<string, number>();
-  linhas.forEach((l) => (l.c.mostrar ?? []).forEach((id) => !aparece.has(id) && aparece.set(id, l.de + 8)));
+  linhas.forEach((l) => {
+    const tm = timings.cenas.find((x) => x.id === l.c.id)!;
+    (l.c.mostrar ?? []).forEach((m) => {
+      const [id, pal] = m.split('@');
+      const w = pal !== undefined ? tm.palavras[Number(pal)] : undefined;
+      const de = w ? l.de + Math.round(w.inicio * FPS) : l.de + 8;
+      if (!aparece.has(id)) aparece.set(id, de);
+    });
+  });
   const contador = new Map<string, number>();
   return (
     <AbsoluteFill style={{background: 'linear-gradient(180deg, #8fd3ff 0%, #d9f1ff 60%)'}}>
@@ -188,11 +255,14 @@ export const Construcao: React.FC<ConstrucaoProps> = ({roteiro, timings, comAudi
           if (base === undefined && p.id !== 'terreno') return null;
           const n = contador.get(p.id) ?? 0;
           contador.set(p.id, n + 1);
-          return (
-            <Surge key={i} de={(base ?? 0) + n * 3}>
+          const fim = p.some !== undefined ? aparece.get(p.some) : undefined;
+          if (fim !== undefined && f > fim + 30) return null;
+          const el = (
+            <Surge key={i} de={(base ?? 0) + (p.atraso ?? n * 3)}>
               {p.node}
             </Surge>
           );
+          return p.parede ? <Paredes key={i} linhas={linhas}>{el}</Paredes> : el;
         })}
         <ZeNaCena linhas={linhas} />
       </ThreeCanvas>
@@ -203,6 +273,7 @@ export const Construcao: React.FC<ConstrucaoProps> = ({roteiro, timings, comAudi
           <Sequence key={l.c.id} from={l.de} durationInFrames={l.dur}>
             {i === 0 && <Titulo titulo={roteiro.titulo} serie={roteiro.serie} />}
             <Legenda palavras={tm.palavras} />
+            {l.c.ficha && <Ficha itens={l.c.ficha} dur={l.dur} item={l.c.item} />}
             {comAudio && <Audio src={staticFile(`audio/${roteiro.id}/${l.c.id}.mp3`)} />}
             {l.c.item && (
               <Sequence from={10} durationInFrames={20}>
@@ -212,6 +283,16 @@ export const Construcao: React.FC<ConstrucaoProps> = ({roteiro, timings, comAudi
           </Sequence>
         );
       })}
+      {[...new Set(aparece.values())].filter((d) => d > 0).map((d) => (
+        <Sequence key={`pop${d}`} from={d} durationInFrames={12}>
+          <Audio src={staticFile('sfx/pop.mp3')} volume={0.22} />
+        </Sequence>
+      ))}
+      {takes.filter((t, i) => i > 0 && t.corte && t.de > 0).map((t, i) => (
+        <Sequence key={`wh${i}`} from={Math.max(0, t.de - 3)} durationInFrames={12}>
+          <Audio src={staticFile('sfx/whoosh.mp3')} volume={0.08} />
+        </Sequence>
+      ))}
       <div style={{position: 'absolute', bottom: 0, left: 0, height: 14, width: `${(f / durationInFrames) * 100}%`, background: '#ffd23f'}} />
     </AbsoluteFill>
   );

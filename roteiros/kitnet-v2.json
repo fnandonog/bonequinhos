@@ -1,0 +1,1378 @@
+{
+ "id": "kitnet-v2",
+ "serie": "Quanto custa construir",
+ "titulo": "Kitnet para alugar com R$ 60 mil",
+ "orcamento": 60000,
+ "elevenlabs": {
+  "voz_id": "ZqE9vIHPcrC35dZv0Svu",
+  "modelo": "eleven_multilingual_v2",
+  "ajustes": {
+   "stability": 0.45,
+   "similarity_boost": 0.8,
+   "style": 0.4,
+   "use_speaker_boost": true,
+   "speed": 1.15
+  }
+ },
+ "monetizacao": {
+  "nota": "Valores aproximados de 2026, variam por região.",
+  "afiliados": [
+   "blocos/cimento (loja de construção)",
+   "porcelanato",
+   "kit chuveiro + vaso + pia",
+   "cooktop 2 bocas",
+   "geladeira compacta",
+   "cama box solteiro/casal",
+   "guarda-roupa",
+   "sofá 2 lugares",
+   "porta e janelas de alumínio"
+  ],
+  "cta_grupo": "Ofertas de material de construção e casa no grupo (link na bio)"
+ },
+ "cenas": [
+  {
+   "id": "c1",
+   "texto": "Você tem um terreno vazio e sessenta mil reais. Dá pra construir uma kitnet e viver de aluguel? Bora montar, mas cada real conta.",
+   "camera": {
+    "pos": [
+     14.14,
+     15.4,
+     16.85
+    ],
+    "alvo": [
+     0,
+     0.4,
+     0
+    ]
+   },
+   "takes": [
+    {
+     "pos": [
+      0.0,
+      17.1,
+      2.6
+     ],
+     "alvo": [
+      0,
+      0.1,
+      0.6
+     ],
+     "palavra": 4,
+     "corte": true
+    },
+    {
+     "pos": [
+      -0.8,
+      3.1,
+      5.6
+     ],
+     "alvo": [
+      4.2,
+      1.1,
+      5.6
+     ],
+     "palavra": 6,
+     "corte": true
+    },
+    {
+     "pos": [
+      -8.49,
+      6.4,
+      8.49
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 9,
+     "corte": true
+    },
+    {
+     "pos": [
+      -5.13,
+      9.4,
+      -14.1
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 13,
+     "corte": false
+    },
+    {
+     "pos": [
+      1.5,
+      2.7,
+      8.68
+     ],
+     "alvo": [
+      3.4,
+      1.1,
+      4.6
+     ],
+     "palavra": 18,
+     "corte": true
+    },
+    {
+     "pos": [
+      5.75,
+      3.9,
+      4.82
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 21,
+     "corte": true
+    }
+   ],
+   "mostrar": [
+    "terreno"
+   ],
+   "ze": {
+    "de": [
+     5.8,
+     7.2
+    ],
+    "para": [
+     3.4,
+     4.6
+    ],
+    "acao": "acena"
+   }
+  },
+  {
+   "id": "c2",
+   "texto": "Primeiro, a fundação: um radier, que é uma laje de concreto direto no chão. Rápido e barato.",
+   "zona": "Fundação",
+   "item": {
+    "nome": "Radier",
+    "preco": 8000
+   },
+   "camera": {
+    "pos": [
+     5.5,
+     8.4,
+     9.53
+    ],
+    "alvo": [
+     0,
+     0.4,
+     0
+    ]
+   },
+   "takes": [
+    {
+     "pos": [
+      -1.71,
+      2.5,
+      5.33
+     ],
+     "alvo": [
+      1.5,
+      0,
+      1.5
+     ],
+     "palavra": 2,
+     "corte": true
+    },
+    {
+     "pos": [
+      0.17,
+      12.4,
+      1.99
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 4,
+     "corte": true
+    },
+    {
+     "pos": [
+      4.42,
+      1.7,
+      4.04
+     ],
+     "alvo": [
+      1.8,
+      0.1,
+      2.2
+     ],
+     "palavra": 6,
+     "corte": true
+    },
+    {
+     "pos": [
+      -7.79,
+      5.4,
+      4.5
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 11,
+     "corte": true
+    },
+    {
+     "pos": [
+      5.51,
+      3.1,
+      9.13
+     ],
+     "alvo": [
+      3.4,
+      1.1,
+      4.6
+     ],
+     "palavra": 14,
+     "corte": true
+    }
+   ],
+   "mostrar": [
+    "gabarito@0",
+    "escavacao@2",
+    "brita@3",
+    "lona@4",
+    "malha@5",
+    "concreto@11"
+   ],
+   "ze": {
+    "de": [
+     3.4,
+     4.6
+    ],
+    "acao": "aponta"
+   },
+   "ficha": [
+    [
+     "Escavação e compactação",
+     900
+    ],
+    [
+     "Brita e lona plástica",
+     700
+    ],
+    [
+     "Malha de aço",
+     1100
+    ],
+    [
+     "Concreto usinado 4 m³",
+     2600
+    ],
+    [
+     "Mão de obra",
+     2700
+    ]
+   ]
+  },
+  {
+   "id": "c3",
+   "texto": "Agora as paredes de bloco, já com a parede do banheiro. Material e mão de obra.",
+   "zona": "Paredes",
+   "item": {
+    "nome": "Alvenaria",
+    "preco": 12000
+   },
+   "camera": {
+    "pos": [
+     -10.65,
+     7.4,
+     7.46
+    ],
+    "alvo": [
+     0,
+     0.4,
+     0
+    ]
+   },
+   "takes": [
+    {
+     "pos": [
+      1.06,
+      2.3,
+      6.95
+     ],
+     "alvo": [
+      2.5,
+      0.9,
+      3.0
+     ],
+     "palavra": 4,
+     "corte": true
+    },
+    {
+     "pos": [
+      1.63,
+      7.6,
+      0.66
+     ],
+     "alvo": [
+      1.2,
+      0.6,
+      -1.8
+     ],
+     "palavra": 8,
+     "corte": true
+    },
+    {
+     "pos": [
+      3.08,
+      1.0,
+      8.46
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 11,
+     "corte": true
+    },
+    {
+     "pos": [
+      1.95,
+      2.9,
+      5.4
+     ],
+     "alvo": [
+      4.2,
+      1.1,
+      1.5
+     ],
+     "palavra": 14,
+     "corte": true
+    }
+   ],
+   "mostrar": [
+    "paredes@2"
+   ],
+   "ze": {
+    "de": [
+     3.4,
+     4.6
+    ],
+    "para": [
+     4.2,
+     1.5
+    ],
+    "acao": "aponta"
+   },
+   "ficha": [
+    [
+     "1.300 blocos cerâmicos",
+     2600
+    ],
+    [
+     "Cimento, areia e cal",
+     1900
+    ],
+    [
+     "Vergas e cintas",
+     1000
+    ],
+    [
+     "Pedreiro + ajudante (15 dias)",
+     6500
+    ]
+   ]
+  },
+  {
+   "id": "c4",
+   "texto": "Por dentro das paredes passam os fios e os canos. Elétrica e hidráulica.",
+   "zona": "Elétrica e água",
+   "item": {
+    "nome": "Elétrica + hidráulica",
+    "preco": 6000
+   },
+   "camera": {
+    "pos": [
+     5.78,
+     2.6,
+     6.91
+    ],
+    "alvo": [
+     3.6,
+     1.4,
+     3.8
+    ]
+   },
+   "takes": [
+    {
+     "pos": [
+      -0.6,
+      4.1,
+      -0.2
+     ],
+     "alvo": [
+      -0.6,
+      1.5,
+      2.8
+     ],
+     "palavra": 3,
+     "corte": true
+    },
+    {
+     "pos": [
+      1.69,
+      8.3,
+      3.63
+     ],
+     "alvo": [
+      0,
+      1.8,
+      0
+     ],
+     "palavra": 6,
+     "corte": true
+    },
+    {
+     "pos": [
+      0.4,
+      3.5,
+      0.4
+     ],
+     "alvo": [
+      0.4,
+      0.5,
+      -2.6
+     ],
+     "palavra": 9,
+     "corte": true
+    },
+    {
+     "pos": [
+      -7.63,
+      3.2,
+      -0.26
+     ],
+     "alvo": [
+      -3.4,
+      2.0,
+      -1.8
+     ],
+     "palavra": 10,
+     "corte": true
+    },
+    {
+     "pos": [
+      4.85,
+      2.5,
+      -6.58
+     ],
+     "alvo": [
+      2.6,
+      0.1,
+      -3.9
+     ],
+     "palavra": 12,
+     "corte": true
+    }
+   ],
+   "mostrar": [
+    "padrao@0",
+    "quadro@3",
+    "fios@6",
+    "canos@9",
+    "caixadagua@10",
+    "fossa@12"
+   ],
+   "ze": {
+    "de": [
+     4.2,
+     1.5
+    ],
+    "acao": "parado"
+   },
+   "ficha": [
+    [
+     "Padrão de energia",
+     1500
+    ],
+    [
+     "Fios, eletrodutos e tomadas",
+     1400
+    ],
+    [
+     "Quadro + disjuntores",
+     400
+    ],
+    [
+     "Canos, conexões e registros",
+     900
+    ],
+    [
+     "Caixa d'água 500 L",
+     450
+    ],
+    [
+     "Fossa séptica",
+     1350
+    ]
+   ]
+  },
+  {
+   "id": "c5",
+   "texto": "Reboco, piso de porcelanato e pintura, pra ficar com cara de nova.",
+   "zona": "Acabamento",
+   "item": {
+    "nome": "Piso + pintura",
+    "preco": 9000
+   },
+   "camera": {
+    "pos": [
+     1.1,
+     3.0,
+     0.5
+    ],
+    "alvo": [
+     -2.5,
+     1.4,
+     0.5
+    ]
+   },
+   "takes": [
+    {
+     "pos": [
+      0.86,
+      8.3,
+      4.55
+     ],
+     "alvo": [
+      -0.3,
+      0.3,
+      0.2
+     ],
+     "palavra": 1,
+     "corte": true
+    },
+    {
+     "pos": [
+      -7.07,
+      5.4,
+      8.43
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 5,
+     "corte": true
+    },
+    {
+     "pos": [
+      6.5,
+      7.4,
+      11.26
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 8,
+     "corte": false
+    }
+   ],
+   "mostrar": [
+    "reboco@0",
+    "contrapiso@1",
+    "porcelanato@3",
+    "pintura@5"
+   ],
+   "ze": {
+    "de": [
+     4.2,
+     1.5
+    ],
+    "acao": "aponta"
+   },
+   "ficha": [
+    [
+     "Reboco",
+     2800
+    ],
+    [
+     "Contrapiso",
+     1200
+    ],
+    [
+     "Porcelanato 30 m²",
+     1800
+    ],
+    [
+     "Argamassa e rejunte",
+     400
+    ],
+    [
+     "Massa e tinta",
+     1100
+    ],
+    [
+     "Mão de obra pintura",
+     1700
+    ]
+   ]
+  },
+  {
+   "id": "c6",
+   "texto": "Banheiro completo: vaso, pia e chuveiro.",
+   "zona": "Banheiro",
+   "item": {
+    "nome": "Banheiro",
+    "preco": 2500
+   },
+   "camera": {
+    "pos": [
+     2.8,
+     5.1,
+     1.09
+    ],
+    "alvo": [
+     1.6,
+     0.6,
+     -2.2
+    ]
+   },
+   "takes": [
+    {
+     "pos": [
+      3.87,
+      1.9,
+      -0.21
+     ],
+     "alvo": [
+      2.2,
+      0.6,
+      -2.2
+     ],
+     "palavra": 2,
+     "corte": true
+    },
+    {
+     "pos": [
+      1.7,
+      2.3,
+      0.26
+     ],
+     "alvo": [
+      1.25,
+      1.0,
+      -2.3
+     ],
+     "palavra": 5,
+     "corte": true
+    }
+   ],
+   "mostrar": [
+    "banheiro@0",
+    "vaso@2",
+    "pia@3",
+    "chuveiro@5"
+   ],
+   "ze": {
+    "de": [
+     0.0,
+     0.6
+    ],
+    "para": [
+     0.5,
+     -0.5
+    ],
+    "acao": "aponta"
+   },
+   "cutaway": true,
+   "ficha": [
+    [
+     "Vaso com caixa acoplada",
+     550
+    ],
+    [
+     "Pia e torneira",
+     350
+    ],
+    [
+     "Chuveiro elétrico",
+     150
+    ],
+    [
+     "Box de vidro",
+     650
+    ],
+    [
+     "Revestimento",
+     800
+    ]
+   ]
+  },
+  {
+   "id": "c7",
+   "texto": "Na cozinha, bancada com pia, cooktop e geladeira.",
+   "zona": "Cozinha",
+   "item": {
+    "nome": "Cozinha",
+    "preco": 4000
+   },
+   "camera": {
+    "pos": [
+     -1.76,
+     5.1,
+     1.95
+    ],
+    "alvo": [
+     -0.6,
+     0.6,
+     -2.4
+    ]
+   },
+   "takes": [
+    {
+     "pos": [
+      -0.29,
+      1.9,
+      -0.42
+     ],
+     "alvo": [
+      -1.3,
+      0.9,
+      -2.6
+     ],
+     "palavra": 2,
+     "corte": true
+    },
+    {
+     "pos": [
+      -0.85,
+      2.6,
+      -1.4
+     ],
+     "alvo": [
+      -0.85,
+      1.0,
+      -2.6
+     ],
+     "palavra": 5,
+     "corte": true
+    },
+    {
+     "pos": [
+      -1.34,
+      1.8,
+      -0.47
+     ],
+     "alvo": [
+      0.15,
+      1.0,
+      -2.6
+     ],
+     "palavra": 7,
+     "corte": true
+    }
+   ],
+   "mostrar": [
+    "bancada@2",
+    "geladeira@7"
+   ],
+   "ze": {
+    "de": [
+     1.6,
+     0.2
+    ],
+    "acao": "aponta"
+   },
+   "cutaway": true,
+   "ficha": [
+    [
+     "Bancada de granito + pia",
+     1300
+    ],
+    [
+     "Cooktop 2 bocas",
+     350
+    ],
+    [
+     "Geladeira compacta",
+     1900
+    ],
+    [
+     "Torneira e sifão",
+     150
+    ],
+    [
+     "Armário aéreo",
+     300
+    ]
+   ]
+  },
+  {
+   "id": "c8",
+   "texto": "Cama, armário e um sofá pra alugar já mobiliada, que rende mais.",
+   "zona": "Móveis",
+   "item": {
+    "nome": "Móveis",
+    "preco": 3500
+   },
+   "camera": {
+    "pos": [
+     1.17,
+     3.1,
+     2.1
+    ],
+    "alvo": [
+     -1.6,
+     0.5,
+     0.5
+    ]
+   },
+   "takes": [
+    {
+     "pos": [
+      1.74,
+      3.0,
+      1.5
+     ],
+     "alvo": [
+      -1.9,
+      0.8,
+      -0.6
+     ],
+     "palavra": 1,
+     "corte": true
+    },
+    {
+     "pos": [
+      0.54,
+      2.0,
+      4.53
+     ],
+     "alvo": [
+      1.5,
+      0.6,
+      1.9
+     ],
+     "palavra": 4,
+     "corte": true
+    },
+    {
+     "pos": [
+      2.54,
+      6.5,
+      5.44
+     ],
+     "alvo": [
+      0,
+      0.5,
+      0
+     ],
+     "palavra": 7,
+     "corte": true
+    },
+    {
+     "pos": [
+      -4.02,
+      4.5,
+      5.73
+     ],
+     "alvo": [
+      0,
+      0.5,
+      0
+     ],
+     "palavra": 9,
+     "corte": false
+    }
+   ],
+   "mostrar": [
+    "cama@0",
+    "armario@1",
+    "sofa@4"
+   ],
+   "ze": {
+    "de": [
+     1.2,
+     -0.6
+    ],
+    "acao": "comemora"
+   },
+   "cutaway": true,
+   "ficha": [
+    [
+     "Cama casal + colchão",
+     1400
+    ],
+    [
+     "Guarda-roupa",
+     900
+    ],
+    [
+     "Sofá 2 lugares",
+     1000
+    ],
+    [
+     "Cortina e luminárias",
+     200
+    ]
+   ]
+  },
+  {
+   "id": "c9",
+   "texto": "Porta e janelas de alumínio.",
+   "zona": "Portas e janelas",
+   "item": {
+    "nome": "Esquadrias",
+    "preco": 4500
+   },
+   "camera": {
+    "pos": [
+     -0.32,
+     1.8,
+     6.38
+    ],
+    "alvo": [
+     -1.2,
+     1.2,
+     3.1
+    ]
+   },
+   "takes": [
+    {
+     "pos": [
+      6.15,
+      2.2,
+      1.53
+     ],
+     "alvo": [
+      2.6,
+      1.6,
+      0.9
+     ],
+     "palavra": 2,
+     "corte": true
+    }
+   ],
+   "mostrar": [
+    "esquadrias@0"
+   ],
+   "ze": {
+    "de": [
+     3.6,
+     4.4
+    ],
+    "para": [
+     2.4,
+     5.5
+    ],
+    "acao": "aponta"
+   },
+   "ficha": [
+    [
+     "Porta de entrada",
+     900
+    ],
+    [
+     "Porta do banheiro",
+     450
+    ],
+    [
+     "3 janelas de alumínio",
+     2400
+    ],
+    [
+     "Instalação",
+     750
+    ]
+   ]
+  },
+  {
+   "id": "c10",
+   "texto": "E pra fechar, o telhado com telha cerâmica.",
+   "zona": "Telhado",
+   "item": {
+    "nome": "Telhado",
+    "preco": 9000
+   },
+   "camera": {
+    "pos": [
+     -2.25,
+     5.6,
+     5.1
+    ],
+    "alvo": [
+     0,
+     3.6,
+     1.2
+    ]
+   },
+   "takes": [
+    {
+     "pos": [
+      7.46,
+      6.4,
+      10.65
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 4,
+     "corte": true
+    },
+    {
+     "pos": [
+      6.11,
+      5.5,
+      7.28
+     ],
+     "alvo": [
+      0,
+      3.0,
+      0
+     ],
+     "palavra": 7,
+     "corte": true
+    }
+   ],
+   "mostrar": [
+    "madeiramento@0",
+    "telhado@4"
+   ],
+   "ze": {
+    "de": [
+     2.4,
+     5.5
+    ],
+    "acao": "parado"
+   },
+   "ficha": [
+    [
+     "Madeiramento",
+     3200
+    ],
+    [
+     "1.000 telhas cerâmicas",
+     2300
+    ],
+    [
+     "Cumeeira e rufos",
+     500
+    ],
+    [
+     "Forro de PVC",
+     1200
+    ],
+    [
+     "Mão de obra",
+     1800
+    ]
+   ]
+  },
+  {
+   "id": "c11",
+   "texto": "Parabéns! Você construiu uma kitnet por cinquenta e oito mil e quinhentos reais, e ainda sobrou mil e quinhentos.",
+   "camera": {
+    "pos": [
+     3.65,
+     3.0,
+     10.44
+    ],
+    "alvo": [
+     1.6,
+     1.2,
+     4.8
+    ]
+   },
+   "takes": [
+    {
+     "pos": [
+      -9.0,
+      7.4,
+      10.72
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 2,
+     "corte": true
+    },
+    {
+     "pos": [
+      4.74,
+      1.7,
+      7.22
+     ],
+     "alvo": [
+      2.9,
+      0.8,
+      4.6
+     ],
+     "palavra": 5,
+     "corte": true
+    },
+    {
+     "pos": [
+      4.45,
+      6.4,
+      -12.22
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 9,
+     "corte": true
+    },
+    {
+     "pos": [
+      -0.34,
+      2.4,
+      9.43
+     ],
+     "alvo": [
+      1.2,
+      1.1,
+      5.2
+     ],
+     "palavra": 13,
+     "corte": true
+    }
+   ],
+   "mostrar": [
+    "placa@0"
+   ],
+   "ze": {
+    "de": [
+     2.4,
+     5.5
+    ],
+    "para": [
+     1.2,
+     5.2
+    ],
+    "acao": "comemora"
+   },
+   "ficha": [
+    [
+     "Fundação (radier)",
+     8000
+    ],
+    [
+     "Paredes",
+     12000
+    ],
+    [
+     "Elétrica + hidráulica",
+     6000
+    ],
+    [
+     "Reboco, piso e pintura",
+     9000
+    ],
+    [
+     "Banheiro",
+     2500
+    ],
+    [
+     "Cozinha",
+     4000
+    ],
+    [
+     "Móveis",
+     3500
+    ],
+    [
+     "Portas e janelas",
+     4500
+    ],
+    [
+     "Telhado",
+     9000
+    ],
+    [
+     "TOTAL",
+     58500
+    ]
+   ]
+  },
+  {
+   "id": "c12",
+   "texto": "Alugando por novecentos reais por mês, ela se paga em uns cinco anos e meio. Depois disso, é renda pra sempre.",
+   "camera": {
+    "pos": [
+     13.86,
+     9.4,
+     8.0
+    ],
+    "alvo": [
+     0,
+     0.4,
+     0
+    ]
+   },
+   "takes": [
+    {
+     "pos": [
+      -1.2,
+      2.0,
+      7.1
+     ],
+     "alvo": [
+      -1.2,
+      1.0,
+      3.1
+     ],
+     "palavra": 3,
+     "corte": true
+    },
+    {
+     "pos": [
+      -11.26,
+      6.4,
+      -6.5
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 6,
+     "corte": true
+    },
+    {
+     "pos": [
+      3.3,
+      2.5,
+      8.84
+     ],
+     "alvo": [
+      1.2,
+      1.1,
+      5.2
+     ],
+     "palavra": 10,
+     "corte": true
+    },
+    {
+     "pos": [
+      0.0,
+      21.4,
+      3.0
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 15,
+     "corte": true
+    },
+    {
+     "pos": [
+      -9.0,
+      5.4,
+      15.59
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 18,
+     "corte": false
+    }
+   ],
+   "ze": {
+    "de": [
+     1.2,
+     5.2
+    ],
+    "acao": "acena"
+   },
+   "ficha": [
+    [
+     "Aluguel",
+     "R$ 900/mês"
+    ],
+    [
+     "Em 1 ano",
+     "R$ 10.800"
+    ],
+    [
+     "Volta o investimento",
+     "~65 meses"
+    ],
+    [
+     "Depois disso",
+     "lucro todo mês"
+    ]
+   ]
+  },
+  {
+   "id": "c13",
+   "texto": "Você faria isso? Comenta \"aluga\" que eu monto a próxima.",
+   "camera": {
+    "pos": [
+     0.16,
+     2.3,
+     9.06
+    ],
+    "alvo": [
+     1.2,
+     1.1,
+     5.2
+    ]
+   },
+   "takes": [
+    {
+     "pos": [
+      8.49,
+      6.4,
+      8.49
+     ],
+     "alvo": [
+      0,
+      0.4,
+      0
+     ],
+     "palavra": 3,
+     "corte": true
+    },
+    {
+     "pos": [
+      2.36,
+      2.1,
+      8.39
+     ],
+     "alvo": [
+      1.2,
+      1.1,
+      5.2
+     ],
+     "palavra": 5,
+     "corte": true
+    }
+   ],
+   "ze": {
+    "de": [
+     1.2,
+     5.2
+    ],
+    "acao": "acena"
+   }
+  }
+ ]
+}
