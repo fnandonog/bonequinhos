@@ -1,0 +1,905 @@
+{
+  "id": "air-fryer",
+  "estimado": true,
+  "cenas": [
+    {
+      "id": "c1",
+      "duracao": 6.750000000000001,
+      "palavras": [
+        {
+          "palavra": "Eu",
+          "inicio": 0.1,
+          "fim": 0.29000000000000004
+        },
+        {
+          "palavra": "acabei",
+          "inicio": 0.33,
+          "fim": 0.74
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.78,
+          "fim": 0.97
+        },
+        {
+          "palavra": "ser",
+          "inicio": 1.01,
+          "fim": 1.255
+        },
+        {
+          "palavra": "engolido",
+          "inicio": 1.295,
+          "fim": 1.815
+        },
+        {
+          "palavra": "por",
+          "inicio": 1.855,
+          "fim": 2.1
+        },
+        {
+          "palavra": "uma",
+          "inicio": 2.14,
+          "fim": 2.3850000000000002
+        },
+        {
+          "palavra": "air",
+          "inicio": 2.4250000000000003,
+          "fim": 2.6700000000000004
+        },
+        {
+          "palavra": "fryer",
+          "inicio": 2.7100000000000004,
+          "fim": 3.1200000000000006
+        },
+        {
+          "palavra": "E",
+          "inicio": 3.1600000000000006,
+          "fim": 3.295000000000001
+        },
+        {
+          "palavra": "agora",
+          "inicio": 3.3350000000000004,
+          "fim": 3.6900000000000004
+        },
+        {
+          "palavra": "vou",
+          "inicio": 3.7300000000000004,
+          "fim": 3.9750000000000005
+        },
+        {
+          "palavra": "te",
+          "inicio": 4.015000000000001,
+          "fim": 4.205000000000001
+        },
+        {
+          "palavra": "mostrar",
+          "inicio": 4.245000000000001,
+          "fim": 4.710000000000001
+        },
+        {
+          "palavra": "como",
+          "inicio": 4.750000000000001,
+          "fim": 5.050000000000001
+        },
+        {
+          "palavra": "ela",
+          "inicio": 5.090000000000001,
+          "fim": 5.335000000000001
+        },
+        {
+          "palavra": "frita",
+          "inicio": 5.375000000000001,
+          "fim": 5.730000000000001
+        },
+        {
+          "palavra": "sem",
+          "inicio": 5.770000000000001,
+          "fim": 6.0150000000000015
+        },
+        {
+          "palavra": "óleo",
+          "inicio": 6.0550000000000015,
+          "fim": 6.410000000000002
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "duracao": 5.14,
+      "palavras": [
+        {
+          "palavra": "Primeiro",
+          "inicio": 0.1,
+          "fim": 0.6749999999999999
+        },
+        {
+          "palavra": "uma",
+          "inicio": 0.715,
+          "fim": 0.96
+        },
+        {
+          "palavra": "verdade",
+          "inicio": 1.0,
+          "fim": 1.52
+        },
+        {
+          "palavra": "ela",
+          "inicio": 1.56,
+          "fim": 1.8050000000000002
+        },
+        {
+          "palavra": "não",
+          "inicio": 1.845,
+          "fim": 2.09
+        },
+        {
+          "palavra": "frita",
+          "inicio": 2.13,
+          "fim": 2.485
+        },
+        {
+          "palavra": "nada",
+          "inicio": 2.525,
+          "fim": 2.88
+        },
+        {
+          "palavra": "Ela",
+          "inicio": 2.92,
+          "fim": 3.165
+        },
+        {
+          "palavra": "é",
+          "inicio": 3.205,
+          "fim": 3.34
+        },
+        {
+          "palavra": "um",
+          "inicio": 3.38,
+          "fim": 3.57
+        },
+        {
+          "palavra": "forninho",
+          "inicio": 3.61,
+          "fim": 4.13
+        },
+        {
+          "palavra": "turbinado",
+          "inicio": 4.17,
+          "fim": 4.8
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "duracao": 7.07,
+      "palavras": [
+        {
+          "palavra": "Aqui",
+          "inicio": 0.1,
+          "fim": 0.4
+        },
+        {
+          "palavra": "em",
+          "inicio": 0.43999999999999995,
+          "fim": 0.6299999999999999
+        },
+        {
+          "palavra": "cima",
+          "inicio": 0.6699999999999999,
+          "fim": 0.97
+        },
+        {
+          "palavra": "tem",
+          "inicio": 1.0099999999999998,
+          "fim": 1.255
+        },
+        {
+          "palavra": "uma",
+          "inicio": 1.2949999999999997,
+          "fim": 1.5399999999999996
+        },
+        {
+          "palavra": "resistência",
+          "inicio": 1.5799999999999996,
+          "fim": 2.3199999999999994
+        },
+        {
+          "palavra": "parecida",
+          "inicio": 2.3599999999999994,
+          "fim": 2.8799999999999994
+        },
+        {
+          "palavra": "com",
+          "inicio": 2.9199999999999995,
+          "fim": 3.1649999999999996
+        },
+        {
+          "palavra": "a",
+          "inicio": 3.2049999999999996,
+          "fim": 3.34
+        },
+        {
+          "palavra": "do",
+          "inicio": 3.3799999999999994,
+          "fim": 3.5699999999999994
+        },
+        {
+          "palavra": "chuveiro",
+          "inicio": 3.6099999999999994,
+          "fim": 4.185
+        },
+        {
+          "palavra": "que",
+          "inicio": 4.225,
+          "fim": 4.47
+        },
+        {
+          "palavra": "esquenta",
+          "inicio": 4.51,
+          "fim": 5.029999999999999
+        },
+        {
+          "palavra": "o",
+          "inicio": 5.07,
+          "fim": 5.205
+        },
+        {
+          "palavra": "ar",
+          "inicio": 5.245,
+          "fim": 5.4350000000000005
+        },
+        {
+          "palavra": "até",
+          "inicio": 5.4750000000000005,
+          "fim": 5.720000000000001
+        },
+        {
+          "palavra": "duzentos",
+          "inicio": 5.760000000000001,
+          "fim": 6.280000000000001
+        },
+        {
+          "palavra": "graus",
+          "inicio": 6.32,
+          "fim": 6.73
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "duracao": 6.050000000000001,
+      "palavras": [
+        {
+          "palavra": "Logo",
+          "inicio": 0.1,
+          "fim": 0.4
+        },
+        {
+          "palavra": "acima",
+          "inicio": 0.43999999999999995,
+          "fim": 0.7949999999999999
+        },
+        {
+          "palavra": "dela",
+          "inicio": 0.835,
+          "fim": 1.19
+        },
+        {
+          "palavra": "um",
+          "inicio": 1.23,
+          "fim": 1.42
+        },
+        {
+          "palavra": "ventilador",
+          "inicio": 1.46,
+          "fim": 2.09
+        },
+        {
+          "palavra": "gira",
+          "inicio": 2.13,
+          "fim": 2.4299999999999997
+        },
+        {
+          "palavra": "muito",
+          "inicio": 2.4699999999999998,
+          "fim": 2.8249999999999997
+        },
+        {
+          "palavra": "rápido",
+          "inicio": 2.8649999999999998,
+          "fim": 3.275
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.315,
+          "fim": 3.45
+        },
+        {
+          "palavra": "empurra",
+          "inicio": 3.4899999999999998,
+          "fim": 3.9549999999999996
+        },
+        {
+          "palavra": "esse",
+          "inicio": 3.9949999999999997,
+          "fim": 4.295
+        },
+        {
+          "palavra": "ar",
+          "inicio": 4.335,
+          "fim": 4.525
+        },
+        {
+          "palavra": "quente",
+          "inicio": 4.565,
+          "fim": 4.9750000000000005
+        },
+        {
+          "palavra": "pra",
+          "inicio": 5.015000000000001,
+          "fim": 5.260000000000001
+        },
+        {
+          "palavra": "baixo",
+          "inicio": 5.300000000000001,
+          "fim": 5.710000000000001
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "duracao": 7.275000000000002,
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 0.1,
+          "fim": 0.23500000000000001
+        },
+        {
+          "palavra": "ar",
+          "inicio": 0.275,
+          "fim": 0.465
+        },
+        {
+          "palavra": "bate",
+          "inicio": 0.505,
+          "fim": 0.8049999999999999
+        },
+        {
+          "palavra": "no",
+          "inicio": 0.845,
+          "fim": 1.035
+        },
+        {
+          "palavra": "fundo",
+          "inicio": 1.075,
+          "fim": 1.4849999999999999
+        },
+        {
+          "palavra": "sobe",
+          "inicio": 1.525,
+          "fim": 1.825
+        },
+        {
+          "palavra": "pelas",
+          "inicio": 1.8649999999999998,
+          "fim": 2.2199999999999998
+        },
+        {
+          "palavra": "laterais",
+          "inicio": 2.26,
+          "fim": 2.78
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.82,
+          "fim": 2.955
+        },
+        {
+          "palavra": "passa",
+          "inicio": 2.9949999999999997,
+          "fim": 3.3499999999999996
+        },
+        {
+          "palavra": "por",
+          "inicio": 3.3899999999999997,
+          "fim": 3.635
+        },
+        {
+          "palavra": "mim",
+          "inicio": 3.675,
+          "fim": 3.92
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.96,
+          "fim": 4.15
+        },
+        {
+          "palavra": "novo",
+          "inicio": 4.19,
+          "fim": 4.545000000000001
+        },
+        {
+          "palavra": "e",
+          "inicio": 4.585000000000001,
+          "fim": 4.720000000000001
+        },
+        {
+          "palavra": "de",
+          "inicio": 4.760000000000001,
+          "fim": 4.950000000000001
+        },
+        {
+          "palavra": "novo",
+          "inicio": 4.990000000000001,
+          "fim": 5.3450000000000015
+        },
+        {
+          "palavra": "É",
+          "inicio": 5.385000000000002,
+          "fim": 5.520000000000001
+        },
+        {
+          "palavra": "um",
+          "inicio": 5.560000000000001,
+          "fim": 5.750000000000002
+        },
+        {
+          "palavra": "furacão",
+          "inicio": 5.790000000000002,
+          "fim": 6.255000000000002
+        },
+        {
+          "palavra": "de",
+          "inicio": 6.295000000000002,
+          "fim": 6.485000000000002
+        },
+        {
+          "palavra": "calor",
+          "inicio": 6.525000000000002,
+          "fim": 6.935000000000002
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "duracao": 8.68,
+      "palavras": [
+        {
+          "palavra": "Esse",
+          "inicio": 0.1,
+          "fim": 0.4
+        },
+        {
+          "palavra": "vento",
+          "inicio": 0.43999999999999995,
+          "fim": 0.7949999999999999
+        },
+        {
+          "palavra": "seca",
+          "inicio": 0.835,
+          "fim": 1.135
+        },
+        {
+          "palavra": "a",
+          "inicio": 1.1749999999999998,
+          "fim": 1.3099999999999998
+        },
+        {
+          "palavra": "superfície",
+          "inicio": 1.3499999999999999,
+          "fim": 1.98
+        },
+        {
+          "palavra": "da",
+          "inicio": 2.02,
+          "fim": 2.21
+        },
+        {
+          "palavra": "batata",
+          "inicio": 2.25,
+          "fim": 2.715
+        },
+        {
+          "palavra": "E",
+          "inicio": 2.755,
+          "fim": 2.8899999999999997
+        },
+        {
+          "palavra": "aí",
+          "inicio": 2.9299999999999997,
+          "fim": 3.1199999999999997
+        },
+        {
+          "palavra": "acontece",
+          "inicio": 3.1599999999999997,
+          "fim": 3.6799999999999997
+        },
+        {
+          "palavra": "a",
+          "inicio": 3.7199999999999998,
+          "fim": 3.8549999999999995
+        },
+        {
+          "palavra": "mágica",
+          "inicio": 3.8949999999999996,
+          "fim": 4.359999999999999
+        },
+        {
+          "palavra": "a",
+          "inicio": 4.3999999999999995,
+          "fim": 4.534999999999999
+        },
+        {
+          "palavra": "reação",
+          "inicio": 4.574999999999999,
+          "fim": 4.984999999999999
+        },
+        {
+          "palavra": "de",
+          "inicio": 5.0249999999999995,
+          "fim": 5.215
+        },
+        {
+          "palavra": "Maillard",
+          "inicio": 5.255,
+          "fim": 5.83
+        },
+        {
+          "palavra": "a",
+          "inicio": 5.87,
+          "fim": 6.005
+        },
+        {
+          "palavra": "mesma",
+          "inicio": 6.045,
+          "fim": 6.4
+        },
+        {
+          "palavra": "que",
+          "inicio": 6.4399999999999995,
+          "fim": 6.685
+        },
+        {
+          "palavra": "doura",
+          "inicio": 6.725,
+          "fim": 7.08
+        },
+        {
+          "palavra": "o",
+          "inicio": 7.119999999999999,
+          "fim": 7.254999999999999
+        },
+        {
+          "palavra": "pão",
+          "inicio": 7.294999999999999,
+          "fim": 7.539999999999999
+        },
+        {
+          "palavra": "e",
+          "inicio": 7.579999999999999,
+          "fim": 7.714999999999999
+        },
+        {
+          "palavra": "a",
+          "inicio": 7.754999999999999,
+          "fim": 7.889999999999999
+        },
+        {
+          "palavra": "carne",
+          "inicio": 7.929999999999999,
+          "fim": 8.339999999999998
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "duracao": 5.2700000000000005,
+      "palavras": [
+        {
+          "palavra": "Por",
+          "inicio": 0.1,
+          "fim": 0.345
+        },
+        {
+          "palavra": "isso",
+          "inicio": 0.385,
+          "fim": 0.685
+        },
+        {
+          "palavra": "ela",
+          "inicio": 0.725,
+          "fim": 0.97
+        },
+        {
+          "palavra": "fica",
+          "inicio": 1.01,
+          "fim": 1.31
+        },
+        {
+          "palavra": "crocante",
+          "inicio": 1.35,
+          "fim": 1.87
+        },
+        {
+          "palavra": "por",
+          "inicio": 1.9100000000000001,
+          "fim": 2.1550000000000002
+        },
+        {
+          "palavra": "fora",
+          "inicio": 2.1950000000000003,
+          "fim": 2.495
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.535,
+          "fim": 2.67
+        },
+        {
+          "palavra": "macia",
+          "inicio": 2.71,
+          "fim": 3.065
+        },
+        {
+          "palavra": "por",
+          "inicio": 3.105,
+          "fim": 3.35
+        },
+        {
+          "palavra": "dentro",
+          "inicio": 3.39,
+          "fim": 3.855
+        },
+        {
+          "palavra": "quase",
+          "inicio": 3.895,
+          "fim": 4.25
+        },
+        {
+          "palavra": "sem",
+          "inicio": 4.29,
+          "fim": 4.535
+        },
+        {
+          "palavra": "óleo",
+          "inicio": 4.575,
+          "fim": 4.930000000000001
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "duracao": 7.505,
+      "palavras": [
+        {
+          "palavra": "E",
+          "inicio": 0.1,
+          "fim": 0.23500000000000001
+        },
+        {
+          "palavra": "é",
+          "inicio": 0.275,
+          "fim": 0.41000000000000003
+        },
+        {
+          "palavra": "por",
+          "inicio": 0.45000000000000007,
+          "fim": 0.6950000000000001
+        },
+        {
+          "palavra": "isso",
+          "inicio": 0.7350000000000001,
+          "fim": 1.0350000000000001
+        },
+        {
+          "palavra": "que",
+          "inicio": 1.0750000000000002,
+          "fim": 1.3200000000000003
+        },
+        {
+          "palavra": "você",
+          "inicio": 1.36,
+          "fim": 1.6600000000000001
+        },
+        {
+          "palavra": "não",
+          "inicio": 1.7000000000000002,
+          "fim": 1.9450000000000003
+        },
+        {
+          "palavra": "deve",
+          "inicio": 1.985,
+          "fim": 2.285
+        },
+        {
+          "palavra": "lotar",
+          "inicio": 2.325,
+          "fim": 2.68
+        },
+        {
+          "palavra": "o",
+          "inicio": 2.72,
+          "fim": 2.8550000000000004
+        },
+        {
+          "palavra": "cesto",
+          "inicio": 2.895,
+          "fim": 3.305
+        },
+        {
+          "palavra": "Se",
+          "inicio": 3.345,
+          "fim": 3.535
+        },
+        {
+          "palavra": "o",
+          "inicio": 3.575,
+          "fim": 3.71
+        },
+        {
+          "palavra": "ar",
+          "inicio": 3.75,
+          "fim": 3.94
+        },
+        {
+          "palavra": "não",
+          "inicio": 3.98,
+          "fim": 4.225
+        },
+        {
+          "palavra": "circula",
+          "inicio": 4.265,
+          "fim": 4.785
+        },
+        {
+          "palavra": "a",
+          "inicio": 4.824999999999999,
+          "fim": 4.959999999999999
+        },
+        {
+          "palavra": "batata",
+          "inicio": 4.999999999999999,
+          "fim": 5.409999999999999
+        },
+        {
+          "palavra": "cozinha",
+          "inicio": 5.449999999999999,
+          "fim": 5.914999999999999
+        },
+        {
+          "palavra": "em",
+          "inicio": 5.954999999999999,
+          "fim": 6.145
+        },
+        {
+          "palavra": "vez",
+          "inicio": 6.185,
+          "fim": 6.43
+        },
+        {
+          "palavra": "de",
+          "inicio": 6.47,
+          "fim": 6.66
+        },
+        {
+          "palavra": "dourar",
+          "inicio": 6.7,
+          "fim": 7.165
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "duracao": 7.65,
+      "palavras": [
+        {
+          "palavra": "Agora",
+          "inicio": 0.1,
+          "fim": 0.45500000000000007
+        },
+        {
+          "palavra": "você",
+          "inicio": 0.495,
+          "fim": 0.7949999999999999
+        },
+        {
+          "palavra": "sabe",
+          "inicio": 0.835,
+          "fim": 1.135
+        },
+        {
+          "palavra": "por",
+          "inicio": 1.1749999999999998,
+          "fim": 1.42
+        },
+        {
+          "palavra": "que",
+          "inicio": 1.4599999999999997,
+          "fim": 1.7049999999999996
+        },
+        {
+          "palavra": "tem",
+          "inicio": 1.7449999999999997,
+          "fim": 1.9899999999999998
+        },
+        {
+          "palavra": "que",
+          "inicio": 2.03,
+          "fim": 2.275
+        },
+        {
+          "palavra": "sacudir",
+          "inicio": 2.315,
+          "fim": 2.78
+        },
+        {
+          "palavra": "o",
+          "inicio": 2.82,
+          "fim": 2.955
+        },
+        {
+          "palavra": "cesto",
+          "inicio": 2.9949999999999997,
+          "fim": 3.405
+        },
+        {
+          "palavra": "Me",
+          "inicio": 3.445,
+          "fim": 3.635
+        },
+        {
+          "palavra": "segue",
+          "inicio": 3.675,
+          "fim": 4.085
+        },
+        {
+          "palavra": "que",
+          "inicio": 4.125,
+          "fim": 4.37
+        },
+        {
+          "palavra": "amanhã",
+          "inicio": 4.41,
+          "fim": 4.82
+        },
+        {
+          "palavra": "eu",
+          "inicio": 4.86,
+          "fim": 5.050000000000001
+        },
+        {
+          "palavra": "vou",
+          "inicio": 5.090000000000001,
+          "fim": 5.335000000000001
+        },
+        {
+          "palavra": "ser",
+          "inicio": 5.375000000000001,
+          "fim": 5.620000000000001
+        },
+        {
+          "palavra": "engolido",
+          "inicio": 5.660000000000001,
+          "fim": 6.1800000000000015
+        },
+        {
+          "palavra": "por",
+          "inicio": 6.220000000000001,
+          "fim": 6.465000000000001
+        },
+        {
+          "palavra": "outra",
+          "inicio": 6.505000000000001,
+          "fim": 6.860000000000001
+        },
+        {
+          "palavra": "coisa",
+          "inicio": 6.9,
+          "fim": 7.3100000000000005
+        }
+      ]
+    }
+  ]
+}
