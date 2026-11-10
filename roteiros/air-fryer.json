@@ -4,14 +4,135 @@
   "voz": "pt-BR-AntonioNeural",
   "velocidade": "+8%",
   "cenas": [
-    { "id": "c1", "visual": "gancho", "texto": "Eu acabei de ser engolido por uma air fryer. E agora vou te mostrar como ela frita sem óleo." },
-    { "id": "c2", "visual": "forninho", "texto": "Primeiro, uma verdade: ela não frita nada. Ela é um forninho turbinado." },
-    { "id": "c3", "visual": "resistencia", "texto": "Aqui em cima tem uma resistência, parecida com a do chuveiro, que esquenta o ar até duzentos graus." },
-    { "id": "c4", "visual": "ventilador", "texto": "Logo acima dela, um ventilador gira muito rápido e empurra esse ar quente pra baixo." },
-    { "id": "c5", "visual": "furacao", "texto": "O ar bate no fundo, sobe pelas laterais e passa por mim de novo, e de novo. É um furacão de calor." },
-    { "id": "c6", "visual": "maillard", "texto": "Esse vento seca a superfície da batata. E aí acontece a mágica: a reação de Maillard, a mesma que doura o pão e a carne." },
-    { "id": "c7", "visual": "crocante", "texto": "Por isso ela fica crocante por fora e macia por dentro, quase sem óleo." },
-    { "id": "c8", "visual": "cheio", "texto": "E é por isso que você não deve lotar o cesto. Se o ar não circula, a batata cozinha em vez de dourar." },
-    { "id": "c9", "visual": "final", "texto": "Agora você sabe por que tem que sacudir o cesto. Me segue, que amanhã eu vou ser engolido por outra coisa." }
+    {
+      "id": "c1",
+      "texto": "Eu acabei de ser engolido por uma air fryer. E agora vou te mostrar como ela frita sem óleo.",
+      "tomadas": [
+        {
+          "visual": "cozinha-queda",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "dentro-assustado",
+          "aPartirDaPalavra": 9
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Primeiro, uma verdade: ela não frita nada. Ela é um forninho turbinado.",
+      "tomadas": [
+        {
+          "visual": "frigideira",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "forninho-turbo",
+          "aPartirDaPalavra": 7
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "Aqui em cima tem uma resistência, parecida com a do chuveiro, que esquenta o ar até duzentos graus.",
+      "tomadas": [
+        {
+          "visual": "resistencia",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "chuveiro",
+          "aPartirDaPalavra": 6
+        },
+        {
+          "visual": "resistencia",
+          "aPartirDaPalavra": 11
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "Logo acima dela, um ventilador gira muito rápido e empurra esse ar quente pra baixo.",
+      "tomadas": [
+        {
+          "visual": "tunel-vento",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "fluxo-desce",
+          "aPartirDaPalavra": 8
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "O ar bate no fundo, sobe pelas laterais e passa por mim de novo, e de novo. É um furacão de calor.",
+      "tomadas": [
+        {
+          "visual": "furacao-dentro",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "tornado",
+          "aPartirDaPalavra": 9
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "Esse vento seca a superfície da batata. E aí acontece a mágica: a reação de Maillard, a mesma que doura o pão e a carne.",
+      "tomadas": [
+        {
+          "visual": "deserto",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "padaria",
+          "aPartirDaPalavra": 7
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "Por isso ela fica crocante por fora e macia por dentro, quase sem óleo.",
+      "tomadas": [
+        {
+          "visual": "mordida",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "corte-batata",
+          "aPartirDaPalavra": 8
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "E é por isso que você não deve lotar o cesto. Se o ar não circula, a batata cozinha em vez de dourar.",
+      "tomadas": [
+        {
+          "visual": "elevador",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "cesto-cheio",
+          "aPartirDaPalavra": 11
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "texto": "Agora você sabe por que tem que sacudir o cesto. Me segue, que amanhã eu vou ser engolido por outra coisa.",
+      "tomadas": [
+        {
+          "visual": "sacudir",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "tchau",
+          "aPartirDaPalavra": 10
+        }
+      ]
+    }
   ]
 }
