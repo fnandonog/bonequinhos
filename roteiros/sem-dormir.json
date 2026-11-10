@@ -1,0 +1,170 @@
+{
+  "id": "sem-dormir",
+  "serie": "O que acontece se...",
+  "titulo": "3 dias sem dormir",
+  "elevenlabs": {
+    "voz_id": "nPczCjzI2devNBz1zQrb",
+    "modelo": "eleven_multilingual_v2"
+  },
+  "monetizacao": {
+    "produtos": [
+      "travesseiro ortopédico/nasa",
+      "máscara de dormir 3D",
+      "protetor auricular de silicone",
+      "lâmpada/luminária de luz quente",
+      "cortina blackout"
+    ],
+    "cta_video": "Deixei na bio os achadinhos que me ajudaram a dormir melhor",
+    "cta_grupo": "Promo de achadinhos todo dia no grupo do WhatsApp (link na bio)"
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "O que acontece com você se ficar três dias sem dormir?",
+      "tomadas": [
+        {
+          "visual": "titulo",
+          "aPartirDaPalavra": 0
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Nas primeiras vinte e quatro horas, você acha que está de boa.",
+      "tomadas": [
+        {
+          "visual": "escritorio-bem",
+          "aPartirDaPalavra": 0
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "Mas o seu cérebro já funciona como o de alguém que bebeu: é igual a dirigir com álcool acima do limite.",
+      "tomadas": [
+        {
+          "visual": "escritorio-bebado",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "bafometro",
+          "aPartirDaPalavra": 13
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "Você fica irritado, esquece onde deixou a chave e come tudo que vê pela frente, porque o hormônio da fome dispara.",
+      "tomadas": [
+        {
+          "visual": "chave",
+          "aPartirDaPalavra": 2
+        },
+        {
+          "visual": "geladeira",
+          "aPartirDaPalavra": 9
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "No segundo dia, chegam os microcochilos: o cérebro desliga sozinho por alguns segundos, sem você perceber.",
+      "tomadas": [
+        {
+          "visual": "calendario-2",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "microcochilo",
+          "aPartirDaPalavra": 6
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "Se isso acontece no volante, é como dirigir de olhos fechados.",
+      "tomadas": [
+        {
+          "visual": "carro",
+          "aPartirDaPalavra": 0
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "Seus olhos ardem, as mãos tremem e o mundo parece em câmera lenta.",
+      "tomadas": [
+        {
+          "visual": "espelho",
+          "aPartirDaPalavra": 0
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "No terceiro dia, o cérebro começa a te enganar: você vê coisas que não existem.",
+      "tomadas": [
+        {
+          "visual": "calendario-3",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "alucinacao",
+          "aPartirDaPalavra": 9
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "texto": "Pensamento confuso, paranoia e a sensação de estar sonhando acordado.",
+      "tomadas": [
+        {
+          "visual": "surreal",
+          "aPartirDaPalavra": 0
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "texto": "A boa notícia? Uma ou duas noites bem dormidas e o corpo começa a se recuperar.",
+      "tomadas": [
+        {
+          "visual": "dormindo",
+          "aPartirDaPalavra": 0
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "texto": "Agora, o mais assustador: dormir só seis horas por noite durante duas semanas deixa você tão mal quanto passar duas noites em claro. E você nem percebe.",
+      "tomadas": [
+        {
+          "visual": "celular-madrugada",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "duas-semanas",
+          "aPartirDaPalavra": 10
+        },
+        {
+          "visual": "virada",
+          "aPartirDaPalavra": 23
+        }
+      ]
+    },
+    {
+      "id": "c12",
+      "texto": "Deixei na bio os achadinhos que me ajudaram a dormir melhor. E segue o Zé: o próximo é o que acontece se você tomar dez cafés num dia.",
+      "tomadas": [
+        {
+          "visual": "achadinhos",
+          "aPartirDaPalavra": 0
+        },
+        {
+          "visual": "proximo",
+          "aPartirDaPalavra": 11
+        }
+      ]
+    }
+  ]
+}
