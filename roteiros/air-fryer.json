@@ -1,0 +1,17 @@
+{
+  "id": "air-fryer",
+  "titulo": "Fui engolido por uma air fryer",
+  "voz": "pt-BR-AntonioNeural",
+  "velocidade": "+8%",
+  "cenas": [
+    { "id": "c1", "visual": "gancho", "texto": "Eu acabei de ser engolido por uma air fryer. E agora vou te mostrar como ela frita sem óleo." },
+    { "id": "c2", "visual": "forninho", "texto": "Primeiro, uma verdade: ela não frita nada. Ela é um forninho turbinado." },
+    { "id": "c3", "visual": "resistencia", "texto": "Aqui em cima tem uma resistência, parecida com a do chuveiro, que esquenta o ar até duzentos graus." },
+    { "id": "c4", "visual": "ventilador", "texto": "Logo acima dela, um ventilador gira muito rápido e empurra esse ar quente pra baixo." },
+    { "id": "c5", "visual": "furacao", "texto": "O ar bate no fundo, sobe pelas laterais e passa por mim de novo, e de novo. É um furacão de calor." },
+    { "id": "c6", "visual": "maillard", "texto": "Esse vento seca a superfície da batata. E aí acontece a mágica: a reação de Maillard, a mesma que doura o pão e a carne." },
+    { "id": "c7", "visual": "crocante", "texto": "Por isso ela fica crocante por fora e macia por dentro, quase sem óleo." },
+    { "id": "c8", "visual": "cheio", "texto": "E é por isso que você não deve lotar o cesto. Se o ar não circula, a batata cozinha em vez de dourar." },
+    { "id": "c9", "visual": "final", "texto": "Agora você sabe por que tem que sacudir o cesto. Me segue, que amanhã eu vou ser engolido por outra coisa." }
+  ]
+}
