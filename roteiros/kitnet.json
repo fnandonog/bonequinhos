@@ -4,7 +4,7 @@
   "titulo": "Kitnet para alugar com R$ 60 mil",
   "orcamento": 60000,
   "elevenlabs": {
-    "voz_id": "IKpiSijWzlhOL6uX83EH",
+    "voz_id": "ZqE9vIHPcrC35dZv0Svu",
     "modelo": "eleven_multilingual_v2",
     "ajustes": {
       "stability": 0.45,
