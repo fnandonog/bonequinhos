@@ -1,0 +1,13 @@
+#!/bin/bash
+# Gera a narração com o ElevenLabs no seu Mac e manda para o GitHub.
+# Uso: bash tools/narrar.sh roteiros/air-fryer.json
+set -e
+cd "$(dirname "$0")/.."
+git pull -q origin main
+set -a; source .env; set +a
+python3 tools/tts_elevenlabs.py "$1"
+id=$(python3 -c "import json,sys;print(json.load(open(sys.argv[1]))['id'])" "$1")
+git add "public/audio/$id"
+git commit -qm "Narração ElevenLabs: $id"
+git push -q origin main
+echo "Pronto! Narração enviada."

@@ -134,5 +134,9 @@
         }
       ]
     }
-  ]
+  ],
+  "elevenlabs": {
+    "voz_id": "nPczCjzI2devNBz1zQrb",
+    "modelo": "eleven_multilingual_v2"
+  }
 }
