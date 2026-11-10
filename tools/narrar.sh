@@ -4,6 +4,10 @@
 set -e
 cd "$(dirname "$0")/.."
 git pull -q origin main
+if [ ! -f .env ]; then
+  read -s -p "Cole sua chave do ElevenLabs e aperte Enter (ela não aparece na tela): " K; echo
+  echo "ELEVENLABS_API_KEY=$K" > .env; unset K
+fi
 set -a; source .env; set +a
 python3 tools/tts_elevenlabs.py "$1"
 id=$(python3 -c "import json,sys;print(json.load(open(sys.argv[1]))['id'])" "$1")
