@@ -70,10 +70,10 @@ def main(caminho):
     voz = cfg.get("voz_id")
     disponiveis = vozes()
     ids = {v["voice_id"]: v["name"] for v in disponiveis}
-    if voz not in ids:
-        preferidas = [v for v in disponiveis if "brian" in v["name"].lower()] or disponiveis
-        print(f"Voz {voz} não está na sua conta; usando {preferidas[0]['name']}")
-        voz = preferidas[0]["voice_id"]
+    if not voz:
+        voz = disponiveis[0]["voice_id"]
+    elif voz not in ids:
+        print(f"Aviso: a voz {voz} não está em 'My voices'; tentando usar direto da biblioteca.")
     print("Voz:", ids.get(voz, voz))
     modelo = cfg.get("modelo", "eleven_multilingual_v2")
     ajustes = cfg.get("ajustes", {"stability": 0.4, "similarity_boost": 0.8, "style": 0.35, "use_speaker_boost": True, "speed": 1.08})
