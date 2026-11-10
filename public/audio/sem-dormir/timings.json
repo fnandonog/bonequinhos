@@ -1,0 +1,1083 @@
+{
+  "id": "sem-dormir",
+  "voz": "elevenlabs:nPczCjzI2devNBz1zQrb:eleven_multilingual_v2",
+  "cenas": [
+    {
+      "id": "c1",
+      "duracao": 3.640113,
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 0.0,
+          "fim": 0.093
+        },
+        {
+          "palavra": "que",
+          "inicio": 0.255,
+          "fim": 0.348
+        },
+        {
+          "palavra": "acontece",
+          "inicio": 0.383,
+          "fim": 0.859
+        },
+        {
+          "palavra": "com",
+          "inicio": 0.882,
+          "fim": 0.987
+        },
+        {
+          "palavra": "você",
+          "inicio": 1.033,
+          "fim": 1.242
+        },
+        {
+          "palavra": "se",
+          "inicio": 1.347,
+          "fim": 1.416
+        },
+        {
+          "palavra": "ficar",
+          "inicio": 1.463,
+          "fim": 1.73
+        },
+        {
+          "palavra": "três",
+          "inicio": 1.788,
+          "fim": 2.078
+        },
+        {
+          "palavra": "dias",
+          "inicio": 2.125,
+          "fim": 2.345
+        },
+        {
+          "palavra": "sem",
+          "inicio": 2.368,
+          "fim": 2.519
+        },
+        {
+          "palavra": "dormir",
+          "inicio": 2.566,
+          "fim": 3.39
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "duracao": 3.640113,
+      "palavras": [
+        {
+          "palavra": "Nas",
+          "inicio": 0.0,
+          "fim": 0.186
+        },
+        {
+          "palavra": "primeiras",
+          "inicio": 0.244,
+          "fim": 0.685
+        },
+        {
+          "palavra": "vinte",
+          "inicio": 0.755,
+          "fim": 0.94
+        },
+        {
+          "palavra": "e",
+          "inicio": 0.964,
+          "fim": 0.987
+        },
+        {
+          "palavra": "quatro",
+          "inicio": 1.033,
+          "fim": 1.347
+        },
+        {
+          "palavra": "horas",
+          "inicio": 1.37,
+          "fim": 1.66
+        },
+        {
+          "palavra": "você",
+          "inicio": 1.683,
+          "fim": 1.881
+        },
+        {
+          "palavra": "acha",
+          "inicio": 1.962,
+          "fim": 2.136
+        },
+        {
+          "palavra": "que",
+          "inicio": 2.171,
+          "fim": 2.241
+        },
+        {
+          "palavra": "está",
+          "inicio": 2.264,
+          "fim": 2.415
+        },
+        {
+          "palavra": "de",
+          "inicio": 2.473,
+          "fim": 2.543
+        },
+        {
+          "palavra": "boa",
+          "inicio": 2.612,
+          "fim": 3.39
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "duracao": 6.798027,
+      "palavras": [
+        {
+          "palavra": "Mas",
+          "inicio": 0.0,
+          "fim": 0.186
+        },
+        {
+          "palavra": "o",
+          "inicio": 0.255,
+          "fim": 0.279
+        },
+        {
+          "palavra": "seu",
+          "inicio": 0.348,
+          "fim": 0.58
+        },
+        {
+          "palavra": "cérebro",
+          "inicio": 0.639,
+          "fim": 1.103
+        },
+        {
+          "palavra": "já",
+          "inicio": 1.149,
+          "fim": 1.242
+        },
+        {
+          "palavra": "funciona",
+          "inicio": 1.312,
+          "fim": 1.881
+        },
+        {
+          "palavra": "como",
+          "inicio": 1.927,
+          "fim": 2.113
+        },
+        {
+          "palavra": "o",
+          "inicio": 2.136,
+          "fim": 2.159
+        },
+        {
+          "palavra": "de",
+          "inicio": 2.218,
+          "fim": 2.287
+        },
+        {
+          "palavra": "alguém",
+          "inicio": 2.334,
+          "fim": 2.589
+        },
+        {
+          "palavra": "que",
+          "inicio": 2.635,
+          "fim": 2.705
+        },
+        {
+          "palavra": "bebeu",
+          "inicio": 2.763,
+          "fim": 3.193
+        },
+        {
+          "palavra": "é",
+          "inicio": 3.599,
+          "fim": 3.669
+        },
+        {
+          "palavra": "igual",
+          "inicio": 3.692,
+          "fim": 4.052
+        },
+        {
+          "palavra": "a",
+          "inicio": 4.122,
+          "fim": 4.145
+        },
+        {
+          "palavra": "dirigir",
+          "inicio": 4.214,
+          "fim": 4.598
+        },
+        {
+          "palavra": "com",
+          "inicio": 4.644,
+          "fim": 4.795
+        },
+        {
+          "palavra": "álcool",
+          "inicio": 4.899,
+          "fim": 5.201
+        },
+        {
+          "palavra": "acima",
+          "inicio": 5.271,
+          "fim": 5.573
+        },
+        {
+          "palavra": "do",
+          "inicio": 5.619,
+          "fim": 5.677
+        },
+        {
+          "palavra": "limite",
+          "inicio": 5.712,
+          "fim": 6.548
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "duracao": 7.401746,
+      "palavras": [
+        {
+          "palavra": "Você",
+          "inicio": 0.0,
+          "fim": 0.244
+        },
+        {
+          "palavra": "fica",
+          "inicio": 0.313,
+          "fim": 0.522
+        },
+        {
+          "palavra": "irritado",
+          "inicio": 0.546,
+          "fim": 1.173
+        },
+        {
+          "palavra": "esquece",
+          "inicio": 1.207,
+          "fim": 1.544
+        },
+        {
+          "palavra": "onde",
+          "inicio": 1.579,
+          "fim": 1.73
+        },
+        {
+          "palavra": "deixou",
+          "inicio": 1.8,
+          "fim": 2.101
+        },
+        {
+          "palavra": "a",
+          "inicio": 2.159,
+          "fim": 2.194
+        },
+        {
+          "palavra": "chave",
+          "inicio": 2.241,
+          "fim": 2.717
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.879,
+          "fim": 2.984
+        },
+        {
+          "palavra": "come",
+          "inicio": 3.053,
+          "fim": 3.262
+        },
+        {
+          "palavra": "tudo",
+          "inicio": 3.367,
+          "fim": 3.622
+        },
+        {
+          "palavra": "que",
+          "inicio": 3.669,
+          "fim": 3.738
+        },
+        {
+          "palavra": "vê",
+          "inicio": 3.796,
+          "fim": 3.901
+        },
+        {
+          "palavra": "pela",
+          "inicio": 3.924,
+          "fim": 4.098
+        },
+        {
+          "palavra": "frente",
+          "inicio": 4.168,
+          "fim": 4.667
+        },
+        {
+          "palavra": "porque",
+          "inicio": 4.969,
+          "fim": 5.213
+        },
+        {
+          "palavra": "o",
+          "inicio": 5.259,
+          "fim": 5.294
+        },
+        {
+          "palavra": "hormônio",
+          "inicio": 5.329,
+          "fim": 5.689
+        },
+        {
+          "palavra": "da",
+          "inicio": 5.724,
+          "fim": 5.817
+        },
+        {
+          "palavra": "fome",
+          "inicio": 5.886,
+          "fim": 6.142
+        },
+        {
+          "palavra": "dispara",
+          "inicio": 6.177,
+          "fim": 7.152
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "duracao": 6.983787,
+      "palavras": [
+        {
+          "palavra": "No",
+          "inicio": 0.0,
+          "fim": 0.151
+        },
+        {
+          "palavra": "segundo",
+          "inicio": 0.209,
+          "fim": 0.546
+        },
+        {
+          "palavra": "dia",
+          "inicio": 0.604,
+          "fim": 0.894
+        },
+        {
+          "palavra": "chegam",
+          "inicio": 0.917,
+          "fim": 1.231
+        },
+        {
+          "palavra": "os",
+          "inicio": 1.265,
+          "fim": 1.312
+        },
+        {
+          "palavra": "microcochilos",
+          "inicio": 1.37,
+          "fim": 2.31
+        },
+        {
+          "palavra": "o",
+          "inicio": 2.566,
+          "fim": 2.647
+        },
+        {
+          "palavra": "cérebro",
+          "inicio": 2.694,
+          "fim": 3.111
+        },
+        {
+          "palavra": "desliga",
+          "inicio": 3.17,
+          "fim": 3.611
+        },
+        {
+          "palavra": "sozinho",
+          "inicio": 3.669,
+          "fim": 4.063
+        },
+        {
+          "palavra": "por",
+          "inicio": 4.098,
+          "fim": 4.203
+        },
+        {
+          "palavra": "alguns",
+          "inicio": 4.249,
+          "fim": 4.516
+        },
+        {
+          "palavra": "segundos",
+          "inicio": 4.54,
+          "fim": 5.166
+        },
+        {
+          "palavra": "sem",
+          "inicio": 5.329,
+          "fim": 5.515
+        },
+        {
+          "palavra": "você",
+          "inicio": 5.55,
+          "fim": 5.712
+        },
+        {
+          "palavra": "perceber",
+          "inicio": 5.77,
+          "fim": 6.734
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "duracao": 4.290272,
+      "palavras": [
+        {
+          "palavra": "Se",
+          "inicio": 0.0,
+          "fim": 0.151
+        },
+        {
+          "palavra": "isso",
+          "inicio": 0.197,
+          "fim": 0.348
+        },
+        {
+          "palavra": "acontece",
+          "inicio": 0.383,
+          "fim": 0.859
+        },
+        {
+          "palavra": "no",
+          "inicio": 0.906,
+          "fim": 0.975
+        },
+        {
+          "palavra": "volante",
+          "inicio": 1.022,
+          "fim": 1.625
+        },
+        {
+          "palavra": "é",
+          "inicio": 1.881,
+          "fim": 1.95
+        },
+        {
+          "palavra": "como",
+          "inicio": 2.02,
+          "fim": 2.241
+        },
+        {
+          "palavra": "dirigir",
+          "inicio": 2.287,
+          "fim": 2.786
+        },
+        {
+          "palavra": "de",
+          "inicio": 2.833,
+          "fim": 2.902
+        },
+        {
+          "palavra": "olhos",
+          "inicio": 2.961,
+          "fim": 3.146
+        },
+        {
+          "palavra": "fechados",
+          "inicio": 3.193,
+          "fim": 4.04
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "duracao": 5.033311,
+      "palavras": [
+        {
+          "palavra": "Seus",
+          "inicio": 0.0,
+          "fim": 0.267
+        },
+        {
+          "palavra": "olhos",
+          "inicio": 0.325,
+          "fim": 0.546
+        },
+        {
+          "palavra": "ardem",
+          "inicio": 0.627,
+          "fim": 1.045
+        },
+        {
+          "palavra": "as",
+          "inicio": 1.207,
+          "fim": 1.347
+        },
+        {
+          "palavra": "mãos",
+          "inicio": 1.416,
+          "fim": 1.602
+        },
+        {
+          "palavra": "tremem",
+          "inicio": 1.672,
+          "fim": 2.101
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.403,
+          "fim": 2.566
+        },
+        {
+          "palavra": "o",
+          "inicio": 2.612,
+          "fim": 2.647
+        },
+        {
+          "palavra": "mundo",
+          "inicio": 2.705,
+          "fim": 3.007
+        },
+        {
+          "palavra": "parece",
+          "inicio": 3.053,
+          "fim": 3.39
+        },
+        {
+          "palavra": "em",
+          "inicio": 3.413,
+          "fim": 3.483
+        },
+        {
+          "palavra": "câmera",
+          "inicio": 3.553,
+          "fim": 3.866
+        },
+        {
+          "palavra": "lenta",
+          "inicio": 3.936,
+          "fim": 4.783
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "duracao": 5.637029,
+      "palavras": [
+        {
+          "palavra": "No",
+          "inicio": 0.0,
+          "fim": 0.163
+        },
+        {
+          "palavra": "terceiro",
+          "inicio": 0.221,
+          "fim": 0.673
+        },
+        {
+          "palavra": "dia",
+          "inicio": 0.743,
+          "fim": 1.138
+        },
+        {
+          "palavra": "o",
+          "inicio": 1.254,
+          "fim": 1.358
+        },
+        {
+          "palavra": "cérebro",
+          "inicio": 1.393,
+          "fim": 1.788
+        },
+        {
+          "palavra": "começa",
+          "inicio": 1.834,
+          "fim": 2.229
+        },
+        {
+          "palavra": "a",
+          "inicio": 2.252,
+          "fim": 2.276
+        },
+        {
+          "palavra": "te",
+          "inicio": 2.322,
+          "fim": 2.392
+        },
+        {
+          "palavra": "enganar",
+          "inicio": 2.426,
+          "fim": 2.972
+        },
+        {
+          "palavra": "você",
+          "inicio": 3.17,
+          "fim": 3.39
+        },
+        {
+          "palavra": "vê",
+          "inicio": 3.46,
+          "fim": 3.553
+        },
+        {
+          "palavra": "coisas",
+          "inicio": 3.622,
+          "fim": 3.971
+        },
+        {
+          "palavra": "que",
+          "inicio": 4.017,
+          "fim": 4.098
+        },
+        {
+          "palavra": "não",
+          "inicio": 4.214,
+          "fim": 4.389
+        },
+        {
+          "palavra": "existem",
+          "inicio": 4.435,
+          "fim": 5.387
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "duracao": 5.17263,
+      "palavras": [
+        {
+          "palavra": "Pensamento",
+          "inicio": 0.0,
+          "fim": 0.592
+        },
+        {
+          "palavra": "confuso",
+          "inicio": 0.627,
+          "fim": 1.37
+        },
+        {
+          "palavra": "paranoia",
+          "inicio": 1.428,
+          "fim": 2.206
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.345,
+          "fim": 2.485
+        },
+        {
+          "palavra": "a",
+          "inicio": 2.531,
+          "fim": 2.554
+        },
+        {
+          "palavra": "sensação",
+          "inicio": 2.601,
+          "fim": 3.123
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.158,
+          "fim": 3.204
+        },
+        {
+          "palavra": "estar",
+          "inicio": 3.228,
+          "fim": 3.448
+        },
+        {
+          "palavra": "sonhando",
+          "inicio": 3.506,
+          "fim": 3.901
+        },
+        {
+          "palavra": "acordado",
+          "inicio": 3.924,
+          "fim": 4.923
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "duracao": 5.35839,
+      "palavras": [
+        {
+          "palavra": "A",
+          "inicio": 0.0,
+          "fim": 0.104
+        },
+        {
+          "palavra": "boa",
+          "inicio": 0.174,
+          "fim": 0.302
+        },
+        {
+          "palavra": "notícia",
+          "inicio": 0.337,
+          "fim": 0.987
+        },
+        {
+          "palavra": "Uma",
+          "inicio": 1.289,
+          "fim": 1.486
+        },
+        {
+          "palavra": "ou",
+          "inicio": 1.509,
+          "fim": 1.567
+        },
+        {
+          "palavra": "duas",
+          "inicio": 1.637,
+          "fim": 1.858
+        },
+        {
+          "palavra": "noites",
+          "inicio": 1.927,
+          "fim": 2.206
+        },
+        {
+          "palavra": "bem",
+          "inicio": 2.287,
+          "fim": 2.473
+        },
+        {
+          "palavra": "dormidas",
+          "inicio": 2.519,
+          "fim": 3.007
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.042,
+          "fim": 3.065
+        },
+        {
+          "palavra": "o",
+          "inicio": 3.111,
+          "fim": 3.135
+        },
+        {
+          "palavra": "corpo",
+          "inicio": 3.193,
+          "fim": 3.471
+        },
+        {
+          "palavra": "começa",
+          "inicio": 3.506,
+          "fim": 3.831
+        },
+        {
+          "palavra": "a",
+          "inicio": 3.855,
+          "fim": 3.878
+        },
+        {
+          "palavra": "se",
+          "inicio": 3.924,
+          "fim": 4.005
+        },
+        {
+          "palavra": "recuperar",
+          "inicio": 4.052,
+          "fim": 5.108
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "duracao": 10.46678,
+      "palavras": [
+        {
+          "palavra": "Agora",
+          "inicio": 0.0,
+          "fim": 0.499
+        },
+        {
+          "palavra": "o",
+          "inicio": 0.522,
+          "fim": 0.546
+        },
+        {
+          "palavra": "mais",
+          "inicio": 0.615,
+          "fim": 0.789
+        },
+        {
+          "palavra": "assustador",
+          "inicio": 0.836,
+          "fim": 1.498
+        },
+        {
+          "palavra": "dormir",
+          "inicio": 1.858,
+          "fim": 2.218
+        },
+        {
+          "palavra": "só",
+          "inicio": 2.252,
+          "fim": 2.415
+        },
+        {
+          "palavra": "seis",
+          "inicio": 2.496,
+          "fim": 2.775
+        },
+        {
+          "palavra": "horas",
+          "inicio": 2.844,
+          "fim": 3.111
+        },
+        {
+          "palavra": "por",
+          "inicio": 3.181,
+          "fim": 3.32
+        },
+        {
+          "palavra": "noite",
+          "inicio": 3.39,
+          "fim": 3.715
+        },
+        {
+          "palavra": "durante",
+          "inicio": 3.773,
+          "fim": 4.145
+        },
+        {
+          "palavra": "duas",
+          "inicio": 4.214,
+          "fim": 4.493
+        },
+        {
+          "palavra": "semanas",
+          "inicio": 4.516,
+          "fim": 5.027
+        },
+        {
+          "palavra": "deixa",
+          "inicio": 5.224,
+          "fim": 5.492
+        },
+        {
+          "palavra": "você",
+          "inicio": 5.538,
+          "fim": 5.735
+        },
+        {
+          "palavra": "tão",
+          "inicio": 5.84,
+          "fim": 6.026
+        },
+        {
+          "palavra": "mal",
+          "inicio": 6.084,
+          "fim": 6.304
+        },
+        {
+          "palavra": "quanto",
+          "inicio": 6.362,
+          "fim": 6.618
+        },
+        {
+          "palavra": "passar",
+          "inicio": 6.664,
+          "fim": 6.978
+        },
+        {
+          "palavra": "duas",
+          "inicio": 7.036,
+          "fim": 7.303
+        },
+        {
+          "palavra": "noites",
+          "inicio": 7.372,
+          "fim": 7.651
+        },
+        {
+          "palavra": "em",
+          "inicio": 7.709,
+          "fim": 7.767
+        },
+        {
+          "palavra": "claro",
+          "inicio": 7.825,
+          "fim": 8.266
+        },
+        {
+          "palavra": "E",
+          "inicio": 8.626,
+          "fim": 8.696
+        },
+        {
+          "palavra": "você",
+          "inicio": 8.754,
+          "fim": 8.963
+        },
+        {
+          "palavra": "nem",
+          "inicio": 9.044,
+          "fim": 9.149
+        },
+        {
+          "palavra": "percebe",
+          "inicio": 9.195,
+          "fim": 10.217
+        }
+      ]
+    },
+    {
+      "id": "c12",
+      "duracao": 8.423424,
+      "palavras": [
+        {
+          "palavra": "Deixei",
+          "inicio": 0.0,
+          "fim": 0.372
+        },
+        {
+          "palavra": "na",
+          "inicio": 0.418,
+          "fim": 0.522
+        },
+        {
+          "palavra": "bio",
+          "inicio": 0.592,
+          "fim": 0.766
+        },
+        {
+          "palavra": "os",
+          "inicio": 0.789,
+          "fim": 0.882
+        },
+        {
+          "palavra": "achadinhos",
+          "inicio": 0.952,
+          "fim": 1.474
+        },
+        {
+          "palavra": "que",
+          "inicio": 1.521,
+          "fim": 1.591
+        },
+        {
+          "palavra": "me",
+          "inicio": 1.637,
+          "fim": 1.683
+        },
+        {
+          "palavra": "ajudaram",
+          "inicio": 1.707,
+          "fim": 2.183
+        },
+        {
+          "palavra": "a",
+          "inicio": 2.229,
+          "fim": 2.252
+        },
+        {
+          "palavra": "dormir",
+          "inicio": 2.299,
+          "fim": 2.612
+        },
+        {
+          "palavra": "melhor",
+          "inicio": 2.659,
+          "fim": 3.123
+        },
+        {
+          "palavra": "E",
+          "inicio": 3.425,
+          "fim": 3.506
+        },
+        {
+          "palavra": "segue",
+          "inicio": 3.587,
+          "fim": 3.855
+        },
+        {
+          "palavra": "o",
+          "inicio": 3.878,
+          "fim": 3.913
+        },
+        {
+          "palavra": "Zé",
+          "inicio": 3.971,
+          "fim": 4.319
+        },
+        {
+          "palavra": "o",
+          "inicio": 4.621,
+          "fim": 4.69
+        },
+        {
+          "palavra": "próximo",
+          "inicio": 4.76,
+          "fim": 5.178
+        },
+        {
+          "palavra": "é",
+          "inicio": 5.201,
+          "fim": 5.224
+        },
+        {
+          "palavra": "o",
+          "inicio": 5.271,
+          "fim": 5.294
+        },
+        {
+          "palavra": "que",
+          "inicio": 5.341,
+          "fim": 5.41
+        },
+        {
+          "palavra": "acontece",
+          "inicio": 5.433,
+          "fim": 5.956
+        },
+        {
+          "palavra": "se",
+          "inicio": 6.002,
+          "fim": 6.06
+        },
+        {
+          "palavra": "você",
+          "inicio": 6.107,
+          "fim": 6.281
+        },
+        {
+          "palavra": "tomar",
+          "inicio": 6.351,
+          "fim": 6.629
+        },
+        {
+          "palavra": "dez",
+          "inicio": 6.699,
+          "fim": 6.908
+        },
+        {
+          "palavra": "cafés",
+          "inicio": 6.978,
+          "fim": 7.338
+        },
+        {
+          "palavra": "num",
+          "inicio": 7.384,
+          "fim": 7.5
+        },
+        {
+          "palavra": "dia",
+          "inicio": 7.57,
+          "fim": 8.173
+        }
+      ]
+    }
+  ]
+}
