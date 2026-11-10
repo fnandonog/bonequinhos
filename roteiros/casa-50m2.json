@@ -1,0 +1,675 @@
+{
+ "id": "casa-50m2",
+ "serie": "Você construiu",
+ "titulo": "CASA DE 50 m² DO ZERO",
+ "linha2": "quanto custa DE VERDADE?",
+ "elevenlabs": {
+  "voz_id": "ZqE9vIHPcrC35dZv0Svu",
+  "modelo": "eleven_multilingual_v2",
+  "ajustes": {
+   "stability": 0.45,
+   "similarity_boost": 0.8,
+   "style": 0.4,
+   "use_speaker_boost": true,
+   "speed": 1.15
+  }
+ },
+ "fontes": "roteiros/casa-50m2.pesquisa.md",
+ "cenas": [
+  {
+   "id": "c1",
+   "texto": "Quanto custa, de verdade, uma casa de cinquenta metros do zero? Esquece os sessenta mil. Bora fazer a conta.",
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "fachada",
+     "cam": "drone"
+    },
+    {
+     "set": "casaAberta",
+     "cam": "cima",
+     "apartir": 4,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Casa de 50 m²",
+      "valor": "2 quartos",
+      "sub": "sala + cozinha · banheiro · laje · telha"
+     }
+    },
+    {
+     "set": "terreno",
+     "cam": "geral",
+     "apartir": 11,
+     "card": {
+      "rotulo": "R$ 60 mil?",
+      "valor": "NÃO DÁ",
+      "cor": "#ff5d5d"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "texto": "Antes da primeira pá: projeto, ART e alvará. Uns oito mil só de papel.",
+   "etapa": "PROJETO",
+   "custo": 8000,
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "terreno",
+     "cam": "ze"
+    },
+    {
+     "set": "projeto",
+     "cam": "cima",
+     "apartir": 4,
+     "p": [
+      0,
+      0.85
+     ]
+    },
+    {
+     "set": "projeto",
+     "cam": "lado",
+     "apartir": 8,
+     "p": [
+      0.85,
+      1
+     ],
+     "card": {
+      "rotulo": "Projeto + ART + alvará",
+      "num": 8000,
+      "prefixo": "R$ "
+     }
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "texto": "O gabarito marca a casa no chão. Errou aqui, a casa sai torta.",
+   "etapa": "GABARITO",
+   "custo": 1000,
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "gabarito",
+     "cam": "alto",
+     "p": [
+      0,
+      0.75
+     ]
+    },
+    {
+     "set": "gabarito",
+     "cam": "linha",
+     "apartir": 7,
+     "p": [
+      0.75,
+      1
+     ],
+     "card": {
+      "rotulo": "Diária do pedreiro",
+      "num": 330,
+      "prefixo": "R$ "
+     }
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "texto": "Aí você cava: um metro pra cada sapata. Ferragem dentro, concreto por cima. Com a viga baldrame, uns quinze mil.",
+   "etapa": "FUNDAÇÃO",
+   "custo": 15000,
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "escavacao",
+     "cam": "cima",
+     "p": [
+      0,
+      0.5
+     ]
+    },
+    {
+     "set": "escavacao",
+     "cam": "corte",
+     "apartir": 3,
+     "p": [
+      0.5,
+      1
+     ],
+     "card": {
+      "rotulo": "Sapata",
+      "valor": "1 m de fundo",
+      "sub": "80 × 80 cm"
+     }
+    },
+    {
+     "set": "armadura",
+     "cam": "macro",
+     "apartir": 8,
+     "card": {
+      "rotulo": "Barra de ferro 10 mm",
+      "num": 50,
+      "prefixo": "R$ ",
+      "sub": "cada barra de 12 m"
+     }
+    },
+    {
+     "set": "concretagem",
+     "cam": "corte",
+     "apartir": 10,
+     "card": {
+      "rotulo": "Concreto",
+      "num": 425,
+      "prefixo": "R$ ",
+      "sufixo": " /m³"
+     }
+    },
+    {
+     "set": "baldrame",
+     "cam": "perimetro",
+     "apartir": 13,
+     "card": {
+      "rotulo": "Fundação completa",
+      "num": 15000,
+      "prefixo": "R$ "
+     }
+    }
+   ]
+  },
+  {
+   "id": "c5",
+   "texto": "E quase todo mundo erra aqui: a viga leva piche, senão a umidade sobe e vira mofo.",
+   "etapa": "IMPERMEABILIZAÇÃO",
+   "custo": 500,
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "baldrame",
+     "cam": "rente",
+     "p": [
+      1,
+      1
+     ]
+    },
+    {
+     "set": "impermeabiliza",
+     "cam": "rolo",
+     "apartir": 6,
+     "p": [
+      0,
+      0.6
+     ],
+     "card": {
+      "rotulo": "Emulsão asfáltica",
+      "valor": "20 litros"
+     }
+    },
+    {
+     "set": "impermeabiliza",
+     "cam": "chuva",
+     "apartir": 10,
+     "p": [
+      0.6,
+      1
+     ],
+     "card": {
+      "rotulo": "Sem isso, a umidade",
+      "valor": "SOBE ↑",
+      "sub": "mofo e salitre na parede",
+      "cor": "#4fb3ff"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c6",
+   "texto": "Paredes: uns dois mil blocos, um por um. Um pedreiro sobe sete metros quadrados por dia.",
+   "etapa": "PAREDES",
+   "custo": 12000,
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "alvenaria",
+     "cam": "geral",
+     "p": [
+      0,
+      0.4
+     ]
+    },
+    {
+     "set": "alvenaria",
+     "cam": "close",
+     "apartir": 1,
+     "p": [
+      0.4,
+      0.7
+     ],
+     "card": {
+      "rotulo": "Blocos 14 × 19 × 29",
+      "num": 2000,
+      "prefixo": "≈ "
+     }
+    },
+    {
+     "set": "alvenaria",
+     "cam": "lateral",
+     "apartir": 8,
+     "p": [
+      0.7,
+      1
+     ],
+     "card": {
+      "rotulo": "1 pedreiro por dia",
+      "valor": "7 m²",
+      "sub": "paredes: ~R$ 12 mil"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c7",
+   "texto": "Pilar nos cantos. Verga em cima da janela, pra parede não rachar.",
+   "etapa": "ESTRUTURA",
+   "custo": 7000,
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "estrutura",
+     "cam": "quina",
+     "p": [
+      0,
+      0.5
+     ]
+    },
+    {
+     "set": "estrutura",
+     "cam": "janela",
+     "apartir": 3,
+     "p": [
+      0.5,
+      1
+     ],
+     "card": {
+      "rotulo": "Pilares, cintas e vergas",
+      "num": 7000,
+      "prefixo": "R$ "
+     }
+    }
+   ]
+  },
+  {
+   "id": "c8",
+   "texto": "Laje treliçada: vigota, isopor e concreto. Fica escorada vinte e um dias.",
+   "etapa": "LAJE",
+   "custo": 10000,
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "laje",
+     "cam": "cima",
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Laje treliçada 50 m²",
+      "num": 10000,
+      "prefixo": "R$ "
+     }
+    },
+    {
+     "set": "lajeEscoras",
+     "cam": "dentro",
+     "apartir": 6,
+     "card": {
+      "rotulo": "Escorada por",
+      "valor": "21 dias"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c9",
+   "texto": "No telhado, madeira e umas mil e duzentas telhas.",
+   "etapa": "TELHADO",
+   "custo": 12000,
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "telhado",
+     "cam": "madeira",
+     "p": [
+      0,
+      0.5
+     ]
+    },
+    {
+     "set": "telhado",
+     "cam": "telhas",
+     "apartir": 3,
+     "p": [
+      0.5,
+      1
+     ],
+     "card": {
+      "rotulo": "Telhas cerâmicas",
+      "num": 1200,
+      "prefixo": "≈ ",
+      "sub": "telhado completo: ~R$ 12 mil"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c10",
+   "texto": "Rasga a parede pra passar fio e cano: uns dezesseis mil.",
+   "etapa": "INSTALAÇÕES",
+   "custo": 16000,
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "instalacoes",
+     "cam": "cima",
+     "p": [
+      0,
+      0.7
+     ]
+    },
+    {
+     "set": "instalacoes",
+     "cam": "banheiro",
+     "apartir": 8,
+     "p": [
+      0.7,
+      1
+     ],
+     "card": {
+      "rotulo": "Elétrica + hidráulica",
+      "num": 16000,
+      "prefixo": "R$ "
+     }
+    }
+   ]
+  },
+  {
+   "id": "c11",
+   "texto": "Chapisco e reboco. E a surpresa: de cada setenta e um reais por metro, cinquenta e nove são mão de obra.",
+   "etapa": "REBOCO",
+   "custo": 23000,
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "reboco",
+     "cam": "fachada",
+     "p": [
+      0,
+      0.5
+     ]
+    },
+    {
+     "set": "reboco",
+     "cam": "rente",
+     "apartir": 3,
+     "p": [
+      0.5,
+      1
+     ],
+     "card": {
+      "rotulo": "Reboco: R$ 71 o m²",
+      "valor": "R$ 59",
+      "sub": "é só mão de obra (~R$ 23 mil)"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c12",
+   "texto": "Piso, portas e janelas: mais dezesseis mil.",
+   "etapa": "PISO E ESQUADRIAS",
+   "custo": 16000,
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "piso",
+     "cam": "cima",
+     "p": [
+      0,
+      1
+     ]
+    },
+    {
+     "set": "piso",
+     "cam": "porta",
+     "apartir": 4,
+     "p": [
+      1,
+      1.0001
+     ],
+     "card": {
+      "rotulo": "Piso + portas + janelas",
+      "num": 16000,
+      "prefixo": "R$ "
+     }
+    }
+   ]
+  },
+  {
+   "id": "c13",
+   "texto": "Tinta, louças, metais e as ligações de água e luz.",
+   "etapa": "PINTURA",
+   "custo": 14500,
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "pintura",
+     "cam": "fachada",
+     "p": [
+      0,
+      0.6
+     ]
+    },
+    {
+     "set": "pintura",
+     "cam": "pintor",
+     "apartir": 3,
+     "p": [
+      0.6,
+      1
+     ],
+     "card": {
+      "rotulo": "Pintura + louças + ligações",
+      "num": 14500,
+      "prefixo": "R$ "
+     }
+    }
+   ]
+  },
+  {
+   "id": "c14",
+   "texto": "Parabéns: você construiu uma casa de verdade. Uns cento e trinta e cinco mil reais, sem o terreno. E o acabamento custou mais que a estrutura inteira.",
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "casaCorte",
+     "cam": "frente"
+    },
+    {
+     "set": "casaAberta",
+     "cam": "cima",
+     "apartir": 7,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Total sem terreno",
+      "num": 135000,
+      "prefixo": "R$ ",
+      "sub": "preços de São Paulo, out/2026"
+     }
+    },
+    {
+     "set": "casaCorte",
+     "cam": "sala",
+     "apartir": 18,
+     "card": {
+      "rotulo": "Acabamento × estrutura",
+      "valor": "53 mil × 45 mil",
+      "cor": "#ffd23f"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c15",
+   "texto": "Quer ver um sobrado? Comenta aí.",
+   "destaques": [
+    "mil",
+    "metros",
+    "dias",
+    "reais",
+    "piche",
+    "mofo",
+    "total",
+    "parabéns"
+   ],
+   "planos": [
+    {
+     "set": "fachada",
+     "cam": "baixa"
+    }
+   ]
+  }
+ ]
+}

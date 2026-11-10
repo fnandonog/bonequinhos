@@ -1,0 +1,1166 @@
+{
+  "id": "casa-50m2",
+  "estimado": true,
+  "cenas": [
+    {
+      "id": "c1",
+      "duracao": 6.184000000000001,
+      "palavras": [
+        {
+          "palavra": "Quanto",
+          "inicio": 0.1,
+          "fim": 0.42800000000000005
+        },
+        {
+          "palavra": "custa",
+          "inicio": 0.4600000000000001,
+          "fim": 0.7880000000000001
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.8200000000000002,
+          "fim": 0.9720000000000002
+        },
+        {
+          "palavra": "verdade",
+          "inicio": 1.0040000000000002,
+          "fim": 1.4200000000000004
+        },
+        {
+          "palavra": "uma",
+          "inicio": 1.4520000000000004,
+          "fim": 1.6480000000000004
+        },
+        {
+          "palavra": "casa",
+          "inicio": 1.6800000000000004,
+          "fim": 1.9200000000000004
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.9520000000000004,
+          "fim": 2.1040000000000005
+        },
+        {
+          "palavra": "cinquenta",
+          "inicio": 2.1360000000000006,
+          "fim": 2.5960000000000005
+        },
+        {
+          "palavra": "metros",
+          "inicio": 2.6280000000000006,
+          "fim": 2.9560000000000004
+        },
+        {
+          "palavra": "do",
+          "inicio": 2.9880000000000004,
+          "fim": 3.1400000000000006
+        },
+        {
+          "palavra": "zero",
+          "inicio": 3.1720000000000006,
+          "fim": 3.4560000000000004
+        },
+        {
+          "palavra": "Esquece",
+          "inicio": 3.4880000000000004,
+          "fim": 3.8600000000000003
+        },
+        {
+          "palavra": "os",
+          "inicio": 3.8920000000000003,
+          "fim": 4.0440000000000005
+        },
+        {
+          "palavra": "sessenta",
+          "inicio": 4.0760000000000005,
+          "fim": 4.492000000000001
+        },
+        {
+          "palavra": "mil",
+          "inicio": 4.524000000000001,
+          "fim": 4.764000000000001
+        },
+        {
+          "palavra": "Bora",
+          "inicio": 4.796000000000001,
+          "fim": 5.036000000000001
+        },
+        {
+          "palavra": "fazer",
+          "inicio": 5.068000000000001,
+          "fim": 5.352000000000001
+        },
+        {
+          "palavra": "a",
+          "inicio": 5.384000000000001,
+          "fim": 5.492000000000001
+        },
+        {
+          "palavra": "conta",
+          "inicio": 5.524000000000001,
+          "fim": 5.852000000000001
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "duracao": 4.252000000000001,
+      "palavras": [
+        {
+          "palavra": "Antes",
+          "inicio": 0.1,
+          "fim": 0.384
+        },
+        {
+          "palavra": "da",
+          "inicio": 0.41600000000000004,
+          "fim": 0.5680000000000001
+        },
+        {
+          "palavra": "primeira",
+          "inicio": 0.6000000000000001,
+          "fim": 1.016
+        },
+        {
+          "palavra": "pá",
+          "inicio": 1.048,
+          "fim": 1.244
+        },
+        {
+          "palavra": "projeto",
+          "inicio": 1.276,
+          "fim": 1.6920000000000002
+        },
+        {
+          "palavra": "ART",
+          "inicio": 1.7240000000000002,
+          "fim": 1.9200000000000002
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.9520000000000002,
+          "fim": 2.06
+        },
+        {
+          "palavra": "alvará",
+          "inicio": 2.092,
+          "fim": 2.464
+        },
+        {
+          "palavra": "Uns",
+          "inicio": 2.496,
+          "fim": 2.692
+        },
+        {
+          "palavra": "oito",
+          "inicio": 2.724,
+          "fim": 2.9640000000000004
+        },
+        {
+          "palavra": "mil",
+          "inicio": 2.9960000000000004,
+          "fim": 3.1920000000000006
+        },
+        {
+          "palavra": "só",
+          "inicio": 3.2240000000000006,
+          "fim": 3.376000000000001
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.408000000000001,
+          "fim": 3.560000000000001
+        },
+        {
+          "palavra": "papel",
+          "inicio": 3.592000000000001,
+          "fim": 3.920000000000001
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "duracao": 3.848,
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 0.1,
+          "fim": 0.20800000000000002
+        },
+        {
+          "palavra": "gabarito",
+          "inicio": 0.24000000000000002,
+          "fim": 0.656
+        },
+        {
+          "palavra": "marca",
+          "inicio": 0.6880000000000001,
+          "fim": 0.9720000000000001
+        },
+        {
+          "palavra": "a",
+          "inicio": 1.004,
+          "fim": 1.112
+        },
+        {
+          "palavra": "casa",
+          "inicio": 1.1440000000000001,
+          "fim": 1.3840000000000001
+        },
+        {
+          "palavra": "no",
+          "inicio": 1.4160000000000001,
+          "fim": 1.568
+        },
+        {
+          "palavra": "chão",
+          "inicio": 1.6,
+          "fim": 1.8840000000000001
+        },
+        {
+          "palavra": "Errou",
+          "inicio": 1.9160000000000001,
+          "fim": 2.2
+        },
+        {
+          "palavra": "aqui",
+          "inicio": 2.232,
+          "fim": 2.516
+        },
+        {
+          "palavra": "a",
+          "inicio": 2.548,
+          "fim": 2.656
+        },
+        {
+          "palavra": "casa",
+          "inicio": 2.688,
+          "fim": 2.928
+        },
+        {
+          "palavra": "sai",
+          "inicio": 2.96,
+          "fim": 3.156
+        },
+        {
+          "palavra": "torta",
+          "inicio": 3.188,
+          "fim": 3.516
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "duracao": 6.412,
+      "palavras": [
+        {
+          "palavra": "Aí",
+          "inicio": 0.1,
+          "fim": 0.252
+        },
+        {
+          "palavra": "você",
+          "inicio": 0.28400000000000003,
+          "fim": 0.524
+        },
+        {
+          "palavra": "cava",
+          "inicio": 0.556,
+          "fim": 0.8400000000000001
+        },
+        {
+          "palavra": "um",
+          "inicio": 0.8720000000000001,
+          "fim": 1.024
+        },
+        {
+          "palavra": "metro",
+          "inicio": 1.056,
+          "fim": 1.34
+        },
+        {
+          "palavra": "pra",
+          "inicio": 1.372,
+          "fim": 1.568
+        },
+        {
+          "palavra": "cada",
+          "inicio": 1.6,
+          "fim": 1.84
+        },
+        {
+          "palavra": "sapata",
+          "inicio": 1.872,
+          "fim": 2.244
+        },
+        {
+          "palavra": "Ferragem",
+          "inicio": 2.2760000000000002,
+          "fim": 2.692
+        },
+        {
+          "palavra": "dentro",
+          "inicio": 2.724,
+          "fim": 3.096
+        },
+        {
+          "palavra": "concreto",
+          "inicio": 3.128,
+          "fim": 3.544
+        },
+        {
+          "palavra": "por",
+          "inicio": 3.576,
+          "fim": 3.7720000000000002
+        },
+        {
+          "palavra": "cima",
+          "inicio": 3.8040000000000003,
+          "fim": 4.088
+        },
+        {
+          "palavra": "Com",
+          "inicio": 4.12,
+          "fim": 4.316
+        },
+        {
+          "palavra": "a",
+          "inicio": 4.348,
+          "fim": 4.4559999999999995
+        },
+        {
+          "palavra": "viga",
+          "inicio": 4.4879999999999995,
+          "fim": 4.728
+        },
+        {
+          "palavra": "baldrame",
+          "inicio": 4.76,
+          "fim": 5.22
+        },
+        {
+          "palavra": "uns",
+          "inicio": 5.252,
+          "fim": 5.4479999999999995
+        },
+        {
+          "palavra": "quinze",
+          "inicio": 5.4799999999999995,
+          "fim": 5.808
+        },
+        {
+          "palavra": "mil",
+          "inicio": 5.84,
+          "fim": 6.08
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "duracao": 4.936,
+      "palavras": [
+        {
+          "palavra": "E",
+          "inicio": 0.1,
+          "fim": 0.20800000000000002
+        },
+        {
+          "palavra": "quase",
+          "inicio": 0.24000000000000002,
+          "fim": 0.524
+        },
+        {
+          "palavra": "todo",
+          "inicio": 0.556,
+          "fim": 0.796
+        },
+        {
+          "palavra": "mundo",
+          "inicio": 0.8280000000000001,
+          "fim": 1.112
+        },
+        {
+          "palavra": "erra",
+          "inicio": 1.1440000000000001,
+          "fim": 1.3840000000000001
+        },
+        {
+          "palavra": "aqui",
+          "inicio": 1.4160000000000001,
+          "fim": 1.7000000000000002
+        },
+        {
+          "palavra": "a",
+          "inicio": 1.7320000000000002,
+          "fim": 1.8400000000000003
+        },
+        {
+          "palavra": "viga",
+          "inicio": 1.8720000000000003,
+          "fim": 2.112
+        },
+        {
+          "palavra": "leva",
+          "inicio": 2.144,
+          "fim": 2.3840000000000003
+        },
+        {
+          "palavra": "piche",
+          "inicio": 2.4160000000000004,
+          "fim": 2.7440000000000007
+        },
+        {
+          "palavra": "senão",
+          "inicio": 2.7760000000000007,
+          "fim": 3.0600000000000005
+        },
+        {
+          "palavra": "a",
+          "inicio": 3.0920000000000005,
+          "fim": 3.2000000000000006
+        },
+        {
+          "palavra": "umidade",
+          "inicio": 3.2320000000000007,
+          "fim": 3.6040000000000005
+        },
+        {
+          "palavra": "sobe",
+          "inicio": 3.6360000000000006,
+          "fim": 3.8760000000000003
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.9080000000000004,
+          "fim": 4.016
+        },
+        {
+          "palavra": "vira",
+          "inicio": 4.048,
+          "fim": 4.288
+        },
+        {
+          "palavra": "mofo",
+          "inicio": 4.32,
+          "fim": 4.604
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "duracao": 5.148000000000001,
+      "palavras": [
+        {
+          "palavra": "Paredes",
+          "inicio": 0.1,
+          "fim": 0.516
+        },
+        {
+          "palavra": "uns",
+          "inicio": 0.548,
+          "fim": 0.744
+        },
+        {
+          "palavra": "dois",
+          "inicio": 0.776,
+          "fim": 1.016
+        },
+        {
+          "palavra": "mil",
+          "inicio": 1.048,
+          "fim": 1.244
+        },
+        {
+          "palavra": "blocos",
+          "inicio": 1.276,
+          "fim": 1.6480000000000001
+        },
+        {
+          "palavra": "um",
+          "inicio": 1.6800000000000002,
+          "fim": 1.8320000000000003
+        },
+        {
+          "palavra": "por",
+          "inicio": 1.864,
+          "fim": 2.06
+        },
+        {
+          "palavra": "um",
+          "inicio": 2.092,
+          "fim": 2.2880000000000003
+        },
+        {
+          "palavra": "Um",
+          "inicio": 2.3200000000000003,
+          "fim": 2.4720000000000004
+        },
+        {
+          "palavra": "pedreiro",
+          "inicio": 2.5040000000000004,
+          "fim": 2.9200000000000004
+        },
+        {
+          "palavra": "sobe",
+          "inicio": 2.9520000000000004,
+          "fim": 3.192
+        },
+        {
+          "palavra": "sete",
+          "inicio": 3.224,
+          "fim": 3.4640000000000004
+        },
+        {
+          "palavra": "metros",
+          "inicio": 3.4960000000000004,
+          "fim": 3.8240000000000007
+        },
+        {
+          "palavra": "quadrados",
+          "inicio": 3.8560000000000008,
+          "fim": 4.316000000000001
+        },
+        {
+          "palavra": "por",
+          "inicio": 4.348000000000001,
+          "fim": 4.5440000000000005
+        },
+        {
+          "palavra": "dia",
+          "inicio": 4.5760000000000005,
+          "fim": 4.816000000000001
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "duracao": 3.9280000000000004,
+      "palavras": [
+        {
+          "palavra": "Pilar",
+          "inicio": 0.1,
+          "fim": 0.384
+        },
+        {
+          "palavra": "nos",
+          "inicio": 0.41600000000000004,
+          "fim": 0.6120000000000001
+        },
+        {
+          "palavra": "cantos",
+          "inicio": 0.644,
+          "fim": 1.016
+        },
+        {
+          "palavra": "Verga",
+          "inicio": 1.048,
+          "fim": 1.332
+        },
+        {
+          "palavra": "em",
+          "inicio": 1.364,
+          "fim": 1.516
+        },
+        {
+          "palavra": "cima",
+          "inicio": 1.548,
+          "fim": 1.788
+        },
+        {
+          "palavra": "da",
+          "inicio": 1.82,
+          "fim": 1.972
+        },
+        {
+          "palavra": "janela",
+          "inicio": 2.004,
+          "fim": 2.376
+        },
+        {
+          "palavra": "pra",
+          "inicio": 2.408,
+          "fim": 2.604
+        },
+        {
+          "palavra": "parede",
+          "inicio": 2.636,
+          "fim": 2.9640000000000004
+        },
+        {
+          "palavra": "não",
+          "inicio": 2.9960000000000004,
+          "fim": 3.1920000000000006
+        },
+        {
+          "palavra": "rachar",
+          "inicio": 3.2240000000000006,
+          "fim": 3.5960000000000005
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "duracao": 4.280000000000001,
+      "palavras": [
+        {
+          "palavra": "Laje",
+          "inicio": 0.1,
+          "fim": 0.33999999999999997
+        },
+        {
+          "palavra": "treliçada",
+          "inicio": 0.372,
+          "fim": 0.876
+        },
+        {
+          "palavra": "vigota",
+          "inicio": 0.908,
+          "fim": 1.28
+        },
+        {
+          "palavra": "isopor",
+          "inicio": 1.312,
+          "fim": 1.6400000000000001
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.6720000000000002,
+          "fim": 1.7800000000000002
+        },
+        {
+          "palavra": "concreto",
+          "inicio": 1.8120000000000003,
+          "fim": 2.2720000000000002
+        },
+        {
+          "palavra": "Fica",
+          "inicio": 2.3040000000000003,
+          "fim": 2.5440000000000005
+        },
+        {
+          "palavra": "escorada",
+          "inicio": 2.5760000000000005,
+          "fim": 2.9920000000000004
+        },
+        {
+          "palavra": "vinte",
+          "inicio": 3.0240000000000005,
+          "fim": 3.3080000000000007
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.3400000000000007,
+          "fim": 3.448000000000001
+        },
+        {
+          "palavra": "um",
+          "inicio": 3.480000000000001,
+          "fim": 3.632000000000001
+        },
+        {
+          "palavra": "dias",
+          "inicio": 3.664000000000001,
+          "fim": 3.9480000000000013
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "duracao": 3.068,
+      "palavras": [
+        {
+          "palavra": "No",
+          "inicio": 0.1,
+          "fim": 0.252
+        },
+        {
+          "palavra": "telhado",
+          "inicio": 0.28400000000000003,
+          "fim": 0.7000000000000001
+        },
+        {
+          "palavra": "madeira",
+          "inicio": 0.7320000000000001,
+          "fim": 1.104
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.1360000000000001,
+          "fim": 1.2440000000000002
+        },
+        {
+          "palavra": "umas",
+          "inicio": 1.2760000000000002,
+          "fim": 1.5160000000000002
+        },
+        {
+          "palavra": "mil",
+          "inicio": 1.5480000000000003,
+          "fim": 1.7440000000000002
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.7760000000000002,
+          "fim": 1.8840000000000003
+        },
+        {
+          "palavra": "duzentas",
+          "inicio": 1.9160000000000004,
+          "fim": 2.3320000000000003
+        },
+        {
+          "palavra": "telhas",
+          "inicio": 2.3640000000000003,
+          "fim": 2.736
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "duracao": 3.4800000000000004,
+      "palavras": [
+        {
+          "palavra": "Rasga",
+          "inicio": 0.1,
+          "fim": 0.384
+        },
+        {
+          "palavra": "a",
+          "inicio": 0.41600000000000004,
+          "fim": 0.524
+        },
+        {
+          "palavra": "parede",
+          "inicio": 0.556,
+          "fim": 0.8840000000000001
+        },
+        {
+          "palavra": "pra",
+          "inicio": 0.9160000000000001,
+          "fim": 1.112
+        },
+        {
+          "palavra": "passar",
+          "inicio": 1.1440000000000001,
+          "fim": 1.4720000000000002
+        },
+        {
+          "palavra": "fio",
+          "inicio": 1.5040000000000002,
+          "fim": 1.7000000000000002
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.7320000000000002,
+          "fim": 1.8400000000000003
+        },
+        {
+          "palavra": "cano",
+          "inicio": 1.8720000000000003,
+          "fim": 2.1560000000000006
+        },
+        {
+          "palavra": "uns",
+          "inicio": 2.1880000000000006,
+          "fim": 2.384000000000001
+        },
+        {
+          "palavra": "dezesseis",
+          "inicio": 2.416000000000001,
+          "fim": 2.876000000000001
+        },
+        {
+          "palavra": "mil",
+          "inicio": 2.908000000000001,
+          "fim": 3.1480000000000006
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "duracao": 6.112,
+      "palavras": [
+        {
+          "palavra": "Chapisco",
+          "inicio": 0.1,
+          "fim": 0.516
+        },
+        {
+          "palavra": "e",
+          "inicio": 0.548,
+          "fim": 0.656
+        },
+        {
+          "palavra": "reboco",
+          "inicio": 0.6880000000000001,
+          "fim": 1.06
+        },
+        {
+          "palavra": "E",
+          "inicio": 1.092,
+          "fim": 1.2000000000000002
+        },
+        {
+          "palavra": "a",
+          "inicio": 1.2320000000000002,
+          "fim": 1.3400000000000003
+        },
+        {
+          "palavra": "surpresa",
+          "inicio": 1.3720000000000003,
+          "fim": 1.8320000000000003
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.8640000000000003,
+          "fim": 2.0160000000000005
+        },
+        {
+          "palavra": "cada",
+          "inicio": 2.0480000000000005,
+          "fim": 2.2880000000000003
+        },
+        {
+          "palavra": "setenta",
+          "inicio": 2.3200000000000003,
+          "fim": 2.692
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.724,
+          "fim": 2.8320000000000003
+        },
+        {
+          "palavra": "um",
+          "inicio": 2.8640000000000003,
+          "fim": 3.0160000000000005
+        },
+        {
+          "palavra": "reais",
+          "inicio": 3.0480000000000005,
+          "fim": 3.3320000000000007
+        },
+        {
+          "palavra": "por",
+          "inicio": 3.3640000000000008,
+          "fim": 3.560000000000001
+        },
+        {
+          "palavra": "metro",
+          "inicio": 3.592000000000001,
+          "fim": 3.920000000000001
+        },
+        {
+          "palavra": "cinquenta",
+          "inicio": 3.952000000000001,
+          "fim": 4.412000000000001
+        },
+        {
+          "palavra": "e",
+          "inicio": 4.444000000000001,
+          "fim": 4.5520000000000005
+        },
+        {
+          "palavra": "nove",
+          "inicio": 4.5840000000000005,
+          "fim": 4.824000000000001
+        },
+        {
+          "palavra": "são",
+          "inicio": 4.856000000000001,
+          "fim": 5.0520000000000005
+        },
+        {
+          "palavra": "mão",
+          "inicio": 5.0840000000000005,
+          "fim": 5.28
+        },
+        {
+          "palavra": "de",
+          "inicio": 5.312,
+          "fim": 5.464
+        },
+        {
+          "palavra": "obra",
+          "inicio": 5.496,
+          "fim": 5.78
+        }
+      ]
+    },
+    {
+      "id": "c12",
+      "duracao": 2.7,
+      "palavras": [
+        {
+          "palavra": "Piso",
+          "inicio": 0.1,
+          "fim": 0.384
+        },
+        {
+          "palavra": "portas",
+          "inicio": 0.41600000000000004,
+          "fim": 0.7440000000000001
+        },
+        {
+          "palavra": "e",
+          "inicio": 0.7760000000000001,
+          "fim": 0.8840000000000001
+        },
+        {
+          "palavra": "janelas",
+          "inicio": 0.9160000000000001,
+          "fim": 1.3320000000000003
+        },
+        {
+          "palavra": "mais",
+          "inicio": 1.3640000000000003,
+          "fim": 1.6040000000000003
+        },
+        {
+          "palavra": "dezesseis",
+          "inicio": 1.6360000000000003,
+          "fim": 2.096
+        },
+        {
+          "palavra": "mil",
+          "inicio": 2.128,
+          "fim": 2.3680000000000003
+        }
+      ]
+    },
+    {
+      "id": "c13",
+      "duracao": 3.1640000000000006,
+      "palavras": [
+        {
+          "palavra": "Tinta",
+          "inicio": 0.1,
+          "fim": 0.42800000000000005
+        },
+        {
+          "palavra": "louças",
+          "inicio": 0.4600000000000001,
+          "fim": 0.8320000000000001
+        },
+        {
+          "palavra": "metais",
+          "inicio": 0.8640000000000001,
+          "fim": 1.1920000000000002
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.2240000000000002,
+          "fim": 1.3320000000000003
+        },
+        {
+          "palavra": "as",
+          "inicio": 1.3640000000000003,
+          "fim": 1.5160000000000005
+        },
+        {
+          "palavra": "ligações",
+          "inicio": 1.5480000000000003,
+          "fim": 1.9640000000000004
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.9960000000000004,
+          "fim": 2.1480000000000006
+        },
+        {
+          "palavra": "água",
+          "inicio": 2.1800000000000006,
+          "fim": 2.420000000000001
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.452000000000001,
+          "fim": 2.560000000000001
+        },
+        {
+          "palavra": "luz",
+          "inicio": 2.592000000000001,
+          "fim": 2.8320000000000007
+        }
+      ]
+    },
+    {
+      "id": "c14",
+      "duracao": 8.448,
+      "palavras": [
+        {
+          "palavra": "Parabéns",
+          "inicio": 0.1,
+          "fim": 0.5599999999999999
+        },
+        {
+          "palavra": "você",
+          "inicio": 0.592,
+          "fim": 0.832
+        },
+        {
+          "palavra": "construiu",
+          "inicio": 0.864,
+          "fim": 1.3239999999999998
+        },
+        {
+          "palavra": "uma",
+          "inicio": 1.3559999999999999,
+          "fim": 1.5519999999999998
+        },
+        {
+          "palavra": "casa",
+          "inicio": 1.5839999999999999,
+          "fim": 1.8239999999999998
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.8559999999999999,
+          "fim": 2.008
+        },
+        {
+          "palavra": "verdade",
+          "inicio": 2.04,
+          "fim": 2.456
+        },
+        {
+          "palavra": "Uns",
+          "inicio": 2.488,
+          "fim": 2.684
+        },
+        {
+          "palavra": "cento",
+          "inicio": 2.716,
+          "fim": 3.0
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.032,
+          "fim": 3.14
+        },
+        {
+          "palavra": "trinta",
+          "inicio": 3.172,
+          "fim": 3.5
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.532,
+          "fim": 3.64
+        },
+        {
+          "palavra": "cinco",
+          "inicio": 3.672,
+          "fim": 3.9560000000000004
+        },
+        {
+          "palavra": "mil",
+          "inicio": 3.9880000000000004,
+          "fim": 4.184
+        },
+        {
+          "palavra": "reais",
+          "inicio": 4.216,
+          "fim": 4.5440000000000005
+        },
+        {
+          "palavra": "sem",
+          "inicio": 4.5760000000000005,
+          "fim": 4.772
+        },
+        {
+          "palavra": "o",
+          "inicio": 4.804,
+          "fim": 4.912
+        },
+        {
+          "palavra": "terreno",
+          "inicio": 4.944,
+          "fim": 5.36
+        },
+        {
+          "palavra": "E",
+          "inicio": 5.392,
+          "fim": 5.5
+        },
+        {
+          "palavra": "o",
+          "inicio": 5.532,
+          "fim": 5.64
+        },
+        {
+          "palavra": "acabamento",
+          "inicio": 5.672,
+          "fim": 6.176
+        },
+        {
+          "palavra": "custou",
+          "inicio": 6.208,
+          "fim": 6.5360000000000005
+        },
+        {
+          "palavra": "mais",
+          "inicio": 6.5680000000000005,
+          "fim": 6.808000000000001
+        },
+        {
+          "palavra": "que",
+          "inicio": 6.840000000000001,
+          "fim": 7.0360000000000005
+        },
+        {
+          "palavra": "a",
+          "inicio": 7.0680000000000005,
+          "fim": 7.176
+        },
+        {
+          "palavra": "estrutura",
+          "inicio": 7.208,
+          "fim": 7.668
+        },
+        {
+          "palavra": "inteira",
+          "inicio": 7.7,
+          "fim": 8.116
+        }
+      ]
+    },
+    {
+      "id": "c15",
+      "duracao": 2.164,
+      "palavras": [
+        {
+          "palavra": "Quer",
+          "inicio": 0.1,
+          "fim": 0.33999999999999997
+        },
+        {
+          "palavra": "ver",
+          "inicio": 0.372,
+          "fim": 0.5680000000000001
+        },
+        {
+          "palavra": "um",
+          "inicio": 0.6,
+          "fim": 0.752
+        },
+        {
+          "palavra": "sobrado",
+          "inicio": 0.784,
+          "fim": 1.2000000000000002
+        },
+        {
+          "palavra": "Comenta",
+          "inicio": 1.2320000000000002,
+          "fim": 1.6040000000000003
+        },
+        {
+          "palavra": "aí",
+          "inicio": 1.6360000000000001,
+          "fim": 1.832
+        }
+      ]
+    }
+  ]
+}
