@@ -52,7 +52,7 @@ const Camera: React.FC<{takes: Take[]}> = ({takes}) => {
   const alvo = mix(ant.alvo, atual.alvo, k);
   // empurrão contínuo de câmera (dolly-in) dentro de cada take
   const durTake = prox ? prox.de - atual.de : 90;
-  const push = Math.min(1, dt / Math.max(1, durTake)) * 0.12;
+  const push = Math.min(1, dt / Math.max(1, durTake)) * 0.05;
   p = mix(p, alvo, push);
   // pequena órbita
   const ang = Math.sin(f / 60) * 0.06 + dt * 0.0015;
@@ -61,7 +61,7 @@ const Camera: React.FC<{takes: Take[]}> = ({takes}) => {
   camera.position.set(alvo[0] + dx * Math.cos(ang) - dz * Math.sin(ang), p[1], alvo[2] + dx * Math.sin(ang) + dz * Math.cos(ang));
   camera.lookAt(alvo[0], alvo[1], alvo[2]);
   // sobe o assunto na tela para sobrar espaço para a ficha técnica e a legenda
-  (camera as unknown as {setViewOffset: (...a: number[]) => void}).setViewOffset(1080, 1920, 0, 190, 1080, 1920);
+  (camera as unknown as {setViewOffset: (...a: number[]) => void}).setViewOffset(1080, 1920, 0, 70, 1080, 1920);
   camera.updateProjectionMatrix();
   return null;
 };
@@ -136,7 +136,7 @@ const Hud: React.FC<{linhas: Linha[]; orcamento: number}> = ({linhas, orcamento}
         </div>
       )}
       {cena.c.zona && (
-        <div style={{position: 'absolute', top: 410, width: '100%', textAlign: 'center', transform: `scale(${popZona})`, opacity: interpolate(f - cena.de, [40, 52], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}), fontFamily: FONTE, fontWeight: 800, fontSize: 120, color: '#fff', WebkitTextStroke: `14px ${LINHA}`, paintOrder: 'stroke fill', textShadow: '0 10px 0 rgba(0,0,0,0.25)'}}>
+        <div style={{position: 'absolute', top: 410, width: '100%', textAlign: 'center', transform: `scale(${popZona})`, opacity: interpolate(f - cena.de, [40, 52], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}), fontFamily: FONTE, fontWeight: 800, fontSize: 76, color: '#fff', WebkitTextStroke: `10px ${LINHA}`, paintOrder: 'stroke fill', textShadow: '0 10px 0 rgba(0,0,0,0.25)'}}>
           {cena.c.zona}
         </div>
       )}
@@ -155,13 +155,13 @@ const alturaParede = (linhas: Linha[], f: number) => {
 
 const Ficha: React.FC<{itens: [string, number | string][]; dur: number; item?: {nome: string; preco: number}}> = ({itens, dur, item}) => {
   const f = useCurrentFrame();
-  const fs = itens.length > 6 ? 31 : 40;
+  const fs = itens.length > 6 ? 23 : 29;
   const passo = Math.max(5, Math.floor((dur * 0.8) / Math.max(1, itens.length)));
   const entra = spring({frame: f, fps: FPS, config: {damping: 13}});
   const sai = interpolate(f, [dur - 6, dur], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
-    <div style={{position: 'absolute', left: 40, right: 40, top: 1090, display: 'flex', justifyContent: 'center', opacity: sai}}>
-      <div style={{transform: `translateY(${(1 - entra) * 120}px) scale(${0.9 + entra * 0.1})`, background: 'rgba(255,255,255,0.96)', border: `6px solid ${LINHA}`, borderRadius: 30, padding: '14px 30px 10px', width: 900, boxShadow: '0 12px 0 rgba(0,0,0,0.22)', fontFamily: FONTE, fontWeight: 800, color: LINHA}}>
+    <div style={{position: 'absolute', left: 40, right: 40, bottom: 345, display: 'flex', justifyContent: 'center', opacity: sai}}>
+      <div style={{opacity: Math.min(1, entra), transform: `scale(${0.94 + Math.min(1, entra) * 0.06})`, background: 'rgba(255,255,255,0.96)', border: `6px solid ${LINHA}`, borderRadius: 24, padding: '8px 24px 6px', width: 820, boxShadow: '0 12px 0 rgba(0,0,0,0.22)', fontFamily: FONTE, fontWeight: 800, color: LINHA}}>
         {itens.map(([t, v], i) => {
           const d = f - i * passo;
           if (d < 0) return null;
@@ -174,12 +174,12 @@ const Ficha: React.FC<{itens: [string, number | string][]; dur: number; item?: {
           );
         })}
         {item && f >= itens.length * passo && (
-          <div style={{display: 'flex', justifyContent: 'space-between', fontSize: 46, marginTop: 4}}>
+          <div style={{display: 'flex', justifyContent: 'space-between', fontSize: fs + 4, marginTop: 2}}>
             <span>TOTAL</span>
             <span style={{color: '#e8222b'}}>{brl(item.preco)}</span>
           </div>
         )}
-        <div style={{fontSize: 22, color: '#8a8394', textAlign: 'right'}}>valores aproximados de 2026</div>
+        <div style={{fontSize: 17, color: '#8a8394', textAlign: 'right'}}>valores aproximados de 2026</div>
       </div>
     </div>
   );
@@ -197,9 +197,10 @@ const Paredes: React.FC<{linhas: Linha[]; children: React.ReactNode}> = ({linhas
 
 const Titulo: React.FC<{titulo: string; serie?: string}> = ({titulo, serie}) => {
   const f = useCurrentFrame();
-  const a = spring({frame: f, fps: FPS, config: {damping: 10}});
+  const a = spring({frame: f, fps: FPS, config: {damping: 10}}) * interpolate(f, [62, 72], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  if (a <= 0.01) return null;
   return (
-    <div style={{position: 'absolute', top: 330, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', transform: `scale(${a})`}}>
+    <div style={{position: 'absolute', top: 300, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', transform: `scale(${a * 0.8})`}}>
       {serie && <div style={{background: LINHA, color: '#ffd23f', fontFamily: FONTE, fontWeight: 800, fontSize: 50, padding: '2px 30px', borderRadius: 20, marginBottom: 14}}>{serie}</div>}
       <div style={{maxWidth: 940, textAlign: 'center', background: '#ffd23f', border: `10px solid ${LINHA}`, borderRadius: 36, padding: '6px 36px', fontFamily: FONTE, fontWeight: 800, fontSize: 84, lineHeight: 1.05, color: LINHA, boxShadow: '0 14px 0 rgba(0,0,0,0.25)'}}>{titulo}</div>
     </div>

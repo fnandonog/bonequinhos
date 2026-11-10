@@ -17,6 +17,24 @@ def S(alvo, az, dist, h):
 
 
 C = [0, 0.4, 0]
+
+
+def aberto(t, perto=9.0):
+    """Abre o enquadramento: a obra inteira sempre visível (nada de close extremo).
+    O foco só puxa o alvo metade do caminho; distância mínima `perto`, elevação entre 22 e 55 graus."""
+    alvo, pos = t["alvo"], t["pos"]
+    foco = [alvo[0] * 0.5, 0.8, alvo[2] * 0.5]
+    dx, dy, dz = pos[0] - alvo[0], pos[1] - alvo[1], pos[2] - alvo[2]
+    plano = math.hypot(dx, dz)
+    az = math.atan2(dx, dz)
+    if dy > 3 * max(plano, 0.1):  # vista de cima
+        R, el = max(19.0, math.hypot(plano, dy)), math.radians(78)
+    else:
+        el = min(max(math.atan2(dy, plano), math.radians(28)), math.radians(58))
+        R = min(max(math.hypot(plano, dy), perto), 22.0)
+    d, h = R * math.cos(el), R * math.sin(el)
+    return {"pos": [round(foco[0] + d * math.sin(az), 2), round(foco[1] + h, 2), round(foco[2] + d * math.cos(az), 2)],
+            "alvo": [round(v, 2) for v in foco]}
 ZE_FORA = [3.4, 1.1, 4.6]
 
 # por cena: lista de (palavra, tomada, corte?)
@@ -97,7 +115,8 @@ rot["id"] = "kitnet-v2"
 rot["cenas"] = []
 for c, tm in zip(base["cenas"], tim["cenas"]):
     assert c["id"] == tm["id"]
-    lst = TOMADAS[c["id"]]
+    perto = 13.0 if c["id"] in CUTAWAY else 15.5
+    lst = [(p, aberto(t, perto), cut) for p, t, cut in TOMADAS[c["id"]]]
     nova = {"id": c["id"], "texto": c["texto"]}
     for k in ("zona", "item"):
         if k in c:
