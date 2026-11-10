@@ -4,7 +4,8 @@
 set -e
 cd "$(dirname "$0")/.."
 git pull -q origin main
-if [ ! -f .env ]; then
+if [ ! -f .env ] || ! grep -q "ELEVENLABS_API_KEY=sk_" .env; then
+  echo "A chave precisa começar com sk_ (é a chave mostrada quando você cria uma nova, não o ID)."
   read -s -p "Cole sua chave do ElevenLabs e aperte Enter (ela não aparece na tela): " K; echo
   echo "ELEVENLABS_API_KEY=$K" > .env; unset K
 fi
