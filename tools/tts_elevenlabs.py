@@ -5,7 +5,7 @@ Configuração no roteiro: "elevenlabs": {"voz_id": "...", "modelo": "eleven_mul
 A chave vem de ELEVENLABS_API_KEY (ou é injetada pelo proxy como cabeçalho xi-api-key).
 Saída: public/audio/<id>/<cena>.mp3 e public/audio/<id>/timings.json
 """
-import base64, json, os, subprocess, sys, urllib.request
+import base64, json, os, subprocess, sys, urllib.error, urllib.request
 
 API = "https://api.elevenlabs.io/v1"
 
@@ -17,8 +17,26 @@ def chamar(caminho, corpo=None):
     if chave:
         req.add_header("xi-api-key", chave)
     dados = json.dumps(corpo).encode() if corpo else None
-    with urllib.request.urlopen(req, dados, timeout=180) as r:
-        return json.load(r)
+    try:
+        with urllib.request.urlopen(req, dados, timeout=180) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        corpo_erro = e.read().decode("utf-8", "replace")[:600]
+        raise RuntimeError(f"ElevenLabs respondeu {e.code}: {corpo_erro}") from None
+
+
+def vozes():
+    return chamar("/voices")["voices"]
+
+
+def gerar(voz, corpo):
+    try:
+        return chamar(f"/text-to-speech/{voz}/with-timestamps?output_format=mp3_44100_128", corpo)
+    except RuntimeError as e:
+        print("Aviso:", e)
+        simples = {"text": corpo["text"], "model_id": corpo["model_id"]}
+        print("Tentando de novo com parâmetros básicos...")
+        return chamar(f"/text-to-speech/{voz}/with-timestamps", simples)
 
 
 def palavras_do_alinhamento(al):
@@ -49,7 +67,14 @@ def duracao(mp3):
 def main(caminho):
     rot = json.load(open(caminho, encoding="utf-8"))
     cfg = rot.get("elevenlabs", {})
-    voz = cfg.get("voz_id") or sys.exit("Defina elevenlabs.voz_id no roteiro (veja tools/vozes_elevenlabs.py)")
+    voz = cfg.get("voz_id")
+    disponiveis = vozes()
+    ids = {v["voice_id"]: v["name"] for v in disponiveis}
+    if voz not in ids:
+        preferidas = [v for v in disponiveis if "brian" in v["name"].lower()] or disponiveis
+        print(f"Voz {voz} não está na sua conta; usando {preferidas[0]['name']}")
+        voz = preferidas[0]["voice_id"]
+    print("Voz:", ids.get(voz, voz))
     modelo = cfg.get("modelo", "eleven_multilingual_v2")
     ajustes = cfg.get("ajustes", {"stability": 0.4, "similarity_boost": 0.8, "style": 0.35, "use_speaker_boost": True, "speed": 1.08})
     pasta = os.path.join("public", "audio", rot["id"])
@@ -65,7 +90,7 @@ def main(caminho):
             corpo["previous_text"] = textos[i - 1]
         if i < len(textos) - 1:
             corpo["next_text"] = textos[i + 1]
-        r = chamar(f"/text-to-speech/{voz}/with-timestamps?output_format=mp3_44100_128", corpo)
+        r = gerar(voz, corpo)
         mp3 = os.path.join(pasta, c["id"] + ".mp3")
         open(mp3, "wb").write(base64.b64decode(r["audio_base64"]))
         palavras = palavras_do_alinhamento(r["alignment"])
