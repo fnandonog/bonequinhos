@@ -17,7 +17,8 @@ function ligar() {
       if (!it || ['publicado', 'publicando'].includes(it.status)) return;
       if (data.approval === 'aprovado' && !['aprovado'].includes(it.status)) {
         const p = d.perfil(it.perfil);
-        const quando = d.env().AUTO_PUBLICAR === '1' || !p ? null : (await agenda()).proximoHorario(p.horario);
+        // aprovado no escritório (pelo Fernando ou pelo Gerente Geral): sai no melhor horário do perfil, não na hora
+        const quando = p ? (await agenda()).proximoHorario(p.horario) : null;
         d.salvarItem({ id, status: 'aprovado', agendado_para: quando, tentativas: 0 });
         store.log(`Vídeo "${it.tema}" aprovado: o Postador publica ${quando ? `em ${new Date(quando).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}` : 'agora'}.`, { agent_id: 'social-media', level: 'success', task_id: data.id });
       } else if (data.approval === 'rejeitado' && it.status === 'aguardando_aprovacao') {
