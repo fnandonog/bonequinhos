@@ -12,7 +12,8 @@
     "agencia:seco": "node plataforma/agencia.mjs --seco",
     "postar": "node plataforma/postar.mjs",
     "agendar": "bash plataforma/launchd/instalar.sh",
-    "desagendar": "bash plataforma/launchd/instalar.sh --remover"
+    "desagendar": "bash plataforma/launchd/instalar.sh --remover",
+    "site:publicar": "bash infra/vps/publicar-site.sh"
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",

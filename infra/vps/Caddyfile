@@ -1,0 +1,17 @@
+# Porta de entrada da VPS (HTTPS automático). Antes era o Caddy do Convertajá; o Convertajá agora roda só no Mac.
+
+# Painel do Precinho de Ouro (contêiner precinho-painel na rede edge)
+painel.precinhodeouro.com.br {
+	encode zstd gzip
+	reverse_proxy precinho-painel:4321
+}
+
+# Página de links da rede do Zé (site estático gerado pelo painel do Mac: bonequinhos/site)
+zeexplica.com.br, www.zeexplica.com.br {
+	@www host www.zeexplica.com.br
+	redir @www https://zeexplica.com.br{uri} permanent
+	encode zstd gzip
+	root * /srv/zeexplica
+	file_server
+	header /img/* Cache-Control "public, max-age=604800"
+}
