@@ -6,6 +6,8 @@
 //   node plataforma/cli.mjs fila                           # vídeos: produzindo, esperando aprovação, agendados, publicados
 //   node plataforma/cli.mjs pautas [perfil]                # pautas novas e usadas
 //   node plataforma/cli.mjs pauta <perfil> "tema" ["motivo"]   # adiciona pauta nova (pauteiro, analista, diretor)
+//   node plataforma/cli.mjs tendencias [perfil]             # Shorts que mais cresceram no nicho (views/dia) e buscas em alta no Brasil
+//   node plataforma/cli.mjs retencao [perfil]               # nossos posts com tempo médio assistido, views e salvamentos
 //   node plataforma/cli.mjs comentarios [--todos]          # comentários novos das redes
 //   node plataforma/cli.mjs rascunho <id> "resposta"       # Comunidade: deixa a resposta pronta; o dono aprova e envia no painel
 //   node plataforma/cli.mjs afiliados <video-id> "Produto | https://link" [...]   # Afiliados: links de produto do vídeo
@@ -13,6 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {perfis, fila, pautas, salvarPautas, item, salvarItem, RAIZ, env} from './lib/dados.mjs';
 import {analytics, comentarios, salvarComentario} from './sincronizar.mjs';
+import {tendencias} from './tendencias.mjs';
 
 const [cmd, ...a] = process.argv.slice(2);
 const out = (x) => console.log(typeof x === 'string' ? x : JSON.stringify(x, null, 2));
@@ -52,6 +55,27 @@ switch (cmd) {
     d.pautas.push({tema, status: 'nova', ...(motivo ? {motivo} : {}), sugerida_em: new Date().toISOString()});
     salvarPautas(perfil, d);
     out(`✔ pauta adicionada em ${perfil}: ${tema}`);
+    break;
+  }
+  case 'tendencias': {
+    const t = tendencias();
+    out(`Tendências de ${t.atualizado ?? 'nunca (rode node plataforma/tendencias.mjs)'} · janela ${t.dias ?? '?'} dias${(t.erros ?? []).length ? `\nAvisos: ${t.erros.join(' | ')}` : ''}`);
+    for (const p of perfis().filter((p) => !a[0] || p.id === a[0])) {
+      out(`\n## ${p.nome}`);
+      for (const v of (t.perfis?.[p.id] ?? []).slice(0, 10)) out(`- ${v.views_por_dia.toLocaleString('pt-BR')} views/dia · ${v.duracao_s}s · "${v.titulo}" (${v.canal}) ${v.link}`);
+    }
+    out(`\n## Buscas em alta no Brasil hoje (Google Trends)\n${(t.google_trends ?? []).map((g) => `- ${g.termo} (${g.buscas})`).join('\n')}`);
+    break;
+  }
+  case 'retencao': {
+    const A = analytics();
+    for (const p of perfis().filter((p) => !a[0] || p.id === a[0])) {
+      const ms = A.perfis?.[p.id]?.instagram?.midias ?? [];
+      if (!ms.length) continue;
+      out(`\n## ${p.nome}`);
+      for (const m of ms.filter((m) => m.insights).slice(0, 15))
+        out(`- ${(m.caption ?? '').split('\n')[0].slice(0, 70)} · views ${m.insights.views ?? '—'} · assistido em média ${m.insights.ig_reels_avg_watch_time != null ? (m.insights.ig_reels_avg_watch_time / 1000).toFixed(1) + 's' : '—'} · salvos ${m.insights.saved ?? '—'} · compart. ${m.insights.shares ?? '—'}`);
+    }
     break;
   }
   case 'comentarios':

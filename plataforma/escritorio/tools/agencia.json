@@ -108,9 +108,21 @@
     "legendista": {
       "enabled": false,
       "_nota": "roda dentro da produção"
+    },
+    "cacador-tendencias": {
+      "max_runs_per_day": 1,
+      "max_budget_usd": 0.8,
+      "allowed_tools": [
+        "Bash(node plataforma/tendencias.mjs:*)"
+      ],
+      "prompt": "Caçada da semana: rode o tendencias.mjs, descubra por que os Shorts do topo viralizaram, atualize docs/agencia/ganchos.md e o relatório da semana, e ponha as 2 melhores pautas de cada perfil na fila."
     }
   },
   "schedule": [
+    {
+      "agent": "cacador-tendencias",
+      "cron": "0 7 * * 1,4"
+    },
     {
       "agent": "analista",
       "cron": "30 7 * * *"

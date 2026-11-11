@@ -12,6 +12,7 @@ import {publicar} from './postar.mjs';
 import {sincronizar, analytics, comentarios, salvarComentario} from './sincronizar.mjs';
 import {responderComentario} from './lib/meta.mjs';
 import * as LINKS from './lib/links.mjs';
+import {tendencias, cacar} from './tendencias.mjs';
 
 const PORTA = Number(process.env.PORTA ?? 4380);
 const CONFIG_VISIVEL = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'YOUTUBE_API_KEY', 'TELEGRAM_BOT_TOKEN', 'TELEGRAM_GRUPO_ID', 'RECEITA_AFILIADO_MES', 'META_GRAPH_VERSION', 'ELEVENLABS_API_KEY', 'AUTO_PUBLICAR', 'PRODUCAO_AUTOMATICA', 'ELEVENLABS_VOZ', 'META_POSTAR_FACEBOOK',
@@ -65,9 +66,11 @@ async function api(metodo, partes, req) {
   if (metodo === 'GET' && recurso === 'analytics') return analytics();
   if (metodo === 'GET' && recurso === 'comentarios') return comentarios();
   if (metodo === 'GET' && recurso === 'links') return LINKS.config();
+  if (metodo === 'GET' && recurso === 'tendencias') return tendencias();
   if (metodo !== 'POST') throw new Error('rota desconhecida');
 
   if (recurso === 'sincronizar') return sincronizar({forcar: true});
+  if (recurso === 'tendencias') return cacar({dias: Number(b.dias) || 7});
   if (recurso === 'comentarios') {
     const c = comentarios().find((x) => x.id === id);
     if (!c) throw new Error('comentário não encontrado');

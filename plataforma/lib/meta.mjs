@@ -120,7 +120,7 @@ export async function midiasIG(perfil, limite = 25) {
 
 // Métricas de um post. A Meta muda os nomes de vez em quando: tenta o conjunto novo e cai para o básico.
 export async function insightsMidia(perfil, id) {
-  for (const metric of ['views,reach,saved,shares,total_interactions', 'reach,saved,shares', 'reach']) {
+  for (const metric of ['views,reach,saved,shares,total_interactions,ig_reels_avg_watch_time,ig_reels_video_view_total_time', 'views,reach,saved,shares,total_interactions', 'reach,saved,shares', 'reach']) {
     try {
       const j = await GET(perfil, `/${id}/insights`, {metric});
       return Object.fromEntries((j.data ?? []).map((m) => [m.name, m.values?.[0]?.value ?? m.total_value?.value ?? 0]));

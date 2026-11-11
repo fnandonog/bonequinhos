@@ -19,9 +19,10 @@ const ROSTER = [
   { id: 'gerente', name: 'Gerente Geral', role: 'Aprovação final pelo dono (dentro dos limites)', team: 'direcao', color: '#1f1a33', hair: '#8a8a8a', skin: '#d9a47c', style: 'side', desk: 'gerente' },
   { id: 'diretor', name: 'Diretor', role: 'Prioridades entre os 6 perfis e resumo do dia', team: 'direcao', color: '#ff7a1a', hair: '#2b2233', skin: '#e0ac7e', style: 'short' },
   // Gerentes de área
-  { id: 'showrunner', name: 'Chefe do Estúdio', role: 'Toca a linha de vídeo e barra o que está fraco antes de chegar ao dono', team: 'estudio', manager: true, leads: ['pauteiro', 'pesquisador', 'roteirista', 'diretor-cena', 'cenografo', 'editor', 'qa'], color: '#a855f7', hair: '#2a1a3a', skin: '#d9a47c', style: 'cap' },
+  { id: 'showrunner', name: 'Chefe do Estúdio', role: 'Toca a linha de vídeo e barra o que está fraco antes de chegar ao dono', team: 'estudio', manager: true, leads: ['cacador-tendencias', 'pauteiro', 'pesquisador', 'roteirista', 'diretor-cena', 'cenografo', 'editor', 'qa'], color: '#a855f7', hair: '#2a1a3a', skin: '#d9a47c', style: 'cap' },
   { id: 'gerente-marketing', name: 'Ger. Redes', role: 'Calendário de postagem dos 6 perfis, legendas e funil de afiliado', team: 'redes', manager: true, leads: ['legendista', 'social-media', 'comunidade'], color: '#ff4f9a', hair: '#1b1b1b', skin: '#c68a5e', style: 'bun' },
   // Estúdio
+  { id: 'cacador-tendencias', name: 'Caçador de tendências', role: 'O que viraliza agora em cada nicho e por quê; banco de ganchos', team: 'estudio', color: '#e11d48', hair: '#2b2233', skin: '#c68a5e', style: 'spiky' },
   { id: 'pauteiro', name: 'Pauteiro', role: 'Escolhe o tema com mais chance de viralizar', team: 'estudio', color: '#f472b6', hair: '#1b1b1b', skin: '#f1c9a5', style: 'pony' },
   { id: 'pesquisador', name: 'Pesquisador', role: 'Números e fatos com fonte', team: 'estudio', color: '#22c55e', hair: '#6b3a1e', skin: '#8d5a3b', style: 'short' },
   { id: 'roteirista', name: 'Roteirista', role: 'Narração: gancho em 3 s, 1 número por frase', team: 'estudio', color: '#38bdf8', hair: '#6b3a1e', skin: '#f1c9a5', style: 'curly' },

@@ -21,7 +21,7 @@ const LIMITE_MIN = Number(E.AGENCIA_LIMITE_MINUTOS ?? 120); // tempo máximo de 
 // O que o Claude pode fazer sem perguntar (rodando sozinho de noite). Nada de git push, rm, curl etc.
 const FERRAMENTAS = [
   'Read', 'Write', 'Edit', 'Glob', 'Grep', 'WebSearch', 'WebFetch', 'Task', 'Agent', 'Skill', 'TodoWrite',
-  'Bash(python3 tools/*)', 'Bash(node tools/*)', 'Bash(npx remotion *)', 'Bash(npx tsc *)',
+  'Bash(python3 tools/*)', 'Bash(node plataforma/cli.mjs *)', 'Bash(node tools/*)', 'Bash(npx remotion *)', 'Bash(npx tsc *)',
   'Bash(ls *)', 'Bash(mkdir *)', 'Bash(cat *)', 'Bash(head *)', 'Bash(ffmpeg *)', 'Bash(ffprobe *)',
 ];
 
@@ -88,7 +88,7 @@ async function escolherPauta(p, d) {
   try {
     const r = await claude(
       `Use o agente pauteiro como editor-chefe do perfil "${p.nome}" (${p.nicho}). Escolha a pauta com mais chance de viralizar ` +
-        `e de vender como afiliado agora:\n${novas.map((x, i) => `${i}. ${x.tema}`).join('\n')}\n` +
+        `e de vender como afiliado agora. Use os dados: \`node plataforma/cli.mjs tendencias ${p.id}\` e \`node plataforma/cli.mjs retencao ${p.id}\`:\n${novas.map((x, i) => `${i}. ${x.tema}`).join('\n')}\n` +
         `Responda SÓ com JSON: {"escolhida": <número>, "motivo": "uma frase"}`,
       `pauteiro-${p.id}`,
       15,

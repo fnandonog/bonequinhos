@@ -78,7 +78,7 @@
 </div>
 <div id="aviso"></div>
 <script>
-const ABAS = {geral: 'Visão geral', fila: 'Fila de vídeos', agenda: 'Agenda', redes: 'Redes', comentarios: 'Comentários', perfis: 'Perfis', pautas: 'Pautas', links: 'Página de links', config: 'Configurações'};
+const ABAS = {geral: 'Visão geral', fila: 'Fila de vídeos', agenda: 'Agenda', tendencias: 'Tendências', redes: 'Redes', comentarios: 'Comentários', perfis: 'Perfis', pautas: 'Pautas', links: 'Página de links', config: 'Configurações'};
 const AVATAR = {cozinha: 'receitas', historia: 'historia', construiu: 'construiu', caso: 'crimes', rico: 'ricos', valeapena: 'valeapena'};
 const STATUS = {produzindo: ['Produzindo', 'warn'], aguardando_aprovacao: ['Aguardando sua aprovação', 'warn'], aprovado: ['Aprovado', 'ok'],
   publicando: ['Publicando…', 'warn'], publicado: ['Publicado', 'ok'], erro: ['Erro', 'err'], rejeitado: ['Rejeitado', '']};
@@ -99,6 +99,7 @@ const ICONE = {
   geral: '<path d="M3 13h8V3H3zM13 21h8V11h-8zM3 21h8v-6H3zM13 3v6h8V3z"/>',
   fila: '<rect x="3" y="5" width="13" height="14" rx="2"/><path d="M16 10l5-3v10l-5-3"/>',
   agenda: '<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/>',
+  tendencias: '<path d="M3 17l6-6 4 4 8-8M15 7h6v6"/>',
   redes: '<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.3 10.9l7.4-3.8M8.3 13.1l7.4 3.8"/>',
   comentarios: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
   perfis: '<circle cx="9" cy="8" r="3.5"/><path d="M2 21a7 7 0 0 1 14 0M16 4a3.5 3.5 0 0 1 0 7M22 21a7 7 0 0 0-4-6.3"/>',
@@ -346,18 +347,38 @@ const salvarLinks = tentar(async () => {
   aviso('Páginas geradas em site/');
 });
 
+
+// ---------- Tendências: o que está viralizando no nicho de cada perfil ----------
+let TEND = null;
+async function carregarTendencias() { TEND = await api('tendencias'); const el = $('#tend'); if (el) el.innerHTML = listaTendencias(); }
+function listaTendencias() {
+  if (!TEND) return '<div class="card vazio">Carregando…</div>';
+  return `${(TEND.erros || []).map((e) => `<div class="card" style="margin-bottom:10px">⚠️ ${esc(e)}</div>`).join('')}
+  <div class="grade">${E.perfis.map((p) => `<div class="card"><div class="linha"><img class="av" src="/perfis/avatar-${AVATAR[p.id]}.png"><b>${esc(p.nome)}</b></div>
+    <div class="mut" style="margin:6px 0">Buscas: ${esc((p.busca || []).join(', '))}</div>
+    ${(TEND.perfis?.[p.id] || []).slice(0, 8).map((v) => `<div style="margin:8px 0"><a href="${esc(v.link)}" target="_blank">${esc(v.titulo)}</a>
+      <div class="mut">${n(v.views_por_dia)} views/dia · ${n(v.views)} views · ${v.duracao_s}s · ${esc(v.canal)}</div></div>`).join('') || '<p class="mut">Sem dados ainda.</p>'}</div>`).join('')}
+    <div class="card"><b>Buscas em alta no Brasil hoje</b>${(TEND.google_trends || []).map((g) => `<div class="linha" style="justify-content:space-between;margin:4px 0"><span>${esc(g.termo)}</span><span class="mut">${esc(g.buscas)}</span></div>`).join('')}</div></div>`;
+}
+function telaTendencias() {
+  return `<div class="linha" style="justify-content:space-between;margin-bottom:12px"><span class="mut">${TEND?.atualizado ? `Caçada de ${dt(TEND.atualizado)} · últimos ${TEND.dias} dias · ` : ''}O Caçador de tendências roda seg e qui às 07:00 e transforma isso em pautas e ganchos.</span>
+    <button class="b" onclick="cacarAgora()">🔎 Caçar agora</button></div><div id="tend">${listaTendencias()}</div>`;
+}
+const cacarAgora = tentar(async () => { aviso('Buscando o que está viralizando…'); TEND = await api('tendencias', {}); render(); });
+
 function render() {
   abas();
   const foco = document.activeElement?.id;
   if (foco && /^(leg-|np-|cfg-|rc-|lk-)/.test(foco)) return; // não apaga o que você está digitando
-  $('#tela').innerHTML = {geral: telaGeral, fila: telaFila, agenda: telaAgenda, redes: telaRedes, comentarios: telaComentarios, perfis: telaPerfis, pautas: telaPautas, links: telaLinks, config: telaConfig}[aba]();
+  $('#tela').innerHTML = {geral: telaGeral, fila: telaFila, agenda: telaAgenda, tendencias: telaTendencias, redes: telaRedes, comentarios: telaComentarios, perfis: telaPerfis, pautas: telaPautas, links: telaLinks, config: telaConfig}[aba]();
   if (aba === 'comentarios') carregarComentarios();
+  if (aba === 'tendencias') carregarTendencias();
   if (ultimoLog) verLog(ultimoLog, false);
 }
 async function carregar() { E = await api('estado'); render(); }
 $('#rodar').onclick = tentar(async () => { await api('agencia/rodar', {}); aviso('Agência começou. Cada vídeo leva de 30 a 90 min.'); });
 addEventListener('hashchange', () => { const k = location.hash.slice(1); if (k !== aba && ABAS[k]) ir(k); });
-carregar(); setInterval(() => ['config', 'links', 'comentarios'].includes(aba) || carregar(), 8000);
+carregar(); setInterval(() => ['config', 'links', 'comentarios', 'tendencias'].includes(aba) || carregar(), 8000);
 </script>
 </body>
 </html>
