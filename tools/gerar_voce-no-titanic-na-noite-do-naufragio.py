@@ -19,54 +19,54 @@ VERDE = "#5ad17a"
 GELO = "#8fd3ff"
 # (id, quando, onde, texto com |, planos[(set, cam, p, card)])
 CENAS = [
-    ("c1", ANO, "ATLÂNTICO NORTE", "Duas mil e duzentas pessoas num navio. | Bote salva-vidas pra metade. | E você está a bordo do Titanic.", [
+    ("c1", ANO, "ATLÂNTICO NORTE", "Duas mil e duzentas pessoas no meio do oceano, | e os botes só dão pra metade. | Uma delas é você, no Titanic.", [
         ("ti_navio", "drone", None, card("Pessoas a bordo", num=2224, sub="passageiros e tripulação")),
         ("ti_botes", "metade", [0, 0.1], card("Lugares nos botes", num=1178, sub="pra 2.224 pessoas", cor=VERM)),
         ("ti_navio", "ze", None, None),
     ]),
-    ("c2", "ABRIL 1912", "SOUTHAMPTON, INGLATERRA", "Como veio parar aqui? Você é imigrante, vendeu tudo pra recomeçar nos Estados Unidos. | Comprou a passagem mais barata, de terceira classe: sete libras, o dinheiro inglês. | E embarca no maior navio do mundo.", [
+    ("c2", "ABRIL 1912", "SOUTHAMPTON, INGLATERRA", "Abril de mil novecentos e doze. Você é imigrante e vai tentar a vida em Nova York. | No bolso, a passagem mais barata, de terceira classe, por sete libras. | E no cais te espera o maior navio do mundo.", [
         ("ti_cais", "geral", [0, 0.35], None),
         ("ti_cais", "passagem", [0.35, 0.7], card("Passagem de terceira classe", valor="£7", sub="a mais barata do navio")),
         ("ti_cais", "casco", [0.7, 1], card("Titanic", valor="269 METROS", sub="o maior navio do mundo")),
     ]),
-    ("c3", ANO, "TERCEIRA CLASSE", "Sua cabine é lá embaixo, perto das máquinas. | Pra uns setecentos passageiros, só duas banheiras. | Na primeira classe, uma suíte custou oitocentas e setenta libras.", [
+    ("c3", ANO, "TERCEIRA CLASSE", "Sua cabine fica lá no fundo, longe do convés. | Pra uns setecentos passageiros, duas banheiras. Só duas. | Lá em cima, uma suíte da primeira classe custou oitocentas e setenta libras.", [
         ("ti_cabine", "geral", None, None),
         ("ti_banheira", "fila", None, card("Banheiras na terceira classe", valor="2", sub="pra uns 700 passageiros", cor=OURO)),
         ("ti_primeira", "escada", None, card("Suíte da primeira classe", valor="£870", sub="mais de 100 vezes a sua passagem")),
     ]),
-    ("c4", "14 ABR 1912", "ATLÂNTICO NORTE", "Quatro dias depois, onze e quarenta da noite. | O vigia, no alto do mastro, grita: iceberg! | Iceberg é uma montanha de gelo solta no mar. | O navio raspa nele, e entra água.", [
+    ("c4", "14 ABR 1912", "ATLÂNTICO NORTE", "Quatro dias depois, onze e quarenta de uma noite gelada. | No alto do mastro, o vigia vê algo no escuro e dá o alarme. | É um iceberg, uma montanha de gelo solta no mar. | O navio raspa nele. E a água entra.", [
         ("ti_gavea", "vigia", [0, 0.5], card("14 de abril, de noite", valor="23h40")),
         ("ti_gavea", "frente", [0.5, 1], None),
         ("ti_iceberg", "geral", [0, 0.45], card("Iceberg", valor="MONTANHA DE GELO", sub="solta no mar", cor=GELO)),
         ("ti_iceberg", "raspa", [0.45, 1], None),
     ]),
-    ("c5", "15 ABR 1912", "CONVÉS DOS BOTES", "A surpresa: são só vinte botes, com lugar pra mil cento e setenta e oito. | Tudo dentro da lei! | A lei pedia só dezesseis. | O primeiro bote desce nem metade cheio.", [
+    ("c5", "15 ABR 1912", "CONVÉS DOS BOTES", "Aí vem a surpresa. São só vinte botes, com lugar pra mil cento e setenta e oito. | E tudo dentro da lei, | que pedia só dezesseis. | E o primeiro bote desce nem pela metade.", [
         ("ti_botes", "geral", [0, 0.4], card("Botes salva-vidas", num=20, sub="1.178 lugares")),
         ("ti_botes", "lei", [0.4, 0.6], card("E estava tudo", valor="DENTRO DA LEI", cor=OURO)),
         ("ti_botes", "dezesseis", [0.6, 1], card("A lei pedia", valor="16 BOTES", sub="o Titanic levava 20")),
         ("ti_bote", "desce", [0, 1], card("Primeiro bote", valor="NEM METADE CHEIO", sub="cabiam 65 pessoas", cor=VERM)),
     ]),
-    ("c6", "15 ABR 1912", "TERCEIRA CLASSE", "A regra: mulheres e crianças primeiro. | Mas você está lá no fundo, num labirinto de corredores. | Da primeira classe, sessenta e dois por cento se salvam. | Da terceira, só vinte e cinco.", [
+    ("c6", "15 ABR 1912", "TERCEIRA CLASSE", "A ordem é mulheres e crianças primeiro. | Só que você está lá no fundo, perdido num labirinto de corredores. | Da primeira classe, sessenta e dois por cento se salvam. | Da sua? Só vinte e cinco.", [
         ("ti_bote", "mulheres", [0, 0.02], None),
         ("ti_corredor", "ze", [0, 1], None),
         ("ti_placar", "primeira", [0, 0.5], card("Salvos da primeira classe", valor="62%", cor=VERDE)),
         ("ti_placar", "terceira", [0.5, 1], card("Salvos da terceira classe", valor="25%", cor=VERM)),
     ]),
-    ("c7", "15 ABR 1912", "ATLÂNTICO NORTE", "Duas e vinte da manhã, o Titanic afunda. | A água: dois graus abaixo de zero. | Mais de mil e quinhentas pessoas morrem.", [
+    ("c7", "15 ABR 1912", "ATLÂNTICO NORTE", "Duas e vinte da manhã. O Titanic afunda. | A água está a dois graus abaixo de zero. | Mais de mil e quinhentas pessoas morrem.", [
         ("ti_naufragio", "geral", [0, 0.6], card("15 de abril", valor="2h20", sub="2 h 40 depois da batida")),
         ("ti_agua", "bote", None, card("Água do mar", valor="-2 °C", cor=GELO)),
         ("ti_naufragio", "popa", [0.6, 1], card("Mortos", valor="MAIS DE 1.500", cor=VERM)),
     ]),
-    ("c8", ANO, "ATLÂNTICO NORTE", "Passagem de sete libras. | Bote pra só metade. | Você aguentaria?", [
+    ("c8", ANO, "ATLÂNTICO NORTE", "Você pagou sete libras. | Os botes davam pra metade. | Você aguentaria?", [
         ("ti_fim", "aereo", None, card("Sua passagem", valor="£7")),
         ("ti_fim", "botes", None, card("Bote pra", valor="SÓ METADE", cor=VERM)),
         ("ti_fim", "ze", None, None),
     ]),
 ]
 
-DESTAQUES = ["duas", "mil", "metade", "titanic", "imigrante", "sete", "libras", "terceira", "banheiras", "oitocentas", "primeira",
-             "onze", "quarenta", "iceberg", "gelo", "água", "surpresa", "vinte", "dezesseis", "lei", "sessenta", "cinco", "mulheres",
-             "crianças", "zero", "quinhentas", "aguentaria", "setecentos"]
+DESTAQUES = ["duas", "mil", "metade", "titanic", "imigrante", "nova", "sete", "libras", "terceira", "banheiras", "setecentos",
+             "oitocentas", "primeira", "onze", "quarenta", "gelada", "escuro", "alarme", "iceberg", "gelo", "água", "surpresa", "vinte",
+             "dezesseis", "lei", "mulheres", "crianças", "labirinto", "sessenta", "cinco", "afunda", "zero", "quinhentas", "aguentaria"]
 
 rot = {
     "id": ID,

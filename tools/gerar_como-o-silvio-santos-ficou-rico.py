@@ -26,7 +26,7 @@ CENAS = [
     ("c2", "1945", "UM TABULEIRO",
      "Rio, 1945: | primeira eleição pra presidente em quinze anos. | Ele compra a capa por dois cruzeiros. | Vende por quatro, jurando que é a última.", [
         ("ruaeleicao", "faixa", None, None),
-        ("ruaeleicao", "fila", None, card("Sem votar pra presidente", num=15, sufixo=" anos", sub="6 milhões com título de papel")),
+        ("ruaeleicao", "fila", None, card("Sem votar pra presidente", num=15, sufixo=" anos", sub="6 milhões votaram em 1945")),
         ("ruacapa", "close", [0, 1], card("Compra", valor="Cr$ 2", sub="a capa de plástico")),
         ("ruavenda", "lado", [0, 1], card("Vende", valor="Cr$ 4", sub="\"é a última\": lucro de 100%", cor=VERDE)),
     ]),
@@ -36,7 +36,7 @@ CENAS = [
         ("ruacaixa", "roda", [0, 1], card("Camelô", valor="Cr$ 900", sub="por dia, ele contava", cor=OURO)),
     ]),
     ("c4", "ANOS 50", "SOM + BAR NA BARCA",
-     "Nas barcas de Niterói, | troca um ano de anúncio por um som. | E um bar: cada refrigerante, uma cartela de bingo.", [
+     "Nas barcas de Niterói, | troca um ano de anúncio por um som. | E monta um bar: cada refrigerante, uma cartela de bingo.", [
         ("barca", "drone", None, None),
         ("barcasom", "corneta", None, card("Som de graça", valor="1 ANO DE ANÚNCIO", sub="pago à loja que deu o som")),
         ("barcabar", "bar", [0, 1], card("No bar da barca", valor="1 REFRI = 1 CARTELA", sub="de bingo, com prêmio", cor=OURO)),
@@ -64,14 +64,14 @@ CENAS = [
      "Depois, a Tele Sena: | metade volta em um ano, | o resto vira prêmio e lucro.", [
         ("telesena", "cartela", None, card("Tele Sena", valor="1991", sub="título de capitalização")),
         ("telesena", "divide", [0, 0.5], card("Volta pra você", valor="50%", sub="corrigido, depois de 12 meses", cor=VERDE)),
-        ("telesena", "divide", [0.5, 1], card("O resto", valor="PRÊMIO + LUCRO", cor=OURO)),
+        ("telesena", "premio", [0.5, 1], card("O resto", valor="PRÊMIO + LUCRO", cor=OURO)),
     ]),
     ("c9", "2010", -2.5e9,
      "Em 2010, diretores do banco dele fraudam o balanço. | Rombo de quatro bilhões e trezentos milhões. | Ele não foi acusado, | mas dá as quarenta e quatro empresas em garantia.", [
         ("banco", "diretores", [0, 1], card("Fraude dos diretores", valor="BALANÇO INFLADO", sub="Banco PanAmericano", cor=VERM)),
         ("cofre", "buraco", [0, 1], card("Rombo", valor="R$ 4,3 BI", sub="descoberto em 2010", cor=VERM)),
         ("garantia", "ze", None, card("Silvio Santos", valor="NÃO FOI ACUSADO", sub="7 ex-diretores condenados em 2018")),
-        ("garantia", "mesa", None, card("Garantia do empréstimo", valor="44 EMPRESAS", sub="de R$ 2,5 bi, até o SBT", cor=VERM)),
+        ("garantia", "mesa", None, card("Garantia do empréstimo", num=44, sufixo=" empresas", sub="de R$ 2,5 bi, até o SBT", cor=VERM)),
     ]),
     ("c10", "2011", "O SBT",
      "Vende o banco, quita a dívida, salva a TV.", [

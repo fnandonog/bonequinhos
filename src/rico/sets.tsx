@@ -8,7 +8,7 @@ import {orb, Cam, Ctx} from '../v4/sets';
 import {Corrente} from '../historia/pecas';
 import {
   ArvoreNatal, Agua, Balao, Barca, Barra, Bau, BANCARIO, Boneca, Boneco, Bonde, Caixa, Caixote, CameraEstudio, Carne, CarroPremio, Cartela, CartelaCap, CasaPremio, Cil,
-  CofreOuro, Corneta, CORES_PELE, CORES_ROUPA, DIRETOR_TV, EXECUTIVO, FAMILIA, Garrafa, Lampada, Letreiro, Maco, MapaBrasil, MicRadio, Miniatura, Moeda, Morro, NotasMusicais,
+  CofreOuro, MonteMoedas, Corneta, CORES_PELE, CORES_ROUPA, DIRETOR_TV, EXECUTIVO, FAMILIA, Garrafa, Lampada, Letreiro, Maco, MapaBrasil, MicRadio, Miniatura, Moeda, Morro, NotasMusicais,
   PaoDeAcucar, PASSANTES_40, Pino, Plateia, Poste, PilhaMoedas, PilhaNotas, PortaCofre, Predio40, Refletor, Relogio, Sentado, Sofa, Tabuleiro, Theatro, Titulo, Torre, TVTubo,
   Urso, Ze, Cadeado, Carrinho, Nota, PredioTV, Cartela as CartelaBingo, clamp01, lerp, linha, mapaXZ, rnd, suave, tex, texCalcada,
 } from './pecas';
@@ -180,11 +180,11 @@ const Radio: React.FC<{t: number}> = ({t}) => (
     <Caixa pos={[0.9, 1.0, -2.0]} tam={[2.2, 0.15, 0.6]} cor="#4a4f5a" />
     {/* NO AR aceso */}
     <Letreiro pos={[0.9, 2.55, -1.5]} larg={1.1} alt={0.36} linhas={['NO AR']} fundo="#d6282b" cor="#ffffff" emissivo />
-    <Relogio pos={[-1.7, 2.3, -1.5]} r={0.26} />
-    <Letreiro pos={[-1.7, 1.55, -1.5]} larg={1.2} alt={0.8} linhas={['CONCURSO DE', 'LOCUTORES', '1º LUGAR']} fundo="#fff6d8" cor="#1d1b26" borda="#8a6a43" />
+    <Relogio pos={[-1.9, 2.3, -1.5]} r={0.26} />
+    <Letreiro pos={[0.22, 1.5, -1.44]} larg={0.5} alt={0.36} linhas={['CONCURSO DE', 'LOCUTORES', '1º LUGAR']} fundo="#fff6d8" cor="#1d1b26" borda="#8a6a43" />
     {/* o Zé de 17 anos no microfone de pedestal */}
-    <group scale={0.86} position={[0.3, 0, 0.38]}>
-      <MicRadio pos={[0, 0, 0]} rotY={Math.PI + 0.6} />
+    <group scale={0.86} position={[-0.38, 0, 0.32]}>
+      <MicRadio pos={[0, 0, 0]} rotY={Math.PI - 0.7} />
     </group>
     <Ze pos={[0, 0, -0.05]} t={t} />
     {/* roteiro na estante de partitura */}
@@ -206,7 +206,7 @@ const Baia: React.FC<{t: number; modo: 'drone' | 'corneta' | 'bar'; p: number}> 
     <Barca pos={[0, 0, 0]} rotY={0} t={t} />
     {modo !== 'drone' && <NotasMusicais orig={[-8, 10, 0.4]} dir={[0.4, 0.4, 1]} t={t} />}
     {/* placa do acordo no mastro */}
-    <Letreiro pos={[-8, 8.4, 0.12]} larg={1.6} alt={0.7} linhas={['SOM CORTESIA DA', 'LOJA DE RÁDIOS']} fundo="#fff6d8" cor="#1d1b26" borda="#c62f2f" />
+    <Letreiro pos={[-8, 8.3, 0.34]} larg={1.6} alt={0.7} linhas={['SOM CORTESIA DA', 'LOJA DE RÁDIOS']} fundo="#fff6d8" cor="#1d1b26" borda="#c62f2f" />
     {/* Zé no microfone do convés de cima, perto do mastro */}
     <group position={[-6.6, 4.9, 0.9]}>
       <Caixa pos={[0, 0.45, 0]} tam={[0.6, 0.9, 0.5]} cor="#8b5a3c" />
@@ -220,7 +220,7 @@ const Baia: React.FC<{t: number; modo: 'drone' | 'corneta' | 'bar'; p: number}> 
       {Array.from({length: 7}).map((_, i) => (<Garrafa key={i} pos={[0.05, 1.085, -1.3 + i * 0.22]} />))}
       {Array.from({length: 4}).map((_, i) => (<CartelaBingo key={'c' + i} pos={[-0.1, 1.09 + i * 0.002, 1.1 + i * 0.01]} rot={[-Math.PI / 2, 0, i * 0.08]} />))}
       {[0, 1].map((i) => (<Caixa key={'e' + i} pos={[1.4, 0.25 + i * 0.5, -0.6]} tam={[0.6, 0.48, 0.4]} cor="#c0563a" />))}
-      <Letreiro pos={[1.7, 2.1, 0]} rotY={-Math.PI / 2} larg={2.6} alt={0.8} linhas={['BAR · REFRESCO', 'GANHE UMA CARTELA!']} fundo="#ffd23f" cor="#1d1b26" borda="#1d1b26" dupla />
+      <Letreiro pos={[1.7, 2.1, -0.25]} rotY={-Math.PI / 2} larg={1.9} alt={0.7} linhas={['BAR · REFRESCO', 'GANHE UMA CARTELA!']} fundo="#ffd23f" cor="#1d1b26" borda="#1d1b26" dupla />
       <Ze pos={[0.85, 0, 0.1]} rotY={-Math.PI / 2} t={t} acao={modo === 'bar' && p > 0.3 ? 'aponta' : 'parado'} />
       {/* clientes: um leva a garrafa e a cartela */}
       <Boneco pos={[-0.8, 0, 0.5]} rotY={Math.PI / 2} t={t} v={PASSANTES_40[2]} esc={0.92} acao="aponta" />
@@ -278,12 +278,12 @@ const Natal: React.FC<{t: number; p: number}> = ({t, p}) => (
   <group>
     <Sala larg={6} prof={5} piso="#a0703f" parede="#e9d8b8" />
     <Caixa pos={[0, 0.01, 0.2]} tam={[3, 0.02, 2]} cor="#b8322b" />
-    <ArvoreNatal pos={[-1.6, 0, -1.6]} t={t} />
+    <ArvoreNatal pos={[0.75, 0, -1.55]} t={t} />
     <Bau pos={[0, 0, -0.4]} abre={suave(clamp01(p * 1.8))} t={t} />
-    <Boneco pos={[0.9, 0, 0.1]} rotY={-0.9} t={t} v={{camisa: '#ffd23f', calca: '#4f8cff', colete: null, capacete: null, cabelo: '#6b3e26'}} esc={0.62} acao={p > 0.35 ? 'comemora' : 'parado'} />
-    <Boneco pos={[-0.85, 0, 0.2]} rotY={0.7} t={t + 0.5} v={{camisa: '#e26d9a', calca: '#5aa0c8', colete: null, capacete: null, cabelo: '#2b1d14', pele: '#c98e62'}} esc={0.56} acao={p > 0.45 ? 'comemora' : 'parado'} />
+    <Boneco pos={[0.55, 0, 0.15]} rotY={-0.7} t={t} v={{camisa: '#ffd23f', calca: '#4f8cff', colete: null, capacete: null, cabelo: '#6b3e26'}} esc={0.62} acao={p > 0.35 ? 'comemora' : 'parado'} />
+    <Boneco pos={[-0.55, 0, 0.2]} rotY={0.6} t={t + 0.5} v={{camisa: '#e26d9a', calca: '#5aa0c8', colete: null, capacete: null, cabelo: '#2b1d14', pele: '#c98e62'}} esc={0.56} acao={p > 0.45 ? 'comemora' : 'parado'} />
     {/* calendário de parede: DEZEMBRO */}
-    <Letreiro pos={[1.4, 1.7, -2.42]} larg={0.8} alt={1.0} linhas={['1958', 'DEZ', '25']} fundo="#ffffff" cor="#c62f2f" borda="#1d1b26" />
+    <Letreiro pos={[-0.55, 1.45, -2.42]} larg={0.6} alt={0.75} linhas={['1958', 'DEZ', '25']} fundo="#ffffff" cor="#c62f2f" borda="#1d1b26" />
     <Caixa pos={[1.4, 0.4, -2.2]} tam={[1.2, 0.8, 0.4]} cor="#8b5a3c" />
   </group>
 );
@@ -322,7 +322,7 @@ const Fluxo: React.FC<{t: number; p: number}> = ({t, p}) => {
           <cylinderGeometry args={[0.42, 0.42, 0.8, 20, 1, true]} />
           <meshStandardMaterial color="#cfe8f2" transparent opacity={0.35} roughness={0.1} side={2} />
         </mesh>
-        <PilhaMoedas pos={[0, 0.12, 0]} n={Math.round(cheio * 85)} r={0.4} />
+        <PilhaMoedas pos={[0, 0.12, 0]} n={Math.round(cheio * 10)} r={0.4} />
         <Letreiro pos={[0, 0.25, 0.47]} larg={0.7} alt={0.2} linhas={['CAIXA']} fundo="#1d1b26" cor="#ffd23f" />
       </group>
       {/* o baú trancado até dezembro */}
@@ -405,7 +405,7 @@ const Horario: React.FC<{t: number; p: number}> = ({t, p}) => {
   const k = suave(clamp01(p * 1.5));
   return (
     <group>
-      <Sala larg={6} prof={5} piso="#8a7a62" parede="#d9cdb0" />
+      <Sala larg={14} prof={5} piso="#8a7a62" parede="#d9cdb0" />
       {/* janela com a torre da emissora lá fora */}
       <Caixa pos={[-1.2, 1.7, -2.45]} tam={[1.8, 1.3, 0.05]} cor="#9fd0ea" />
       <Barra a={[-1.5, 1.1, -2.42]} b={[-1.3, 2.3, -2.42]} r={0.03} cor="#d6282b" />
@@ -418,9 +418,9 @@ const Horario: React.FC<{t: number; p: number}> = ({t, p}) => {
       <Letreiro pos={[0.1, 0.775, -0.55]} rot={[-Math.PI / 2, 0, 0.15]} larg={0.3} alt={0.4} linhas={['CONTRATO', 'HORÁRIO', 'DOMINGO']} fundo="#ffffff" cor="#1d1b26" />
       <Boneco pos={[0, 0, -1.4]} t={t} v={DIRETOR_TV} esc={0.92} acao={k > 0.7 ? 'acena' : 'parado'} />
       {/* os maços vão da mão do Zé para a mesa */}
-      <PilhaNotas pos={[-0.5, 0.771, -0.55]} n={Math.round(k * 9)} cor="#a8c8e8" />
-      {k < 1 && <Maco pos={[lerp(-0.35, -0.5, k), 1.0 - k * 0.22, lerp(0.2, -0.55, k)]} cor="#a8c8e8" />}
-      <Ze pos={[-0.3, 0, 0.6]} rotY={Math.PI - 0.1} t={t} terno mic={false} acao={k < 0.95 ? 'aponta' : 'parado'} />
+      <PilhaNotas pos={[-0.35, 0.771, -0.55]} n={Math.round(k * 9)} cor="#a8c8e8" />
+      {k < 1 && <Maco pos={[lerp(-0.1, -0.35, k), 1.0 - k * 0.22, lerp(0.2, -0.55, k)]} cor="#a8c8e8" />}
+      <Ze pos={[-0.2, 0, 0.55]} rotY={Math.PI} t={t} terno mic={false} acao={k < 0.95 ? 'aponta' : 'parado'} />
     </group>
   );
 };
@@ -516,19 +516,19 @@ const TeleSena: React.FC<{t: number; p: number}> = ({t, p}) => {
         <CartelaCap pos={[0, 0.27, 0]} rot={[-0.15, 0, 0]} esc={3} />
       </group>
       {/* o dinheiro da cartela se divide: metade volta (em 12 meses), o resto vira prêmio e lucro */}
-      <group position={[-0.24, 0.77, 0.18]}>
-        <PilhaMoedas pos={[0, 0, 0]} n={Math.round(10 + 30 * volta)} r={0.06} />
-        <Letreiro pos={[0, 0.003, 0.15]} rot={[-Math.PI / 2, 0, 0]} larg={0.3} alt={0.09} linhas={['VOLTA: 50%']} fundo="#4ade80" cor="#14532d" />
+      <group position={[-0.18, 0.77, 0.18]}>
+        <MonteMoedas pos={[0, 0, 0]} k={0.2 + 0.8 * volta} />
+        <Letreiro pos={[0, 0.003, 0.15]} rot={[-Math.PI / 2, 0, 0]} larg={0.24} alt={0.075} linhas={['VOLTA: 50%']} fundo="#4ade80" cor="#14532d" />
         <Relogio pos={[-0.13, 0.12, -0.08]} r={0.06} rotY={0.4} />
       </group>
-      <group position={[0.24, 0.77, 0.18]}>
-        <PilhaMoedas pos={[0, 0, 0]} n={Math.round(10 + 30 * resto)} r={0.06} />
-        <Letreiro pos={[0, 0.003, 0.15]} rot={[-Math.PI / 2, 0, 0]} larg={0.3} alt={0.09} linhas={['PRÊMIO + LUCRO']} fundo="#ffd23f" cor="#1d1b26" />
+      <group position={[0.18, 0.77, 0.18]}>
+        <MonteMoedas pos={[0, 0, 0]} k={0.2 + 0.8 * resto} />
+        <Letreiro pos={[0, 0.003, 0.15]} rot={[-Math.PI / 2, 0, 0]} larg={0.24} alt={0.075} linhas={['PRÊMIO + LUCRO']} fundo="#ffd23f" cor="#1d1b26" />
         <group scale={0.045} position={[0.12, 0, -0.1]}>
           <CarroPremio pos={[0, 0, 0]} rotY={-0.6 + t * 0.3} />
         </group>
       </group>
-      <Ze pos={[0.1, 0, -1.2]} t={t} terno acao={p > 0.6 ? 'acena' : 'aponta'} />
+      <Ze pos={[0.8, 0, -1.0]} rotY={-0.4} t={t} terno acao={p > 0.6 ? 'acena' : 'aponta'} />
     </group>
   );
 };
@@ -544,12 +544,12 @@ const Diretoria: React.FC<{t: number; p: number}> = ({t, p}) => (
     {[[-1.3, -0.5], [1.3, -0.5], [-1.3, 0.5], [1.3, 0.5]].map(([x, z], i) => (<Caixa key={i} pos={[x, 0.37, z]} tam={[0.08, 0.74, 0.08]} cor="#2b2020" />))}
     {[0, 1, 2].map((i) => (<Letreiro key={i} pos={[-1 + i * 1, 0.775 + i * 0.001, 0.25]} rot={[-Math.PI / 2, 0, 0.1 * i]} larg={0.3} alt={0.4} linhas={['BALANÇO', 'LUCRO ↑', '2009']} fundo="#ffffff" cor="#1d1b26" />))}
     {/* o balão do "balanço inflado" */}
-    <Balao pos={[0, 0.77, -0.2]} k={0.15 + 0.5 * suave(p)} texto="LUCRO" />
+    <Balao pos={[0, 0.77, -0.2]} k={0.08 + 0.32 * suave(p)} texto="LUCRO" />
     {/* diretores em volta (de terno cinza, sem rosto de ninguém real) */}
     <Boneco pos={[-1.0, 0, -0.95]} t={t} v={EXECUTIVO} esc={0.92} acao="aponta" />
-    <Boneco pos={[1.1, 0, -0.95]} t={t + 1} v={{...EXECUTIVO, gravata: '#c94f4f', cabelo: '#8a8a8a'}} esc={0.92} acao="comemora" />
-    <Boneco pos={[1.7, 0, 0.6]} rotY={-1.4} t={t + 2} v={{...EXECUTIVO, gravata: '#4f7fb0', pele: '#c98e62'}} esc={0.92} acao="aponta" />
-    <Letreiro pos={[2.6, 2.4, -2.4]} larg={1.3} alt={0.45} linhas={['DIRETORIA']} fundo="#1d1b26" cor="#ffffff" />
+    <Boneco pos={[0.95, 0, -0.95]} t={t + 1} v={{...EXECUTIVO, gravata: '#c94f4f', cabelo: '#8a8a8a'}} esc={0.92} acao="comemora" />
+    <Boneco pos={[1.0, 0, 0.75]} rotY={-2.4} t={t + 2} v={{...EXECUTIVO, gravata: '#4f7fb0', pele: '#c98e62'}} esc={0.92} acao="aponta" />
+    <Letreiro pos={[-1.3, 2.25, -2.4]} larg={1.6} alt={0.36} linhas={['BANCO · DIRETORIA']} fundo="#1d1b26" cor="#ffffff" />
   </group>
 );
 
@@ -557,7 +557,9 @@ const Diretoria: React.FC<{t: number; p: number}> = ({t, p}) => (
 const CofreRombo: React.FC<{t: number; p: number}> = ({t, p}) => (
   <group>
     <Sala larg={7} prof={6} piso="#8a8f98" parede="#a8adb5" />
-    <PortaCofre pos={[0, 0, -2.85]} abre={0.75} />
+    <Caixa pos={[0, 1.25, -2.95]} tam={[2.0, 2.2, 0.1]} cor="#141218" />
+    <PortaCofre pos={[0, 0, -2.85]} abre={0.45} />
+    <Letreiro pos={[0, 2.62, -2.62]} larg={1.4} alt={0.36} linhas={['COFRE']} fundo="#1d1b26" cor="#ffd23f" />
     {/* prateleiras vazias */}
     {[-2.8, 2.8].map((x) => (
       <group key={x}>
@@ -566,18 +568,18 @@ const CofreRombo: React.FC<{t: number; p: number}> = ({t, p}) => (
       </group>
     ))}
     {/* a cratera cresce */}
-    <mesh position={[0, 0.006, 0.3]} rotation={[-Math.PI / 2, 0, 0]} scale={0.4 + 0.6 * suave(p)}>
+    <mesh position={[0, 0.006, -1.0]} rotation={[-Math.PI / 2, 0, 0]} scale={0.4 + 0.6 * suave(p)}>
       <circleGeometry args={[1.3, 28]} />
       <meshBasicMaterial color="#120f14" />
     </mesh>
-    <mesh position={[0, -0.6, 0.3]} scale={0.4 + 0.6 * suave(p)}>
+    <mesh position={[0, -0.6, -1.0]} scale={0.4 + 0.6 * suave(p)}>
       <cylinderGeometry args={[1.3, 0.9, 1.2, 28, 1, true]} />
       <meshStandardMaterial color="#3a2f2a" side={1} />
     </mesh>
     {/* notas soltas caindo no buraco */}
     {Array.from({length: 10}).map((_, i) => {
       const k = (t * 0.7 + i / 10) % 1;
-      return <Nota key={i} pos={[Math.cos(i * 2.1) * (1.2 - k), 1.6 - k * 2.2, 0.3 + Math.sin(i * 2.1) * (1.2 - k)]} rot={[-Math.PI / 2 + k * 3, i, k * 2]} valor="R$" cor="#8fbfd0" esc={2} />;
+      return <Nota key={i} pos={[Math.cos(i * 2.1) * (1.2 - k), 1.6 - k * 2.2, -1.0 + Math.sin(i * 2.1) * (1.2 - k)]} rot={[-Math.PI / 2 + k * 3, i, k * 2]} valor="R$" cor="#8fbfd0" esc={2} />;
     })}
   </group>
 );
@@ -596,7 +598,7 @@ const Garantia: React.FC<{t: number; p: number; solta?: boolean}> = ({t, p, solt
       <Caixa pos={[0, 0.74, 0]} tam={[5.6, 0.06, 2.6]} cor="#4a3426" />
       {[[-2.6, -1.1], [2.6, -1.1], [-2.6, 1.1], [2.6, 1.1]].map(([x, z], i) => (<Caixa key={i} pos={[x, 0.37, z]} tam={[0.1, 0.74, 0.1]} cor="#3b2a20" />))}
       {Array.from({length: GARANTIA_N}).map((_, i) => (
-        <Miniatura key={i} pos={[-2.3 + (i % 11) * 0.46, 0.77, -0.8 + Math.floor(i / 11) * 0.52]} tipo={i * 7} rotY={(i % 3) * 0.2 - 0.2} />
+        <Miniatura key={i} pos={[-2.3 + (i % 11) * 0.46, 0.77, -0.8 + Math.floor(i / 11) * 0.52]} tipo={i % 11 < 2 ? 1 + (i % 2) * 2 : i * 7} rotY={(i % 3) * 0.2 - 0.2} />
       ))}
       {/* a "TV" maior, na frente */}
       <group position={[0, 0.77, 0.95]} scale={1.6}>
@@ -612,11 +614,11 @@ const Garantia: React.FC<{t: number; p: number; solta?: boolean}> = ({t, p, solt
         </group>
       ) : null}
       <Cadeado pos={[0.9, 0.95 - k * 0.6, 1.32]} esc={0.9} abre={k} />
-      <Letreiro pos={[-4.4, 2.55, 0]} rotY={Math.PI / 2} larg={3.0} alt={0.75} linhas={['GARANTIA DO EMPRÉSTIMO', 'R$ 2,5 BILHÕES']} fundo="#ffffff" cor="#c62f2f" borda="#c62f2f" />
+      <Letreiro pos={[-4.4, 2.3, 0]} rotY={Math.PI / 2} larg={3.0} alt={0.7} linhas={['GARANTIA DO EMPRÉSTIMO', 'R$ 2,5 BILHÕES']} fundo="#ffffff" cor="#c62f2f" borda="#c62f2f" />
       {/* o Zé na cabeceira; o homem do fundo garantidor com o contrato */}
       <Ze pos={[-3.3, 0, 0.3]} rotY={Math.PI / 2} t={t} terno mic={false} acao={solta && k > 0.5 ? 'comemora' : 'parado'} />
       <Boneco pos={[1.6, 0, 1.9]} rotY={Math.PI} t={t} v={BANCARIO} esc={0.92} acao={solta ? 'acena' : 'aponta'} />
-      {solta && <Letreiro pos={[-3.3, 2.15, 0.3]} rotY={Math.PI / 2} larg={0.9} alt={0.4} linhas={['DÍVIDA QUITADA']} fundo="#4ade80" cor="#14532d" />}
+      {solta && <Letreiro pos={[-4.4, 1.55, 1.1]} rotY={Math.PI / 2} larg={1.4} alt={0.5} linhas={['DÍVIDA QUITADA']} fundo="#4ade80" cor="#14532d" />}
     </group>
   );
 };
@@ -664,7 +666,6 @@ const Escada: React.FC<{t: number; p: number; topo?: boolean}> = ({t, p, topo}) 
       <Ze pos={[0.6, zeY, zeZ]} rotY={topo ? 0.2 : Math.PI + 0.3} t={t} terno acao={topo || s > DEG - 1.2 ? 'acena' : 'anda'} />
       {/* brilho do topo */}
       <pointLight position={[0, degY(6) + 2.5, degZ(6) + 1]} intensity={8} distance={8} color="#ffd890" />
-      <Letreiro pos={[0, degY(6) + 2.2, degZ(6) - 0.5]} larg={2.6} alt={0.6} linhas={['R$ 1,6 BILHÃO']} fundo="#ffd23f" cor="#1d1b26" borda="#1d1b26" />
     </group>
   );
 };
@@ -709,7 +710,7 @@ export const SETS: Record<string, SetRico> = {
     render: ({t, p}) => <Rua1945 t={t} p={p} modo="venda" />,
     cams: {
       // de lado: a capa vai para o cliente, a moeda de 4 vem para o Zé
-      lado: orb([BANCA[0], 1.1, 0.05], -90, 8, 4.4, 3.8, 40, 6),
+      lado: orb([BANCA[0], 1.1, 0.0], -90, 8, 6.2, 5.5, 40, 4),
     },
   },
   ruacaixa: {
@@ -747,7 +748,7 @@ export const SETS: Record<string, SetRico> = {
     render: ({t, p}) => <Baia t={t} p={p} modo="corneta" />,
     cams: {
       // o mastro com os alto-falantes, a placa do acordo e o Zé no microfone
-      corneta: orb([-7.5, 8.2, 0.4], 28, 6, 7.6, 6.2, 42, 8),
+      corneta: orb([-7.6, 8.7, 0.4], 22, 4, 8.6, 7.2, 42, 6),
     },
   },
   barcabar: {
@@ -756,7 +757,7 @@ export const SETS: Record<string, SetRico> = {
     nevoa: [250, 2200],
     render: ({t, p}) => <Baia t={t} p={p} modo="bar" />,
     cams: {
-      bar: orb([14.1, 5.85, 0.2], -40, 14, 5.0, 4.2, 40, 8),
+      bar: orb([14.3, 5.95, 0.4], -32, 14, 6.0, 5.2, 40, 6),
     },
   },
   porao: {
@@ -789,7 +790,7 @@ export const SETS: Record<string, SetRico> = {
     luz: 'interior',
     render: ({t, p}) => <Natal t={t} p={p} />,
     cams: {
-      sala: orb([-0.1, 0.6, -0.5], -18, 16, 3.6, 2.8, 42, 8),
+      sala: orb([0.05, 0.75, -0.6], -8, 14, 4.2, 3.6, 42, 6),
     },
   },
   fluxo: {
@@ -798,7 +799,7 @@ export const SETS: Record<string, SetRico> = {
     render: ({t, p}) => <Fluxo t={t} p={p} />,
     cams: {
       // trilho ao longo dos 12 meses: o caixa enche lá atrás, o baú só no fim
-      trilho: orb([0, 2.45, 0], 0, 5, 7.6, 6.6, 42, 4),
+      trilho: orb([0, 2.75, 0], 0, 5, 9.0, 8.0, 42, 3),
     },
   },
   auditorio: {
@@ -807,7 +808,7 @@ export const SETS: Record<string, SetRico> = {
     render: ({t}) => <Auditorio t={t} />,
     cams: {
       // o estúdio inteiro: câmeras de válvula, palco com o carro de prêmio
-      aberto: orb([0, 1.4, -2.6], 18, 20, 15, 12, 42, 8),
+      aberto: orb([-0.8, 1.6, -3.4], 14, 16, 10.5, 8.5, 42, 6),
       // fechamento: o Zé de terno e microfone no peito
       ze: orb([ESTUDIO_PALCO[0], ESTUDIO_PALCO[1] + 1.15, ESTUDIO_PALCO[2]], 12, 6, 4.0, 3.0, 40, 8),
     },
@@ -826,7 +827,7 @@ export const SETS: Record<string, SetRico> = {
     luz: 'interior',
     render: ({t, p}) => <Horario t={t} p={p} />,
     cams: {
-      mesa: orb([-0.15, 1.05, -0.75], 20, 20, 3.5, 2.8, 42, 8),
+      mesa: orb([-0.1, 1.1, -0.4], 75, 10, 6.6, 5.8, 42, 5),
     },
   },
   sala: {
@@ -835,7 +836,7 @@ export const SETS: Record<string, SetRico> = {
     render: ({t}) => <SalaTV t={t} />,
     cams: {
       // por cima do ombro da família: a TV mostra o carnê
-      ombro: cam([0.4, 1.7, 2.4], [0.2, 1.55, 2.0], [0, 0.85, -1.9], 30),
+      ombro: cam([0.35, 2.35, 2.3], [0.2, 2.2, 1.9], [0, 0.82, -1.9], 32),
     },
   },
   emissora: {
@@ -844,7 +845,7 @@ export const SETS: Record<string, SetRico> = {
     nevoa: [140, 500],
     render: ({t}) => <Emissora t={t} />,
     cams: {
-      drone: cam([-10, 9, 104], [2, 13, 96], [5, 30, -4], 42, [5, 31, -4]),
+      drone: cam([-14, 9, 122], [-4, 12, 114], [-2, 24, -4], 42, [-1, 25, -4]),
     },
   },
   mapa: {
@@ -861,7 +862,8 @@ export const SETS: Record<string, SetRico> = {
     render: ({t, p}) => <TeleSena t={t} p={p} />,
     cams: {
       cartela: orb([0, 1.05, -0.3], 6, 8, 1.3, 1.0, 40, 6),
-      divide: orb([0, 0.92, 0.05], 0, 28, 1.6, 1.3, 42, 8),
+      divide: orb([0, 0.72, 0.15], 0, 34, 2.1, 1.85, 42, 5),
+      premio: orb([0.2, 0.8, 0.12], 32, 26, 1.0, 0.8, 40, 8),
     },
   },
   banco: {
@@ -869,7 +871,7 @@ export const SETS: Record<string, SetRico> = {
     luz: 'interior',
     render: ({t, p}) => <Diretoria t={t} p={p} />,
     cams: {
-      diretores: orb([0, 1.35, -0.3], 14, 12, 7.2, 6.0, 42, 8),
+      diretores: orb([0, 1.2, -0.2], 10, 16, 8.4, 7.4, 42, 5),
     },
   },
   cofre: {
@@ -877,7 +879,7 @@ export const SETS: Record<string, SetRico> = {
     luz: 'interior',
     render: ({t, p}) => <CofreRombo t={t} p={p} />,
     cams: {
-      buraco: orb([0, 0.9, -0.9], 0, 24, 7.6, 6.4, 42, 8),
+      buraco: orb([0, 0.5, -1.4], 4, 40, 7.2, 6.4, 42, 5),
     },
   },
   garantia: {
@@ -885,8 +887,8 @@ export const SETS: Record<string, SetRico> = {
     luz: 'interior',
     render: ({t, p}) => <Garantia t={t} p={p} />,
     cams: {
-      ze: orb([-3.2, 1.3, 0.3], 90, 8, 3.4, 2.8, 40, 8),
-      mesa: orb([-0.3, 0.9, 0], 90, 28, 7.4, 6.4, 42, 6),
+      ze: orb([-3.3, 1.15, 0.3], 72, 10, 4.0, 3.5, 40, 6),
+      mesa: orb([-0.3, 1.1, 0], 90, 26, 7.4, 6.4, 42, 6),
     },
   },
   garantiasolta: {
@@ -894,7 +896,7 @@ export const SETS: Record<string, SetRico> = {
     luz: 'interior',
     render: ({t, p}) => <Garantia t={t} p={p} solta />,
     cams: {
-      solta: orb([-1.6, 1.15, 0.5], 90, 16, 5.8, 4.8, 42, 6),
+      solta: orb([-2.6, 1.15, 1.0], 50, 10, 4.2, 3.4, 42, 6),
     },
   },
   escada: {
@@ -910,7 +912,7 @@ export const SETS: Record<string, SetRico> = {
     luz: 'tarde',
     render: ({t, p}) => <Escada t={t} p={p} topo />,
     cams: {
-      topo: orb([0, degY(6) + 0.5, degZ(6)], 22, 10, 7.2, 6.2, 42, 8),
+      topo: orb([0.05, degY(6) + 0.55, degZ(6)], -8, 12, 6.6, 5.6, 42, 6),
     },
   },
 };

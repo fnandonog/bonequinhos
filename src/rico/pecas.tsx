@@ -987,7 +987,8 @@ export const PredioTV: React.FC<{pos: V3; rotY?: number}> = ({pos, rotY = 0}) =>
     <Caixa pos={[0, 5, 8.02]} tam={[28, 2, 0.06]} cor="#41505e" sombra={false} />
     <Caixa pos={[0, 8.2, 8.02]} tam={[28, 1.6, 0.06]} cor="#41505e" sombra={false} />
     <Caixa pos={[-9, 12, 0]} tam={[10, 4, 12]} cor="#d9d6cc" />
-    <Letreiro pos={[0, 11, 8.1]} larg={14} alt={2.4} linhas={['ESTÚDIOS DE TV']} fundo="#1d1b26" cor="#ffd23f" />
+    <Letreiro pos={[0, 17, 6]} larg={16} alt={2.8} linhas={['ESTÚDIOS DE TV']} fundo="#1d1b26" cor="#ffd23f" />
+    {[-6, 6].map((x) => (<Barra key={x} a={[x, 10, 6]} b={[x, 15.6, 6]} r={0.15} cor="#3a3a40" />))}
     {/* parabólica */}
     <group position={[8, 10.2, 2]} rotation={[-0.7, 0.4, 0]}>
       <mesh>
@@ -1115,7 +1116,7 @@ export const Miniatura: React.FC<{pos: V3; tipo: number; rotY?: number}> = ({pos
       {tipo % 4 === 0 && (
         <>
           <Caixa pos={[0, 0.15, 0]} tam={[0.5, 0.3, 0.35]} cor="#e9e6df" />
-          <Barra a={[0.15, 0.3, 0]} b={[0.15, 0.85, 0]} r={0.02} cor="#d6282b" quadrada />
+          <Barra a={[0.15, 0.3, 0]} b={[0.15, 0.52, 0]} r={0.02} cor="#d6282b" quadrada />
         </>
       )}
       {tipo % 4 === 1 && (
@@ -1154,8 +1155,12 @@ export const Cadeado: React.FC<{pos: V3; esc?: number; abre?: number; rotY?: num
 // cofre forte de pé (1,4 m) com porta aberta e barras de ouro
 export const CofreOuro: React.FC<{pos: V3; rotY?: number; brilho?: number}> = ({pos, rotY = 0, brilho = 1}) => (
   <group position={pos} rotation={[0, rotY, 0]}>
-    <Caixa pos={[0, 0.7, 0]} tam={[1.2, 1.4, 1]} cor="#4a4f5a" />
-    <Caixa pos={[0, 0.7, 0.45]} tam={[1.0, 1.2, 0.12]} cor="#2b2b30" />
+    {/* caixa de aço aberta na frente: fundo, laterais, topo e base */}
+    <Caixa pos={[0, 0.7, -0.45]} tam={[1.2, 1.4, 0.1]} cor="#4a4f5a" />
+    {[-1, 1].map((sx) => (<Caixa key={sx} pos={[sx * 0.55, 0.7, 0]} tam={[0.1, 1.4, 1]} cor="#4a4f5a" />))}
+    <Caixa pos={[0, 1.35, 0]} tam={[1.2, 0.1, 1]} cor="#4a4f5a" />
+    <Caixa pos={[0, 0.05, 0]} tam={[1.2, 0.1, 1]} cor="#4a4f5a" />
+    <Caixa pos={[0, 0.7, -0.38]} tam={[1.0, 1.2, 0.04]} cor="#1d1b26" />
     {Array.from({length: 9}).map((_, i) => (
       <mesh key={i} position={[-0.3 + (i % 3) * 0.3, 0.25 + Math.floor(i / 3) * 0.33, 0.35]} castShadow>
         <boxGeometry args={[0.26, 0.11, 0.3]} />
@@ -1177,3 +1182,18 @@ export const PilhaNotas: React.FC<{pos: V3; n: number; cor?: string}> = ({pos, n
     ))}
   </group>
 );
+
+// monte de moedas: 7 pilhas de moedas de 3 cm (k = quanto do monte já chegou, 0 a 1)
+export const MonteMoedas: React.FC<{pos: V3; k: number}> = ({pos, k}) => {
+  const base: [number, number, number][] = [[0, 0, 26], [0.065, 0.02, 20], [-0.06, 0.03, 18], [0.02, -0.06, 14], [-0.03, 0.07, 12], [0.07, -0.05, 9], [-0.08, -0.04, 7]];
+  return (
+    <group position={pos}>
+      {base.map(([x, z, n], i) => (
+        <group key={i}>
+          <PilhaMoedas pos={[x, 0, z]} n={Math.round(n * k)} r={0.03} />
+          {Math.round(n * k) > 0 && <Moeda pos={[x, Math.round(n * k) * 0.03 * 0.18 + 0.0005, z]} rot={[-Math.PI / 2, 0, i]} valor="R$" r={0.03} />}
+        </group>
+      ))}
+    </group>
+  );
+};

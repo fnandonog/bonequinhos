@@ -32,7 +32,7 @@
   "cenas": [
     {
       "id": "c1",
-      "texto": "Duas mil e duzentas pessoas num navio. Bote salva-vidas pra metade. E você está a bordo do Titanic.",
+      "texto": "Duas mil e duzentas pessoas no meio do oceano, e os botes só dão pra metade. Uma delas é você, no Titanic.",
       "quando": "1912",
       "onde": "ATLÂNTICO NORTE",
       "destaques": [
@@ -41,14 +41,19 @@
         "metade",
         "titanic",
         "imigrante",
+        "nova",
         "sete",
         "libras",
         "terceira",
         "banheiras",
+        "setecentos",
         "oitocentas",
         "primeira",
         "onze",
         "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
         "iceberg",
         "gelo",
         "água",
@@ -56,14 +61,15 @@
         "vinte",
         "dezesseis",
         "lei",
-        "sessenta",
-        "cinco",
         "mulheres",
         "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
         "zero",
         "quinhentas",
-        "aguentaria",
-        "setecentos"
+        "aguentaria"
       ],
       "planos": [
         {
@@ -78,7 +84,7 @@
         {
           "set": "ti_botes",
           "cam": "metade",
-          "apartir": 7,
+          "apartir": 9,
           "p": [
             0,
             0.1
@@ -93,13 +99,13 @@
         {
           "set": "ti_navio",
           "cam": "ze",
-          "apartir": 11
+          "apartir": 16
         }
       ]
     },
     {
       "id": "c2",
-      "texto": "Como veio parar aqui? Você é imigrante, vendeu tudo pra recomeçar nos Estados Unidos. Comprou a passagem mais barata, de terceira classe: sete libras, o dinheiro inglês. E embarca no maior navio do mundo.",
+      "texto": "Abril de mil novecentos e doze. Você é imigrante e vai tentar a vida em Nova York. No bolso, a passagem mais barata, de terceira classe, por sete libras. E no cais te espera o maior navio do mundo.",
       "quando": "ABRIL 1912",
       "onde": "SOUTHAMPTON, INGLATERRA",
       "destaques": [
@@ -108,14 +114,19 @@
         "metade",
         "titanic",
         "imigrante",
+        "nova",
         "sete",
         "libras",
         "terceira",
         "banheiras",
+        "setecentos",
         "oitocentas",
         "primeira",
         "onze",
         "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
         "iceberg",
         "gelo",
         "água",
@@ -123,14 +134,15 @@
         "vinte",
         "dezesseis",
         "lei",
-        "sessenta",
-        "cinco",
         "mulheres",
         "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
         "zero",
         "quinhentas",
-        "aguentaria",
-        "setecentos"
+        "aguentaria"
       ],
       "planos": [
         {
@@ -144,7 +156,7 @@
         {
           "set": "ti_cais",
           "cam": "passagem",
-          "apartir": 14,
+          "apartir": 17,
           "p": [
             0.35,
             0.7
@@ -158,7 +170,7 @@
         {
           "set": "ti_cais",
           "cam": "casco",
-          "apartir": 27,
+          "apartir": 29,
           "p": [
             0.7,
             1
@@ -173,7 +185,7 @@
     },
     {
       "id": "c3",
-      "texto": "Sua cabine é lá embaixo, perto das máquinas. Pra uns setecentos passageiros, só duas banheiras. Na primeira classe, uma suíte custou oitocentas e setenta libras.",
+      "texto": "Sua cabine fica lá no fundo, longe do convés. Pra uns setecentos passageiros, duas banheiras. Só duas. Lá em cima, uma suíte da primeira classe custou oitocentas e setenta libras.",
       "quando": "1912",
       "onde": "TERCEIRA CLASSE",
       "destaques": [
@@ -182,14 +194,19 @@
         "metade",
         "titanic",
         "imigrante",
+        "nova",
         "sete",
         "libras",
         "terceira",
         "banheiras",
+        "setecentos",
         "oitocentas",
         "primeira",
         "onze",
         "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
         "iceberg",
         "gelo",
         "água",
@@ -197,14 +214,15 @@
         "vinte",
         "dezesseis",
         "lei",
-        "sessenta",
-        "cinco",
         "mulheres",
         "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
         "zero",
         "quinhentas",
-        "aguentaria",
-        "setecentos"
+        "aguentaria"
       ],
       "planos": [
         {
@@ -214,7 +232,7 @@
         {
           "set": "ti_banheira",
           "cam": "fila",
-          "apartir": 8,
+          "apartir": 9,
           "card": {
             "rotulo": "Banheiras na terceira classe",
             "valor": "2",
@@ -225,7 +243,7 @@
         {
           "set": "ti_primeira",
           "cam": "escada",
-          "apartir": 15,
+          "apartir": 17,
           "card": {
             "rotulo": "Suíte da primeira classe",
             "valor": "£870",
@@ -236,7 +254,7 @@
     },
     {
       "id": "c4",
-      "texto": "Quatro dias depois, onze e quarenta da noite. O vigia, no alto do mastro, grita: iceberg! Iceberg é uma montanha de gelo solta no mar. O navio raspa nele, e entra água.",
+      "texto": "Quatro dias depois, onze e quarenta de uma noite gelada. No alto do mastro, o vigia vê algo no escuro e dá o alarme. É um iceberg, uma montanha de gelo solta no mar. O navio raspa nele. E a água entra.",
       "quando": "14 ABR 1912",
       "onde": "ATLÂNTICO NORTE",
       "destaques": [
@@ -245,14 +263,19 @@
         "metade",
         "titanic",
         "imigrante",
+        "nova",
         "sete",
         "libras",
         "terceira",
         "banheiras",
+        "setecentos",
         "oitocentas",
         "primeira",
         "onze",
         "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
         "iceberg",
         "gelo",
         "água",
@@ -260,14 +283,15 @@
         "vinte",
         "dezesseis",
         "lei",
-        "sessenta",
-        "cinco",
         "mulheres",
         "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
         "zero",
         "quinhentas",
-        "aguentaria",
-        "setecentos"
+        "aguentaria"
       ],
       "planos": [
         {
@@ -285,7 +309,7 @@
         {
           "set": "ti_gavea",
           "cam": "frente",
-          "apartir": 8,
+          "apartir": 10,
           "p": [
             0.5,
             1
@@ -294,7 +318,7 @@
         {
           "set": "ti_iceberg",
           "cam": "geral",
-          "apartir": 16,
+          "apartir": 24,
           "p": [
             0,
             0.45
@@ -309,7 +333,7 @@
         {
           "set": "ti_iceberg",
           "cam": "raspa",
-          "apartir": 25,
+          "apartir": 34,
           "p": [
             0.45,
             1
@@ -319,7 +343,7 @@
     },
     {
       "id": "c5",
-      "texto": "A surpresa: são só vinte botes, com lugar pra mil cento e setenta e oito. Tudo dentro da lei! A lei pedia só dezesseis. O primeiro bote desce nem metade cheio.",
+      "texto": "Aí vem a surpresa. São só vinte botes, com lugar pra mil cento e setenta e oito. E tudo dentro da lei, que pedia só dezesseis. E o primeiro bote desce nem pela metade.",
       "quando": "15 ABR 1912",
       "onde": "CONVÉS DOS BOTES",
       "destaques": [
@@ -328,14 +352,19 @@
         "metade",
         "titanic",
         "imigrante",
+        "nova",
         "sete",
         "libras",
         "terceira",
         "banheiras",
+        "setecentos",
         "oitocentas",
         "primeira",
         "onze",
         "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
         "iceberg",
         "gelo",
         "água",
@@ -343,14 +372,15 @@
         "vinte",
         "dezesseis",
         "lei",
-        "sessenta",
-        "cinco",
         "mulheres",
         "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
         "zero",
         "quinhentas",
-        "aguentaria",
-        "setecentos"
+        "aguentaria"
       ],
       "planos": [
         {
@@ -369,7 +399,7 @@
         {
           "set": "ti_botes",
           "cam": "lei",
-          "apartir": 15,
+          "apartir": 17,
           "p": [
             0.4,
             0.6
@@ -383,7 +413,7 @@
         {
           "set": "ti_botes",
           "cam": "dezesseis",
-          "apartir": 19,
+          "apartir": 22,
           "p": [
             0.6,
             1
@@ -397,7 +427,7 @@
         {
           "set": "ti_bote",
           "cam": "desce",
-          "apartir": 24,
+          "apartir": 26,
           "p": [
             0,
             1
@@ -413,7 +443,7 @@
     },
     {
       "id": "c6",
-      "texto": "A regra: mulheres e crianças primeiro. Mas você está lá no fundo, num labirinto de corredores. Da primeira classe, sessenta e dois por cento se salvam. Da terceira, só vinte e cinco.",
+      "texto": "A ordem é mulheres e crianças primeiro. Só que você está lá no fundo, perdido num labirinto de corredores. Da primeira classe, sessenta e dois por cento se salvam. Da sua? Só vinte e cinco.",
       "quando": "15 ABR 1912",
       "onde": "TERCEIRA CLASSE",
       "destaques": [
@@ -422,14 +452,19 @@
         "metade",
         "titanic",
         "imigrante",
+        "nova",
         "sete",
         "libras",
         "terceira",
         "banheiras",
+        "setecentos",
         "oitocentas",
         "primeira",
         "onze",
         "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
         "iceberg",
         "gelo",
         "água",
@@ -437,14 +472,15 @@
         "vinte",
         "dezesseis",
         "lei",
-        "sessenta",
-        "cinco",
         "mulheres",
         "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
         "zero",
         "quinhentas",
-        "aguentaria",
-        "setecentos"
+        "aguentaria"
       ],
       "planos": [
         {
@@ -458,7 +494,7 @@
         {
           "set": "ti_corredor",
           "cam": "ze",
-          "apartir": 6,
+          "apartir": 7,
           "p": [
             0,
             1
@@ -467,7 +503,7 @@
         {
           "set": "ti_placar",
           "cam": "primeira",
-          "apartir": 16,
+          "apartir": 19,
           "p": [
             0,
             0.5
@@ -481,7 +517,7 @@
         {
           "set": "ti_placar",
           "cam": "terceira",
-          "apartir": 26,
+          "apartir": 29,
           "p": [
             0.5,
             1
@@ -496,7 +532,7 @@
     },
     {
       "id": "c7",
-      "texto": "Duas e vinte da manhã, o Titanic afunda. A água: dois graus abaixo de zero. Mais de mil e quinhentas pessoas morrem.",
+      "texto": "Duas e vinte da manhã. O Titanic afunda. A água está a dois graus abaixo de zero. Mais de mil e quinhentas pessoas morrem.",
       "quando": "15 ABR 1912",
       "onde": "ATLÂNTICO NORTE",
       "destaques": [
@@ -505,14 +541,19 @@
         "metade",
         "titanic",
         "imigrante",
+        "nova",
         "sete",
         "libras",
         "terceira",
         "banheiras",
+        "setecentos",
         "oitocentas",
         "primeira",
         "onze",
         "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
         "iceberg",
         "gelo",
         "água",
@@ -520,14 +561,15 @@
         "vinte",
         "dezesseis",
         "lei",
-        "sessenta",
-        "cinco",
         "mulheres",
         "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
         "zero",
         "quinhentas",
-        "aguentaria",
-        "setecentos"
+        "aguentaria"
       ],
       "planos": [
         {
@@ -556,7 +598,7 @@
         {
           "set": "ti_naufragio",
           "cam": "popa",
-          "apartir": 15,
+          "apartir": 17,
           "p": [
             0.6,
             1
@@ -571,7 +613,7 @@
     },
     {
       "id": "c8",
-      "texto": "Passagem de sete libras. Bote pra só metade. Você aguentaria?",
+      "texto": "Você pagou sete libras. Os botes davam pra metade. Você aguentaria?",
       "quando": "1912",
       "onde": "ATLÂNTICO NORTE",
       "destaques": [
@@ -580,14 +622,19 @@
         "metade",
         "titanic",
         "imigrante",
+        "nova",
         "sete",
         "libras",
         "terceira",
         "banheiras",
+        "setecentos",
         "oitocentas",
         "primeira",
         "onze",
         "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
         "iceberg",
         "gelo",
         "água",
@@ -595,14 +642,15 @@
         "vinte",
         "dezesseis",
         "lei",
-        "sessenta",
-        "cinco",
         "mulheres",
         "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
         "zero",
         "quinhentas",
-        "aguentaria",
-        "setecentos"
+        "aguentaria"
       ],
       "planos": [
         {
@@ -626,7 +674,7 @@
         {
           "set": "ti_fim",
           "cam": "ze",
-          "apartir": 8
+          "apartir": 9
         }
       ]
     }
