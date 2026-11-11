@@ -83,5 +83,17 @@ export function gerar() {
     ].filter(Boolean);
     fs.writeFileSync(path.join(SITE, p.id, 'index.html'), pagina({titulo: p.nome, descricao: p.nicho, avatar: AVATAR[p.id], base: '../', botoes}));
   }
-  return {pasta: 'site/', paginas: 1 + ps.length};
+  // Política de privacidade e termos (exigidos pelos apps do Google, Meta e TikTok)
+  const doc = (titulo, corpo) => `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${titulo} · Zé Explica</title>
+<style>body{font:16px/1.6 -apple-system,system-ui,sans-serif;max-width:720px;margin:0 auto;padding:32px 16px;color:#1d1b18;background:#fff7ee}h1{font-size:24px}h2{font-size:18px;margin-top:24px}</style></head><body><h1>${titulo}</h1>${corpo}<p><a href="/">Voltar</a></p></body></html>`;
+  fs.writeFileSync(path.join(SITE, 'privacidade.html'), doc('Política de privacidade', `
+<p>Atualizada em 11/11/2026. A rede Zé Explica (perfis Zé na Cozinha, Você na História, Você Construiu, Caso Explicado, Como Ficou Rico e Vale a Pena?) publica vídeos curtos nas redes sociais.</p>
+<h2>O que usamos</h2><p>Nosso aplicativo acessa apenas as contas e canais dos próprios perfis da rede, autorizados pelo dono, para publicar vídeos, ler métricas e responder comentários e mensagens. Não vendemos nem compartilhamos dados com terceiros.</p>
+<h2>Dados de quem interage</h2><p>Quando você comenta ou manda mensagem para um dos nossos perfis, usamos o seu nome de usuário e o texto apenas para responder. Não guardamos e-mail, telefone ou dados sensíveis.</p>
+<h2>Links</h2><p>Alguns links são de afiliado: podemos ganhar uma comissão sem custo extra para você.</p>
+<h2>Exclusão</h2><p>Para pedir a exclusão de qualquer dado, escreva para sfernandonogueira@gmail.com. Respondemos em até 15 dias.</p>`));
+  fs.writeFileSync(path.join(SITE, 'termos.html'), doc('Termos de uso', `
+<p>Atualizados em 11/11/2026. O conteúdo da rede Zé Explica é informativo e de entretenimento. Preços e números são aproximados, com a fonte e a data indicadas no vídeo, e podem mudar.</p>
+<p>Ofertas e links de afiliado levam a lojas de terceiros, responsáveis pela venda e entrega. Dúvidas: sfernandonogueira@gmail.com.</p>`));
+  return {pasta: 'site/', paginas: 3 + ps.length};
 }
