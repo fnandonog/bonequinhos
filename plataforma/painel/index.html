@@ -43,8 +43,8 @@
   .mut { color:var(--mut); font-size:13px; }
   .tag { font-size:12px; padding:2px 8px; border-radius:99px; background:var(--lin); }
   .tag.ok { background:#1f9d5522; color:var(--ok); } .tag.err { background:#d6454522; color:var(--err); } .tag.warn { background:#c98a0022; color:var(--warn); }
-  button.b { font:inherit; border:1px solid var(--lin); background:var(--card); color:var(--tx); padding:7px 12px; border-radius:9px; cursor:pointer; }
-  button.b.pri { background:var(--pri); border-color:var(--pri); color:#fff; font-weight:600; }
+  button.b, a.b { display:inline-block; font:inherit; border:1px solid var(--lin); background:var(--card); color:var(--tx); padding:7px 12px; border-radius:9px; cursor:pointer; }
+  button.b.pri, a.b.pri { background:var(--pri); border-color:var(--pri); color:#fff; font-weight:600; }
   button.b:disabled { opacity:.5; cursor:default; }
   input, textarea, select { font:inherit; width:100%; padding:8px 10px; border:1px solid var(--lin); border-radius:9px; background:var(--bg); color:var(--tx); }
   textarea { min-height:110px; resize:vertical; }
