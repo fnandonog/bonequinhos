@@ -1,5 +1,5 @@
 {
-  "enabled": false,
+  "enabled": true,
   "_leia": "Interruptor geral no Mac: com enabled=false nada roda (nem pela agenda, nem pelos pedidos do escritório). Só o Fernando liga. Horários em America/Sao_Paulo, cron de 5 campos. A PRODUÇÃO de vídeo não roda por aqui: é a plataforma/agencia.mjs (painel → Produzir agora, ou PRODUCAO_AUTOMATICA=1).",
   "timezone": "America/Sao_Paulo",
   "claude_bin": "claude",

@@ -163,7 +163,7 @@ function telaPerfis() {
       <span class="tag">${p.pautas_novas} pautas na fila</span></div>
     ${!p.ativo && p.motivo_inativo ? `<p class="mut">${esc(p.motivo_inativo)}</p>` : ''}
     <label>Instagram (@)</label><input value="${esc(p.instagram)}" onchange="salvarPerfil('${p.id}',{instagram:this.value.replace('@','')})">
-    <label>Horário de postagem</label><input type="time" value="${esc(p.horario)}" onchange="salvarPerfil('${p.id}',{horario:this.value})">
+    <label>Horários de postagem (1 vídeo em cada, separados por vírgula)</label><input value="${esc((p.horarios || [p.horario]).join(', '))}" placeholder="12:00, 19:30" onchange="salvarPerfil('${p.id}',{horarios:this.value})">
     <label>Chamada (CTA) da legenda</label><input value="${esc(p.cta)}" onchange="salvarPerfil('${p.id}',{cta:this.value})">
     <label>Link da bio / funil</label><input value="${esc(p.link_bio)}" placeholder="https://" onchange="salvarPerfil('${p.id}',{link_bio:this.value})">
     <div class="linha" style="margin-top:12px"><button class="b" onclick="produzirPerfil('${p.id}')" ${E.agencia_rodando ? 'disabled' : ''}>Produzir 1 vídeo deste perfil</button></div>
@@ -241,6 +241,7 @@ function totais() {
     const i = r.instagram; if (i) { seg += i.followers_count || 0; views += i.views_30d || 0; alcance += i.alcance_30d || 0; inter += i.interacoes_30d || 0;
       perfilViews += i.conta_insights?.profile_views || 0; cliques += i.conta_insights?.website_clicks || 0; }
     if (r.youtube?.inscritos) yt += r.youtube.inscritos;
+    if (r.youtube?.views) views += r.youtube.views;
   }
   return {seg, views, alcance, inter, perfilViews, cliques, yt, grupo: A.telegram};
 }
@@ -264,7 +265,7 @@ function telaGeral() {
   <div class="linha" style="justify-content:space-between;margin-bottom:10px"><span class="mut">${A.atualizado ? `Números de ${dt(A.atualizado)}` : ''}${(A.erros || []).length ? ` · ⚠️ ${A.erros.length} aviso(s)` : ''}</span>
     <button class="b" onclick="atualizar()">🔄 Atualizar números</button></div>
   <div class="grade" style="grid-template-columns:repeat(auto-fill,minmax(170px,1fr))">
-    ${kpi(n(t.seg), 'Seguidores no Instagram', '6 perfis')}${kpi(n(t.yt), 'Inscritos no YouTube')}${kpi(n(t.views || t.alcance), 'Views em 30 dias')}
+    ${kpi(n(t.seg), 'Seguidores no Instagram', '6 perfis')}${kpi(n(t.yt), 'Inscritos no YouTube')}${kpi(n(t.views || t.alcance), 'Views (Instagram + YouTube)')}
     ${kpi(n(t.inter), 'Interações em 30 dias')}${kpi(n(t.grupo), 'Membros do grupo')}${kpi(receita ? 'R$ ' + n(receita) : '—', 'Afiliado no mês')}
   </div>
   <h2>Produção</h2>
@@ -299,7 +300,7 @@ function telaAgenda() {
     <b>${d.toLocaleDateString('pt-BR', {weekday: 'short', day: '2-digit', month: '2-digit'})}</b>
     ${doDia(d).map((x) => `<div style="margin-top:8px"><span class="tag ${x.status === 'publicado' ? 'ok' : 'warn'}">${new Date(x.quando).toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'})}</span>
       <div style="font-size:13px">${esc(perfil(x.perfil).nome)}: ${esc(x.tema)}</div></div>`).join('') || '<div class="mut" style="margin-top:6px">—</div>'}</div>`).join('')}</div>
-  <h2>Horários dos perfis</h2><div class="card">${E.perfis.map((p) => `<div class="linha" style="justify-content:space-between;margin:4px 0"><span>${esc(p.nome)}</span><b>${esc(p.horario)}</b></div>`).join('')}</div>`;
+  <h2>Horários dos perfis</h2><div class="card">${E.perfis.map((p) => `<div class="linha" style="justify-content:space-between;margin:4px 0"><span>${esc(p.nome)}</span><b>${esc((p.horarios || [p.horario]).join(' · '))}</b></div>`).join('')}</div>`;
 }
 
 // ---------- Redes: cada canal, conexão e últimos posts ----------

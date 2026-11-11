@@ -23,7 +23,9 @@ export function salvarPerfil(id, mudancas) {
   const d = ler(f, {perfis: []});
   const p = d.perfis.find((x) => x.id === id);
   if (!p) throw new Error('perfil não existe: ' + id);
-  for (const k of ['ativo', 'horario', 'cta', 'link_bio', 'instagram', 'youtube']) if (k in mudancas) p[k] = mudancas[k];
+  if (typeof mudancas.horarios === 'string') mudancas.horarios = mudancas.horarios.split(/[,; ]+/).filter((h) => /^([01]\d|2[0-3]):[0-5]\d$/.test(h)).sort();
+  if (mudancas.horarios?.length) mudancas.horario = mudancas.horarios[0];
+  for (const k of ['ativo', 'horario', 'horarios', 'cta', 'link_bio', 'instagram', 'youtube']) if (k in mudancas) p[k] = mudancas[k];
   gravar(f, d);
   return p;
 }

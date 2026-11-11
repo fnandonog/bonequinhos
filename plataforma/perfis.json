@@ -9,7 +9,7 @@
       "youtube": "ze.nacozinha",
       "formato": "cozinha",
       "comando": "/produzir",
-      "ativo": false,
+      "ativo": true,
       "motivo_inativo": "Motor da cozinha 3D pronto (vídeo modelo: bolo-cenoura). Liga quando o Fernando aprovar o padrão.",
       "horario": "11:30",
       "cta": "Receita completa e utensílios em oferta: link na bio",
@@ -32,7 +32,11 @@
       "voz_elevenlabs": {
         "id": "fhtZMBwha5du5OxuvexO",
         "nome": "Malu"
-      }
+      },
+      "horarios": [
+        "11:30",
+        "18:00"
+      ]
     },
     {
       "id": "historia",
@@ -42,9 +46,9 @@
       "youtube": "vocenahistoria3d",
       "formato": "historia",
       "comando": "/produzir",
-      "ativo": false,
+      "ativo": true,
       "motivo_inativo": "Falta aprovar o piloto do formato.",
-      "horario": "19:00",
+      "horario": "12:30",
       "cta": "Livros e ofertas no grupo: link na bio",
       "link_bio": "",
       "hashtags": [
@@ -60,7 +64,11 @@
       "voz_elevenlabs": {
         "id": "5lrBPYY4YvMbKHTo8kvZ",
         "nome": "Arthur Freeman"
-      }
+      },
+      "horarios": [
+        "12:30",
+        "20:00"
+      ]
     },
     {
       "id": "construiu",
@@ -71,7 +79,7 @@
       "formato": "construiu",
       "comando": "/video",
       "ativo": true,
-      "horario": "12:30",
+      "horario": "12:00",
       "cta": "Materiais e ferramentas em oferta no grupo: link na bio",
       "link_bio": "",
       "hashtags": [
@@ -88,7 +96,11 @@
       "voz_elevenlabs": {
         "id": "ZqE9vIHPcrC35dZv0Svu",
         "nome": "Adam Borges"
-      }
+      },
+      "horarios": [
+        "12:00",
+        "19:00"
+      ]
     },
     {
       "id": "caso",
@@ -98,9 +110,9 @@
       "youtube": "casoexplicado.oficial",
       "formato": "caso",
       "comando": "/produzir",
-      "ativo": false,
+      "ativo": true,
       "motivo_inativo": "Falta aprovar o piloto do formato.",
-      "horario": "21:00",
+      "horario": "13:00",
       "cta": "Indicações e ofertas no grupo: link na bio",
       "link_bio": "",
       "hashtags": [
@@ -116,7 +128,11 @@
       "voz_elevenlabs": {
         "id": "cyD08lEy76q03ER1jZ7y",
         "nome": "Scheila"
-      }
+      },
+      "horarios": [
+        "13:00",
+        "21:30"
+      ]
     },
     {
       "id": "rico",
@@ -126,9 +142,9 @@
       "youtube": "comoficourico.oficial",
       "formato": "rico",
       "comando": "/produzir",
-      "ativo": false,
+      "ativo": true,
       "motivo_inativo": "Falta aprovar o piloto do formato.",
-      "horario": "18:00",
+      "horario": "07:30",
       "cta": "Livros e ofertas no grupo: link na bio",
       "link_bio": "",
       "hashtags": [
@@ -144,7 +160,11 @@
       "voz_elevenlabs": {
         "id": "zNEsdgTUa3ndwKry8Xcq",
         "nome": "Elvis"
-      }
+      },
+      "horarios": [
+        "07:30",
+        "18:30"
+      ]
     },
     {
       "id": "valeapena",
@@ -154,9 +174,9 @@
       "youtube": "valeapena3d",
       "formato": "valeapena",
       "comando": "/produzir",
-      "ativo": false,
+      "ativo": true,
       "motivo_inativo": "Falta aprovar o piloto do formato.",
-      "horario": "20:00",
+      "horario": "12:15",
       "cta": "Link do produto com desconto na bio",
       "link_bio": "",
       "hashtags": [
@@ -173,7 +193,11 @@
       "voz_elevenlabs": {
         "id": "S4M4JhZIzYGUlDsYIOow",
         "nome": "Elena Vinter"
-      }
+      },
+      "horarios": [
+        "12:15",
+        "20:30"
+      ]
     }
   ]
 }

@@ -7,7 +7,7 @@ import path from 'node:path';
 import {spawn} from 'node:child_process';
 import * as D from './lib/dados.mjs';
 import {descobrirContas, credenciais, chaveEnv} from './lib/meta.mjs';
-import {proximoHorario} from './lib/agenda.mjs';
+import {proximoHorario, proximoSlot} from './lib/agenda.mjs';
 import {publicar} from './postar.mjs';
 import {sincronizar, analytics, comentarios, salvarComentario} from './sincronizar.mjs';
 import {responderComentario} from './lib/meta.mjs';
@@ -121,7 +121,7 @@ async function api(metodo, partes, req) {
     }
     if (acao === 'aprovar') {
       const p = D.perfil(it.perfil);
-      const quando = b.quando === 'agora' ? null : b.quando || proximoHorario(p.horario);
+      const quando = b.quando === 'agora' ? null : b.quando || proximoSlot(p);
       D.salvarItem({id, status: 'aprovado', agendado_para: quando, legenda: b.legenda ?? it.legenda, tentativas: 0});
       ponte.espelhar(id, 'aprovado');
       if (!quando) publicar(D.item(id)); // não espera: o painel acompanha pelo status

@@ -8,7 +8,7 @@ import {spawn, execFileSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import {RAIZ, DADOS, perfis, perfil as umPerfil, pautas, salvarPautas, salvarItem, item, log, env} from './lib/dados.mjs';
-import {proximoHorario} from './lib/agenda.mjs';
+import {proximoHorario, proximoSlot} from './lib/agenda.mjs';
 import * as ESC from './lib/escritorio.mjs';
 
 const args = process.argv.slice(2);
@@ -232,7 +232,7 @@ async function produzir(p, tema, pautaMotivo) {
       capa: `out/${id}.jpg`,
       legenda: leg.legenda,
       titulo_youtube: leg.titulo_youtube,
-      agendado_para: auto ? proximoHorario(p.horario) : null,
+      agendado_para: auto ? proximoSlot(p) : null,
       erro: null,
     });
   } catch (e) {
