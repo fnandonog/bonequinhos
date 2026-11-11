@@ -71,8 +71,10 @@ export function gerar() {
   // uma por perfil
   for (const p of ps) {
     fs.mkdirSync(path.join(SITE, p.id), {recursive: true});
+    const gp = p.grupo?.url ? [{rotulo: p.grupo.nome, sub: 'Grátis no Telegram', url: p.grupo.url, pri: true, icone: '🍳'}] : [];
     const botoes = [
-      ...grupo,
+      ...gp,
+      ...grupo.map((g) => (gp.length ? {...g, pri: false} : g)),
       p.link_bio ? {rotulo: p.cta.replace(/: link na bio|link na bio/i, '').trim() || 'Ofertas do perfil', url: utm(p.link_bio, p.id), icone: '🛒'} : null,
       ig(p.instagram) && {rotulo: `Instagram @${p.instagram}`, url: ig(p.instagram), icone: '📸'},
       yt(p.youtube) && {rotulo: `YouTube @${p.youtube}`, url: yt(p.youtube), icone: '▶️'},

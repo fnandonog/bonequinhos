@@ -24,7 +24,11 @@
         "receita fácil",
         "air fryer receita",
         "receita barata"
-      ]
+      ],
+      "grupo": {
+        "nome": "Receitas Precinho: uma receita fácil por dia no Telegram",
+        "url": "https://t.me/receitasprecinho"
+      }
     },
     {
       "id": "historia",

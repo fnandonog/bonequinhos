@@ -2,8 +2,14 @@
   "_nota": "Página de links (link na bio). O painel gera site/ a partir daqui; publicar o site na internet é com o Fernando.",
   "titulo": "Rede do Zé",
   "descricao": "Bonequinhos 3D explicando como as coisas funcionam. Escolha seu canal 👇",
-  "grupo": {"nome": "Grupo de ofertas no Telegram", "url": ""},
+  "grupo": {
+    "nome": "Precinho de Ouro: ofertas e cupons no Telegram",
+    "url": "https://t.me/precinhodeouro"
+  },
   "extras": [
-    {"rotulo": "Receitas completas", "url": "https://precinhodeouro.com.br/receitas"}
+    {
+      "rotulo": "Receitas completas",
+      "url": "https://precinhodeouro.com.br/receitas"
+    }
   ]
 }
