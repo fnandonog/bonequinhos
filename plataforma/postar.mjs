@@ -4,6 +4,7 @@ import path from 'node:path';
 import {RAIZ, fila, salvarItem, log, env} from './lib/dados.mjs';
 import {publicarInstagram, publicarFacebook} from './lib/meta.mjs';
 import {batida} from './lib/escritorio.mjs';
+import {sincronizar} from './sincronizar.mjs';
 
 const args = process.argv.slice(2);
 const so = args.includes('--agora') ? args[args.indexOf('--agora') + 1] : null;
@@ -32,4 +33,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     so ? x.id === so : x.status === 'aprovado' && (!x.agendado_para || new Date(x.agendado_para) <= agora),
   );
   for (const it of prontos) await publicar(it);
+  // métricas e comentários de hora em hora (o sincronizador pula se a última leitura tem menos de 55 min)
+  if (!so) await sincronizar().catch((e) => log('postar', `sincronizar: ${e.message}`));
 }

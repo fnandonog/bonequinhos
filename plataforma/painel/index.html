@@ -8,6 +8,7 @@
   :root { --bg:#f6f3ee; --card:#fff; --tx:#1d1b18; --mut:#6f6a62; --lin:#e6e0d6; --pri:#ff7a1a; --ok:#1f9d55; --err:#d64545; --warn:#c98a00; }
   @media (prefers-color-scheme: dark) { :root { --bg:#151412; --card:#1f1d1a; --tx:#f1ede6; --mut:#a59f95; --lin:#34302a; } }
   * { box-sizing:border-box; }
+  a { color:var(--pri); }
   body { margin:0; font:15px/1.45 -apple-system, system-ui, sans-serif; background:var(--bg); color:var(--tx); }
   header { position:sticky; top:0; z-index:2; background:var(--bg); border-bottom:1px solid var(--lin); padding:12px 16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
   header h1 { font-size:18px; margin:0 12px 0 0; }
@@ -50,12 +51,12 @@
 <main id="tela"></main>
 <div id="aviso"></div>
 <script>
-const ABAS = {fila: 'Fila de vídeos', perfis: 'Perfis', pautas: 'Pautas', config: 'Configurações'};
+const ABAS = {geral: 'Visão geral', fila: 'Fila de vídeos', agenda: 'Agenda', redes: 'Redes', comentarios: 'Comentários', perfis: 'Perfis', pautas: 'Pautas', links: 'Página de links', config: 'Configurações'};
 const AVATAR = {cozinha: 'receitas', historia: 'historia', construiu: 'construiu', caso: 'crimes', rico: 'ricos', valeapena: 'valeapena'};
 const STATUS = {produzindo: ['Produzindo', 'warn'], aguardando_aprovacao: ['Aguardando sua aprovação', 'warn'], aprovado: ['Aprovado', 'ok'],
   publicando: ['Publicando…', 'warn'], publicado: ['Publicado', 'ok'], erro: ['Erro', 'err'], rejeitado: ['Rejeitado', '']};
 const ETAPA = {roteiro: 'agentes: pesquisa, roteiro, cenas e QA', narracao: 'narração', render: 'renderizando', legenda: 'legenda', pronto: 'pronto'};
-let aba = location.hash.slice(1) || 'fila', E = null, ultimoLog = null;
+let aba = location.hash.slice(1) || 'geral', E = null, ultimoLog = null;
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
 const dt = (s) => s ? new Date(s).toLocaleString('pt-BR', {day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'}) : '';
@@ -69,7 +70,7 @@ const perfil = (id) => E.perfis.find((p) => p.id === id) ?? {nome: id};
 
 function abas() {
   $('#abas').innerHTML = Object.entries(ABAS).map(([k, v]) => {
-    const n = k === 'fila' ? E.fila.filter((x) => x.status === 'aguardando_aprovacao').length : 0;
+    const n = k === 'fila' ? E.fila.filter((x) => x.status === 'aguardando_aprovacao').length : k === 'comentarios' ? E.comentarios : 0;
     return `<button class="${k === aba ? 'on' : ''}" onclick="ir('${k}')">${v}${n ? ` (${n})` : ''}</button>`;
   }).join('');
   $('#status').textContent = E.agencia_rodando ? '⚙️ agência trabalhando…' : '';
@@ -160,7 +161,14 @@ function telaConfig() {
     <label>Postar também como Reels na Página do Facebook</label><select id="cfg-META_POSTAR_FACEBOOK"><option value="0">Não</option><option value="1" ${c.META_POSTAR_FACEBOOK === '1' ? 'selected' : ''}>Sim</option></select>
     <div class="linha" style="margin-top:12px"><button class="b pri" onclick="salvarCfg()">Salvar</button></div>
   </div>
-  <div class="card"><b>Logs</b><div class="linha" style="margin-top:8px"><button class="b" onclick="verLog('agencia')">Agência</button><button class="b" onclick="verLog('postar')">Postagens</button></div></div>
+  <div class="card"><b>Outros canais e monetização</b>
+    ${campo('YOUTUBE_API_KEY', 'Chave da API do YouTube (estatísticas dos canais)', 'AIza…', 'password')}
+    ${campo('TELEGRAM_BOT_TOKEN', 'Token do bot do Telegram (admin do grupo)', '123456:ABC…', 'password')}
+    ${campo('TELEGRAM_GRUPO_ID', 'ID ou @ do grupo de ofertas', '@meugrupo ou -100…')}
+    ${campo('RECEITA_AFILIADO_MES', 'Receita de afiliado neste mês (R$)', '0')}
+    <div class="linha" style="margin-top:12px"><button class="b pri" onclick="salvarCfg()">Salvar</button></div>
+  </div>
+  <div class="card"><b>Logs</b><div class="linha" style="margin-top:8px"><button class="b" onclick="verLog('agencia')">Agência</button><button class="b" onclick="verLog('postar')">Postagens</button><button class="b" onclick="verLog('sincronizar')">Sincronização</button></div></div>
   </div><div id="log"></div>`;
 }
 const salvarCfg = tentar(async () => {
@@ -173,17 +181,142 @@ const descobrir = tentar(async () => {
   setTimeout(() => { const el = $('#contas'); if (el) el.innerHTML = `<p class="mut">Contas encontradas no token:</p>` + r.contas.map((c) => `<div class="mut">• ${esc(c.page_nome)} → @${esc(c.ig_usuario ?? 'sem Instagram ligado')}</div>`).join(''); }, 50);
 });
 
+
+// ---------- Visão geral: números de todos os canais e o funil até a monetização ----------
+const n = (v) => v == null ? '—' : Number(v).toLocaleString('pt-BR');
+function totais() {
+  const A = E.analytics || {perfis: {}};
+  let seg = 0, views = 0, alcance = 0, inter = 0, perfilViews = 0, cliques = 0, yt = 0;
+  for (const r of Object.values(A.perfis || {})) {
+    const i = r.instagram; if (i) { seg += i.followers_count || 0; views += i.views_30d || 0; alcance += i.alcance_30d || 0; inter += i.interacoes_30d || 0;
+      perfilViews += i.conta_insights?.profile_views || 0; cliques += i.conta_insights?.website_clicks || 0; }
+    if (r.youtube?.inscritos) yt += r.youtube.inscritos;
+  }
+  return {seg, views, alcance, inter, perfilViews, cliques, yt, grupo: A.telegram};
+}
+function sparkSeg(perfilId) {
+  const h = (E.analytics?.historico || []).filter((x) => x.perfil === perfilId && x.rede === 'instagram').slice(-30);
+  if (h.length < 2) return '';
+  const vs = h.map((x) => x.seguidores), mn = Math.min(...vs), mx = Math.max(...vs) || 1;
+  const pts = vs.map((v, i) => `${(i / (vs.length - 1)) * 100},${28 - ((v - mn) / ((mx - mn) || 1)) * 26}`).join(' ');
+  return `<svg viewBox="0 0 100 30" style="width:100%;height:30px"><polyline fill="none" stroke="var(--pri)" stroke-width="2" points="${pts}"/></svg>`;
+}
+function telaGeral() {
+  const t = totais(), A = E.analytics || {};
+  const fila = E.fila, pub = fila.filter((x) => x.status === 'publicado').length, ag = fila.filter((x) => x.status === 'aprovado').length,
+    esp = fila.filter((x) => x.status === 'aguardando_aprovacao').length, prod = fila.filter((x) => x.status === 'produzindo').length;
+  const receita = Number(E.config.RECEITA_AFILIADO_MES || 0);
+  const kpi = (v, r, d = '') => `<div class="card"><div class="mut">${r}</div><div style="font-size:26px;font-weight:700">${v}</div><div class="mut">${d}</div></div>`;
+  const etapas = [['Visualizações (30 dias)', t.views || t.alcance], ['Visitas aos perfis', t.perfilViews], ['Cliques no link da bio', t.cliques], ['Membros do grupo de ofertas', t.grupo], ['Receita de afiliado no mês (R$)', receita || null]];
+  const max = Math.max(...etapas.map((e) => e[1] || 0), 1);
+  return `
+  ${!A.atualizado ? `<div class="card" style="margin-bottom:14px">📡 Ainda sem dados das redes. Conecte a Meta em <a href="#config" onclick="ir('config')">Configurações</a> e clique em <b>Atualizar números</b>.</div>` : ''}
+  <div class="linha" style="justify-content:space-between;margin-bottom:10px"><span class="mut">${A.atualizado ? `Números de ${dt(A.atualizado)}` : ''}${(A.erros || []).length ? ` · ⚠️ ${A.erros.length} aviso(s)` : ''}</span>
+    <button class="b" onclick="atualizar()">🔄 Atualizar números</button></div>
+  <div class="grade" style="grid-template-columns:repeat(auto-fill,minmax(170px,1fr))">
+    ${kpi(n(t.seg), 'Seguidores no Instagram', '6 perfis')}${kpi(n(t.yt), 'Inscritos no YouTube')}${kpi(n(t.views || t.alcance), 'Views em 30 dias')}
+    ${kpi(n(t.inter), 'Interações em 30 dias')}${kpi(n(t.grupo), 'Membros do grupo')}${kpi(receita ? 'R$ ' + n(receita) : '—', 'Afiliado no mês')}
+  </div>
+  <h2>Produção</h2>
+  <div class="grade" style="grid-template-columns:repeat(auto-fill,minmax(170px,1fr))">
+    ${kpi(prod, 'Produzindo agora')}${kpi(esp, 'Esperando sua aprovação')}${kpi(ag, 'Agendados')}${kpi(pub, 'Publicados')}
+  </div>
+  <h2>Funil até a monetização</h2>
+  <div class="card">${etapas.map(([r, v]) => `<div style="margin:8px 0"><div class="linha" style="justify-content:space-between"><span>${r}</span><b>${n(v)}</b></div>
+    <div style="height:10px;background:var(--lin);border-radius:9px"><div style="height:10px;border-radius:9px;background:var(--pri);width:${Math.max(2, ((v || 0) / max) * 100)}%"></div></div></div>`).join('')}
+    <p class="mut">Cliques no link vêm do Instagram (website_clicks). Membros do grupo vêm do bot do Telegram. A receita de afiliado você digita em Configurações até ligarmos a API da loja.</p></div>
+  <h2>Por perfil</h2>
+  <div class="grade">${E.perfis.map((p) => { const r = A.perfis?.[p.id] || {}, i = r.instagram;
+    return `<div class="card"><div class="linha"><img class="av" src="/perfis/avatar-${AVATAR[p.id]}.png"><div style="flex:1"><b>${esc(p.nome)}</b><div class="mut">@${esc(p.instagram)}</div></div>
+      <span class="tag ${p.ativo ? 'ok' : ''}">${p.ativo ? 'produzindo' : 'pausado'}</span></div>
+      <div class="linha" style="margin-top:10px;justify-content:space-between"><span>Seguidores <b>${n(i?.followers_count)}</b></span><span>Views 30d <b>${n(i?.views_30d || i?.alcance_30d)}</b></span><span>Posts <b>${n(i?.media_count)}</b></span></div>
+      ${r.youtube ? `<div class="mut">YouTube: ${n(r.youtube.inscritos)} inscritos · ${n(r.youtube.views)} views</div>` : ''}
+      ${sparkSeg(p.id)}</div>`; }).join('')}</div>`;
+}
+const atualizar = tentar(async () => { aviso('Buscando os números das redes…'); const r = await api('sincronizar', {}); aviso((r.erros || []).length ? '⚠️ ' + r.erros[0] : 'Números atualizados'); });
+
+// ---------- Agenda: o que vai sair e o que saiu ----------
+function telaAgenda() {
+  const itens = E.fila.filter((x) => ['aprovado', 'publicado', 'publicando', 'aguardando_aprovacao'].includes(x.status))
+    .map((x) => ({...x, quando: x.status === 'publicado' ? x.publicado_em : x.agendado_para}))
+    .sort((a, b) => new Date(b.quando || 0) - new Date(a.quando || 0));
+  const dias = [];
+  for (let i = -3; i < 11; i++) { const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() + i); dias.push(d); }
+  const doDia = (d) => itens.filter((x) => x.quando && new Date(x.quando).toDateString() === d.toDateString());
+  const hoje = new Date().toDateString();
+  return `<p class="mut">Cada perfil posta no próprio horário (Perfis). Vídeos aprovados entram aqui; a publicação automática está ${E.config.AUTO_PUBLICAR === '1' ? '<b>ligada</b>' : '<b>esperando sua aprovação</b>'}.</p>
+  <div class="grade" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr))">${dias.map((d) => `<div class="card" style="${d.toDateString() === hoje ? 'border-color:var(--pri)' : ''}">
+    <b>${d.toLocaleDateString('pt-BR', {weekday: 'short', day: '2-digit', month: '2-digit'})}</b>
+    ${doDia(d).map((x) => `<div style="margin-top:8px"><span class="tag ${x.status === 'publicado' ? 'ok' : 'warn'}">${new Date(x.quando).toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'})}</span>
+      <div style="font-size:13px">${esc(perfil(x.perfil).nome)}: ${esc(x.tema)}</div></div>`).join('') || '<div class="mut" style="margin-top:6px">—</div>'}</div>`).join('')}</div>
+  <h2>Horários dos perfis</h2><div class="card">${E.perfis.map((p) => `<div class="linha" style="justify-content:space-between;margin:4px 0"><span>${esc(p.nome)}</span><b>${esc(p.horario)}</b></div>`).join('')}</div>`;
+}
+
+// ---------- Redes: cada canal, conexão e últimos posts ----------
+function telaRedes() {
+  const A = E.analytics || {perfis: {}};
+  return E.perfis.map((p) => { const r = A.perfis?.[p.id] || {}, i = r.instagram;
+    return `<div class="card" style="margin-bottom:14px"><div class="linha"><img class="av" src="/perfis/avatar-${AVATAR[p.id]}.png"><b style="flex:1">${esc(p.nome)}</b>
+      <span class="tag ${p.conectado.instagram ? 'ok' : 'err'}">Instagram ${p.conectado.instagram ? '✓' : 'desconectado'}</span>
+      <span class="tag ${p.conectado.facebook ? 'ok' : ''}">Facebook ${p.conectado.facebook ? '✓' : '—'}</span>
+      <span class="tag ${r.youtube ? 'ok' : ''}">YouTube ${p.youtube ? (r.youtube ? '✓' : 'sem chave') : '—'}</span>
+      <span class="tag">TikTok: extensão (depois)</span></div>
+      ${i ? `<div class="linha" style="margin:10px 0;gap:18px"><span>Seguidores <b>${n(i.followers_count)}</b></span><span>Seguindo <b>${n(i.follows_count)}</b></span><span>Posts <b>${n(i.media_count)}</b></span>
+        <span>Visitas ao perfil <b>${n(i.conta_insights?.profile_views)}</b></span><span>Cliques no link <b>${n(i.conta_insights?.website_clicks)}</b></span></div>
+      <div style="display:flex;gap:10px;overflow-x:auto;padding-bottom:6px">${(i.midias || []).slice(0, 12).map((m) => `<a href="${esc(m.permalink)}" target="_blank" style="flex:none;width:120px;color:inherit;text-decoration:none">
+        <img src="${esc(m.thumbnail_url || m.media_url || '')}" style="width:120px;height:160px;object-fit:cover;border-radius:9px;background:var(--lin)">
+        <div class="mut">▶ ${n(m.insights?.views || m.insights?.reach)} · ♥ ${n(m.like_count)} · 💬 ${n(m.comments_count)}</div></a>`).join('')}</div>`
+      : `<p class="mut">${p.conectado.instagram ? 'Clique em Atualizar números na Visão geral.' : 'Conecte em Configurações → Meta.'}</p>`}</div>`; }).join('');
+}
+
+// ---------- Comentários: o que chegou, rascunho da Comunidade e resposta com 1 clique ----------
+let COMS = [];
+async function carregarComentarios() { COMS = await api('comentarios'); const el = $('#coms'); if (el) el.innerHTML = listaComentarios(); }
+function listaComentarios() {
+  const l = COMS.filter((c) => c.status === 'novo').concat(COMS.filter((c) => c.status !== 'novo').slice(-30).reverse());
+  if (!l.length) return `<div class="card vazio">Nenhum comentário ainda. Eles chegam de hora em hora quando o Instagram estiver conectado.</div>`;
+  return l.map((c) => `<div class="card" style="margin-bottom:10px"><div class="linha"><b>@${esc(c.autor)}</b><span class="mut">em ${esc(perfil(c.perfil).nome)} · ${dt(c.quando)}</span><span style="flex:1"></span>
+    <span class="tag ${c.status === 'novo' ? 'warn' : 'ok'}">${c.status}</span></div>
+    <p style="margin:8px 0">${esc(c.texto)}</p><div class="mut">Post: <a href="${esc(c.link)}" target="_blank">${esc(c.post || 'abrir')}</a></div>
+    ${c.status === 'novo' ? `<textarea id="rc-${c.id}" style="min-height:60px;margin-top:8px" placeholder="Resposta (a Comunidade deixa um rascunho aqui)">${esc(c.rascunho)}</textarea>
+      <div class="linha" style="margin-top:8px"><button class="b pri" onclick="responder('${c.id}')">Responder</button><button class="b" onclick="ignorar('${c.id}')">Ignorar</button></div>`
+      : c.resposta ? `<div class="mut">↳ ${esc(c.resposta)}</div>` : ''}</div>`).join('');
+}
+function telaComentarios() { return `<p class="mut">A agente Comunidade escreve os rascunhos; nada é respondido sem você clicar em Responder.</p><div id="coms">${listaComentarios()}</div>`; }
+const responder = tentar(async (id) => { const t = $('#rc-' + id).value.trim(); if (!t) throw new Error('Escreva a resposta'); await api('comentarios/' + id, {responder: t}); aviso('Resposta enviada'); await carregarComentarios(); });
+const ignorar = tentar(async (id) => { await api('comentarios/' + id, {ignorar: true}); await carregarComentarios(); });
+
+// ---------- Página de links (link na bio) ----------
+function telaLinks() {
+  const L = E.links || {};
+  return `<div class="grade"><div class="card"><b>Página de links da rede</b>
+    <p class="mut">Uma página geral e uma por perfil, com os canais, o grupo de ofertas e os links extras. Fica pronta na pasta <code>site/</code>; colocar no ar (GitHub Pages ou Cloudflare) é com você.</p>
+    <label>Título</label><input id="lk-titulo" value="${esc(L.titulo)}">
+    <label>Descrição</label><input id="lk-descricao" value="${esc(L.descricao)}">
+    <label>Nome do grupo de ofertas</label><input id="lk-gnome" value="${esc(L.grupo?.nome)}">
+    <label>Link do grupo de ofertas (Telegram/WhatsApp)</label><input id="lk-gurl" value="${esc(L.grupo?.url)}" placeholder="https://t.me/...">
+    <label>Links extras (um por linha: Rótulo | https://...)</label><textarea id="lk-extras">${esc((L.extras || []).map((x) => `${x.rotulo} | ${x.url}`).join('\n'))}</textarea>
+    <div class="linha" style="margin-top:12px"><button class="b pri" onclick="salvarLinks()">Salvar e gerar páginas</button><a class="b" href="/links/" target="_blank" style="text-decoration:none">Ver a página</a></div></div>
+    <div class="card" style="padding:0;overflow:hidden"><iframe src="/links/" style="width:100%;height:640px;border:0"></iframe></div></div>`;
+}
+const salvarLinks = tentar(async () => {
+  const extras = $('#lk-extras').value.split('\n').map((l) => l.split('|').map((x) => x.trim())).filter((x) => x[1]).map(([rotulo, url]) => ({rotulo, url}));
+  await api('links', {titulo: $('#lk-titulo').value, descricao: $('#lk-descricao').value, grupo: {nome: $('#lk-gnome').value, url: $('#lk-gurl').value}, extras});
+  aviso('Páginas geradas em site/');
+});
+
 function render() {
   abas();
   const foco = document.activeElement?.id;
-  if (foco && /^(leg-|np-|cfg-)/.test(foco)) return; // não apaga o que você está digitando
-  $('#tela').innerHTML = {fila: telaFila, perfis: telaPerfis, pautas: telaPautas, config: telaConfig}[aba]();
+  if (foco && /^(leg-|np-|cfg-|rc-|lk-)/.test(foco)) return; // não apaga o que você está digitando
+  $('#tela').innerHTML = {geral: telaGeral, fila: telaFila, agenda: telaAgenda, redes: telaRedes, comentarios: telaComentarios, perfis: telaPerfis, pautas: telaPautas, links: telaLinks, config: telaConfig}[aba]();
+  if (aba === 'comentarios') carregarComentarios();
   if (ultimoLog) verLog(ultimoLog, false);
 }
 async function carregar() { E = await api('estado'); render(); }
 $('#rodar').onclick = tentar(async () => { await api('agencia/rodar', {}); aviso('Agência começou. Cada vídeo leva de 30 a 90 min.'); });
 addEventListener('hashchange', () => { const k = location.hash.slice(1); if (k !== aba && ABAS[k]) ir(k); });
-carregar(); setInterval(() => aba === 'config' || carregar(), 8000);
+carregar(); setInterval(() => ['config', 'links', 'comentarios'].includes(aba) || carregar(), 8000);
 </script>
 </body>
 </html>

@@ -9,11 +9,14 @@ import * as D from './lib/dados.mjs';
 import {descobrirContas, credenciais, chaveEnv} from './lib/meta.mjs';
 import {proximoHorario} from './lib/agenda.mjs';
 import {publicar} from './postar.mjs';
+import {sincronizar, analytics, comentarios, salvarComentario} from './sincronizar.mjs';
+import {responderComentario} from './lib/meta.mjs';
+import * as LINKS from './lib/links.mjs';
 
 const PORTA = Number(process.env.PORTA ?? 4380);
-const CONFIG_VISIVEL = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'META_GRAPH_VERSION', 'ELEVENLABS_API_KEY', 'AUTO_PUBLICAR', 'PRODUCAO_AUTOMATICA', 'ELEVENLABS_VOZ', 'META_POSTAR_FACEBOOK',
+const CONFIG_VISIVEL = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'YOUTUBE_API_KEY', 'TELEGRAM_BOT_TOKEN', 'TELEGRAM_GRUPO_ID', 'RECEITA_AFILIADO_MES', 'META_GRAPH_VERSION', 'ELEVENLABS_API_KEY', 'AUTO_PUBLICAR', 'PRODUCAO_AUTOMATICA', 'ELEVENLABS_VOZ', 'META_POSTAR_FACEBOOK',
   'AGENCIA_MAX_POR_PERFIL', 'AGENCIA_MODELO', 'NARRACAO_VELOCIDADE'];
-const SEGREDOS = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'ELEVENLABS_API_KEY'];
+const SEGREDOS = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'ELEVENLABS_API_KEY', 'YOUTUBE_API_KEY', 'TELEGRAM_BOT_TOKEN'];
 const TIPOS = {'.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.mp4': 'video/mp4', '.jpg': 'image/jpeg', '.png': 'image/png'};
 
 let agencia = null; // processo da agência disparado pelo painel
@@ -27,7 +30,7 @@ function estado() {
     return {...p, conectado: {instagram: !!(c.ig && c.token), facebook: !!(c.page && c.pageToken)},
       pautas_novas: pt.filter((x) => x.status === 'nova').length, pautas: pt};
   });
-  return {perfis, fila: D.fila(), config, agencia_rodando: !!agencia};
+  return {perfis, fila: D.fila(), config, agencia_rodando: !!agencia, analytics: analytics(), comentarios: comentarios().filter((c) => c.status === 'novo').length, links: LINKS.config()};
 }
 
 function arquivo(res, f, req) {
@@ -59,7 +62,27 @@ async function api(metodo, partes, req) {
     const f = path.join(D.DADOS, 'logs', path.basename(id) + '.log');
     return {texto: fs.existsSync(f) ? fs.readFileSync(f, 'utf8').slice(-20000) : ''};
   }
+  if (metodo === 'GET' && recurso === 'analytics') return analytics();
+  if (metodo === 'GET' && recurso === 'comentarios') return comentarios();
+  if (metodo === 'GET' && recurso === 'links') return LINKS.config();
   if (metodo !== 'POST') throw new Error('rota desconhecida');
+
+  if (recurso === 'sincronizar') return sincronizar({forcar: true});
+  if (recurso === 'comentarios') {
+    const c = comentarios().find((x) => x.id === id);
+    if (!c) throw new Error('comentário não encontrado');
+    if (b.ignorar) return salvarComentario(id, {status: 'ignorado'});
+    if (b.rascunho != null) return salvarComentario(id, {rascunho: String(b.rascunho).slice(0, 2000)});
+    if (b.responder) {
+      // o dono clicou em Enviar: é a aprovação dele
+      await responderComentario(c.perfil, c.id, String(b.responder).slice(0, 2000));
+      return salvarComentario(id, {status: 'respondido', resposta: b.responder, respondido_em: new Date().toISOString()});
+    }
+  }
+  if (recurso === 'links') {
+    if (Object.keys(b).length) LINKS.salvarConfig(b);
+    return {...LINKS.config(), gerado: LINKS.gerar()};
+  }
 
   if (recurso === 'perfis') return D.salvarPerfil(id, b);
   if (recurso === 'pautas') {
@@ -151,6 +174,7 @@ app.all(/^\/api\/.*/, async (req, res) => {
 });
 app.get('/out/:f', (req, res) => arquivo(res, path.join(D.RAIZ, 'out', path.basename(req.params.f)), req));
 app.get('/perfis/:f', (req, res) => arquivo(res, path.join(D.RAIZ, 'perfis/imagens', path.basename(req.params.f)), req));
+app.use('/links', express.static(path.join(D.RAIZ, 'site')));
 app.get(['/', '/index.html'], (req, res) => arquivo(res, path.join(D.PLAT, 'painel', 'index.html'), req));
 
 app.listen(PORTA, '127.0.0.1', () => console.log(`Painel: http://localhost:${PORTA} · Escritório: http://localhost:${PORTA}/admin/escritorio`));

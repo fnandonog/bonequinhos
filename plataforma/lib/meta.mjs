@@ -99,3 +99,51 @@ export async function publicarFacebook(perfil, arquivo, legenda) {
   });
   return {id: ini.video_id, link: `https://www.facebook.com/reel/${ini.video_id}`};
 }
+
+// ---------- Leitura: conta, posts, métricas e comentários (para o painel e os agentes) ----------
+const GET = (perfil, caminho, params = {}) => {
+  const c = credenciais(perfil);
+  if (!c.ig || !c.token) throw new Error(`Instagram de "${perfil}" não está conectado.`);
+  return graph('GET', caminho.replace('{ig}', c.ig), {...params, access_token: c.token});
+};
+
+export const contaIG = (perfil) =>
+  GET(perfil, '/{ig}', {fields: 'username,name,followers_count,follows_count,media_count,profile_picture_url'});
+
+export async function midiasIG(perfil, limite = 25) {
+  const j = await GET(perfil, '/{ig}/media', {
+    fields: 'id,caption,media_type,media_product_type,permalink,timestamp,like_count,comments_count,thumbnail_url,media_url',
+    limit: String(limite),
+  });
+  return j.data ?? [];
+}
+
+// Métricas de um post. A Meta muda os nomes de vez em quando: tenta o conjunto novo e cai para o básico.
+export async function insightsMidia(perfil, id) {
+  for (const metric of ['views,reach,saved,shares,total_interactions', 'reach,saved,shares', 'reach']) {
+    try {
+      const j = await GET(perfil, `/${id}/insights`, {metric});
+      return Object.fromEntries((j.data ?? []).map((m) => [m.name, m.values?.[0]?.value ?? m.total_value?.value ?? 0]));
+    } catch {}
+  }
+  return {};
+}
+
+export async function insightsConta(perfil) {
+  try {
+    const j = await GET(perfil, '/{ig}/insights', {metric: 'reach,profile_views,accounts_engaged,website_clicks', period: 'day', metric_type: 'total_value'});
+    return Object.fromEntries((j.data ?? []).map((m) => [m.name, m.total_value?.value ?? m.values?.at(-1)?.value ?? 0]));
+  } catch {
+    return {};
+  }
+}
+
+export async function comentariosMidia(perfil, id) {
+  const j = await GET(perfil, `/${id}/comments`, {fields: 'id,text,username,timestamp,like_count,replies{id,text,username,timestamp}', limit: '50'});
+  return j.data ?? [];
+}
+
+export async function responderComentario(perfil, id, texto) {
+  const c = credenciais(perfil);
+  return graph('POST', `/${id}/replies`, {message: texto, access_token: c.token});
+}

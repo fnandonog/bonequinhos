@@ -11,6 +11,20 @@ pautas/<perfil>.json ──► agencia.mjs (02:00) ──► claude -p "/video" 
                        postar.mjs (a cada 10 min) ──► Instagram Reels (+ Reels da Página, opcional)
 ```
 
+## O que tem no painel (http://localhost:4380)
+- **Visão geral:** seguidores, views, interações, produção e o funil até a monetização (views → visitas → cliques no link → grupo → receita).
+- **Fila de vídeos / Agenda:** o que está produzindo, esperando aprovação, agendado e publicado, dia a dia.
+- **Redes:** conexão e últimos posts de cada perfil (Instagram, Página do Facebook, YouTube; TikTok depois).
+- **Comentários:** chegam de hora em hora; a agente Comunidade deixa o rascunho, você responde com 1 clique.
+- **Perfis, Pautas, Página de links** (gera `site/` com uma página geral e uma por perfil) e **Configurações** (tokens no `.env`).
+- **Escritório** (/admin/escritorio): os agentes em pixel art, quadro de tarefas, caixa Aprovar, conversa com o time, organograma.
+
+## Os agentes que trabalham sozinhos (escritório)
+`plataforma/escritorio/tools/agencia.json` (começa com `"enabled": false`): Gerente Geral, Diretor, Chefe do Estúdio, Ger. Redes,
+Ger. Crescimento, Comunidade, Analista, Afiliados, Postador e Pauteiro, cada um no seu horário. Regras em `docs/agencia/REGRAS.md`.
+Testar: `node plataforma/escritorio/tools/tick.mjs --dry-run` e `node plataforma/escritorio/tools/run.mjs <agente> --dry-run`.
+Ligar (só com o OK do Fernando): `"enabled": true` e `node plataforma/escritorio/tools/launchd.mjs install`.
+
 ## Ligar
 ```bash
 npm run agendar          # instala painel + produção diária 02:00 + postador (launchd)

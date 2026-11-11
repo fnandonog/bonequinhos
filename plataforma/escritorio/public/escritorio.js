@@ -503,7 +503,7 @@ function drawStanding(a, fx, fy, t, dir, moving, carrying) {
 }
 
 // ---------- Mesa, cadeira, monitor ----------
-const CHART_ROLES = ['financeiro', 'gerente-financeiro', 'gestor-trafego', 'gerente-crescimento', 'diretor', 'operacoes'];
+const CHART_ROLES = ['analista', 'afiliados', 'gerente-crescimento', 'diretor', 'gerente-marketing'];
 function drawScreen(a, sx, sy, st, t, away) {
   const w = 16, h = 11;
   if (st === 'off') { R(sx, sy, w, h, P.screenOff); R(sx + 1, sy + 1, 3, 1, '#ffffff14'); return; }

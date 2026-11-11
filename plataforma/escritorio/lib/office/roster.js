@@ -11,6 +11,7 @@ const TEAMS = {
   // Estúdio de vídeo: Pauta → Pesquisa → Roteiro → Direção de cena → Cenografia → Edição → QA (linha de docs/PIPELINE.md)
   estudio: { name: 'Estúdio de vídeo', short: 'Estúdio', color: '#a855f7', manager: 'showrunner' },
   redes: { name: 'Redes sociais', short: 'Redes', color: '#ff4f9a', manager: 'gerente-marketing' },
+  crescimento: { name: 'Crescimento e Monetização', short: 'Crescimento', color: '#18b26b', manager: 'gerente-crescimento' },
 };
 
 const ROSTER = [
@@ -19,7 +20,7 @@ const ROSTER = [
   { id: 'diretor', name: 'Diretor', role: 'Prioridades entre os 6 perfis e resumo do dia', team: 'direcao', color: '#ff7a1a', hair: '#2b2233', skin: '#e0ac7e', style: 'short' },
   // Gerentes de área
   { id: 'showrunner', name: 'Chefe do Estúdio', role: 'Toca a linha de vídeo e barra o que está fraco antes de chegar ao dono', team: 'estudio', manager: true, leads: ['pauteiro', 'pesquisador', 'roteirista', 'diretor-cena', 'cenografo', 'editor', 'qa'], color: '#a855f7', hair: '#2a1a3a', skin: '#d9a47c', style: 'cap' },
-  { id: 'gerente-marketing', name: 'Ger. Redes', role: 'Calendário de postagem dos 6 perfis, legendas e funil de afiliado', team: 'redes', manager: true, leads: ['legendista', 'social-media'], color: '#ff4f9a', hair: '#1b1b1b', skin: '#c68a5e', style: 'bun' },
+  { id: 'gerente-marketing', name: 'Ger. Redes', role: 'Calendário de postagem dos 6 perfis, legendas e funil de afiliado', team: 'redes', manager: true, leads: ['legendista', 'social-media', 'comunidade'], color: '#ff4f9a', hair: '#1b1b1b', skin: '#c68a5e', style: 'bun' },
   // Estúdio
   { id: 'pauteiro', name: 'Pauteiro', role: 'Escolhe o tema com mais chance de viralizar', team: 'estudio', color: '#f472b6', hair: '#1b1b1b', skin: '#f1c9a5', style: 'pony' },
   { id: 'pesquisador', name: 'Pesquisador', role: 'Números e fatos com fonte', team: 'estudio', color: '#22c55e', hair: '#6b3a1e', skin: '#8d5a3b', style: 'short' },
@@ -30,6 +31,10 @@ const ROSTER = [
   { id: 'qa', name: 'QA', role: 'Folha de stills: reprova bug visual antes do render', team: 'estudio', color: '#b0b8c8', hair: '#e2c26b', skin: '#f2cfb0', style: 'spiky' },
   // Redes
   { id: 'legendista', name: 'Legendista', role: 'Legenda, hashtags e título do Shorts', team: 'redes', color: '#dd2a7b', hair: '#d8a24a', skin: '#f3d2b5', style: 'long' },
+  { id: 'gerente-crescimento', name: 'Ger. Crescimento', role: 'Metas de seguidores e receita, testes de crescimento', team: 'crescimento', manager: true, leads: ['analista', 'afiliados'], color: '#18b26b', hair: '#6b3a1e', skin: '#f1c9a5', style: 'curly' },
+  { id: 'comunidade', name: 'Comunidade', role: 'Rascunhos de resposta aos comentários', team: 'redes', color: '#25b8d9', hair: '#7a1f1f', skin: '#f6d7bd', style: 'short' },
+  { id: 'analista', name: 'Analista', role: 'Métricas de todos os canais viram pautas', team: 'crescimento', color: '#0f9d8a', hair: '#9b9b9b', skin: '#dba27a', style: 'side' },
+  { id: 'afiliados', name: 'Afiliados', role: 'Produtos e links de afiliado de cada vídeo, ofertas do grupo', team: 'crescimento', color: '#f0a43a', hair: '#1d1d2b', skin: '#a8714c', style: 'long' },
   { id: 'social-media', name: 'Postador', role: 'Publica no horário de cada perfil (Instagram e Facebook)', team: 'redes', color: '#25b8d9', hair: '#3c2416', skin: '#ecc19c', style: 'pony' },
 ];
 const IDS = ROSTER.map((a) => a.id);

@@ -1,0 +1,85 @@
+// Página de links da rede (link na bio): uma página geral (site/index.html) e uma por perfil (site/<perfil>/index.html).
+// HTML estático, sem dependências: dá para publicar no GitHub Pages, Cloudflare Pages ou Netlify.
+import fs from 'node:fs';
+import path from 'node:path';
+import {RAIZ, PLAT, perfis} from './dados.mjs';
+
+const AVATAR = {cozinha: 'receitas', historia: 'historia', construiu: 'construiu', caso: 'crimes', rico: 'ricos', valeapena: 'valeapena'};
+const SITE = path.join(RAIZ, 'site');
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[c]);
+// UTM para saber de qual perfil veio o clique (aparece no analytics do site de destino e no link do Telegram com convite próprio)
+const utm = (url, perfil) => {
+  try {
+    const u = new URL(url);
+    if (!/t\.me|instagram\.com|youtube\.com|tiktok\.com/.test(u.host)) u.searchParams.set('utm_source', 'linkbio'), u.searchParams.set('utm_campaign', perfil || 'rede');
+    return u.toString();
+  } catch {
+    return url;
+  }
+};
+
+export const config = () => JSON.parse(fs.readFileSync(path.join(PLAT, 'links.json'), 'utf8'));
+export function salvarConfig(c) {
+  const atual = config();
+  for (const k of ['titulo', 'descricao', 'grupo', 'extras']) if (k in c) atual[k] = c[k];
+  fs.writeFileSync(path.join(PLAT, 'links.json'), JSON.stringify(atual, null, 2) + '\n');
+  return atual;
+}
+
+function pagina({titulo, descricao, avatar, botoes, base}) {
+  return `<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(titulo)}</title><meta name="description" content="${esc(descricao)}">
+<meta property="og:title" content="${esc(titulo)}"><meta property="og:description" content="${esc(descricao)}"><meta property="og:image" content="${base}img/${avatar}.png">
+<link rel="icon" href="${base}img/${avatar}.png">
+<style>
+:root{--bg:#fff7ee;--tx:#1d1b18;--card:#fff;--lin:#f0dcc6;--pri:#ff7a1a}
+@media (prefers-color-scheme:dark){:root{--bg:#171310;--tx:#f6efe6;--card:#221c17;--lin:#3a2e24}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.4 -apple-system,system-ui,sans-serif;background:var(--bg);color:var(--tx);display:flex;justify-content:center}
+main{width:100%;max-width:480px;padding:32px 16px 48px;text-align:center}
+img.av{width:112px;height:112px;border-radius:50%;border:4px solid var(--pri);object-fit:cover}
+h1{font-size:22px;margin:12px 0 4px}p{margin:0 0 22px;opacity:.8}
+a.bt{display:flex;align-items:center;gap:12px;padding:14px 16px;margin:10px 0;border-radius:14px;background:var(--card);border:1px solid var(--lin);color:inherit;text-decoration:none;font-weight:600;text-align:left}
+a.bt img{width:40px;height:40px;border-radius:50%}a.bt.pri{background:var(--pri);border-color:var(--pri);color:#fff}
+a.bt span{flex:1}small{display:block;font-weight:400;opacity:.75}footer{margin-top:28px;font-size:13px;opacity:.6}
+</style></head><body><main>
+<img class="av" src="${base}img/${avatar}.png" alt="">
+<h1>${esc(titulo)}</h1><p>${esc(descricao)}</p>
+${botoes.map((b) => `<a class="bt${b.pri ? ' pri' : ''}" href="${esc(b.url)}" target="_blank" rel="noopener">${b.img ? `<img src="${base}img/${b.img}.png" alt="">` : `<b>${b.icone ?? '🔗'}</b>`}<span>${esc(b.rotulo)}${b.sub ? `<small>${esc(b.sub)}</small>` : ''}</span>›</a>`).join('\n')}
+<footer>Rede do Zé · bonequinhos que explicam tudo</footer>
+</main></body></html>`;
+}
+
+const ig = (u) => (u ? `https://instagram.com/${u}` : null);
+const yt = (u) => (u ? `https://youtube.com/@${u}` : null);
+
+export function gerar() {
+  const c = config();
+  const ps = perfis();
+  fs.mkdirSync(path.join(SITE, 'img'), {recursive: true});
+  for (const a of Object.values(AVATAR)) {
+    const src = path.join(RAIZ, 'perfis/imagens', `avatar-${a}.png`);
+    if (fs.existsSync(src)) fs.copyFileSync(src, path.join(SITE, 'img', `${a}.png`));
+  }
+  const grupo = c.grupo?.url ? [{rotulo: c.grupo.nome || 'Grupo de ofertas', sub: 'Ofertas e cupons todo dia, grátis', url: c.grupo.url, pri: true, icone: '🔥'}] : [];
+  const extras = (c.extras ?? []).filter((x) => x.url).map((x) => ({rotulo: x.rotulo, url: x.url}));
+  // página geral
+  fs.writeFileSync(path.join(SITE, 'index.html'), pagina({
+    titulo: c.titulo, descricao: c.descricao, avatar: 'construiu', base: '',
+    botoes: [...grupo, ...ps.map((p) => ({rotulo: p.nome, sub: p.nicho, url: `${p.id}/`, img: AVATAR[p.id]})), ...extras.map((x) => ({...x, url: utm(x.url)}))],
+  }));
+  // uma por perfil
+  for (const p of ps) {
+    fs.mkdirSync(path.join(SITE, p.id), {recursive: true});
+    const botoes = [
+      ...grupo,
+      p.link_bio ? {rotulo: p.cta.replace(/: link na bio|link na bio/i, '').trim() || 'Ofertas do perfil', url: utm(p.link_bio, p.id), icone: '🛒'} : null,
+      ig(p.instagram) && {rotulo: `Instagram @${p.instagram}`, url: ig(p.instagram), icone: '📸'},
+      yt(p.youtube) && {rotulo: `YouTube @${p.youtube}`, url: yt(p.youtube), icone: '▶️'},
+      ...extras.map((x) => ({...x, url: utm(x.url, p.id)})),
+      {rotulo: 'Conheça os outros canais do Zé', url: '../', icone: '🧑‍🔧'},
+    ].filter(Boolean);
+    fs.writeFileSync(path.join(SITE, p.id, 'index.html'), pagina({titulo: p.nome, descricao: p.nicho, avatar: AVATAR[p.id], base: '../', botoes}));
+  }
+  return {pasta: 'site/', paginas: 1 + ps.length};
+}
