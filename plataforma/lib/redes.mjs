@@ -16,9 +16,17 @@ export async function canalYouTube(handle) {
   };
 }
 
+// Canal/grupo público: a página t.me mostra o número de inscritos, sem precisar de bot
+export async function inscritosPublico(usuario) {
+  const html = await (await fetch(`https://t.me/${usuario.replace(/^@/, '')}`)).text();
+  const m = html.match(/tgme_page_extra">\s*([\d\s.,]+)\s*(subscribers|members|inscritos|membros)/i);
+  return m ? Number(m[1].replace(/\D/g, '')) : null;
+}
+
 export async function membrosTelegram() {
   const {TELEGRAM_BOT_TOKEN: t, TELEGRAM_GRUPO_ID: g} = env();
-  if (!t || !g) return null;
+  if (!g) return null;
+  if (!t) return String(g).startsWith('@') ? inscritosPublico(g) : null;
   const j = await (await fetch(`https://api.telegram.org/bot${t}/getChatMemberCount?chat_id=${encodeURIComponent(g)}`)).json();
   if (!j.ok) throw new Error(`Telegram: ${j.description}`);
   return j.result;
