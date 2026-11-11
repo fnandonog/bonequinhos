@@ -1,7 +1,7 @@
-"""Gera roteiros/como-o-silvio-santos-ficou-rico.json (formato Como Ficou Rico, motor src/rico).
+"""Gera roteiros/como-o-silvio-santos-ficou-rico.json (formato Como Ficou Rico, motor src/rico). VERSÃO 2 (refeita do zero).
 Cada "|" no texto marca um CORTE: o próximo plano começa na palavra seguinte.
-Topo: ano + o que ele já tem (o "patrimônio" que vai sendo construído). Vira número só quando há fonte
-(ver roteiros/como-o-silvio-santos-ficou-rico.pesquisa.md)."""
+Cada degrau explica o MECANISMO do dinheiro com número de fonte (ver roteiros/como-o-silvio-santos-ficou-rico.pesquisa.md).
+Topo: ano + o que ele já tem; vira número em reais só onde há fonte."""
 import json
 
 def card(rotulo, num=None, valor=None, prefixo=None, sufixo=None, sub=None, cor=None):
@@ -16,63 +16,82 @@ VERM = "#ff5d5d"
 OURO = "#ffd23f"
 VERDE = "#4ade80"
 
-# topo: (ano, patrimônio) -> patrimônio é texto (o que ele tem) ou número em reais (com fonte)
-# (id, ano, patrimonio, texto com |, planos[(set, cam, p, card)])
+# (id, ano, patrimonio (texto = o que tem; número = R$ com fonte), texto com |, planos[(set, cam, p, card)])
 CENAS = [
-    ("c1", "1945", "UMA BANCA", "Aos catorze anos, ele vendia capinha na rua. | Morreu com um bilhão e seiscentos milhões de reais. Como?", [
-        ("rua", "banca", None, card("Idade", num=14, sufixo=" anos", sub="camelô no Rio")),
-        ("fim", "pilha", None, card("Patrimônio na morte", valor="R$ 1,6 BI", sub="Forbes, 2024", cor=OURO)),
+    ("c1", "1945", "UM TABULEIRO",
+     "Aos catorze, Silvio Santos vendia capa de documento na rua. | Morreu com um bilhão e seiscentos milhões. Sabe como?", [
+        ("rua", "aberto", None, card("Idade", num=14, sufixo=" anos", sub="camelô no centro do Rio")),
+        ("escadatopo", "topo", None, card("Fortuna ao morrer", valor="R$ 1,6 BI", sub="Forbes, 2024", cor=OURO)),
     ]),
-    ("c2", "1945", "UMA BANCA", "No Rio, o menino Senor Abravanel | vê um homem vendendo capa pra título de eleitor. | E copia a ideia. Você conhece como Silvio Santos.", [
-        ("rua", "avenida", [0, 0.3], None),
-        ("rua", "capinha", [0.3, 0.7], card("Primeiro produto", valor="CAPA DE TÍTULO", sub="de eleitor")),
-        ("ruanome", "nome", [0.7, 1], None),
+    ("c2", "1945", "UM TABULEIRO",
+     "Rio, 1945: | primeira eleição pra presidente em quinze anos. | Ele compra a capa por dois cruzeiros. | Vende por quatro, jurando que é a última.", [
+        ("ruaeleicao", "faixa", None, None),
+        ("ruaeleicao", "fila", None, card("Sem votar pra presidente", num=15, sufixo=" anos", sub="6 milhões com título de papel")),
+        ("ruacapa", "close", [0, 1], card("Compra", valor="Cr$ 2", sub="a capa de plástico")),
+        ("ruavenda", "lado", [0, 1], card("Vende", valor="Cr$ 4", sub="\"é a última\": lucro de 100%", cor=VERDE)),
     ]),
-    ("c3", "1948", "UMA BANCA", "Aos dezessete, passa num concurso de locutor de rádio. | Mas larga o emprego: na rua ganhava mais.", [
-        ("radio", "geral", [0, 0.5], card("Concurso de locutor", valor="APROVADO", sub="Rádio Guanabara")),
-        ("radio", "porta", [0.5, 1], card("Camelô", valor="GANHAVA MAIS", cor=OURO)),
+    ("c3", "1948", "UM TABULEIRO",
+     "Passa num concurso de rádio: mil e trezentos por mês. | Só que na rua, ele contava, fazia novecentos por dia. Largou.", [
+        ("radio", "micro", None, card("Locutor de rádio", valor="Cr$ 1.300", sub="por mês")),
+        ("ruacaixa", "roda", [0, 1], card("Camelô", valor="Cr$ 900", sub="por dia, ele contava", cor=OURO)),
     ]),
-    ("c4", "ANOS 50", "ALTO-FALANTES", "Depois, põe alto-falantes nas barcas de Niterói. | Toca música e vende anúncio.", [
-        ("barca", "aberto", [0, 0.5], None),
-        ("barca", "corneta", [0.5, 1], card("Nas barcas", valor="MÚSICA + ANÚNCIO")),
+    ("c4", "ANOS 50", "SOM + BAR NA BARCA",
+     "Nas barcas de Niterói, | troca um ano de anúncio por um som. | E um bar: cada refrigerante, uma cartela de bingo.", [
+        ("barca", "drone", None, None),
+        ("barcasom", "corneta", None, card("Som de graça", valor="1 ANO DE ANÚNCIO", sub="pago à loja que deu o som")),
+        ("barcabar", "bar", [0, 1], card("No bar da barca", valor="1 REFRI = 1 CARTELA", sub="de bingo, com prêmio", cor=OURO)),
     ]),
-    ("c5", "1958", "O BAÚ", "Um amigo lhe passa um negócio quase falido: | o Baú da Felicidade, carnê de presente pago por mês. | Ele toca tudo de um quarto de pensão e vira o dono.", [
-        ("bau", "pensao", [0, 0.35], card("Baú da Felicidade", valor="QUASE FALIDO", cor=VERM)),
-        ("bau", "carne", [0.35, 0.65], None),
-        ("bau", "dono", [0.65, 1], card("O escritório", valor="QUARTO DE PENSÃO", sub="com um caixote de mesa")),
+    ("c5", "1958", "O BAÚ",
+     "Em São Paulo, salva o Baú da Felicidade, quase falido. | Você paga doze parcelas | e só leva os brinquedos no Natal. | Repara: o dinheiro chega antes.", [
+        ("porao", "geral", None, card("Baú da Felicidade", valor="QUASE FALIDO", sub="começou num porão", cor=VERM)),
+        ("carne", "topo", [0, 1], card("Carnê", num=12, sufixo=" parcelas", sub="uma por mês")),
+        ("natal", "sala", [0, 1], card("Entrega do baú", valor="SÓ NO NATAL")),
+        ("fluxo", "trilho", [0, 1], card("O cliente paga", valor="ANTES", sub="e o caixa fica com o dinheiro", cor=VERDE)),
     ]),
-    ("c6", "ANOS 60", "HORÁRIO NA TV", "E aqui vem a surpresa: | pra vender carnê, ele compra horário na TV. | Ninguém pagava ele: ele pagava pra aparecer.", [
-        ("tv", "estudio", [0, 0.3], None),
-        ("tv", "camera", [0.3, 0.6], None),
-        ("tvpaga", "dinheiro", [0.6, 1], card("Horário na TV", valor="ELE PAGAVA", sub="pra anunciar o Baú", cor=OURO)),
+    ("c6", "ANOS 60", "O BAÚ + TV",
+     "E a surpresa? | Pra vender carnê, ele pagava pra ficar na TV. | O programa era o anúncio, | com oitenta e nove pontos de audiência.", [
+        ("auditorio", "aberto", None, None),
+        ("horario", "mesa", [0, 1], card("Horário na TV", valor="ELE PAGAVA", sub="pra anunciar o Baú", cor=OURO)),
+        ("sala", "ombro", None, card("O programa", valor="= ANÚNCIO", sub="carnê em dia concorria a prêmio")),
+        ("plateia", "plateia", None, card("Audiência", num=89, sufixo=" pontos", sub="em 1969", cor=VERDE)),
     ]),
-    ("c7", "1981", "UMA TV", "Vira líder de audiência no domingo. | E inaugura a própria emissora: o SBT.", [
-        ("tvplateia", "plateia", [0, 1], card("Domingo", valor="LÍDER", sub="de audiência")),
-        ("emissora", "drone", [0, 1], card("Inauguração", valor="19/08/1981", sub="SBT", cor=OURO)),
+    ("c7", "1981", "UMA EMISSORA",
+     "Em 1981, ganha a própria emissora, | o SBT, em quatro cidades.", [
+        ("emissora", "drone", None, card("No ar desde", valor="19/08/1981")),
+        ("mapa", "cima", [0, 1], card("Decreto de 1981", num=4, sufixo=" cidades", sub="SP · Rio · Porto Alegre · Belém")),
     ]),
-    ("c8", "ANOS 2000", "+30 EMPRESAS", "Vieram mais de trinta empresas, | da Tele Sena até um banco.", [
-        ("imperio", "cidade", [0, 0.6], card("Grupo Silvio Santos", num=30, prefixo="+", sufixo=" empresas")),
-        ("imperio", "banco", [0.6, 1], None),
+    ("c8", "1991", "TV + TELE SENA",
+     "Depois, a Tele Sena: | metade volta em um ano, | o resto vira prêmio e lucro.", [
+        ("telesena", "cartela", None, card("Tele Sena", valor="1991", sub="título de capitalização")),
+        ("telesena", "divide", [0, 0.5], card("Volta pra você", valor="50%", sub="corrigido, depois de 12 meses", cor=VERDE)),
+        ("telesena", "divide", [0.5, 1], card("O resto", valor="PRÊMIO + LUCRO", cor=OURO)),
     ]),
-    ("c9", "2010", -2.5e9, "Até que descobrem que diretores do banco fraudaram as contas: | um rombo de quatro bilhões e trezentos milhões. | Pra não quebrar, pega dois bilhões e meio emprestados | e dá tudo como garantia, até o SBT.", [
-        ("rombo", "banco", [0, 0.35], None),
-        ("cratera", "buraco", [0.35, 0.65], card("Rombo no banco", valor="R$ 4,3 BI", sub="fraude descoberta em 2010", cor=VERM)),
-        ("divida", "geral", [0.65, 0.85], card("Empréstimo", valor="R$ 2,5 BI", sub="Fundo Garantidor de Créditos", cor=VERM)),
-        ("garantia", "cadeado", [0.85, 1], card("Garantia", valor="ATÉ O SBT", cor=VERM)),
+    ("c9", "2010", -2.5e9,
+     "Em 2010, diretores do banco dele fraudam o balanço. | Rombo de quatro bilhões e trezentos milhões. | Ele não foi acusado, | mas dá as quarenta e quatro empresas em garantia.", [
+        ("banco", "diretores", [0, 1], card("Fraude dos diretores", valor="BALANÇO INFLADO", sub="Banco PanAmericano", cor=VERM)),
+        ("cofre", "buraco", [0, 1], card("Rombo", valor="R$ 4,3 BI", sub="descoberto em 2010", cor=VERM)),
+        ("garantia", "ze", None, card("Silvio Santos", valor="NÃO FOI ACUSADO", sub="7 ex-diretores condenados em 2018")),
+        ("garantia", "mesa", None, card("Garantia do empréstimo", valor="44 EMPRESAS", sub="de R$ 2,5 bi, até o SBT", cor=VERM)),
     ]),
-    ("c10", "2013", 2.67e9, "Ele vende o banco e salva a TV. | E estreia na lista de bilionários da Forbes.", [
-        ("volta", "vendido", [0, 0.5], card("Banco vendido", valor="R$ 450 MI", sub="ao BTG Pactual, 2011")),
-        ("forbes", "grafico", [0.5, 1], card("Forbes 2013", valor="R$ 2,67 BI", sub="59º do Brasil", cor=OURO)),
+    ("c10", "2011", "O SBT",
+     "Vende o banco, quita a dívida, salva a TV.", [
+        ("garantiasolta", "solta", [0, 1], card("Banco vendido", valor="R$ 450 MI", sub="ao BTG, que assumiu a dívida")),
     ]),
-    ("c11", "2024", 1.6e9, "A lição: onde passava gente, ele via um balcão. | Você largaria o emprego fixo pra apostar no seu? Sim ou não?", [
-        ("fim", "banca", None, card("A lição", valor="GENTE = BALCÃO", cor=OURO)),
-        ("fim", "pergunta", None, card("Largaria o emprego?", valor="SIM OU NÃO?")),
+    ("c11", "2024", 1.6e9,
+     "Morre em 2024 com um bilhão e seiscentos milhões.", [
+        ("escada", "sobe", [0, 1], card("Fortuna (Forbes)", valor="R$ 1,6 BI", sub="agosto de 2024", cor=OURO)),
+    ]),
+    ("c12", "2024", 1.6e9,
+     "O segredo? Receber antes e entregar depois. | Você pagaria um ano adiantado? Sim ou não?", [
+        ("carnefinal", "baixo", None, card("O segredo", valor="RECEBER ANTES", sub="e entregar depois", cor=OURO)),
+        ("auditorio", "ze", None, card("Pagaria um ano adiantado?", valor="SIM OU NÃO?")),
     ]),
 ]
 
-DESTAQUES = ["catorze", "bilhão", "bilhões", "milhões", "seiscentos", "camelô", "capa", "capinha", "silvio", "santos", "dezessete", "ganhava",
-             "alto-falantes", "barcas", "baú", "falido", "caixote", "dono", "surpresa", "pagava", "sbt", "líder", "trinta", "banco",
-             "fraude", "rombo", "garantia", "forbes", "lição", "balcão", "sim", "não", "mil", "setecentos", "quatro", "dois"]
+DESTAQUES = ["catorze", "silvio", "santos", "bilhão", "bilhões", "milhões", "seiscentos", "1945", "quinze", "seis", "papel", "capa", "dois", "quatro",
+             "última", "rádio", "mil", "trezentos", "novecentos", "largou", "barcas", "anúncio", "som", "bar", "refrigerante", "bingo", "baú", "falido",
+             "doze", "natal", "antes", "surpresa", "pagava", "anúncio", "oitenta", "nove", "1981", "sbt", "cidades", "tele", "sena", "metade", "prêmio",
+             "lucro", "fraudam", "rombo", "acusado", "quarenta", "garantia", "banco", "dívida", "tv", "2024", "segredo", "receber", "sim", "não"]
 
 rot = {
     "id": ID,
@@ -83,8 +102,9 @@ rot = {
     # prévia sem voz: python3 tools/estimar.py (narração real só no Mac, com aprovação)
     "voz": "pt-BR-AntonioNeural",
     "velocidade": "+10%",
-    "elevenlabs": {"voz_id": "zNEsdgTUa3ndwKry8Xcq", "modelo": "eleven_flash_v2_5",
-                   "ajustes": {"stability": 0.45, "similarity_boost": 0.8, "style": 0.4, "use_speaker_boost": True, "speed": 1.15}},
+    # voz do canal (plataforma/perfis.json); modelo multilingual v2 (o Flash soou ruim na v1)
+    "elevenlabs": {"voz_id": "zNEsdgTUa3ndwKry8Xcq", "modelo": "eleven_multilingual_v2",
+                   "ajustes": {"stability": 0.45, "similarity_boost": 0.8, "style": 0.35, "use_speaker_boost": True, "speed": 1.1}},
     "fontes": f"roteiros/{ID}.pesquisa.md",
     "monetizacao": {"afiliados": [
         "livro: A Fantástica História de Silvio Santos (Arlindo Silva)", "livro: Silvio Santos: a biografia (Marcia Batista e Anna Medeiros)",

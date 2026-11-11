@@ -165,10 +165,10 @@ export const Sentado: React.FC<{pos: V3; rotY?: number; roupa: string; pele: str
 // ======================= RIO, 1945 =======================
 // calçada de pedra portuguesa: ondas largas e de contraste baixo (sem "zebra" de longe)
 export const texCalcada = (rep: [number, number]) =>
-  tex('calcada2', 512, 512, (g) => {
-    g.fillStyle = '#ece4d2';
+  tex('calcada3', 512, 512, (g) => {
+    g.fillStyle = '#e6decb';
     g.fillRect(0, 0, 512, 512);
-    g.fillStyle = '#4a4744';
+    g.fillStyle = '#9a9286';
     for (let y = -128; y < 640; y += 128) {
       g.beginPath();
       g.moveTo(0, y);
@@ -399,7 +399,7 @@ export const Maco: React.FC<{pos: V3; rotY?: number; n?: number; cor?: string; v
 );
 
 // tabuleiro de camelô em cavalete (0,85 m), com títulos encapados à venda e uma lata de moedas
-export const Tabuleiro: React.FC<{pos: V3; rotY?: number; capas?: number; lata?: number}> = ({pos, rotY = 0, capas = 18, lata = 0}) => (
+export const Tabuleiro: React.FC<{pos: V3; rotY?: number; capas?: number; lata?: number; placa?: boolean}> = ({pos, rotY = 0, capas = 18, lata = 0, placa = true}) => (
   <group position={pos} rotation={[0, rotY, 0]}>
     {[-1, 1].map((s) => (
       <group key={s}>
@@ -415,7 +415,7 @@ export const Tabuleiro: React.FC<{pos: V3; rotY?: number; capas?: number; lata?:
       <Titulo key={i} pos={[-0.42 + (i % 6) * 0.165, 0.868 + (i % 2) * 0.001, -0.17 + Math.floor(i / 6) * 0.12]} rot={[-Math.PI / 2, 0, (i % 3) * 0.05 - 0.05]} capa={1} />
     ))}
     {/* placa de preço */}
-    <Letreiro pos={[0, 0.98, 0.3]} rot={[-0.5, 0, 0]} larg={0.42} alt={0.16} linhas={['CAPA Cr$ 4']} fundo="#fff6d8" cor="#b8322b" />
+    {placa && <Letreiro pos={[0, 0.98, 0.3]} rot={[-0.5, 0, 0]} larg={0.42} alt={0.16} linhas={['CAPA Cr$ 4']} fundo="#fff6d8" cor="#b8322b" />}
     {lata > 0 && (
       <group position={[0.42, 0.87, 0.18]}>
         <Cil pos={[0, 0.07, 0]} r={0.07} h={0.14} cor="#9aa0aa" seg={14} />
