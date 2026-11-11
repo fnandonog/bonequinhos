@@ -16,7 +16,9 @@ pautas/<perfil>.json ──► agencia.mjs (02:00) ──► claude -p "/video" 
 - **Fila de vídeos / Agenda:** o que está produzindo, esperando aprovação, agendado e publicado, dia a dia.
 - **Redes:** conexão e últimos posts de cada perfil (Instagram, Página do Facebook, YouTube; TikTok depois).
 - **Comentários:** chegam de hora em hora; a agente Comunidade deixa o rascunho, você responde com 1 clique.
-- **Perfis, Pautas, Página de links** (gera `site/` com uma página geral e uma por perfil) e **Configurações** (tokens no `.env`).
+- **Perfis, Pautas, Página de links** (gera `site/` com uma página geral, uma por perfil e uma por vídeo publicado em `zeexplica.com.br/<perfil>/<vídeo>/`, com o texto de entrega do vídeo, os links de afiliado e os canais do Telegram do Zé) e **Configurações** (tokens no `.env`).
+- **Visitas e cliques**: as páginas avisam `painel.zeexplica.com.br/c` a cada visita e clique (só contagens, em `dados/cliques.json`); a tabela fica em Página de links.
+- **Telegram do Zé** (`perfis.json` → `grupo` e `ofertas`): Receitas do Zé (t.me/receitasprecinho) e os canais Ofertas do Zé (geral, Cozinha, Construção, Livros), alimentados pelo robô do Precinho de Ouro. No direct, `{ofertas}` é o canal de ofertas do nicho.
 - **Escritório** (/admin/escritorio): os agentes em pixel art, quadro de tarefas, caixa Aprovar, conversa com o time, organograma.
 
 ## Os agentes que trabalham sozinhos (escritório)

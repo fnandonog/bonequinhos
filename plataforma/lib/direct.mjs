@@ -100,12 +100,14 @@ export function resumo(agora = Date.now()) {
   return {hoje: conta(hoje), total: conta(l), perfis: porPerfil, ultimos: l.sort((a, b) => b.atualizado - a.atualizado).slice(0, 20)};
 }
 
-// O que vai no direct: o modelo de entrega do perfil com {conteudo} (o texto do vídeo, ou o padrão do perfil), {grupo} e {link}.
+// O que vai no direct: o modelo de entrega do perfil com {conteudo} (o texto do vídeo, ou o padrão do perfil), {grupo}, {ofertas} e {link}.
+// {ofertas}: o canal "Ofertas do Zé" do nicho (perfis.json → ofertas); sem ele, o grupo.
 export function textoEntrega(p, r, item) {
   const links = ler(F_LINKS, {});
   const grupo = p.grupo?.url || links.grupo?.url || '';
+  const ofertas = p.ofertas?.url || grupo;
   const link = p.link_bio || grupo;
-  const troca = (s) => String(s || '').replace(/\{grupo\}/g, grupo).replace(/\{link\}/g, link).replace(/\{perfil\}/g, p.nome);
+  const troca = (s) => String(s || '').replace(/\{grupo\}/g, grupo).replace(/\{ofertas\}/g, ofertas).replace(/\{link\}/g, link).replace(/\{perfil\}/g, p.nome);
   const conteudo = troca(item?.entrega || r.conteudoPadrao);
   return troca(r.entrega.replace(/\{conteudo\}/g, conteudo)).replace(/\n{3,}/g, '\n\n').trim().slice(0, 990);
 }
