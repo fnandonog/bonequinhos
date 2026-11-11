@@ -383,7 +383,16 @@ function telaLinks() {
     <label>Link do grupo de ofertas (Telegram/WhatsApp)</label><input id="lk-gurl" value="${esc(L.grupo?.url)}" placeholder="https://t.me/...">
     <label>Links extras (um por linha: Rótulo | https://...)</label><textarea id="lk-extras">${esc((L.extras || []).map((x) => `${x.rotulo} | ${x.url}`).join('\n'))}</textarea>
     <div class="linha" style="margin-top:12px"><button class="b pri" onclick="salvarLinks()">Salvar e gerar páginas</button><a class="b" href="/links/" target="_blank" style="text-decoration:none">Ver a página</a></div></div>
-    <div class="card" style="padding:0;overflow:hidden"><iframe src="/links/" style="width:100%;height:640px;border:0"></iframe></div></div>`;
+    <div class="card" style="padding:0;overflow:hidden"><iframe src="/links/" style="width:100%;height:640px;border:0"></iframe></div>
+    <div class="card"><b>Visitas e cliques (7 dias)</b><p class="mut">Cada página de zeexplica.com.br (perfis e vídeos) conta visitas e cliques nos botões. Mostra qual vídeo leva gente para o Telegram do Zé.</p><div id="lk-cliques" class="mut">carregando…</div></div></div>`;
+}
+async function mostrarCliques() {
+  const el = $('#lk-cliques'); if (!el) return;
+  try {
+    const r = await api('cliques/7');
+    const nome = {'tg-principal': 'canal principal', 'tg-ofertas': 'ofertas do nicho', 'tg-geral': 'Ofertas do Zé', site: 'site', instagram: 'Instagram', youtube: 'YouTube'};
+    el.innerHTML = r.paginas.length ? `<table style="width:100%;font-size:14px"><tr><th align="left">Página</th><th>Visitas</th><th>Cliques</th><th align="left">Onde clicaram</th></tr>${r.paginas.slice(0, 40).map((p) => `<tr><td>${esc(p.pagina)}</td><td align="center">${p.visitas}</td><td align="center">${p.cliques}</td><td>${esc(Object.entries(p.botoes).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${nome[k] || k} ${n}`).join(' · '))}</td></tr>`).join('')}</table>` : 'Nenhuma visita ainda. As contagens começam quando a página nova for publicada (npm run site:publicar).';
+  } catch (e) { el.textContent = e.message; }
 }
 const salvarLinks = tentar(async () => {
   const extras = $('#lk-extras').value.split('\n').map((l) => l.split('|').map((x) => x.trim())).filter((x) => x[1]).map(([rotulo, url]) => ({rotulo, url}));
@@ -415,6 +424,7 @@ function render() {
   const foco = document.activeElement?.id;
   if (foco && /^(leg-|np-|cfg-|rc-|lk-)/.test(foco)) return; // não apaga o que você está digitando
   $('#tela').innerHTML = {geral: telaGeral, fila: telaFila, agenda: telaAgenda, tendencias: telaTendencias, redes: telaRedes, comentarios: telaComentarios, perfis: telaPerfis, pautas: telaPautas, links: telaLinks, config: telaConfig}[aba]();
+  if (aba === 'links') mostrarCliques();
   if (aba === 'comentarios') { carregarComentarios(); carregarDirect(); }
   if (aba === 'tendencias') carregarTendencias();
   if (ultimoLog) verLog(ultimoLog, false);

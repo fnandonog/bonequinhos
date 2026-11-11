@@ -16,6 +16,7 @@ import {tendencias, cacar} from './tendencias.mjs';
 import * as AUTH from './lib/auth.mjs';
 import * as YT from './lib/youtube.mjs';
 import * as DIRECT from './lib/direct.mjs';
+import * as CLIQUES from './lib/cliques.mjs';
 
 const PORTA = Number(process.env.PORTA ?? 4380);
 const CONFIG_VISIVEL = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'META_APP_ID', 'META_APP_SECRET', 'YOUTUBE_API_KEY', 'YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_PRIVACIDADE', 'TELEGRAM_BOT_TOKEN', 'TELEGRAM_GRUPO_ID', 'RECEITA_AFILIADO_MES', 'META_GRAPH_VERSION', 'ELEVENLABS_API_KEY', 'AUTO_PUBLICAR', 'PRODUCAO_AUTOMATICA', 'ELEVENLABS_VOZ', 'META_POSTAR_FACEBOOK',
@@ -70,6 +71,7 @@ async function api(metodo, partes, req) {
   if (metodo === 'GET' && recurso === 'analytics') return analytics();
   if (metodo === 'GET' && recurso === 'comentarios') return comentarios();
   if (metodo === 'GET' && recurso === 'links') return LINKS.config();
+  if (metodo === 'GET' && recurso === 'cliques') return CLIQUES.resumo(Number(id) || 7);
   if (metodo === 'GET' && recurso === 'tendencias') return tendencias();
   if (metodo === 'GET' && recurso === 'direct') return {config: DIRECT.config(), resumo: DIRECT.resumo(), rodando: !!roboDirect};
   if (metodo !== 'POST') throw new Error('rota desconhecida');
@@ -170,6 +172,18 @@ app.disable('x-powered-by');
 app.use(express.json({limit: '2mb'}));
 // O painel só escuta em 127.0.0.1: quem abre é o dono, no próprio Mac.
 app.use(express.urlencoded({extended: false}));
+
+// Contador da página de links: as páginas estáticas de zeexplica.com.br avisam cada visita e clique (sendBeacon).
+// Público e sem login de propósito: só soma contagens (plataforma/lib/cliques.mjs), com teto por minuto contra abuso.
+let cliquesMinuto = {min: 0, n: 0};
+app.post('/c', express.text({type: '*/*', limit: '1kb'}), (req, res) => {
+  const min = Math.floor(Date.now() / 60000);
+  if (cliquesMinuto.min !== min) cliquesMinuto = {min, n: 0};
+  if (++cliquesMinuto.n <= 300) {
+    try { CLIQUES.registrar(typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body || {}); } catch {}
+  }
+  res.set('Access-Control-Allow-Origin', '*').status(204).end();
+});
 
 // Pela internet (painel.zeexplica.com.br) exige login com senha + 2FA; no próprio Mac, não.
 const pagina = (titulo, corpo) => `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${titulo}</title>

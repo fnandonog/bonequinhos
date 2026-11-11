@@ -12,8 +12,9 @@
       "ativo": true,
       "motivo_inativo": "Motor da cozinha 3D pronto (vídeo modelo: bolo-cenoura). Liga quando o Fernando aprovar o padrão.",
       "horario": "11:30",
-      "cta": "Receita completa e utensílios em oferta: link na bio",
+      "cta": "Receita completa no Telegram do Zé: link na bio",
       "link_bio": "https://precinhodeouro.com.br/receitas",
+      "link_bio_rotulo": "Todas as receitas completas no site",
       "hashtags": [
         "receitas",
         "receitafacil",
@@ -26,7 +27,7 @@
         "receita barata"
       ],
       "grupo": {
-        "nome": "Receitas Precinho: uma receita fácil por dia no Telegram",
+        "nome": "Receitas do Zé: uma receita fácil por dia no Telegram",
         "url": "https://t.me/receitasprecinho"
       },
       "voz_elevenlabs": {
@@ -36,7 +37,11 @@
       "horarios": [
         "11:30",
         "18:00"
-      ]
+      ],
+      "ofertas": {
+        "nome": "Ofertas do Zé na Cozinha: utensílios e mercado em oferta",
+        "url": "https://t.me/ofertasdozecozinha"
+      }
     },
     {
       "id": "historia",
@@ -49,7 +54,7 @@
       "ativo": true,
       "motivo_inativo": "Falta aprovar o piloto do formato.",
       "horario": "12:30",
-      "cta": "Livros e ofertas no grupo: link na bio",
+      "cta": "Os livros dessa história no Telegram do Zé: link na bio",
       "link_bio": "",
       "hashtags": [
         "historia",
@@ -68,7 +73,15 @@
       "horarios": [
         "12:30",
         "20:00"
-      ]
+      ],
+      "ofertas": {
+        "nome": "Ofertas do Zé · Livros: os livros dos vídeos em promoção",
+        "url": "https://t.me/ofertasdozelivros"
+      },
+      "grupo": {
+        "nome": "Ofertas do Zé · Livros: os livros dos vídeos em promoção",
+        "url": "https://t.me/ofertasdozelivros"
+      }
     },
     {
       "id": "construiu",
@@ -80,7 +93,7 @@
       "comando": "/video",
       "ativo": true,
       "horario": "12:00",
-      "cta": "Materiais e ferramentas em oferta no grupo: link na bio",
+      "cta": "Materiais e ferramentas em oferta no Telegram do Zé: link na bio",
       "link_bio": "",
       "hashtags": [
         "construcao",
@@ -100,7 +113,15 @@
       "horarios": [
         "12:00",
         "19:00"
-      ]
+      ],
+      "ofertas": {
+        "nome": "Ofertas do Zé da Construção: ferramentas e materiais em oferta",
+        "url": "https://t.me/ofertasdozeconstrucao"
+      },
+      "grupo": {
+        "nome": "Ofertas do Zé da Construção: ferramentas e materiais em oferta",
+        "url": "https://t.me/ofertasdozeconstrucao"
+      }
     },
     {
       "id": "caso",
@@ -113,7 +134,7 @@
       "ativo": true,
       "motivo_inativo": "Falta aprovar o piloto do formato.",
       "horario": "13:00",
-      "cta": "Indicações e ofertas no grupo: link na bio",
+      "cta": "Livros e documentários do caso no Telegram do Zé: link na bio",
       "link_bio": "",
       "hashtags": [
         "misterio",
@@ -132,7 +153,15 @@
       "horarios": [
         "13:00",
         "21:30"
-      ]
+      ],
+      "ofertas": {
+        "nome": "Ofertas do Zé · Livros: os livros dos vídeos em promoção",
+        "url": "https://t.me/ofertasdozelivros"
+      },
+      "grupo": {
+        "nome": "Ofertas do Zé · Livros: os livros dos vídeos em promoção",
+        "url": "https://t.me/ofertasdozelivros"
+      }
     },
     {
       "id": "rico",
@@ -145,7 +174,7 @@
       "ativo": true,
       "motivo_inativo": "Falta aprovar o piloto do formato.",
       "horario": "07:30",
-      "cta": "Livros e ofertas no grupo: link na bio",
+      "cta": "Os livros dessa história no Telegram do Zé: link na bio",
       "link_bio": "",
       "hashtags": [
         "empreendedorismo",
@@ -164,7 +193,15 @@
       "horarios": [
         "07:30",
         "18:30"
-      ]
+      ],
+      "ofertas": {
+        "nome": "Ofertas do Zé · Livros: os livros dos vídeos em promoção",
+        "url": "https://t.me/ofertasdozelivros"
+      },
+      "grupo": {
+        "nome": "Ofertas do Zé · Livros: os livros dos vídeos em promoção",
+        "url": "https://t.me/ofertasdozelivros"
+      }
     },
     {
       "id": "valeapena",
@@ -177,7 +214,7 @@
       "ativo": true,
       "motivo_inativo": "Falta aprovar o piloto do formato.",
       "horario": "12:15",
-      "cta": "Link do produto com desconto na bio",
+      "cta": "Menor preço que achei no Telegram do Zé: link na bio",
       "link_bio": "",
       "hashtags": [
         "valeapena",
@@ -197,7 +234,15 @@
       "horarios": [
         "12:15",
         "20:30"
-      ]
+      ],
+      "ofertas": {
+        "nome": "Ofertas do Zé: achados com preço conferido no Telegram",
+        "url": "https://t.me/ofertasdozebr"
+      },
+      "grupo": {
+        "nome": "Ofertas do Zé: achados com preço conferido no Telegram",
+        "url": "https://t.me/ofertasdozebr"
+      }
     }
   ]
 }
