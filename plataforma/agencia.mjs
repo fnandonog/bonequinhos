@@ -158,11 +158,12 @@ async function produzir(p, tema, pautaMotivo) {
       salvarItem({id, voz: 'teste (grátis)'});
     } else if (!jaNarrado) {
       if (!E.ELEVENLABS_API_KEY) throw new Error('falta ELEVENLABS_API_KEY no .env');
-      if (E.ELEVENLABS_VOZ) {
-        // a voz escolhida no painel vale para todos os vídeos (a do Fernando por padrão)
+      const vozCanal = p.voz_elevenlabs?.id || E.ELEVENLABS_VOZ;
+      if (vozCanal) {
+        // cada canal tem a sua voz do ElevenLabs (perfis.json → voz_elevenlabs); ELEVENLABS_VOZ é só o padrão de reserva
         const fr = path.join(RAIZ, `roteiros/${id}.json`);
         const rot = JSON.parse(fs.readFileSync(fr, 'utf8'));
-        rot.elevenlabs = {...(rot.elevenlabs ?? {}), voz_id: E.ELEVENLABS_VOZ, modelo: rot.elevenlabs?.modelo ?? 'eleven_multilingual_v2'};
+        rot.elevenlabs = {...(rot.elevenlabs ?? {}), voz_id: vozCanal, modelo: rot.elevenlabs?.modelo ?? 'eleven_multilingual_v2'};
         fs.writeFileSync(fr, JSON.stringify(rot, null, 2));
       }
       await rodar('python3', ['tools/tts_elevenlabs.py', `roteiros/${id}.json`], {nome: `video-${id}`, extraEnv: {ELEVENLABS_API_KEY: E.ELEVENLABS_API_KEY}});

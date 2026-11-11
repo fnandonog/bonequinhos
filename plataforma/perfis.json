@@ -28,6 +28,10 @@
       "grupo": {
         "nome": "Receitas Precinho: uma receita fácil por dia no Telegram",
         "url": "https://t.me/receitasprecinho"
+      },
+      "voz_elevenlabs": {
+        "id": "fhtZMBwha5du5OxuvexO",
+        "nome": "Malu"
       }
     },
     {
@@ -52,7 +56,11 @@
         "história do mundo",
         "e se você vivesse",
         "curiosidades históricas"
-      ]
+      ],
+      "voz_elevenlabs": {
+        "id": "5lrBPYY4YvMbKHTo8kvZ",
+        "nome": "Arthur Freeman"
+      }
     },
     {
       "id": "construiu",
@@ -76,7 +84,11 @@
         "quanto custa construir",
         "obra casa custo",
         "construção casa"
-      ]
+      ],
+      "voz_elevenlabs": {
+        "id": "ZqE9vIHPcrC35dZv0Svu",
+        "nome": "Adam Borges"
+      }
     },
     {
       "id": "caso",
@@ -100,7 +112,11 @@
         "caso real mistério",
         "crime real explicado",
         "mistério não resolvido"
-      ]
+      ],
+      "voz_elevenlabs": {
+        "id": "cyD08lEy76q03ER1jZ7y",
+        "nome": "Scheila"
+      }
     },
     {
       "id": "rico",
@@ -124,7 +140,11 @@
         "como ficou rico",
         "história de sucesso empresa",
         "bilionário começou"
-      ]
+      ],
+      "voz_elevenlabs": {
+        "id": "zNEsdgTUa3ndwKry8Xcq",
+        "nome": "Elvis"
+      }
     },
     {
       "id": "valeapena",
@@ -149,7 +169,11 @@
         "vale a pena comprar",
         "review produto barato",
         "achadinhos shopee"
-      ]
+      ],
+      "voz_elevenlabs": {
+        "id": "S4M4JhZIzYGUlDsYIOow",
+        "nome": "Elena Vinter"
+      }
     }
   ]
 }
