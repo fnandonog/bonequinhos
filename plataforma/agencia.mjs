@@ -48,7 +48,9 @@ function rodar(cmd, argv, {nome, minutos = 30, extraEnv = {}} = {}) {
 function claude(prompt, nome, minutos = LIMITE_MIN) {
   const argv = ['-p', prompt, '--output-format', 'json', '--permission-mode', 'acceptEdits', '--allowedTools', ...FERRAMENTAS];
   if (E.AGENCIA_MODELO) argv.push('--model', E.AGENCIA_MODELO);
-  return rodar(E.CLAUDE_BIN || 'claude', argv, {nome, minutos}).then((s) => {
+  // CLAUDE_CODE_OAUTH_TOKEN (gerado com `claude setup-token`) deixa o Claude logado mesmo rodando pelo launchd
+  const extraEnv = E.CLAUDE_CODE_OAUTH_TOKEN ? {CLAUDE_CODE_OAUTH_TOKEN: E.CLAUDE_CODE_OAUTH_TOKEN} : {};
+  return rodar(E.CLAUDE_BIN || 'claude', argv, {nome, minutos, extraEnv}).then((s) => {
     try {
       return JSON.parse(s).result ?? s;
     } catch {
@@ -75,6 +77,29 @@ async function reabastecer(p) {
   for (const tema of novas) d.pautas.push({tema, status: 'nova'});
   salvarPautas(p.id, d);
   log('agencia', `${p.nome}: +${novas.length} pautas`);
+}
+
+// O pauteiro (como editor-chefe) escolhe entre as pautas novas a que tem mais chance de viralizar agora.
+async function escolherPauta(p, d) {
+  const novas = d.pautas.filter((x) => x.status === 'nova');
+  if (novas.length <= 1) return novas[0];
+  try {
+    const r = await claude(
+      `Use o agente pauteiro como editor-chefe do perfil "${p.nome}" (${p.nicho}). Escolha a pauta com mais chance de viralizar ` +
+        `e de vender como afiliado agora:\n${novas.map((x, i) => `${i}. ${x.tema}`).join('\n')}\n` +
+        `Responda SÓ com JSON: {"escolhida": <número>, "motivo": "uma frase"}`,
+      `pauteiro-${p.id}`,
+      15,
+    );
+    const j = JSON.parse(String(r).match(/\{[\s\S]*\}/)[0]);
+    const e = novas[j.escolhida] ?? novas[0];
+    e.motivo = j.motivo;
+    log('agencia', `${p.nome}: pauteiro escolheu "${e.tema}" (${j.motivo})`);
+    return e;
+  } catch (e) {
+    log('agencia', `${p.nome}: escolha automática falhou (${e.message}); usando a primeira`);
+    return novas[0];
+  }
 }
 
 const registrado = (id) => fs.readFileSync(path.join(RAIZ, 'src/Root.tsx'), 'utf8').includes(`id="${id}"`);
@@ -107,6 +132,13 @@ async function produzir(p, tema) {
     const jaNarrado = fs.existsSync(tim) && !JSON.parse(fs.readFileSync(tim, 'utf8')).estimado;
     if (!jaNarrado) {
       if (!E.ELEVENLABS_API_KEY) throw new Error('falta ELEVENLABS_API_KEY no .env');
+      if (E.ELEVENLABS_VOZ) {
+        // a voz escolhida no painel vale para todos os vídeos (a do Fernando por padrão)
+        const fr = path.join(RAIZ, `roteiros/${id}.json`);
+        const rot = JSON.parse(fs.readFileSync(fr, 'utf8'));
+        rot.elevenlabs = {...(rot.elevenlabs ?? {}), voz_id: E.ELEVENLABS_VOZ, modelo: rot.elevenlabs?.modelo ?? 'eleven_multilingual_v2'};
+        fs.writeFileSync(fr, JSON.stringify(rot, null, 2));
+      }
       await rodar('python3', ['tools/tts_elevenlabs.py', `roteiros/${id}.json`], {nome: `video-${id}`, extraEnv: {ELEVENLABS_API_KEY: E.ELEVENLABS_API_KEY}});
       const f = Number(E.NARRACAO_VELOCIDADE ?? 1.3);
       if (f !== 1) {
@@ -123,7 +155,9 @@ async function produzir(p, tema) {
     fs.mkdirSync(path.join(RAIZ, 'out'), {recursive: true});
     if (!fs.existsSync(path.join(RAIZ, 'node_modules/.bin/remotion'))) await rodar('npm', ['install', '--no-audit', '--no-fund'], {nome: `video-${id}`});
     const mp4 = `out/${id}.mp4`;
-    await rodar('npx', ['remotion', 'render', 'src/index.ts', id, mp4], {nome: `video-${id}`, minutos: 60});
+    const mtime = (a) => (fs.existsSync(path.join(RAIZ, a)) ? fs.statSync(path.join(RAIZ, a)).mtimeMs : Infinity);
+    const renderAtual = mtime(mp4) !== Infinity && mtime(mp4) > Math.max(mtime(`roteiros/${id}.json`), mtime(`public/audio/${id}/timings.json`));
+    if (!renderAtual) await rodar('npx', ['remotion', 'render', 'src/index.ts', id, mp4], {nome: `video-${id}`, minutos: 60});
     execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '1.5', '-i', mp4, '-frames:v', '1', '-vf', 'scale=360:-1', `out/${id}.jpg`], {cwd: RAIZ});
 
     // 4. Legenda (agente legendista)
@@ -133,9 +167,13 @@ async function produzir(p, tema) {
         `CTA: "${p.cta}". Hashtags base: ${p.hashtags.join(' ')}. Responda SÓ com o JSON pedido pelo agente.`,
       `legenda-${id}`,
       15,
-    );
+    ).catch((e) => (log('agencia', `legenda automática falhou (${e.message}); usando a padrão`), ''));
     const m = String(r).match(/\{[\s\S]*\}/);
-    const leg = m ? JSON.parse(m[0]) : {legenda: `${tema}\n\n${p.cta}`, titulo_youtube: tema};
+    const padrao = {legenda: `${tema}\n\n${p.cta}\n\n${p.hashtags.map((h) => '#' + h).join(' ')}`, titulo_youtube: `${tema} #shorts`};
+    let leg = padrao;
+    try {
+      if (m) leg = {...padrao, ...JSON.parse(m[0])};
+    } catch {}
 
     // 5. Guarda no git local (sem push) para nada se perder
     try {
@@ -163,6 +201,8 @@ async function produzir(p, tema) {
 }
 
 async function main() {
+  // Pelo agendador (sem argumentos) só produz se a produção automática estiver ligada no painel.
+  if (!args.length && E.PRODUCAO_AUTOMATICA !== '1') return log('agencia', 'produção automática desligada no painel; nada a fazer');
   log('agencia', `início${SECO ? ' (seco)' : ''}`);
   // Não deixa o Mac dormir enquanto a agência roda (só durante este processo).
   if (process.platform === 'darwin' && !SECO) spawn('caffeinate', ['-i', '-w', String(process.pid)], {stdio: 'ignore', detached: true}).unref();
@@ -177,7 +217,7 @@ async function main() {
     await reabastecer(p).catch((e) => log('agencia', `${p.nome}: pauteiro falhou: ${e.message}`));
     for (let n = 0; n < MAX; n++) {
       const d = pautas(p.id);
-      const pauta = d.pautas.find((x) => x.status === 'nova');
+      const pauta = SECO ? d.pautas.find((x) => x.status === 'nova') : await escolherPauta(p, d);
       if (!pauta) break;
       if (!SECO) {
         pauta.status = 'usada';

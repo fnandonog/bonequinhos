@@ -10,9 +10,9 @@ import {proximoHorario} from './lib/agenda.mjs';
 import {publicar} from './postar.mjs';
 
 const PORTA = Number(process.env.PORTA ?? 4321);
-const CONFIG_VISIVEL = ['META_USER_TOKEN', 'META_GRAPH_VERSION', 'ELEVENLABS_API_KEY', 'AUTO_PUBLICAR', 'META_POSTAR_FACEBOOK',
+const CONFIG_VISIVEL = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'META_GRAPH_VERSION', 'ELEVENLABS_API_KEY', 'AUTO_PUBLICAR', 'PRODUCAO_AUTOMATICA', 'ELEVENLABS_VOZ', 'META_POSTAR_FACEBOOK',
   'AGENCIA_MAX_POR_PERFIL', 'AGENCIA_MODELO', 'NARRACAO_VELOCIDADE'];
-const SEGREDOS = ['META_USER_TOKEN', 'ELEVENLABS_API_KEY'];
+const SEGREDOS = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'ELEVENLABS_API_KEY'];
 const TIPOS = {'.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.mp4': 'video/mp4', '.jpg': 'image/jpeg', '.png': 'image/png'};
 
 let agencia = null; // processo da agência disparado pelo painel
