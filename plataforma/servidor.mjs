@@ -13,6 +13,7 @@ import {sincronizar, analytics, comentarios, salvarComentario} from './sincroniz
 import {responderComentario} from './lib/meta.mjs';
 import * as LINKS from './lib/links.mjs';
 import {tendencias, cacar} from './tendencias.mjs';
+import * as AUTH from './lib/auth.mjs';
 import * as YT from './lib/youtube.mjs';
 import * as DIRECT from './lib/direct.mjs';
 
@@ -168,7 +169,61 @@ const app = express();
 app.disable('x-powered-by');
 app.use(express.json({limit: '2mb'}));
 // O painel só escuta em 127.0.0.1: quem abre é o dono, no próprio Mac.
+app.use(express.urlencoded({extended: false}));
+
+// Pela internet (painel.zeexplica.com.br) exige login com senha + 2FA; no próprio Mac, não.
+const pagina = (titulo, corpo) => `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${titulo}</title>
+<style>body{font:16px/1.5 -apple-system,system-ui,sans-serif;background:#16130f;color:#f1ede6;display:flex;justify-content:center;padding:48px 16px;margin:0}
+main{width:100%;max-width:380px}h1{font-size:22px}input,button{font:inherit;width:100%;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #34302a;background:#1f1d1a;color:inherit;box-sizing:border-box}
+button{background:#ff7a1a;border-color:#ff7a1a;color:#fff;font-weight:700;cursor:pointer}.erro{color:#ff8a8a}.mut{color:#a59f95;font-size:14px}code{word-break:break-all}</style></head><body><main>${corpo}</main></body></html>`;
+const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[c]);
+const telaEntrar = (erro = '') => pagina('Entrar · Agência do Zé', `<h1>🧑‍🔧 Agência do Zé</h1><form method="post" action="/entrar">
+  <input type="password" name="senha" placeholder="Senha" autocomplete="current-password" required autofocus>
+  <input name="codigo" placeholder="Código de 6 dígitos do autenticador" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" required>
+  <button>Entrar</button>${erro ? `<p class="erro">${esc(erro)}</p>` : ''}</form>`);
+
+app.post('/entrar', (req, res) => {
+  try {
+    const id = AUTH.entrar(String(req.headers['x-forwarded-for'] || req.socket.remoteAddress).split(',')[0], req.body.senha, req.body.codigo);
+    res.setHeader('Set-Cookie', AUTH.cookieSessao(id));
+    res.redirect('/');
+  } catch (e) {
+    res.status(401).type('html').send(telaEntrar(e.message));
+  }
+});
+app.get('/sair', (req, res) => {
+  AUTH.sair(req);
+  res.setHeader('Set-Cookie', 'zs=; Path=/; Max-Age=0');
+  res.redirect('/');
+});
+
+// /seguranca: só no Mac. Define a senha e liga o 2FA do acesso pela internet.
+app.all('/seguranca', (req, res, next) => (AUTH.remoto(req) ? next() : null) ?? (() => {
+  let msg = '';
+  try {
+    if (req.method === 'POST' && req.body.senha) AUTH.definirSenha(req.body.senha), (msg = 'Senha salva.');
+    if (req.method === 'POST' && req.body.codigo) AUTH.confirmarTotp(req.body.codigo), (msg = '2FA ligado. O painel já pode ser aberto pela internet.');
+  } catch (e) {
+    msg = e.message;
+  }
+  const t = req.method === 'POST' && req.body.novo2fa ? AUTH.novoTotp() : null;
+  res.type('html').send(pagina('Segurança · Agência do Zé', `<h1>Acesso pela internet</h1>
+  <p class="mut">painel.zeexplica.com.br pede senha + código do app autenticador (Google Authenticator, Authy…). Esta página só abre no Mac.</p>
+  ${msg ? `<p>${esc(msg)}</p>` : ''}<p>Status: ${AUTH.configurado() ? '✅ configurado' : '⚠️ falta configurar'}</p>
+  <h2>1. Senha</h2><form method="post"><input type="password" name="senha" placeholder="Nova senha (mín. 10 caracteres)" required><button>Salvar senha</button></form>
+  <h2>2. App autenticador</h2>${t ? `<p>Escaneie no app:</p><div id="qr" style="background:#fff;padding:12px;width:fit-content"></div>
+    <p class="mut">Ou digite: <code>${t.segredo}</code></p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script>new QRCode(document.getElementById('qr'), {text: ${JSON.stringify(t.uri)}, width: 200, height: 200});</script>
+    <form method="post"><input name="codigo" placeholder="Código que aparece no app" inputmode="numeric" required><button>Confirmar</button></form>`
+    : `<form method="post"><input type="hidden" name="novo2fa" value="1"><button>Gerar QR code</button></form>`}
+  <p><a href="/" style="color:#ff9a4d">Voltar ao painel</a></p>`));
+})());
+
 app.use((req, res, next) => {
+  if (AUTH.remoto(req) && !AUTH.logado(req)) {
+    if (req.path.startsWith('/api/') || req.path.startsWith('/admin/api/')) return res.status(401).json({erro: 'Entre no painel.'});
+    return res.status(401).type('html').send(telaEntrar());
+  }
   req.user = {email: 'dono@localhost', name: 'Fernando'};
   next();
 });
