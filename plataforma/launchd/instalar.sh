@@ -1,6 +1,6 @@
 #!/bin/bash
 # Instala 3 tarefas no launchd do seu usuário (rodam sozinhas, mesmo depois de reiniciar o Mac):
-#   com.bonequinhos.painel   painel em http://localhost:4321 (sempre ligado)
+#   com.bonequinhos.painel   painel em http://localhost:4380 (sempre ligado)
 #   com.bonequinhos.agencia  produção automática todo dia às 02:00 (mude HORA/MINUTO abaixo)
 #   com.bonequinhos.postar   publica os vídeos aprovados a cada 10 min
 # Desinstalar: bash plataforma/launchd/instalar.sh --remover
@@ -38,4 +38,4 @@ launchctl bootstrap "gui/$(id -u)" "$DEST/com.bonequinhos.$1.plist"
 plist painel servidor.mjs "<key>RunAtLoad</key><true/><key>KeepAlive</key><true/>"
 plist agencia agencia.mjs "<key>StartCalendarInterval</key><dict><key>Hour</key><integer>$HORA</integer><key>Minute</key><integer>$MINUTO</integer></dict>"
 plist postar postar.mjs "<key>StartInterval</key><integer>600</integer>"
-echo "Pronto. Painel: http://localhost:4321 · produção todo dia às $(printf %02d:%02d $HORA $MINUTO)."
+echo "Pronto. Painel: http://localhost:4380 · produção todo dia às $(printf %02d:%02d $HORA $MINUTO)."

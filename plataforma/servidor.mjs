@@ -1,7 +1,8 @@
-// PAINEL: http://localhost:4321 (só no próprio Mac).
+// PAINEL: http://localhost:4380 (só no próprio Mac).
 // Uso: node plataforma/servidor.mjs   (ou npm run painel)
-import http from 'node:http';
 import fs from 'node:fs';
+import {createRequire} from 'node:module';
+import express from 'express';
 import path from 'node:path';
 import {spawn} from 'node:child_process';
 import * as D from './lib/dados.mjs';
@@ -9,7 +10,7 @@ import {descobrirContas, credenciais, chaveEnv} from './lib/meta.mjs';
 import {proximoHorario} from './lib/agenda.mjs';
 import {publicar} from './postar.mjs';
 
-const PORTA = Number(process.env.PORTA ?? 4321);
+const PORTA = Number(process.env.PORTA ?? 4380);
 const CONFIG_VISIVEL = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'META_GRAPH_VERSION', 'ELEVENLABS_API_KEY', 'AUTO_PUBLICAR', 'PRODUCAO_AUTOMATICA', 'ELEVENLABS_VOZ', 'META_POSTAR_FACEBOOK',
   'AGENCIA_MAX_POR_PERFIL', 'AGENCIA_MODELO', 'NARRACAO_VELOCIDADE'];
 const SEGREDOS = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'ELEVENLABS_API_KEY'];
@@ -48,12 +49,7 @@ function enviar(res, cod, dados) {
   res.end(JSON.stringify(dados));
 }
 
-const corpo = (req) =>
-  new Promise((ok) => {
-    let s = '';
-    req.on('data', (d) => (s += d));
-    req.on('end', () => ok(s ? JSON.parse(s) : {}));
-  });
+const corpo = async (req) => req.body ?? {};
 
 async function api(metodo, partes, req) {
   const [recurso, id, acao] = partes;
@@ -79,11 +75,15 @@ async function api(metodo, partes, req) {
     const it = D.item(id);
     if (!it) throw new Error('vídeo não está na fila');
     if (acao === 'legenda') return D.salvarItem({id, legenda: b.legenda});
-    if (acao === 'rejeitar') return D.salvarItem({id, status: 'rejeitado'});
+    if (acao === 'rejeitar') {
+      ponte.espelhar(id, 'rejeitado');
+      return D.salvarItem({id, status: 'rejeitado'});
+    }
     if (acao === 'aprovar') {
       const p = D.perfil(it.perfil);
       const quando = b.quando === 'agora' ? null : b.quando || proximoHorario(p.horario);
       D.salvarItem({id, status: 'aprovado', agendado_para: quando, legenda: b.legenda ?? it.legenda, tentativas: 0});
+      ponte.espelhar(id, 'aprovado');
       if (!quando) publicar(D.item(id)); // não espera: o painel acompanha pelo status
       return D.item(id);
     }
@@ -117,17 +117,40 @@ async function api(metodo, partes, req) {
   throw new Error('rota desconhecida');
 }
 
-http
-  .createServer(async (req, res) => {
-    const url = new URL(req.url, 'http://x');
-    const partes = url.pathname.split('/').filter(Boolean).map(decodeURIComponent);
-    try {
-      if (partes[0] === 'api') return enviar(res, 200, await api(req.method, partes.slice(1), req));
-      if (partes[0] === 'out') return arquivo(res, path.join(D.RAIZ, 'out', path.basename(partes[1] ?? '')), req);
-      if (partes[0] === 'perfis') return arquivo(res, path.join(D.RAIZ, 'perfis/imagens', path.basename(partes[1] ?? '')), req);
-      return arquivo(res, path.join(D.PLAT, 'painel', path.basename(partes[0] ?? 'index.html')), req);
-    } catch (e) {
-      enviar(res, 400, {erro: e.message});
-    }
-  })
-  .listen(PORTA, '127.0.0.1', () => console.log(`Painel: http://localhost:${PORTA}`));
+for (const [k, v] of Object.entries(D.env())) if (k.startsWith('OFFICE_')) process.env[k] = v;
+const app = express();
+app.disable('x-powered-by');
+app.use(express.json({limit: '2mb'}));
+// O painel só escuta em 127.0.0.1: quem abre é o dono, no próprio Mac.
+app.use((req, res, next) => {
+  req.user = {email: 'dono@localhost', name: 'Fernando'};
+  next();
+});
+
+// Escritório da agência (pixel art, quadro, caixa de aprovação), portado da skill agencia-marketing-completa.
+const require = createRequire(import.meta.url);
+const office = require('./escritorio/lib/office');
+const ESC = path.join(D.PLAT, 'escritorio', 'public');
+app.get('/admin', (req, res) => res.redirect('/'));
+app.use(express.static(ESC, {index: false}));
+office.mount(app, {
+  send: (res, html, cod = 200) => res.status(cod).type('html').send(html),
+  pages: {notFound: () => '<!doctype html><meta charset="utf-8"><p>Não encontrado. <a href="/">Voltar ao painel</a></p>'},
+  pageCtx: (req) => ({req}),
+});
+const ponte = require('./escritorio/ponte.cjs');
+ponte.ligar();
+
+app.all(/^\/api\/.*/, async (req, res) => {
+  const partes = req.path.split('/').filter(Boolean).map(decodeURIComponent).slice(1);
+  try {
+    enviar(res, 200, await api(req.method, partes, req));
+  } catch (e) {
+    enviar(res, 400, {erro: e.message});
+  }
+});
+app.get('/out/:f', (req, res) => arquivo(res, path.join(D.RAIZ, 'out', path.basename(req.params.f)), req));
+app.get('/perfis/:f', (req, res) => arquivo(res, path.join(D.RAIZ, 'perfis/imagens', path.basename(req.params.f)), req));
+app.get(['/', '/index.html'], (req, res) => arquivo(res, path.join(D.PLAT, 'painel', 'index.html'), req));
+
+app.listen(PORTA, '127.0.0.1', () => console.log(`Painel: http://localhost:${PORTA} · Escritório: http://localhost:${PORTA}/admin/escritorio`));

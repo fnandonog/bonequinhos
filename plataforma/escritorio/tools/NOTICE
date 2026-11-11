@@ -1,0 +1,11 @@
+Escritório da agência (lib/office, public/escritorio.js, public/escritorio.css, tools/agencia)
+
+A ideia de mostrar agentes do Claude Code como personagens em pixel art num escritório, com animação conforme o que
+cada um está fazendo e balão de fala quando espera aprovação, foi inspirada no projeto Pixel Agents:
+
+  Pixel Agents - https://github.com/pablodelucca/pixel-agents
+  Copyright (c) Pablo De Lucca - MIT License
+
+Nenhum código e nenhuma arte do Pixel Agents foram copiados. Os personagens, móveis e a sala são desenhados por código
+(retângulos no canvas) em public/escritorio.js. Os personagens do Pixel Agents são baseados em arte de terceiros
+(JIK-A-4, "Metro City"), cuja licença não é coberta pelo MIT do repositório; por isso não usamos nenhum arquivo de lá.

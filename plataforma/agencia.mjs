@@ -7,8 +7,9 @@
 import {spawn, execFileSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import {RAIZ, DADOS, perfis, perfil as umPerfil, pautas, salvarPautas, salvarItem, log, env} from './lib/dados.mjs';
+import {RAIZ, DADOS, perfis, perfil as umPerfil, pautas, salvarPautas, salvarItem, item, log, env} from './lib/dados.mjs';
 import {proximoHorario} from './lib/agenda.mjs';
+import * as ESC from './lib/escritorio.mjs';
 
 const args = process.argv.slice(2);
 const arg = (k) => (args.includes(k) ? args[args.indexOf(k) + 1] : undefined);
@@ -83,6 +84,7 @@ async function reabastecer(p) {
 async function escolherPauta(p, d) {
   const novas = d.pautas.filter((x) => x.status === 'nova');
   if (novas.length <= 1) return novas[0];
+  ESC.batida('pauteiro', 'working', `Escolhendo a melhor pauta de ${p.nome}`);
   try {
     const r = await claude(
       `Use o agente pauteiro como editor-chefe do perfil "${p.nome}" (${p.nicho}). Escolha a pauta com mais chance de viralizar ` +
@@ -104,11 +106,24 @@ async function escolherPauta(p, d) {
 
 const registrado = (id) => fs.readFileSync(path.join(RAIZ, 'src/Root.tsx'), 'utf8').includes(`id="${id}"`);
 
-async function produzir(p, tema) {
+async function produzir(p, tema, pautaMotivo) {
   const id = slug(tema);
   if (SECO) return log('agencia', `${p.nome}: faria "${tema}" (${id})`);
   const it = salvarItem({id, perfil: p.id, tema, status: 'produzindo', etapa: 'roteiro', criado: new Date().toISOString()});
-  const passo = (etapa) => salvarItem({id, etapa});
+  // Escritório: uma tarefa por vídeo, que anda pelos agentes do Estúdio até a sua caixa de aprovação
+  const tarefa = item(id)?.tarefa ?? (await ESC.tarefaDoVideo(id, `${p.nome}: ${tema}`, `Vídeo do perfil @${p.instagram}.${pautaMotivo ? `\n\nPor que esta pauta: ${pautaMotivo}` : ''}`));
+  if (tarefa) salvarItem({id, tarefa});
+  const AGENTE = {roteiro: 'roteirista', narracao: 'editor', render: 'editor', legenda: 'legendista'};
+  const FAZ = {roteiro: 'Pesquisa, roteiro, cenas e QA (agentes do /video)', narracao: 'Narração com a voz do Fernando', render: 'Renderizando o vídeo', legenda: 'Legenda e hashtags'};
+  const passo = (etapa) => {
+    const ag = AGENTE[etapa];
+    ESC.batida(ag, 'working', `${FAZ[etapa]}: ${tema}`, tarefa, `${FAZ[etapa]} · ${tema}`);
+    if (ag !== 'legendista') ESC.mover(tarefa, ag, {status: 'doing'});
+    return salvarItem({id, etapa});
+  };
+  const livre = (ag) => ESC.batida(ag, 'idle');
+  ESC.batida('pauteiro', 'idle', undefined, tarefa, `Pauta escolhida para ${p.nome}: ${tema}`, 'success');
+  passo('roteiro');
   log('agencia', `${p.nome}: produzindo "${tema}" (${id})`);
   try {
     // 1. Agentes: pesquisa → roteiro → direção → cenografia → edição → QA (o comando do formato)
@@ -127,6 +142,7 @@ async function produzir(p, tema) {
     if (!registrado(id)) throw new Error('o Claude terminou sem registrar a composição no src/Root.tsx');
 
     // 2. Narração com a voz aprovada do roteiro, acelerada para o padrão do canal
+    livre('roteirista');
     passo('narracao');
     const tim = path.join(RAIZ, `public/audio/${id}/timings.json`);
     const jaNarrado = fs.existsSync(tim) && !JSON.parse(fs.readFileSync(tim, 'utf8')).estimado;
@@ -182,7 +198,17 @@ async function produzir(p, tema) {
       execFileSync('git', ['commit', '-qm', `Produção automática: ${id} (${p.nome})`], {cwd: RAIZ, stdio: 'ignore'});
     } catch {}
 
+    livre('editor');
+    livre('legendista');
+    ESC.anexar(tarefa, 'editor', {kind: 'link', label: 'Vídeo pronto (mp4)', url: `/${mp4}`});
+    ESC.anexar(tarefa, 'legendista', {kind: 'texto', label: 'Legenda do post', content: `${leg.legenda}\n\nTítulo do Shorts: ${leg.titulo_youtube}`});
     const auto = E.AUTO_PUBLICAR === '1';
+    if (!auto) {
+      await ESC.mover(tarefa, 'editor', {status: 'review'});
+      ESC.batida('showrunner', 'waiting', `Esperando sua aprovação: ${tema}`, tarefa, `Vídeo pronto para você aprovar: ${tema}`, 'warn');
+    } else {
+      ESC.batida('social-media', 'working', `Agendado: ${tema}`, tarefa, `Publicação automática ligada: "${tema}" vai sair às ${p.horario}`, 'success');
+    }
     return salvarItem({
       id,
       status: auto ? 'aprovado' : 'aguardando_aprovacao',
@@ -196,6 +222,7 @@ async function produzir(p, tema) {
     });
   } catch (e) {
     log('agencia', `${p.nome}: ERRO em ${id}: ${e.message}`);
+    ESC.batida(AGENTE[item(id)?.etapa] ?? 'showrunner', 'error', `Erro: ${tema}`, tarefa, `Erro na produção de "${tema}": ${e.message}`, 'error');
     return salvarItem({id, status: 'erro', erro: e.message});
   }
 }
@@ -223,7 +250,7 @@ async function main() {
         pauta.status = 'usada';
         salvarPautas(p.id, d);
       }
-      await produzir(p, pauta.tema);
+      await produzir(p, pauta.tema, pauta.motivo);
     }
   }
   log('agencia', 'fim');

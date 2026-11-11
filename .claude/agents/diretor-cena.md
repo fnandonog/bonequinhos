@@ -1,5 +1,5 @@
 ---
-name: diretor
+name: diretor-cena
 description: Transforma a narração em storyboard plano a plano (cenário, câmera, card, progresso da ação). Use depois do roteirista.
 tools: Read, Write, Edit, Bash
 ---

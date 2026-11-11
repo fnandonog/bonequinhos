@@ -14,7 +14,7 @@ pautas/<perfil>.json ──► agencia.mjs (02:00) ──► claude -p "/video" 
 ## Ligar
 ```bash
 npm run agendar          # instala painel + produção diária 02:00 + postador (launchd)
-open http://localhost:4321
+open http://localhost:4380
 ```
 Outros comandos: `npm run painel`, `npm run agencia` (produz agora), `npm run agencia:seco` (só mostra o que faria),
 `node plataforma/agencia.mjs --perfil construiu --tema "Sobrado de 100 m²"`, `npm run desagendar`.
