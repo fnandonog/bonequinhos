@@ -72,7 +72,7 @@ export function salvarEnv(mudancas) {
   for (const [k, v] of Object.entries(mudancas)) {
     if (!/^[A-Z0-9_]+$/.test(k)) continue;
     const i = linhas.findIndex((l) => l.startsWith(k + '='));
-    const nova = `${k}=${String(v).replace(/[\r\n]/g, '')}`;
+    const nova = `${k}=${String(v).replace(/[\r\n]/g, '').trim()}`;
     if (v === null || v === '') {
       if (i >= 0) linhas.splice(i, 1);
     } else if (i >= 0) linhas[i] = nova;
