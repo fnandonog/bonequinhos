@@ -1,0 +1,16 @@
+{
+  "_leia": "Achados do Zé por utensílio. Cole o link de afiliado em 'url' (Amazon, Shopee, Mercado Livre). Sem url, o botão leva ao grupo Ofertas do Zé.",
+  "air fryer": {"nome": "Air fryer de 4 a 5 litros", "por_que": "Tamanho bom para família de até 4 pessoas, sem ocupar a pia inteira.", "url": ""},
+  "liquidificador": {"nome": "Liquidificador de 1000 W ou mais", "por_que": "Tritura gelo e massa grossa sem esquentar o motor.", "url": ""},
+  "panela de pressão": {"nome": "Panela de pressão de 4,5 litros com válvula de segurança", "por_que": "Feijão e carne em menos da metade do tempo.", "url": ""},
+  "micro-ondas": {"nome": "Kit de potes de vidro que vão ao micro-ondas", "por_que": "Esquenta sem manchar e serve para marmita.", "url": ""},
+  "forno": {"nome": "Forma retangular antiaderente 30 x 20 cm", "por_que": "O tamanho que a maioria das receitas de bolo e assado pede.", "url": ""},
+  "frigideira": {"nome": "Frigideira antiaderente de 24 cm", "por_que": "Omelete, panqueca e tapioca sem grudar.", "url": ""},
+  "batedeira": {"nome": "Batedeira planetária", "por_que": "Bate claras e massas pesadas sem cansar o braço.", "url": ""},
+  "mixer": {"nome": "Mixer de mão com copo", "por_que": "Bate sopa e molho direto na panela.", "url": ""},
+  "panela": {"nome": "Jogo de panelas antiaderentes", "por_que": "Arroz, molhos e refogados sem grudar no fundo.", "url": ""},
+  "forma de pudim": {"nome": "Forma de pudim com furo central de 22 cm", "por_que": "Pudim e bolo de furo saindo inteiros.", "url": ""},
+  "geladeira": {"nome": "Potes herméticos para geladeira", "por_que": "Sobremesas e marmitas duram mais e sem cheiro.", "url": ""},
+  "sanduicheira": {"nome": "Sanduicheira e grill elétrico", "por_que": "Misto quente e grelhados em 5 minutos.", "url": ""},
+  "processador": {"nome": "Processador de alimentos", "por_que": "Rala, pica e faz massa em segundos.", "url": ""}
+}
