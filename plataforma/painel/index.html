@@ -124,10 +124,16 @@ function telaFila() {
   if (!E.fila.length) return `<div class="card vazio">Nenhum vídeo ainda. Clique em <b>Produzir agora</b>, ou ligue a produção automática em Configurações.</div>`;
   const ordem = ['aguardando_aprovacao', 'produzindo', 'erro', 'aprovado', 'publicando', 'publicado', 'rejeitado'];
   const f = [...E.fila].sort((a, b) => ordem.indexOf(a.status) - ordem.indexOf(b.status));
-  return `<div class="grade">${f.map((v) => {
+  const auto = E.config.AUTO_PUBLICAR === '1';
+  return `<div class="card linha" style="margin-bottom:14px"><div style="flex:1"><b>Aprovação automática</b>
+      <div class="mut">${auto ? 'Ligada: cada vídeo pronto vai sozinho para o próximo horário do perfil, sem pedir sua aprovação.' : 'Desligada: cada vídeo pronto espera você clicar em Aprovar.'}</div></div>
+      <label class="sw"><input type="checkbox" ${auto ? 'checked' : ''} onchange="autoAprovar(this.checked)"><span></span></label></div>
+    <div class="grade">${f.map((v) => {
     const [st, cor] = STATUS[v.status] ?? [v.status, ''];
     const p = perfil(v.perfil);
-    const pode = ['aguardando_aprovacao', 'erro', 'aprovado'].includes(v.status) && v.video;
+    // só pede aprovação o que está esperando por ela; o que já foi aprovado (por você ou pela aprovação automática) só mostra o horário
+    const pode = v.status === 'aguardando_aprovacao' && v.video;
+    const faltou = v.erro && v.video && ['erro', 'publicado', 'aprovado'].includes(v.status);
     return `<div class="card">
       <div class="linha"><img class="av" src="/perfis/avatar-${AVATAR[v.perfil]}.png"><div><b>${esc(v.tema)}</b><div class="mut">${esc(p.nome)} · ${dt(v.criado)}</div></div></div>
       <div class="linha" style="margin:10px 0"><span class="tag ${cor}">${st}</span>
@@ -140,15 +146,20 @@ function telaFila() {
       ${pode ? `<label>Legenda</label><textarea id="leg-${v.id}">${esc(v.legenda)}</textarea>
         <label>Conteúdo do direct (o que o robô manda para quem comentar; vazio = padrão do perfil)</label><textarea id="leg-ent-${v.id}" style="min-height:60px" onchange="salvarEntrega('${v.id}')" placeholder="Ex.: a receita completa com ingredientes e modo de preparo">${esc(v.entrega)}</textarea>
         <div class="linha" style="margin-top:10px">
-          <button class="b pri" onclick="aprovar('${v.id}','agora')">Aprovar e postar agora</button>
-          <button class="b" onclick="aprovar('${v.id}')">Aprovar p/ ${esc(p.horario)}</button>
+          <button class="b pri" onclick="aprovar('${v.id}')">Aprovar</button>
           <button class="b" onclick="rejeitar('${v.id}')">Rejeitar</button>
+          <span class="mut">vai para o próximo horário do perfil</span>
         </div>` : ''}
+      ${faltou ? `<div class="linha" style="margin-top:10px"><button class="b" onclick="tentarDeNovo('${v.id}')">Tentar de novo as redes que faltaram</button></div>` : ''}
+      ${v.status === 'aprovado' && !faltou ? `<div class="linha" style="margin-top:10px"><button class="b" onclick="rejeitar('${v.id}')">Tirar da agenda</button></div>` : ''}
       <div style="margin-top:8px"><a class="mut" href="#" onclick="verLog('video-${v.id}');return false">ver log da produção</a></div>
     </div>`;
   }).join('')}</div><div id="log"></div>`;
 }
-const aprovar = tentar(async (id, quando) => { await api(`fila/${id}/entrega`, {entrega: $('#leg-ent-' + id).value}); await api(`fila/${id}/aprovar`, {quando, legenda: $('#leg-' + id).value}); aviso(quando ? 'Postando…' : 'Agendado!'); });
+const aprovar = tentar(async (id) => { await api(`fila/${id}/entrega`, {entrega: $('#leg-ent-' + id).value}); const r = await api(`fila/${id}/aprovar`, {legenda: $('#leg-' + id).value}); aviso(r?.agendado_para ? `Agendado para ${dt(r.agendado_para)}` : 'Aprovado!'); });
+// publica só nas redes que ainda não receberam o vídeo (as que já foram não repetem)
+const tentarDeNovo = tentar(async (id) => { await api(`fila/${id}/aprovar`, {quando: 'agora'}); aviso('Postando nas redes que faltaram…'); });
+const autoAprovar = tentar(async (ligado) => { await api('config', {AUTO_PUBLICAR: ligado ? '1' : '0'}); aviso(ligado ? 'Aprovação automática ligada' : 'Vídeos novos esperam sua aprovação'); });
 const salvarEntrega = tentar(async (id) => { await api(`fila/${id}/entrega`, {entrega: $('#leg-ent-' + id).value}); aviso('Conteúdo do direct salvo'); });
 const rejeitar = tentar(async (id) => { if (confirm('Rejeitar este vídeo?')) await api(`fila/${id}/rejeitar`, {}); });
 async function verLog(n, rolar = true) { ultimoLog = n; const {texto} = await api('log/' + n); const el = $('#log'); if (!el) return; el.innerHTML = `<h2>Log: ${n}</h2><pre>${esc(texto || '(vazio)')}</pre>`; if (rolar) el.scrollIntoView(); }
