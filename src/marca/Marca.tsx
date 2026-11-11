@@ -14,7 +14,7 @@ const M: React.FC<{cor: string; e?: number}> = ({cor, e = 0}) => (
   <meshStandardMaterial color={cor} flatShading roughness={0.8} emissive={cor} emissiveIntensity={e} />
 );
 
-export type Nicho = 'receitas' | 'historia' | 'construiu' | 'crimes' | 'ricos' | 'espaco';
+export type Nicho = 'receitas' | 'historia' | 'construiu' | 'crimes' | 'ricos' | 'espaco' | 'valeapena';
 
 type Estilo = {
   nome: string;
@@ -166,6 +166,51 @@ const Cenoura = () => (
   </group>
 );
 
+
+const Bone = () => (
+  <group position={[0, 0.16, 0]}>
+    <mesh><sphereGeometry args={[0.38, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2]} /><M cor="#e8322b" /></mesh>
+    <mesh position={[0, 0.01, 0.36]} rotation={[0.15, 0, 0]} scale={[1, 1, 0.75]}><cylinderGeometry args={[0.3, 0.3, 0.03, 16, 1, false, -Math.PI / 2, Math.PI]} /><M cor="#c4221c" /></mesh>
+    <mesh position={[0, 0.37, 0]}><sphereGeometry args={[0.05, 8, 6]} /><M cor="#c4221c" /></mesh>
+    {[-0.13, 0.13].map((x) => <mesh key={x} position={[x, -0.14, 0.34]}><torusGeometry args={[0.085, 0.018, 6, 14]} /><M cor="#2b2233" /></mesh>)}
+    <mesh position={[0, -0.14, 0.36]}><boxGeometry args={[0.08, 0.02, 0.02]} /><M cor="#2b2233" /></mesh>
+  </group>
+);
+const Check = ({cor = '#ffffff'}: {cor?: string}) => (
+  <group>
+    <mesh position={[-0.05, -0.02, 0]} rotation={[0, 0, 0.8]}><boxGeometry args={[0.05, 0.14, 0.03]} /><M cor={cor} /></mesh>
+    <mesh position={[0.06, 0.03, 0]} rotation={[0, 0, -0.6]}><boxGeometry args={[0.05, 0.26, 0.03]} /><M cor={cor} /></mesh>
+  </group>
+);
+const Prancheta = () => (
+  <group rotation={[-0.2, 0.3, 0]}>
+    <mesh position={[0, 0.3, 0]}><boxGeometry args={[0.5, 0.66, 0.04]} /><M cor="#b07a45" /></mesh>
+    <mesh position={[0, 0.27, 0.025]}><boxGeometry args={[0.42, 0.54, 0.01]} /><M cor="#ffffff" /></mesh>
+    <mesh position={[0, 0.6, 0.03]}><boxGeometry args={[0.2, 0.07, 0.04]} /><M cor="#9aa0aa" /></mesh>
+    {[0.42, 0.28, 0.14].map((y) => <group key={y}><mesh position={[0.05, y, 0.035]}><boxGeometry args={[0.22, 0.03, 0.01]} /><M cor="#c9ced9" /></mesh><group position={[-0.13, y, 0.04]} scale={0.45}><Check cor="#2fbf71" /></group></group>)}
+  </group>
+);
+const Selo = ({esc = 1}: {esc?: number}) => (
+  <group scale={esc} rotation={[0, -0.3, 0]}>
+    <mesh rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[0.32, 0.32, 0.06, 12]} /><M cor="#2fbf71" /></mesh>
+    <group position={[0, 0, 0.04]}><Check /></group>
+  </group>
+);
+const CaixaProduto = ({esc = 1, cor = '#d9a86c'}: {esc?: number; cor?: string}) => (
+  <group scale={esc}>
+    <mesh position={[0, 0.3, 0]}><boxGeometry args={[0.7, 0.6, 0.6]} /><M cor={cor} /></mesh>
+    <mesh position={[0, 0.6, 0]}><boxGeometry args={[0.72, 0.03, 0.12]} /><M cor="#c9a46a" /></mesh>
+  </group>
+);
+const AirFryer = ({esc = 1}: {esc?: number}) => (
+  <group scale={esc}>
+    <mesh position={[0, 0.4, 0]}><boxGeometry args={[0.6, 0.8, 0.6]} /><M cor="#2b2d33" /></mesh>
+    <mesh position={[0, 0.3, 0.31]}><boxGeometry args={[0.46, 0.36, 0.04]} /><M cor="#3b3d45" /></mesh>
+    <mesh position={[0, 0.3, 0.36]}><boxGeometry args={[0.2, 0.06, 0.08]} /><M cor="#9aa0aa" /></mesh>
+    <mesh position={[0, 0.66, 0.31]}><cylinderGeometry args={[0.06, 0.06, 0.04, 10]} /><M cor="#ff8a1f" e={0.4} /></mesh>
+  </group>
+);
+
 export const ESTILOS: Record<Nicho, Estilo> = {
   receitas: {
     nome: 'Zé na Cozinha', slogan: 'Receitas fáceis explicadas por bonequinhos', fundo: ['#ffb347', '#ffe1a8'], chao: '#f6e6c8',
@@ -196,6 +241,12 @@ export const ESTILOS: Record<Nicho, Estilo> = {
     roupa: '#1d1b22', calca: '#1d1b22', chapeu: <Cartola />, objeto: <Saco />, corTitulo: '#ffd23f',
     extraTronco: (<><mesh position={[0, 0.9, 0.26]}><coneGeometry args={[0.12, 0.3, 3]} /><M cor="#ffffff" /></mesh><mesh position={[0, 0.88, 0.3]} rotation={[Math.PI, 0, 0]}><coneGeometry args={[0.05, 0.22, 4]} /><M cor="#e8322b" /></mesh></>),
     cena: (<><group position={[-2.2, 0, -0.6]}>{[[0, 0.08, 0], [0.4, 0.08, 0.05], [0.2, 0.24, 0]].map((p, i) => <group key={i} position={p as V3}><Barra /></group>)}</group><group position={[2.3, 0, -0.3]}><Moedas n={6} /></group><group position={[1.6, 0, 0.6]}><Moedas n={3} /></group></>),
+  },
+  valeapena: {
+    nome: 'Vale a Pena?', slogan: 'Testamos e explicamos produtos antes de você comprar', fundo: ['#ffc928', '#fff1a8'], chao: '#ffffff',
+    roupa: '#2f6bff', calca: '#2b2233', chapeu: <Bone />, objeto: <Prancheta />, corTitulo: '#ffffff',
+    extraTronco: <mesh position={[0, 1.02, 0.14]} rotation={[0.3, 0, 0]}><boxGeometry args={[0.3, 0.06, 0.22]} /><M cor="#ffffff" /></mesh>,
+    cena: (<><group position={[-2.3, 0, -0.8]}><AirFryer esc={1.3} /></group><group position={[2.2, 0, -0.6]}><CaixaProduto esc={1.2} /></group><group position={[2.9, 0, 0.2]}><CaixaProduto esc={0.8} cor="#c99257" /></group><group position={[1.3, 1.9, -0.4]}><Selo esc={1.3} /></group></>),
   },
   espaco: {
     nome: 'Zé no Espaço', slogan: 'O universo explicado em bonequinhos', fundo: ['#120e3a', '#3b2a7a'], chao: '#8a86a8',

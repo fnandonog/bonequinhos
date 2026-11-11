@@ -2,7 +2,7 @@ import React from 'react';
 import {Composition, Still} from 'remotion';
 import {Avatar, Banner, Nicho} from './marca/Marca';
 
-const NICHOS: Nicho[] = ['receitas', 'historia', 'construiu', 'crimes', 'ricos', 'espaco'];
+const NICHOS: Nicho[] = ['receitas', 'historia', 'construiu', 'crimes', 'ricos', 'valeapena'];
 import {Video, FPS, Roteiro, Timings} from './Video';
 import {Serie, RoteiroSerie} from './v2/Serie';
 import {Construcao, RoteiroConstrucao} from './v3/Construcao';
