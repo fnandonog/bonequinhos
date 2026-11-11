@@ -17,6 +17,7 @@ import * as AUTH from './lib/auth.mjs';
 import * as YT from './lib/youtube.mjs';
 import * as DIRECT from './lib/direct.mjs';
 import * as CLIQUES from './lib/cliques.mjs';
+import {garantirTodas} from './lib/vozes.mjs';
 
 const PORTA = Number(process.env.PORTA ?? 4380);
 const CONFIG_VISIVEL = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'META_APP_ID', 'META_APP_SECRET', 'YOUTUBE_API_KEY', 'YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_PRIVACIDADE', 'TELEGRAM_BOT_TOKEN', 'TELEGRAM_GRUPO_ID', 'RECEITA_AFILIADO_MES', 'META_GRAPH_VERSION', 'ELEVENLABS_API_KEY', 'AUTO_PUBLICAR', 'PRODUCAO_AUTOMATICA', 'ELEVENLABS_VOZ', 'META_POSTAR_FACEBOOK',
@@ -133,6 +134,8 @@ async function api(metodo, partes, req) {
   if (recurso === 'config') {
     const ok = Object.fromEntries(Object.entries(b).filter(([k, v]) => CONFIG_VISIVEL.includes(k) && !String(v).includes('••••')));
     D.salvarEnv(ok);
+    // chave nova do ElevenLabs: adiciona na conta as vozes salvas de cada canal (perfis.json), para nada desconfigurar
+    if (ok.ELEVENLABS_API_KEY) garantirTodas(ok.ELEVENLABS_API_KEY, D.perfis()).then((r) => D.log('vozes', JSON.stringify(r))).catch((e) => D.log('vozes', e.message));
     // interruptor geral dos agentes do escritório (plataforma/escritorio/tools/agencia.json)
     if (b.AGENTES_LIGADOS != null) {
       const f = path.join(D.PLAT, 'escritorio/tools/agencia.json');

@@ -10,6 +10,7 @@ import path from 'node:path';
 import {RAIZ, DADOS, perfis, perfil as umPerfil, pautas, salvarPautas, salvarItem, item, log, env} from './lib/dados.mjs';
 import {proximoHorario, proximoSlot} from './lib/agenda.mjs';
 import * as ESC from './lib/escritorio.mjs';
+import {garantirVoz} from './lib/vozes.mjs';
 
 const args = process.argv.slice(2);
 const arg = (k) => (args.includes(k) ? args[args.indexOf(k) + 1] : undefined);
@@ -161,10 +162,18 @@ async function produzir(p, tema, pautaMotivo) {
       const vozCanal = p.voz_elevenlabs?.id || E.ELEVENLABS_VOZ;
       if (vozCanal) {
         // cada canal tem a sua voz do ElevenLabs (perfis.json → voz_elevenlabs); ELEVENLABS_VOZ é só o padrão de reserva
+        if (p.voz_elevenlabs) {
+          // chave/conta nova: a voz salva no perfil é adicionada de novo da biblioteca, sem desconfigurar
+          const g = await garantirVoz(E.ELEVENLABS_API_KEY, p.voz_elevenlabs);
+          if (!g.ok) throw new Error(g.motivo);
+          if (g.adicionada) log(`video-${id}`, `voz ${p.voz_elevenlabs.nome} adicionada na conta do ElevenLabs`);
+        }
         const fr = path.join(RAIZ, `roteiros/${id}.json`);
         const rot = JSON.parse(fs.readFileSync(fr, 'utf8'));
         // NARRACAO_MODELO (Configurações): eleven_flash_v2_5 gasta metade dos créditos; vazio = o modelo do roteiro
+        // ajustes da voz salvos no perfil valem por cima dos do roteiro
         rot.elevenlabs = {...(rot.elevenlabs ?? {}), voz_id: vozCanal, modelo: E.NARRACAO_MODELO || rot.elevenlabs?.modelo || 'eleven_multilingual_v2'};
+        if (p.voz_elevenlabs?.ajustes) rot.elevenlabs.ajustes = {...(rot.elevenlabs.ajustes ?? {}), ...p.voz_elevenlabs.ajustes};
         fs.writeFileSync(fr, JSON.stringify(rot, null, 2));
       }
       await rodar('python3', ['tools/tts_elevenlabs.py', `roteiros/${id}.json`], {nome: `video-${id}`, extraEnv: {ELEVENLABS_API_KEY: E.ELEVENLABS_API_KEY}});

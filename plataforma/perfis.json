@@ -13,7 +13,7 @@
       "motivo_inativo": "Motor da cozinha 3D pronto (vídeo modelo: bolo-cenoura). Liga quando o Fernando aprovar o padrão.",
       "horario": "11:30",
       "cta": "Receita completa no Telegram do Zé: link na bio",
-      "link_bio": "https://precinhodeouro.com.br/receitas",
+      "link_bio": "https://zeexplica.com.br/receitas/",
       "link_bio_rotulo": "Todas as receitas completas no site",
       "hashtags": [
         "receitas",
@@ -32,7 +32,8 @@
       },
       "voz_elevenlabs": {
         "id": "fhtZMBwha5du5OxuvexO",
-        "nome": "Malu"
+        "nome": "Malu",
+        "dono": "30aedf93b0a7df2ada0f523496ca9fe63f94737575ba68485eed3792db2e73af"
       },
       "horarios": [
         "11:30",
@@ -68,7 +69,8 @@
       ],
       "voz_elevenlabs": {
         "id": "5lrBPYY4YvMbKHTo8kvZ",
-        "nome": "Arthur Freeman"
+        "nome": "Arthur Freeman",
+        "dono": "48143cce7e5fa20756f6a0efb5a707037db7db794850921724439771b7c48767"
       },
       "horarios": [
         "12:30",
@@ -108,7 +110,8 @@
       ],
       "voz_elevenlabs": {
         "id": "ZqE9vIHPcrC35dZv0Svu",
-        "nome": "Adam Borges"
+        "nome": "Adam Borges",
+        "dono": "204e0b79617784690c84ce06d14c29d853797020a17d0395fe4c3ab5a04bf321"
       },
       "horarios": [
         "12:00",
@@ -147,8 +150,13 @@
         "mistério não resolvido"
       ],
       "voz_elevenlabs": {
-        "id": "cyD08lEy76q03ER1jZ7y",
-        "nome": "Scheila"
+        "id": "YNOujSUmHtgN6anjqXPf",
+        "nome": "Victor Power",
+        "dono": "c13edcecc90397285bfa50ac6284c4a5c1ed3ea16625abe2d15638cda1932042",
+        "anterior": {
+          "id": "cyD08lEy76q03ER1jZ7y",
+          "nome": "Scheila"
+        }
       },
       "horarios": [
         "13:00",
@@ -188,7 +196,8 @@
       ],
       "voz_elevenlabs": {
         "id": "zNEsdgTUa3ndwKry8Xcq",
-        "nome": "Elvis"
+        "nome": "Elvis",
+        "dono": "acfa1514b7908c3e0af08bb0a80ef55948e3a709a7d882f3c9b95d8738dc6604"
       },
       "horarios": [
         "07:30",
@@ -229,7 +238,8 @@
       ],
       "voz_elevenlabs": {
         "id": "S4M4JhZIzYGUlDsYIOow",
-        "nome": "Elena Vinter"
+        "nome": "Elena Vinter",
+        "dono": "538453947e21cf8f91a49e2028ae9f13ffd34c3f147e5e8d1b116000202777ec"
       },
       "horarios": [
         "12:15",

@@ -24,6 +24,7 @@ Dados da plataforma (sem rede, sem segredos): `node plataforma/cli.mjs resumo | 
 - Crimes e mistérios: só casos reais e documentados, respeito às vítimas. Afiliado: honestidade antes da venda.
 - Seja econômico: cada rodada custa uso do Claude. Faça o que a rodada pede e pare.
 - Arquivos de trabalho em `docs/agencia/<seu-id>/`.
+- **Roteiro detalhado e 3D bem feito vendem** (Fernando, 11/11/2026, ao rejeitar o Silvio Santos). Cada passo do roteiro explica o mecanismo com números, nada de pular etapas; cada plano tem cenário específico e reconhecível em escala real (padrão casa-50m2/gladiador), nunca o Zé num cenário genérico.
 
 ## Os 6 perfis
 Zé na Cozinha (receitas), Você na História, Você Construiu (quanto custa construir), Caso Explicado (crimes e mistérios),
