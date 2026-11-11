@@ -1,0 +1,855 @@
+{
+  "id": "como-o-silvio-santos-ficou-rico",
+  "serie": "Como Ficou Rico",
+  "perfil": "rico",
+  "titulo": "DE CAMELÔ A BILIONÁRIO",
+  "linha2": "Silvio Santos · R$ 1,6 bilhão",
+  "voz": "pt-BR-AntonioNeural",
+  "velocidade": "+10%",
+  "elevenlabs": {
+    "voz_id": "zNEsdgTUa3ndwKry8Xcq",
+    "modelo": "eleven_flash_v2_5",
+    "ajustes": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.4,
+      "use_speaker_boost": true,
+      "speed": 1.15
+    }
+  },
+  "fontes": "roteiros/como-o-silvio-santos-ficou-rico.pesquisa.md",
+  "monetizacao": {
+    "afiliados": [
+      "livro: A Fantástica História de Silvio Santos (Arlindo Silva)",
+      "livro: Silvio Santos: a biografia (Marcia Batista e Anna Medeiros)",
+      "livro: Pai Rico, Pai Pobre",
+      "livro: Do mil ao milhão (Thiago Nigro)",
+      "jogo: Banco Imobiliário"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Aos catorze anos, ele vendia capinha na rua. Morreu com um bilhão e seiscentos milhões de reais. Como?",
+      "ano": "1945",
+      "destaques": [
+        "catorze",
+        "bilhão",
+        "bilhões",
+        "milhões",
+        "seiscentos",
+        "camelô",
+        "capa",
+        "capinha",
+        "silvio",
+        "santos",
+        "dezessete",
+        "ganhava",
+        "alto-falantes",
+        "barcas",
+        "baú",
+        "falido",
+        "caixote",
+        "dono",
+        "surpresa",
+        "pagava",
+        "sbt",
+        "líder",
+        "trinta",
+        "banco",
+        "fraude",
+        "rombo",
+        "garantia",
+        "forbes",
+        "lição",
+        "balcão",
+        "sim",
+        "não",
+        "mil",
+        "setecentos",
+        "quatro",
+        "dois"
+      ],
+      "planos": [
+        {
+          "set": "rua",
+          "cam": "banca",
+          "card": {
+            "rotulo": "Idade",
+            "num": 14,
+            "sufixo": " anos",
+            "sub": "camelô no Rio"
+          }
+        },
+        {
+          "set": "fim",
+          "cam": "pilha",
+          "apartir": 8,
+          "card": {
+            "rotulo": "Patrimônio na morte",
+            "valor": "R$ 1,6 BI",
+            "sub": "Forbes, 2024",
+            "cor": "#ffd23f"
+          }
+        }
+      ],
+      "tem": "UMA BANCA"
+    },
+    {
+      "id": "c2",
+      "texto": "No Rio, o menino Senor Abravanel vê um homem vendendo capa pra título de eleitor. E copia a ideia. Você conhece como Silvio Santos.",
+      "ano": "1945",
+      "destaques": [
+        "catorze",
+        "bilhão",
+        "bilhões",
+        "milhões",
+        "seiscentos",
+        "camelô",
+        "capa",
+        "capinha",
+        "silvio",
+        "santos",
+        "dezessete",
+        "ganhava",
+        "alto-falantes",
+        "barcas",
+        "baú",
+        "falido",
+        "caixote",
+        "dono",
+        "surpresa",
+        "pagava",
+        "sbt",
+        "líder",
+        "trinta",
+        "banco",
+        "fraude",
+        "rombo",
+        "garantia",
+        "forbes",
+        "lição",
+        "balcão",
+        "sim",
+        "não",
+        "mil",
+        "setecentos",
+        "quatro",
+        "dois"
+      ],
+      "planos": [
+        {
+          "set": "rua",
+          "cam": "avenida",
+          "p": [
+            0,
+            0.3
+          ]
+        },
+        {
+          "set": "rua",
+          "cam": "capinha",
+          "apartir": 6,
+          "p": [
+            0.3,
+            0.7
+          ],
+          "card": {
+            "rotulo": "Primeiro produto",
+            "valor": "CAPA DE TÍTULO",
+            "sub": "de eleitor"
+          }
+        },
+        {
+          "set": "ruanome",
+          "cam": "nome",
+          "apartir": 15,
+          "p": [
+            0.7,
+            1
+          ]
+        }
+      ],
+      "tem": "UMA BANCA"
+    },
+    {
+      "id": "c3",
+      "texto": "Aos dezessete, passa num concurso de locutor de rádio. Mas larga o emprego: na rua ganhava mais.",
+      "ano": "1948",
+      "destaques": [
+        "catorze",
+        "bilhão",
+        "bilhões",
+        "milhões",
+        "seiscentos",
+        "camelô",
+        "capa",
+        "capinha",
+        "silvio",
+        "santos",
+        "dezessete",
+        "ganhava",
+        "alto-falantes",
+        "barcas",
+        "baú",
+        "falido",
+        "caixote",
+        "dono",
+        "surpresa",
+        "pagava",
+        "sbt",
+        "líder",
+        "trinta",
+        "banco",
+        "fraude",
+        "rombo",
+        "garantia",
+        "forbes",
+        "lição",
+        "balcão",
+        "sim",
+        "não",
+        "mil",
+        "setecentos",
+        "quatro",
+        "dois"
+      ],
+      "planos": [
+        {
+          "set": "radio",
+          "cam": "geral",
+          "p": [
+            0,
+            0.5
+          ],
+          "card": {
+            "rotulo": "Concurso de locutor",
+            "valor": "APROVADO",
+            "sub": "Rádio Guanabara"
+          }
+        },
+        {
+          "set": "radio",
+          "cam": "porta",
+          "apartir": 9,
+          "p": [
+            0.5,
+            1
+          ],
+          "card": {
+            "rotulo": "Camelô",
+            "valor": "GANHAVA MAIS",
+            "cor": "#ffd23f"
+          }
+        }
+      ],
+      "tem": "UMA BANCA"
+    },
+    {
+      "id": "c4",
+      "texto": "Depois, põe alto-falantes nas barcas de Niterói. Toca música e vende anúncio.",
+      "ano": "ANOS 50",
+      "destaques": [
+        "catorze",
+        "bilhão",
+        "bilhões",
+        "milhões",
+        "seiscentos",
+        "camelô",
+        "capa",
+        "capinha",
+        "silvio",
+        "santos",
+        "dezessete",
+        "ganhava",
+        "alto-falantes",
+        "barcas",
+        "baú",
+        "falido",
+        "caixote",
+        "dono",
+        "surpresa",
+        "pagava",
+        "sbt",
+        "líder",
+        "trinta",
+        "banco",
+        "fraude",
+        "rombo",
+        "garantia",
+        "forbes",
+        "lição",
+        "balcão",
+        "sim",
+        "não",
+        "mil",
+        "setecentos",
+        "quatro",
+        "dois"
+      ],
+      "planos": [
+        {
+          "set": "barca",
+          "cam": "aberto",
+          "p": [
+            0,
+            0.5
+          ]
+        },
+        {
+          "set": "barca",
+          "cam": "corneta",
+          "apartir": 7,
+          "p": [
+            0.5,
+            1
+          ],
+          "card": {
+            "rotulo": "Nas barcas",
+            "valor": "MÚSICA + ANÚNCIO"
+          }
+        }
+      ],
+      "tem": "ALTO-FALANTES"
+    },
+    {
+      "id": "c5",
+      "texto": "Um amigo lhe passa um negócio quase falido: o Baú da Felicidade, carnê de presente pago por mês. Ele toca tudo de um quarto de pensão e vira o dono.",
+      "ano": "1958",
+      "destaques": [
+        "catorze",
+        "bilhão",
+        "bilhões",
+        "milhões",
+        "seiscentos",
+        "camelô",
+        "capa",
+        "capinha",
+        "silvio",
+        "santos",
+        "dezessete",
+        "ganhava",
+        "alto-falantes",
+        "barcas",
+        "baú",
+        "falido",
+        "caixote",
+        "dono",
+        "surpresa",
+        "pagava",
+        "sbt",
+        "líder",
+        "trinta",
+        "banco",
+        "fraude",
+        "rombo",
+        "garantia",
+        "forbes",
+        "lição",
+        "balcão",
+        "sim",
+        "não",
+        "mil",
+        "setecentos",
+        "quatro",
+        "dois"
+      ],
+      "planos": [
+        {
+          "set": "bau",
+          "cam": "pensao",
+          "p": [
+            0,
+            0.35
+          ],
+          "card": {
+            "rotulo": "Baú da Felicidade",
+            "valor": "QUASE FALIDO",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "bau",
+          "cam": "carne",
+          "apartir": 8,
+          "p": [
+            0.35,
+            0.65
+          ]
+        },
+        {
+          "set": "bau",
+          "cam": "dono",
+          "apartir": 18,
+          "p": [
+            0.65,
+            1
+          ],
+          "card": {
+            "rotulo": "O escritório",
+            "valor": "QUARTO DE PENSÃO",
+            "sub": "com um caixote de mesa"
+          }
+        }
+      ],
+      "tem": "O BAÚ"
+    },
+    {
+      "id": "c6",
+      "texto": "E aqui vem a surpresa: pra vender carnê, ele compra horário na TV. Ninguém pagava ele: ele pagava pra aparecer.",
+      "ano": "ANOS 60",
+      "destaques": [
+        "catorze",
+        "bilhão",
+        "bilhões",
+        "milhões",
+        "seiscentos",
+        "camelô",
+        "capa",
+        "capinha",
+        "silvio",
+        "santos",
+        "dezessete",
+        "ganhava",
+        "alto-falantes",
+        "barcas",
+        "baú",
+        "falido",
+        "caixote",
+        "dono",
+        "surpresa",
+        "pagava",
+        "sbt",
+        "líder",
+        "trinta",
+        "banco",
+        "fraude",
+        "rombo",
+        "garantia",
+        "forbes",
+        "lição",
+        "balcão",
+        "sim",
+        "não",
+        "mil",
+        "setecentos",
+        "quatro",
+        "dois"
+      ],
+      "planos": [
+        {
+          "set": "tv",
+          "cam": "estudio",
+          "p": [
+            0,
+            0.3
+          ]
+        },
+        {
+          "set": "tv",
+          "cam": "camera",
+          "apartir": 5,
+          "p": [
+            0.3,
+            0.6
+          ]
+        },
+        {
+          "set": "tvpaga",
+          "cam": "dinheiro",
+          "apartir": 13,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "Horário na TV",
+            "valor": "ELE PAGAVA",
+            "sub": "pra anunciar o Baú",
+            "cor": "#ffd23f"
+          }
+        }
+      ],
+      "tem": "HORÁRIO NA TV"
+    },
+    {
+      "id": "c7",
+      "texto": "Vira líder de audiência no domingo. E inaugura a própria emissora: o SBT.",
+      "ano": "1981",
+      "destaques": [
+        "catorze",
+        "bilhão",
+        "bilhões",
+        "milhões",
+        "seiscentos",
+        "camelô",
+        "capa",
+        "capinha",
+        "silvio",
+        "santos",
+        "dezessete",
+        "ganhava",
+        "alto-falantes",
+        "barcas",
+        "baú",
+        "falido",
+        "caixote",
+        "dono",
+        "surpresa",
+        "pagava",
+        "sbt",
+        "líder",
+        "trinta",
+        "banco",
+        "fraude",
+        "rombo",
+        "garantia",
+        "forbes",
+        "lição",
+        "balcão",
+        "sim",
+        "não",
+        "mil",
+        "setecentos",
+        "quatro",
+        "dois"
+      ],
+      "planos": [
+        {
+          "set": "tvplateia",
+          "cam": "plateia",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Domingo",
+            "valor": "LÍDER",
+            "sub": "de audiência"
+          }
+        },
+        {
+          "set": "emissora",
+          "cam": "drone",
+          "apartir": 6,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Inauguração",
+            "valor": "19/08/1981",
+            "sub": "SBT",
+            "cor": "#ffd23f"
+          }
+        }
+      ],
+      "tem": "UMA TV"
+    },
+    {
+      "id": "c8",
+      "texto": "Vieram mais de trinta empresas, da Tele Sena até um banco.",
+      "ano": "ANOS 2000",
+      "destaques": [
+        "catorze",
+        "bilhão",
+        "bilhões",
+        "milhões",
+        "seiscentos",
+        "camelô",
+        "capa",
+        "capinha",
+        "silvio",
+        "santos",
+        "dezessete",
+        "ganhava",
+        "alto-falantes",
+        "barcas",
+        "baú",
+        "falido",
+        "caixote",
+        "dono",
+        "surpresa",
+        "pagava",
+        "sbt",
+        "líder",
+        "trinta",
+        "banco",
+        "fraude",
+        "rombo",
+        "garantia",
+        "forbes",
+        "lição",
+        "balcão",
+        "sim",
+        "não",
+        "mil",
+        "setecentos",
+        "quatro",
+        "dois"
+      ],
+      "planos": [
+        {
+          "set": "imperio",
+          "cam": "cidade",
+          "p": [
+            0,
+            0.6
+          ],
+          "card": {
+            "rotulo": "Grupo Silvio Santos",
+            "num": 30,
+            "prefixo": "+",
+            "sufixo": " empresas"
+          }
+        },
+        {
+          "set": "imperio",
+          "cam": "banco",
+          "apartir": 5,
+          "p": [
+            0.6,
+            1
+          ]
+        }
+      ],
+      "tem": "+30 EMPRESAS"
+    },
+    {
+      "id": "c9",
+      "texto": "Até que descobrem que diretores do banco fraudaram as contas: um rombo de quatro bilhões e trezentos milhões. Pra não quebrar, pega dois bilhões e meio emprestados e dá tudo como garantia, até o SBT.",
+      "ano": "2010",
+      "destaques": [
+        "catorze",
+        "bilhão",
+        "bilhões",
+        "milhões",
+        "seiscentos",
+        "camelô",
+        "capa",
+        "capinha",
+        "silvio",
+        "santos",
+        "dezessete",
+        "ganhava",
+        "alto-falantes",
+        "barcas",
+        "baú",
+        "falido",
+        "caixote",
+        "dono",
+        "surpresa",
+        "pagava",
+        "sbt",
+        "líder",
+        "trinta",
+        "banco",
+        "fraude",
+        "rombo",
+        "garantia",
+        "forbes",
+        "lição",
+        "balcão",
+        "sim",
+        "não",
+        "mil",
+        "setecentos",
+        "quatro",
+        "dois"
+      ],
+      "planos": [
+        {
+          "set": "rombo",
+          "cam": "banco",
+          "p": [
+            0,
+            0.35
+          ]
+        },
+        {
+          "set": "cratera",
+          "cam": "buraco",
+          "apartir": 10,
+          "p": [
+            0.35,
+            0.65
+          ],
+          "card": {
+            "rotulo": "Rombo no banco",
+            "valor": "R$ 4,3 BI",
+            "sub": "fraude descoberta em 2010",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "divida",
+          "cam": "geral",
+          "apartir": 18,
+          "p": [
+            0.65,
+            0.85
+          ],
+          "card": {
+            "rotulo": "Empréstimo",
+            "valor": "R$ 2,5 BI",
+            "sub": "Fundo Garantidor de Créditos",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "garantia",
+          "cam": "cadeado",
+          "apartir": 27,
+          "p": [
+            0.85,
+            1
+          ],
+          "card": {
+            "rotulo": "Garantia",
+            "valor": "ATÉ O SBT",
+            "cor": "#ff5d5d"
+          }
+        }
+      ],
+      "patrimonio": -2500000000
+    },
+    {
+      "id": "c10",
+      "texto": "Ele vende o banco e salva a TV. E estreia na lista de bilionários da Forbes.",
+      "ano": "2013",
+      "destaques": [
+        "catorze",
+        "bilhão",
+        "bilhões",
+        "milhões",
+        "seiscentos",
+        "camelô",
+        "capa",
+        "capinha",
+        "silvio",
+        "santos",
+        "dezessete",
+        "ganhava",
+        "alto-falantes",
+        "barcas",
+        "baú",
+        "falido",
+        "caixote",
+        "dono",
+        "surpresa",
+        "pagava",
+        "sbt",
+        "líder",
+        "trinta",
+        "banco",
+        "fraude",
+        "rombo",
+        "garantia",
+        "forbes",
+        "lição",
+        "balcão",
+        "sim",
+        "não",
+        "mil",
+        "setecentos",
+        "quatro",
+        "dois"
+      ],
+      "planos": [
+        {
+          "set": "volta",
+          "cam": "vendido",
+          "p": [
+            0,
+            0.5
+          ],
+          "card": {
+            "rotulo": "Banco vendido",
+            "valor": "R$ 450 MI",
+            "sub": "ao BTG Pactual, 2011"
+          }
+        },
+        {
+          "set": "forbes",
+          "cam": "grafico",
+          "apartir": 8,
+          "p": [
+            0.5,
+            1
+          ],
+          "card": {
+            "rotulo": "Forbes 2013",
+            "valor": "R$ 2,67 BI",
+            "sub": "59º do Brasil",
+            "cor": "#ffd23f"
+          }
+        }
+      ],
+      "patrimonio": 2670000000
+    },
+    {
+      "id": "c11",
+      "texto": "A lição: onde passava gente, ele via um balcão. Você largaria o emprego fixo pra apostar no seu? Sim ou não?",
+      "ano": "2024",
+      "destaques": [
+        "catorze",
+        "bilhão",
+        "bilhões",
+        "milhões",
+        "seiscentos",
+        "camelô",
+        "capa",
+        "capinha",
+        "silvio",
+        "santos",
+        "dezessete",
+        "ganhava",
+        "alto-falantes",
+        "barcas",
+        "baú",
+        "falido",
+        "caixote",
+        "dono",
+        "surpresa",
+        "pagava",
+        "sbt",
+        "líder",
+        "trinta",
+        "banco",
+        "fraude",
+        "rombo",
+        "garantia",
+        "forbes",
+        "lição",
+        "balcão",
+        "sim",
+        "não",
+        "mil",
+        "setecentos",
+        "quatro",
+        "dois"
+      ],
+      "planos": [
+        {
+          "set": "fim",
+          "cam": "banca",
+          "card": {
+            "rotulo": "A lição",
+            "valor": "GENTE = BALCÃO",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "fim",
+          "cam": "pergunta",
+          "apartir": 9,
+          "card": {
+            "rotulo": "Largaria o emprego?",
+            "valor": "SIM OU NÃO?"
+          }
+        }
+      ],
+      "patrimonio": 1600000000
+    }
+  ]
+}

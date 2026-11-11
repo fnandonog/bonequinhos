@@ -76,6 +76,13 @@ const PiChao: React.FC<{furos?: Furo[]; corte?: boolean; topo?: 'terra' | 'grama
         <planeGeometry args={[140, 140]} />
         <Mat cor="#8fcf7a" />
       </mesh>
+      {/* no corte, a terra continua para baixo até sair da tela (senão aparece céu embaixo da maquete) */}
+      {corte && (
+        <mesh position={[(X0 + X1) / 2, (BASE_Y - 9) / 2, (Z0 + Z1) / 2]} receiveShadow>
+          <boxGeometry args={[X1 - X0, 9 + BASE_Y, Z1 - Z0]} />
+          <Mat cor="#a65f2c" />
+        </mesh>
+      )}
       {celulas.map((c, i) => {
         const top = -c.prof;
         const h = top - BASE_Y;
@@ -99,8 +106,8 @@ const PiChao: React.FC<{furos?: Furo[]; corte?: boolean; topo?: 'terra' | 'grama
 // fundo do quintal: muro e a casa do dono (para dar escala e lugar)
 const PiFundo: React.FC<{corte?: boolean}> = ({corte}) => (
   <group>
-    <Caixa pos={[0, 0.9, -3.2]} tam={[17, 1.8, 0.14]} cor="#e7dccb" />
-    {[-8.5, 8.5].map((x) => (<Bl key={x} x={[x - 0.07, x + 0.07]} y={[0, 1.8]} z={[-3.2, 11]} cor="#e7dccb" corte={corte} />))}
+    <Caixa pos={[0, 0.9, -3.2]} tam={[21, 1.8, 0.14]} cor="#e7dccb" />
+    {[-10.5, 10.5].map((x) => (<Bl key={x} x={[x - 0.07, x + 0.07]} y={[0, 1.8]} z={[-3.2, 11]} cor="#e7dccb" corte={corte} />))}
     <Caixa pos={[-1, 1.5, -7.5]} tam={[11, 3.0, 6]} cor="#f5d491" />
     <mesh position={[-1, 3.0 + 0.9, -7.5]} rotation={[0, 0, 0]} scale={[1, 1, 1]} castShadow>
       <cylinderGeometry args={[0.01, 4.4, 1.8, 4, 1]} />
@@ -109,7 +116,7 @@ const PiFundo: React.FC<{corte?: boolean}> = ({corte}) => (
     <Caixa pos={[-3.0, 1.55, -4.49]} tam={[1.6, 1.2, 0.04]} cor="#7fb7e6" />
     <Caixa pos={[1.6, 1.05, -4.49]} tam={[0.9, 2.1, 0.04]} cor="#8b5a3c" />
     <Arvore pos={[-7.2, 0, -1.5]} esc={1.3} />
-    <Arvore pos={[7.0, 0, -1.8]} esc={1.1} cor="#4fae63" />
+    <Arvore pos={[6.0, 0, -5.6]} esc={1.2} cor="#4fae63" />
   </group>
 );
 
@@ -117,7 +124,7 @@ const PiFundo: React.FC<{corte?: boolean}> = ({corte}) => (
 // pos = centro da piscina com a aba no nível 0. deforma = parede curta empurrada para dentro (aterro errado).
 export const Casco: React.FC<{pos?: V3; rotY?: number; corte?: boolean; deforma?: number; cor?: string}> = ({pos = [0, 0, ZC], rotY = 0, corte = false, deforma = 0, cor = '#7fd6f2'}) => {
   const hx = PI.L / 2, hz = PI.W / 2;
-  const fat = 6;
+  const fat = 12;
   const alt = -FUNDO_EXT;
   const cut = corte && rotY === 0 ? pos[2] : undefined; // corte só quando a piscina está no lugar
   const c = cut !== undefined;
@@ -130,7 +137,7 @@ export const Casco: React.FC<{pos?: V3; rotY?: number; corte?: boolean; deforma?
       {[-1, 1].map((s) =>
         Array.from({length: fat}).map((_, i) => {
           const y0 = FUNDO_EXT + (alt * i) / fat, y1 = FUNDO_EXT + (alt * (i + 1)) / fat;
-          const dx = -s * deforma * 0.32 * Math.sin((Math.PI * (i + 0.5)) / fat);
+          const dx = -s * deforma * 0.45 * Math.sin((Math.PI * (i + 0.5)) / fat);
           const x0 = s > 0 ? hx : -hx - ESP;
           return <Bl key={s + ':' + i} x={[x0 + dx, x0 + ESP + dx]} y={[y0, y1 + 0.005]} z={[-hz, hz]} cor={cor} corte={c} zc={zc} rugoso={0.45} />;
         }),
@@ -407,9 +414,9 @@ const Marcacao: React.FC<{p: number}> = ({p}) => {
       {lados.map(([a, b], i) => {
         const k = clamp01(p * 4 - i);
         if (k <= 0) return null;
-        return <Barra key={'l' + i} a={a} b={[lerp(a[0], b[0], k), 0.3, lerp(a[2], b[2], k)]} r={0.015} cor="#ff3b6b" sombra={false} />;
+        return <Barra key={'l' + i} a={a} b={[lerp(a[0], b[0], k), 0.3, lerp(a[2], b[2], k)]} r={0.035} cor="#ff3b6b" sombra={false} />;
       })}
-      {p > 0.8 && <Caixa pos={[0, 0.006, ZC]} tam={[6.4, 0.01, 3.4]} cor="#e9e1c9" sombra={false} />}
+      {p > 0.5 && <Caixa pos={[0, 0.006, ZC]} tam={[6.4, 0.01, 3.4]} cor="#e9e1c9" sombra={false} />}
     </group>
   );
 };
@@ -508,7 +515,7 @@ export const PI_SETS: Record<string, SetDef> = {
         <Rotulo texto="6 × 3 m" ancora={[0, 0.3, ZC]} sobe={1.6} vis={clamp01(p * 3 - 1.2)} />
       </>
     ),
-    cams: {geral: orb([0, 0, 3.4], 22, 38, 18, 15, 46)},
+    cams: {geral: orb([0, 0, 3.6], 22, 46, 14, 11.5, 46)},
   },
   // escavação: a escavadeira tira a terra; caçamba enchendo
   piEscavacao: {
@@ -522,7 +529,7 @@ export const PI_SETS: Record<string, SetDef> = {
           <Retro pos={[-6.6, 0, ZC]} t={t} />
           <Cacamba pos={[6.2, 0, 8.2]} rotY={0.15} carga={0.2 + 0.8 * p} />
           <MonteTerra pos={[4.8, 0, 0.6]} esc={0.9 + 0.5 * p} />
-          <Boneco pos={[3.8, 0, 7.4]} rotY={-0.6} acao="aponta" t={t} v={SERVENTE} />
+          <Boneco pos={[2.6, 0, 6.4]} rotY={-0.6} acao="aponta" t={t} v={SERVENTE} />
           <Rotulo texto="1,40 m" ancora={[1.5, -BURACO.prof * cava, ZC]} sobe={1.9} vis={clamp01(p * 3 - 1.5)} tam={0.85} />
         </>
       );
@@ -568,8 +575,8 @@ export const PI_SETS: Record<string, SetDef> = {
       </>
     ),
     cams: {
-      geral: orb([4.2, 1.5, 3.6], 30, 24, 21, 18, 46),
-      caminhao: orb([7.4, 2.4, 3.4], 70, 14, 11, 9.5, 44),
+      geral: orb([3.0, 1.5, 3.6], -25, 26, 21, 18, 46),
+      caminhao: orb([5.0, 2.6, 3.0], 140, 26, 14, 12, 46),
       desce: orb([0.5, 1.2, 3.6], 15, 22, 15, 13, 46),
       encaixe: orb([1.5, 0, 3.6], -25, 16, 8.5, 7.2, 44),
     },
@@ -598,8 +605,8 @@ export const PI_SETS: Record<string, SetDef> = {
     },
     cams: {
       geral: orb([0, -0.4, ZC], 18, 30, 16, 14, 46, 4),
-      corte: orb([0, -0.7, ZC], 0, 6, 14.5, 12.5, 46, 3),
-      close: orb([2.9, -0.7, ZC], -8, 4, 5.4, 4.5, 44),
+      corte: orb([0, -0.7, ZC], 0, 10, 14.5, 12.5, 46, 3),
+      close: orb([2.9, -0.7, ZC], -8, 6, 5.4, 4.5, 44),
     },
   },
   // o certo: areia com cimento nas laterais e a água subindo junto (corte)
@@ -640,7 +647,7 @@ export const PI_SETS: Record<string, SetDef> = {
         <Casco />
         <Agua nivel={1} limpa={suave((p - 0.45) / 0.5)} />
         <CasaMaquinas t={t * 4} tampa={false} />
-        <Boneco pos={[5.25, 0, 5.0]} rotY={Math.PI} acao="aponta" t={t} />
+        <Boneco pos={[6.9, 0, 2.3]} rotY={-1.0} acao="aponta" t={t} />
         <Rotulo texto="FILTRO DE AREIA" ancora={[5.0, -0.1, 3.45]} sobe={1.5} lado={-0.3} vis={clamp01(p * 5 - 2)} tam={0.8} />
         <Rotulo texto="MOTOBOMBA" ancora={[5.55, -0.7, 3.25]} sobe={1.1} lado={0.6} vis={clamp01(p * 5 - 2.6)} tam={0.8} fundo="#e6e3dc" />
       </>

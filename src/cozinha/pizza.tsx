@@ -373,7 +373,7 @@ export const PIZZA: Record<string, SetPz> = {
   // gancho e final: pizza pronta na frigideira em cima da tábua, fatia saindo com o queijo puxando
   pzPronta: {
     render: ({t, p}) => {
-      const sobe = 0.05 + 0.05 * suave(p);
+      const sobe = 0.025 + 0.03 * suave(p);
       const c: V3 = [0, T + 0.02, 0.05];
       return (
         <>
@@ -388,7 +388,7 @@ export const PIZZA: Record<string, SetPz> = {
         </>
       );
     },
-    cams: {giro: orb([0.03, T + 0.06, 0.05], -25, 28, 0.72, 0.52, 40, 30), final: orb([0.03, T + 0.07, 0.07], 30, 32, 0.8, 0.6, 40, -20)},
+    cams: {giro: orb([0.05, T + 0.05, 0.05], -25, 28, 0.8, 0.6, 40, 30), final: orb([0.05, T + 0.05, 0.07], 30, 32, 0.95, 0.75, 40, -20)},
   },
   // erro: recheio em cima da massa crua, ainda clara, vapor preso
   pzCrua: {
@@ -398,7 +398,7 @@ export const PIZZA: Record<string, SetPz> = {
         <NaFrigideira>
           <PizzaDisco pos={[FR[0], FR[1] + DY, FR[2]]} massa={PZ.crua} molho={1} queijo={1} derrete={0.15} />
         </NaFrigideira>
-        <XVermelho pos={[FR[0], FR[1] + 0.09, FR[2]]} vis={clamp01(p * 3 - 0.6)} />
+        <XVermelho pos={[FR[0] - 0.03, FR[1] + 0.05, FR[2]]} vis={clamp01(p * 3 - 0.6)} esc={0.09} />
         <Pilula texto="MASSA CRUA" pos={[FR[0], FR[1] + 0.045, FR[2] + 0.06]} fundo="#ff5d5d" vis={clamp01(p * 3 - 0.2)} />
       </>
     ),
@@ -407,7 +407,7 @@ export const PIZZA: Record<string, SetPz> = {
   // segredo: virar o disco com a espátula (embaixo já dourado)
   pzVira: {
     render: ({t, p}) => {
-      const k = suave(clamp01(p * 1.25));
+      const k = suave(clamp01(p * 1.6));
       const alto = Math.sin(k * Math.PI) * 0.09;
       return (
         <>
@@ -428,14 +428,13 @@ export const PIZZA: Record<string, SetPz> = {
       <>
         <Cozinha t={t} chama={[0, 0, 1, 0]} aceso={0} />
         <Ilha />
-        <Ze t={t} acao="aponta" pos={[0.1, 0, -0.95]} rotY={0.3} />
         <Frigideira pos={FR} />
         <Tigela pos={[-0.3, T, 0.05]} nivel={0.5} cor={PZ.crua} />
         <Pacote pos={[0.3, T, -0.05]} texto={'FARINHA\nDE TRIGO'} fundo="#2f6fd6" linha2="1 kg" rotY={-0.3} />
         <Lata pos={[0.48, T, 0.12]} texto={'IOGURTE\nNATURAL'} fundo="#f4f6fb" cor="#2f6fd6" r={0.035} h={0.07} />
       </>
     ),
-    cams: {geral: orb([0.25, 1.0, -0.8], 25, 20, 3.6, 3.0, 44, 10)},
+    cams: {geral: orb([0.35, 0.85, -1.7], 18, 14, 2.4, 2.0, 44, 10)},
   },
   // massa: farinha da xícara na tigela
   pzFarinha: {
@@ -556,7 +555,6 @@ export const PIZZA: Record<string, SetPz> = {
           <NaFrigideira>
             <DiscoMassa pos={[FR[0], FR[1] + DY + (1 - k) * 0.1, FR[2] + (1 - k) * 0.08]} rot={[(1 - k) * 0.5, 0, 0]} />
           </NaFrigideira>
-          <Pilula texto="FOGO MÉDIO" pos={[FR[0], FR[1] - 0.02, FR[2] + 0.14]} fundo="#4f8cff" vis={clamp01(p * 3 - 0.4)} />
         </>
       );
     },
@@ -595,7 +593,7 @@ export const PIZZA: Record<string, SetPz> = {
         <Tabua pos={[0.15, T, 0.1]} />
         <Frigideira pos={[0.15, T + 0.02, 0.1]} rotY={-0.6} />
         <PizzaDisco pos={[0.15, T + 0.02 + DY, 0.1]} massa={PZ.crua} molho={1} queijo={1} />
-        <XVermelho pos={[0.15, T + 0.2, 0.1]} vis={1} esc={0.14} />
+        <XVermelho pos={[0.15, T + 0.09, 0.12]} vis={1} esc={0.1} />
       </>
     ),
     cams: {frente: orb([0.05, 1.18, -0.4], 8, 6, 2.4, 2.1, 42, 10)},
@@ -609,7 +607,6 @@ export const PIZZA: Record<string, SetPz> = {
           <PizzaDisco pos={[FR[0], FR[1] + DY, FR[2]]} massa={PZ.crua} molho={1} queijo={1} />
         </NaFrigideira>
         <Vapor t={t} pos={[FR[0] - 0.03, FR[1] + 0.03, FR[2]]} forca={0.6 + 0.4 * p} raio={0.06} />
-        <Pilula texto="VAPOR PRESO" pos={[FR[0], FR[1] + 0.1, FR[2]]} fundo="#ff5d5d" vis={clamp01(p * 3 - 0.3)} />
       </>
     ),
     cams: {close: orb([FR[0], FR[1] + 0.03, FR[2]], 25, 14, 0.46, 0.36, 40, 8)},
@@ -622,10 +619,9 @@ export const PIZZA: Record<string, SetPz> = {
         <Prato pos={[0, T, 0.05]} r={0.13} />
         <FatiaPizza pos={[-0.06, T + 0.12, 0.05]} mole={0.2 + 0.8 * suave(p)} fundo={PZ.crua} topo={mix(PZ.queijo, PZ.derretido, 0.4)} />
         <Espatula pos={[0.1, T + 0.115, 0.05]} rot={[0, 0, -1.5]} />
-        <XVermelho pos={[-0.06, T + 0.2, 0.05]} vis={clamp01(p * 3 - 1.2)} esc={0.07} />
       </>
     ),
-    cams: {close: orb([0.0, T + 0.1, 0.05], 10, 8, 0.5, 0.4, 40, 10)},
+    cams: {close: orb([0.0, T + 0.1, 0.05], 10, 8, 0.32, 0.26, 40, 10)},
   },
   // recheio no lado dourado
   pzMolho: {
@@ -651,7 +647,7 @@ export const PIZZA: Record<string, SetPz> = {
         <NaFrigideira>
           <PizzaDisco pos={[FR[0], FR[1] + DY, FR[2]]} molho={1} queijo={lerp(0.1, 1, p)} />
         </NaFrigideira>
-        <Chuvisco t={t} de={[FR[0], FR[1] + 0.16, FR[2]]} y1={FR[1] + 0.015} raio={0.06} n={60} cor={PZ.queijo} tam={0.006} vel={0.7} on={p < 0.85 ? 1 : 0} />
+        <Chuvisco t={t} de={[FR[0], FR[1] + 0.16, FR[2]]} y1={FR[1] + 0.015} raio={0.06} n={60} cor={PZ.queijo} tam={0.0035} vel={0.7} on={p < 0.85 ? 1 : 0} />
         <QueijoRalado pos={[FR[0] - 0.12, 0.92, FR[2] + 0.2]} frac={1 - p * 0.7} />
       </>
     ),
@@ -664,7 +660,7 @@ export const PIZZA: Record<string, SetPz> = {
         <NaFrigideira>
           <PizzaDisco pos={[FR[0], FR[1] + DY, FR[2]]} molho={1} queijo={1} oregano={p} />
         </NaFrigideira>
-        <Chuvisco t={t} de={[FR[0], FR[1] + 0.12, FR[2]]} y1={FR[1] + 0.015} raio={0.04} n={40} cor={PZ.oregano} tam={0.004} vel={0.6} on={p < 0.8 ? 1 : 0} />
+        <Chuvisco t={t} de={[FR[0], FR[1] + 0.12, FR[2]]} y1={FR[1] + 0.015} raio={0.04} n={40} cor={PZ.oregano} tam={0.0022} vel={0.6} on={p < 0.8 ? 1 : 0} />
       </>
     ),
     cams: {close: orb([FR[0], FR[1] + 0.015, FR[2]], 35, 22, 0.4, 0.32, 40, 8)},
@@ -680,11 +676,10 @@ export const PIZZA: Record<string, SetPz> = {
             <PizzaDisco pos={[FR[0], FR[1] + DY, FR[2]]} molho={1} queijo={1} oregano={1} derrete={0.1 * p} />
           </NaFrigideira>
           <TampaVidro pos={[FR[0] - 0.06 * (1 - k), FR[1] + 0.035 + (1 - k) * 0.16, FR[2]]} rot={[0, 0, 0.5 * (1 - k)]} embaçada={k * 0.3} />
-          <Pilula texto="FOGO BAIXO" pos={[FR[0], FR[1] - 0.02, FR[2] + 0.15]} fundo="#4f8cff" vis={clamp01(p * 3 - 1.5)} />
         </>
       );
     },
-    cams: {frente: orb([FR[0], FR[1] + 0.05, FR[2]], 4, 20, 0.66, 0.5, 40, 10), cima: orb([FR[0], FR[1] + 0.03, FR[2]], -20, 52, 0.62, 0.48, 40, 12)},
+    cams: {frente: orb([FR[0], FR[1] + 0.05, FR[2]], 4, 20, 0.66, 0.5, 40, 10), cima: orb([FR[0] + 0.03, FR[1] + 0.03, FR[2] + 0.03], -20, 40, 0.8, 0.68, 40, 12)},
   },
   // queijo derretendo debaixo da tampa (vista rente)
   pzDerrete: {
@@ -719,19 +714,19 @@ export const PIZZA: Record<string, SetPz> = {
     render: ({t}) => (
       <>
         <Base t={t} ze="comemora" />
-        <Tabua pos={[-0.2, T, 0.12]} />
-        <PizzaDisco pos={[-0.2, T + 0.02, 0.12]} molho={1} derrete={1} oregano={1} falta={2} cortes />
-        <Prato pos={[0.22, T, 0.15]} r={0.12} />
-        <PizzaDisco pos={[0.22, T + 0.012, 0.15]} molho={1} derrete={1} oregano={0.6} calabresa={1} cortes />
-        <Frigideira pos={[0.62, T, -0.05]} rotY={2.6} />
+        <Tabua pos={[0, T, -0.06]} />
+        <PizzaDisco pos={[0, T + 0.02, -0.06]} molho={1} derrete={1} oregano={1} falta={2} cortes />
+        <Prato pos={[0.02, T, 0.25]} r={0.12} />
+        <PizzaDisco pos={[0.02, T + 0.012, 0.25]} molho={1} derrete={1} oregano={0.6} cortes />
+        <Frigideira pos={[0.45, T, -0.1]} rotY={2.6} />
       </>
     ),
-    cams: {geral: orb([0, T + 0.15, -0.2], 10, 18, 2.2, 1.85, 42, 10)},
+    cams: {geral: orb([0.0, T + 0.02, 0.1], 8, 40, 1.15, 0.95, 42, 10)},
   },
   // fatia saindo com o queijo puxando (close)
   pzFatia: {
     render: ({t, p}) => {
-      const sobe = 0.03 + 0.09 * suave(p);
+      const sobe = 0.015 + 0.045 * suave(p);
       const c: V3 = [0, T + 0.012, 0.05];
       return (
         <>
@@ -743,22 +738,22 @@ export const PIZZA: Record<string, SetPz> = {
         </>
       );
     },
-    cams: {close: orb([0.05, T + 0.06, 0.05], 0, 14, 0.42, 0.34, 40, 12)},
+    cams: {close: orb([0.07, T + 0.04, 0.05], 0, 18, 0.56, 0.46, 40, 12)},
   },
   // muçarela × calabresa lado a lado
   pzDuas: {
     render: ({t, p}) => (
       <>
         <Base t={t} ze={null} />
-        <Tabua pos={[-0.13, T, 0.05]} />
-        <PizzaDisco pos={[-0.13, T + 0.02, 0.05]} molho={1} derrete={1} oregano={1} cortes />
-        <Tabua pos={[0.13, T + 0.0, 0.32]} />
-        <PizzaDisco pos={[0.13, T + 0.02, 0.32]} molho={1} derrete={1} oregano={0.5} calabresa={1} cortes />
-        <Pilula texto="MUÇARELA" pos={[-0.13, T + 0.07, 0.05]} fundo="#ff9f1c" vis={clamp01(p * 3)} />
-        <Pilula texto="CALABRESA" pos={[0.13, T + 0.07, 0.32]} fundo="#ff5d5d" vis={clamp01(p * 3 - 0.8)} />
+        <Tabua pos={[0, T, -0.1]} />
+        <PizzaDisco pos={[0, T + 0.02, -0.1]} molho={1} derrete={1} oregano={1} cortes />
+        <Tabua pos={[0, T, 0.2]} />
+        <PizzaDisco pos={[0, T + 0.02, 0.2]} molho={1} derrete={1} oregano={0.5} calabresa={1} cortes />
+        <Pilula texto="MUÇARELA" pos={[0, T + 0.06, -0.1]} fundo="#ff9f1c" vis={clamp01(p * 3)} />
+        <Pilula texto="CALABRESA" pos={[0, T + 0.06, 0.2]} fundo="#ff5d5d" vis={clamp01(p * 3 - 0.8)} />
       </>
     ),
-    cams: {cima: orb([0, T + 0.02, 0.18], 0, 58, 0.95, 0.75, 40, 10)},
+    cams: {cima: orb([0, T + 0.02, 0.05], 0, 60, 1.05, 0.9, 40, 10)},
   },
 };
 

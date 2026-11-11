@@ -700,7 +700,7 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
     },
     cams: {
       geral: orb([70, 10, 10], 62, 16, 175, 150, 40, 10),
-      raspa: orb([84, 4, 16], 100, 35, 42, 36, 44, 10),
+      raspa: orb([84, 4, 18], 60, 55, 70, 60, 44, 10),
     },
   },
   // ===== o bote descendo pelo costado (e embarque de mulheres e crianças) =====
@@ -709,7 +709,7 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
     luz: 'noite',
     nevoa: [300, 2400],
     render: ({t, p}) => {
-      const y = lerp(DECK + 0.4, 2.0, suave(p));
+      const y = lerp(DECK + 0.4, 8.0, suave(p));
       const bote: V3 = [BOTE_DESCE_X, y, 14.2];
       const botes = BOTES_X.flatMap((_, i) => [true, i !== 4]);
       return (
@@ -728,15 +728,15 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
           <ComColete pos={[BOTE_DESCE_X - 2.4, DECK, 11.4]} rotY={0.9} t={t} v={OFICIAL} acao="aponta" colete={false} />
           <ComColete pos={[BOTE_DESCE_X - 0.4, DECK, 11.6]} rotY={0.2} t={t + 1} v={MULHER} acao="anda" />
           <ComColete pos={[BOTE_DESCE_X + 0.3, DECK, 11.3]} rotY={0.2} t={t + 2} v={MENINA} acao="anda" esc={0.62} />
-          <ComColete pos={[BOTE_DESCE_X + 2.0, DECK, 10.6]} rotY={-0.4} t={t + 3} v={RICA} />
-          <ComColete pos={[BOTE_DESCE_X + 3.2, DECK, 9.8]} rotY={-0.6} t={t + 4} v={RICO} acao="acena" />
+          <ComColete pos={[BOTE_DESCE_X - 4.2, DECK, 10.4]} rotY={0.6} t={t + 3} v={RICA} />
+          <ComColete pos={[BOTE_DESCE_X - 5.4, DECK, 9.6]} rotY={0.8} t={t + 4} v={RICO} acao="acena" />
           <Multidao t={t} x0={-80} x1={-52} n={10} seed={8} />
         </>
       );
     },
     cams: {
-      desce: orb([BOTE_DESCE_X, 11, 15], 58, 8, 34, 29, 44, 8),
-      mulheres: orb([BOTE_DESCE_X, DECK + 1.0, 12], 20, 26, 13, 11, 42, 8),
+      desce: orb([BOTE_DESCE_X, 10, 15], 58, 12, 30, 26, 44, 8),
+      mulheres: orb([BOTE_DESCE_X - 1, DECK + 1.0, 11], 95, 18, 9, 7.6, 44, 8),
     },
   },
   // ===== o labirinto de corredores, com água no chão =====
