@@ -190,6 +190,9 @@ function telaConfig() {
   <div class="card"><b>Meta (app fnexus CRM)</b>
     <p class="mut">Cole o token de usuário de longa duração do app (permissões: instagram_basic, instagram_content_publish, pages_show_list, pages_read_engagement, pages_manage_posts; para o robô do direct também instagram_manage_comments, instagram_manage_messages, pages_manage_metadata, pages_messaging). Ele fica só no arquivo .env deste Mac.</p>
     ${campo('META_USER_TOKEN', 'Token de usuário', 'EAAG…', 'password')}
+    ${campo('META_APP_ID', 'ID do app (FNexus CRM)', '1728126091594876')}
+    ${campo('META_APP_SECRET', 'Chave secreta do app (Configurações do app → Básico)', '', 'password')}
+    <p class="mut">Com o ID e a chave secreta, o painel troca o token por um de 60 dias e as Páginas ficam conectadas sem vencer.</p>
     ${campo('META_GRAPH_VERSION', 'Versão da Graph API', 'v22.0')}
     <div class="linha" style="margin-top:12px"><button class="b pri" onclick="salvarCfg()">Salvar</button><button class="b" onclick="descobrir()">Conectar contas automaticamente</button></div>
     <div id="contas"></div>

@@ -8,7 +8,7 @@
 //   META_<PERFIL>_PAGE_TOKEN       token da Página (descoberto automaticamente)
 //   META_<PERFIL>_IG_ID            id da conta profissional do Instagram
 import fs from 'node:fs';
-import {env} from './dados.mjs';
+import {env, salvarEnv} from './dados.mjs';
 import {hospedar, remover} from './hospedar.mjs';
 
 const V = () => env().META_GRAPH_VERSION || 'v22.0';
@@ -38,9 +38,19 @@ async function enviarArquivo(url, token, arquivo) {
 }
 
 // Lista as Páginas do token de usuário e as contas de Instagram ligadas.
+// Troca o token curto (1–2 h) por um de 60 dias; os tokens de Página tirados dele não vencem mais.
+async function tokenLongo(token) {
+  const {META_APP_ID: id, META_APP_SECRET: segredo} = env();
+  if (!id || !segredo) return token;
+  const j = await graph('GET', '/oauth/access_token', {grant_type: 'fb_exchange_token', client_id: id, client_secret: segredo, fb_exchange_token: token});
+  salvarEnv({META_USER_TOKEN: j.access_token});
+  return j.access_token;
+}
+
 export async function descobrirContas() {
-  const token = env().META_USER_TOKEN;
+  let token = env().META_USER_TOKEN;
   if (!token) throw new Error('Falta o META_USER_TOKEN (cole nas Configurações).');
+  token = await tokenLongo(token);
   const j = await graph('GET', '/me/accounts', {
     fields: 'id,name,access_token,instagram_business_account{id,username}',
     limit: '100',
