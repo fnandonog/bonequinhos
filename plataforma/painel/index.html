@@ -204,7 +204,11 @@ function telaConfig() {
     <div class="linha" style="margin-top:12px"><button class="b pri" onclick="salvarCfg()">Salvar</button></div>
   </div>
   <div class="card"><b>Outros canais e monetização</b>
-    ${campo('YOUTUBE_API_KEY', 'Chave da API do YouTube (estatísticas dos canais)', 'AIza…', 'password')}
+    ${campo('YOUTUBE_API_KEY', 'Chave da API do YouTube (estatísticas e tendências)', 'AIza…', 'password')}
+    ${campo('YOUTUBE_CLIENT_ID', 'YouTube: ID do cliente OAuth (para postar)', '….apps.googleusercontent.com')}
+    ${campo('YOUTUBE_CLIENT_SECRET', 'YouTube: chave secreta do cliente OAuth', 'GOCSPX-…', 'password')}
+    <label>YouTube: visibilidade dos Shorts</label><select id="cfg-YOUTUBE_PRIVACIDADE"><option value="public">Público</option><option value="unlisted" ${c.YOUTUBE_PRIVACIDADE === 'unlisted' ? 'selected' : ''}>Não listado</option><option value="private" ${c.YOUTUBE_PRIVACIDADE === 'private' ? 'selected' : ''}>Privado</option></select>
+    <p class="mut">No Google Cloud: crie um cliente OAuth do tipo "Aplicativo da Web" com o URI de redirecionamento <code>http://localhost:4380/youtube/callback</code> e ative a YouTube Data API v3. Depois vá em Redes → Conectar YouTube em cada perfil.</p>
     ${campo('TELEGRAM_BOT_TOKEN', 'Token do bot do Telegram (admin do grupo)', '123456:ABC…', 'password')}
     ${campo('TELEGRAM_GRUPO_ID', 'ID ou @ do grupo de ofertas', '@meugrupo ou -100…')}
     ${campo('RECEITA_AFILIADO_MES', 'Receita de afiliado neste mês (R$)', '0')}
@@ -301,7 +305,7 @@ function telaRedes() {
     return `<div class="card" style="margin-bottom:14px"><div class="linha"><img class="av" src="/perfis/avatar-${AVATAR[p.id]}.png"><b style="flex:1">${esc(p.nome)}</b>
       <span class="tag ${p.conectado.instagram ? 'ok' : 'err'}">Instagram ${p.conectado.instagram ? '✓' : 'desconectado'}</span>
       <span class="tag ${p.conectado.facebook ? 'ok' : ''}">Facebook ${p.conectado.facebook ? '✓' : '—'}</span>
-      <span class="tag ${r.youtube ? 'ok' : ''}">YouTube ${p.youtube ? (r.youtube ? '✓' : 'sem chave') : '—'}</span>
+      ${p.conectado.youtube ? `<span class="tag ok">YouTube ✓ ${esc(p.conectado.youtube_canal || '')}</span>` : `<a class="tag" href="/youtube/conectar?perfil=${p.id}" style="text-decoration:none">▶ Conectar YouTube</a>`}
       <span class="tag">TikTok: extensão (depois)</span></div>
       ${i ? `<div class="linha" style="margin:10px 0;gap:18px"><span>Seguidores <b>${n(i.followers_count)}</b></span><span>Seguindo <b>${n(i.follows_count)}</b></span><span>Posts <b>${n(i.media_count)}</b></span>
         <span>Visitas ao perfil <b>${n(i.conta_insights?.profile_views)}</b></span><span>Cliques no link <b>${n(i.conta_insights?.website_clicks)}</b></span></div>

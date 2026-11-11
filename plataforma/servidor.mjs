@@ -13,11 +13,12 @@ import {sincronizar, analytics, comentarios, salvarComentario} from './sincroniz
 import {responderComentario} from './lib/meta.mjs';
 import * as LINKS from './lib/links.mjs';
 import {tendencias, cacar} from './tendencias.mjs';
+import * as YT from './lib/youtube.mjs';
 
 const PORTA = Number(process.env.PORTA ?? 4380);
-const CONFIG_VISIVEL = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'YOUTUBE_API_KEY', 'TELEGRAM_BOT_TOKEN', 'TELEGRAM_GRUPO_ID', 'RECEITA_AFILIADO_MES', 'META_GRAPH_VERSION', 'ELEVENLABS_API_KEY', 'AUTO_PUBLICAR', 'PRODUCAO_AUTOMATICA', 'ELEVENLABS_VOZ', 'META_POSTAR_FACEBOOK',
+const CONFIG_VISIVEL = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'YOUTUBE_API_KEY', 'YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_PRIVACIDADE', 'TELEGRAM_BOT_TOKEN', 'TELEGRAM_GRUPO_ID', 'RECEITA_AFILIADO_MES', 'META_GRAPH_VERSION', 'ELEVENLABS_API_KEY', 'AUTO_PUBLICAR', 'PRODUCAO_AUTOMATICA', 'ELEVENLABS_VOZ', 'META_POSTAR_FACEBOOK',
   'AGENCIA_MAX_POR_PERFIL', 'AGENCIA_MODELO', 'NARRACAO_VELOCIDADE'];
-const SEGREDOS = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'ELEVENLABS_API_KEY', 'YOUTUBE_API_KEY', 'TELEGRAM_BOT_TOKEN'];
+const SEGREDOS = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'ELEVENLABS_API_KEY', 'YOUTUBE_API_KEY', 'YOUTUBE_CLIENT_SECRET', 'TELEGRAM_BOT_TOKEN'];
 const TIPOS = {'.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.mp4': 'video/mp4', '.jpg': 'image/jpeg', '.png': 'image/png'};
 
 let agencia = null; // processo da agência disparado pelo painel
@@ -28,7 +29,7 @@ function estado() {
   const perfis = D.perfis().map((p) => {
     const c = credenciais(p.id);
     const pt = D.pautas(p.id).pautas;
-    return {...p, conectado: {instagram: !!(c.ig && c.token), facebook: !!(c.page && c.pageToken)},
+    return {...p, conectado: {instagram: !!(c.ig && c.token), facebook: !!(c.page && c.pageToken), youtube: YT.conectado(p.id), youtube_canal: YT.canal(p.id)?.split('|')[1] ?? null},
       pautas_novas: pt.filter((x) => x.status === 'nova').length, pautas: pt};
   });
   return {perfis, fila: D.fila(), config, agencia_rodando: !!agencia, analytics: analytics(), comentarios: comentarios().filter((c) => c.status === 'novo').length, links: LINKS.config()};
@@ -166,6 +167,24 @@ office.mount(app, {
 });
 const ponte = require('./escritorio/ponte.cjs');
 ponte.ligar();
+
+// YouTube: login do Google por perfil (cada perfil escolhe o próprio canal na tela do Google)
+app.get('/youtube/conectar', (req, res) => {
+  try {
+    res.redirect(YT.urlLogin(String(req.query.perfil)));
+  } catch (e) {
+    res.status(400).type('html').send(`<meta charset="utf-8"><p>${e.message} <a href="/#config">Configurações</a></p>`);
+  }
+});
+app.get('/youtube/callback', async (req, res) => {
+  try {
+    if (req.query.error) throw new Error(String(req.query.error));
+    const r = await YT.concluirLogin(String(req.query.state), String(req.query.code));
+    res.redirect(`/?yt=${encodeURIComponent(r.canal)}#redes`);
+  } catch (e) {
+    res.status(400).type('html').send(`<meta charset="utf-8"><p>Não conectou: ${e.message} <a href="/#redes">Voltar</a></p>`);
+  }
+});
 
 app.all(/^\/api\/.*/, async (req, res) => {
   const partes = req.path.split('/').filter(Boolean).map(decodeURIComponent).slice(1);

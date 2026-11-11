@@ -2,7 +2,8 @@
 // Uso: node plataforma/postar.mjs [--agora <id>]
 import path from 'node:path';
 import {RAIZ, fila, salvarItem, log, env} from './lib/dados.mjs';
-import {publicarInstagram, publicarFacebook} from './lib/meta.mjs';
+import {publicarInstagram, publicarFacebook, credenciais} from './lib/meta.mjs';
+import * as YT from './lib/youtube.mjs';
 import {batida} from './lib/escritorio.mjs';
 import {sincronizar} from './sincronizar.mjs';
 
@@ -14,10 +15,18 @@ export async function publicar(it) {
   const res = {...(it.publicacoes ?? {})};
   salvarItem({id: it.id, status: 'publicando'});
   try {
-    if (!res.instagram) res.instagram = await publicarInstagram(it.perfil, arquivo, it.legenda ?? it.tema);
-    if (env().META_POSTAR_FACEBOOK === '1' && !res.facebook) res.facebook = await publicarFacebook(it.perfil, arquivo, it.legenda ?? it.tema);
-    log('postar', `${it.id} publicado: ${res.instagram?.link ?? res.instagram?.id}`);
-    batida('social-media', 'idle', undefined, it.tarefa, `Publicado no Instagram: ${it.tema}${res.instagram?.link ? ` (${res.instagram.link})` : ''}`, 'success');
+    // cada rede conectada recebe o vídeo; uma que já foi não é repetida numa nova tentativa
+    const ig = credenciais(it.perfil).ig, yt = YT.conectado(it.perfil);
+    if (!ig && !yt) throw new Error('nenhuma rede conectada para este perfil (Configurações → Meta / Redes → Conectar YouTube)');
+    if (ig && !res.instagram) res.instagram = await publicarInstagram(it.perfil, arquivo, it.legenda ?? it.tema);
+    if (ig && env().META_POSTAR_FACEBOOK === '1' && !res.facebook) res.facebook = await publicarFacebook(it.perfil, arquivo, it.legenda ?? it.tema);
+    if (yt && !res.youtube) {
+      const tags = (it.legenda ?? '').match(/#[\p{L}\d_]+/gu)?.map((t) => t.slice(1)) ?? [];
+      res.youtube = await YT.enviarShort(it.perfil, arquivo, {titulo: it.titulo_youtube || `${it.tema} #shorts`, descricao: it.legenda ?? it.tema, tags});
+    }
+    const links = Object.entries(res).map(([r, x]) => `${r}: ${x.link ?? x.id}`).join(' · ');
+    log('postar', `${it.id} publicado: ${links}`);
+    batida('social-media', 'idle', undefined, it.tarefa, `Publicado: ${it.tema} (${links})`, 'success');
     return salvarItem({id: it.id, status: 'publicado', publicado_em: new Date().toISOString(), publicacoes: res, erro: null});
   } catch (e) {
     const tentativas = (it.tentativas ?? 0) + 1;

@@ -53,4 +53,5 @@ Outros comandos: `npm run painel`, `npm run agencia` (produz agora), `npm run ag
 - Por padrão nada é publicado sem aprovação no painel (`AUTO_PUBLICAR=0`). Com `1`, o vídeo vai para o horário do perfil.
 - A agência produz só perfis com o botão ligado. Os formatos novos (história, caso, rico, vale a pena) ficam desligados até o piloto ser aprovado.
 - O Claude roda com uma lista fechada de ferramentas (sem git push, sem rm, sem curl). A plataforma faz commit local de cada vídeo, sem push.
-- TikTok e YouTube: por enquanto baixe o mp4 pelo painel e poste à mão (YouTube precisa de OAuth próprio; TikTok vai pela extensão).
+- YouTube: Configurações → cliente OAuth do Google (redirecionamento http://localhost:4380/youtube/callback) e Redes → Conectar YouTube em cada perfil. O postador manda o Short junto com o Reels. Sem a auditoria da API do Google, os vídeos ficam privados.
+- TikTok: por enquanto baixe o mp4 pelo painel ou use a extensão de postagem.
