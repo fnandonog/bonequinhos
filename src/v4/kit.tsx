@@ -175,7 +175,8 @@ export const Rotulo: React.FC<{texto: string; ancora: V3; sobe?: number; lado?: 
 
 // ---------- personagens ----------
 export type AcaoBoneco = 'parado' | 'anda' | 'aponta' | 'acena' | 'comemora' | 'cava' | 'martela' | 'pinta' | 'carrega' | 'senta';
-export type Visual = {camisa?: string; colete?: string | null; capacete?: string | null; calca?: string; pele?: string; cabelo?: string};
+export type Visual = {camisa?: string; colete?: string | null; capacete?: string | null; calca?: string; pele?: string; cabelo?: string; chef?: boolean};
+export const CHEF: Visual = {camisa: '#ffffff', colete: null, capacete: null, calca: '#2b2233', chef: true};
 export const OBREIRO: Visual = {camisa: '#4f8cff', colete: '#ff8a1f', capacete: '#ffd23f', calca: '#30406b'};
 export const SERVENTE: Visual = {camisa: '#e9e4d8', colete: null, capacete: '#ffffff', calca: '#5b4a3a', pele: '#c98e62'};
 export const ENGENHEIRA: Visual = {camisa: '#ffffff', colete: '#2fbf71', capacete: '#ffffff', calca: '#2b2b3a', pele: '#8d5a3b', cabelo: '#1d1b26'};
@@ -183,7 +184,7 @@ export const MORADOR: Visual = {camisa: '#ff5d73', colete: null, capacete: null,
 export const CRIANCA: Visual = {camisa: '#ffd23f', colete: null, capacete: null, calca: '#4f8cff', cabelo: '#6b3e26'};
 
 export const Boneco: React.FC<{pos: V3; rotY?: number; acao?: AcaoBoneco; t: number; v?: Visual; esc?: number; ferramenta?: 'pa' | 'rolo' | 'colher' | 'planta' | 'bloco' | 'martelo' | null}> = ({pos, rotY = 0, acao = 'parado', t, v = OBREIRO, esc = 0.92, ferramenta = null}) => {
-  const {camisa = '#4f8cff', colete = '#ff8a1f', capacete = '#ffd23f', calca = '#30406b', pele = '#ffd2ad', cabelo = '#3b2a20'} = v;
+  const {camisa = '#4f8cff', colete = '#ff8a1f', capacete = '#ffd23f', calca = '#30406b', pele = '#ffd2ad', cabelo = '#3b2a20', chef = false} = v;
   const passo = acao === 'anda' ? Math.sin(t * 9) * 0.6 : 0;
   const pulo = acao === 'comemora' ? Math.abs(Math.sin(t * 6)) * 0.3 : acao === 'anda' ? Math.abs(Math.sin(t * 9)) * 0.04 : 0;
   let bD = passo * -0.8, bE = passo * 0.8, bDz = -0.15, bEz = 0.15, tronco = 0;
@@ -213,6 +214,12 @@ export const Boneco: React.FC<{pos: V3; rotY?: number; acao?: AcaoBoneco; t: num
       <group position={[0, 0.55, 0]} rotation={[tronco, 0, 0]}>
         <group position={[0, -0.55, 0]}>
           <mesh position={[0, 0.78, 0]} castShadow><capsuleGeometry args={[0.27, 0.38, 4, 10]} /><Mat cor={camisa} /></mesh>
+          {chef && (
+            <>
+              {[0.68, 0.86].map((y) => (<mesh key={'b' + y} position={[0.08, y, 0.27]}><sphereGeometry args={[0.035, 6, 6]} /><Mat cor="#2b2233" /></mesh>))}
+              <mesh position={[0, 1.07, 0.18]} rotation={[0.3, 0, 0]}><torusGeometry args={[0.16, 0.05, 6, 12]} /><Mat cor="#e8322b" /></mesh>
+            </>
+          )}
           {colete && (
             <>
               <mesh position={[0, 0.78, 0.0]}><cylinderGeometry args={[0.3, 0.3, 0.48, 10, 1, true]} /><meshStandardMaterial color={colete} flatShading side={2} /></mesh>
@@ -233,7 +240,12 @@ export const Boneco: React.FC<{pos: V3; rotY?: number; acao?: AcaoBoneco; t: num
             {[-0.12, 0.12].map((x) => (<mesh key={x} position={[x, 0.02, 0.32]}><sphereGeometry args={[0.055, 8, 8]} /><meshStandardMaterial color="#1d1b26" /></mesh>))}
             {[-0.2, 0.2].map((x) => (<mesh key={x} position={[x, -0.1, 0.28]}><sphereGeometry args={[0.05, 8, 8]} /><meshStandardMaterial color="#ff9b8a" /></mesh>))}
             <mesh position={[0, -0.14, 0.31]} rotation={[0, 0, Math.PI]}><torusGeometry args={[0.07, 0.02, 6, 10, Math.PI]} /><meshStandardMaterial color="#5a1f2b" /></mesh>
-            {capacete ? (
+            {chef ? (
+              <group position={[0, 0.3, 0]}>
+                <mesh castShadow><cylinderGeometry args={[0.33, 0.3, 0.3, 14]} /><Mat cor="#ffffff" /></mesh>
+                {[[-0.15, 0.25, 0], [0.15, 0.25, 0], [0, 0.3, 0.12], [0, 0.3, -0.12], [0, 0.36, 0]].map((q, i) => (<mesh key={i} position={q as V3}><sphereGeometry args={[0.2, 10, 8]} /><Mat cor="#ffffff" /></mesh>))}
+              </group>
+            ) : capacete ? (
               <>
                 <mesh position={[0, 0.12, 0]} castShadow><sphereGeometry args={[0.39, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2]} /><Mat cor={capacete} /></mesh>
                 <mesh position={[0, 0.12, 0.08]}><cylinderGeometry args={[0.46, 0.46, 0.04, 16]} /><Mat cor={capacete} /></mesh>
