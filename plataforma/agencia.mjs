@@ -14,6 +14,8 @@ import * as ESC from './lib/escritorio.mjs';
 const args = process.argv.slice(2);
 const arg = (k) => (args.includes(k) ? args[args.indexOf(k) + 1] : undefined);
 const SECO = args.includes('--seco');
+// --voz-teste: narração grátis (edge-tts, pt-BR-AntonioNeural) para pilotos e testes; os créditos do ElevenLabs ficam para a produção
+const VOZ_TESTE = args.includes('--voz-teste') || env().NARRACAO_MODO === 'teste';
 const E = env();
 const MAX = Number(arg('--max') ?? E.AGENCIA_MAX_POR_PERFIL ?? 1);
 const LIMITE_MIN = Number(E.AGENCIA_LIMITE_MINUTOS ?? 120); // tempo máximo de um vídeo no Claude
@@ -146,7 +148,15 @@ async function produzir(p, tema, pautaMotivo) {
     passo('narracao');
     const tim = path.join(RAIZ, `public/audio/${id}/timings.json`);
     const jaNarrado = fs.existsSync(tim) && !JSON.parse(fs.readFileSync(tim, 'utf8')).estimado;
-    if (!jaNarrado) {
+    if (!jaNarrado && VOZ_TESTE) {
+      const py = fs.existsSync(path.join(RAIZ, '.venv/bin/python')) ? '.venv/bin/python' : 'python3';
+      await rodar(py, ['tools/tts.py', `roteiros/${id}.json`], {nome: `video-${id}`});
+      const pa = path.join(RAIZ, `public/audio/${id}`);
+      fs.rmSync(pa + '-original', {recursive: true, force: true});
+      fs.renameSync(pa, pa + '-original');
+      await rodar('python3', ['tools/acelerar.py', `${id}-original`, id, '1.15'], {nome: `video-${id}`});
+      salvarItem({id, voz: 'teste (grátis)'});
+    } else if (!jaNarrado) {
       if (!E.ELEVENLABS_API_KEY) throw new Error('falta ELEVENLABS_API_KEY no .env');
       if (E.ELEVENLABS_VOZ) {
         // a voz escolhida no painel vale para todos os vídeos (a do Fernando por padrão)
