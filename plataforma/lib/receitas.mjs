@@ -125,7 +125,7 @@ function paginaReceita(r, ctx) {
   const ings = r.i.filter((x) => !x.startsWith('## '));
   const desc = `${r.in.split(/(?<=\.)\s/)[0]} ${tempoTxt(r.total)}, ${DIFS[r.d].toLowerCase()}, rende ${r.r}.`.slice(0, 158);
   const titulo = `${r.t}: receita fácil passo a passo | Receitas do Zé`;
-  const utens = r.u.length ? r.u : ['panela'];
+  const utens = r.u;
   const faq = [
     [`Quanto tempo leva ${r.t.toLowerCase()}?`, `São cerca de ${tempoTxt(r.tp)} de preparo${r.tc ? ` e ${tempoTxt(r.tc)} no fogo ou no forno` : ''}${r.tg ? `, ${r.tg}` : ''}. No total, ${tempoTxt(r.total)}${r.tg ? ` ${r.tg}` : ''}.`],
     [`Quanto rende essa receita?`, `Rende ${r.r}. Para dobrar, use o dobro de todos os ingredientes${r.u.includes('forno') || r.u.includes('air fryer') ? ' e asse em duas levas ou em uma forma maior, conferindo o ponto antes do tempo acabar' : ' e uma panela maior'}.`],
@@ -177,7 +177,7 @@ ${ctaGrupos(cfg, true)}
 <p class="nota">Marque o que você já tem em casa. O que ficar sem marcar vai para a sua lista de compras.</p>
 ${grupoAberto || r.i[0].startsWith('## ') ? '' : '<ul class="ing">'}${ingHtml}</ul>
 <button class="bt lista" type="button" data-lista>🛒 Mandar o que falta para a lista de compras</button>
-<p class="ut">🍳 Você vai usar: ${utens.map(esc).join(', ')}.</p>
+<p class="ut">🍳 ${utens.length ? `Você vai usar: ${utens.map(esc).join(', ')}.` : 'Não precisa de fogão: só tigela, faca e colher.'}</p>
 </section>
 <section class="bloco" id="modo-de-preparo"><h2>Modo de preparo</h2>
 <ol class="passos">${r.p.map((p) => `<li id="passo-${++passoN}">${esc(p)}</li>`).join('')}</ol>
