@@ -9,6 +9,7 @@
 //   META_<PERFIL>_IG_ID            id da conta profissional do Instagram
 import fs from 'node:fs';
 import {env} from './dados.mjs';
+import {hospedar, remover} from './hospedar.mjs';
 
 const V = () => env().META_GRAPH_VERSION || 'v22.0';
 const G = (p) => `https://graph.facebook.com/${V()}${p}`;
@@ -70,17 +71,25 @@ const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
 export async function publicarInstagram(perfil, arquivo, legenda, capaMs) {
   const c = credenciais(perfil);
   if (!c.ig || !c.token) throw new Error(`Instagram de "${perfil}" não está conectado.`);
-  const params = {media_type: 'REELS', upload_type: 'resumable', caption: legenda, share_to_feed: 'true', access_token: c.token};
-  if (capaMs != null) params.thumb_offset = String(capaMs);
-  const cont = await graph('POST', `/${c.ig}/media`, params);
-  await enviarArquivo(cont.uri ?? `https://rupload.facebook.com/ig-api-upload/${V()}/${cont.id}`, c.token, arquivo);
-  for (let i = 0; i < 60; i++) {
-    const s = await graph('GET', `/${cont.id}`, {fields: 'status_code,status', access_token: c.token});
-    if (s.status_code === 'FINISHED') break;
-    if (s.status_code === 'ERROR' || s.status_code === 'EXPIRED') throw new Error(`Instagram recusou o vídeo: ${s.status}`);
-    await esperar(10000);
+  // o vídeo fica alguns minutos num endereço público da VPS para a Meta baixar, e é apagado em seguida
+  const h = await hospedar(arquivo);
+  let pub;
+  try {
+    const params = {media_type: 'REELS', video_url: h.url, caption: legenda, share_to_feed: 'true', access_token: c.token};
+    if (capaMs != null) params.thumb_offset = String(capaMs);
+    const cont = await graph('POST', `/${c.ig}/media`, params);
+    let pronto = false;
+    for (let i = 0; i < 60; i++) {
+      const s = await graph('GET', `/${cont.id}`, {fields: 'status_code,status', access_token: c.token});
+      if (s.status_code === 'FINISHED') { pronto = true; break; }
+      if (s.status_code === 'ERROR' || s.status_code === 'EXPIRED') throw new Error(`Instagram recusou o vídeo: ${s.status}`);
+      await esperar(10000);
+    }
+    if (!pronto) throw new Error('Instagram demorou mais de 10 min para processar o vídeo');
+    pub = await graph('POST', `/${c.ig}/media_publish`, {creation_id: cont.id, access_token: c.token});
+  } finally {
+    await remover(h.nome);
   }
-  const pub = await graph('POST', `/${c.ig}/media_publish`, {creation_id: cont.id, access_token: c.token});
   const info = await graph('GET', `/${pub.id}`, {fields: 'permalink', access_token: c.token}).catch(() => ({}));
   return {id: pub.id, link: info.permalink};
 }
@@ -89,7 +98,15 @@ export async function publicarFacebook(perfil, arquivo, legenda) {
   const c = credenciais(perfil);
   if (!c.page || !c.pageToken) throw new Error(`Página do Facebook de "${perfil}" não está conectada.`);
   const ini = await graph('POST', `/${c.page}/video_reels`, {upload_phase: 'start', access_token: c.pageToken});
-  await enviarArquivo(ini.upload_url, c.pageToken, arquivo);
+  // mesmo motivo do Instagram: a Meta baixa o arquivo de um endereço público (cabeçalho file_url)
+  const h = await hospedar(arquivo);
+  try {
+    const r = await fetch(ini.upload_url, {method: 'POST', headers: {Authorization: `OAuth ${c.pageToken}`, file_url: h.url}});
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || j.error || j.success === false) throw new Error(`upload: ${j.error?.message ?? j.debug_info?.message ?? r.status}`);
+  } finally {
+    await remover(h.nome);
+  }
   await graph('POST', `/${c.page}/video_reels`, {
     upload_phase: 'finish',
     video_id: ini.video_id,
