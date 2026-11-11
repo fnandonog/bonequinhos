@@ -45,7 +45,7 @@ async function shortsDoNicho(p, dias) {
         views_por_dia: Math.round(views / idadeDias),
         // só Shorts em português (a busca do YouTube mistura outros idiomas)
         pt: /^pt/i.test(x.snippet.defaultAudioLanguage || x.snippet.defaultLanguage || '') ||
-          /[ãõç]|\b(você|voce|não|como|quanto|receita|casa|dinheiro|história|caso|vale)\b/i.test(x.snippet.title),
+          /[ãõ]|ção|ções|\b(você|voce|não|quanto|receita|dinheiro|história|sua|seu|pra)\b/i.test(x.snippet.title),
       };
     })
     .filter((x) => x.duracao_s <= 180 && x.pt)
