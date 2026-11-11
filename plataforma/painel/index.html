@@ -201,6 +201,7 @@ function telaConfig() {
     ${campo('NARRACAO_VELOCIDADE', 'Velocidade da narração', '1.3')}
     ${campo('AGENCIA_MODELO', 'Modelo do Claude (vazio = padrão)', '')}
     ${campo('ELEVENLABS_VOZ', 'Voz do ElevenLabs (id)', '5Ny27k6jpd2wJTdmbFsb = Fernando')}
+    <label>Agentes do escritório (pautas, tendências, comentários, horários)</label><select id="cfg-AGENTES_LIGADOS"><option value="0">Desligados</option><option value="1" ${c.AGENTES_LIGADOS === '1' ? 'selected' : ''}>Ligados (cada um no seu horário)</option></select>
     <label>Produção automática (todo dia às 02:00)</label><select id="cfg-PRODUCAO_AUTOMATICA"><option value="0">Desligada (só quando eu mandar)</option><option value="1" ${c.PRODUCAO_AUTOMATICA === '1' ? 'selected' : ''}>Ligada</option></select>
     <label>Publicação</label><select id="cfg-AUTO_PUBLICAR"><option value="0" ${c.AUTO_PUBLICAR !== '1' ? 'selected' : ''}>Esperar minha aprovação</option><option value="1" ${c.AUTO_PUBLICAR === '1' ? 'selected' : ''}>Publicar sozinho no horário do perfil</option></select>
     <label>Postar também como Reels na Página do Facebook</label><select id="cfg-META_POSTAR_FACEBOOK"><option value="0">Não</option><option value="1" ${c.META_POSTAR_FACEBOOK === '1' ? 'selected' : ''}>Sim</option></select>

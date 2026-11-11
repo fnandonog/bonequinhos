@@ -27,6 +27,7 @@ let agencia = null; // processo da agência disparado pelo painel
 function estado() {
   const e = D.env();
   const config = Object.fromEntries(CONFIG_VISIVEL.map((k) => [k, SEGREDOS.includes(k) ? D.mascarar(e[k]) : e[k] ?? '']));
+  try { config.AGENTES_LIGADOS = JSON.parse(fs.readFileSync(path.join(D.PLAT, 'escritorio/tools/agencia.json'), 'utf8')).enabled ? '1' : '0'; } catch {}
   const perfis = D.perfis().map((p) => {
     const c = credenciais(p.id);
     const pt = D.pautas(p.id).pautas;
@@ -129,6 +130,13 @@ async function api(metodo, partes, req) {
   if (recurso === 'config') {
     const ok = Object.fromEntries(Object.entries(b).filter(([k, v]) => CONFIG_VISIVEL.includes(k) && !String(v).includes('••••')));
     D.salvarEnv(ok);
+    // interruptor geral dos agentes do escritório (plataforma/escritorio/tools/agencia.json)
+    if (b.AGENTES_LIGADOS != null) {
+      const f = path.join(D.PLAT, 'escritorio/tools/agencia.json');
+      const cfg = JSON.parse(fs.readFileSync(f, 'utf8'));
+      cfg.enabled = b.AGENTES_LIGADOS === '1';
+      fs.writeFileSync(f, JSON.stringify(cfg, null, 2));
+    }
     return estado().config;
   }
   if (recurso === 'meta' && id === 'descobrir') {
