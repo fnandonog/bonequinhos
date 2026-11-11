@@ -10,6 +10,8 @@ import roteiroGladiador from '../roteiros/um-dia-como-gladiador-em-roma.json';
 import timingsGladiador from '../public/audio/um-dia-como-gladiador-em-roma/timings.json';
 import roteiroBolo from '../roteiros/bolo-cenoura.json';
 import timingsBolo from '../public/audio/bolo-cenoura/timings.json';
+import roteiroBrownie from '../roteiros/brownie-facil.json';
+import timingsBrownie from '../public/audio/brownie-facil/timings.json';
 import roteiroCasa from '../roteiros/casa-50m2.json';
 import timingsCasa from '../public/audio/casa-50m2/timings.json';
 import roteiroEdicula from '../roteiros/edicula-com-churrasqueira.json';
@@ -44,6 +46,8 @@ export const Root: React.FC = () => {
         defaultProps={{roteiro: roteiroEdicula as unknown as RoteiroObra, timings: timingsEdicula as Timings, comAudio: !(timingsEdicula as Timings).estimado}} />
       <Composition id="bolo-cenoura" component={Receita} durationInFrames={total(timingsBolo as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroBolo as unknown as RoteiroReceita, timings: timingsBolo as Timings, comAudio: !(timingsBolo as Timings).estimado}} />
+      <Composition id="brownie-facil" component={Receita} durationInFrames={total(timingsBrownie as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroBrownie as unknown as RoteiroReceita, timings: timingsBrownie as Timings, comAudio: !(timingsBrownie as Timings).estimado}} />
       <Composition id="um-dia-como-gladiador-em-roma" component={Historia} durationInFrames={total(timingsGladiador as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroGladiador as unknown as RoteiroHistoria, timings: timingsGladiador as Timings, comAudio: !(timingsGladiador as Timings).estimado}} />
     </>

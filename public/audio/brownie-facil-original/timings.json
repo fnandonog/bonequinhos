@@ -1,0 +1,1058 @@
+{
+  "id": "brownie-facil",
+  "voz": "elevenlabs:fhtZMBwha5du5OxuvexO:eleven_multilingual_v2",
+  "cenas": [
+    {
+      "id": "c1",
+      "duracao": 7.169546,
+      "palavras": [
+        {
+          "palavra": "Sabe",
+          "inicio": 0.0,
+          "fim": 0.302
+        },
+        {
+          "palavra": "a",
+          "inicio": 0.325,
+          "fim": 0.348
+        },
+        {
+          "palavra": "casquinha",
+          "inicio": 0.383,
+          "fim": 0.836
+        },
+        {
+          "palavra": "brilhante",
+          "inicio": 0.871,
+          "fim": 1.37
+        },
+        {
+          "palavra": "do",
+          "inicio": 1.405,
+          "fim": 1.474
+        },
+        {
+          "palavra": "brownie",
+          "inicio": 1.521,
+          "fim": 1.776
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.811,
+          "fim": 1.881
+        },
+        {
+          "palavra": "padaria",
+          "inicio": 1.916,
+          "fim": 2.566
+        },
+        {
+          "palavra": "O",
+          "inicio": 3.007,
+          "fim": 3.088
+        },
+        {
+          "palavra": "segredo",
+          "inicio": 3.17,
+          "fim": 3.599
+        },
+        {
+          "palavra": "não",
+          "inicio": 3.634,
+          "fim": 3.75
+        },
+        {
+          "palavra": "tá",
+          "inicio": 3.785,
+          "fim": 3.855
+        },
+        {
+          "palavra": "no",
+          "inicio": 3.901,
+          "fim": 3.947
+        },
+        {
+          "palavra": "chocolate",
+          "inicio": 3.982,
+          "fim": 4.76
+        },
+        {
+          "palavra": "Tá",
+          "inicio": 4.969,
+          "fim": 5.085
+        },
+        {
+          "palavra": "no",
+          "inicio": 5.132,
+          "fim": 5.201
+        },
+        {
+          "palavra": "jeito",
+          "inicio": 5.271,
+          "fim": 5.526
+        },
+        {
+          "palavra": "de",
+          "inicio": 5.561,
+          "fim": 5.631
+        },
+        {
+          "palavra": "bater",
+          "inicio": 5.677,
+          "fim": 5.968
+        },
+        {
+          "palavra": "o",
+          "inicio": 6.002,
+          "fim": 6.049
+        },
+        {
+          "palavra": "ovo",
+          "inicio": 6.107,
+          "fim": 6.92
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "duracao": 6.983787,
+      "palavras": [
+        {
+          "palavra": "Liga",
+          "inicio": 0.0,
+          "fim": 0.244
+        },
+        {
+          "palavra": "o",
+          "inicio": 0.267,
+          "fim": 0.29
+        },
+        {
+          "palavra": "forno",
+          "inicio": 0.372,
+          "fim": 0.697
+        },
+        {
+          "palavra": "em",
+          "inicio": 0.72,
+          "fim": 0.778
+        },
+        {
+          "palavra": "cento",
+          "inicio": 0.824,
+          "fim": 1.08
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.103,
+          "fim": 1.126
+        },
+        {
+          "palavra": "oitenta",
+          "inicio": 1.149,
+          "fim": 1.486
+        },
+        {
+          "palavra": "graus",
+          "inicio": 1.533,
+          "fim": 1.834
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.078,
+          "fim": 2.194
+        },
+        {
+          "palavra": "forra",
+          "inicio": 2.345,
+          "fim": 2.705
+        },
+        {
+          "palavra": "uma",
+          "inicio": 2.728,
+          "fim": 2.844
+        },
+        {
+          "palavra": "forma",
+          "inicio": 2.902,
+          "fim": 3.17
+        },
+        {
+          "palavra": "quadrada",
+          "inicio": 3.216,
+          "fim": 3.808
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.843,
+          "fim": 3.913
+        },
+        {
+          "palavra": "vinte",
+          "inicio": 4.029,
+          "fim": 4.4
+        },
+        {
+          "palavra": "centímetros",
+          "inicio": 4.435,
+          "fim": 5.178
+        },
+        {
+          "palavra": "com",
+          "inicio": 5.329,
+          "fim": 5.457
+        },
+        {
+          "palavra": "papel-manteiga",
+          "inicio": 5.492,
+          "fim": 6.734
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "duracao": 6.426508,
+      "palavras": [
+        {
+          "palavra": "Derrete",
+          "inicio": 0.0,
+          "fim": 0.488
+        },
+        {
+          "palavra": "duzentos",
+          "inicio": 0.534,
+          "fim": 1.068
+        },
+        {
+          "palavra": "gramas",
+          "inicio": 1.115,
+          "fim": 1.393
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.428,
+          "fim": 1.474
+        },
+        {
+          "palavra": "chocolate",
+          "inicio": 1.521,
+          "fim": 2.043
+        },
+        {
+          "palavra": "meio",
+          "inicio": 2.113,
+          "fim": 2.334
+        },
+        {
+          "palavra": "amargo",
+          "inicio": 2.368,
+          "fim": 2.81
+        },
+        {
+          "palavra": "com",
+          "inicio": 3.146,
+          "fim": 3.367
+        },
+        {
+          "palavra": "cento",
+          "inicio": 3.471,
+          "fim": 3.831
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.855,
+          "fim": 3.878
+        },
+        {
+          "palavra": "cinquenta",
+          "inicio": 3.913,
+          "fim": 4.319
+        },
+        {
+          "palavra": "de",
+          "inicio": 4.354,
+          "fim": 4.423
+        },
+        {
+          "palavra": "manteiga",
+          "inicio": 4.47,
+          "fim": 4.934
+        },
+        {
+          "palavra": "em",
+          "inicio": 4.957,
+          "fim": 5.074
+        },
+        {
+          "palavra": "banho-maria",
+          "inicio": 5.132,
+          "fim": 6.177
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "duracao": 7.633946,
+      "palavras": [
+        {
+          "palavra": "Agora",
+          "inicio": 0.0,
+          "fim": 0.337
+        },
+        {
+          "palavra": "o",
+          "inicio": 0.36,
+          "fim": 0.383
+        },
+        {
+          "palavra": "segredo",
+          "inicio": 0.441,
+          "fim": 1.033
+        },
+        {
+          "palavra": "três",
+          "inicio": 1.277,
+          "fim": 1.579
+        },
+        {
+          "palavra": "ovos",
+          "inicio": 1.683,
+          "fim": 1.962
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.02,
+          "fim": 2.043
+        },
+        {
+          "palavra": "uma",
+          "inicio": 2.09,
+          "fim": 2.229
+        },
+        {
+          "palavra": "xícara",
+          "inicio": 2.31,
+          "fim": 2.682
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.74,
+          "fim": 2.81
+        },
+        {
+          "palavra": "meia",
+          "inicio": 2.879,
+          "fim": 3.065
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.1,
+          "fim": 3.158
+        },
+        {
+          "palavra": "açúcar",
+          "inicio": 3.193,
+          "fim": 3.796
+        },
+        {
+          "palavra": "Bate",
+          "inicio": 4.133,
+          "fim": 4.412
+        },
+        {
+          "palavra": "uns",
+          "inicio": 4.447,
+          "fim": 4.54
+        },
+        {
+          "palavra": "três",
+          "inicio": 4.586,
+          "fim": 4.795
+        },
+        {
+          "palavra": "minutos",
+          "inicio": 4.841,
+          "fim": 5.271
+        },
+        {
+          "palavra": "até",
+          "inicio": 5.306,
+          "fim": 5.526
+        },
+        {
+          "palavra": "virar",
+          "inicio": 5.584,
+          "fim": 5.782
+        },
+        {
+          "palavra": "um",
+          "inicio": 5.805,
+          "fim": 5.851
+        },
+        {
+          "palavra": "creme",
+          "inicio": 5.898,
+          "fim": 6.118
+        },
+        {
+          "palavra": "claro",
+          "inicio": 6.153,
+          "fim": 6.467
+        },
+        {
+          "palavra": "e",
+          "inicio": 6.49,
+          "fim": 6.513
+        },
+        {
+          "palavra": "grosso",
+          "inicio": 6.56,
+          "fim": 7.384
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "duracao": 3.872313,
+      "palavras": [
+        {
+          "palavra": "É",
+          "inicio": 0.0,
+          "fim": 0.07
+        },
+        {
+          "palavra": "esse",
+          "inicio": 0.151,
+          "fim": 0.337
+        },
+        {
+          "palavra": "creme",
+          "inicio": 0.372,
+          "fim": 0.685
+        },
+        {
+          "palavra": "que",
+          "inicio": 0.72,
+          "fim": 0.801
+        },
+        {
+          "palavra": "sobe",
+          "inicio": 0.859,
+          "fim": 1.091
+        },
+        {
+          "palavra": "no",
+          "inicio": 1.126,
+          "fim": 1.196
+        },
+        {
+          "palavra": "forno",
+          "inicio": 1.277,
+          "fim": 1.66
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.707,
+          "fim": 1.753
+        },
+        {
+          "palavra": "vira",
+          "inicio": 1.788,
+          "fim": 1.939
+        },
+        {
+          "palavra": "a",
+          "inicio": 1.962,
+          "fim": 1.985
+        },
+        {
+          "palavra": "casquinha",
+          "inicio": 2.032,
+          "fim": 2.566
+        },
+        {
+          "palavra": "brilhante",
+          "inicio": 2.601,
+          "fim": 3.622
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "duracao": 9.305782,
+      "palavras": [
+        {
+          "palavra": "Junta",
+          "inicio": 0.0,
+          "fim": 0.395
+        },
+        {
+          "palavra": "o",
+          "inicio": 0.418,
+          "fim": 0.441
+        },
+        {
+          "palavra": "chocolate",
+          "inicio": 0.476,
+          "fim": 0.998
+        },
+        {
+          "palavra": "derretido",
+          "inicio": 1.033,
+          "fim": 1.834
+        },
+        {
+          "palavra": "mexendo",
+          "inicio": 1.985,
+          "fim": 2.45
+        },
+        {
+          "palavra": "devagar",
+          "inicio": 2.496,
+          "fim": 3.216
+        },
+        {
+          "palavra": "Depois",
+          "inicio": 3.553,
+          "fim": 4.168
+        },
+        {
+          "palavra": "três",
+          "inicio": 4.272,
+          "fim": 4.574
+        },
+        {
+          "palavra": "quartos",
+          "inicio": 4.632,
+          "fim": 4.946
+        },
+        {
+          "palavra": "de",
+          "inicio": 4.981,
+          "fim": 5.062
+        },
+        {
+          "palavra": "xícara",
+          "inicio": 5.132,
+          "fim": 5.445
+        },
+        {
+          "palavra": "de",
+          "inicio": 5.48,
+          "fim": 5.55
+        },
+        {
+          "palavra": "farinha",
+          "inicio": 5.596,
+          "fim": 6.223
+        },
+        {
+          "palavra": "duas",
+          "inicio": 6.351,
+          "fim": 6.594
+        },
+        {
+          "palavra": "colheres",
+          "inicio": 6.641,
+          "fim": 6.978
+        },
+        {
+          "palavra": "de",
+          "inicio": 7.012,
+          "fim": 7.07
+        },
+        {
+          "palavra": "cacau",
+          "inicio": 7.105,
+          "fim": 7.488
+        },
+        {
+          "palavra": "e",
+          "inicio": 7.535,
+          "fim": 7.57
+        },
+        {
+          "palavra": "uma",
+          "inicio": 7.605,
+          "fim": 7.721
+        },
+        {
+          "palavra": "pitada",
+          "inicio": 7.755,
+          "fim": 8.104
+        },
+        {
+          "palavra": "de",
+          "inicio": 8.15,
+          "fim": 8.231
+        },
+        {
+          "palavra": "sal",
+          "inicio": 8.301,
+          "fim": 9.056
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "duracao": 5.45127,
+      "palavras": [
+        {
+          "palavra": "Mistura",
+          "inicio": 0.0,
+          "fim": 0.476
+        },
+        {
+          "palavra": "só",
+          "inicio": 0.546,
+          "fim": 0.801
+        },
+        {
+          "palavra": "até",
+          "inicio": 0.836,
+          "fim": 0.998
+        },
+        {
+          "palavra": "sumir",
+          "inicio": 1.057,
+          "fim": 1.312
+        },
+        {
+          "palavra": "a",
+          "inicio": 1.347,
+          "fim": 1.37
+        },
+        {
+          "palavra": "farinha",
+          "inicio": 1.416,
+          "fim": 1.904
+        },
+        {
+          "palavra": "Bater",
+          "inicio": 2.345,
+          "fim": 2.705
+        },
+        {
+          "palavra": "demais",
+          "inicio": 2.752,
+          "fim": 3.158
+        },
+        {
+          "palavra": "deixa",
+          "inicio": 3.204,
+          "fim": 3.425
+        },
+        {
+          "palavra": "o",
+          "inicio": 3.448,
+          "fim": 3.471
+        },
+        {
+          "palavra": "brownie",
+          "inicio": 3.518,
+          "fim": 3.831
+        },
+        {
+          "palavra": "com",
+          "inicio": 3.866,
+          "fim": 3.971
+        },
+        {
+          "palavra": "cara",
+          "inicio": 4.005,
+          "fim": 4.18
+        },
+        {
+          "palavra": "de",
+          "inicio": 4.214,
+          "fim": 4.284
+        },
+        {
+          "palavra": "bolo",
+          "inicio": 4.342,
+          "fim": 5.201
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "duracao": 3.732993,
+      "palavras": [
+        {
+          "palavra": "Massa",
+          "inicio": 0.0,
+          "fim": 0.383
+        },
+        {
+          "palavra": "na",
+          "inicio": 0.418,
+          "fim": 0.488
+        },
+        {
+          "palavra": "forma",
+          "inicio": 0.569,
+          "fim": 0.917
+        },
+        {
+          "palavra": "e",
+          "inicio": 0.987,
+          "fim": 1.045
+        },
+        {
+          "palavra": "vinte",
+          "inicio": 1.115,
+          "fim": 1.382
+        },
+        {
+          "palavra": "a",
+          "inicio": 1.416,
+          "fim": 1.44
+        },
+        {
+          "palavra": "vinte",
+          "inicio": 1.498,
+          "fim": 1.73
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.753,
+          "fim": 1.776
+        },
+        {
+          "palavra": "cinco",
+          "inicio": 1.811,
+          "fim": 2.09
+        },
+        {
+          "palavra": "minutos",
+          "inicio": 2.125,
+          "fim": 2.485
+        },
+        {
+          "palavra": "no",
+          "inicio": 2.543,
+          "fim": 2.612
+        },
+        {
+          "palavra": "forno",
+          "inicio": 2.682,
+          "fim": 3.483
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "duracao": 9.491542,
+      "palavras": [
+        {
+          "palavra": "E",
+          "inicio": 0.0,
+          "fim": 0.093
+        },
+        {
+          "palavra": "aqui",
+          "inicio": 0.163,
+          "fim": 0.372
+        },
+        {
+          "palavra": "quase",
+          "inicio": 0.476,
+          "fim": 0.801
+        },
+        {
+          "palavra": "todo",
+          "inicio": 0.929,
+          "fim": 1.242
+        },
+        {
+          "palavra": "mundo",
+          "inicio": 1.277,
+          "fim": 1.498
+        },
+        {
+          "palavra": "erra",
+          "inicio": 1.556,
+          "fim": 1.927
+        },
+        {
+          "palavra": "o",
+          "inicio": 2.264,
+          "fim": 2.322
+        },
+        {
+          "palavra": "palito",
+          "inicio": 2.38,
+          "fim": 2.694
+        },
+        {
+          "palavra": "não",
+          "inicio": 2.728,
+          "fim": 2.833
+        },
+        {
+          "palavra": "pode",
+          "inicio": 2.868,
+          "fim": 3.111
+        },
+        {
+          "palavra": "sair",
+          "inicio": 3.158,
+          "fim": 3.367
+        },
+        {
+          "palavra": "limpo",
+          "inicio": 3.402,
+          "fim": 3.843
+        },
+        {
+          "palavra": "Tem",
+          "inicio": 4.18,
+          "fim": 4.331
+        },
+        {
+          "palavra": "que",
+          "inicio": 4.365,
+          "fim": 4.447
+        },
+        {
+          "palavra": "sair",
+          "inicio": 4.481,
+          "fim": 4.714
+        },
+        {
+          "palavra": "com",
+          "inicio": 4.76,
+          "fim": 4.876
+        },
+        {
+          "palavra": "migalhas",
+          "inicio": 4.899,
+          "fim": 5.259
+        },
+        {
+          "palavra": "úmidas",
+          "inicio": 5.364,
+          "fim": 5.886
+        },
+        {
+          "palavra": "Saiu",
+          "inicio": 6.223,
+          "fim": 6.536
+        },
+        {
+          "palavra": "limpo",
+          "inicio": 6.606,
+          "fim": 7.117
+        },
+        {
+          "palavra": "Passou",
+          "inicio": 7.454,
+          "fim": 7.779
+        },
+        {
+          "palavra": "do",
+          "inicio": 7.825,
+          "fim": 7.895
+        },
+        {
+          "palavra": "ponto",
+          "inicio": 7.953,
+          "fim": 8.243
+        },
+        {
+          "palavra": "e",
+          "inicio": 8.266,
+          "fim": 8.29
+        },
+        {
+          "palavra": "fica",
+          "inicio": 8.324,
+          "fim": 8.522
+        },
+        {
+          "palavra": "seco",
+          "inicio": 8.58,
+          "fim": 9.242
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "duracao": 4.243831999999999,
+      "palavras": [
+        {
+          "palavra": "Espera",
+          "inicio": 0.0,
+          "fim": 0.36
+        },
+        {
+          "palavra": "meia",
+          "inicio": 0.395,
+          "fim": 0.569
+        },
+        {
+          "palavra": "hora",
+          "inicio": 0.65,
+          "fim": 0.917
+        },
+        {
+          "palavra": "antes",
+          "inicio": 0.952,
+          "fim": 1.231
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.254,
+          "fim": 1.312
+        },
+        {
+          "palavra": "cortar",
+          "inicio": 1.358,
+          "fim": 1.718
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.765,
+          "fim": 1.846
+        },
+        {
+          "palavra": "corta",
+          "inicio": 1.916,
+          "fim": 2.159
+        },
+        {
+          "palavra": "em",
+          "inicio": 2.183,
+          "fim": 2.241
+        },
+        {
+          "palavra": "dezesseis",
+          "inicio": 2.276,
+          "fim": 2.844
+        },
+        {
+          "palavra": "quadradinhos",
+          "inicio": 2.891,
+          "fim": 3.994
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "duracao": 5.49771,
+      "palavras": [
+        {
+          "palavra": "Pronto",
+          "inicio": 0.0,
+          "fim": 0.546
+        },
+        {
+          "palavra": "brownie",
+          "inicio": 0.731,
+          "fim": 1.057
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.091,
+          "fim": 1.149
+        },
+        {
+          "palavra": "padaria",
+          "inicio": 1.184,
+          "fim": 1.8
+        },
+        {
+          "palavra": "Você",
+          "inicio": 2.183,
+          "fim": 2.403
+        },
+        {
+          "palavra": "é",
+          "inicio": 2.438,
+          "fim": 2.461
+        },
+        {
+          "palavra": "time",
+          "inicio": 2.496,
+          "fim": 2.694
+        },
+        {
+          "palavra": "casquinha",
+          "inicio": 2.728,
+          "fim": 3.379
+        },
+        {
+          "palavra": "ou",
+          "inicio": 3.46,
+          "fim": 3.553
+        },
+        {
+          "palavra": "time",
+          "inicio": 3.587,
+          "fim": 3.808
+        },
+        {
+          "palavra": "miolo",
+          "inicio": 3.843,
+          "fim": 4.168
+        },
+        {
+          "palavra": "molhadinho",
+          "inicio": 4.203,
+          "fim": 5.248
+        }
+      ]
+    },
+    {
+      "id": "c12",
+      "duracao": 4.197392,
+      "palavras": [
+        {
+          "palavra": "Receita",
+          "inicio": 0.0,
+          "fim": 0.488
+        },
+        {
+          "palavra": "completa",
+          "inicio": 0.534,
+          "fim": 1.196
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.242,
+          "fim": 1.289
+        },
+        {
+          "palavra": "utensílios",
+          "inicio": 1.312,
+          "fim": 1.823
+        },
+        {
+          "palavra": "em",
+          "inicio": 1.881,
+          "fim": 1.939
+        },
+        {
+          "palavra": "oferta",
+          "inicio": 1.997,
+          "fim": 2.612
+        },
+        {
+          "palavra": "link",
+          "inicio": 2.949,
+          "fim": 3.181
+        },
+        {
+          "palavra": "na",
+          "inicio": 3.286,
+          "fim": 3.367
+        },
+        {
+          "palavra": "bio",
+          "inicio": 3.425,
+          "fim": 3.947
+        }
+      ]
+    }
+  ]
+}

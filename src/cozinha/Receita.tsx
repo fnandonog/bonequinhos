@@ -15,7 +15,9 @@ const TINTA = '#16151c';
 export type Card = {rotulo: string; valor?: string; num?: number; prefixo?: string; sufixo?: string; sub?: string; cor?: string};
 export type Plano = {set: string; cam: string | Cam; apartir?: number; p?: [number, number]; card?: Card};
 export type CenaReceita = {id: string; texto: string; etapa?: string; chip?: string; cta?: boolean; destaques?: string[]; planos: Plano[]};
-export type RoteiroReceita = {id: string; titulo: string; linha2?: string; site?: string; cenas: CenaReceita[]};
+// cta (opcional): troca o texto da chamada final; sem ele fica o padrão do bolo (site + botão do Telegram)
+export type CtaReceita = {titulo?: string; texto?: string; botao?: string | null};
+export type RoteiroReceita = {id: string; titulo: string; linha2?: string; site?: string; cta?: CtaReceita; cenas: CenaReceita[]};
 export type ReceitaProps = {roteiro: RoteiroReceita; timings: Timings; comAudio: boolean};
 
 type PlanoT = Plano & {de: number; ate: number; cena: number; cam: Cam};
@@ -126,19 +128,22 @@ const Topo: React.FC<{m: ReturnType<typeof montar>; f: number; i: number}> = ({m
 };
 
 // chamada final: site + botão do Telegram
-const CTA: React.FC<{site: string; df: number}> = ({site, df}) => {
+const CTA: React.FC<{site: string; df: number; cta?: CtaReceita}> = ({site, df, cta}) => {
+  const botao = cta?.botao === undefined ? '✈ 5 receitas por dia no Telegram' : cta.botao;
   const a = spring({frame: df - 4, fps: FPS, config: {damping: 12, stiffness: 150}});
   const b = spring({frame: df - 22, fps: FPS, config: {damping: 10, stiffness: 160}});
   const pulsa = 1 + Math.sin(df / 5) * 0.03 * b;
   return (
     <div style={{position: 'absolute', left: 60, right: 60, top: 1130, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22}}>
       <div style={{transform: `scale(${a})`, background: '#14213D', borderRadius: 34, padding: '14px 36px 18px', border: '6px solid #ffd23f', textAlign: 'center', boxShadow: '0 16px 40px rgba(0,0,0,0.35)'}}>
-        <div style={{fontFamily: FONTE, fontWeight: 800, fontSize: 40, color: '#ffd23f', letterSpacing: 2}}>LINK NA BIO</div>
-        <div style={{fontFamily: FONTE, fontWeight: 800, fontSize: 58, color: '#ffffff', lineHeight: 1.05}}>{site}</div>
+        <div style={{fontFamily: FONTE, fontWeight: 800, fontSize: 40, color: '#ffd23f', letterSpacing: 2}}>{cta?.titulo ?? 'LINK NA BIO'}</div>
+        <div style={{fontFamily: FONTE, fontWeight: 800, fontSize: 58, color: '#ffffff', lineHeight: 1.05}}>{cta?.texto ?? site}</div>
       </div>
-      <div style={{transform: `scale(${b * pulsa})`, background: '#229ED9', borderRadius: 60, padding: '14px 48px', fontFamily: FONTE, fontWeight: 800, fontSize: 54, color: '#fff', boxShadow: '0 12px 0 #1a7fb0'}}>
-        ✈ 5 receitas por dia no Telegram
-      </div>
+      {botao && (
+        <div style={{transform: `scale(${b * pulsa})`, background: '#229ED9', borderRadius: 60, padding: '14px 48px', fontFamily: FONTE, fontWeight: 800, fontSize: 54, color: '#fff', boxShadow: '0 12px 0 #1a7fb0'}}>
+          {botao}
+        </div>
+      )}
     </div>
   );
 };
@@ -183,7 +188,7 @@ export const Receita: React.FC<ReceitaProps> = ({roteiro, timings, comAudio}) =>
       {icn === 0 && <Titulo titulo={roteiro.titulo} linha2={roteiro.linha2} f={f} />}
       <Palavra cn={m.cenas[icn]} f={f} />
       {pl.card && <CardNumero card={pl.card} df={f - pl.de} dur={dur} />}
-      {m.cenas[icn].c.cta && <CTA site={roteiro.site ?? 'precinhodeouro.com.br/receitas'} df={f - m.cenas[icn].de} />}
+      {m.cenas[icn].c.cta && <CTA site={roteiro.site ?? 'precinhodeouro.com.br/receitas'} df={f - m.cenas[icn].de} cta={roteiro.cta} />}
       {m.cenas.map((cn) => (
         <Sequence key={cn.c.id} from={cn.de} durationInFrames={Math.max(1, cn.ate - cn.de)}>
           {comAudio && <Audio src={staticFile(`audio/${roteiro.id}/${cn.c.id}.mp3`)} />}
