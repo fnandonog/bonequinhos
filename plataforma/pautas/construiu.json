@@ -1,0 +1,45 @@
+{
+  "perfil": "construiu",
+  "pautas": [
+    {
+      "tema": "Kitnet de 25 m² para alugar",
+      "status": "nova"
+    },
+    {
+      "tema": "Sobrado de 100 m²",
+      "status": "nova"
+    },
+    {
+      "tema": "Piscina de fibra 6x3 no quintal",
+      "status": "nova"
+    },
+    {
+      "tema": "Casa de container de 30 m²",
+      "status": "nova"
+    },
+    {
+      "tema": "Edícula com churrasqueira",
+      "status": "nova"
+    },
+    {
+      "tema": "Muro de 30 metros com portão",
+      "status": "nova"
+    },
+    {
+      "tema": "Laje para segundo andar",
+      "status": "nova"
+    },
+    {
+      "tema": "Casa de 70 m² com 3 quartos",
+      "status": "nova"
+    },
+    {
+      "tema": "Garagem coberta para 2 carros",
+      "status": "nova"
+    },
+    {
+      "tema": "Banheiro completo do zero",
+      "status": "nova"
+    }
+  ]
+}

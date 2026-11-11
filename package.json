@@ -6,7 +6,13 @@
   "scripts": {
     "studio": "remotion studio",
     "render": "remotion render src/index.ts",
-    "tts": "python3 tools/tts.py"
+    "tts": "python3 tools/tts.py",
+    "painel": "node plataforma/servidor.mjs",
+    "agencia": "node plataforma/agencia.mjs",
+    "agencia:seco": "node plataforma/agencia.mjs --seco",
+    "postar": "node plataforma/postar.mjs",
+    "agendar": "bash plataforma/launchd/instalar.sh",
+    "desagendar": "bash plataforma/launchd/instalar.sh --remover"
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",

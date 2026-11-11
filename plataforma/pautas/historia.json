@@ -1,0 +1,37 @@
+{
+  "perfil": "historia",
+  "pautas": [
+    {
+      "tema": "Você acorda no Egito construindo uma pirâmide",
+      "status": "nova"
+    },
+    {
+      "tema": "Um dia como gladiador em Roma",
+      "status": "nova"
+    },
+    {
+      "tema": "Você na trincheira da 1ª Guerra",
+      "status": "nova"
+    },
+    {
+      "tema": "Você embarca numa caravela em 1500",
+      "status": "nova"
+    },
+    {
+      "tema": "Você vive em Pompeia no dia da erupção",
+      "status": "nova"
+    },
+    {
+      "tema": "Um dia como samurai no Japão",
+      "status": "nova"
+    },
+    {
+      "tema": "Você no Titanic na noite do naufrágio",
+      "status": "nova"
+    },
+    {
+      "tema": "Você na construção da Muralha da China",
+      "status": "nova"
+    }
+  ]
+}

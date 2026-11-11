@@ -1,0 +1,45 @@
+{
+  "perfil": "cozinha",
+  "pautas": [
+    {
+      "tema": "Bolo de cenoura fofinho",
+      "status": "nova"
+    },
+    {
+      "tema": "Frango na air fryer crocante",
+      "status": "nova"
+    },
+    {
+      "tema": "Pão de queijo de liquidificador",
+      "status": "nova"
+    },
+    {
+      "tema": "Brigadeiro de colher em 5 minutos",
+      "status": "nova"
+    },
+    {
+      "tema": "Arroz soltinho que não gruda",
+      "status": "nova"
+    },
+    {
+      "tema": "Pizza de frigideira",
+      "status": "nova"
+    },
+    {
+      "tema": "Pudim sem forno",
+      "status": "nova"
+    },
+    {
+      "tema": "Batata frita sequinha na air fryer",
+      "status": "nova"
+    },
+    {
+      "tema": "Panqueca americana",
+      "status": "nova"
+    },
+    {
+      "tema": "Strogonoff de frango em 20 minutos",
+      "status": "nova"
+    }
+  ]
+}

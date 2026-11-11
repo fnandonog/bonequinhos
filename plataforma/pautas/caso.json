@@ -1,0 +1,37 @@
+{
+  "perfil": "caso",
+  "pautas": [
+    {
+      "tema": "O mistério do voo MH370",
+      "status": "nova"
+    },
+    {
+      "tema": "O caso do Bandido da Luz Vermelha",
+      "status": "nova"
+    },
+    {
+      "tema": "O maior assalto a banco do Brasil (Fortaleza 2005)",
+      "status": "nova"
+    },
+    {
+      "tema": "O mistério do Triângulo das Bermudas",
+      "status": "nova"
+    },
+    {
+      "tema": "O caso Dyatlov",
+      "status": "nova"
+    },
+    {
+      "tema": "O sequestro do avião D.B. Cooper",
+      "status": "nova"
+    },
+    {
+      "tema": "O mistério do navio Mary Celeste",
+      "status": "nova"
+    },
+    {
+      "tema": "O roubo da Mona Lisa em 1911",
+      "status": "nova"
+    }
+  ]
+}
