@@ -132,6 +132,7 @@ function telaFila() {
       <div class="linha"><img class="av" src="/perfis/avatar-${AVATAR[v.perfil]}.png"><div><b>${esc(v.tema)}</b><div class="mut">${esc(p.nome)} · ${dt(v.criado)}</div></div></div>
       <div class="linha" style="margin:10px 0"><span class="tag ${cor}">${st}</span>
         ${v.status === 'produzindo' ? `<span class="mut">${ETAPA[v.etapa] ?? v.etapa}</span>` : ''}
+        ${v.voz ? `<span class="tag">🎙️ voz de teste</span>` : ''}
         ${v.agendado_para && v.status === 'aprovado' ? `<span class="mut">posta ${dt(v.agendado_para)}</span>` : ''}</div>
       ${v.video ? `<video src="/${v.video}" poster="/${v.capa ?? ''}" controls preload="none" playsinline></video>` : ''}
       ${v.erro ? `<p class="mut" style="color:var(--err)">${esc(v.erro)}</p>` : ''}
