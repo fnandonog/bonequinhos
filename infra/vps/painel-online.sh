@@ -21,7 +21,9 @@ rsync -az -e "ssh -i $KEY -o IdentitiesOnly=yes" infra/vps/Caddyfile "root@$IP:/
 "${SSH[@]}" 'docker rm -f painel-tunel >/dev/null 2>&1 || true
   docker run -d --name painel-tunel --restart unless-stopped --network host alpine/socat:1.8.0.0 \
     TCP-LISTEN:4380,bind=172.19.0.1,fork,reuseaddr TCP:127.0.0.1:4380 >/dev/null
-  docker exec edge-caddy-1 caddy reload --config /etc/caddy/Caddyfile'
+  # o firewall (ufw) só precisa deixar o Caddy (rede edge) falar com o repasse do túnel, nada aberto para a internet
+  command -v ufw >/dev/null && ufw allow from 172.19.0.0/16 to 172.19.0.1 port 4380 proto tcp >/dev/null || true
+  cd /opt/edge && docker compose -p edge restart caddy >/dev/null'
 
 # 2. Mac: túnel SSH sempre ligado (volta sozinho se cair ou se o Mac reiniciar)
 launchctl bootout "gui/$(id -u)/com.bonequinhos.tunel" 2>/dev/null || true
