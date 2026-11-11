@@ -220,7 +220,7 @@ const Baia: React.FC<{t: number; modo: 'drone' | 'corneta' | 'bar'; p: number}> 
       {Array.from({length: 7}).map((_, i) => (<Garrafa key={i} pos={[0.05, 1.085, -1.3 + i * 0.22]} />))}
       {Array.from({length: 4}).map((_, i) => (<CartelaBingo key={'c' + i} pos={[-0.1, 1.09 + i * 0.002, 1.1 + i * 0.01]} rot={[-Math.PI / 2, 0, i * 0.08]} />))}
       {[0, 1].map((i) => (<Caixa key={'e' + i} pos={[1.4, 0.25 + i * 0.5, -0.6]} tam={[0.6, 0.48, 0.4]} cor="#c0563a" />))}
-      <Letreiro pos={[1.7, 2.1, -0.25]} rotY={-Math.PI / 2} larg={1.9} alt={0.7} linhas={['BAR · REFRESCO', 'GANHE UMA CARTELA!']} fundo="#ffd23f" cor="#1d1b26" borda="#1d1b26" dupla />
+      <Letreiro pos={[0.35, 2.25, -0.2]} rotY={-0.56} larg={1.5} alt={0.55} linhas={['BAR · REFRESCO', 'GANHE UMA CARTELA!']} fundo="#ffd23f" cor="#1d1b26" borda="#1d1b26" dupla />
       <Ze pos={[0.85, 0, 0.1]} rotY={-Math.PI / 2} t={t} acao={modo === 'bar' && p > 0.3 ? 'aponta' : 'parado'} />
       {/* clientes: um leva a garrafa e a cartela */}
       <Boneco pos={[-0.8, 0, 0.5]} rotY={Math.PI / 2} t={t} v={PASSANTES_40[2]} esc={0.92} acao="aponta" />
@@ -618,7 +618,7 @@ const Garantia: React.FC<{t: number; p: number; solta?: boolean}> = ({t, p, solt
       {/* o Zé na cabeceira; o homem do fundo garantidor com o contrato */}
       <Ze pos={[-3.3, 0, 0.3]} rotY={Math.PI / 2} t={t} terno mic={false} acao={solta && k > 0.5 ? 'comemora' : 'parado'} />
       <Boneco pos={[1.6, 0, 1.9]} rotY={Math.PI} t={t} v={BANCARIO} esc={0.92} acao={solta ? 'acena' : 'aponta'} />
-      {solta && <Letreiro pos={[-4.4, 1.55, 1.1]} rotY={Math.PI / 2} larg={1.4} alt={0.5} linhas={['DÍVIDA QUITADA']} fundo="#4ade80" cor="#14532d" />}
+      {solta && <Letreiro pos={[-4.36, 2.25, -0.1]} rot={[0.12, Math.PI / 2, 0]} larg={1.9} alt={0.5} linhas={['DÍVIDA QUITADA']} fundo="#4ade80" cor="#14532d" />}
     </group>
   );
 };

@@ -1,151 +1,30 @@
 {
   "id": "o-misterio-do-voo-mh370",
-  "voz": "elevenlabs:cyD08lEy76q03ER1jZ7y:eleven_multilingual_v2",
+  "voz": "elevenlabs:YNOujSUmHtgN6anjqXPf:eleven_multilingual_v2",
   "cenas": [
     {
       "id": "c1",
-      "duracao": 7.633946,
+      "duracao": 8.098345,
       "palavras": [
         {
           "palavra": "Um",
           "inicio": 0.0,
-          "fim": 0.139
+          "fim": 0.116
         },
         {
           "palavra": "avião",
-          "inicio": 0.186,
-          "fim": 0.453
+          "inicio": 0.163,
+          "fim": 0.464
         },
         {
           "palavra": "com",
-          "inicio": 0.488,
-          "fim": 0.58
+          "inicio": 0.499,
+          "fim": 0.615
         },
         {
           "palavra": "duzentas",
-          "inicio": 0.615,
-          "fim": 1.08
-        },
-        {
-          "palavra": "e",
-          "inicio": 1.126,
-          "fim": 1.149
-        },
-        {
-          "palavra": "trinta",
-          "inicio": 1.184,
-          "fim": 1.416
-        },
-        {
-          "palavra": "e",
-          "inicio": 1.44,
-          "fim": 1.463
-        },
-        {
-          "palavra": "nove",
-          "inicio": 1.509,
-          "fim": 1.741
-        },
-        {
-          "palavra": "pessoas",
-          "inicio": 1.776,
-          "fim": 2.322
-        },
-        {
-          "palavra": "some",
-          "inicio": 2.601,
-          "fim": 2.926
-        },
-        {
-          "palavra": "do",
-          "inicio": 2.961,
-          "fim": 3.03
-        },
-        {
-          "palavra": "radar",
-          "inicio": 3.065,
-          "fim": 3.576
-        },
-        {
-          "palavra": "mas",
-          "inicio": 3.727,
-          "fim": 3.878
-        },
-        {
-          "palavra": "dá",
-          "inicio": 3.924,
-          "fim": 4.005
-        },
-        {
-          "palavra": "sinal",
-          "inicio": 4.04,
-          "fim": 4.342
-        },
-        {
-          "palavra": "por",
-          "inicio": 4.377,
-          "fim": 4.493
-        },
-        {
-          "palavra": "quase",
-          "inicio": 4.54,
-          "fim": 4.807
-        },
-        {
-          "palavra": "sete",
-          "inicio": 4.876,
-          "fim": 5.143
-        },
-        {
-          "palavra": "horas",
-          "inicio": 5.178,
-          "fim": 5.666
-        },
-        {
-          "palavra": "E",
-          "inicio": 5.793,
-          "fim": 5.875
-        },
-        {
-          "palavra": "nunca",
-          "inicio": 5.979,
-          "fim": 6.235
-        },
-        {
-          "palavra": "é",
-          "inicio": 6.304,
-          "fim": 6.327
-        },
-        {
-          "palavra": "achado",
-          "inicio": 6.385,
-          "fim": 7.384
-        }
-      ]
-    },
-    {
-      "id": "c2",
-      "duracao": 9.816621,
-      "palavras": [
-        {
-          "palavra": "Março",
-          "inicio": 0.0,
-          "fim": 0.522
-        },
-        {
-          "palavra": "de",
-          "inicio": 0.569,
-          "fim": 0.639
-        },
-        {
-          "palavra": "dois",
-          "inicio": 0.708,
-          "fim": 0.952
-        },
-        {
-          "palavra": "mil",
-          "inicio": 1.057,
-          "fim": 1.242
+          "inicio": 0.65,
+          "fim": 1.207
         },
         {
           "palavra": "e",
@@ -153,967 +32,1088 @@
           "fim": 1.289
         },
         {
-          "palavra": "catorze",
-          "inicio": 1.324,
-          "fim": 2.148
+          "palavra": "trinta",
+          "inicio": 1.347,
+          "fim": 1.614
         },
         {
-          "palavra": "O",
-          "inicio": 2.589,
-          "fim": 2.67
+          "palavra": "e",
+          "inicio": 1.649,
+          "fim": 1.672
         },
         {
-          "palavra": "voo",
-          "inicio": 2.798,
-          "fim": 3.123
+          "palavra": "nove",
+          "inicio": 1.707,
+          "fim": 1.939
         },
         {
-          "palavra": "MH370",
-          "inicio": 3.309,
-          "fim": 4.934
+          "palavra": "pessoas",
+          "inicio": 1.974,
+          "fim": 2.519
         },
         {
-          "palavra": "sai",
-          "inicio": 5.085,
-          "fim": 5.341
+          "palavra": "some",
+          "inicio": 2.67,
+          "fim": 2.984
         },
         {
-          "palavra": "da",
-          "inicio": 5.387,
-          "fim": 5.457
+          "palavra": "do",
+          "inicio": 3.019,
+          "fim": 3.088
         },
         {
-          "palavra": "Malásia",
+          "palavra": "radar",
+          "inicio": 3.123,
+          "fim": 3.657
+        },
+        {
+          "palavra": "mas",
+          "inicio": 3.901,
+          "fim": 4.052
+        },
+        {
+          "palavra": "dá",
+          "inicio": 4.098,
+          "fim": 4.18
+        },
+        {
+          "palavra": "sinal",
+          "inicio": 4.238,
+          "fim": 4.574
+        },
+        {
+          "palavra": "por",
+          "inicio": 4.632,
+          "fim": 4.783
+        },
+        {
+          "palavra": "quase",
+          "inicio": 4.853,
+          "fim": 5.166
+        },
+        {
+          "palavra": "sete",
+          "inicio": 5.224,
+          "fim": 5.492
+        },
+        {
+          "palavra": "horas",
           "inicio": 5.515,
-          "fim": 6.002
+          "fim": 6.026
         },
         {
-          "palavra": "rumo",
-          "inicio": 6.049,
-          "fim": 6.269
+          "palavra": "E",
+          "inicio": 6.304,
+          "fim": 6.385
         },
         {
-          "palavra": "a",
-          "inicio": 6.293,
-          "fim": 6.316
+          "palavra": "nunca",
+          "inicio": 6.49,
+          "fim": 6.757
         },
         {
-          "palavra": "Pequim",
-          "inicio": 6.374,
-          "fim": 6.954
+          "palavra": "é",
+          "inicio": 6.803,
+          "fim": 6.838
         },
         {
-          "palavra": "à",
-          "inicio": 7.198,
-          "fim": 7.233
+          "palavra": "achado",
+          "inicio": 6.885,
+          "fim": 7.848
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "duracao": 8.887823,
+      "palavras": [
+        {
+          "palavra": "Março",
+          "inicio": 0.0,
+          "fim": 0.441
         },
         {
-          "palavra": "meia-noite",
-          "inicio": 7.338,
-          "fim": 7.976
-        },
-        {
-          "palavra": "e",
-          "inicio": 8.046,
-          "fim": 8.104
-        },
-        {
-          "palavra": "quarenta",
-          "inicio": 8.162,
-          "fim": 8.487
-        },
-        {
-          "palavra": "e",
-          "inicio": 8.51,
-          "fim": 8.533
+          "palavra": "de",
+          "inicio": 0.488,
+          "fim": 0.557
         },
         {
           "palavra": "dois",
-          "inicio": 8.568,
-          "fim": 9.567
+          "inicio": 0.615,
+          "fim": 0.836
+        },
+        {
+          "palavra": "mil",
+          "inicio": 0.917,
+          "fim": 1.057
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.091,
+          "fim": 1.126
+        },
+        {
+          "palavra": "catorze",
+          "inicio": 1.161,
+          "fim": 1.881
+        },
+        {
+          "palavra": "O",
+          "inicio": 2.264,
+          "fim": 2.368
+        },
+        {
+          "palavra": "voo",
+          "inicio": 2.485,
+          "fim": 2.81
+        },
+        {
+          "palavra": "MH370",
+          "inicio": 2.914,
+          "fim": 4.423
+        },
+        {
+          "palavra": "sai",
+          "inicio": 4.574,
+          "fim": 4.807
+        },
+        {
+          "palavra": "da",
+          "inicio": 4.841,
+          "fim": 4.911
+        },
+        {
+          "palavra": "Malásia",
+          "inicio": 4.946,
+          "fim": 5.375
+        },
+        {
+          "palavra": "rumo",
+          "inicio": 5.422,
+          "fim": 5.642
+        },
+        {
+          "palavra": "a",
+          "inicio": 5.666,
+          "fim": 5.689
+        },
+        {
+          "palavra": "Pequim",
+          "inicio": 5.735,
+          "fim": 6.246
+        },
+        {
+          "palavra": "à",
+          "inicio": 6.583,
+          "fim": 6.629
+        },
+        {
+          "palavra": "meia-noite",
+          "inicio": 6.699,
+          "fim": 7.256
+        },
+        {
+          "palavra": "e",
+          "inicio": 7.303,
+          "fim": 7.361
+        },
+        {
+          "palavra": "quarenta",
+          "inicio": 7.419,
+          "fim": 7.709
+        },
+        {
+          "palavra": "e",
+          "inicio": 7.732,
+          "fim": 7.767
+        },
+        {
+          "palavra": "dois",
+          "inicio": 7.802,
+          "fim": 8.638
         }
       ]
     },
     {
       "id": "c3",
-      "duracao": 8.330544,
+      "duracao": 9.166463,
       "palavras": [
         {
           "palavra": "À",
           "inicio": 0.0,
-          "fim": 0.07
+          "fim": 0.128
         },
         {
           "palavra": "uma",
-          "inicio": 0.197,
-          "fim": 0.348
+          "inicio": 0.279,
+          "fim": 0.534
         },
         {
           "palavra": "e",
-          "inicio": 0.372,
-          "fim": 0.395
+          "inicio": 0.604,
+          "fim": 0.673
         },
         {
           "palavra": "dezenove",
-          "inicio": 0.441,
-          "fim": 1.057
+          "inicio": 0.743,
+          "fim": 1.498
         },
         {
           "palavra": "a",
-          "inicio": 1.103,
-          "fim": 1.138
+          "inicio": 1.649,
+          "fim": 1.707
         },
         {
           "palavra": "cabine",
-          "inicio": 1.196,
-          "fim": 1.591
+          "inicio": 1.765,
+          "fim": 2.159
         },
         {
           "palavra": "diz",
-          "inicio": 1.649,
-          "fim": 2.148
+          "inicio": 2.206,
+          "fim": 2.694
         },
         {
           "palavra": "boa",
-          "inicio": 2.589,
-          "fim": 2.786
+          "inicio": 2.844,
+          "fim": 3.053
         },
         {
           "palavra": "noite",
-          "inicio": 2.833,
-          "fim": 3.274
+          "inicio": 3.088,
+          "fim": 3.622
         },
         {
           "palavra": "Minutos",
-          "inicio": 3.518,
-          "fim": 3.901
+          "inicio": 3.831,
+          "fim": 4.261
         },
         {
           "palavra": "depois",
-          "inicio": 3.936,
-          "fim": 4.365
+          "inicio": 4.296,
+          "fim": 4.899
         },
         {
           "palavra": "o",
-          "inicio": 4.435,
-          "fim": 4.47
+          "inicio": 5.027,
+          "fim": 5.085
         },
         {
           "palavra": "transponder",
-          "inicio": 4.505,
-          "fim": 5.259
+          "inicio": 5.132,
+          "fim": 5.886
         },
         {
           "palavra": "que",
-          "inicio": 5.41,
-          "fim": 5.515
+          "inicio": 6.072,
+          "fim": 6.177
         },
         {
           "palavra": "mostra",
-          "inicio": 5.584,
-          "fim": 5.944
+          "inicio": 6.235,
+          "fim": 6.571
         },
         {
           "palavra": "o",
-          "inicio": 5.968,
-          "fim": 6.002
+          "inicio": 6.594,
+          "fim": 6.629
         },
         {
           "palavra": "avião",
-          "inicio": 6.06,
-          "fim": 6.339
-        },
-        {
-          "palavra": "no",
-          "inicio": 6.374,
-          "fim": 6.444
-        },
-        {
-          "palavra": "radar",
-          "inicio": 6.478,
+          "inicio": 6.676,
           "fim": 6.954
         },
         {
+          "palavra": "no",
+          "inicio": 6.989,
+          "fim": 7.059
+        },
+        {
+          "palavra": "radar",
+          "inicio": 7.094,
+          "fim": 7.651
+        },
+        {
           "palavra": "desliga",
-          "inicio": 7.105,
-          "fim": 8.081
+          "inicio": 7.86,
+          "fim": 8.916
         }
       ]
     },
     {
       "id": "c4",
-      "duracao": 8.284104,
+      "duracao": 8.191224,
       "palavras": [
         {
           "palavra": "Mas",
           "inicio": 0.0,
-          "fim": 0.302
+          "fim": 0.163
         },
         {
           "palavra": "o",
-          "inicio": 0.372,
-          "fim": 0.395
+          "inicio": 0.221,
+          "fim": 0.244
         },
         {
           "palavra": "radar",
-          "inicio": 0.441,
-          "fim": 0.778
+          "inicio": 0.279,
+          "fim": 0.557
         },
         {
           "palavra": "militar",
-          "inicio": 0.824,
-          "fim": 1.289
+          "inicio": 0.592,
+          "fim": 0.998
         },
         {
           "palavra": "viu",
-          "inicio": 1.37,
-          "fim": 1.765
+          "inicio": 1.08,
+          "fim": 1.463
         },
         {
           "palavra": "o",
-          "inicio": 2.287,
-          "fim": 2.345
+          "inicio": 1.846,
+          "fim": 1.892
         },
         {
           "palavra": "avião",
-          "inicio": 2.392,
-          "fim": 2.821
+          "inicio": 1.927,
+          "fim": 2.218
         },
         {
           "palavra": "deu",
-          "inicio": 2.879,
-          "fim": 2.995
+          "inicio": 2.252,
+          "fim": 2.357
         },
         {
           "palavra": "meia-volta",
-          "inicio": 3.1,
-          "fim": 3.82
+          "inicio": 2.392,
+          "fim": 3.123
         },
         {
           "palavra": "cruzou",
-          "inicio": 3.855,
-          "fim": 4.226
+          "inicio": 3.367,
+          "fim": 3.738
         },
         {
           "palavra": "a",
-          "inicio": 4.284,
-          "fim": 4.307
+          "inicio": 3.773,
+          "fim": 3.796
         },
         {
           "palavra": "Malásia",
-          "inicio": 4.354,
-          "fim": 4.865
+          "inicio": 3.843,
+          "fim": 4.435
         },
         {
           "palavra": "e",
-          "inicio": 4.946,
-          "fim": 4.992
+          "inicio": 4.586,
+          "fim": 4.69
         },
         {
           "palavra": "sumiu",
-          "inicio": 5.039,
-          "fim": 5.317
+          "inicio": 4.748,
+          "fim": 5.074
         },
         {
           "palavra": "no",
-          "inicio": 5.352,
-          "fim": 5.422
+          "inicio": 5.108,
+          "fim": 5.178
         },
         {
           "palavra": "mar",
-          "inicio": 5.457,
-          "fim": 5.817
+          "inicio": 5.224,
+          "fim": 5.619
         },
         {
           "palavra": "E",
-          "inicio": 6.153,
-          "fim": 6.235
+          "inicio": 5.956,
+          "fim": 6.037
         },
         {
           "palavra": "a",
-          "inicio": 6.316,
-          "fim": 6.339
+          "inicio": 6.107,
+          "fim": 6.13
         },
         {
           "palavra": "curva",
-          "inicio": 6.42,
-          "fim": 6.757
+          "inicio": 6.2,
+          "fim": 6.525
         },
         {
           "palavra": "foi",
-          "inicio": 6.815,
-          "fim": 6.943
+          "inicio": 6.571,
+          "fim": 6.699
         },
         {
           "palavra": "feita",
-          "inicio": 7.001,
-          "fim": 7.279
+          "inicio": 6.745,
+          "fim": 7.07
         },
         {
           "palavra": "à",
-          "inicio": 7.303,
-          "fim": 7.326
+          "inicio": 7.094,
+          "fim": 7.117
         },
         {
           "palavra": "mão",
-          "inicio": 7.372,
-          "fim": 8.034
+          "inicio": 7.163,
+          "fim": 7.941
         }
       ]
     },
     {
       "id": "c5",
-      "duracao": 10.002381,
+      "duracao": 10.51322,
       "palavras": [
         {
           "palavra": "Depois",
           "inicio": 0.0,
-          "fim": 0.569
+          "fim": 0.697
         },
         {
           "palavra": "só",
-          "inicio": 0.604,
-          "fim": 0.836
+          "inicio": 0.848,
+          "fim": 1.033
         },
         {
           "palavra": "um",
-          "inicio": 0.871,
-          "fim": 0.917
+          "inicio": 1.068,
+          "fim": 1.126
         },
         {
           "palavra": "satélite",
-          "inicio": 0.998,
-          "fim": 1.579
+          "inicio": 1.196,
+          "fim": 1.881
         },
         {
           "palavra": "ouviu",
-          "inicio": 1.649,
-          "fim": 1.916
+          "inicio": 1.985,
+          "fim": 2.403
         },
         {
           "palavra": "o",
-          "inicio": 1.962,
-          "fim": 1.985
+          "inicio": 2.473,
+          "fim": 2.519
         },
         {
           "palavra": "avião",
-          "inicio": 2.043,
-          "fim": 2.508
+          "inicio": 2.566,
+          "fim": 3.123
         },
         {
           "palavra": "Ele",
-          "inicio": 2.694,
-          "fim": 2.879
+          "inicio": 3.46,
+          "fim": 3.657
         },
         {
           "palavra": "mede",
-          "inicio": 2.926,
-          "fim": 3.146
+          "inicio": 3.692,
+          "fim": 3.901
         },
         {
           "palavra": "distância",
-          "inicio": 3.193,
-          "fim": 3.843
+          "inicio": 3.947,
+          "fim": 4.551
         },
         {
           "palavra": "não",
-          "inicio": 3.947,
-          "fim": 4.098
+          "inicio": 4.621,
+          "fim": 4.772
         },
         {
           "palavra": "lugar",
-          "inicio": 4.133,
-          "fim": 4.702
+          "inicio": 4.807,
+          "fim": 5.317
         },
         {
           "palavra": "um",
-          "inicio": 4.911,
-          "fim": 5.039
+          "inicio": 5.7,
+          "fim": 5.828
         },
         {
           "palavra": "arco",
-          "inicio": 5.12,
-          "fim": 5.526
+          "inicio": 5.933,
+          "fim": 6.316
         },
         {
           "palavra": "não",
-          "inicio": 5.573,
-          "fim": 5.712
+          "inicio": 6.42,
+          "fim": 6.548
         },
         {
           "palavra": "um",
-          "inicio": 5.747,
-          "fim": 5.805
+          "inicio": 6.583,
+          "fim": 6.641
         },
         {
           "palavra": "ponto",
-          "inicio": 5.909,
-          "fim": 6.502
+          "inicio": 6.699,
+          "fim": 7.187
         },
         {
           "palavra": "Último",
-          "inicio": 6.885,
-          "fim": 7.198
+          "inicio": 7.628,
+          "fim": 7.93
         },
         {
           "palavra": "sinal",
-          "inicio": 7.245,
-          "fim": 7.814
+          "inicio": 7.964,
+          "fim": 8.499
         },
         {
           "palavra": "oito",
-          "inicio": 8.197,
-          "fim": 8.51
+          "inicio": 8.835,
+          "fim": 9.149
         },
         {
           "palavra": "e",
-          "inicio": 8.545,
-          "fim": 8.568
+          "inicio": 9.183,
+          "fim": 9.207
         },
         {
           "palavra": "dezenove",
-          "inicio": 8.615,
-          "fim": 9.752
+          "inicio": 9.242,
+          "fim": 10.263
         }
       ]
     },
     {
       "id": "c6",
-      "duracao": 6.380068,
+      "duracao": 6.147868,
       "palavras": [
         {
           "palavra": "Três",
           "inicio": 0.0,
-          "fim": 0.325
+          "fim": 0.337
         },
         {
           "palavra": "buscas",
-          "inicio": 0.406,
-          "fim": 0.871
+          "inicio": 0.395,
+          "fim": 0.755
         },
         {
           "palavra": "varreram",
-          "inicio": 0.929,
-          "fim": 1.37
+          "inicio": 0.801,
+          "fim": 1.149
         },
         {
           "palavra": "quase",
-          "inicio": 1.474,
-          "fim": 1.8
+          "inicio": 1.219,
+          "fim": 1.521
         },
         {
           "palavra": "duzentos",
-          "inicio": 1.834,
-          "fim": 2.345
+          "inicio": 1.567,
+          "fim": 2.148
         },
         {
           "palavra": "e",
-          "inicio": 2.38,
-          "fim": 2.403
+          "inicio": 2.194,
+          "fim": 2.218
         },
         {
           "palavra": "quarenta",
-          "inicio": 2.45,
-          "fim": 2.786
+          "inicio": 2.252,
+          "fim": 2.612
         },
         {
           "palavra": "mil",
-          "inicio": 2.844,
-          "fim": 2.984
+          "inicio": 2.67,
+          "fim": 2.786
         },
         {
           "palavra": "quilômetros",
-          "inicio": 3.03,
-          "fim": 3.576
+          "inicio": 2.833,
+          "fim": 3.39
         },
         {
           "palavra": "quadrados",
-          "inicio": 3.622,
-          "fim": 4.052
+          "inicio": 3.448,
+          "fim": 3.971
         },
         {
           "palavra": "de",
-          "inicio": 4.098,
-          "fim": 4.156
+          "inicio": 4.005,
+          "fim": 4.075
         },
         {
           "palavra": "mar",
-          "inicio": 4.214,
-          "fim": 4.656
+          "inicio": 4.133,
+          "fim": 4.563
         },
         {
           "palavra": "Nada",
-          "inicio": 5.097,
-          "fim": 6.13
+          "inicio": 4.946,
+          "fim": 5.898
         }
       ]
     },
     {
       "id": "c7",
-      "duracao": 10.55966,
+      "duracao": 10.28102,
       "palavras": [
         {
           "palavra": "A",
           "inicio": 0.0,
-          "fim": 0.104
+          "fim": 0.116
         },
         {
           "palavra": "surpresa",
           "inicio": 0.186,
-          "fim": 0.917
+          "fim": 0.848
         },
         {
           "palavra": "dezesseis",
-          "inicio": 1.161,
-          "fim": 1.753
+          "inicio": 1.057,
+          "fim": 1.521
         },
         {
           "palavra": "meses",
-          "inicio": 1.858,
-          "fim": 2.183
+          "inicio": 1.579,
+          "fim": 1.858
         },
         {
           "palavra": "depois",
-          "inicio": 2.218,
-          "fim": 2.868
+          "inicio": 1.904,
+          "fim": 2.531
         },
         {
           "palavra": "um",
-          "inicio": 3.019,
-          "fim": 3.1
+          "inicio": 2.659,
+          "fim": 2.728
         },
         {
           "palavra": "pedaço",
-          "inicio": 3.146,
-          "fim": 3.587
+          "inicio": 2.775,
+          "fim": 3.193
         },
         {
           "palavra": "da",
-          "inicio": 3.622,
-          "fim": 3.715
+          "inicio": 3.228,
+          "fim": 3.32
         },
         {
           "palavra": "asa",
-          "inicio": 3.82,
-          "fim": 4.052
+          "inicio": 3.379,
+          "fim": 3.622
         },
         {
           "palavra": "aparece",
-          "inicio": 4.156,
-          "fim": 4.69
+          "inicio": 3.692,
+          "fim": 4.226
         },
         {
           "palavra": "na",
-          "inicio": 4.725,
-          "fim": 4.807
+          "inicio": 4.272,
+          "fim": 4.354
         },
         {
           "palavra": "Ilha",
-          "inicio": 4.876,
-          "fim": 5.027
+          "inicio": 4.458,
+          "fim": 4.644
         },
         {
           "palavra": "da",
-          "inicio": 5.062,
-          "fim": 5.132
+          "inicio": 4.679,
+          "fim": 4.748
         },
         {
           "palavra": "Reunião",
-          "inicio": 5.166,
-          "fim": 5.689
+          "inicio": 4.783,
+          "fim": 5.341
         },
         {
           "palavra": "a",
-          "inicio": 5.759,
-          "fim": 5.828
+          "inicio": 5.55,
+          "fim": 5.608
         },
         {
           "palavra": "quatro",
-          "inicio": 5.956,
-          "fim": 6.362
+          "inicio": 5.712,
+          "fim": 6.026
         },
         {
           "palavra": "mil",
-          "inicio": 6.42,
-          "fim": 6.536
+          "inicio": 6.06,
+          "fim": 6.177
         },
         {
           "palavra": "quilômetros",
-          "inicio": 6.571,
-          "fim": 7.094
+          "inicio": 6.211,
+          "fim": 6.769
         },
         {
           "palavra": "dali",
-          "inicio": 7.129,
-          "fim": 7.593
+          "inicio": 6.803,
+          "fim": 7.221
         },
         {
           "palavra": "Era",
-          "inicio": 7.872,
-          "fim": 8.092
+          "inicio": 7.558,
+          "fim": 7.79
         },
         {
           "palavra": "do",
-          "inicio": 8.139,
-          "fim": 8.243
+          "inicio": 7.837,
+          "fim": 7.976
         },
         {
           "palavra": "MH370",
-          "inicio": 8.324,
-          "fim": 10.31
+          "inicio": 8.057,
+          "fim": 10.031
         }
       ]
     },
     {
       "id": "c8",
-      "duracao": 12.742336,
+      "duracao": 13.067415,
       "palavras": [
         {
           "palavra": "As",
           "inicio": 0.0,
-          "fim": 0.197
+          "fim": 0.163
         },
         {
           "palavra": "teorias",
-          "inicio": 0.255,
+          "inicio": 0.209,
           "fim": 0.894
         },
         {
           "palavra": "pane",
-          "inicio": 1.103,
-          "fim": 1.486
+          "inicio": 1.022,
+          "fim": 1.474
         },
         {
           "palavra": "tripulação",
-          "inicio": 1.544,
-          "fim": 2.032
+          "inicio": 1.579,
+          "fim": 2.206
         },
         {
           "palavra": "desmaiada",
-          "inicio": 2.067,
-          "fim": 2.891
+          "inicio": 2.241,
+          "fim": 2.995
         },
         {
           "palavra": "o",
-          "inicio": 3.077,
-          "fim": 3.135
+          "inicio": 3.146,
+          "fim": 3.193
         },
         {
           "palavra": "avião",
-          "inicio": 3.181,
-          "fim": 3.425
+          "inicio": 3.239,
+          "fim": 3.529
         },
         {
           "palavra": "fantasma",
-          "inicio": 3.46,
-          "fim": 4.11
+          "inicio": 3.564,
+          "fim": 4.296
         },
         {
           "palavra": "sequestro",
-          "inicio": 4.261,
-          "fim": 4.76
+          "inicio": 4.481,
+          "fim": 5.039
         },
         {
           "palavra": "por",
-          "inicio": 4.795,
-          "fim": 4.911
+          "inicio": 5.074,
+          "fim": 5.19
         },
         {
           "palavra": "alguém",
-          "inicio": 4.946,
-          "fim": 5.155
+          "inicio": 5.224,
+          "fim": 5.433
         },
         {
           "palavra": "de",
-          "inicio": 5.19,
-          "fim": 5.248
+          "inicio": 5.468,
+          "fim": 5.526
         },
         {
           "palavra": "fora",
-          "inicio": 5.317,
-          "fim": 5.759
+          "inicio": 5.596,
+          "fim": 6.072
         },
         {
           "palavra": "a",
-          "inicio": 5.909,
-          "fim": 5.956
+          "inicio": 6.223,
+          "fim": 6.281
         },
         {
           "palavra": "com",
-          "inicio": 6.026,
-          "fim": 6.153
+          "inicio": 6.339,
+          "fim": 6.455
         },
         {
           "palavra": "menos",
-          "inicio": 6.188,
-          "fim": 6.409
+          "inicio": 6.49,
+          "fim": 6.711
         },
         {
           "palavra": "prova",
-          "inicio": 6.478,
-          "fim": 7.001
+          "inicio": 6.78,
+          "fim": 7.314
         },
         {
           "palavra": "ou",
-          "inicio": 7.21,
-          "fim": 7.43
+          "inicio": 7.651,
+          "fim": 7.767
         },
         {
           "palavra": "alguém",
-          "inicio": 7.535,
-          "fim": 7.837
+          "inicio": 7.825,
+          "fim": 8.081
         },
         {
           "palavra": "na",
-          "inicio": 7.86,
-          "fim": 7.93
+          "inicio": 8.104,
+          "fim": 8.173
         },
         {
           "palavra": "cabine",
-          "inicio": 7.964,
-          "fim": 8.359
+          "inicio": 8.208,
+          "fim": 8.591
         },
         {
           "palavra": "desviou",
-          "inicio": 8.406,
-          "fim": 8.731
+          "inicio": 8.638,
+          "fim": 8.986
         },
         {
           "palavra": "de",
-          "inicio": 8.766,
-          "fim": 8.824
+          "inicio": 9.021,
+          "fim": 9.079
         },
         {
           "palavra": "propósito",
-          "inicio": 8.858,
-          "fim": 9.555
+          "inicio": 9.114,
+          "fim": 9.857
         },
         {
           "palavra": "a",
-          "inicio": 9.741,
-          "fim": 9.787
+          "inicio": 10.043,
+          "fim": 10.112
         },
         {
           "palavra": "com",
-          "inicio": 9.857,
-          "fim": 9.985
+          "inicio": 10.17,
+          "fim": 10.286
         },
         {
           "palavra": "mais",
-          "inicio": 10.031,
-          "fim": 10.205
+          "inicio": 10.321,
+          "fim": 10.484
         },
         {
           "palavra": "indícios",
-          "inicio": 10.263,
-          "fim": 11.018
+          "inicio": 10.565,
+          "fim": 11.262
         },
         {
           "palavra": "nada",
-          "inicio": 11.204,
-          "fim": 11.447
+          "inicio": 11.413,
+          "fim": 11.691
         },
         {
           "palavra": "provado",
-          "inicio": 11.482,
-          "fim": 12.492
+          "inicio": 11.726,
+          "fim": 12.817
         }
       ]
     },
     {
       "id": "c9",
-      "duracao": 8.376984,
+      "duracao": 7.262426,
       "palavras": [
         {
           "palavra": "Em",
           "inicio": 0.0,
-          "fim": 0.197
+          "fim": 0.186
         },
         {
           "palavra": "março",
-          "inicio": 0.255,
-          "fim": 0.639
+          "inicio": 0.244,
+          "fim": 0.58
         },
         {
           "palavra": "de",
-          "inicio": 0.685,
-          "fim": 0.755
+          "inicio": 0.615,
+          "fim": 0.685
         },
         {
           "palavra": "dois",
-          "inicio": 0.824,
-          "fim": 1.068
+          "inicio": 0.731,
+          "fim": 0.964
         },
         {
           "palavra": "mil",
-          "inicio": 1.149,
-          "fim": 1.358
+          "inicio": 1.045,
+          "fim": 1.231
         },
         {
           "palavra": "e",
-          "inicio": 1.393,
-          "fim": 1.428
+          "inicio": 1.265,
+          "fim": 1.3
         },
         {
           "palavra": "vinte",
-          "inicio": 1.474,
-          "fim": 1.741
+          "inicio": 1.358,
+          "fim": 1.637
         },
         {
           "palavra": "e",
-          "inicio": 1.765,
-          "fim": 2.728
+          "inicio": 1.672,
+          "fim": 1.707
         },
         {
           "palavra": "seis",
-          "inicio": 2.81,
-          "fim": 3.39
+          "inicio": 1.765,
+          "fim": 2.31
         },
         {
           "palavra": "a",
-          "inicio": 3.576,
-          "fim": 3.622
+          "inicio": 2.519,
+          "fim": 2.577
         },
         {
           "palavra": "última",
-          "inicio": 3.727,
-          "fim": 4.005
+          "inicio": 2.682,
+          "fim": 2.961
         },
         {
           "palavra": "busca",
-          "inicio": 4.052,
-          "fim": 4.423
+          "inicio": 3.007,
+          "fim": 3.332
         },
         {
           "palavra": "acabou",
-          "inicio": 4.493,
-          "fim": 4.853
+          "inicio": 3.355,
+          "fim": 3.704
         },
         {
           "palavra": "sem",
-          "inicio": 4.911,
-          "fim": 5.062
+          "inicio": 3.75,
+          "fim": 3.889
         },
         {
           "palavra": "nada",
-          "inicio": 5.097,
-          "fim": 5.538
+          "inicio": 3.936,
+          "fim": 4.4
         },
         {
           "palavra": "As",
-          "inicio": 5.689,
-          "fim": 5.828
+          "inicio": 4.644,
+          "fim": 4.783
         },
         {
           "palavra": "famílias",
-          "inicio": 5.875,
-          "fim": 6.235
+          "inicio": 4.83,
+          "fim": 5.178
         },
         {
           "palavra": "pedem",
-          "inicio": 6.339,
-          "fim": 6.664
+          "inicio": 5.259,
+          "fim": 5.55
         },
         {
           "palavra": "pra",
-          "inicio": 6.711,
-          "fim": 6.85
+          "inicio": 5.596,
+          "fim": 5.724
         },
         {
           "palavra": "não",
-          "inicio": 6.908,
-          "fim": 7.024
+          "inicio": 5.77,
+          "fim": 5.886
         },
         {
           "palavra": "desistir",
-          "inicio": 7.059,
-          "fim": 8.127
+          "inicio": 5.921,
+          "fim": 7.012
         }
       ]
     },
     {
       "id": "c10",
-      "duracao": 6.658707,
+      "duracao": 6.287188,
       "palavras": [
         {
           "palavra": "Duzentas",
           "inicio": 0.0,
-          "fim": 0.604
+          "fim": 0.569
         },
         {
           "palavra": "e",
-          "inicio": 0.662,
-          "fim": 0.685
+          "inicio": 0.615,
+          "fim": 0.639
         },
         {
           "palavra": "trinta",
-          "inicio": 0.731,
-          "fim": 0.998
+          "inicio": 0.697,
+          "fim": 0.952
         },
         {
           "palavra": "e",
-          "inicio": 1.022,
-          "fim": 1.045
+          "inicio": 0.987,
+          "fim": 1.01
         },
         {
           "palavra": "nove",
-          "inicio": 1.091,
-          "fim": 1.335
+          "inicio": 1.045,
+          "fim": 1.254
         },
         {
           "palavra": "pessoas",
-          "inicio": 1.37,
-          "fim": 2.009
+          "inicio": 1.289,
+          "fim": 1.974
         },
         {
           "palavra": "sete",
-          "inicio": 2.113,
-          "fim": 2.45
+          "inicio": 2.125,
+          "fim": 2.426
         },
         {
           "palavra": "horas",
-          "inicio": 2.496,
-          "fim": 2.728
+          "inicio": 2.45,
+          "fim": 2.694
         },
         {
           "palavra": "de",
-          "inicio": 2.775,
-          "fim": 2.833
+          "inicio": 2.728,
+          "fim": 2.798
         },
         {
           "palavra": "sinal",
-          "inicio": 2.879,
-          "fim": 3.367
+          "inicio": 2.833,
+          "fim": 3.332
         },
         {
           "palavra": "nenhum",
-          "inicio": 3.471,
-          "fim": 3.785
+          "inicio": 3.518,
+          "fim": 3.796
         },
         {
           "palavra": "avião",
-          "inicio": 3.831,
-          "fim": 4.284
+          "inicio": 3.843,
+          "fim": 4.319
         },
         {
           "palavra": "Qual",
-          "inicio": 4.992,
-          "fim": 5.166
+          "inicio": 4.702,
+          "fim": 4.865
         },
         {
           "palavra": "teoria",
-          "inicio": 5.224,
-          "fim": 5.515
+          "inicio": 4.899,
+          "fim": 5.201
         },
         {
           "palavra": "você",
-          "inicio": 5.55,
-          "fim": 5.735
+          "inicio": 5.236,
+          "fim": 5.41
         },
         {
           "palavra": "acha",
-          "inicio": 5.817,
-          "fim": 6.409
+          "inicio": 5.515,
+          "fim": 6.037
         }
       ]
     }
