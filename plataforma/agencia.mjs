@@ -193,9 +193,11 @@ async function produzir(p, tema, pautaMotivo) {
 
     // 5. Guarda no git local (sem push) para nada se perder
     try {
-      const arquivos = [`roteiros/${id}.json`, `roteiros/${id}.pesquisa.md`, `public/audio/${id}`, `public/audio/${id}-original`, 'src', 'tools'];
-      execFileSync('git', ['add', ...arquivos.filter((a) => fs.existsSync(path.join(RAIZ, a)))], {cwd: RAIZ, stdio: 'ignore'});
-      execFileSync('git', ['commit', '-qm', `Produção automática: ${id} (${p.nome})`], {cwd: RAIZ, stdio: 'ignore'});
+      const arquivos = [`roteiros/${id}.json`, `roteiros/${id}.pesquisa.md`, `public/audio/${id}`, `public/audio/${id}-original`, 'src', 'tools']
+        .filter((a) => fs.existsSync(path.join(RAIZ, a)));
+      execFileSync('git', ['add', ...arquivos], {cwd: RAIZ, stdio: 'ignore'});
+      // só esses caminhos: não leva junto o que estiver preparado para outro commit
+      execFileSync('git', ['commit', '-qm', `Produção automática: ${id} (${p.nome})`, '--', ...arquivos], {cwd: RAIZ, stdio: 'ignore'});
     } catch {}
 
     livre('editor');
