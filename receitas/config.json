@@ -1,0 +1,35 @@
+{
+  "site": "https://zeexplica.com.br",
+  "nome": "Receitas do Zé",
+  "slogan": "Receitas fáceis, baratas e testáveis por qualquer um",
+  "cor": "#e8590c",
+  "grupos": {
+    "receitas_telegram": {
+      "nome": "Receitas do Zé no Telegram",
+      "url": "https://t.me/receitasprecinho",
+      "sub": "Uma receita fácil por dia, grátis"
+    },
+    "ofertas_whatsapp": {
+      "nome": "Receitas no WhatsApp",
+      "url": "https://painel.precinhodeouro.com.br/g/receitas",
+      "sub": "Receitas fáceis todo dia no grupo, grátis",
+      "_nota": "trocar pelo grupo Ofertas do Zé no WhatsApp quando existir"
+    },
+    "ofertas_telegram": {
+      "nome": "Ofertas do Zé Cozinha no Telegram",
+      "url": "https://t.me/ofertasdozecozinha",
+      "sub": "Achados de cozinha com preço conferido"
+    },
+    "ofertas_geral": {
+      "nome": "Ofertas do Zé (todas) no Telegram",
+      "url": "https://t.me/ofertasdozebr",
+      "sub": "Ofertas e cupons todo dia, grátis"
+    }
+  },
+  "redes": {
+    "Instagram": "https://instagram.com/ze.nacozinha",
+    "YouTube": "https://youtube.com/@ze.nacozinha",
+    "Rede do Zé": "https://zeexplica.com.br/"
+  },
+  "aviso_afiliado": "Alguns links de produtos são de afiliado: se você comprar por eles, o Zé pode ganhar uma comissão, sem custo extra para você. Preços e disponibilidade mudam nas lojas."
+}
