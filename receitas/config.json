@@ -4,9 +4,26 @@
   "slogan": "Receitas fáceis, baratas e testáveis por qualquer um",
   "cor": "#e8590c",
   "grupos": {
-    "receitas_telegram": {"nome": "Receitas do Zé no Telegram", "url": "https://t.me/receitasprecinho", "sub": "Uma receita fácil por dia, grátis"},
-    "ofertas_whatsapp": {"nome": "Ofertas do Zé no WhatsApp", "url": "https://painel.precinhodeouro.com.br/g/receitas", "sub": "Achados de cozinha com preço conferido"},
-    "ofertas_telegram": {"nome": "Ofertas do Zé no Telegram", "url": "https://t.me/precinhodeouro", "sub": "Ofertas e cupons todo dia, grátis"}
+    "receitas_telegram": {
+      "nome": "Receitas do Zé no Telegram",
+      "url": "https://t.me/receitasprecinho",
+      "sub": "Uma receita fácil por dia, grátis"
+    },
+    "ofertas_whatsapp": {
+      "nome": "Ofertas do Zé no WhatsApp",
+      "url": "https://painel.precinhodeouro.com.br/g/receitas",
+      "sub": "Achados de cozinha com preço conferido"
+    },
+    "ofertas_telegram": {
+      "nome": "Ofertas do Zé Cozinha no Telegram",
+      "url": "https://t.me/ofertasdozecozinha",
+      "sub": "Achados de cozinha com preço conferido"
+    },
+    "ofertas_geral": {
+      "nome": "Ofertas do Zé (todas) no Telegram",
+      "url": "https://t.me/ofertasdozebr",
+      "sub": "Ofertas e cupons todo dia, grátis"
+    }
   },
   "redes": {
     "Instagram": "https://instagram.com/ze.nacozinha",
