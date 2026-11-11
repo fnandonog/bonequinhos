@@ -109,7 +109,7 @@ async function escolherPauta(p, d) {
 const registrado = (id) => fs.readFileSync(path.join(RAIZ, 'src/Root.tsx'), 'utf8').includes(`id="${id}"`);
 
 async function produzir(p, tema, pautaMotivo) {
-  const id = slug(tema);
+  const id = arg('--id') || slug(tema); // --id: reaproveita um vídeo que já existe com outro nome
   if (SECO) return log('agencia', `${p.nome}: faria "${tema}" (${id})`);
   const it = salvarItem({id, perfil: p.id, tema, status: 'produzindo', etapa: 'roteiro', criado: new Date().toISOString()});
   // Escritório: uma tarefa por vídeo, que anda pelos agentes do Estúdio até a sua caixa de aprovação
