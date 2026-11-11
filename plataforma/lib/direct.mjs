@@ -199,6 +199,7 @@ async function rodarPerfil({p, r, c, st, out, seco, http, agora, G}) {
   const cont = (st.contagens[p.id] ??= {});
   const midias = (await get(`${c.ig}/media`, {fields: 'id,caption,timestamp,comments_count', limit: '15'})).data || [];
   const vistos = {};
+  let semPermissao = false;
   for (const m of midias.filter((x) => Date.parse(x.timestamp) >= desde)) {
     vistos[m.id] = m.comments_count;
     if (m.comments_count != null && cont[m.id] === m.comments_count) continue;
@@ -206,26 +207,32 @@ async function rodarPerfil({p, r, c, st, out, seco, http, agora, G}) {
     const item = itemDoPost(m.id, m.caption);
     for (const cm of comentarios) {
       if (pedidos[cm.id] || cm.username === arroba || Date.parse(cm.timestamp) < desde || !pedeConteudo(cm.text, r.palavras)) continue;
+      // a resposta pública ("te mandei no direct") só depois que o direct saiu
+      const publica = () => post(`${cm.id}/replies`, {message: pick(RESPOSTAS, cm.id)}).catch(() => null);
       try {
-        await post(`${cm.id}/replies`, {message: pick(RESPOSTAS, cm.id)}).catch(() => null);
         // a caixa de entrada do Instagram não aparece para o painel (falta o "Permitir acesso às mensagens"): o toque no
         // botão nunca seria visto. Sem exigir seguir, o conteúdo vai na própria resposta privada.
         const semInbox = agora() - (st.sem_inbox[p.id] || 0) < DIA;
         if (semInbox && !r.exigirSeguir) {
           const enviado = await post(`${c.page}/messages`, {recipient: {comment_id: cm.id}, message: {text: `Oi, @${cm.username}! Aqui é o Zé 👋\n\n${textoEntrega(p, r, item)}`.slice(0, 1000)}});
           salvar(cm.id, {usuario: enviado?.recipient_id ?? null, nome: cm.username, item: item?.id ?? null, estado: 'enviado', lembretes: 0});
+          await publica();
           out.respondidos++; out.entregues++;
           continue;
         }
         const texto = `Oi, @${cm.username}! Aqui é o Zé 👋\n\nSeparei ${r.isca} pra você.${r.exigirSeguir ? `\n\nPra liberar:\n${pedirSeguir}\n\nÉ liberado só pra quem segue.` : `\n\nToca em "${LIBERAR}" aqui embaixo que eu te mando 👇`}`;
         const enviado = await comBotao({comment_id: cm.id}, texto);
         salvar(cm.id, {usuario: enviado?.recipient_id ?? null, nome: cm.username, item: item?.id ?? null, estado: 'aguardando', lembretes: 0});
+        await publica();
         out.respondidos++;
       } catch (e) {
+        // falta permissão de mensagens no token: o comentário fica para depois (o post é relido na próxima rodada)
+        if (/\(#(10|200|230)\)|permission/i.test(e.message || '')) { semPermissao = true; out.erros.push(`${p.nome}: o token não pode mandar direct (${e.message.slice(0, 120)}). Gere o token com instagram_manage_messages e pages_messaging.`); break; }
         salvar(cm.id, {nome: cm.username, item: item?.id ?? null, estado: 'erro', erro: e.message.slice(0, 300)});
         out.erros.push(`${p.nome}: ${e.message.slice(0, 160)}`);
       }
     }
+    if (semPermissao) break;
     if (m.comments_count != null) cont[m.id] = m.comments_count;
   }
   // só os posts ainda na janela ficam guardados

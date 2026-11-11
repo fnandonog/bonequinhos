@@ -101,3 +101,23 @@ test('a entrega usa o texto do vídeo e o canal do perfil', () => {
   assert.equal(t, '🥕 Bolo: 3 cenouras, 4 ovos...\nCanal: https://t.me/receitasprecinho');
   assert.match(textoEntrega(p, regras('cozinha', cfg), null), /^Receitas: https:\/\/precinhodeouro/);
 });
+
+test('sem permissão de mensagens: não responde em público e tenta de novo depois', async () => {
+  const arquivo = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'direct-')), 'estado.json');
+  const m = metaFalsa();
+  const http0 = m.http;
+  let pode = false;
+  m.http = async (url, op = {}) => {
+    if (op.json && url.includes('PG1/messages') && !pode) throw new Error('(#230) Requires instagram_manage_messages permission to manage the object');
+    return http0(url, op);
+  };
+  const roda = () => rodar({perfil: 'cozinha', http: m.http, agora: () => T0, credenciaisDe: creds, cfg, arquivo, registrar: () => {}});
+  let r = await roda();
+  assert.equal(r.respondidos, 0);
+  assert.equal(m.respostas.length, 0);
+  assert.match(r.erros[0], /instagram_manage_messages/);
+  pode = true;
+  r = await roda();
+  assert.equal(r.respondidos, 1);
+  assert.equal(m.respostas.length, 1);
+});
