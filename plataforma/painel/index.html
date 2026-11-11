@@ -308,7 +308,7 @@ function telaRedes() {
     return `<div class="card" style="margin-bottom:14px"><div class="linha"><img class="av" src="/perfis/avatar-${AVATAR[p.id]}.png"><b style="flex:1">${esc(p.nome)}</b>
       <span class="tag ${p.conectado.instagram ? 'ok' : 'err'}">Instagram ${p.conectado.instagram ? '✓' : 'desconectado'}</span>
       <span class="tag ${p.conectado.facebook ? 'ok' : ''}">Facebook ${p.conectado.facebook ? '✓' : '—'}</span>
-      ${p.conectado.youtube ? `<span class="tag ok">YouTube ✓ ${esc(p.conectado.youtube_canal || '')}</span>` : `<a class="tag" href="/youtube/conectar?perfil=${p.id}" style="text-decoration:none">▶ Conectar YouTube</a>`}
+      ${p.conectado.youtube ? `<span class="tag ok">YouTube ✓ ${esc(p.conectado.youtube_canal || '')}</span>` : `<a class="b pri" href="/youtube/conectar?perfil=${p.id}" style="text-decoration:none;padding:5px 12px">▶ Conectar YouTube</a>`}
       <span class="tag">TikTok: extensão (depois)</span></div>
       ${i ? `<div class="linha" style="margin:10px 0;gap:18px"><span>Seguidores <b>${n(i.followers_count)}</b></span><span>Seguindo <b>${n(i.follows_count)}</b></span><span>Posts <b>${n(i.media_count)}</b></span>
         <span>Visitas ao perfil <b>${n(i.conta_insights?.profile_views)}</b></span><span>Cliques no link <b>${n(i.conta_insights?.website_clicks)}</b></span></div>
