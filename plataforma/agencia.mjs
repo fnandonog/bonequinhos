@@ -163,7 +163,8 @@ async function produzir(p, tema, pautaMotivo) {
         // cada canal tem a sua voz do ElevenLabs (perfis.json → voz_elevenlabs); ELEVENLABS_VOZ é só o padrão de reserva
         const fr = path.join(RAIZ, `roteiros/${id}.json`);
         const rot = JSON.parse(fs.readFileSync(fr, 'utf8'));
-        rot.elevenlabs = {...(rot.elevenlabs ?? {}), voz_id: vozCanal, modelo: rot.elevenlabs?.modelo ?? 'eleven_multilingual_v2'};
+        // NARRACAO_MODELO (Configurações): eleven_flash_v2_5 gasta metade dos créditos; vazio = o modelo do roteiro
+        rot.elevenlabs = {...(rot.elevenlabs ?? {}), voz_id: vozCanal, modelo: E.NARRACAO_MODELO || rot.elevenlabs?.modelo || 'eleven_multilingual_v2'};
         fs.writeFileSync(fr, JSON.stringify(rot, null, 2));
       }
       await rodar('python3', ['tools/tts_elevenlabs.py', `roteiros/${id}.json`], {nome: `video-${id}`, extraEnv: {ELEVENLABS_API_KEY: E.ELEVENLABS_API_KEY}});

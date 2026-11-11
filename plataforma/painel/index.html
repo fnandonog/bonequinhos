@@ -202,6 +202,7 @@ function telaConfig() {
     ${campo('ELEVENLABS_API_KEY', 'Chave do ElevenLabs', 'sk_…', 'password')}
     ${campo('AGENCIA_MAX_POR_PERFIL', 'Vídeos por perfil por noite', '1')}
     ${campo('NARRACAO_VELOCIDADE', 'Velocidade da narração', '1.3')}
+    <label>Modelo da voz (ElevenLabs)</label><select id="cfg-NARRACAO_MODELO"><option value="">Multilingual v2 (melhor qualidade)</option><option value="eleven_flash_v2_5" ${c.NARRACAO_MODELO === 'eleven_flash_v2_5' ? 'selected' : ''}>Flash v2.5 (metade dos créditos)</option></select>
     ${campo('AGENCIA_MODELO', 'Modelo do Claude (vazio = padrão)', '')}
     ${campo('ELEVENLABS_VOZ', 'Voz do ElevenLabs (id)', '5Ny27k6jpd2wJTdmbFsb = Fernando')}
     <label>Agentes do escritório (pautas, tendências, comentários, horários)</label><select id="cfg-AGENTES_LIGADOS"><option value="0">Desligados</option><option value="1" ${c.AGENTES_LIGADOS === '1' ? 'selected' : ''}>Ligados (cada um no seu horário)</option></select>
