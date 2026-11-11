@@ -1,0 +1,1085 @@
+{
+  "id": "um-dia-como-gladiador-em-roma",
+  "cenas": [
+    {
+      "id": "c1",
+      "duracao": 8.64,
+      "palavras": [
+        {
+          "palavra": "Ano",
+          "inicio": 0.095458,
+          "fim": 0.334083
+        },
+        {
+          "palavra": "oitenta",
+          "inicio": 0.345458,
+          "fim": 0.834083
+        },
+        {
+          "palavra": "Roma",
+          "inicio": 0.993166,
+          "fim": 1.402249
+        },
+        {
+          "palavra": "Cinquenta",
+          "inicio": 2.181833,
+          "fim": 2.772749
+        },
+        {
+          "palavra": "mil",
+          "inicio": 2.784083,
+          "fim": 2.920458
+        },
+        {
+          "palavra": "pessoas",
+          "inicio": 2.931833,
+          "fim": 3.386374
+        },
+        {
+          "palavra": "gritam",
+          "inicio": 3.397708,
+          "fim": 3.738624
+        },
+        {
+          "palavra": "no",
+          "inicio": 3.75,
+          "fim": 3.840916
+        },
+        {
+          "palavra": "Coliseu",
+          "inicio": 3.852291,
+          "fim": 4.261374
+        },
+        {
+          "palavra": "novinho",
+          "inicio": 4.272708,
+          "fim": 4.761333
+        },
+        {
+          "palavra": "E",
+          "inicio": 5.545458,
+          "fim": 5.636374
+        },
+        {
+          "palavra": "esquece",
+          "inicio": 5.647708,
+          "fim": 6.090874
+        },
+        {
+          "palavra": "o",
+          "inicio": 6.102291,
+          "fim": 6.136374
+        },
+        {
+          "palavra": "filme",
+          "inicio": 6.147708,
+          "fim": 6.454541
+        },
+        {
+          "palavra": "você",
+          "inicio": 6.738625,
+          "fim": 7.079541
+        },
+        {
+          "palavra": "é",
+          "inicio": 7.090916,
+          "fim": 7.170457
+        },
+        {
+          "palavra": "o",
+          "inicio": 7.181833,
+          "fim": 7.215916
+        },
+        {
+          "palavra": "gladiador",
+          "inicio": 7.227291,
+          "fim": 7.840916
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "duracao": 6.864,
+      "palavras": [
+        {
+          "palavra": "Só",
+          "inicio": 0.095458,
+          "fim": 0.368166
+        },
+        {
+          "palavra": "que",
+          "inicio": 0.379541,
+          "fim": 0.459082
+        },
+        {
+          "palavra": "você",
+          "inicio": 0.470458,
+          "fim": 0.743166
+        },
+        {
+          "palavra": "não",
+          "inicio": 0.754541,
+          "fim": 0.959082
+        },
+        {
+          "palavra": "escolheu",
+          "inicio": 0.970458,
+          "fim": 1.413624
+        },
+        {
+          "palavra": "isso",
+          "inicio": 1.425,
+          "fim": 1.720458
+        },
+        {
+          "palavra": "Quase",
+          "inicio": 2.5,
+          "fim": 2.897708
+        },
+        {
+          "palavra": "todo",
+          "inicio": 2.909083,
+          "fim": 3.136374
+        },
+        {
+          "palavra": "gladiador",
+          "inicio": 3.147708,
+          "fim": 3.659083
+        },
+        {
+          "palavra": "era",
+          "inicio": 3.670458,
+          "fim": 3.761374
+        },
+        {
+          "palavra": "escravo",
+          "inicio": 3.772708,
+          "fim": 4.238624
+        },
+        {
+          "palavra": "prisioneiro",
+          "inicio": 4.477291,
+          "fim": 4.999999
+        },
+        {
+          "palavra": "de",
+          "inicio": 5.011375,
+          "fim": 5.102291
+        },
+        {
+          "palavra": "guerra",
+          "inicio": 5.113625,
+          "fim": 5.409083
+        },
+        {
+          "palavra": "ou",
+          "inicio": 5.420458,
+          "fim": 5.511374
+        },
+        {
+          "palavra": "condenado",
+          "inicio": 5.522708,
+          "fim": 6.056791
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "duracao": 9.048,
+      "palavras": [
+        {
+          "palavra": "Na",
+          "inicio": 0.095458,
+          "fim": 0.243166
+        },
+        {
+          "palavra": "escola",
+          "inicio": 0.254541,
+          "fim": 0.709082
+        },
+        {
+          "palavra": "o",
+          "inicio": 0.959083,
+          "fim": 1.004541
+        },
+        {
+          "palavra": "lanista",
+          "inicio": 1.015916,
+          "fim": 1.470457
+        },
+        {
+          "palavra": "vira",
+          "inicio": 1.481833,
+          "fim": 1.697749
+        },
+        {
+          "palavra": "o",
+          "inicio": 1.709083,
+          "fim": 1.7317909
+        },
+        {
+          "palavra": "seu",
+          "inicio": 1.743166,
+          "fim": 1.936332
+        },
+        {
+          "palavra": "dono",
+          "inicio": 1.947708,
+          "fim": 2.265874
+        },
+        {
+          "palavra": "Você",
+          "inicio": 3.045458,
+          "fim": 3.340916
+        },
+        {
+          "palavra": "faz",
+          "inicio": 3.352291,
+          "fim": 3.499999
+        },
+        {
+          "palavra": "um",
+          "inicio": 3.511375,
+          "fim": 3.670458
+        },
+        {
+          "palavra": "juramento",
+          "inicio": 3.681833,
+          "fim": 4.227291
+        },
+        {
+          "palavra": "aceita",
+          "inicio": 4.454541,
+          "fim": 4.818166
+        },
+        {
+          "palavra": "ser",
+          "inicio": 4.829541,
+          "fim": 4.999999
+        },
+        {
+          "palavra": "queimado",
+          "inicio": 5.011375,
+          "fim": 5.52275
+        },
+        {
+          "palavra": "acorrentado",
+          "inicio": 5.715916,
+          "fim": 6.409082
+        },
+        {
+          "palavra": "açoitado",
+          "inicio": 6.647708,
+          "fim": 7.215874
+        },
+        {
+          "palavra": "e",
+          "inicio": 7.227291,
+          "fim": 7.272749
+        },
+        {
+          "palavra": "morto",
+          "inicio": 7.284083,
+          "fim": 7.670458
+        },
+        {
+          "palavra": "pela",
+          "inicio": 7.681833,
+          "fim": 7.829541
+        },
+        {
+          "palavra": "espada",
+          "inicio": 7.840916,
+          "fim": 8.249999
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "duracao": 6.552,
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 0.095458,
+          "fim": 0.231833
+        },
+        {
+          "palavra": "treino",
+          "inicio": 0.243166,
+          "fim": 0.572707
+        },
+        {
+          "palavra": "é",
+          "inicio": 0.584083,
+          "fim": 0.652249
+        },
+        {
+          "palavra": "o",
+          "inicio": 0.663625,
+          "fim": 0.720458
+        },
+        {
+          "palavra": "dia",
+          "inicio": 0.731833,
+          "fim": 0.879541
+        },
+        {
+          "palavra": "inteiro",
+          "inicio": 0.890916,
+          "fim": 1.254541
+        },
+        {
+          "palavra": "batendo",
+          "inicio": 1.504541,
+          "fim": 1.890916
+        },
+        {
+          "palavra": "num",
+          "inicio": 1.902291,
+          "fim": 2.061374
+        },
+        {
+          "palavra": "poste",
+          "inicio": 2.072708,
+          "fim": 2.402249
+        },
+        {
+          "palavra": "com",
+          "inicio": 2.413625,
+          "fim": 2.55
+        },
+        {
+          "palavra": "espada",
+          "inicio": 2.561375,
+          "fim": 2.925
+        },
+        {
+          "palavra": "de",
+          "inicio": 2.936375,
+          "fim": 3.015916
+        },
+        {
+          "palavra": "madeira",
+          "inicio": 3.027291,
+          "fim": 3.424999
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.731833,
+          "fim": 3.822749
+        },
+        {
+          "palavra": "o",
+          "inicio": 3.834083,
+          "fim": 3.8567909
+        },
+        {
+          "palavra": "chicote",
+          "inicio": 3.868166,
+          "fim": 4.345457
+        },
+        {
+          "palavra": "do",
+          "inicio": 4.356833,
+          "fim": 4.413666
+        },
+        {
+          "palavra": "lanista",
+          "inicio": 4.425,
+          "fim": 4.811375
+        },
+        {
+          "palavra": "sempre",
+          "inicio": 4.822708,
+          "fim": 5.197708
+        },
+        {
+          "palavra": "por",
+          "inicio": 5.209083,
+          "fim": 5.356791
+        },
+        {
+          "palavra": "perto",
+          "inicio": 5.368166,
+          "fim": 5.754541
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "duracao": 11.616,
+      "palavras": [
+        {
+          "palavra": "E",
+          "inicio": 0.095458,
+          "fim": 0.209083
+        },
+        {
+          "palavra": "a",
+          "inicio": 0.220458,
+          "fim": 0.288624
+        },
+        {
+          "palavra": "comida",
+          "inicio": 0.3,
+          "fim": 0.754541
+        },
+        {
+          "palavra": "Cevada",
+          "inicio": 1.534083,
+          "fim": 2.090916
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.102291,
+          "fim": 2.147749
+        },
+        {
+          "palavra": "feijão",
+          "inicio": 2.159083,
+          "fim": 2.636374
+        },
+        {
+          "palavra": "Tanto",
+          "inicio": 3.420458,
+          "fim": 3.715916
+        },
+        {
+          "palavra": "que",
+          "inicio": 3.727291,
+          "fim": 3.829582
+        },
+        {
+          "palavra": "gladiador",
+          "inicio": 3.840916,
+          "fim": 4.397749
+        },
+        {
+          "palavra": "tinha",
+          "inicio": 4.409083,
+          "fim": 4.579541
+        },
+        {
+          "palavra": "apelido",
+          "inicio": 4.590916,
+          "fim": 5.011374
+        },
+        {
+          "palavra": "comedor",
+          "inicio": 5.238625,
+          "fim": 5.704541
+        },
+        {
+          "palavra": "de",
+          "inicio": 5.715916,
+          "fim": 5.818207
+        },
+        {
+          "palavra": "cevada",
+          "inicio": 5.829541,
+          "fim": 6.306832
+        },
+        {
+          "palavra": "No",
+          "inicio": 7.090916,
+          "fim": 7.249999
+        },
+        {
+          "palavra": "fim",
+          "inicio": 7.261375,
+          "fim": 7.52275
+        },
+        {
+          "palavra": "uma",
+          "inicio": 7.795458,
+          "fim": 7.954541
+        },
+        {
+          "palavra": "bebida",
+          "inicio": 7.965916,
+          "fim": 8.352291
+        },
+        {
+          "palavra": "de",
+          "inicio": 8.363625,
+          "fim": 8.465916
+        },
+        {
+          "palavra": "cinza",
+          "inicio": 8.477291,
+          "fim": 8.795457
+        },
+        {
+          "palavra": "de",
+          "inicio": 8.806833,
+          "fim": 8.909124
+        },
+        {
+          "palavra": "planta",
+          "inicio": 8.920458,
+          "fim": 9.284083
+        },
+        {
+          "palavra": "pra",
+          "inicio": 9.522708,
+          "fim": 9.647708
+        },
+        {
+          "palavra": "deixar",
+          "inicio": 9.659083,
+          "fim": 10.011374
+        },
+        {
+          "palavra": "o",
+          "inicio": 10.022708,
+          "fim": 10.090874
+        },
+        {
+          "palavra": "osso",
+          "inicio": 10.102291,
+          "fim": 10.363666
+        },
+        {
+          "palavra": "forte",
+          "inicio": 10.375,
+          "fim": 10.818166
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "duracao": 8.952,
+      "palavras": [
+        {
+          "palavra": "Dia",
+          "inicio": 0.095458,
+          "fim": 0.390916
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.402291,
+          "fim": 0.504582
+        },
+        {
+          "palavra": "luta",
+          "inicio": 0.515916,
+          "fim": 0.879541
+        },
+        {
+          "palavra": "Você",
+          "inicio": 1.659083,
+          "fim": 2.011374
+        },
+        {
+          "palavra": "atravessa",
+          "inicio": 2.022708,
+          "fim": 2.488624
+        },
+        {
+          "palavra": "o",
+          "inicio": 2.5,
+          "fim": 2.545458
+        },
+        {
+          "palavra": "túnel",
+          "inicio": 2.556833,
+          "fim": 2.909124
+        },
+        {
+          "palavra": "E",
+          "inicio": 3.693166,
+          "fim": 3.806791
+        },
+        {
+          "palavra": "aqui",
+          "inicio": 3.818166,
+          "fim": 4.056791
+        },
+        {
+          "palavra": "vem",
+          "inicio": 4.068166,
+          "fim": 4.238624
+        },
+        {
+          "palavra": "a",
+          "inicio": 4.25,
+          "fim": 4.284083
+        },
+        {
+          "palavra": "surpresa",
+          "inicio": 4.295458,
+          "fim": 4.852291
+        },
+        {
+          "palavra": "nessa",
+          "inicio": 5.056833,
+          "fim": 5.363666
+        },
+        {
+          "palavra": "época",
+          "inicio": 5.375,
+          "fim": 5.75
+        },
+        {
+          "palavra": "só",
+          "inicio": 5.977291,
+          "fim": 6.090916
+        },
+        {
+          "palavra": "uma",
+          "inicio": 6.102291,
+          "fim": 6.238666
+        },
+        {
+          "palavra": "luta",
+          "inicio": 6.25,
+          "fim": 6.534083
+        },
+        {
+          "palavra": "em",
+          "inicio": 6.545458,
+          "fim": 6.624999
+        },
+        {
+          "palavra": "cada",
+          "inicio": 6.636375,
+          "fim": 6.89775
+        },
+        {
+          "palavra": "cinco",
+          "inicio": 6.909083,
+          "fim": 7.249999
+        },
+        {
+          "palavra": "acabava",
+          "inicio": 7.261375,
+          "fim": 7.659083
+        },
+        {
+          "palavra": "em",
+          "inicio": 7.670458,
+          "fim": 7.749999
+        },
+        {
+          "palavra": "morte",
+          "inicio": 7.761375,
+          "fim": 8.14775
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "duracao": 10.08,
+      "palavras": [
+        {
+          "palavra": "Por",
+          "inicio": 0.095458,
+          "fim": 0.254541
+        },
+        {
+          "palavra": "quê",
+          "inicio": 0.265916,
+          "fim": 0.493207
+        },
+        {
+          "palavra": "Pensa",
+          "inicio": 1.272708,
+          "fim": 1.613624
+        },
+        {
+          "palavra": "como",
+          "inicio": 1.625,
+          "fim": 1.829541
+        },
+        {
+          "palavra": "o",
+          "inicio": 1.840916,
+          "fim": 1.874999
+        },
+        {
+          "palavra": "dono",
+          "inicio": 1.886375,
+          "fim": 2.159083
+        },
+        {
+          "palavra": "você",
+          "inicio": 2.454541,
+          "fim": 2.727249
+        },
+        {
+          "palavra": "custa",
+          "inicio": 2.738625,
+          "fim": 3.056791
+        },
+        {
+          "palavra": "caro",
+          "inicio": 3.068166,
+          "fim": 3.352249
+        },
+        {
+          "palavra": "Seu",
+          "inicio": 4.136375,
+          "fim": 4.420458
+        },
+        {
+          "palavra": "dono",
+          "inicio": 4.431833,
+          "fim": 4.704541
+        },
+        {
+          "palavra": "pagou",
+          "inicio": 4.715916,
+          "fim": 4.988624
+        },
+        {
+          "palavra": "comida",
+          "inicio": 5.0,
+          "fim": 5.420458
+        },
+        {
+          "palavra": "treino",
+          "inicio": 5.590916,
+          "fim": 5.965916
+        },
+        {
+          "palavra": "e",
+          "inicio": 5.977291,
+          "fim": 6.022749
+        },
+        {
+          "palavra": "até",
+          "inicio": 6.034083,
+          "fim": 6.249999
+        },
+        {
+          "palavra": "médico",
+          "inicio": 6.261375,
+          "fim": 6.715916
+        },
+        {
+          "palavra": "Morto",
+          "inicio": 7.5,
+          "fim": 7.909083
+        },
+        {
+          "palavra": "você",
+          "inicio": 8.204541,
+          "fim": 8.477249
+        },
+        {
+          "palavra": "vira",
+          "inicio": 8.488625,
+          "fim": 8.715916
+        },
+        {
+          "palavra": "prejuízo",
+          "inicio": 8.727291,
+          "fim": 9.284124
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "duracao": 8.064,
+      "palavras": [
+        {
+          "palavra": "E",
+          "inicio": 0.095458,
+          "fim": 0.209083
+        },
+        {
+          "palavra": "o",
+          "inicio": 0.220458,
+          "fim": 0.265916
+        },
+        {
+          "palavra": "famoso",
+          "inicio": 0.277291,
+          "fim": 0.743207
+        },
+        {
+          "palavra": "polegar",
+          "inicio": 0.754541,
+          "fim": 1.129541
+        },
+        {
+          "palavra": "pra",
+          "inicio": 1.140916,
+          "fim": 1.299999
+        },
+        {
+          "palavra": "baixo",
+          "inicio": 1.311375,
+          "fim": 1.731833
+        },
+        {
+          "palavra": "Dizem",
+          "inicio": 2.511375,
+          "fim": 2.920458
+        },
+        {
+          "palavra": "que",
+          "inicio": 2.931833,
+          "fim": 3.011374
+        },
+        {
+          "palavra": "era",
+          "inicio": 3.022708,
+          "fim": 3.159083
+        },
+        {
+          "palavra": "sinal",
+          "inicio": 3.170458,
+          "fim": 3.488624
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.5,
+          "fim": 3.579541
+        },
+        {
+          "palavra": "morte",
+          "inicio": 3.590916,
+          "fim": 4.022749
+        },
+        {
+          "palavra": "Mas",
+          "inicio": 4.806833,
+          "fim": 5.102291
+        },
+        {
+          "palavra": "nem",
+          "inicio": 5.113625,
+          "fim": 5.306791
+        },
+        {
+          "palavra": "os",
+          "inicio": 5.318166,
+          "fim": 5.352249
+        },
+        {
+          "palavra": "historiadores",
+          "inicio": 5.363625,
+          "fim": 6.079541
+        },
+        {
+          "palavra": "sabem",
+          "inicio": 6.090916,
+          "fim": 6.431832
+        },
+        {
+          "palavra": "qual",
+          "inicio": 6.443166,
+          "fim": 6.681791
+        },
+        {
+          "palavra": "era",
+          "inicio": 6.693166,
+          "fim": 6.806791
+        },
+        {
+          "palavra": "o",
+          "inicio": 6.818166,
+          "fim": 6.8408739
+        },
+        {
+          "palavra": "gesto",
+          "inicio": 6.852291,
+          "fim": 7.272749
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "duracao": 8.016,
+      "palavras": [
+        {
+          "palavra": "Se",
+          "inicio": 0.095458,
+          "fim": 0.277291
+        },
+        {
+          "palavra": "sobreviver",
+          "inicio": 0.288625,
+          "fim": 0.834083
+        },
+        {
+          "palavra": "por",
+          "inicio": 0.845458,
+          "fim": 1.004541
+        },
+        {
+          "palavra": "anos",
+          "inicio": 1.015916,
+          "fim": 1.345457
+        },
+        {
+          "palavra": "você",
+          "inicio": 1.55,
+          "fim": 1.845458
+        },
+        {
+          "palavra": "ganha",
+          "inicio": 1.856833,
+          "fim": 2.084124
+        },
+        {
+          "palavra": "a",
+          "inicio": 2.095458,
+          "fim": 2.1181659
+        },
+        {
+          "palavra": "rudis",
+          "inicio": 2.129541,
+          "fim": 2.515916
+        },
+        {
+          "palavra": "uma",
+          "inicio": 2.822708,
+          "fim": 2.947708
+        },
+        {
+          "palavra": "espada",
+          "inicio": 2.959083,
+          "fim": 3.356791
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.368166,
+          "fim": 3.447707
+        },
+        {
+          "palavra": "madeira",
+          "inicio": 3.459083,
+          "fim": 3.845458
+        },
+        {
+          "palavra": "que",
+          "inicio": 3.856833,
+          "fim": 3.970458
+        },
+        {
+          "palavra": "vale",
+          "inicio": 3.981833,
+          "fim": 4.186374
+        },
+        {
+          "palavra": "a",
+          "inicio": 4.197708,
+          "fim": 4.2204159
+        },
+        {
+          "palavra": "liberdade",
+          "inicio": 4.231833,
+          "fim": 4.868208
+        },
+        {
+          "palavra": "O",
+          "inicio": 5.647708,
+          "fim": 5.772708
+        },
+        {
+          "palavra": "povo",
+          "inicio": 5.784083,
+          "fim": 6.102249
+        },
+        {
+          "palavra": "inteiro",
+          "inicio": 6.113625,
+          "fim": 6.443166
+        },
+        {
+          "palavra": "aplaude",
+          "inicio": 6.454541,
+          "fim": 6.840916
+        },
+        {
+          "palavra": "você",
+          "inicio": 6.852291,
+          "fim": 7.227291
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "duracao": 7.224,
+      "palavras": [
+        {
+          "palavra": "Cinquenta",
+          "inicio": 0.095458,
+          "fim": 0.709083
+        },
+        {
+          "palavra": "mil",
+          "inicio": 0.720458,
+          "fim": 0.924999
+        },
+        {
+          "palavra": "olhando",
+          "inicio": 0.936375,
+          "fim": 1.356833
+        },
+        {
+          "palavra": "Uma",
+          "inicio": 2.136375,
+          "fim": 2.340916
+        },
+        {
+          "palavra": "chance",
+          "inicio": 2.352291,
+          "fim": 2.715916
+        },
+        {
+          "palavra": "em",
+          "inicio": 2.727291,
+          "fim": 2.806832
+        },
+        {
+          "palavra": "cinco",
+          "inicio": 2.818166,
+          "fim": 3.170457
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.181833,
+          "fim": 3.261374
+        },
+        {
+          "palavra": "não",
+          "inicio": 3.272708,
+          "fim": 3.420416
+        },
+        {
+          "palavra": "voltar",
+          "inicio": 3.431833,
+          "fim": 3.852291
+        },
+        {
+          "palavra": "a",
+          "inicio": 4.068166,
+          "fim": 4.136332
+        },
+        {
+          "palavra": "cada",
+          "inicio": 4.147708,
+          "fim": 4.352249
+        },
+        {
+          "palavra": "luta",
+          "inicio": 4.363625,
+          "fim": 4.704541
+        },
+        {
+          "palavra": "Você",
+          "inicio": 5.488625,
+          "fim": 5.784083
+        },
+        {
+          "palavra": "aguentaria",
+          "inicio": 5.795458,
+          "fim": 6.431833
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,691 @@
+{
+ "id": "um-dia-como-gladiador-em-roma",
+ "serie": "Você na História",
+ "perfil": "historia",
+ "titulo": "UM DIA COMO GLADIADOR",
+ "linha2": "você aguentaria?",
+ "quando": "80 d.C.",
+ "onde": "ROMA",
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+10%",
+ "elevenlabs": {
+  "voz_id": "5Ny27k6jpd2wJTdmbFsb",
+  "modelo": "eleven_multilingual_v2",
+  "ajustes": {
+   "stability": 0.45,
+   "similarity_boost": 0.8,
+   "style": 0.4,
+   "use_speaker_boost": true,
+   "speed": 1.15
+  }
+ },
+ "fontes": "roteiros/um-dia-como-gladiador-em-roma.pesquisa.md",
+ "monetizacao": {
+  "afiliados": [
+   "livro: SPQR (Mary Beard)",
+   "livro: Gladiadores (história de Roma)",
+   "livro: O Coliseu (Keith Hopkins & Mary Beard)",
+   "kit de miniaturas/LEGO do Coliseu",
+   "quebra-cabeça 3D do Coliseu",
+   "jogo de tabuleiro de gladiadores"
+  ]
+ },
+ "cenas": [
+  {
+   "id": "c1",
+   "texto": "Ano oitenta, Roma. Cinquenta mil pessoas gritam no Coliseu novinho. E esquece o filme: você é o gladiador.",
+   "quando": "80 d.C.",
+   "onde": "ROMA",
+   "destaques": [
+    "cinquenta",
+    "mil",
+    "gladiador",
+    "escravo",
+    "prisioneiro",
+    "condenado",
+    "juramento",
+    "morto",
+    "madeira",
+    "cevada",
+    "cinza",
+    "surpresa",
+    "uma",
+    "cinco",
+    "morte",
+    "caro",
+    "prejuízo",
+    "polegar",
+    "ninguém",
+    "rudis",
+    "liberdade",
+    "aguentaria",
+    "oitenta"
+   ],
+   "planos": [
+    {
+     "set": "coliseu",
+     "cam": "drone"
+    },
+    {
+     "set": "arena",
+     "cam": "geral",
+     "apartir": 3,
+     "card": {
+      "rotulo": "Público do Coliseu",
+      "num": 50000,
+      "sub": "inaugurado em 80 d.C."
+     }
+    },
+    {
+     "set": "arena",
+     "cam": "ze",
+     "apartir": 10
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "texto": "Só que você não escolheu isso. Quase todo gladiador era escravo, prisioneiro de guerra ou condenado.",
+   "quando": "80 d.C.",
+   "onde": "MERCADO DE ESCRAVOS",
+   "destaques": [
+    "cinquenta",
+    "mil",
+    "gladiador",
+    "escravo",
+    "prisioneiro",
+    "condenado",
+    "juramento",
+    "morto",
+    "madeira",
+    "cevada",
+    "cinza",
+    "surpresa",
+    "uma",
+    "cinco",
+    "morte",
+    "caro",
+    "prejuízo",
+    "polegar",
+    "ninguém",
+    "rudis",
+    "liberdade",
+    "aguentaria",
+    "oitenta"
+   ],
+   "planos": [
+    {
+     "set": "mercado",
+     "cam": "geral",
+     "p": [
+      0,
+      0.1
+     ]
+    },
+    {
+     "set": "mercado",
+     "cam": "escravo",
+     "apartir": 6,
+     "p": [
+      0.1,
+      0.4
+     ]
+    },
+    {
+     "set": "mercado",
+     "cam": "prisioneiro",
+     "apartir": 11,
+     "p": [
+      0.4,
+      0.7
+     ]
+    },
+    {
+     "set": "mercado",
+     "cam": "condenado",
+     "apartir": 14,
+     "p": [
+      0.7,
+      1
+     ],
+     "card": {
+      "rotulo": "Quem virava gladiador",
+      "valor": "QUASE NINGUÉM ESCOLHIA",
+      "cor": "#ff5d5d"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "texto": "Na escola, o lanista vira o seu dono. Você faz um juramento: aceita ser queimado, acorrentado, açoitado e morto pela espada.",
+   "quando": "80 d.C.",
+   "onde": "ESCOLA DE GLADIADORES",
+   "destaques": [
+    "cinquenta",
+    "mil",
+    "gladiador",
+    "escravo",
+    "prisioneiro",
+    "condenado",
+    "juramento",
+    "morto",
+    "madeira",
+    "cevada",
+    "cinza",
+    "surpresa",
+    "uma",
+    "cinco",
+    "morte",
+    "caro",
+    "prejuízo",
+    "polegar",
+    "ninguém",
+    "rudis",
+    "liberdade",
+    "aguentaria",
+    "oitenta"
+   ],
+   "planos": [
+    {
+     "set": "juramento",
+     "cam": "lanista",
+     "p": [
+      0,
+      0.15
+     ]
+    },
+    {
+     "set": "juramento",
+     "cam": "geral",
+     "apartir": 8,
+     "p": [
+      0.15,
+      0.3
+     ]
+    },
+    {
+     "set": "juramento",
+     "cam": "brasa",
+     "apartir": 12,
+     "p": [
+      0.3,
+      0.75
+     ],
+     "card": {
+      "rotulo": "O juramento",
+      "valor": "QUEIMADO · ACORRENTADO",
+      "sub": "açoitado e morto pela espada"
+     }
+    },
+    {
+     "set": "juramento",
+     "cam": "ze",
+     "apartir": 17,
+     "p": [
+      0.75,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "texto": "O treino é o dia inteiro, batendo num poste com espada de madeira, e o chicote do lanista sempre por perto.",
+   "quando": "80 d.C.",
+   "onde": "LUDUS",
+   "destaques": [
+    "cinquenta",
+    "mil",
+    "gladiador",
+    "escravo",
+    "prisioneiro",
+    "condenado",
+    "juramento",
+    "morto",
+    "madeira",
+    "cevada",
+    "cinza",
+    "surpresa",
+    "uma",
+    "cinco",
+    "morte",
+    "caro",
+    "prejuízo",
+    "polegar",
+    "ninguém",
+    "rudis",
+    "liberdade",
+    "aguentaria",
+    "oitenta"
+   ],
+   "planos": [
+    {
+     "set": "ludus",
+     "cam": "geral",
+     "p": [
+      0,
+      0.4
+     ]
+    },
+    {
+     "set": "ludus",
+     "cam": "poste",
+     "apartir": 6,
+     "p": [
+      0.4,
+      0.75
+     ],
+     "card": {
+      "rotulo": "Treino no poste",
+      "valor": "ESPADA DE PAU",
+      "sub": "o poste se chamava palus"
+     }
+    },
+    {
+     "set": "ludus",
+     "cam": "chicote",
+     "apartir": 13,
+     "p": [
+      0.75,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c5",
+   "texto": "E a comida? Cevada e feijão. Tanto que gladiador tinha apelido: comedor de cevada. No fim, uma bebida de cinza de planta, pra deixar o osso forte.",
+   "quando": "80 d.C.",
+   "onde": "REFEITÓRIO",
+   "destaques": [
+    "cinquenta",
+    "mil",
+    "gladiador",
+    "escravo",
+    "prisioneiro",
+    "condenado",
+    "juramento",
+    "morto",
+    "madeira",
+    "cevada",
+    "cinza",
+    "surpresa",
+    "uma",
+    "cinco",
+    "morte",
+    "caro",
+    "prejuízo",
+    "polegar",
+    "ninguém",
+    "rudis",
+    "liberdade",
+    "aguentaria",
+    "oitenta"
+   ],
+   "planos": [
+    {
+     "set": "refeitorio",
+     "cam": "mesa",
+     "p": [
+      0,
+      0.4
+     ]
+    },
+    {
+     "set": "refeitorio",
+     "cam": "tigela",
+     "apartir": 6,
+     "p": [
+      0.4,
+      0.6
+     ],
+     "card": {
+      "rotulo": "O apelido",
+      "valor": "HORDEARII",
+      "sub": "comedores de cevada",
+      "cor": "#ffd23f"
+     }
+    },
+    {
+     "set": "refeitorio",
+     "cam": "cinza",
+     "apartir": 14,
+     "p": [
+      0.6,
+      1
+     ],
+     "card": {
+      "rotulo": "Bebida de cinza",
+      "valor": "MAIS CÁLCIO",
+      "sub": "achado em ossos de Éfeso (2014)"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c6",
+   "texto": "Dia de luta. Você atravessa o túnel. E aqui vem a surpresa: nessa época, só uma luta em cada cinco acabava em morte.",
+   "quando": "80 d.C.",
+   "onde": "COLISEU",
+   "destaques": [
+    "cinquenta",
+    "mil",
+    "gladiador",
+    "escravo",
+    "prisioneiro",
+    "condenado",
+    "juramento",
+    "morto",
+    "madeira",
+    "cevada",
+    "cinza",
+    "surpresa",
+    "uma",
+    "cinco",
+    "morte",
+    "caro",
+    "prejuízo",
+    "polegar",
+    "ninguém",
+    "rudis",
+    "liberdade",
+    "aguentaria",
+    "oitenta"
+   ],
+   "planos": [
+    {
+     "set": "tunel",
+     "cam": "costas",
+     "p": [
+      0,
+      1
+     ]
+    },
+    {
+     "set": "luta",
+     "cam": "geral",
+     "apartir": 7,
+     "p": [
+      0,
+      0.5
+     ]
+    },
+    {
+     "set": "luta",
+     "cam": "close",
+     "apartir": 12,
+     "p": [
+      0.5,
+      1
+     ],
+     "card": {
+      "rotulo": "Lutas que acabavam em morte",
+      "valor": "1 EM 5",
+      "sub": "século I d.C.",
+      "cor": "#ffd23f"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c7",
+   "texto": "Por quê? Pensa como o dono: você custa caro. Seu dono pagou comida, treino e até médico. Morto, você vira prejuízo.",
+   "quando": "80 d.C.",
+   "onde": "ENFERMARIA DO LUDUS",
+   "destaques": [
+    "cinquenta",
+    "mil",
+    "gladiador",
+    "escravo",
+    "prisioneiro",
+    "condenado",
+    "juramento",
+    "morto",
+    "madeira",
+    "cevada",
+    "cinza",
+    "surpresa",
+    "uma",
+    "cinco",
+    "morte",
+    "caro",
+    "prejuízo",
+    "polegar",
+    "ninguém",
+    "rudis",
+    "liberdade",
+    "aguentaria",
+    "oitenta"
+   ],
+   "planos": [
+    {
+     "set": "enfermaria",
+     "cam": "geral",
+     "p": [
+      0,
+      0.4
+     ]
+    },
+    {
+     "set": "enfermaria",
+     "cam": "medico",
+     "apartir": 9,
+     "p": [
+      0.4,
+      0.8
+     ],
+     "card": {
+      "rotulo": "Gladiador",
+      "valor": "INVESTIMENTO CARO",
+      "sub": "tinha o melhor médico da época"
+     }
+    },
+    {
+     "set": "enfermaria",
+     "cam": "moedas",
+     "apartir": 17,
+     "p": [
+      0.8,
+      1
+     ],
+     "card": {
+      "rotulo": "Gladiador morto",
+      "valor": "PREJUÍZO",
+      "cor": "#ff5d5d"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c8",
+   "texto": "E o famoso polegar pra baixo? Dizem que era sinal de morte. Mas nem os historiadores sabem qual era o gesto.",
+   "quando": "80 d.C.",
+   "onde": "CAMAROTE DO IMPERADOR",
+   "destaques": [
+    "cinquenta",
+    "mil",
+    "gladiador",
+    "escravo",
+    "prisioneiro",
+    "condenado",
+    "juramento",
+    "morto",
+    "madeira",
+    "cevada",
+    "cinza",
+    "surpresa",
+    "uma",
+    "cinco",
+    "morte",
+    "caro",
+    "prejuízo",
+    "polegar",
+    "ninguém",
+    "rudis",
+    "liberdade",
+    "aguentaria",
+    "oitenta"
+   ],
+   "planos": [
+    {
+     "set": "camarote",
+     "cam": "geral",
+     "p": [
+      0,
+      0.35
+     ]
+    },
+    {
+     "set": "polegar",
+     "cam": "baixo",
+     "apartir": 6,
+     "p": [
+      0,
+      0.5
+     ],
+     "card": {
+      "rotulo": "Polegar pra baixo",
+      "valor": "DIZEM QUE...",
+      "cor": "#ff5d5d"
+     }
+    },
+    {
+     "set": "polegar",
+     "cam": "duvida",
+     "apartir": 12,
+     "p": [
+      0.5,
+      1
+     ],
+     "card": {
+      "rotulo": "O gesto de verdade",
+      "valor": "NINGUÉM SABE",
+      "sub": "a cena famosa é de um quadro de 1872",
+      "cor": "#ffd23f"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c9",
+   "texto": "Se sobreviver por anos, você ganha a rudis: uma espada de madeira que vale a liberdade. O povo inteiro aplaude você.",
+   "quando": "80 d.C.",
+   "onde": "ARENA",
+   "destaques": [
+    "cinquenta",
+    "mil",
+    "gladiador",
+    "escravo",
+    "prisioneiro",
+    "condenado",
+    "juramento",
+    "morto",
+    "madeira",
+    "cevada",
+    "cinza",
+    "surpresa",
+    "uma",
+    "cinco",
+    "morte",
+    "caro",
+    "prejuízo",
+    "polegar",
+    "ninguém",
+    "rudis",
+    "liberdade",
+    "aguentaria",
+    "oitenta"
+   ],
+   "planos": [
+    {
+     "set": "liberdade",
+     "cam": "geral",
+     "p": [
+      0,
+      0.5
+     ]
+    },
+    {
+     "set": "liberdade",
+     "cam": "rudis",
+     "apartir": 8,
+     "p": [
+      0.5,
+      0.8
+     ],
+     "card": {
+      "rotulo": "A rudis",
+      "valor": "LIBERDADE",
+      "cor": "#ffd23f"
+     }
+    },
+    {
+     "set": "liberdade",
+     "cam": "aplauso",
+     "apartir": 16,
+     "p": [
+      0.8,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c10",
+   "texto": "Cinquenta mil olhando. Uma chance em cinco de não voltar, a cada luta. Você aguentaria?",
+   "quando": "80 d.C.",
+   "onde": "ROMA",
+   "destaques": [
+    "cinquenta",
+    "mil",
+    "gladiador",
+    "escravo",
+    "prisioneiro",
+    "condenado",
+    "juramento",
+    "morto",
+    "madeira",
+    "cevada",
+    "cinza",
+    "surpresa",
+    "uma",
+    "cinco",
+    "morte",
+    "caro",
+    "prejuízo",
+    "polegar",
+    "ninguém",
+    "rudis",
+    "liberdade",
+    "aguentaria",
+    "oitenta"
+   ],
+   "planos": [
+    {
+     "set": "fim",
+     "cam": "aereo",
+     "card": {
+      "rotulo": "Coliseu lotado",
+      "num": 50000
+     }
+    },
+    {
+     "set": "fim",
+     "cam": "ze",
+     "apartir": 3,
+     "card": {
+      "rotulo": "Chance de morrer na luta",
+      "valor": "1 EM 5",
+      "cor": "#ff5d5d"
+     }
+    },
+    {
+     "set": "fim",
+     "cam": "pergunta",
+     "apartir": 13
+    }
+   ]
+  }
+ ]
+}
