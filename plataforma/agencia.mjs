@@ -178,12 +178,14 @@ async function produzir(p, tema, pautaMotivo) {
 
     // 4. Legenda (agente legendista)
     passo('legenda');
-    const r = await claude(
+    const fLeg = path.join(RAIZ, `out/${id}.legenda.json`);
+    const r = fs.existsSync(fLeg) ? fs.readFileSync(fLeg, 'utf8') : await claude(
       `Use o agente legendista. Perfil ${p.nome} (@${p.instagram}). Vídeo: roteiros/${id}.json. ` +
         `CTA: "${p.cta}". Hashtags base: ${p.hashtags.join(' ')}. Responda SÓ com o JSON pedido pelo agente.`,
       `legenda-${id}`,
       15,
     ).catch((e) => (log('agencia', `legenda automática falhou (${e.message}); usando a padrão`), ''));
+    if (!fs.existsSync(fLeg) && r) fs.writeFileSync(fLeg, String(r).match(/\{[\s\S]*\}/)?.[0] ?? '');
     const m = String(r).match(/\{[\s\S]*\}/);
     const padrao = {legenda: `${tema}\n\n${p.cta}\n\n${p.hashtags.map((h) => '#' + h).join(' ')}`, titulo_youtube: `${tema} #shorts`};
     let leg = padrao;
