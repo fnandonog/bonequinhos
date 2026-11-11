@@ -9,7 +9,9 @@ import {
   Bolo, Boleira, COR, Faca, Planta, Celular, CaixaOvos, Cenoura, Chuvisco, Colher, Cozinha, DIAL_ANG, Espatula, Fatia, Fio, Forma, Fue, GarrafaOleo,
   Grade, Ilha, Lata, Liquidificador, Manteiga, Ovo, Pacote, Palito, Panela, Peneira, Prato, Rodelas, TOPO, Tabua, Tigela, Vapor, Xicara,
   clamp01, lerp, suave, texDial,
+  BW, BarraChocolate, CorteBrownie, FormaQuadrada, PalitoBrownie, Pedacos, Quadradinho,
 } from './pecas';
+import {PIZZA} from './pizza';
 
 export type Luz = 'cozinha' | 'forno' | 'frio';
 export type SetCozinha = {fundo?: [string, string]; luz?: Luz; render: (c: Ctx) => React.ReactNode; cams: Record<string, Cam>};
@@ -93,7 +95,368 @@ const MeioBolo: React.FC<{pos: V3; h: number; cor: string; furos?: boolean}> = (
   </group>
 );
 
+// ======================= BROWNIE (sets novos; prefixo bw) =======================
+// tigela em banho-maria apoiada na boca da panela (raio 13 cm sobre panela de 10 cm)
+const BANHO: V3 = [BOCA[0], BOCA[1] + 0.065, BOCA[2]];
+const MANTEIGA = '#ffe27a';
+const Fita: React.FC<{t: number; pos: V3; cor: string}> = ({t, pos, cor}) => (
+  <group>
+    <Fio a={[pos[0], pos[1] + 0.12, pos[2]]} b={[pos[0], pos[1] + 0.005, pos[2]]} r={0.004} cor={cor} />
+    {[0, 1, 2].map((i) => (
+      <mesh key={i} position={[pos[0] + Math.cos(i * 2.1 + t) * 0.012, pos[1] + 0.004, pos[2] + Math.sin(i * 2.1 + t) * 0.012]} rotation={[-Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[0.012 + i * 0.006, 0.0025, 4, 16]} />
+        <meshStandardMaterial color={cor} />
+      </mesh>
+    ))}
+  </group>
+);
+
+const BROWNIE: Record<string, SetCozinha> = {
+  // gancho e final: brownie cortado na forma, um pedaço no prato
+  bwPronto: {
+    render: ({t}) => (
+      <>
+        <Base t={t} ze="comemora" />
+        <Tabua pos={[0, T, 0.05]} />
+        <FormaQuadrada pos={[0, T + 0.02, 0.05]} papel={1} pedacos faltam={[14]} />
+        <Prato pos={[0.3, T, 0.22]} r={0.1} />
+        <Quadradinho pos={[0.3, T + 0.013, 0.22]} rotY={0.5} />
+        <BarraChocolate pos={[-0.32, T, 0.2]} rot={[0, 0.4, 0]} frac={0.5} />
+      </>
+    ),
+    cams: {giro: orb([0.02, T + 0.04, 0.08], -25, 26, 0.78, 0.55, 40, 30), final: orb([0.04, T + 0.05, 0.1], 30, 30, 0.85, 0.62, 40, -20)},
+  },
+  bwCasquinha: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <FormaQuadrada pos={[0, T, 0.05]} papel={1} massa={1} assado={1} casquinha={0.75 + 0.25 * suave(p)} />
+        <Pilula texto="CASQUINHA" pos={[0, T + 0.055, 0.05]} fundo="#ff9f1c" vis={clamp01(p * 3 - 0.3)} />
+      </>
+    ),
+    cams: {macro: orb([0, T + 0.035, 0.05], 20, 22, 0.42, 0.3, 40, 14), rente: orb([0, T + 0.035, 0.05], -35, 12, 0.36, 0.28, 40, -10)},
+  },
+  // segredo: ovos + açúcar batidos até virar creme claro
+  bwOvos: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <Tigela pos={[0, T, 0.05]} nivel={0.08 + p * 0.12} cor={COR.gema} />
+        <Ovo pos={[0, T + 0.17, 0.05]} aberto={clamp01(p * 1.2)} />
+        <CaixaOvos pos={[0.27, T, 0.04]} n={3} />
+      </>
+    ),
+    cams: {close: orb([0, T + 0.1, 0.05], 18, 22, 0.6, 0.46, 40, 10)},
+  },
+  bwAcucar: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <Tigela pos={[0, T, 0.05]} nivel={0.2 + p * 0.2} cor={mixCor(COR.gema, '#fff1c4', p * 0.5)} />
+        <Xicara pos={[-0.075, T + 0.24, 0.05]} rot={[0, 0, -2.1]} cheia={p < 0.8 ? COR.acucar : null} />
+        <Chuvisco t={t} de={[0, T + 0.2, 0.05]} y1={T + 0.04} raio={0.02} n={90} cor={COR.acucar} tam={0.005} vel={1.2} on={p < 0.85 ? 1 : 0} />
+        <Pacote pos={[0.27, T, -0.02]} texto={'AÇÚCAR'} fundo="#e8322b" linha2="1 kg" rotY={-0.4} />
+      </>
+    ),
+    cams: {close: orb([0, T + 0.12, 0.05], -24, 18, 0.62, 0.48, 40, 10)},
+  },
+  bwBate: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <Tigela pos={[0, T, 0.05]} nivel={0.42 + p * 0.12} cor={mixCor('#ffd36a', BW.claro, suave(p))} />
+        <Fue pos={[Math.cos(t * 9) * 0.035, T + 0.05, 0.05 + Math.sin(t * 9) * 0.035]} rot={[Math.sin(t * 9) * 0.3, 0, -Math.cos(t * 9) * 0.3]} />
+      </>
+    ),
+    cams: {cima: orb([0, T + 0.08, 0.05], -10, 55, 0.55, 0.42, 40, 25), frente: orb([0, T + 0.09, 0.05], 15, 26, 0.62, 0.46, 40, 12)},
+  },
+  bwFita: {
+    render: ({t}) => (
+      <>
+        <Base t={t} ze={null} />
+        <Tigela pos={[0, T, 0.05]} nivel={0.56} cor={BW.claro} />
+        <group position={[0.01, T + 0.2, 0.05]} rotation={[0, 0, 0.5]}>
+          <Fue pos={[0, -0.06, 0]} />
+        </group>
+        <Fita t={t} pos={[0.0, T + 0.07, 0.05]} cor={BW.claro} />
+      </>
+    ),
+    cams: {close: orb([0, T + 0.12, 0.05], 28, 14, 0.5, 0.4, 40, 8)},
+  },
+  // derreter chocolate + manteiga em banho-maria
+  bwChocolate: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <Tigela pos={[0, T, 0.05]} />
+        <Pedacos centro={[0, T + 0.01, 0.05]} n={Math.floor(4 + p * 30)} cor={BW.derretido} />
+        <BarraChocolate pos={[-0.1, T + 0.2 - suave(p) * 0.03, 0.05]} rot={[0.5, 0, -0.5]} frac={1 - p * 0.75} />
+        <Pedacos centro={[-0.02, T + 0.04, 0.05]} n={p < 0.9 ? 6 : 0} raio={0.02} cor={BW.derretido} cai={0.6 * ((t * 1.5) % 1)} seed={11} />
+      </>
+    ),
+    cams: {close: orb([-0.03, T + 0.09, 0.05], 14, 40, 0.62, 0.48, 40, 10)},
+  },
+  bwManteiga: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <Tigela pos={[0, T, 0.05]} />
+        <Pedacos centro={[0, T + 0.01, 0.05]} n={34} cor={BW.derretido} />
+        <Pedacos centro={[0, T + 0.03, 0.05]} n={Math.floor(2 + p * 10)} raio={0.04} tam={0.024} cor={MANTEIGA} cai={0.5 * (1 - suave(p * 1.4))} seed={23} />
+        <Manteiga pos={[0.26, T, 0.06]} frac={1 - p * 0.6} />
+      </>
+    ),
+    cams: {close: orb([0.04, T + 0.08, 0.05], -26, 30, 0.6, 0.46, 40, 10)},
+  },
+  bwBanho: {
+    render: ({t, p}) => {
+      const m = suave(p * 1.2);
+      return (
+        <>
+          <Base t={t} ze={null} chama={[0, 0, 1, 0]} />
+          <Panela pos={BOCA} t={t} nivel={0.6} cor="#cfe6f2" bolhas={1} />
+          <Tigela pos={BANHO} nivel={0.1 + m * 0.3} cor={BW.derretido} />
+          <Pedacos centro={[BANHO[0], BANHO[1] + 0.012, BANHO[2]]} n={34} cor={BW.derretido} derrete={m} />
+          <Pedacos centro={[BANHO[0], BANHO[1] + 0.02, BANHO[2]]} n={10} raio={0.04} tam={0.024} cor={MANTEIGA} derrete={clamp01(m * 1.4)} seed={23} />
+          <Espatula pos={[BANHO[0] + Math.cos(t * 4) * 0.04, BANHO[1] + 0.02, BANHO[2] + Math.sin(t * 4) * 0.04]} rot={[Math.sin(t * 4) * 0.3, -t * 4, -Math.cos(t * 4) * 0.3]} />
+          <Vapor t={t} pos={[BANHO[0] + 0.12, BOCA[1] + 0.08, BANHO[2]]} forca={0.5} raio={0.03} />
+        </>
+      );
+    },
+    cams: {alto: orb([BANHO[0], BANHO[1] + 0.06, BANHO[2]], 18, 40, 0.75, 0.56, 40, 12)},
+  },
+  // juntar chocolate ao creme e os secos
+  bwJunta: {
+    render: ({t, p}) => {
+      const k = suave(p * 1.5);
+      return (
+        <>
+          <Base t={t} ze={null} />
+          <Tigela pos={[0.08, T, 0.05]} nivel={0.56 + p * 0.1} cor={mixCor(BW.claro, BW.crua, suave(p))} cor2={BW.derretido} mistura={suave(p)} t={t} />
+          <group position={[-0.06, T + 0.3, 0.05]} rotation={[0, 0, lerp(-0.6, -1.8, k)]}>
+            <Tigela pos={[0, -0.08, 0]} r={0.1} nivel={0.5 * (1 - p * 0.7)} cor={BW.derretido} />
+          </group>
+          <Fio a={[0.06, T + 0.25, 0.05]} b={[0.06, T + 0.08, 0.05]} r={0.006} cor={BW.derretido} vis={clamp01(p * 3 - 0.5)} />
+        </>
+      );
+    },
+    cams: {lado: orb([0.0, T + 0.14, 0.05], 10, 14, 0.9, 0.75, 40, 10)},
+  },
+  bwFarinha: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <Tigela pos={[0, T, 0.05]} nivel={0.66} cor={BW.crua} monte={p * 0.5} corMonte={COR.farinha} />
+        <Peneira pos={[0, T + 0.19, 0.05]} balanca={Math.sin(t * 16)} />
+        <Chuvisco t={t} de={[0, T + 0.15, 0.05]} y1={T + 0.07} raio={0.05} n={110} cor={COR.farinha} tam={0.004} vel={0.5} />
+        <Pacote pos={[0.3, T, -0.05]} texto={'FARINHA\nDE TRIGO'} fundo="#2f6fd6" linha2="1 kg" rotY={-0.4} />
+      </>
+    ),
+    cams: {close: orb([0, T + 0.13, 0.05], -30, 16, 0.6, 0.46, 40, 8)},
+  },
+  bwCacau: {
+    render: ({t, p}) => {
+      const inc = lerp(0, -1.6, suave(p * 1.6));
+      return (
+        <>
+          <Base t={t} ze={null} />
+          <Tigela pos={[0, T, 0.05]} nivel={0.66} cor={BW.crua} monte={0.5} corMonte={mixCor(COR.farinha, '#5a2e1a', p)} />
+          <Colher pos={[0.01, T + 0.19, 0.05]} rot={[0, -Math.PI / 2, inc]} cheia={p < 0.55 ? '#4a2414' : null} esc={1.2} />
+          <Chuvisco t={t} de={[0, T + 0.18, 0.05]} y1={T + 0.08} raio={0.01} n={50} cor="#4a2414" tam={0.004} vel={0.9} on={p > 0.35 && p < 0.9 ? 1 : 0} />
+          <Lata pos={[0.24, T, 0.05]} texto={'CACAU\n100%'} fundo="#5a2e1a" r={0.04} h={0.11} />
+        </>
+      );
+    },
+    cams: {colher: orb([0.03, T + 0.14, 0.05], 22, 18, 0.52, 0.4, 40, 10)},
+  },
+  bwSal: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <Tigela pos={[0, T, 0.05]} nivel={0.66} cor={BW.crua} monte={0.5} corMonte="#7a4a30" />
+        <Lata pos={[0.03, T + 0.24, 0.05]} rot={[0, 0, Math.PI * 0.8]} texto={'SAL'} fundo="#2f6fd6" r={0.022} h={0.07} />
+        <Chuvisco t={t} de={[0, T + 0.18, 0.05]} y1={T + 0.08} raio={0.008} n={25} cor="#ffffff" tam={0.003} vel={0.8} on={p > 0.2 && p < 0.7 ? 1 : 0} />
+      </>
+    ),
+    cams: {close: orb([0.0, T + 0.15, 0.05], 40, 12, 0.5, 0.4, 40, 8)},
+  },
+  bwMistura: {
+    render: ({t, p}) => {
+      const a = t * 3;
+      return (
+        <>
+          <Base t={t} ze={null} />
+          <Tigela pos={[0, T, 0.05]} nivel={0.68} cor={BW.crua} cor2="#c9a98c" mistura={suave(p * 1.2)} t={t} />
+          <Espatula pos={[Math.cos(a) * 0.05, T + 0.05, 0.05 + Math.sin(a) * 0.05]} rot={[Math.sin(a) * 0.35, -a, -Math.cos(a) * 0.35]} />
+        </>
+      );
+    },
+    cams: {cima: orb([0, T + 0.08, 0.05], 25, 56, 0.55, 0.42, 40, 20)},
+  },
+  bwBolo: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <CorteBrownie pos={[-0.048, T, 0.05]} tipo="umido" />
+        <CorteBrownie pos={[0.048, T, 0.05]} tipo="bolo" />
+        <Pilula texto="BROWNIE" pos={[-0.035, T + 0.085, 0.05]} fundo="#2fbf71" vis={clamp01(p * 3)} />
+        <Pilula texto="BOLO" pos={[0.04, T + 0.085, 0.05]} fundo="#ff3b30" vis={clamp01(p * 3 - 0.6)} />
+      </>
+    ),
+    cams: {corte: orb([0, T + 0.035, 0.03], 0, 12, 0.52, 0.44, 40, 6)},
+  },
+  // forma, forno
+  bwForma: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <FormaQuadrada pos={[0, T, 0.05]} papel={p} />
+        <Barra a={[-0.1, T + 0.002, 0.18]} b={[0.1, T + 0.002, 0.18]} r={0.002} cor="#ff3b30" sombra={false} />
+        <group position={[0.24, T, 0.0]} rotation={[0, -0.3, 0]}>
+          <Cil rot={[0, 0, Math.PI / 2]} pos={[0, 0.02, 0]} r={0.02} h={0.12} cor={BW.papel} seg={12} />
+        </group>
+      </>
+    ),
+    cams: {cima: orb([0, T + 0.02, 0.07], 10, 58, 0.62, 0.48, 40, 12), papel: orb([0, T + 0.04, 0.05], -30, 30, 0.55, 0.42, 40, 10)},
+  },
+  bwDespeja: {
+    render: ({t, p}) => {
+      const k = suave(p * 1.6);
+      return (
+        <>
+          <Base t={t} ze={null} />
+          <FormaQuadrada pos={[0.05, T, 0.05]} papel={1} massa={clamp01(p * 1.15)} />
+          <Tigela pos={[-0.09, T + 0.16, 0.05]} rot={[0, 0, lerp(-0.4, -1.7, k)]} nivel={0.6 * (1 - p * 0.7)} cor={BW.crua} />
+          <Fio a={[0.04, T + 0.16, 0.05]} b={[0.04, T + 0.01, 0.05]} r={0.009} cor={BW.crua} vis={clamp01(p * 3 - 0.4)} />
+        </>
+      );
+    },
+    cams: {lado: orb([0, T + 0.1, 0.05], 22, 14, 0.9, 0.75, 40, 10)},
+  },
+  bwForno: {
+    fundo: ['#1a0f0a', '#2b1a12'],
+    luz: 'forno',
+    render: ({t, p}) => (
+      <>
+        <InteriorForno t={t} />
+        <FormaQuadrada pos={[0, 0.003, 0]} papel={1} massa={1} assado={suave(p)} casquinha={suave(p * 1.2)} />
+      </>
+    ),
+    cams: {vidro: orb([0, 0.06, 0], 0, 14, 0.62, 0.46, 42, 8), alto: orb([0, 0.05, 0], -25, 30, 0.55, 0.42, 42, 10)},
+  },
+  // ponto
+  bwErra: {
+    render: ({t}) => (
+      <>
+        <Base t={t} ze="aponta" aceso={1} />
+        <FormaQuadrada pos={[0.15, T, 0.1]} papel={1} massa={1} assado={1} casquinha={1} />
+        <PalitoBrownie pos={[0.3, T + 0.005, 0.2]} />
+      </>
+    ),
+    cams: {frente: orb([0.05, 1.22, -0.4], 8, 4, 2.5, 2.2, 42, 10)},
+  },
+  bwPalito: {
+    render: ({t, p}) => {
+      const y = p < 0.5 ? lerp(0.15, 0.012, suave(p * 2)) : lerp(0.012, 0.16, suave(p * 2 - 1));
+      return (
+        <>
+          <Base t={t} ze={null} />
+          <Grade pos={[0, T, 0.05]} />
+          <FormaQuadrada pos={[0, T + 0.025, 0.05]} papel={1} massa={1} assado={1} casquinha={1} />
+          <PalitoBrownie pos={[0.03, T + 0.025 + y, 0.07]} migalhas={p > 0.5 ? 1 : 0} />
+          <Vapor t={t} pos={[0, T + 0.1, 0.05]} forca={0.7} />
+        </>
+      );
+    },
+    cams: {macro: orb([0.03, T + 0.12, 0.07], 24, 10, 0.4, 0.32, 40, 8)},
+  },
+  bwLimpo: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <PalitoBrownie pos={[0, T + 0.05, 0.05]} />
+        <FormaQuadrada pos={[0, T, -0.12]} papel={1} massa={1} assado={1} casquinha={0.4} />
+        <XVermelho pos={[0, T + 0.12, 0.08]} esc={0.09} vis={clamp01(p * 3 - 0.3)} />
+      </>
+    ),
+    cams: {macro: orb([0, T + 0.11, 0.05], -18, 6, 0.42, 0.34, 40, 8)},
+  },
+  bwSeco: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <CorteBrownie pos={[-0.048, T, 0.05]} tipo="umido" />
+        <CorteBrownie pos={[0.048, T, 0.05]} tipo="seco" />
+        <Pilula texto="ÚMIDO" pos={[-0.038, T + 0.07, 0.05]} fundo="#2fbf71" vis={clamp01(p * 3)} />
+        <Pilula texto="SECO" pos={[0.04, T + 0.07, 0.05]} fundo="#ff3b30" vis={clamp01(p * 3 - 0.6)} />
+      </>
+    ),
+    cams: {corte: orb([0, T + 0.03, 0.03], 8, 16, 0.52, 0.44, 40, 6)},
+  },
+  // esfriar, cortar, servir
+  bwEsfria: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <Grade pos={[2.3, 0.94, -2.0]} />
+        <FormaQuadrada pos={[2.3, 0.965, -2.0]} papel={1} massa={1} assado={1} casquinha={1} />
+        <Vapor t={t} pos={[2.3, 1.02, -2.0]} forca={1 - p * 0.8} />
+        <Planta pos={[2.7, 0.94, -2.1]} />
+      </>
+    ),
+    cams: {janela: orb([2.3, 1.06, -2.0], -10, 18, 0.9, 0.68, 40, 10)},
+  },
+  bwCorta: {
+    render: ({t, p}) => {
+      const i = Math.min(5, Math.floor(p * 6));
+      const dir = i % 2;
+      const k = (i >> 1) - 1;
+      const sub = (p * 6) % 1;
+      const x = dir ? k * 0.05 : lerp(-0.1, 0.1, sub);
+      const z = dir ? lerp(-0.1, 0.1, sub) : k * 0.05;
+      return (
+        <>
+          <Base t={t} ze={null} />
+          <Tabua pos={[0, T, 0.05]} />
+          <FormaQuadrada pos={[0, T + 0.02, 0.05]} papel={1} massa={1} assado={1} casquinha={1} cortes={p} />
+          <group position={[x, T + 0.075, 0.05 + z]} rotation={[0, dir ? 0 : Math.PI / 2, 0]}>
+            <Faca pos={[0, 0, 0]} />
+          </group>
+        </>
+      );
+    },
+    cams: {cima: orb([0, T + 0.05, 0.06], 0, 62, 0.62, 0.5, 40, 12)},
+  },
+  bwQuadradinhos: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <Tabua pos={[0, T, 0.05]} />
+        <FormaQuadrada pos={[0, T + 0.02, 0.05]} papel={1} pedacos faltam={[13]} />
+        <Quadradinho pos={[-0.025, T + 0.024 + suave(p) * 0.07, 0.15 + suave(p) * 0.06]} rotY={suave(p) * 0.4} />
+      </>
+    ),
+    cams: {close: orb([0, T + 0.06, 0.1], 28, 24, 0.55, 0.42, 40, 12)},
+  },
+  bwMesa: {
+    render: ({t}) => (
+      <>
+        <Base t={t} ze="acena" />
+        <Prato pos={[0.08, T, 0.3]} r={0.14} />
+        {[[-0.03, 0, -0.03, 0.2], [0.03, 0, -0.025, -0.3], [-0.025, 0, 0.03, 0.6], [0.03, 0, 0.03, -0.1], [0, 1, 0, 0.8]].map(([x, nivel, z, r], i) => (
+          <Quadradinho key={i} pos={[0.08 + x, T + 0.013 + nivel * 0.03, 0.3 + z]} rotY={r} esc={0.95} />
+        ))}
+        <FormaQuadrada pos={[-0.3, T, 0.24]} papel={1} pedacos faltam={[0, 1, 4, 5, 6, 9]} />
+        <Pacote pos={[0.42, T, -0.05]} texto={'AÇÚCAR'} fundo="#e8322b" linha2="1 kg" rotY={-0.4} />
+      </>
+    ),
+    cams: {geral: orb([0, T + 0.2, -0.3], 10, 14, 2.7, 2.3, 42, 10)},
+  },
+};
+
 export const SETS: Record<string, SetCozinha> = {
+  ...BROWNIE,
+  ...PIZZA,
   // ===== gancho: bolo pronto com calda brilhando =====
   boloPronto: {
     render: ({t}) => (

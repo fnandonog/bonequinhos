@@ -23,7 +23,9 @@ export function salvarPerfil(id, mudancas) {
   const d = ler(f, {perfis: []});
   const p = d.perfis.find((x) => x.id === id);
   if (!p) throw new Error('perfil não existe: ' + id);
-  for (const k of ['ativo', 'horario', 'cta', 'link_bio', 'instagram', 'youtube']) if (k in mudancas) p[k] = mudancas[k];
+  if (typeof mudancas.horarios === 'string') mudancas.horarios = mudancas.horarios.split(/[,; ]+/).filter((h) => /^([01]\d|2[0-3]):[0-5]\d$/.test(h)).sort();
+  if (mudancas.horarios?.length) mudancas.horario = mudancas.horarios[0];
+  for (const k of ['ativo', 'horario', 'horarios', 'cta', 'link_bio', 'instagram', 'youtube']) if (k in mudancas) p[k] = mudancas[k];
   gravar(f, d);
   return p;
 }
@@ -72,7 +74,7 @@ export function salvarEnv(mudancas) {
   for (const [k, v] of Object.entries(mudancas)) {
     if (!/^[A-Z0-9_]+$/.test(k)) continue;
     const i = linhas.findIndex((l) => l.startsWith(k + '='));
-    const nova = `${k}=${String(v).replace(/[\r\n]/g, '')}`;
+    const nova = `${k}=${String(v).replace(/[\r\n]/g, '').trim()}`;
     if (v === null || v === '') {
       if (i >= 0) linhas.splice(i, 1);
     } else if (i >= 0) linhas[i] = nova;

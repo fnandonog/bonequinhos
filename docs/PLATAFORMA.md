@@ -16,7 +16,9 @@ pautas/<perfil>.json ──► agencia.mjs (02:00) ──► claude -p "/video" 
 - **Fila de vídeos / Agenda:** o que está produzindo, esperando aprovação, agendado e publicado, dia a dia.
 - **Redes:** conexão e últimos posts de cada perfil (Instagram, Página do Facebook, YouTube; TikTok depois).
 - **Comentários:** chegam de hora em hora; a agente Comunidade deixa o rascunho, você responde com 1 clique.
-- **Perfis, Pautas, Página de links** (gera `site/` com uma página geral e uma por perfil) e **Configurações** (tokens no `.env`).
+- **Perfis, Pautas, Página de links** (gera `site/` com uma página geral, uma por perfil e uma por vídeo publicado em `zeexplica.com.br/<perfil>/<vídeo>/`, com o texto de entrega do vídeo, os links de afiliado e os canais do Telegram do Zé) e **Configurações** (tokens no `.env`).
+- **Visitas e cliques**: as páginas avisam `painel.zeexplica.com.br/c` a cada visita e clique (só contagens, em `dados/cliques.json`); a tabela fica em Página de links.
+- **Telegram do Zé** (`perfis.json` → `grupo` e `ofertas`): Receitas do Zé (t.me/receitasprecinho) e os canais Ofertas do Zé (geral, Cozinha, Construção, Livros), alimentados pelo robô do Precinho de Ouro. No direct, `{ofertas}` é o canal de ofertas do nicho.
 - **Escritório** (/admin/escritorio): os agentes em pixel art, quadro de tarefas, caixa Aprovar, conversa com o time, organograma.
 
 ## Os agentes que trabalham sozinhos (escritório)
@@ -38,6 +40,17 @@ Outros comandos: `npm run painel`, `npm run agencia` (produz agora), `npm run ag
    `pages_show_list`, `pages_read_engagement`, `pages_manage_posts`. Troque por um token de longa duração (60 dias).
 2. Painel → Configurações → cole o token → **Conectar contas automaticamente**. Cada Instagram precisa ser conta profissional
    ligada a uma Página do Facebook; a plataforma casa o @ da página com o @ de cada perfil e guarda os IDs/tokens no `.env`.
+3. Para o **robô comentário → direct**, o token também precisa de `instagram_manage_comments`, `instagram_manage_messages`,
+   `pages_manage_metadata` e `pages_messaging`, o app precisa do caso de uso Mensagens do Instagram (fora do modo
+   desenvolvimento, com análise do app) e cada Instagram precisa de Configurações → Mensagens → Ferramentas conectadas →
+   Permitir acesso às mensagens.
+
+## Robô comentário → direct
+Quem comenta a palavra do perfil (RECEITA, PLANILHA, LINK...) recebe o direct com o botão "Liberar"; o conteúdo só sai
+para quem segue o perfil (o robô confere a cada toque e pede de novo até seguir). Liga no painel → Comentários (geral e por
+perfil; começa desligado). O postador deixa o primeiro comentário chamando a palavra (fixar é no app). O que é entregue:
+o "Conteúdo do direct" do vídeo na fila ou o padrão do perfil (`plataforma/direct.json`). Teste sem enviar:
+`node plataforma/direct.mjs --seco`. Detalhes e armadilhas: skill `.claude/skills/comentario-direct/SKILL.md`.
 
 ## Onde ficam as coisas
 | O quê | Onde | Vai pro GitHub? |

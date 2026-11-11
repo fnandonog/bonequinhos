@@ -780,4 +780,151 @@ export const DIAL_ANG = (graus: number) => {
   const idx = graus <= 0 ? 0 : 1 + (graus - 120) / 30;
   return ((-120 + idx * 40) * Math.PI) / 180;
 };
+// ================= BROWNIE (peças novas; não alteram as do bolo) =================
+export const BW = {
+  crua: '#5a3222', crosta: '#6e4430', brilho: '#8a5a40', miolo: '#3f2316', seco: '#7a5038', lado: '#4a2a1b',
+  derretido: '#3a1c10', claro: '#f7e2a6', papel: '#f1e7cf', forma: '#9aa1aa',
+};
+
+// barra de chocolate (tablete ~200 g: 16 × 7,5 × 1 cm, em gomos 4 × 2) que encolhe conforme os pedaços saem
+export const BarraChocolate: React.FC<{pos: V3; rot?: V3; frac?: number}> = ({pos, rot = [0, 0, 0], frac = 1}) => {
+  const cols = Math.max(0, Math.round(4 * frac));
+  return (
+    <group position={pos} rotation={rot}>
+      {Array.from({length: cols * 2}).map((_, i) => (
+        <Caixa key={i} pos={[-0.06 + (i % cols) * 0.04, 0.005, (Math.floor(i / cols) - 0.5) * 0.037]} tam={[0.038, 0.01, 0.035]} cor={BW.derretido} />
+      ))}
+      {/* embalagem aberta na ponta que sobra */}
+      <Caixa pos={[0.1, 0.006, 0]} tam={[0.035, 0.013, 0.08]} cor="#c41d14" />
+    </group>
+  );
+};
+
+// pedaços de chocolate/manteiga numa pilha (instanciados) que derretem (escala cai com "derrete")
+export const Pedacos: React.FC<{centro: V3; n: number; raio?: number; tam?: number; cor: string; derrete?: number; cai?: number; seed?: number}> = ({centro, n, raio = 0.05, tam = 0.02, cor, derrete = 0, cai = 0, seed = 7}) => {
+  const geo = useMemo(() => new THREE.BoxGeometry(tam, tam * 0.5, tam * 0.8), [tam]);
+  const mats = useMemo(() => {
+    let s = seed;
+    const r = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
+    const k = Math.max(0.05, 1 - derrete);
+    return Array.from({length: 40}).map((_, i) => {
+      const a = r() * Math.PI * 2, d = Math.sqrt(r()) * raio;
+      const y = centro[1] + tam * 0.3 * k + (i / 40) * 0.02 * k + cai * (1 - i / 40) * 0.22;
+      return new THREE.Matrix4().compose(new THREE.Vector3(centro[0] + Math.cos(a) * d, y, centro[2] + Math.sin(a) * d), new THREE.Quaternion().setFromEuler(new THREE.Euler(r() * 0.5, r() * 3, r() * 0.5)), new THREE.Vector3(k, k, k));
+    });
+  }, [centro[0], centro[1], centro[2], raio, tam, derrete, cai, seed]);
+  if (derrete >= 0.98) return null;
+  return <Instancias matrizes={mats} n={n} geo={geo} cor={cor} />;
+};
+
+// trincas da casquinha (linhas claras finas sobre o topo)
+const Trincas: React.FC<{lado: number; y: number; vis: number}> = ({lado, y, vis}) => {
+  if (vis <= 0.02) return null;
+  const linhas: [number, number, number, number][] = [[-0.6, -0.3, 0.1, -0.05], [0.1, -0.05, 0.55, 0.2], [-0.3, 0.4, 0.2, 0.25], [-0.5, 0.1, -0.2, 0.45], [0.3, -0.5, 0.45, -0.15], [-0.1, -0.55, 0.15, -0.35]];
+  return (
+    <group>
+      {linhas.slice(0, Math.ceil(linhas.length * vis)).map(([x0, z0, x1, z1], i) => (
+        <Barra key={i} a={[x0 * lado * 0.5, y, z0 * lado * 0.5]} b={[x1 * lado * 0.5, y, z1 * lado * 0.5]} r={0.0008} cor="#94664b" sombra={false} />
+      ))}
+    </group>
+  );
+};
+
+// topo brilhante (casquinha): de fosco a espelhado conforme "casquinha"
+const Topo: React.FC<{w: number; d: number; y: number; casquinha: number; cor: string}> = ({w, d, y, casquinha, cor}) => (
+  <mesh position={[0, y, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+    <planeGeometry args={[w, d]} />
+    <meshStandardMaterial color={new THREE.Color(cor).lerp(new THREE.Color(BW.brilho), casquinha * 0.4).getStyle()} roughness={lerp(0.85, 0.12, casquinha)} metalness={casquinha * 0.25} />
+  </mesh>
+);
+
+// um quadradinho de brownie de 5 × 5 × 3 cm com casquinha
+export const Quadradinho: React.FC<{pos: V3; rotY?: number; esc?: number}> = ({pos, rotY = 0, esc = 1}) => (
+  <group position={pos} rotation={[0, rotY, 0]} scale={esc}>
+    <Caixa pos={[0, 0.015, 0]} tam={[0.05, 0.03, 0.05]} cor={BW.miolo} />
+    <Topo w={0.05} d={0.05} y={0.0302} casquinha={1} cor={BW.crosta} />
+    <Barra a={[-0.015, 0.0305, -0.01]} b={[0.012, 0.0305, 0.008]} r={0.0007} cor="#94664b" sombra={false} />
+  </group>
+);
+
+// forma quadrada 20 × 20 × 5 cm, com papel-manteiga, massa, casquinha, cortes e pedaços
+export const FormaQuadrada: React.FC<{pos: V3; rot?: V3; papel?: number; massa?: number; assado?: number; casquinha?: number; cortes?: number; pedacos?: boolean; faltam?: number[]; vazia?: boolean}> = ({pos, rot = [0, 0, 0], papel = 0, massa = 0, assado = 0, casquinha = 0, cortes = 0, pedacos = false, faltam = [], vazia = false}) => {
+  const L = 0.2, h = 0.05, e = 0.003;
+  const alt = massa * 0.03;
+  const cor = new THREE.Color(BW.crua).lerp(new THREE.Color(BW.crosta), assado).getStyle();
+  const kp = suave(papel);
+  return (
+    <group position={pos} rotation={rot}>
+      <Caixa pos={[0, 0.0015, 0]} tam={[L + 2 * e, 0.003, L + 2 * e]} cor={BW.forma} />
+      {[[0, -1], [0, 1], [-1, 0], [1, 0]].map(([sx, sz], i) => (
+        <Caixa key={i} pos={[sx * (L / 2 + e / 2), h / 2, sz * (L / 2 + e / 2)]} tam={sx ? [e, h, L + 2 * e] : [L + 2 * e, h, e]} cor={BW.forma} />
+      ))}
+      {kp > 0.01 && (
+        <group position={[0, (1 - kp) * 0.14, 0]}>
+          <Caixa pos={[0, 0.0035, 0]} tam={[L - 0.002, 0.001, L - 0.002]} cor={BW.papel} sombra={false} />
+          {[-1, 1].map((sz) => (<Caixa key={sz} pos={[0, h / 2 + 0.008, sz * (L / 2 - 0.002)]} tam={[L - 0.004, h + 0.016, 0.001]} cor={BW.papel} sombra={false} />))}
+        </group>
+      )}
+      {!vazia && massa > 0.01 && !pedacos && (
+        <group>
+          <Caixa pos={[0, 0.004 + alt / 2, 0]} tam={[L - 0.003, alt, L - 0.003]} cor={cor} />
+          <Topo w={L - 0.003} d={L - 0.003} y={0.0042 + alt} casquinha={casquinha} cor={cor} />
+          <Trincas lado={L} y={0.0046 + alt} vis={casquinha > 0.5 ? (casquinha - 0.5) * 2 : 0} />
+          {cortes > 0.01 &&
+            [-1, 0, 1].flatMap((k) => [0, 1].map((dir) => {
+              const i = (k + 1) * 2 + dir;
+              const vis = clamp01(cortes * 6 - i);
+              if (vis <= 0) return null;
+              const comp = (L - 0.004) * vis;
+              return (
+                <Caixa key={`${k}${dir}`} pos={dir ? [k * 0.05, 0.0046 + alt, -L / 2 + comp / 2] : [-L / 2 + comp / 2, 0.0046 + alt, k * 0.05]} tam={dir ? [0.0025, 0.002, comp] : [comp, 0.002, 0.0025]} cor="#1e0f08" sombra={false} />
+              );
+            }))}
+        </group>
+      )}
+      {pedacos &&
+        Array.from({length: 16}).map((_, i) =>
+          faltam.includes(i) ? null : <Quadradinho key={i} pos={[-0.075 + (i % 4) * 0.05, 0.004, -0.075 + Math.floor(i / 4) * 0.05]} esc={0.97} />,
+        )}
+    </group>
+  );
+};
+
+// pedaço em corte (comparar miolo úmido × seco × "virou bolo")
+export const CorteBrownie: React.FC<{pos: V3; tipo: 'umido' | 'seco' | 'bolo'}> = ({pos, tipo}) => {
+  const h = tipo === 'bolo' ? 0.05 : 0.03;
+  const corFrente = tipo === 'umido' ? BW.miolo : tipo === 'seco' ? BW.seco : '#6a4330';
+  const furos = tipo === 'umido' ? 0 : tipo === 'seco' ? 26 : 34;
+  return (
+    <group position={pos}>
+      <Caixa pos={[0, h / 2, -0.03]} tam={[0.08, h, 0.06]} cor={tipo === 'umido' ? BW.lado : BW.seco} />
+      <Topo w={0.08} d={0.06} y={h + 0.0003} casquinha={tipo === 'umido' ? 1 : 0.2} cor={BW.crosta} />
+      <mesh position={[0, h / 2, 0.0005]}>
+        <planeGeometry args={[0.08, h]} />
+        <meshStandardMaterial color={corFrente} roughness={tipo === 'umido' ? 0.35 : 0.95} />
+      </mesh>
+      {Array.from({length: furos}).map((_, i) => (
+        <mesh key={i} position={[(((i * 37) % 17) / 17) * 0.074 - 0.037, (((i * 23) % 11) / 11) * h * 0.8 + h * 0.1, 0.0015]}>
+          <circleGeometry args={[0.0018 + (i % 3) * 0.0012, 6]} />
+          <meshBasicMaterial color={tipo === 'seco' ? '#a77a58' : '#3a2015'} />
+        </mesh>
+      ))}
+    </group>
+  );
+};
+
+// palito com migalhas úmidas (ponto certo) ou limpo
+export const PalitoBrownie: React.FC<{pos: V3; migalhas?: number}> = ({pos, migalhas = 0}) => (
+  <group position={pos}>
+    <Barra a={[0, 0, 0]} b={[0, 0.13, 0]} r={0.0025} cor="#e3c08a" sombra={false} />
+    {migalhas > 0.01 &&
+      Array.from({length: 9}).map((_, i) => (
+        <mesh key={i} position={[Math.cos(i * 2.1) * 0.0032, 0.008 + i * 0.0045, Math.sin(i * 2.1) * 0.0032]} scale={0.0028 * migalhas * (1 + (i % 3) * 0.3)}>
+          <icosahedronGeometry args={[1, 0]} />
+          <meshStandardMaterial color={BW.miolo} roughness={0.5} flatShading />
+        </mesh>
+      ))}
+  </group>
+);
+
 export {lerp, clamp01, suave};

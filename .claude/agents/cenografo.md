@@ -12,3 +12,4 @@ Regras:
 - Personagens nunca dentro de parede/terra e nunca na frente da câmera tapando o assunto.
 - Rótulos 3D (`Rotulo`) curtos (1–2 palavras). O próprio componente segura o rótulo dentro da tela.
 Teste com `node tools/qa.mjs <id> qa <números dos planos>` e olhe as imagens antes de entregar.
+Antes de começar, leia `docs/agencia/estilo.md` (o estilo dos vídeos que estão viralizando no nicho: ritmo, cortes, legenda, câmera) e aplique no que for possível.

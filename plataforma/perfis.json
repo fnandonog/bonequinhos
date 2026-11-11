@@ -6,14 +6,15 @@
       "nome": "Zé na Cozinha",
       "nicho": "Receitas fáceis",
       "instagram": "ze.nacozinha",
-      "youtube": "",
+      "youtube": "ze.nacozinha",
       "formato": "cozinha",
       "comando": "/produzir",
-      "ativo": false,
+      "ativo": true,
       "motivo_inativo": "Motor da cozinha 3D pronto (vídeo modelo: bolo-cenoura). Liga quando o Fernando aprovar o padrão.",
       "horario": "11:30",
-      "cta": "Receita completa e utensílios em oferta: link na bio",
+      "cta": "Receita completa no Telegram do Zé: link na bio",
       "link_bio": "https://zeexplica.com.br/receitas/",
+      "link_bio_rotulo": "Todas as receitas completas no site",
       "hashtags": [
         "receitas",
         "receitafacil",
@@ -26,22 +27,34 @@
         "receita barata"
       ],
       "grupo": {
-        "nome": "Receitas Precinho: uma receita fácil por dia no Telegram",
+        "nome": "Receitas do Zé: uma receita fácil por dia no Telegram",
         "url": "https://t.me/receitasprecinho"
+      },
+      "voz_elevenlabs": {
+        "id": "fhtZMBwha5du5OxuvexO",
+        "nome": "Malu"
+      },
+      "horarios": [
+        "11:30",
+        "18:00"
+      ],
+      "ofertas": {
+        "nome": "Ofertas do Zé na Cozinha: utensílios e mercado em oferta",
+        "url": "https://t.me/ofertasdozecozinha"
       }
     },
     {
       "id": "historia",
       "nome": "Você na História",
       "nicho": "História do mundo em 1ª pessoa",
-      "instagram": "vocenahistoria3d",
-      "youtube": "",
+      "instagram": "historia.do.ze",
+      "youtube": "vocenahistoria3d",
       "formato": "historia",
       "comando": "/produzir",
-      "ativo": false,
+      "ativo": true,
       "motivo_inativo": "Falta aprovar o piloto do formato.",
-      "horario": "19:00",
-      "cta": "Livros e ofertas no grupo: link na bio",
+      "horario": "12:30",
+      "cta": "Os livros dessa história no Telegram do Zé: link na bio",
       "link_bio": "",
       "hashtags": [
         "historia",
@@ -52,19 +65,35 @@
         "história do mundo",
         "e se você vivesse",
         "curiosidades históricas"
-      ]
+      ],
+      "voz_elevenlabs": {
+        "id": "5lrBPYY4YvMbKHTo8kvZ",
+        "nome": "Arthur Freeman"
+      },
+      "horarios": [
+        "12:30",
+        "20:00"
+      ],
+      "ofertas": {
+        "nome": "Ofertas do Zé · Livros: os livros dos vídeos em promoção",
+        "url": "https://t.me/ofertasdozelivros"
+      },
+      "grupo": {
+        "nome": "Ofertas do Zé · Livros: os livros dos vídeos em promoção",
+        "url": "https://t.me/ofertasdozelivros"
+      }
     },
     {
       "id": "construiu",
       "nome": "Você Construiu",
       "nicho": "Quanto custa construir",
-      "instagram": "voceconstruiu.oficial",
-      "youtube": "",
+      "instagram": "voce.construiuoficial",
+      "youtube": "voceconstruiu.oficial",
       "formato": "construiu",
       "comando": "/video",
       "ativo": true,
-      "horario": "12:30",
-      "cta": "Materiais e ferramentas em oferta no grupo: link na bio",
+      "horario": "12:00",
+      "cta": "Materiais e ferramentas em oferta no Telegram do Zé: link na bio",
       "link_bio": "",
       "hashtags": [
         "construcao",
@@ -76,20 +105,36 @@
         "quanto custa construir",
         "obra casa custo",
         "construção casa"
-      ]
+      ],
+      "voz_elevenlabs": {
+        "id": "ZqE9vIHPcrC35dZv0Svu",
+        "nome": "Adam Borges"
+      },
+      "horarios": [
+        "12:00",
+        "19:00"
+      ],
+      "ofertas": {
+        "nome": "Ofertas do Zé da Construção: ferramentas e materiais em oferta",
+        "url": "https://t.me/ofertasdozeconstrucao"
+      },
+      "grupo": {
+        "nome": "Ofertas do Zé da Construção: ferramentas e materiais em oferta",
+        "url": "https://t.me/ofertasdozeconstrucao"
+      }
     },
     {
       "id": "caso",
       "nome": "Caso Explicado",
       "nicho": "Crimes e mistérios reais",
-      "instagram": "casoexplicado.oficial",
-      "youtube": "",
+      "instagram": "caso.explicado",
+      "youtube": "casoexplicado.oficial",
       "formato": "caso",
       "comando": "/produzir",
-      "ativo": false,
+      "ativo": true,
       "motivo_inativo": "Falta aprovar o piloto do formato.",
-      "horario": "21:00",
-      "cta": "Indicações e ofertas no grupo: link na bio",
+      "horario": "13:00",
+      "cta": "Livros e documentários do caso no Telegram do Zé: link na bio",
       "link_bio": "",
       "hashtags": [
         "misterio",
@@ -100,20 +145,36 @@
         "caso real mistério",
         "crime real explicado",
         "mistério não resolvido"
-      ]
+      ],
+      "voz_elevenlabs": {
+        "id": "cyD08lEy76q03ER1jZ7y",
+        "nome": "Scheila"
+      },
+      "horarios": [
+        "13:00",
+        "21:30"
+      ],
+      "ofertas": {
+        "nome": "Ofertas do Zé · Livros: os livros dos vídeos em promoção",
+        "url": "https://t.me/ofertasdozelivros"
+      },
+      "grupo": {
+        "nome": "Ofertas do Zé · Livros: os livros dos vídeos em promoção",
+        "url": "https://t.me/ofertasdozelivros"
+      }
     },
     {
       "id": "rico",
       "nome": "Como Ficou Rico",
       "nicho": "Como pessoas e empresas ficaram ricas",
       "instagram": "comoficourico.oficial",
-      "youtube": "",
+      "youtube": "comoficourico.oficial",
       "formato": "rico",
       "comando": "/produzir",
-      "ativo": false,
+      "ativo": true,
       "motivo_inativo": "Falta aprovar o piloto do formato.",
-      "horario": "18:00",
-      "cta": "Livros e ofertas no grupo: link na bio",
+      "horario": "07:30",
+      "cta": "Os livros dessa história no Telegram do Zé: link na bio",
       "link_bio": "",
       "hashtags": [
         "empreendedorismo",
@@ -124,7 +185,23 @@
         "como ficou rico",
         "história de sucesso empresa",
         "bilionário começou"
-      ]
+      ],
+      "voz_elevenlabs": {
+        "id": "zNEsdgTUa3ndwKry8Xcq",
+        "nome": "Elvis"
+      },
+      "horarios": [
+        "07:30",
+        "18:30"
+      ],
+      "ofertas": {
+        "nome": "Ofertas do Zé · Livros: os livros dos vídeos em promoção",
+        "url": "https://t.me/ofertasdozelivros"
+      },
+      "grupo": {
+        "nome": "Ofertas do Zé · Livros: os livros dos vídeos em promoção",
+        "url": "https://t.me/ofertasdozelivros"
+      }
     },
     {
       "id": "valeapena",
@@ -134,10 +211,10 @@
       "youtube": "valeapena3d",
       "formato": "valeapena",
       "comando": "/produzir",
-      "ativo": false,
+      "ativo": true,
       "motivo_inativo": "Falta aprovar o piloto do formato.",
-      "horario": "20:00",
-      "cta": "Link do produto com desconto na bio",
+      "horario": "12:15",
+      "cta": "Menor preço que achei no Telegram do Zé: link na bio",
       "link_bio": "",
       "hashtags": [
         "valeapena",
@@ -149,7 +226,23 @@
         "vale a pena comprar",
         "review produto barato",
         "achadinhos shopee"
-      ]
+      ],
+      "voz_elevenlabs": {
+        "id": "S4M4JhZIzYGUlDsYIOow",
+        "nome": "Elena Vinter"
+      },
+      "horarios": [
+        "12:15",
+        "20:30"
+      ],
+      "ofertas": {
+        "nome": "Ofertas do Zé: achados com preço conferido no Telegram",
+        "url": "https://t.me/ofertasdozebr"
+      },
+      "grupo": {
+        "nome": "Ofertas do Zé: achados com preço conferido no Telegram",
+        "url": "https://t.me/ofertasdozebr"
+      }
     }
   ]
 }

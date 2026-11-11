@@ -6,6 +6,7 @@ import {CASA, COMODOS, NIVEL_PISO, PAREDES, PE_DIREITO, TOPO_LAJE, TOPO_PAREDE, 
 import {Arvore, Barra, Betoneira, Boneco, Caixa, Carrinho, Chuva, CRIANCA, ENGENHEIRA, MORADOR, MonteTerra, OBREIRO, PilhaBlocos, Rotulo, SacosCimento, SERVENTE, clamp01, lerp, suave} from './kit';
 import {ALTURA_CUMEEIRA, Arredores, Esquadrias, Fundacao, Gabarito, Laje, Lote, Moveis, Paredes, Piso, Telhado} from './casa';
 import {BROCA_FUNDO, BROCA_FURO, Bancada, CH, CamadasEsq, Churrasqueira, DUTO_TOPO, ED, ED_BROCAS, ED_PAREDES, ED_PILARES, ED_YC, EdFundacao, EdInstalacoes, EdPiso, EdTelhado, Fumaca, Lavabo, Mesa, Trado, VigaFrente} from './edicula';
+import {PI_SETS} from './piscina';
 
 export type Cam = {de: V3; para: V3; alvo: V3; alvoPara?: V3; fov?: number; corte?: boolean};
 export type Ctx = {t: number; p: number};
@@ -760,6 +761,8 @@ export const SETS: Record<string, SetDef> = {
     ),
     cams: {cima: orb([2.3, 0.4, 0.4], -10, 75, 6.2, 5.2, 44)},
   },
+  // piscina de fibra 6 × 3 (src/v4/piscina.tsx), cenários com prefixo "pi"
+  ...PI_SETS,
 };
 
 // chão da edícula: o mesmo lote da casa, com furos de broca (25 cm) em vez das sapatas

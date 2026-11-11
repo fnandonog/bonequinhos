@@ -8,12 +8,13 @@
 //   node plataforma/cli.mjs pauta <perfil> "tema" ["motivo"]   # adiciona pauta nova (pauteiro, analista, diretor)
 //   node plataforma/cli.mjs tendencias [perfil]             # Shorts que mais cresceram no nicho (views/dia) e buscas em alta no Brasil
 //   node plataforma/cli.mjs retencao [perfil]               # nossos posts com tempo médio assistido, views e salvamentos
+//   node plataforma/cli.mjs horario <perfil> HH:MM "motivo"   # Ger. Redes/Postador: muda o horário de postagem do perfil (com o dado que justifica)
 //   node plataforma/cli.mjs comentarios [--todos]          # comentários novos das redes
 //   node plataforma/cli.mjs rascunho <id> "resposta"       # Comunidade: deixa a resposta pronta; o dono aprova e envia no painel
 //   node plataforma/cli.mjs afiliados <video-id> "Produto | https://link" [...]   # Afiliados: links de produto do vídeo
 import fs from 'node:fs';
 import path from 'node:path';
-import {perfis, fila, pautas, salvarPautas, item, salvarItem, RAIZ, env} from './lib/dados.mjs';
+import {perfis, fila, pautas, salvarPautas, item, salvarItem, salvarPerfil, RAIZ, env} from './lib/dados.mjs';
 import {analytics, comentarios, salvarComentario} from './sincronizar.mjs';
 import {tendencias} from './tendencias.mjs';
 
@@ -76,6 +77,16 @@ switch (cmd) {
       for (const m of ms.filter((m) => m.insights).slice(0, 15))
         out(`- ${(m.caption ?? '').split('\n')[0].slice(0, 70)} · views ${m.insights.views ?? '—'} · assistido em média ${m.insights.ig_reels_avg_watch_time != null ? (m.insights.ig_reels_avg_watch_time / 1000).toFixed(1) + 's' : '—'} · salvos ${m.insights.saved ?? '—'} · compart. ${m.insights.shares ?? '—'}`);
     }
+    break;
+  }
+  case 'horario': {
+    const [perfil, hora, motivo] = a;
+    if (!perfis().some((p) => p.id === perfil) || !/^([01]\d|2[0-3]):[0-5]\d$/.test(hora ?? '')) throw new Error('uso: horario <perfil> HH:MM "motivo"');
+    const antes = perfis().find((p) => p.id === perfil).horario;
+    salvarPerfil(perfil, {horario: hora});
+    fs.mkdirSync(path.join(RAIZ, 'docs/agencia/redes'), {recursive: true});
+    fs.appendFileSync(path.join(RAIZ, 'docs/agencia/redes/horarios.md'), `- ${new Date().toISOString().slice(0, 16)} · ${perfil}: ${antes} → ${hora} · ${motivo ?? ''}\n`);
+    out(`✔ ${perfil}: horário ${antes} → ${hora}`);
     break;
   }
   case 'comentarios':

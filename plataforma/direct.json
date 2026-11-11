@@ -1,0 +1,107 @@
+{
+  "_nota": "Robô comentário → direct (plataforma/lib/direct.mjs). Sem segredos. 'ligado' geral e por perfil começam desligados: só o Fernando liga. Na entrega, {conteudo} é o texto do vídeo (campo 'entrega' do vídeo na fila) ou, sem ele, o conteudo_padrao do perfil; {grupo} e {link} vêm do perfil.",
+  "ligado": false,
+  "intervalo_min": 2,
+  "exigir_seguir": true,
+  "palavras": [
+    "quero",
+    "eu quero",
+    "manda",
+    "me manda",
+    "link",
+    "eu"
+  ],
+  "perfis": {
+    "cozinha": {
+      "ligado": false,
+      "palavra": "RECEITA",
+      "palavras": [
+        "receita",
+        "quero",
+        "eu quero",
+        "manda",
+        "me manda"
+      ],
+      "comentario": "💬 Comenta RECEITA que o Zé te manda a receita completa no direct 👇",
+      "isca": "a receita completa (ingredientes, medidas e o passo a passo)",
+      "conteudo_padrao": "📖 Todas as receitas completas: {link}",
+      "entrega": "{conteudo}\n\n👨‍🍳 Uma receita fácil por dia no Receitas do Zé, no Telegram (grátis): {grupo}\n\n🛒 Os utensílios do vídeo em oferta no Ofertas do Zé na Cozinha: {ofertas}"
+    },
+    "construiu": {
+      "ligado": false,
+      "palavra": "PLANILHA",
+      "palavras": [
+        "planilha",
+        "quero",
+        "eu quero",
+        "manda",
+        "me manda"
+      ],
+      "comentario": "💬 Comenta PLANILHA que eu te mando a conta completa da obra no direct 👇",
+      "isca": "a planilha com a conta completa da obra (material por material)",
+      "conteudo_padrao": "📊 A conta completa desta obra está no Telegram do Zé.",
+      "entrega": "{conteudo}\n\n🧱 Materiais e ferramentas com preço conferido todo dia no Ofertas do Zé da Construção (grátis): {grupo}"
+    },
+    "valeapena": {
+      "ligado": false,
+      "palavra": "LINK",
+      "palavras": [
+        "link",
+        "quero",
+        "eu quero",
+        "manda",
+        "me manda",
+        "eu"
+      ],
+      "comentario": "💬 Comenta LINK que eu te mando o link com desconto no direct 👇",
+      "isca": "o link do produto com o menor preço que achei",
+      "conteudo_padrao": "🛒 As ofertas do dia, com preço conferido: {grupo}",
+      "entrega": "{conteudo}\n\n🔥 Achados assim todo dia no Ofertas do Zé, no Telegram (grátis): {grupo}\n\nPreço pode mudar a qualquer momento. #publi (link de afiliado)"
+    },
+    "historia": {
+      "ligado": false,
+      "palavra": "LIVRO",
+      "palavras": [
+        "livro",
+        "quero",
+        "eu quero",
+        "manda",
+        "me manda"
+      ],
+      "comentario": "💬 Comenta LIVRO que eu te mando o livro sobre essa época no direct 👇",
+      "isca": "o livro que conta essa história direito (e onde comprar mais barato)",
+      "conteudo_padrao": "📚 Livros de história em oferta no Telegram do Zé: {grupo}",
+      "entrega": "{conteudo}\n\n📚 Os livros dos vídeos em promoção no Ofertas do Zé · Livros (grátis): {grupo}\n\n#publi (link de afiliado)"
+    },
+    "rico": {
+      "ligado": false,
+      "palavra": "LIVRO",
+      "palavras": [
+        "livro",
+        "quero",
+        "eu quero",
+        "manda",
+        "me manda"
+      ],
+      "comentario": "💬 Comenta LIVRO que eu te mando o livro dessa história no direct 👇",
+      "isca": "o livro dessa história (biografia ou o livro que ele recomenda)",
+      "conteudo_padrao": "📚 Livros de negócios em oferta no Telegram do Zé: {grupo}",
+      "entrega": "{conteudo}\n\n📚 Os livros dos vídeos em promoção no Ofertas do Zé · Livros (grátis): {grupo}\n\n#publi (link de afiliado)"
+    },
+    "caso": {
+      "ligado": false,
+      "palavra": "CASO",
+      "palavras": [
+        "caso",
+        "quero",
+        "eu quero",
+        "manda",
+        "me manda"
+      ],
+      "comentario": "💬 Comenta CASO que eu te mando onde assistir e ler mais sobre ele no direct 👇",
+      "isca": "onde assistir e ler mais sobre esse caso",
+      "conteudo_padrao": "🔎 Livros sobre o caso no Telegram do Zé: {grupo}",
+      "entrega": "{conteudo}\n\n🔎 Livros sobre casos reais em promoção no Ofertas do Zé · Livros (grátis): {grupo}\n\n#publi (link de afiliado)"
+    }
+  }
+}

@@ -8,7 +8,7 @@ import {spawn, execFileSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import {RAIZ, DADOS, perfis, perfil as umPerfil, pautas, salvarPautas, salvarItem, item, log, env} from './lib/dados.mjs';
-import {proximoHorario} from './lib/agenda.mjs';
+import {proximoHorario, proximoSlot} from './lib/agenda.mjs';
 import * as ESC from './lib/escritorio.mjs';
 
 const args = process.argv.slice(2);
@@ -109,7 +109,7 @@ async function escolherPauta(p, d) {
 const registrado = (id) => fs.readFileSync(path.join(RAIZ, 'src/Root.tsx'), 'utf8').includes(`id="${id}"`);
 
 async function produzir(p, tema, pautaMotivo) {
-  const id = slug(tema);
+  const id = arg('--id') || slug(tema); // --id: reaproveita um vídeo que já existe com outro nome
   if (SECO) return log('agencia', `${p.nome}: faria "${tema}" (${id})`);
   const it = salvarItem({id, perfil: p.id, tema, status: 'produzindo', etapa: 'roteiro', criado: new Date().toISOString()});
   // Escritório: uma tarefa por vídeo, que anda pelos agentes do Estúdio até a sua caixa de aprovação
@@ -158,11 +158,13 @@ async function produzir(p, tema, pautaMotivo) {
       salvarItem({id, voz: 'teste (grátis)'});
     } else if (!jaNarrado) {
       if (!E.ELEVENLABS_API_KEY) throw new Error('falta ELEVENLABS_API_KEY no .env');
-      if (E.ELEVENLABS_VOZ) {
-        // a voz escolhida no painel vale para todos os vídeos (a do Fernando por padrão)
+      const vozCanal = p.voz_elevenlabs?.id || E.ELEVENLABS_VOZ;
+      if (vozCanal) {
+        // cada canal tem a sua voz do ElevenLabs (perfis.json → voz_elevenlabs); ELEVENLABS_VOZ é só o padrão de reserva
         const fr = path.join(RAIZ, `roteiros/${id}.json`);
         const rot = JSON.parse(fs.readFileSync(fr, 'utf8'));
-        rot.elevenlabs = {...(rot.elevenlabs ?? {}), voz_id: E.ELEVENLABS_VOZ, modelo: rot.elevenlabs?.modelo ?? 'eleven_multilingual_v2'};
+        // NARRACAO_MODELO (Configurações): eleven_flash_v2_5 gasta metade dos créditos; vazio = o modelo do roteiro
+        rot.elevenlabs = {...(rot.elevenlabs ?? {}), voz_id: vozCanal, modelo: E.NARRACAO_MODELO || rot.elevenlabs?.modelo || 'eleven_multilingual_v2'};
         fs.writeFileSync(fr, JSON.stringify(rot, null, 2));
       }
       await rodar('python3', ['tools/tts_elevenlabs.py', `roteiros/${id}.json`], {nome: `video-${id}`, extraEnv: {ELEVENLABS_API_KEY: E.ELEVENLABS_API_KEY}});
@@ -231,7 +233,7 @@ async function produzir(p, tema, pautaMotivo) {
       capa: `out/${id}.jpg`,
       legenda: leg.legenda,
       titulo_youtube: leg.titulo_youtube,
-      agendado_para: auto ? proximoHorario(p.horario) : null,
+      agendado_para: auto ? proximoSlot(p) : null,
       erro: null,
     });
   } catch (e) {
