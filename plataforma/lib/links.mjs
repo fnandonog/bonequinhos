@@ -100,8 +100,7 @@ function videosPublicados(ps) {
 // A página do vídeo: o que o vídeo prometeu (receita, conta, resumo), os produtos que aparecem nele e os canais do Zé.
 function paginaVideo(p, v, canais) {
   const corpo = [
-    `<p class="tag">O vídeo que você viu</p>`,
-    v.entrega ? `<div class="txt">${esc(v.entrega)}</div>` : '',
+    v.entrega ? `<p class="tag">O vídeo que você viu</p>\n<div class="txt">${esc(v.entrega)}</div>` : '',
     v.afiliados.length ? '<h2>O que aparece no vídeo</h2>' : '',
     ...v.afiliados.slice(0, 6).map((a, i) => botao({rotulo: a.produto, sub: 'Ver o preço de hoje', url: a.url, icone: '🛍️', k: `produto-${i + 1}`}, '../../')),
     !v.afiliados.length && v.itens.length ? `<h2>O que aparece no vídeo</h2><div class="txt">${v.itens.slice(0, 6).map((x) => `• ${esc(x)}`).join('\n')}\n\nO Zé posta a melhor oferta desses itens no Telegram 👇</div>` : '',
