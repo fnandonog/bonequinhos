@@ -1,0 +1,598 @@
+{
+  "id": "edicula-com-churrasqueira",
+  "serie": "Você construiu",
+  "titulo": "EDÍCULA COM CHURRASQUEIRA",
+  "linha2": "quanto custa DE VERDADE?",
+  "elevenlabs": {
+    "voz_id": "5Ny27k6jpd2wJTdmbFsb",
+    "modelo": "eleven_multilingual_v2",
+    "ajustes": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.4,
+      "use_speaker_boost": true,
+      "speed": 1.15
+    }
+  },
+  "fontes": "roteiros/edicula-com-churrasqueira.pesquisa.md",
+  "monetizacao": {
+    "afiliados": [
+      "churrasqueira pré-moldada / kit tijolo refratário",
+      "grelha e espetos inox",
+      "duto de inox 200 mm + chapéu",
+      "cuba inox e torneira gourmet",
+      "bloco cerâmico 14×19×29",
+      "cimento e argamassa",
+      "telha cerâmica",
+      "trado manual para broca",
+      "colher de pedreiro, nível e trena",
+      "rolo e tinta acrílica"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Quanto custa, de verdade, uma edícula com churrasqueira no fundo do quintal? Tem gente que acha que sai por dez mil. Bora fazer a conta.",
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "brocas",
+        "fumaça",
+        "refratário",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "edFachada",
+          "cam": "drone"
+        },
+        {
+          "set": "edAberta",
+          "cam": "cima",
+          "apartir": 4,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Edícula de 24 m²",
+            "valor": "6 × 4 m",
+            "sub": "churrasqueira · bancada · lavabo"
+          }
+        },
+        {
+          "set": "edTerreno",
+          "cam": "geral",
+          "apartir": 12,
+          "card": {
+            "rotulo": "R$ 10 mil?",
+            "valor": "NÃO DÁ",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Antes de cavar, o papel: projeto, ART e alvará. Uns três mil.",
+      "etapa": "PROJETO",
+      "custo": 3000,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "brocas",
+        "fumaça",
+        "refratário",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "edTerreno",
+          "cam": "ze"
+        },
+        {
+          "set": "edProjeto",
+          "cam": "cima",
+          "apartir": 5,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Projeto + ART + alvará",
+            "num": 3000,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "Aí você fura o chão e enche de concreto: são as brocas. Por cima, a viga baldrame e o contrapiso. Seis mil.",
+      "etapa": "FUNDAÇÃO",
+      "custo": 6000,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "brocas",
+        "fumaça",
+        "refratário",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "edBrocas",
+          "cam": "cima",
+          "p": [
+            0,
+            0.5
+          ]
+        },
+        {
+          "set": "edBrocas",
+          "cam": "corte",
+          "apartir": 5,
+          "p": [
+            0.5,
+            1
+          ],
+          "card": {
+            "rotulo": "Concreto usinado",
+            "num": 425,
+            "prefixo": "R$ ",
+            "sufixo": " /m³"
+          }
+        },
+        {
+          "set": "edBaldrame",
+          "cam": "perimetro",
+          "apartir": 12,
+          "p": [
+            0,
+            0.7
+          ]
+        },
+        {
+          "set": "edBaldrame",
+          "cam": "rente",
+          "apartir": 17,
+          "p": [
+            0.7,
+            1
+          ],
+          "card": {
+            "rotulo": "Fundação + contrapiso",
+            "num": 6000,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "Parede só em três lados: uns oitocentos blocos. Na frente, uma viga vence seis metros sem parede nenhuma.",
+      "etapa": "PAREDES",
+      "custo": 7500,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "brocas",
+        "fumaça",
+        "refratário",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "edParedes",
+          "cam": "geral",
+          "p": [
+            0,
+            0.5
+          ]
+        },
+        {
+          "set": "edParedes",
+          "cam": "close",
+          "apartir": 5,
+          "p": [
+            0.5,
+            0.85
+          ],
+          "card": {
+            "rotulo": "Blocos 14 × 19 × 29",
+            "num": 800,
+            "prefixo": "≈ "
+          }
+        },
+        {
+          "set": "edParedes",
+          "cam": "viga",
+          "apartir": 8,
+          "p": [
+            0.85,
+            1
+          ],
+          "card": {
+            "rotulo": "Paredes + viga de 6 m",
+            "num": 7500,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "No telhado, madeira e quase seiscentas telhas. Sete mil.",
+      "etapa": "TELHADO",
+      "custo": 7000,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "brocas",
+        "fumaça",
+        "refratário",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "edTelhado",
+          "cam": "madeira",
+          "p": [
+            0,
+            0.5
+          ]
+        },
+        {
+          "set": "edTelhado",
+          "cam": "telhas",
+          "apartir": 3,
+          "p": [
+            0.5,
+            1
+          ],
+          "card": {
+            "rotulo": "Telhas cerâmicas",
+            "num": 600,
+            "prefixo": "≈ ",
+            "sub": "telhado completo: R$ 7 mil"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "Agora a estrela: a churrasqueira. Tijolo refratário onde bate o fogo. E quase todo mundo erra aqui: chaminé mal feita, a fumaça volta na sua cara. Duto de inox: quatrocentos reais o metro.",
+      "etapa": "CHURRASQUEIRA",
+      "custo": 5000,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "brocas",
+        "fumaça",
+        "refratário",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "edChurrasqueira",
+          "cam": "frente",
+          "p": [
+            0,
+            0.45
+          ]
+        },
+        {
+          "set": "edChurrasqueira",
+          "cam": "close",
+          "apartir": 5,
+          "p": [
+            0.45,
+            0.7
+          ],
+          "card": {
+            "rotulo": "Churrasqueira de alvenaria",
+            "num": 4000,
+            "prefixo": "R$ "
+          }
+        },
+        {
+          "set": "edFumaca",
+          "cam": "ruim",
+          "apartir": 11,
+          "card": {
+            "rotulo": "Chaminé errada",
+            "valor": "FUMAÇA VOLTA",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "edChurrasqueira",
+          "cam": "chamine",
+          "apartir": 17,
+          "p": [
+            0.7,
+            1
+          ]
+        },
+        {
+          "set": "edFumacaBoa",
+          "cam": "boa",
+          "apartir": 26,
+          "card": {
+            "rotulo": "Duto de inox 200 mm",
+            "num": 400,
+            "prefixo": "R$ ",
+            "sufixo": " /m"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "Levar água, esgoto e luz até o fundo do quintal: seis mil.",
+      "etapa": "INSTALAÇÕES",
+      "custo": 6000,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "brocas",
+        "fumaça",
+        "refratário",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "edInstalacoes",
+          "cam": "vala",
+          "p": [
+            0,
+            0.6
+          ]
+        },
+        {
+          "set": "edInstalacoes",
+          "cam": "cima",
+          "apartir": 5,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "Elétrica + hidráulica",
+            "num": 6000,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "Chapisco e reboco, dentro e fora: mais seis mil.",
+      "etapa": "REBOCO",
+      "custo": 6000,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "brocas",
+        "fumaça",
+        "refratário",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "edReboco",
+          "cam": "lateral",
+          "p": [
+            0,
+            0.55
+          ]
+        },
+        {
+          "set": "edReboco",
+          "cam": "rente",
+          "apartir": 3,
+          "p": [
+            0.55,
+            1
+          ],
+          "card": {
+            "rotulo": "Chapisco + reboco",
+            "num": 6000,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "texto": "Piso novo no chão e bancada de granito com pia: mil e oitocentos reais o metro.",
+      "etapa": "PISO E BANCADA",
+      "custo": 7500,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "brocas",
+        "fumaça",
+        "refratário",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "edAcabamento",
+          "cam": "cima",
+          "p": [
+            0,
+            0.6
+          ]
+        },
+        {
+          "set": "edAcabamento",
+          "cam": "bancada",
+          "apartir": 4,
+          "p": [
+            0.6,
+            0.9
+          ]
+        },
+        {
+          "set": "edAcabamento",
+          "cam": "granito",
+          "apartir": 10,
+          "p": [
+            0.9,
+            1
+          ],
+          "card": {
+            "rotulo": "Granito, o metro",
+            "num": 1800,
+            "prefixo": "R$ ",
+            "sub": "piso + bancada: R$ 7.500"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "texto": "Tinta nas paredes, e o lavabo, pra visita não entrar na sua casa.",
+      "etapa": "PINTURA E LAVABO",
+      "custo": 5000,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "brocas",
+        "fumaça",
+        "refratário",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "edPintura",
+          "cam": "pintor",
+          "p": [
+            0,
+            0.5
+          ]
+        },
+        {
+          "set": "edLavabo",
+          "cam": "cima",
+          "apartir": 3,
+          "card": {
+            "rotulo": "Pintura + lavabo",
+            "num": 5000,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "texto": "Parabéns: você construiu sua edícula. Uns cinquenta e três mil reais, sem o terreno. E a surpresa: a churrasqueira foi só nove por cento da conta.",
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "brocas",
+        "fumaça",
+        "refratário",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "edFachada",
+          "cam": "baixa"
+        },
+        {
+          "set": "edAberta",
+          "cam": "cima2",
+          "apartir": 5,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Total sem terreno",
+            "num": 53000,
+            "prefixo": "R$ ",
+            "sub": "preços de São Paulo, nov/2026"
+          }
+        },
+        {
+          "set": "edFachada",
+          "cam": "churras",
+          "apartir": 14,
+          "card": {
+            "rotulo": "Churrasqueira na conta",
+            "valor": "só 9%",
+            "cor": "#ffd23f"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c12",
+      "texto": "Você faria com lavabo ou sem? Comenta aí.",
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "brocas",
+        "fumaça",
+        "refratário",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "edFachada",
+          "cam": "drone2"
+        }
+      ]
+    }
+  ]
+}

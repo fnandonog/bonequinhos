@@ -6,6 +6,8 @@ import {Construcao, RoteiroConstrucao} from './v3/Construcao';
 import {Obra, RoteiroObra} from './v4/Obra';
 import roteiroCasa from '../roteiros/casa-50m2.json';
 import timingsCasa from '../public/audio/casa-50m2/timings.json';
+import roteiroEdicula from '../roteiros/edicula-com-churrasqueira.json';
+import timingsEdicula from '../public/audio/edicula-com-churrasqueira/timings.json';
 import roteiroKit from '../roteiros/kitnet.json';
 import timingsKit from '../public/audio/kitnet/timings.json';
 import roteiroKit2 from '../roteiros/kitnet-v2.json';
@@ -32,6 +34,8 @@ export const Root: React.FC = () => {
         defaultProps={{roteiro: roteiroKit2 as unknown as RoteiroConstrucao, timings: timingsKit2 as Timings, comAudio: true, layout: 'kitnet2'}} />
       <Composition id="casa-50m2" component={Obra} durationInFrames={total(timingsCasa as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroCasa as unknown as RoteiroObra, timings: timingsCasa as Timings, comAudio: !(timingsCasa as Timings).estimado}} />
+      <Composition id="edicula-com-churrasqueira" component={Obra} durationInFrames={total(timingsEdicula as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroEdicula as unknown as RoteiroObra, timings: timingsEdicula as Timings, comAudio: !(timingsEdicula as Timings).estimado}} />
     </>
   );
 };

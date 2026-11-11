@@ -2,7 +2,7 @@
 // pode mostrar a casa exatamente no ponto da obra em que a narração está.
 import React, {useMemo} from 'react';
 import * as THREE from 'three';
-import {CASA, ESP_LAJE, ESP_PAREDE, LOTE, NIVEL_PISO, PAREDES, PE_DIREITO, PILARES, Parede, TOPO_LAJE, TOPO_PAREDE, V3, angulo, comprimento, solidos} from './planta';
+import {CASA, ESP_LAJE, ESP_PAREDE, LOTE, NIVEL_PISO, PAREDES, PE_DIREITO, PILARES, Parede, TOPO_LAJE, TOPO_PAREDE, V2, V3, angulo, comprimento, solidos} from './planta';
 import {Barra, Caixa, Cil, Instancias, Mat, Tufo, caixaUV, clamp01, lerp, texBloco, texTerra} from './kit';
 import {Armario, Bancada, Cama, Chuveiro, Geladeira, Sofa, Vaso} from '../v3/Pecas';
 
@@ -11,7 +11,9 @@ const FURO = 0.8; // sapata 80 x 80 cm
 const PROF = 1.0; // 1 m de profundidade
 
 export const QUINTAL = 4.0; // metros de frente (calçada + jardim) quando a cena não é em corte
-export const Lote: React.FC<{cava?: number; topo?: 'terra' | 'grama'; mato?: boolean; quintal?: boolean}> = ({cava = 0, topo = 'terra', mato = false, quintal = true}) => {
+// furos/furo/fundo: outra obra (ex.: brocas da edícula) usa o mesmo lote com outros buracos
+export const Lote: React.FC<{cava?: number; topo?: 'terra' | 'grama'; mato?: boolean; quintal?: boolean; furos?: V2[]; furo?: number; fundo?: number}> = ({cava = 0, topo = 'terra', mato = false, quintal = true, furos = PILARES, furo = FURO, fundo = PROF}) => {
+  const FURO = furo, PROF = fundo, PILARES = furos;
   const terra = texTerra();
   const corTopo = topo === 'grama' ? '#7cc576' : '#b98b5e';
   // grade de células que deixa um buraco em cada sapata
@@ -32,7 +34,7 @@ export const Lote: React.FC<{cava?: number; topo?: 'terra' | 'grama'; mato?: boo
       out.push({x0: X[i], x1: X[i + 1], z0: Z[j], z1: Z[j + 1], furo});
     }
     return out;
-  }, []);
+  }, [PILARES, FURO]);
   const prof = PROF * clamp01(cava);
   return (
     <group>
@@ -173,8 +175,9 @@ const Viga: React.FC<{w: Parede; baldrame: number; forma: boolean; imp: number}>
 
 // ---------- paredes ----------
 export type Acab = 'bloco' | 'reboco' | 'pintura';
-export const Paredes: React.FC<{h?: number; acab?: Acab; corExt?: string; corInt?: string; esconder?: string[]; corte?: number; pilares?: boolean; vergas?: boolean; so?: string[]}> = ({h = PE_DIREITO, acab = 'bloco', corExt = '#f2e2c4', corInt = '#fbf7ef', esconder = [], corte, pilares = false, vergas = false, so}) => {
+export const Paredes: React.FC<{h?: number; acab?: Acab; corExt?: string; corInt?: string; esconder?: string[]; corte?: number; pilares?: boolean; vergas?: boolean; so?: string[]; lista?: Parede[]; listaPilares?: V2[]}> = ({h = PE_DIREITO, acab = 'bloco', corExt = '#f2e2c4', corInt = '#fbf7ef', esconder = [], corte, pilares = false, vergas = false, so, lista = PAREDES, listaPilares = PILARES}) => {
   const bloco = texBloco();
+  const PAREDES = lista, PILARES = listaPilares;
   return (
     <group>
       {PAREDES.filter((w) => !esconder.includes(w.id) && (!so || so.includes(w.id))).map((w) => {
@@ -222,9 +225,9 @@ const PecaParede: React.FC<{pos: V3; ang: number; w: number; h: number; ou: numb
 };
 
 // portas e janelas
-export const Esquadrias: React.FC<{esconder?: string[]; p?: number}> = ({esconder = [], p = 1}) => (
+export const Esquadrias: React.FC<{esconder?: string[]; p?: number; lista?: Parede[]}> = ({esconder = [], p = 1, lista = PAREDES}) => (
   <group>
-    {PAREDES.filter((w) => !esconder.includes(w.id)).flatMap((w) => {
+    {lista.filter((w) => !esconder.includes(w.id)).flatMap((w) => {
       const L = comprimento(w), ang = angulo(w);
       const dx = (w.b[0] - w.a[0]) / L, dz = (w.b[1] - w.a[1]) / L;
       return w.vaos.filter((v) => v.tipo !== 'passagem').map((v, i) => {

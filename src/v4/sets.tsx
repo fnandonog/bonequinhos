@@ -5,6 +5,7 @@ import React from 'react';
 import {CASA, COMODOS, NIVEL_PISO, PAREDES, PE_DIREITO, TOPO_LAJE, TOPO_PAREDE, V3, comprimento, solidos} from './planta';
 import {Arvore, Barra, Betoneira, Boneco, Caixa, Carrinho, Chuva, CRIANCA, ENGENHEIRA, MORADOR, MonteTerra, OBREIRO, PilhaBlocos, Rotulo, SacosCimento, SERVENTE, clamp01, lerp, suave} from './kit';
 import {ALTURA_CUMEEIRA, Arredores, Esquadrias, Fundacao, Gabarito, Laje, Lote, Moveis, Paredes, Piso, Telhado} from './casa';
+import {BROCA_FUNDO, BROCA_FURO, Bancada, CH, CamadasEsq, Churrasqueira, DUTO_TOPO, ED, ED_BROCAS, ED_PAREDES, ED_PILARES, ED_YC, EdFundacao, EdInstalacoes, EdPiso, EdTelhado, Fumaca, Lavabo, Mesa, Trado, VigaFrente} from './edicula';
 
 export type Cam = {de: V3; para: V3; alvo: V3; alvoPara?: V3; fov?: number; corte?: boolean};
 export type Ctx = {t: number; p: number};
@@ -446,4 +447,327 @@ export const SETS: Record<string, SetDef> = {
     ),
     cams: {dentro: orb([0, 1.6, 0.5], 15, 10, 13, 10.5, 46)},
   },
+
+  // ======================================================================
+  // ===== EDÍCULA COM CHURRASQUEIRA (src/v4/edicula.tsx), 6 × 4 m =====
+  // ======================================================================
+  edFachada: {
+    luz: 'tarde',
+    ceu: ['#ffb37a', '#ffe7c7'],
+    render: ({t}) => (
+      <>
+        <EdObra0 topo="grama" />
+        <EdFundacao broca={1} baldrame={1} />
+        <EdPiso ceramica={1} />
+        <Paredes lista={ED_PAREDES} listaPilares={ED_PILARES} acab="pintura" corExt="#f5d491" />
+        <Esquadrias lista={ED_PAREDES} />
+        <VigaFrente />
+        <EdTelhado />
+        <Churrasqueira fogo t={t} />
+        <Fumaca t={t} modo="boa" />
+        <Bancada />
+        <Lavabo />
+        <Mesa pos={[-0.4, NIVEL_PISO, 2.35]} />
+        <Boneco pos={[-0.75, NIVEL_PISO, 0.95]} rotY={-Math.PI / 2 - 0.5} acao="martela" t={t} v={{...MORADOR, camisa: '#2fbf71'}} />
+        <Boneco pos={[-0.9, NIVEL_PISO, 3.15]} rotY={Math.PI} acao="senta" t={t} v={MORADOR} />
+        <Boneco pos={[0.3, NIVEL_PISO, 3.15]} rotY={Math.PI} acao="senta" t={t} v={{...MORADOR, camisa: '#4f8cff', cabelo: '#1d1b26'}} />
+        <Boneco pos={[1.5, 0, 4.3]} rotY={-0.4} acao="comemora" t={t} v={CRIANCA} esc={0.6} />
+        <Arvore pos={[-4.7, 0, 4.6]} esc={1.1} />
+        <Arvore pos={[4.6, 0, -4]} esc={1.3} />
+      </>
+    ),
+    cams: {
+      drone: orb([0, 1.4, 1.6], 30, 24, 19, 15, 46),
+      baixa: orb([0, 1.5, 2.0], 15, 5, 11.5, 9.5, 46),
+      churras: orb([-1.4, 1.3, 0.6], -25, 12, 6.2, 5.0, 44),
+      drone2: orb([0, 1.4, 1.6], -30, 26, 18, 14.5, 46),
+    },
+  },
+  edAberta: {
+    luz: 'tarde',
+    ceu: ['#ffb37a', '#ffe7c7'],
+    render: ({t, p}) => (
+      <>
+        <EdObra0 topo="grama" />
+        <EdFundacao broca={1} baldrame={1} />
+        <EdPiso ceramica={1} />
+        <Paredes lista={ED_PAREDES} listaPilares={ED_PILARES} acab="pintura" corExt="#f5d491" />
+        <Esquadrias lista={ED_PAREDES} />
+        <Churrasqueira fogo t={t} duto={false} />
+        <Bancada />
+        <Lavabo />
+        <Mesa pos={[-0.4, NIVEL_PISO, 2.35]} />
+        <Boneco pos={[-0.75, NIVEL_PISO, 0.95]} rotY={-Math.PI / 2 - 0.5} acao="martela" t={t} v={{...MORADOR, camisa: '#2fbf71'}} />
+        <Boneco pos={[0.6, NIVEL_PISO, 3.2]} rotY={Math.PI} acao="senta" t={t} v={MORADOR} />
+        <Rotulo texto="CHURRASQUEIRA" ancora={[CH.x, 1.2, CH.z]} sobe={1.0} lado={-0.4} vis={clamp01(p * 5)} tam={0.8} />
+        <Rotulo texto="LAVABO" ancora={[2.3, NIVEL_PISO + 0.1, 0.4]} sobe={1.6} lado={0.3} vis={clamp01(p * 5 - 1.6)} tam={0.8} />
+      </>
+    ),
+    cams: {cima: orb([0, 0, 1.5], 15, 58, 18, 15, 48), cima2: orb([0, 0, 1.5], -20, 55, 17.5, 14.5, 48)},
+  },
+  edTerreno: {
+    luz: 'dia',
+    render: ({t}) => (
+      <>
+        <EdObra0 topo="terra" mato />
+        {[[ED.x0, ED.z0], [ED.x1, ED.z0], [ED.x0, ED.z1], [ED.x1, ED.z1]].map(([x, z], i) => (
+          <Caixa key={i} pos={[x, 0.3, z]} tam={[0.06, 0.6, 0.06]} cor="#9c6b42" />
+        ))}
+        {[[[ED.x0, ED.z0], [ED.x1, ED.z0]], [[ED.x0, ED.z1], [ED.x1, ED.z1]], [[ED.x0, ED.z0], [ED.x0, ED.z1]], [[ED.x1, ED.z0], [ED.x1, ED.z1]]].map(([a, b], i) => (
+          <Barra key={'l' + i} a={[a[0], 0.55, a[1]]} b={[b[0], 0.55, b[1]]} r={0.012} cor="#ff3b6b" sombra={false} />
+        ))}
+        <Boneco pos={[0.6, 0, 4.6]} rotY={-0.4} acao="parado" t={t} ferramenta="planta" />
+        <Rotulo texto="FUNDO DO QUINTAL" ancora={[0, 0.6, ED.z0]} sobe={2.4} />
+      </>
+    ),
+    cams: {geral: orb([0, 0, 1.2], 30, 35, 20, 16, 46), ze: orb([0.6, 1.0, 4.6], 25, 12, 6.0, 5.0, 42)},
+  },
+  edProjeto: {
+    luz: 'dia',
+    ceu: ['#cfe8ff', '#eef7ff'],
+    render: ({t, p}) => (
+      <>
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.02, 0]} receiveShadow>
+          <planeGeometry args={[60, 60]} />
+          <meshStandardMaterial color="#c9a477" />
+        </mesh>
+        <Caixa pos={[0, -0.01, 1.6]} tam={[9, 0.02, 7.5]} cor="#2f6fd6" />
+        {ED_PAREDES.map((w, i) => {
+          const k = clamp01(p * ED_PAREDES.length * 1.6 - i);
+          if (k <= 0) return null;
+          return <Barra key={w.id} a={[w.a[0], 0.02, w.a[1]]} b={[lerp(w.a[0], w.b[0], k), 0.02, lerp(w.a[1], w.b[1], k)]} r={0.07} quadrada cor="#ffffff" sombra={false} />;
+        })}
+        {Array.from({length: 12}).map((_, i) => (
+          clamp01(p * 3 - 1) * 12 > i ? <Caixa key={'f' + i} pos={[ED.x0 + 0.25 + i * 0.5, 0.02, ED.z1]} tam={[0.25, 0.02, 0.06]} cor="#ffffff" sombra={false} /> : null
+        ))}
+        <Caixa pos={[CH.x, 0.03, CH.z]} tam={[1.3, 0.02, 0.7]} cor="#ff9f1c" sombra={false} />
+        <Rotulo texto="6 × 4 m" ancora={[0, 0.03, 1.6]} sobe={0.6} vis={clamp01(p * 4 - 1)} tam={0.9} />
+        <Rotulo texto="CHURRASQUEIRA" ancora={[CH.x, 0.03, CH.z]} sobe={0.6} vis={clamp01(p * 4 - 1.8)} tam={0.8} />
+        <Rotulo texto="LAVABO" ancora={[2.3, 0.03, 0.4]} sobe={0.6} vis={clamp01(p * 4 - 2.4)} tam={0.8} />
+        <Boneco pos={[-4.0, 0, 4.6]} rotY={0.6} acao="aponta" t={t} v={ENGENHEIRA} esc={0.95} />
+      </>
+    ),
+    cams: {cima: orb([0, 0, 1.8], 0, 72, 15, 13, 50, 4)},
+  },
+  edBrocas: {
+    luz: 'dia',
+    corte: true,
+    render: ({t, p}) => (
+      <>
+        <EdObra0 corte topo="terra" cava={suave(p * 1.6)} />
+        <EdFundacao broca={clamp01(p * 2.4 - 1.3)} />
+        {p < 0.62 && <Trado pos={[-1, 0, 3.47]} t={t} desce={suave(p * 1.6)} />}
+        {p < 0.62 && <Boneco pos={[-1.55, 0, 3.0]} rotY={Math.PI / 2 + 0.3} acao="carrega" t={t} />}
+        <Boneco pos={[1.7, 0, 2.7]} rotY={-1.9} acao="carrega" t={t} v={SERVENTE} />
+        <Carrinho pos={[2.4, 0, 3.1]} rotY={-1.2} carga="#9aa0a6" />
+        <MonteTerra pos={[-2.3, 0, 1.5]} esc={0.35 + 0.35 * p} />
+        <Rotulo texto="BROCA" ancora={[-1, -0.7, 3.5]} sobe={0.4} lado={0.7} vis={clamp01(p * 3 - 1.4)} />
+      </>
+    ),
+    cams: {cima: orb([0, -0.3, 1.6], 25, 40, 16, 13, 48), corte: orb([-0.2, -0.9, 3.4], 8, 4, 6.0, 5.0, 44)},
+  },
+  edBaldrame: {
+    luz: 'dia',
+    corte: true,
+    render: ({t, p}) => (
+      <>
+        <EdObra0 corte topo="terra" cava={1} />
+        <EdFundacao broca={1} ferro={1} baldrame={suave(p * 1.4)} forma={p < 0.75} contrapiso={clamp01(p * 2.5 - 1.5)} />
+        <Boneco pos={[-3.6, 0, 2.4]} rotY={Math.PI / 2} acao="martela" t={t} ferramenta="martelo" />
+        <Rotulo texto="VIGA BALDRAME" ancora={[-1.6, 0.0, 3.6]} sobe={1.4} lado={1.0} vis={p < 0.72 ? clamp01(p * 3 - 0.8) : 0} />
+        <Rotulo texto="CONTRAPISO" ancora={[0.8, NIVEL_PISO, 1.2]} sobe={1.2} vis={clamp01(p * 4 - 2.6)} fundo="#e6e3dc" />
+      </>
+    ),
+    cams: {perimetro: orb([0, 0, 1.6], 35, 35, 19, 16, 48), rente: orb([-1.0, 0.0, 3.6], 30, 8, 6.4, 5.2, 44)},
+  },
+  edParedes: {
+    luz: 'dia',
+    render: ({t, p}) => (
+      <>
+        <EdObra0 topo="terra" />
+        <EdFundacao broca={1} baldrame={1} contrapiso={1} />
+        <Paredes lista={ED_PAREDES} listaPilares={ED_PILARES} h={fiadas(p)} acab="bloco" pilares />
+        <VigaFrente p={clamp01(p * 7 - 6)} />
+        <PilhaBlocos pos={[4.4, 0, 2.2]} nx={4} ny={4} nz={3} rotY={Math.PI / 2} />
+        <SacosCimento pos={[4.5, 0, 0.2]} n={8} />
+        <Boneco pos={[-3.65, 0, 1.0]} rotY={Math.PI / 2} acao="martela" t={t} ferramenta="colher" />
+        <Boneco pos={[1.2, NIVEL_PISO, 2.6]} rotY={-2.4} acao="carrega" t={t} v={SERVENTE} ferramenta="bloco" />
+        <Rotulo texto="VIGA DE 6 m" ancora={[0, TOPO_PAREDE - 0.2, ED.z1]} sobe={0.9} vis={clamp01(p * 7 - 6.2)} />
+      </>
+    ),
+    cams: {
+      geral: orb([0, 1, 1.6], 35, 30, 17, 13.5, 48),
+      close: orb([-3, 1.0, 2.6], -62, 10, 5.0, 4.2, 44),
+      viga: orb([0, 1.8, 3.6], 12, 8, 10, 8.4, 44),
+    },
+  },
+  edTelhado: {
+    luz: 'dia',
+    render: ({t, p}) => (
+      <>
+        <EdObra0 topo="terra" />
+        <EdFundacao broca={1} baldrame={1} contrapiso={1} />
+        <Paredes lista={ED_PAREDES} listaPilares={ED_PILARES} acab="bloco" pilares />
+        <VigaFrente />
+        <EdTelhado madeira={suave(p * 2)} telhas={clamp01(p * 2 - 1)} />
+        <Boneco pos={[3.7, 0, 3.9]} rotY={-0.6} acao="aponta" t={t} v={ENGENHEIRA} />
+        <Boneco pos={[1.0, ED_YC - 0.55, 2.4]} rotY={0.2} acao="martela" t={t} ferramenta="martelo" esc={0.85} />
+      </>
+    ),
+    cams: {madeira: orb([0, 2.2, 1.6], 35, 32, 17, 13.5, 48), telhas: orb([0, 3.0, 1.6], 70, 15, 14, 11.5, 46)},
+  },
+  edChurrasqueira: {
+    luz: 'dia',
+    render: ({t, p}) => (
+      <>
+        <EdObra0 topo="terra" />
+        <EdFundacao broca={1} baldrame={1} contrapiso={1} />
+        <Paredes lista={ED_PAREDES} listaPilares={ED_PILARES} acab="bloco" pilares />
+        <VigaFrente />
+        <EdTelhado />
+        <Churrasqueira p={p} t={t} />
+        <Boneco pos={[0.15, NIVEL_PISO, 0.9]} rotY={-Math.PI / 2 - 0.3} acao="martela" t={t} ferramenta="colher" />
+        <PilhaBlocos pos={[-0.2, NIVEL_PISO, 2.4]} nx={3} ny={2} nz={2} />
+        <Rotulo texto="REFRATÁRIO" ancora={[CH.x + 0.45, NIVEL_PISO + 1.2, CH.z - 0.2]} sobe={0.8} lado={0.5} vis={p < 0.7 ? clamp01((p - 0.38) * 8) : 0} fundo="#f6e3b8" />
+        <Rotulo texto="DUTO DE INOX" ancora={[CH.x, (DUTO_TOPO + NIVEL_PISO + 2.35) / 2 + 0.4, CH.z]} sobe={0.6} lado={1.2} vis={clamp01((p - 0.8) * 8)} />
+      </>
+    ),
+    cams: {
+      frente: orb([-1.2, 1.4, 0.4], 15, 10, 8.5, 7, 44),
+      close: orb([-1.7, 1.35, 0.2], 10, 8, 4.4, 3.6, 44),
+      chamine: orb([-1.4, 3.0, 0.0], 200, 18, 9, 7.6, 44),
+    },
+  },
+  edFumaca: {
+    luz: 'dia',
+    render: ({t}) => (
+      <>
+        <EdObra0 topo="terra" />
+        <EdFundacao broca={1} baldrame={1} contrapiso={1} />
+        <Paredes lista={ED_PAREDES} listaPilares={ED_PILARES} acab="bloco" pilares />
+        <VigaFrente />
+        <EdTelhado />
+        <Churrasqueira fogo t={t} duto={false} />
+        <Fumaca t={t} modo="ruim" />
+        <Boneco pos={[-2.55, NIVEL_PISO, 1.25]} rotY={2.5} acao="acena" t={t} v={{...MORADOR, camisa: '#2fbf71'}} />
+      </>
+    ),
+    cams: {ruim: orb([-1.9, 1.4, 0.8], 25, 8, 5.8, 4.9, 44)},
+  },
+  edFumacaBoa: {
+    luz: 'dia',
+    render: ({t}) => (
+      <>
+        <EdObra0 topo="terra" />
+        <EdFundacao broca={1} baldrame={1} contrapiso={1} />
+        <Paredes lista={ED_PAREDES} listaPilares={ED_PILARES} acab="bloco" pilares />
+        <VigaFrente />
+        <EdTelhado />
+        <Churrasqueira fogo t={t} />
+        <Fumaca t={t} modo="boa" />
+        <Boneco pos={[-1.5, NIVEL_PISO, 1.2]} rotY={Math.PI + 0.3} acao="comemora" t={t} v={{...MORADOR, camisa: '#2fbf71'}} />
+      </>
+    ),
+    cams: {boa: orb([-1.2, 2.8, 0.8], 28, 14, 11, 9.2, 44)},
+  },
+  edInstalacoes: {
+    luz: 'dia',
+    render: ({t, p}) => (
+      <>
+        <EdObra0 topo="terra" />
+        <EdFundacao broca={1} baldrame={1} contrapiso={1} />
+        <Paredes lista={ED_PAREDES} listaPilares={ED_PILARES} acab="bloco" pilares />
+        <Churrasqueira duto={false} />
+        <EdInstalacoes p={p} />
+        <Boneco pos={[-1.6, 0, 5.0]} rotY={Math.PI / 2} acao="cava" t={t} ferramenta="pa" />
+        <Rotulo texto="ESGOTO" ancora={[0.47, 0.05, 5.0]} sobe={0.9} lado={-1.0} vis={clamp01(p * 3 - 0.5)} />
+        <Rotulo texto="ÁGUA" ancora={[0.61, 0.05, 4.4]} sobe={1.3} lado={1.2} vis={clamp01(p * 3 - 0.8)} fundo="#d6e8ff" />
+        <Rotulo texto="LUZ" ancora={[-2.93, NIVEL_PISO + 2.0, 3.1]} sobe={0.4} lado={0.7} vis={clamp01(p * 3 - 1.4)} fundo="#fff3b0" />
+      </>
+    ),
+    cams: {vala: orb([0.6, 0.3, 5.3], 35, 24, 7.5, 6.2, 44), cima: orb([0, 0.8, 2.6], 15, 55, 15, 12.5, 48)},
+  },
+  edReboco: {
+    luz: 'dia',
+    render: ({t, p}) => (
+      <>
+        <EdObra0 topo="terra" />
+        <EdFundacao broca={1} baldrame={1} contrapiso={1} />
+        <Paredes lista={ED_PAREDES} listaPilares={ED_PILARES} acab="bloco" pilares />
+        <VigaFrente />
+        <EdTelhado />
+        <Churrasqueira />
+        <CamadasEsq chapisco={0.15 + p * 0.8} reboco={p * 0.62} />
+        <Boneco pos={[-3.7, 0, -0.3 + 4.0 * (p * 0.62) + 0.3]} rotY={Math.PI / 2} acao="pinta" t={t} ferramenta="colher" />
+        <Rotulo texto="BLOCO" ancora={[-3.08, 1.3, 3.2]} sobe={1.6} vis={clamp01(p * 4 - 0.3)} />
+        <Rotulo texto="CHAPISCO" ancora={[-3.09, 0.9, 2.9]} sobe={1.1} lado={0.4} vis={clamp01(p * 4 - 1.0)} fundo="#d9d9de" />
+        <Rotulo texto="REBOCO" ancora={[-3.1, 1.6, 0.6]} sobe={1.2} vis={clamp01(p * 4 - 1.7)} fundo="#f2efe8" />
+      </>
+    ),
+    cams: {lateral: orb([-3, 1.6, 1.6], -70, 10, 11.5, 9.5, 46), rente: orb([-3.05, 1.5, 1.0], -125, 6, 5.8, 4.8, 44)},
+  },
+  edAcabamento: {
+    luz: 'dia',
+    render: ({t, p}) => (
+      <>
+        <EdObra0 topo="terra" />
+        <EdFundacao broca={1} baldrame={1} />
+        <EdPiso ceramica={suave(p * 1.4)} />
+        <Paredes lista={ED_PAREDES} listaPilares={ED_PILARES} acab="reboco" />
+        <Churrasqueira duto={false} />
+        <Bancada p={clamp01(p * 3 - 1.8)} />
+        {p < 0.6 && <Boneco pos={[-1.2 + p * 2, NIVEL_PISO, 3.4 - 3.4 * suave(p * 1.4) + 0.3]} rotY={Math.PI} acao="martela" t={t} esc={0.85} ferramenta="colher" />}
+      </>
+    ),
+    cams: {
+      cima: orb([0, 0, 1.6], 0, 66, 13, 11, 48, 10),
+      bancada: orb([0.25, 1.1, 0.0], 15, 18, 5.6, 4.6, 44),
+      granito: orb([0.55, 1.0, 0.0], -28, 32, 3.8, 3.2, 44),
+    },
+  },
+  edPintura: {
+    luz: 'dia',
+    render: ({t, p}) => (
+      <>
+        <EdObra0 topo="terra" />
+        <EdFundacao broca={1} baldrame={1} />
+        <EdPiso ceramica={1} />
+        <Paredes lista={ED_PAREDES} listaPilares={ED_PILARES} acab="pintura" corExt={corTinta(p)} corInt={p > 0.3 ? '#fbf7ef' : '#d8d4cb'} />
+        <Esquadrias lista={ED_PAREDES} />
+        <VigaFrente />
+        <EdTelhado />
+        <Churrasqueira />
+        <Bancada />
+        <Boneco pos={[-3.7, 0, 3.0]} rotY={Math.PI / 2} acao="pinta" t={t} ferramenta="rolo" />
+        <Boneco pos={[-3.7, 0, 0.4]} rotY={Math.PI / 2} acao="pinta" t={t + 0.5} v={SERVENTE} ferramenta="rolo" />
+      </>
+    ),
+    cams: {pintor: orb([-3.2, 1.4, 1.8], -55, 10, 9, 7.8, 44)},
+  },
+  edLavabo: {
+    luz: 'dia',
+    render: ({t}) => (
+      <>
+        <EdObra0 topo="terra" />
+        <EdFundacao broca={1} baldrame={1} />
+        <EdPiso ceramica={1} />
+        <Paredes lista={ED_PAREDES} listaPilares={ED_PILARES} acab="pintura" corExt="#f5d491" />
+        <Esquadrias lista={ED_PAREDES} esconder={['lav2']} />
+        <Bancada />
+        <Lavabo />
+        <Rotulo texto="LAVABO" ancora={[2.3, NIVEL_PISO + 0.1, 0.4]} sobe={2.4} />
+      </>
+    ),
+    cams: {cima: orb([2.3, 0.4, 0.4], -10, 75, 6.2, 5.2, 44)},
+  },
 };
+
+// chão da edícula: o mesmo lote da casa, com furos de broca (25 cm) em vez das sapatas
+function EdObra0({corte = false, ...pr}: {cava?: number; topo?: 'terra' | 'grama'; mato?: boolean; corte?: boolean}) {
+  return (
+    <>
+      <Arredores quintal={!corte} muro={false} />
+      <Lote {...pr} quintal={!corte} furos={ED_BROCAS} furo={BROCA_FURO} fundo={BROCA_FUNDO} />
+    </>
+  );
+}
