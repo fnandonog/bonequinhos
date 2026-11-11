@@ -15,3 +15,9 @@ zeexplica.com.br, www.zeexplica.com.br {
 	file_server
 	header /img/* Cache-Control "public, max-age=604800"
 }
+
+# Painel da agência pela internet: túnel SSH do Mac (porta 4380) → socat na rede edge → aqui. Login + 2FA no próprio painel.
+painel.zeexplica.com.br {
+	encode zstd gzip
+	reverse_proxy 172.19.0.1:4380
+}
