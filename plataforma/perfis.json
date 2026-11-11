@@ -10,7 +10,7 @@
       "formato": "cozinha",
       "comando": "/produzir",
       "ativo": false,
-      "motivo_inativo": "Formato da cozinha 3D está no PR do bolo de cenoura; ativa quando ele entrar.",
+      "motivo_inativo": "Motor da cozinha 3D pronto (vídeo modelo: bolo-cenoura). Liga quando o Fernando aprovar o padrão.",
       "horario": "11:30",
       "cta": "Receita completa e utensílios em oferta: link na bio",
       "link_bio": "https://precinhodeouro.com.br/receitas",
