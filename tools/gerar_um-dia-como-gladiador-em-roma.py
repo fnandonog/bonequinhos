@@ -17,49 +17,49 @@ VERM = "#ff5d5d"
 OURO = "#ffd23f"
 # (id, onde, texto com |, planos[(set, cam, p, card)])
 CENAS = [
-    ("c1", "ROMA", "Ano oitenta, Roma. | Cinquenta mil pessoas gritam no Coliseu novinho. | E esquece o filme: você é o gladiador.", [
+    ("c1", "ROMA", "Ano oitenta. Roma inaugura o Coliseu. | Cinquenta mil pessoas vieram ver gente lutar. | E quem vai lutar é você.", [
         ("coliseu", "drone", None, None),
         ("arena", "geral", None, card("Público do Coliseu", num=50000, sub="inaugurado em 80 d.C.")),
         ("arena", "ze", None, None),
     ]),
-    ("c2", "MERCADO DE ESCRAVOS", "Só que você não escolheu isso. | Quase todo gladiador era escravo, | prisioneiro de guerra | ou condenado.", [
+    ("c2", "MERCADO DE ESCRAVOS", "Como você veio parar aqui? Roma venceu a guerra na sua terra e te fez escravo. | Gladiador quase sempre era isso: escravo, | prisioneiro de guerra | ou condenado.", [
         ("mercado", "geral", [0, 0.1], None),
         ("mercado", "escravo", [0.1, 0.4], None),
         ("mercado", "prisioneiro", [0.4, 0.7], None),
         ("mercado", "condenado", [0.7, 1], card("Quem virava gladiador", valor="QUASE NINGUÉM ESCOLHIA", cor=VERM)),
     ]),
-    ("c3", "ESCOLA DE GLADIADORES", "Na escola, o lanista vira o seu dono. | Você faz um juramento: | aceita ser queimado, acorrentado, açoitado | e morto pela espada.", [
+    ("c3", "ESCOLA DE GLADIADORES", "Quem te compra é um lanista: o empresário que treina gladiadores e aluga pros shows. | Pra entrar na escola, você jura: | aceita ser queimado, acorrentado, açoitado | e morto pela espada.", [
         ("juramento", "lanista", [0, 0.15], None),
         ("juramento", "geral", [0.15, 0.3], None),
         ("juramento", "brasa", [0.3, 0.75], card("O juramento", valor="QUEIMADO · ACORRENTADO", sub="açoitado e morto pela espada")),
         ("juramento", "ze", [0.75, 1], None),
     ]),
-    ("c4", "LUDUS", "O treino é o dia inteiro, | batendo num poste com espada de madeira, | e o chicote do lanista sempre por perto.", [
+    ("c4", "LUDUS", "Na escola, o treino dura o dia inteiro, | golpeando um poste com espada de madeira, | e o lanista de chicote na mão.", [
         ("ludus", "geral", [0, 0.4], None),
         ("ludus", "poste", [0.4, 0.75], card("Treino no poste", valor="ESPADA DE PAU", sub="o poste se chamava palus")),
         ("ludus", "chicote", [0.75, 1], None),
     ]),
-    ("c5", "REFEITÓRIO", "E a comida? Cevada e feijão. | Tanto que gladiador tinha apelido: comedor de cevada. | No fim, uma bebida de cinza de planta, pra deixar o osso forte.", [
+    ("c5", "REFEITÓRIO", "Pra ficar forte, a comida é cevada e feijão. | Gladiador tinha até apelido: comedor de cevada. | E depois, uma bebida de cinza de planta pros ossos.", [
         ("refeitorio", "mesa", [0, 0.4], None),
         ("refeitorio", "tigela", [0.4, 0.6], card("O apelido", valor="HORDEARII", sub="comedores de cevada", cor=OURO)),
         ("refeitorio", "cinza", [0.6, 1], card("Bebida de cinza", valor="MAIS CÁLCIO", sub="achado em ossos de Éfeso (2014)")),
     ]),
-    ("c6", "COLISEU", "Dia de luta. Você atravessa o túnel. | E aqui vem a surpresa: | nessa época, só uma luta em cada cinco acabava em morte.", [
+    ("c6", "COLISEU", "Chega o dia da luta. Você atravessa o túnel até a arena. | E aqui vem a surpresa: | naquela época, só uma luta em cada cinco terminava em morte.", [
         ("tunel", "costas", [0, 1], None),
         ("luta", "geral", [0, 0.5], None),
         ("luta", "close", [0.5, 1], card("Lutas que acabavam em morte", valor="1 EM 5", sub="século I d.C.", cor=OURO)),
     ]),
-    ("c7", "ENFERMARIA DO LUDUS", "Por quê? Pensa como o dono: você custa caro. | Seu dono pagou comida, treino e até médico. | Morto, você vira prejuízo.", [
+    ("c7", "ENFERMARIA DO LUDUS", "Por quê? Gladiador era caro. | O lanista pagou sua compra, comida, treino e até médico. | Morto, você vira prejuízo.", [
         ("enfermaria", "geral", [0, 0.4], None),
         ("enfermaria", "medico", [0.4, 0.8], card("Gladiador", valor="INVESTIMENTO CARO", sub="tinha o melhor médico da época")),
         ("enfermaria", "moedas", [0.8, 1], card("Gladiador morto", valor="PREJUÍZO", cor=VERM)),
     ]),
-    ("c8", "CAMAROTE DO IMPERADOR", "E o famoso polegar pra baixo? | Dizem que era sinal de morte. | Mas nem os historiadores sabem qual era o gesto.", [
+    ("c8", "CAMAROTE DO IMPERADOR", "E o polegar pra baixo dos filmes? | Dizem que era o sinal de morte. | Mas ninguém sabe qual gesto era de verdade.", [
         ("camarote", "geral", [0, 0.35], None),
         ("polegar", "baixo", [0, 0.5], card("Polegar pra baixo", valor="DIZEM QUE...", cor=VERM)),
         ("polegar", "duvida", [0.5, 1], card("O gesto de verdade", valor="NINGUÉM SABE", sub="a cena famosa é de um quadro de 1872", cor=OURO)),
     ]),
-    ("c9", "ARENA", "Se sobreviver por anos, você ganha a rudis: | uma espada de madeira que vale a liberdade. | O povo inteiro aplaude você.", [
+    ("c9", "ARENA", "Sobreviveu anos e agradou o público? Você ganha a rudis: | uma espada de madeira que significa liberdade. | Você deixa de ser escravo.", [
         ("liberdade", "geral", [0, 0.5], None),
         ("liberdade", "rudis", [0.5, 0.8], card("A rudis", valor="LIBERDADE", cor=OURO)),
         ("liberdade", "aplauso", [0.8, 1], None),
