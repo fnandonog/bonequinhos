@@ -11,6 +11,7 @@ import {
   clamp01, lerp, suave, texDial,
   BW, BarraChocolate, CorteBrownie, FormaQuadrada, PalitoBrownie, Pedacos, Quadradinho,
 } from './pecas';
+import {PIZZA} from './pizza';
 
 export type Luz = 'cozinha' | 'forno' | 'frio';
 export type SetCozinha = {fundo?: [string, string]; luz?: Luz; render: (c: Ctx) => React.ReactNode; cams: Record<string, Cam>};
@@ -455,6 +456,7 @@ const BROWNIE: Record<string, SetCozinha> = {
 
 export const SETS: Record<string, SetCozinha> = {
   ...BROWNIE,
+  ...PIZZA,
   // ===== gancho: bolo pronto com calda brilhando =====
   boloPronto: {
     render: ({t}) => (

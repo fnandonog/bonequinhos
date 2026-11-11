@@ -179,6 +179,10 @@ export type Visual = {
   camisa?: string; colete?: string | null; capacete?: string | null; calca?: string; pele?: string; cabelo?: string; chef?: boolean;
   // peças de época (opcionais; usadas pelo perfil Você na História). Sem elas o boneco é idêntico ao de sempre.
   elmo?: {cor: string; penacho?: string}; escudo?: string; toga?: string; coroa?: string;
+  // perfil Como Ficou Rico: cartola (cor da copa) e gravata. Opcionais.
+  cartola?: string; gravata?: string;
+  // perfil Você na História (1912): boné de pano (cor). Opcional.
+  bone?: string;
 };
 export const CHEF: Visual = {camisa: '#ffffff', colete: null, capacete: null, calca: '#2b2233', chef: true};
 export const OBREIRO: Visual = {camisa: '#4f8cff', colete: '#ff8a1f', capacete: '#ffd23f', calca: '#30406b'};
@@ -189,7 +193,7 @@ export const CRIANCA: Visual = {camisa: '#ffd23f', colete: null, capacete: null,
 
 export type Ferramenta = 'pa' | 'rolo' | 'colher' | 'planta' | 'bloco' | 'martelo' | 'gladio' | 'rudis' | 'tridente' | 'chicote' | 'tocha' | 'taca' | null;
 export const Boneco: React.FC<{pos: V3; rotY?: number; acao?: AcaoBoneco; t: number; v?: Visual; esc?: number; ferramenta?: Ferramenta}> = ({pos, rotY = 0, acao = 'parado', t, v = OBREIRO, esc = 0.92, ferramenta = null}) => {
-  const {camisa = '#4f8cff', colete = '#ff8a1f', capacete = '#ffd23f', calca = '#30406b', pele = '#ffd2ad', cabelo = '#3b2a20', chef = false, elmo, escudo, toga, coroa} = v;
+  const {camisa = '#4f8cff', colete = '#ff8a1f', capacete = '#ffd23f', calca = '#30406b', pele = '#ffd2ad', cabelo = '#3b2a20', chef = false, elmo, escudo, toga, coroa, cartola, gravata, bone} = v;
   const passo = acao === 'anda' ? Math.sin(t * 9) * 0.6 : 0;
   const pulo = acao === 'comemora' ? Math.abs(Math.sin(t * 6)) * 0.3 : acao === 'anda' ? Math.abs(Math.sin(t * 9)) * 0.04 : 0;
   let bD = passo * -0.8, bE = passo * 0.8, bDz = -0.15, bEz = 0.15, tronco = 0;
@@ -233,6 +237,13 @@ export const Boneco: React.FC<{pos: V3; rotY?: number; acao?: AcaoBoneco; t: num
               <mesh position={[0, 1.07, 0.18]} rotation={[0.3, 0, 0]}><torusGeometry args={[0.16, 0.05, 6, 12]} /><Mat cor="#e8322b" /></mesh>
             </>
           )}
+          {gravata && (
+            <>
+              <mesh position={[0, 0.98, 0.27]} rotation={[0.25, 0, 0]}><boxGeometry args={[0.1, 0.08, 0.04]} /><Mat cor={gravata} /></mesh>
+              <mesh position={[0, 0.8, 0.29]} rotation={[0.12, 0, Math.PI / 4]}><boxGeometry args={[0.13, 0.13, 0.03]} /><Mat cor={gravata} /></mesh>
+              <mesh position={[0, 0.88, 0.285]} rotation={[0.18, 0, 0]}><boxGeometry args={[0.08, 0.16, 0.03]} /><Mat cor={gravata} /></mesh>
+            </>
+          )}
           {toga && (
             <>
               <mesh position={[0, 0.74, 0.0]}><cylinderGeometry args={[0.3, 0.33, 0.56, 10, 1, true]} /><meshStandardMaterial color={toga} flatShading side={2} /></mesh>
@@ -267,6 +278,19 @@ export const Boneco: React.FC<{pos: V3; rotY?: number; acao?: AcaoBoneco; t: num
             {[-0.12, 0.12].map((x) => (<mesh key={x} position={[x, 0.02, 0.32]}><sphereGeometry args={[0.055, 8, 8]} /><meshStandardMaterial color="#1d1b26" /></mesh>))}
             {[-0.2, 0.2].map((x) => (<mesh key={x} position={[x, -0.1, 0.28]}><sphereGeometry args={[0.05, 8, 8]} /><meshStandardMaterial color="#ff9b8a" /></mesh>))}
             <mesh position={[0, -0.14, 0.31]} rotation={[0, 0, Math.PI]}><torusGeometry args={[0.07, 0.02, 6, 10, Math.PI]} /><meshStandardMaterial color="#5a1f2b" /></mesh>
+            {cartola && (
+              <group position={[0, 0.3, -0.02]} rotation={[-0.08, 0, 0.06]}>
+                <mesh castShadow><cylinderGeometry args={[0.52, 0.52, 0.04, 18]} /><Mat cor={cartola} rugoso={0.5} /></mesh>
+                <mesh position={[0, 0.26, 0]} castShadow><cylinderGeometry args={[0.3, 0.29, 0.5, 18]} /><Mat cor={cartola} rugoso={0.5} /></mesh>
+                <mesh position={[0, 0.07, 0]}><cylinderGeometry args={[0.305, 0.305, 0.09, 18]} /><Mat cor="#c9302c" /></mesh>
+              </group>
+            )}
+            {bone && (
+              <group position={[0, 0.1, 0]} rotation={[-0.12, 0, 0]}>
+                <mesh castShadow scale={[1, 0.55, 1.05]}><sphereGeometry args={[0.4, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2]} /><Mat cor={bone} /></mesh>
+                <mesh position={[0, 0.0, 0.36]} rotation={[0.12, 0, 0]} scale={[1, 1, 0.55]}><cylinderGeometry args={[0.3, 0.3, 0.035, 14, 1, false, -Math.PI / 2, Math.PI]} /><Mat cor={bone} /></mesh>
+              </group>
+            )}
             {coroa && (<mesh position={[0, 0.14, -0.02]} rotation={[Math.PI / 2 - 0.15, 0, 0]}><torusGeometry args={[0.37, 0.05, 5, 14]} /><Mat cor={coroa} /></mesh>)}
             {elmo ? (
               <>

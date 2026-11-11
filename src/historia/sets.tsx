@@ -9,6 +9,7 @@ import {
   Mao, Mesa, Moedas, PRISIONEIRO, PULVINAR, Palus, Pao, Petalas, Placa, Publico, RETIARIO, Rede, Saco, TREINO, Templo, Tigela, TochaParede,
   ZE_ESCRAVO, ZE_GLAD, ZE_SEM_ESCUDO, clamp01, lerp, suave,
 } from './pecas';
+import {SETS_TITANIC} from './titanic';
 
 export type LuzHistoria = 'dia' | 'tarde' | 'noite' | 'interior' | 'tunel';
 export type SetHistoria = {
@@ -455,5 +456,7 @@ export const SETS: Record<string, SetHistoria> = {
       pergunta: orb([0.1, 1.45, 0], 6, 2, 3.0, 2.5, 40, 6),
     },
   },
+  // ===== Você no Titanic (1912): cenários em ./titanic.tsx =====
+  ...SETS_TITANIC,
 };
 
