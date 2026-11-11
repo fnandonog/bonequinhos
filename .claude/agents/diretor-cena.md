@@ -11,3 +11,4 @@ Regras de direção:
 - Um card por plano que tenha número; o número do card tem que estar na pesquisa.
 - Se precisar de um cenário ou câmera que não existe, peça ao `cenografo` descrevendo: o que aparece, onde está a câmera, o que se move.
 Depois rode `python3 tools/gerar_<id>.py && python3 tools/estimar.py roteiros/<id>.json 0.8`.
+Antes de começar, leia `docs/agencia/estilo.md` (o estilo dos vídeos que estão viralizando no nicho: ritmo, cortes, legenda, câmera) e aplique no que for possível.

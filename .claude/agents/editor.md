@@ -10,3 +10,4 @@ Você é o editor. Arquivo: `src/v4/Obra.tsx`.
 - Área segura do Shorts: nada importante acima de 140 px, abaixo de 1500 px ou nos 140 px da direita.
 - Corte seco com whoosh baixo; "pop" quando o card entra; moeda quando o gasto sobe.
 - Áudio: `public/audio/<id>/<cena>.mp3` + `timings.json` (tempo de cada palavra) gerados no Mac com `bash tools/narrar.sh`.
+Antes de começar, leia `docs/agencia/estilo.md` (o estilo dos vídeos que estão viralizando no nicho: ritmo, cortes, legenda, câmera) e aplique no que for possível.
