@@ -1,0 +1,941 @@
+{
+ "id": "bolo-cenoura",
+ "serie": "Zé na Cozinha",
+ "titulo": "BOLO DE CENOURA FOFINHO",
+ "linha2": "o segredo que ninguém conta",
+ "site": "precinhodeouro.com.br/receitas",
+ "elevenlabs": {
+  "voz_id": "fhtZMBwha5du5OxuvexO",
+  "modelo": "eleven_multilingual_v2",
+  "ajustes": {
+   "stability": 0.45,
+   "similarity_boost": 0.8,
+   "style": 0.4,
+   "use_speaker_boost": true,
+   "speed": 1.15
+  }
+ },
+ "fontes": "roteiros/bolo-cenoura.pesquisa.md",
+ "cenas": [
+  {
+   "id": "c1",
+   "texto": "O bolo de cenoura mais fofinho que existe tem um segredo: a farinha nunca entra no liquidificador.",
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "boloPronto",
+     "cam": "giro"
+    },
+    {
+     "set": "fatia",
+     "cam": "close",
+     "apartir": 8,
+     "p": [
+      0,
+      1
+     ]
+    },
+    {
+     "set": "proibido",
+     "cam": "frente",
+     "apartir": 11,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Farinha no liquidificador",
+      "valor": "NUNCA",
+      "cor": "#ff5d5d"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "texto": "Primeiro, liga o forno em cento e oitenta graus.",
+   "etapa": "FORNO",
+   "chip": "180 °C",
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "cozinha",
+     "cam": "geral",
+     "p": [
+      0,
+      1
+     ]
+    },
+    {
+     "set": "botao",
+     "cam": "macro",
+     "apartir": 1,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Pré-aquecer o forno",
+      "num": 180,
+      "sufixo": " °C"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "texto": "Três cenouras médias, em rodelas: uns trezentos e sessenta gramas.",
+   "etapa": "CENOURA",
+   "chip": "3 médias",
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "ingredientes",
+     "cam": "mesa",
+     "card": {
+      "rotulo": "Cenoura média",
+      "num": 3,
+      "sufixo": " unidades"
+     }
+    },
+    {
+     "set": "tabua",
+     "cam": "cima",
+     "apartir": 3,
+     "p": [
+      0,
+      0.6
+     ]
+    },
+    {
+     "set": "tabua",
+     "cam": "lado",
+     "apartir": 5,
+     "p": [
+      0.6,
+      1
+     ],
+     "card": {
+      "rotulo": "Cenoura em rodelas",
+      "num": 360,
+      "sufixo": " g"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "texto": "No liquidificador: a cenoura, quatro ovos, uma xícara de óleo e uma e meia de açúcar. Bate por cinco minutos.",
+   "etapa": "LIQUIDIFICADOR",
+   "chip": "5 min",
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "liqCenoura",
+     "cam": "cima",
+     "p": [
+      0,
+      1
+     ]
+    },
+    {
+     "set": "liqOvos",
+     "cam": "close",
+     "apartir": 4,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Ovos",
+      "num": 4,
+      "sufixo": " inteiros"
+     }
+    },
+    {
+     "set": "liqOleo",
+     "cam": "close",
+     "apartir": 6,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Óleo",
+      "valor": "1 xícara",
+      "sub": "240 ml"
+     }
+    },
+    {
+     "set": "liqAcucar",
+     "cam": "close",
+     "apartir": 10,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Açúcar",
+      "valor": "1 ½ xícara",
+      "sub": "300 g"
+     }
+    },
+    {
+     "set": "liqBate",
+     "cam": "frente",
+     "apartir": 16,
+     "card": {
+      "rotulo": "Bater até ficar liso",
+      "num": 5,
+      "sufixo": " min"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c5",
+   "texto": "Agora o segredo: numa tigela, peneira duas xícaras de farinha e uma colher de sopa de fermento.",
+   "etapa": "SECOS À PARTE",
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "peneira",
+     "cam": "alto",
+     "p": [
+      0,
+      0.4
+     ]
+    },
+    {
+     "set": "peneira",
+     "cam": "close",
+     "apartir": 3,
+     "p": [
+      0.4,
+      1
+     ],
+     "card": {
+      "rotulo": "Farinha de trigo",
+      "valor": "2 xícaras",
+      "sub": "280 g · peneirada"
+     }
+    },
+    {
+     "set": "fermento",
+     "cam": "colher",
+     "apartir": 10,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Fermento em pó",
+      "valor": "1 colher de sopa",
+      "sub": "14 g"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c6",
+   "texto": "Despeja o creme laranja e mistura no fuê, devagar. Bater com força deixa o bolo solado.",
+   "etapa": "MISTURAR",
+   "chip": "devagar",
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "despeja",
+     "cam": "lado",
+     "p": [
+      0,
+      1
+     ]
+    },
+    {
+     "set": "fue",
+     "cam": "cima",
+     "apartir": 4,
+     "p": [
+      0,
+      1
+     ]
+    },
+    {
+     "set": "solado",
+     "cam": "corte",
+     "apartir": 9,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Bateu com força?",
+      "valor": "SOLADO",
+      "cor": "#ff5d5d"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c7",
+   "texto": "Forma redonda de vinte e dois centímetros, untada e enfarinhada.",
+   "etapa": "FORMA",
+   "chip": "22 cm",
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "forma",
+     "cam": "cima",
+     "card": {
+      "rotulo": "Forma redonda",
+      "num": 22,
+      "sufixo": " cm"
+     }
+    },
+    {
+     "set": "untar",
+     "cam": "close",
+     "apartir": 7,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Manteiga + farinha",
+      "valor": "untar",
+      "sub": "o bolo desenforma inteiro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c8",
+   "texto": "Massa na forma e quarenta e cinco minutos no forno. Não abre a porta nos primeiros trinta, senão ele murcha.",
+   "etapa": "ASSAR",
+   "chip": "45 min",
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "despejaForma",
+     "cam": "lado",
+     "p": [
+      0,
+      1
+     ]
+    },
+    {
+     "set": "fornoDentro",
+     "cam": "vidro",
+     "apartir": 3,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Forno a 180 °C",
+      "num": 45,
+      "sufixo": " min",
+      "sub": "de 45 a 50 minutos"
+     }
+    },
+    {
+     "set": "porta",
+     "cam": "frente",
+     "apartir": 10,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Não abra antes de",
+      "num": 30,
+      "sufixo": " min",
+      "cor": "#ff5d5d"
+     }
+    },
+    {
+     "set": "murcha",
+     "cam": "lado",
+     "apartir": 17,
+     "p": [
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c9",
+   "texto": "Espetou o palito e saiu limpo? Tá pronto.",
+   "etapa": "PONTO",
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "palito",
+     "cam": "macro",
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Teste do palito",
+      "valor": "saiu limpo",
+      "cor": "#2fbf71"
+     }
+    },
+    {
+     "set": "desenforma",
+     "cam": "giro",
+     "apartir": 6
+    }
+   ]
+  },
+  {
+   "id": "c10",
+   "texto": "A calda: uma lata de leite condensado, uma colher de manteiga e quatro de chocolate em pó. Mexe até desgrudar da panela.",
+   "etapa": "CALDA",
+   "chip": "fogo médio",
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "panela",
+     "cam": "cima"
+    },
+    {
+     "set": "lata",
+     "cam": "close",
+     "apartir": 2,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Leite condensado",
+      "num": 395,
+      "sufixo": " g",
+      "sub": "1 lata"
+     }
+    },
+    {
+     "set": "manteigaPanela",
+     "cam": "close",
+     "apartir": 7,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Manteiga",
+      "valor": "1 colher de sopa"
+     }
+    },
+    {
+     "set": "chocolate",
+     "cam": "close",
+     "apartir": 11,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Chocolate em pó",
+      "valor": "4 colheres de sopa"
+     }
+    },
+    {
+     "set": "mexe",
+     "cam": "panela",
+     "apartir": 17,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Mexendo sem parar",
+      "valor": "desgrudou",
+      "sub": "do fundo da panela",
+      "cor": "#2fbf71"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c11",
+   "texto": "Desliga o fogo e junta meia caixinha de creme de leite.",
+   "etapa": "CALDA",
+   "chip": "fogo desligado",
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "desliga",
+     "cam": "rente",
+     "p": [
+      0,
+      1
+     ]
+    },
+    {
+     "set": "creme",
+     "cam": "close",
+     "apartir": 3,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Creme de leite",
+      "num": 100,
+      "sufixo": " g",
+      "sub": "½ caixinha"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c12",
+   "texto": "Espera o bolo amornar, cobre tudo e joga granulado.",
+   "etapa": "COBRIR",
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "amornar",
+     "cam": "janela",
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Espere o bolo",
+      "valor": "AMORNAR",
+      "sub": "calda em bolo quente afunda a massa",
+      "cor": "#4fb3ff"
+     }
+    },
+    {
+     "set": "cobre",
+     "cam": "cima",
+     "apartir": 4,
+     "p": [
+      0,
+      1
+     ]
+    },
+    {
+     "set": "granulado",
+     "cam": "close",
+     "apartir": 6,
+     "p": [
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c13",
+   "texto": "Parabéns: você fez o bolo de cenoura que acaba antes de esfriar.",
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "mesa",
+     "cam": "geral",
+     "card": {
+      "rotulo": "Rende",
+      "num": 10,
+      "sufixo": " fatias"
+     }
+    },
+    {
+     "set": "boloCortado",
+     "cam": "miolo",
+     "apartir": 7
+    }
+   ]
+  },
+  {
+   "id": "c14",
+   "texto": "Tem mais de cento e quarenta receitas assim no Precinho de Ouro. E cinco por dia, de graça, no Telegram.",
+   "cta": true,
+   "destaques": [
+    "segredo",
+    "nunca",
+    "graus",
+    "gramas",
+    "minutos",
+    "xícara",
+    "colher",
+    "solado",
+    "murcha",
+    "pronto",
+    "parabéns",
+    "telegram",
+    "precinho",
+    "ouro",
+    "grátis",
+    "trinta",
+    "quarenta",
+    "cinco",
+    "quatro",
+    "três",
+    "duas",
+    "uma",
+    "meia",
+    "vinte",
+    "cento"
+   ],
+   "planos": [
+    {
+     "set": "site",
+     "cam": "tela",
+     "p": [
+      0,
+      1
+     ]
+    },
+    {
+     "set": "telegram",
+     "cam": "ze",
+     "apartir": 12
+    }
+   ]
+  }
+ ]
+}

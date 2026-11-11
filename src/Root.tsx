@@ -4,6 +4,9 @@ import {Video, FPS, Roteiro, Timings} from './Video';
 import {Serie, RoteiroSerie} from './v2/Serie';
 import {Construcao, RoteiroConstrucao} from './v3/Construcao';
 import {Obra, RoteiroObra} from './v4/Obra';
+import {Receita, RoteiroReceita} from './cozinha/Receita';
+import roteiroBolo from '../roteiros/bolo-cenoura.json';
+import timingsBolo from '../public/audio/bolo-cenoura/timings.json';
 import roteiroCasa from '../roteiros/casa-50m2.json';
 import timingsCasa from '../public/audio/casa-50m2/timings.json';
 import roteiroKit from '../roteiros/kitnet.json';
@@ -32,6 +35,8 @@ export const Root: React.FC = () => {
         defaultProps={{roteiro: roteiroKit2 as unknown as RoteiroConstrucao, timings: timingsKit2 as Timings, comAudio: true, layout: 'kitnet2'}} />
       <Composition id="casa-50m2" component={Obra} durationInFrames={total(timingsCasa as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroCasa as unknown as RoteiroObra, timings: timingsCasa as Timings, comAudio: !(timingsCasa as Timings).estimado}} />
+      <Composition id="bolo-cenoura" component={Receita} durationInFrames={total(timingsBolo as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroBolo as unknown as RoteiroReceita, timings: timingsBolo as Timings, comAudio: !(timingsBolo as Timings).estimado}} />
     </>
   );
 };
