@@ -10,9 +10,10 @@
       "sub": "Uma receita fácil por dia, grátis"
     },
     "ofertas_whatsapp": {
-      "nome": "Ofertas do Zé no WhatsApp",
+      "nome": "Receitas no WhatsApp",
       "url": "https://painel.precinhodeouro.com.br/g/receitas",
-      "sub": "Achados de cozinha com preço conferido"
+      "sub": "Receitas fáceis todo dia no grupo, grátis",
+      "_nota": "trocar pelo grupo Ofertas do Zé no WhatsApp quando existir"
     },
     "ofertas_telegram": {
       "nome": "Ofertas do Zé Cozinha no Telegram",

@@ -82,7 +82,7 @@ ${ld.map((x) => `<script type="application/ld+json">${JSON.stringify(x).replace(
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="topo"><div class="w">
 <a class="marca" href="${base}receitas/"><img src="${base}receitas/ze.png" alt="" width="40" height="40"><span>Receitas do <b>Zé</b></span></a>
-<nav class="menu"><a href="${base}receitas/#buscar">Buscar</a><a href="${base}receitas/minha-lista/">❤️ Minha lista</a><a class="bt-g" href="${esc(cfg.grupos.ofertas_whatsapp.url)}" target="_blank" rel="noopener">Ofertas do Zé</a></nav>
+<nav class="menu"><a href="${base}receitas/#buscar">Buscar</a><a href="${base}receitas/minha-lista/">❤️ Minha lista</a><a class="bt-g" href="${esc(cfg.grupos.ofertas_telegram.url)}" target="_blank" rel="noopener">Ofertas do Zé</a></nav>
 </div>
 <nav class="cats w">${Object.entries(CATEGORIAS).map(([k, c]) => `<a href="${base}receitas/${k}/">${c.e} ${c.nome}</a>`).join('')}${Object.entries(COLECOES).slice(0, 4).map(([k, c]) => `<a href="${base}receitas/${k}/">${c.e} ${c.nome.replace(/^Receitas (na |de )?/, '').replace(/^./, (x) => x.toUpperCase())}</a>`).join('')}</nav>
 </header><main id="conteudo">`;
@@ -103,9 +103,11 @@ function rodape({cfg, base}) {
 </body></html>`;
 }
 
+const botaoGrupo = (g, cls, ic) => `<a class="bt ${cls}" href="${esc(g.url)}" target="_blank" rel="noopener"><span>${ic}</span><span>${esc(g.nome)}<small>${esc(g.sub)}</small></span></a>`;
 const ctaGrupos = (cfg, compacto = false) => `<div class="ctas${compacto ? ' compacto' : ''}">
-<a class="bt zap" href="${esc(cfg.grupos.ofertas_whatsapp.url)}" target="_blank" rel="noopener"><span>💬</span><span>${esc(cfg.grupos.ofertas_whatsapp.nome)}<small>${esc(cfg.grupos.ofertas_whatsapp.sub)}</small></span></a>
-<a class="bt tg" href="${esc(cfg.grupos.receitas_telegram.url)}" target="_blank" rel="noopener"><span>✈️</span><span>${esc(cfg.grupos.receitas_telegram.nome)}<small>${esc(cfg.grupos.receitas_telegram.sub)}</small></span></a>
+${botaoGrupo(cfg.grupos.ofertas_telegram, 'zap', '🛒')}
+${botaoGrupo(cfg.grupos.receitas_telegram, 'tg', '✈️')}
+${compacto ? '' : botaoGrupo(cfg.grupos.ofertas_whatsapp, '', '💬')}
 </div>`;
 
 const card = (r, base) => `<a class="card" href="${base}receita/${r.s}/" data-s="${r.s}">
@@ -186,7 +188,7 @@ ${r.dc?.length ? `<section class="bloco dicas"><h2>Dicas do Zé para acertar de 
 ${r.g ? `<section class="bloco"><h2>Como guardar</h2><p>${esc(r.g)}</p></section>` : ''}
 ${r.v ? `<section class="bloco"><h2>Veja o Zé fazendo</h2><div class="video"><iframe src="https://www.youtube.com/embed/${esc(r.v)}" title="${esc(r.t)}" loading="lazy" allowfullscreen></iframe></div></section>` : ''}
 ${achados.length ? `<section class="bloco achados"><h2>🛍️ Achados do Zé para essa receita</h2><p class="nota">Utensílios que facilitam essa receita. O Zé posta os melhores preços no grupo de ofertas.</p>
-<div class="prods">${achados.map((a) => `<div class="prod"><b>${esc(a.nome)}</b><span>${esc(a.por_que)}</span><a class="bt ${a.url ? 'pri' : 'zap'}" href="${esc(a.url || cfg.grupos.ofertas_whatsapp.url)}" target="_blank" rel="${a.url ? 'sponsored noopener' : 'noopener'}">${a.url ? 'Ver preço de hoje' : 'Receber a oferta no grupo'}</a></div>`).join('')}</div>
+<div class="prods">${achados.map((a) => `<div class="prod"><b>${esc(a.nome)}</b><span>${esc(a.por_que)}</span><a class="bt ${a.url ? 'pri' : 'zap'}" href="${esc(a.url || cfg.grupos.ofertas_telegram.url)}" target="_blank" rel="${a.url ? 'sponsored noopener' : 'noopener'}">${a.url ? 'Ver preço de hoje' : 'Receber a oferta no grupo'}</a></div>`).join('')}</div>
 <p class="aviso">${esc(cfg.aviso_afiliado)}</p></section>` : ''}
 <section class="bloco faq"><h2>Perguntas frequentes</h2>${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</section>
 <section class="bloco grupo-box"><h2>Receba receitas como essa de graça</h2><p>Todo dia o Zé manda uma receita fácil, com medida caseira e passo a passo curto, e os achados de cozinha com preço conferido.</p>${ctaGrupos(cfg)}</section>
@@ -232,7 +234,7 @@ ${ctaGrupos(cfg, true)}
 <p id="res-n" class="res-n"></p><div class="grade" id="res"></div></section>
 <section class="bloco" id="salvas" hidden><h2>❤️ Suas receitas salvas</h2><div class="grade" id="salvas-g"></div><p><a class="mais" href="minha-lista/">Ver minha lista de compras →</a></p></section>
 ${Object.entries(CATEGORIAS).map(([k, c]) => `<section class="bloco vitrine"><h2>${c.e} ${c.plural}</h2>${grade(porCat[k].slice(0, 8), base)}<p><a class="mais" href="${k}/">Ver as ${porCat[k].length} ${c.plural.toLowerCase()} →</a></p></section>`).join('')}
-<section class="bloco grupo-box"><h2>Receba de graça no WhatsApp ou no Telegram</h2><ul><li>Uma receita fácil por dia, com medida caseira.</li><li>Achados de cozinha com preço conferido no grupo Ofertas do Zé.</li><li>Sem spam: sai quando quiser.</li></ul>${ctaGrupos(cfg)}</section>
+<section class="bloco grupo-box"><h2>Receba de graça no Telegram ou no WhatsApp</h2><ul><li>Uma receita fácil por dia, com medida caseira.</li><li>Achados de cozinha com preço conferido no grupo Ofertas do Zé.</li><li>Sem spam: sai quando quiser.</li></ul>${ctaGrupos(cfg)}</section>
 <p><a class="mais" href="todas/">Todas as ${n} receitas de A a Z →</a></p>
 </div>` + rodape({cfg, base});
 }
