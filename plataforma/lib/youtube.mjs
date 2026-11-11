@@ -5,7 +5,9 @@
 import fs from 'node:fs';
 import {env, salvarEnv} from './dados.mjs';
 
-const ESCOPOS = 'https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.readonly';
+// Tudo de uma vez (pedido do Fernando, para não reautorizar depois): gerenciar canal, enviar, comentários e analytics
+const ESCOPOS = ['youtube', 'youtube.upload', 'youtube.force-ssl', 'youtube.readonly', 'yt-analytics.readonly', 'yt-analytics-monetary.readonly']
+  .map((e) => `https://www.googleapis.com/auth/${e}`).join(' ');
 const chave = (perfil, k) => `YT_${perfil.toUpperCase()}_${k}`;
 export const redirecionamento = () => `http://localhost:${env().PORTA || 4380}/youtube/callback`;
 export const conectado = (perfil) => !!env()[chave(perfil, 'REFRESH')];
