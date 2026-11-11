@@ -138,6 +138,7 @@ function telaFila() {
       ${v.erro ? `<p class="mut" style="color:var(--err)">${esc(v.erro)}</p>` : ''}
       ${v.publicacoes ? Object.entries(v.publicacoes).map(([r, x]) => `<div><a href="${esc(x.link)}" target="_blank">Ver no ${r}</a></div>`).join('') : ''}
       ${pode ? `<label>Legenda</label><textarea id="leg-${v.id}">${esc(v.legenda)}</textarea>
+        <label>Conteúdo do direct (o que o robô manda para quem comentar; vazio = padrão do perfil)</label><textarea id="leg-ent-${v.id}" style="min-height:60px" onchange="salvarEntrega('${v.id}')" placeholder="Ex.: a receita completa com ingredientes e modo de preparo">${esc(v.entrega)}</textarea>
         <div class="linha" style="margin-top:10px">
           <button class="b pri" onclick="aprovar('${v.id}','agora')">Aprovar e postar agora</button>
           <button class="b" onclick="aprovar('${v.id}')">Aprovar p/ ${esc(p.horario)}</button>
@@ -147,7 +148,8 @@ function telaFila() {
     </div>`;
   }).join('')}</div><div id="log"></div>`;
 }
-const aprovar = tentar(async (id, quando) => { await api(`fila/${id}/aprovar`, {quando, legenda: $('#leg-' + id).value}); aviso(quando ? 'Postando…' : 'Agendado!'); });
+const aprovar = tentar(async (id, quando) => { await api(`fila/${id}/entrega`, {entrega: $('#leg-ent-' + id).value}); await api(`fila/${id}/aprovar`, {quando, legenda: $('#leg-' + id).value}); aviso(quando ? 'Postando…' : 'Agendado!'); });
+const salvarEntrega = tentar(async (id) => { await api(`fila/${id}/entrega`, {entrega: $('#leg-ent-' + id).value}); aviso('Conteúdo do direct salvo'); });
 const rejeitar = tentar(async (id) => { if (confirm('Rejeitar este vídeo?')) await api(`fila/${id}/rejeitar`, {}); });
 async function verLog(n, rolar = true) { ultimoLog = n; const {texto} = await api('log/' + n); const el = $('#log'); if (!el) return; el.innerHTML = `<h2>Log: ${n}</h2><pre>${esc(texto || '(vazio)')}</pre>`; if (rolar) el.scrollIntoView(); }
 
@@ -186,7 +188,7 @@ function telaConfig() {
   const campo = (k, rot, dica = '', tipo = 'text') => `<label>${rot}</label><input id="cfg-${k}" type="${tipo}" value="${esc(c[k])}" placeholder="${esc(dica)}">`;
   return `<div class="grade">
   <div class="card"><b>Meta (app fnexus CRM)</b>
-    <p class="mut">Cole o token de usuário de longa duração do app (permissões: instagram_basic, instagram_content_publish, pages_show_list, pages_read_engagement, pages_manage_posts). Ele fica só no arquivo .env deste Mac.</p>
+    <p class="mut">Cole o token de usuário de longa duração do app (permissões: instagram_basic, instagram_content_publish, pages_show_list, pages_read_engagement, pages_manage_posts; para o robô do direct também instagram_manage_comments, instagram_manage_messages, pages_manage_metadata, pages_messaging). Ele fica só no arquivo .env deste Mac.</p>
     ${campo('META_USER_TOKEN', 'Token de usuário', 'EAAG…', 'password')}
     ${campo('META_GRAPH_VERSION', 'Versão da Graph API', 'v22.0')}
     <div class="linha" style="margin-top:12px"><button class="b pri" onclick="salvarCfg()">Salvar</button><button class="b" onclick="descobrir()">Conectar contas automaticamente</button></div>
@@ -329,7 +331,38 @@ function listaComentarios() {
       <div class="linha" style="margin-top:8px"><button class="b pri" onclick="responder('${c.id}')">Responder</button><button class="b" onclick="ignorar('${c.id}')">Ignorar</button></div>`
       : c.resposta ? `<div class="mut">↳ ${esc(c.resposta)}</div>` : ''}</div>`).join('');
 }
-function telaComentarios() { return `<p class="mut">A agente Comunidade escreve os rascunhos; nada é respondido sem você clicar em Responder.</p><div id="coms">${listaComentarios()}</div>`; }
+function telaComentarios() { return `<div id="direct">${painelDirect()}</div><p class="mut">A agente Comunidade escreve os rascunhos; nada é respondido sem você clicar em Responder.</p><div id="coms">${listaComentarios()}</div>`; }
+
+// ---------- Robô comentário → direct (plataforma/lib/direct.mjs) ----------
+let DIR = null, DIR_TESTE = '';
+async function carregarDirect() { DIR = await api('direct'); const el = $('#direct'); if (el) el.innerHTML = painelDirect(); }
+function painelDirect() {
+  if (!DIR) return '<div class="card vazio">Carregando o robô do direct…</div>';
+  const c = DIR.config, h = DIR.resumo.hoje;
+  return `<div class="card" style="margin-bottom:14px"><div class="linha"><b style="flex:1">🤖 Robô comentário → direct</b>
+      <span class="tag ${c.ligado ? 'ok' : ''}">${c.ligado ? `ligado · a cada ${c.intervalo_min || 2} min` : 'desligado'}</span>
+      <button class="b ${c.ligado ? '' : 'pri'}" onclick="direct({ligado: ${!c.ligado}})">${c.ligado ? 'Desligar' : 'Ligar'}</button>
+      <button class="b" onclick="testarDirect()">Testar (sem enviar)</button></div>
+    <p class="mut">Quem comenta a palavra do perfil recebe o direct com o botão "Liberar"; o conteúdo só sai depois que a pessoa segue o perfil (o robô confere a cada toque e pede de novo até seguir). O primeiro comentário de cada post novo chama a palavra: fixe ele no app do Instagram (a API não fixa).
+      Hoje: <b>${h.pedidos}</b> pedido(s), <b>${h.entregues}</b> entregue(s), <b>${h.aguardando}</b> esperando seguir/tocar${h.erros ? `, <b style="color:var(--err)">${h.erros} erro(s)</b>` : ''}.</p>
+    <div id="dir-teste">${DIR_TESTE}</div>
+    <div class="grade">${E.perfis.map((p) => { const d = c.perfis?.[p.id] || {}, t = DIR.resumo.perfis[p.id] || {};
+      return `<div class="card"><div class="linha"><img class="av" src="/perfis/avatar-${AVATAR[p.id]}.png"><b style="flex:1">${esc(p.nome)}</b>
+          <button class="b ${d.ligado ? 'pri' : ''}" onclick="direct({perfil: '${p.id}', ligado: ${!d.ligado}})">${d.ligado ? 'Ligado' : 'Desligado'}</button></div>
+        <div class="linha" style="margin-top:8px"><span class="tag">${esc(d.palavra || '—')}</span>
+          <span class="tag ${p.conectado.instagram ? '' : 'err'}">${p.conectado.instagram ? `${t.entregues || 0} entregue(s) · ${t.aguardando || 0} esperando` : 'Instagram desconectado'}</span></div>
+        <details style="margin-top:8px"><summary class="mut" style="cursor:pointer">Editar mensagens</summary>
+        <label>Palavra</label><input id="rc-dp-${p.id}" value="${esc(d.palavra)}" placeholder="RECEITA">
+        <label>Primeiro comentário do post</label><input id="rc-dc-${p.id}" value="${esc(d.comentario)}">
+        <label>O que a pessoa ganha (vai no 1º direct: "Separei … pra você")</label><input id="rc-di-${p.id}" value="${esc(d.isca)}">
+        <label>Conteúdo padrão (quando o vídeo não tem o próprio)</label><textarea id="rc-dd-${p.id}" style="min-height:50px">${esc(d.conteudo_padrao)}</textarea>
+        <label>Mensagem de entrega ({conteudo}, {grupo}, {link})</label><textarea id="rc-de-${p.id}" style="min-height:70px">${esc(d.entrega)}</textarea>
+        <div class="linha" style="margin-top:8px"><button class="b" onclick="salvarDirect('${p.id}')">Salvar</button></div></details></div>`; }).join('')}</div></div>`;
+}
+const direct = tentar(async (b) => { DIR = await api('direct', b); aviso('Robô do direct atualizado'); });
+const salvarDirect = tentar(async (id) => { DIR = await api('direct', {perfil: id, palavra: $('#rc-dp-' + id).value, comentario: $('#rc-dc-' + id).value, isca: $('#rc-di-' + id).value, conteudo_padrao: $('#rc-dd-' + id).value, entrega: $('#rc-de-' + id).value}); aviso('Salvo'); });
+const testarDirect = tentar(async () => { aviso('Lendo os comentários (sem enviar nada)…'); const r = await api('direct/testar', {});
+  DIR_TESTE = `<pre>${esc(`Perfis lidos: ${r.perfis.join(', ') || 'nenhum'}\nResponderia: ${r.respondidos} comentário(s) · entregaria: ${r.entregues} · pediria para seguir: ${r.lembretes}${r.erros.length ? '\n\n' + r.erros.join('\n') : ''}`)}</pre>`; });
 const responder = tentar(async (id) => { const t = $('#rc-' + id).value.trim(); if (!t) throw new Error('Escreva a resposta'); await api('comentarios/' + id, {responder: t}); aviso('Resposta enviada'); await carregarComentarios(); });
 const ignorar = tentar(async (id) => { await api('comentarios/' + id, {ignorar: true}); await carregarComentarios(); });
 
@@ -376,7 +409,7 @@ function render() {
   const foco = document.activeElement?.id;
   if (foco && /^(leg-|np-|cfg-|rc-|lk-)/.test(foco)) return; // não apaga o que você está digitando
   $('#tela').innerHTML = {geral: telaGeral, fila: telaFila, agenda: telaAgenda, tendencias: telaTendencias, redes: telaRedes, comentarios: telaComentarios, perfis: telaPerfis, pautas: telaPautas, links: telaLinks, config: telaConfig}[aba]();
-  if (aba === 'comentarios') carregarComentarios();
+  if (aba === 'comentarios') { carregarComentarios(); carregarDirect(); }
   if (aba === 'tendencias') carregarTendencias();
   if (ultimoLog) verLog(ultimoLog, false);
 }

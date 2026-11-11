@@ -1,0 +1,63 @@
+{
+  "_nota": "Robô comentário → direct (plataforma/lib/direct.mjs). Sem segredos. 'ligado' geral e por perfil começam desligados: só o Fernando liga. Na entrega, {conteudo} é o texto do vídeo (campo 'entrega' do vídeo na fila) ou, sem ele, o conteudo_padrao do perfil; {grupo} e {link} vêm do perfil.",
+  "ligado": false,
+  "intervalo_min": 2,
+  "exigir_seguir": true,
+  "palavras": ["quero", "eu quero", "manda", "me manda", "link", "eu"],
+  "perfis": {
+    "cozinha": {
+      "ligado": false,
+      "palavra": "RECEITA",
+      "palavras": ["receita", "quero", "eu quero", "manda", "me manda"],
+      "comentario": "💬 Comenta RECEITA que o Zé te manda a receita completa no direct 👇",
+      "isca": "a receita completa (ingredientes, medidas e o passo a passo)",
+      "conteudo_padrao": "📖 Todas as receitas completas: {link}",
+      "entrega": "{conteudo}\n\n👨‍🍳 Quer uma receita fácil por dia? Entra no canal Receitas Precinho no Telegram (grátis): {grupo}\n\n🛒 Os utensílios do vídeo em oferta: {link}"
+    },
+    "construiu": {
+      "ligado": false,
+      "palavra": "PLANILHA",
+      "palavras": ["planilha", "quero", "eu quero", "manda", "me manda"],
+      "comentario": "💬 Comenta PLANILHA que eu te mando a conta completa da obra no direct 👇",
+      "isca": "a planilha com a conta completa da obra (material por material)",
+      "conteudo_padrao": "📊 A conta completa desta obra está no grupo.",
+      "entrega": "{conteudo}\n\n🧱 Materiais e ferramentas com preço conferido todo dia no grupo de ofertas (grátis): {grupo}"
+    },
+    "valeapena": {
+      "ligado": false,
+      "palavra": "LINK",
+      "palavras": ["link", "quero", "eu quero", "manda", "me manda", "eu"],
+      "comentario": "💬 Comenta LINK que eu te mando o link com desconto no direct 👇",
+      "isca": "o link do produto com o menor preço que achei",
+      "conteudo_padrao": "🛒 As ofertas do dia, com preço conferido: {grupo}",
+      "entrega": "{conteudo}\n\n🔥 Achados assim todo dia no grupo de ofertas (grátis): {grupo}\n\nPreço pode mudar a qualquer momento. #publi (link de afiliado)"
+    },
+    "historia": {
+      "ligado": false,
+      "palavra": "LIVRO",
+      "palavras": ["livro", "quero", "eu quero", "manda", "me manda"],
+      "comentario": "💬 Comenta LIVRO que eu te mando o livro sobre essa época no direct 👇",
+      "isca": "o livro que conta essa história direito (e onde comprar mais barato)",
+      "conteudo_padrao": "📚 Livros de história em oferta no grupo: {grupo}",
+      "entrega": "{conteudo}\n\n📚 Livros e ofertas no grupo (grátis): {grupo}\n\n#publi (link de afiliado)"
+    },
+    "rico": {
+      "ligado": false,
+      "palavra": "LIVRO",
+      "palavras": ["livro", "quero", "eu quero", "manda", "me manda"],
+      "comentario": "💬 Comenta LIVRO que eu te mando o livro dessa história no direct 👇",
+      "isca": "o livro dessa história (biografia ou o livro que ele recomenda)",
+      "conteudo_padrao": "📚 Livros de negócios em oferta no grupo: {grupo}",
+      "entrega": "{conteudo}\n\n📚 Livros e ofertas no grupo (grátis): {grupo}\n\n#publi (link de afiliado)"
+    },
+    "caso": {
+      "ligado": false,
+      "palavra": "CASO",
+      "palavras": ["caso", "quero", "eu quero", "manda", "me manda"],
+      "comentario": "💬 Comenta CASO que eu te mando onde assistir e ler mais sobre ele no direct 👇",
+      "isca": "onde assistir e ler mais sobre esse caso",
+      "conteudo_padrao": "🔎 Indicações e ofertas no grupo: {grupo}",
+      "entrega": "{conteudo}\n\n🔎 Indicações e ofertas no grupo (grátis): {grupo}"
+    }
+  }
+}

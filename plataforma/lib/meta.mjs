@@ -147,3 +147,9 @@ export async function responderComentario(perfil, id, texto) {
   const c = credenciais(perfil);
   return graph('POST', `/${id}/replies`, {message: texto, access_token: c.token});
 }
+
+// Comentário nosso no post (o robô do direct usa para chamar a palavra-chave). A API não fixa comentário: fixar é no app.
+export async function comentarIG(perfil, midiaId, texto) {
+  const c = credenciais(perfil);
+  return graph('POST', `/${midiaId}/comments`, {message: texto, access_token: c.token});
+}

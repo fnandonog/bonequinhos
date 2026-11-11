@@ -2,7 +2,8 @@
 // Uso: node plataforma/postar.mjs [--agora <id>]
 import path from 'node:path';
 import {RAIZ, fila, salvarItem, log, env} from './lib/dados.mjs';
-import {publicarInstagram, publicarFacebook, credenciais} from './lib/meta.mjs';
+import {publicarInstagram, publicarFacebook, credenciais, comentarIG} from './lib/meta.mjs';
+import * as DIRECT from './lib/direct.mjs';
 import * as YT from './lib/youtube.mjs';
 import {batida} from './lib/escritorio.mjs';
 import {sincronizar} from './sincronizar.mjs';
@@ -18,7 +19,13 @@ export async function publicar(it) {
     // cada rede conectada recebe o vídeo; uma que já foi não é repetida numa nova tentativa
     const ig = credenciais(it.perfil).ig, yt = YT.conectado(it.perfil);
     if (!ig && !yt) throw new Error('nenhuma rede conectada para este perfil (Configurações → Meta / Redes → Conectar YouTube)');
-    if (ig && !res.instagram) res.instagram = await publicarInstagram(it.perfil, arquivo, it.legenda ?? it.tema);
+    if (ig && !res.instagram) {
+      res.instagram = await publicarInstagram(it.perfil, arquivo, it.legenda ?? it.tema);
+      // robô do direct ligado no perfil: o primeiro comentário chama a palavra-chave (fixar é no app do Instagram)
+      const rd = DIRECT.regras(it.perfil);
+      if (rd.ligado) await comentarIG(it.perfil, res.instagram.id, rd.comentario).then(() => (res.instagram.comentario = rd.comentario))
+        .catch((e) => log('postar', `${it.id}: primeiro comentário falhou: ${e.message}`));
+    }
     if (ig && env().META_POSTAR_FACEBOOK === '1' && !res.facebook) res.facebook = await publicarFacebook(it.perfil, arquivo, it.legenda ?? it.tema);
     if (yt && !res.youtube) {
       const tags = (it.legenda ?? '').match(/#[\p{L}\d_]+/gu)?.map((t) => t.slice(1)) ?? [];

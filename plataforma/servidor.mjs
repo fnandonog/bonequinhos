@@ -14,6 +14,7 @@ import {responderComentario} from './lib/meta.mjs';
 import * as LINKS from './lib/links.mjs';
 import {tendencias, cacar} from './tendencias.mjs';
 import * as YT from './lib/youtube.mjs';
+import * as DIRECT from './lib/direct.mjs';
 
 const PORTA = Number(process.env.PORTA ?? 4380);
 const CONFIG_VISIVEL = ['CLAUDE_CODE_OAUTH_TOKEN', 'META_USER_TOKEN', 'YOUTUBE_API_KEY', 'YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_PRIVACIDADE', 'TELEGRAM_BOT_TOKEN', 'TELEGRAM_GRUPO_ID', 'RECEITA_AFILIADO_MES', 'META_GRAPH_VERSION', 'ELEVENLABS_API_KEY', 'AUTO_PUBLICAR', 'PRODUCAO_AUTOMATICA', 'ELEVENLABS_VOZ', 'META_POSTAR_FACEBOOK',
@@ -68,6 +69,7 @@ async function api(metodo, partes, req) {
   if (metodo === 'GET' && recurso === 'comentarios') return comentarios();
   if (metodo === 'GET' && recurso === 'links') return LINKS.config();
   if (metodo === 'GET' && recurso === 'tendencias') return tendencias();
+  if (metodo === 'GET' && recurso === 'direct') return {config: DIRECT.config(), resumo: DIRECT.resumo(), rodando: !!roboDirect};
   if (metodo !== 'POST') throw new Error('rota desconhecida');
 
   if (recurso === 'sincronizar') return sincronizar({forcar: true});
@@ -82,6 +84,14 @@ async function api(metodo, partes, req) {
       await responderComentario(c.perfil, c.id, String(b.responder).slice(0, 2000));
       return salvarComentario(id, {status: 'respondido', resposta: b.responder, respondido_em: new Date().toISOString()});
     }
+  }
+  if (recurso === 'direct') {
+    // ligar/desligar e editar é o dono no painel; "testar" é a rodada seca (lê, não manda nada)
+    if (id === 'testar') return DIRECT.rodar({perfil: b.perfil || null, seco: true});
+    if (id === 'rodar') return DIRECT.rodar({perfil: b.perfil || null});
+    DIRECT.salvarConfig(b);
+    agendarDirect();
+    return {config: DIRECT.config(), resumo: DIRECT.resumo(), rodando: !!roboDirect};
   }
   if (recurso === 'links') {
     if (Object.keys(b).length) LINKS.salvarConfig(b);
@@ -102,6 +112,7 @@ async function api(metodo, partes, req) {
     const it = D.item(id);
     if (!it) throw new Error('vídeo não está na fila');
     if (acao === 'legenda') return D.salvarItem({id, legenda: b.legenda});
+    if (acao === 'entrega') return D.salvarItem({id, entrega: String(b.entrega ?? '').slice(0, 900)});
     if (acao === 'rejeitar') {
       ponte.espelhar(id, 'rejeitado');
       return D.salvarItem({id, status: 'rejeitado'});
@@ -198,5 +209,20 @@ app.get('/out/:f', (req, res) => arquivo(res, path.join(D.RAIZ, 'out', path.base
 app.get('/perfis/:f', (req, res) => arquivo(res, path.join(D.RAIZ, 'perfis/imagens', path.basename(req.params.f)), req));
 app.use('/links', express.static(path.join(D.RAIZ, 'site')));
 app.get(['/', '/index.html'], (req, res) => arquivo(res, path.join(D.PLAT, 'painel', 'index.html'), req));
+
+// Robô comentário → direct: roda a cada intervalo_min enquanto o interruptor geral estiver ligado (painel → Comentários)
+let roboDirect = null, rodadaDirect = false;
+function agendarDirect() {
+  clearInterval(roboDirect);
+  roboDirect = null;
+  const cfg = DIRECT.config();
+  if (!cfg.ligado) return;
+  roboDirect = setInterval(async () => {
+    if (rodadaDirect) return;
+    rodadaDirect = true;
+    try { await DIRECT.rodar(); } catch (e) { D.log('direct', `rodada falhou: ${e.message}`); } finally { rodadaDirect = false; }
+  }, (cfg.intervalo_min || 2) * 60000);
+}
+agendarDirect();
 
 app.listen(PORTA, '127.0.0.1', () => console.log(`Painel: http://localhost:${PORTA} · Escritório: http://localhost:${PORTA}/admin/escritorio`));
