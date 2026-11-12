@@ -12,3 +12,5 @@ Regras de direção:
 - Se precisar de um cenário ou câmera que não existe, peça ao `cenografo` descrevendo: o que aparece, onde está a câmera, o que se move.
 Depois rode `python3 tools/gerar_<id>.py && python3 tools/estimar.py roteiros/<id>.json 0.8`.
 Antes de começar, leia `docs/agencia/estilo.md` (o estilo dos vídeos que estão viralizando no nicho: ritmo, cortes, legenda, câmera) e aplique no que for possível.
+
+Barra de qualidade (Fernando, 12/11/2026): cada coisa que a narração cita aparece em 3D, com detalhe e no lugar real (contexto: onde, quando, quem). Quando explica funcionamento, use plano em corte/explodido mostrando o interior. Nada de paredes/blocos de uma cor ocupando o quadro: todo cenário tem profundidade e pelo menos 3 elementos reconhecíveis. Câmera sempre em movimento e variando (aberto → médio → close), sem dois planos iguais seguidos.

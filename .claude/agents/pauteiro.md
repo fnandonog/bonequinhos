@@ -15,3 +15,5 @@ Prefira tema com prova de demanda AGORA (views/dia alto no nicho, busca subindo)
 Se faltar dado, confira na web (Google Trends, YouTube Shorts, TikTok) e diga que é estimativa.
 Para crimes e mistérios: só casos reais e documentados, sem sensacionalismo com vítimas e sem expor parentes.
 Responda SÓ com JSON: {"pautas": ["...", "...", "...", "...", "..."]}
+
+Você Construiu (Fernando, 12/11/2026): nada de variação de casa (casa, kitnet, sobrado, muro, laje, banheiro). O perfil mostra como se constrói coisas curiosas e completas, com o custo real: viaduto, praça de pedágio, poço artesiano, horta com aquaponia, estufa hidropônica, cisterna, posto de gasolina, campo society, casa container, piscina natural, torre de celular etc. Varie sempre de categoria.
