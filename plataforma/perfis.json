@@ -201,35 +201,36 @@
     },
     {
       "id": "rico",
-      "nome": "Como Ficou Rico",
-      "nicho": "Como pessoas e empresas ficaram ricas",
+      "nome": "Seu Tostão",
+      "nicho": "Histórias do dinheiro que ninguém te contou (personagem fixo Seu Tostão)",
       "instagram": "comoficourico.oficial",
       "youtube": "comoficourico.oficial",
       "formato": "rico",
       "comando": "/produzir",
-      "ativo": false,
-      "motivo_inativo": "Falta aprovar o piloto do formato.",
+      "ativo": true,
       "horario": "07:30",
-      "cta": "Os livros dessa história no Telegram do Zé: link na bio",
+      "cta": "O livro dessa história e outros em oferta no Telegram do Zé: link na bio",
       "link_bio": "",
       "hashtags": [
-        "empreendedorismo",
+        "historiadodinheiro",
+        "economia",
         "dinheiro",
-        "historiadesucesso"
+        "curiosidades"
       ],
       "busca": [
-        "como ficou rico",
-        "história de sucesso empresa",
-        "bilionário começou"
+        "plano collor confisco",
+        "história da inflação brasil",
+        "golpes financeiros famosos",
+        "quanto custava antigamente"
       ],
       "voz_elevenlabs": {
-        "id": "zNEsdgTUa3ndwKry8Xcq",
-        "nome": "Elvis",
-        "dono": "acfa1514b7908c3e0af08bb0a80ef55948e3a709a7d882f3c9b95d8738dc6604",
+        "id": "RGbeQtiShYRDVCrd9b9w",
+        "nome": "Sergio (Seu Tostão)",
+        "dono": "a199ae0144fe0cc9d5af91ad3d20996fcddf5ff2e3088cff74e1b537a742bee9",
         "ajustes": {
           "stability": 0.5,
           "similarity_boost": 0.8,
-          "style": 0.25,
+          "style": 0.3,
           "use_speaker_boost": true,
           "speed": 1.0
         }
@@ -245,6 +246,12 @@
       "grupo": {
         "nome": "Ofertas do Zé · Livros: os livros dos vídeos em promoção",
         "url": "https://t.me/ofertasdozelivros"
+      },
+      "nome_antigo": "Como Ficou Rico",
+      "renomear_para": {
+        "nome": "Seu Tostão",
+        "handle_sugerido": "seutostao",
+        "pendente": true
       }
     },
     {
