@@ -2,6 +2,7 @@ import React from 'react';
 import {ThreeCanvas} from '@remotion/three';
 import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
 import {Boneco, Caixa, Cil, Mat, Visual} from '../v4/kit';
+import {MBrilho, MN} from '../estilo/visual';
 import '../Video'; // carrega a fonte Baloo 2
 
 // Personagem fixo do perfil "Seu Tostão" (id rico): caixa de banco aposentado + o papagaio Juros.
@@ -18,40 +19,93 @@ export const SeuTostao: React.FC<{pos?: V3; rotY?: number; t?: number; acao?: Re
   <Boneco pos={pos} rotY={rotY} t={t} acao={acao} v={{...TOSTAO, expressao}} esc={esc} ferramenta={bengala && acao !== 'aponta' && acao !== 'acena' && acao !== 'comemora' ? 'bengala' : null} />
 );
 
-// Juros, o papagaio. acao 'grita' abre o bico, bate as asas e arrepia o topete: use no número mais absurdo
-// do vídeo. `grita` (0..1) permite dosar a intensidade (ex.: rampa de entrada).
+// Juros, o papagaio (arara no padrão do Zé 2.0: formas lisas, olhos com brilho). acao 'grita' abre o bico,
+// bate as asas e arrepia o topete: use no número mais absurdo do vídeo. `grita` (0..1) permite dosar a intensidade.
+const VERDE = '#2fb34a';
+const AMARELO = '#ffd23f';
+const VERMELHO = '#e8322b';
+const AZUL = '#1f7fd6';
+const Ov: React.FC<{pos?: V3; rot?: V3; esc: V3; cor: string; r?: number; sombra?: boolean; brilho?: boolean}> = ({pos, rot, esc, cor, r = 0.7, sombra = true, brilho}) => (
+  <mesh position={pos} rotation={rot} scale={esc} castShadow={sombra}>
+    <sphereGeometry args={[1, 32, 22]} />
+    {brilho ? <MBrilho cor={cor} r={r} /> : <MN cor={cor} r={r} />}
+  </mesh>
+);
 export const Juros: React.FC<{pos?: V3; rotY?: number; t?: number; esc?: number; acao?: 'parado' | 'grita'; grita?: number}> = ({pos = [0, 0, 0], rotY = 0, t = 0, esc = 1, acao = 'parado', grita: g}) => {
   const grita = g ?? (acao === 'grita' ? 1 : 0);
   const bate = grita > 0 ? Math.sin(t * 22) * 0.6 * grita : Math.sin(t * 2) * 0.05;
   const pulo = grita > 0 ? Math.abs(Math.sin(t * 11)) * 0.06 * grita : 0;
+  const piscar = (t + 1.3) % 4.1 < 0.12 ? 0.15 : 1;
+  const inclina = Math.sin(t * 1.4) * 0.12 * (1 - grita);
   return (
     <group position={[pos[0], pos[1] + pulo, pos[2]]} rotation={[0, rotY, 0]} scale={esc}>
-      {/* corpo */}
-      <mesh position={[0, 0.22, 0]} rotation={[-0.25, 0, 0]} castShadow scale={[0.85, 1.15, 0.85]}><sphereGeometry args={[0.15, 12, 10]} /><Mat cor="#2fb34a" /></mesh>
-      <mesh position={[0, 0.2, 0.08]} scale={[0.6, 0.9, 0.5]}><sphereGeometry args={[0.13, 10, 8]} /><Mat cor="#ffd23f" /></mesh>
+      {/* corpo + peito amarelo */}
+      <Ov pos={[0, 0.22, 0]} rot={[-0.22, 0, 0]} esc={[0.13, 0.175, 0.13]} cor={VERDE} />
+      <Ov pos={[0, 0.2, 0.062]} rot={[-0.3, 0, 0]} esc={[0.085, 0.13, 0.07]} cor={AMARELO} sombra={false} />
+      {/* cauda: três penas longas */}
+      {[-0.22, 0, 0.22].map((z, i) => (
+        <group key={z} position={[0, 0.1, -0.09]} rotation={[Math.PI + 0.5, 0, z]}>
+          <Ov pos={[0, 0.15 + (i === 1 ? 0.02 : 0), 0]} esc={[0.03, 0.16 + (i === 1 ? 0.03 : 0), 0.012]} cor={i === 1 ? VERMELHO : AZUL} r={0.6} />
+        </group>
+      ))}
+      {/* asas (pivô no ombro) */}
+      {[-1, 1].map((sx) => (
+        <group key={sx} position={[sx * 0.1, 0.3, -0.005]} rotation={[-0.28, 0, sx * (0.12 + bate)]}>
+          <Ov pos={[sx * 0.022, -0.1, 0]} esc={[0.042, 0.13, 0.085]} cor={AZUL} r={0.6} />
+          <Ov pos={[sx * 0.024, -0.02, 0.02]} esc={[0.04, 0.06, 0.07]} cor={VERDE} r={0.7} sombra={false} />
+          <Ov pos={[sx * 0.02, -0.2, -0.03]} rot={[0.35, 0, 0]} esc={[0.03, 0.08, 0.05]} cor="#1a5fae" r={0.6} sombra={false} />
+        </group>
+      ))}
       {/* cabeça */}
-      <group position={[0, 0.43, 0.03]}>
-        <mesh castShadow><sphereGeometry args={[0.11, 12, 10]} /><Mat cor="#e8322b" /></mesh>
+      <group position={[0, 0.43, 0.035]} rotation={[0, 0, inclina]}>
+        <Ov esc={[0.108, 0.104, 0.11]} cor={VERMELHO} r={0.65} />
         {[-1, 1].map((sx) => (
           <group key={sx}>
-            <mesh position={[sx * 0.075, 0.02, 0.06]}><sphereGeometry args={[0.035, 8, 8]} /><meshStandardMaterial color="#ffffff" /></mesh>
-            <mesh position={[sx * 0.085, 0.022, 0.09]}><sphereGeometry args={[0.018, 6, 6]} /><meshStandardMaterial color="#1d1b26" /></mesh>
+            {/* máscara branca de arara em volta do olho */}
+            <Ov pos={[sx * 0.062, 0.0, 0.07]} rot={[0, sx * 0.7, 0]} esc={[0.05, 0.045, 0.02]} cor="#f6f1e8" r={0.8} sombra={false} />
+            <group position={[sx * 0.068, 0.018, 0.079]} rotation={[0, sx * 0.62, 0]} scale={[1, piscar, 1]}>
+              <Ov esc={[0.03, 0.036, 0.016]} cor="#ffffff" r={0.15} brilho sombra={false} />
+              <Ov pos={[-sx * 0.002, -0.003, 0.011]} esc={[0.019, 0.023, 0.01]} cor="#1d1410" r={0.1} brilho sombra={false} />
+              <mesh position={[sx * 0.006, 0.01, 0.022]}>
+                <sphereGeometry args={[0.0065, 12, 8]} />
+                <meshBasicMaterial color="#ffffff" toneMapped={false} />
+              </mesh>
+            </group>
           </group>
         ))}
-        {/* bico: de cima fixo, de baixo abre quando grita */}
-        <mesh position={[0, -0.01, 0.12]} rotation={[0.5, 0, 0]}><coneGeometry args={[0.045, 0.1, 6]} /><Mat cor="#f2e6c9" /></mesh>
-        <mesh position={[0, -0.05 - 0.03 * grita, 0.1]} rotation={[1.9 + 0.5 * grita, 0, 0]}><coneGeometry args={[0.03, 0.06, 6]} /><Mat cor="#3b3340" /></mesh>
+        {/* bico: de cima curvo (gancho), de baixo abre quando grita */}
+        <Ov pos={[0, -0.01, 0.1]} rot={[0.35, 0, 0]} esc={[0.038, 0.042, 0.045]} cor="#f2e6c9" r={0.35} />
+        <mesh position={[0, -0.05, 0.128]} rotation={[Math.PI + 0.35, 0, 0]} castShadow>
+          <coneGeometry args={[0.02, 0.05, 20]} />
+          <MN cor="#e6d6b0" r={0.35} />
+        </mesh>
+        <group position={[0, -0.04, 0.075]} rotation={[0.55 * grita, 0, 0]}>
+          <Ov pos={[0, -0.012, 0.022]} esc={[0.028, 0.02, 0.032]} cor="#3b3340" r={0.4} />
+          {grita > 0.2 && <Ov pos={[0, -0.002, 0.022]} esc={[0.018, 0.008, 0.022]} cor="#ff7d86" r={0.5} sombra={false} />}
+        </group>
         {/* topete */}
-        {[-0.03, 0, 0.03].map((x, i) => (<mesh key={x} position={[x, 0.11 + 0.03 * grita, -0.02]} rotation={[-0.5 - 0.3 * grita, 0, x * 6]}><coneGeometry args={[0.02, 0.09 + i * 0.01, 5]} /><Mat cor="#e8322b" /></mesh>))}
+        {[-0.03, 0, 0.03].map((x, i) => (
+          <mesh key={x} position={[x, 0.1 + 0.025 * grita, -0.025]} rotation={[-0.55 - 0.35 * grita, 0, x * 7]} castShadow>
+            <capsuleGeometry args={[0.014, 0.06 + i * 0.012 * (i === 1 ? 2 : 1), 6, 14]} />
+            <MN cor={i === 1 ? '#ff5a3c' : VERMELHO} r={0.65} />
+          </mesh>
+        ))}
       </group>
-      {/* asas */}
-      {[-1, 1].map((sx) => (
-        <mesh key={sx} position={[sx * 0.12, 0.24, -0.02]} rotation={[-0.3, 0, sx * (0.25 + bate)]} scale={[0.35, 1, 0.7]} castShadow><sphereGeometry args={[0.14, 8, 8]} /><Mat cor="#1f7fd6" /></mesh>
+      {/* patas agarradas ao poleiro */}
+      {[-0.05, 0.05].map((x) => (
+        <group key={x} position={[x, 0, 0.01]}>
+          <mesh position={[0, 0.05, 0]}>
+            <capsuleGeometry args={[0.012, 0.04, 4, 10]} />
+            <MN cor="#8a8a8a" r={0.6} />
+          </mesh>
+          {[-0.5, 0.5].map((ry) => (
+            <mesh key={ry} position={[Math.sin(ry) * 0.012, 0.018, 0.012]} rotation={[Math.PI / 2, 0, ry]}>
+              <capsuleGeometry args={[0.009, 0.03, 4, 8]} />
+              <MN cor="#8a8a8a" r={0.6} />
+            </mesh>
+          ))}
+        </group>
       ))}
-      {/* cauda */}
-      <mesh position={[0, 0.04, -0.14]} rotation={[-1.1, 0, 0]}><boxGeometry args={[0.08, 0.3, 0.02]} /><Mat cor="#1f7fd6" /></mesh>
-      {/* patas */}
-      {[-0.05, 0.05].map((x) => (<Cil key={x} pos={[x, 0.04, 0.02]} r={0.012} h={0.08} cor="#8a8a8a" />))}
     </group>
   );
 };
