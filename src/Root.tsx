@@ -38,6 +38,8 @@ import timingsAirFryerVP from '../public/audio/air-fryer-barata-vale-a-pena/timi
 import {Rico, RoteiroRico} from './rico/Rico';
 import roteiroSilvio from '../roteiros/como-o-silvio-santos-ficou-rico.json';
 import timingsSilvio from '../public/audio/como-o-silvio-santos-ficou-rico/timings.json';
+import roteiroMcDonald from '../roteiros/como-o-mcdonald-s-ganha-dinheiro-de-verd.json';
+import timingsMcDonald from '../public/audio/como-o-mcdonald-s-ganha-dinheiro-de-verd/timings.json';
 import {Caso, RoteiroCaso} from './caso/Caso';
 import roteiroMH370 from '../roteiros/o-misterio-do-voo-mh370.json';
 import timingsMH370 from '../public/audio/o-misterio-do-voo-mh370/timings.json';
@@ -85,6 +87,8 @@ export const Root: React.FC = () => {
         defaultProps={{roteiro: roteiroAirFryerVP as unknown as RoteiroValeAPena, timings: timingsAirFryerVP as Timings, comAudio: !(timingsAirFryerVP as Timings).estimado}} />
       <Composition id="como-o-silvio-santos-ficou-rico" component={Rico} durationInFrames={total(timingsSilvio as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroSilvio as unknown as RoteiroRico, timings: timingsSilvio as Timings, comAudio: !(timingsSilvio as Timings).estimado}} />
+      <Composition id="como-o-mcdonald-s-ganha-dinheiro-de-verd" component={Rico} durationInFrames={total(timingsMcDonald as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroMcDonald as unknown as RoteiroRico, timings: timingsMcDonald as Timings, comAudio: !(timingsMcDonald as Timings).estimado}} />
       <Composition id="o-misterio-do-voo-mh370" component={Caso} durationInFrames={total(timingsMH370 as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroMH370 as unknown as RoteiroCaso, timings: timingsMH370 as Timings, comAudio: !(timingsMH370 as Timings).estimado}} />
       <Composition id="o-sequestro-do-aviao-d-b-cooper" component={Caso} durationInFrames={total(timingsCooper as Timings)} fps={FPS} width={1080} height={1920}

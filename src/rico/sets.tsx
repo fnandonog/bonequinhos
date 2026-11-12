@@ -670,6 +670,145 @@ const Escada: React.FC<{t: number; p: number; topo?: boolean}> = ({t, p, topo}) 
   );
 };
 
+// ======================= McDONALD'S: personagens e sets =======================
+const KROC_V = {camisa: '#1d3a5a', calca: '#1d3a5a', colete: null as null, capacete: null as null, cabelo: '#c8c8c8', pele: '#e8b892', gravata: '#8b2222'};
+const IRMAO_V = {camisa: '#7a9a5a', calca: '#4a3e32', colete: null as null, capacete: null as null, cabelo: '#3a2820', pele: '#d4a070'};
+const SONNEBORN_V = {camisa: '#5a4a66', calca: '#3a3050', colete: null as null, capacete: null as null, cabelo: '#3a3540', pele: '#e8b892', gravata: '#2f6a8a'};
+const FILA_MCD = [
+  {camisa: '#f2ecdf', calca: '#4a4a55', colete: null as null, capacete: null as null, cabelo: '#3b2a20'},
+  {camisa: '#c0a0d0', calca: '#3a3f55', colete: null as null, capacete: null as null, cabelo: '#1d1b26', pele: '#c98e62'},
+  {camisa: '#d9cdb0', calca: '#3a3028', colete: null as null, capacete: null as null, cabelo: '#5a4030'},
+  {camisa: '#8bbde8', calca: '#2b2b3a', colete: null as null, capacete: null as null, cabelo: '#c8c8c8', pele: '#e8b892'},
+  {camisa: '#e8c08a', calca: '#4a3e2a', colete: null as null, capacete: null as null, cabelo: '#1d1b26'},
+  {camisa: '#6a9a5a', calca: '#3a4028', colete: null as null, capacete: null as null, cabelo: '#3b2a20', pele: '#c98e62'},
+  {camisa: '#f0e0c0', calca: '#5a4a3a', colete: null as null, capacete: null as null, cabelo: '#6b4030'},
+];
+
+// 10. ESTRADA AMERICANA, 1954 — Kroc viajante
+const EstradaKroc: React.FC<{t: number}> = ({t}) => (
+  <group>
+    <Caixa pos={[0, -0.05, 0]} tam={[22, 0.1, 400]} cor="#55555a" />
+    {Array.from({length: 25}).map((_, i) => (
+      <Caixa key={i} pos={[0, 0.001, -80 + i * 7]} tam={[0.14, 0.002, 4]} cor="#f5e640" sombra={false} />
+    ))}
+    {[-1, 1].map((s) => <Caixa key={s} pos={[s * 11.1, 0.001, 0]} tam={[0.14, 0.002, 400]} cor="#ffffff" sombra={false} />)}
+    <Caixa pos={[-100, -0.08, 0]} tam={[180, 0.1, 400]} cor="#8bb860" />
+    <Caixa pos={[100, -0.08, 0]} tam={[180, 0.1, 400]} cor="#8bb860" />
+    <group position={[-2, 0, -4]}>
+      <CarroPremio pos={[0, 0, 0]} rotY={Math.PI} cor="#1d3a5a" laco={false} />
+      <Caixa pos={[-2.0, 0.78, 0]} tam={[0.6, 0.45, 1.1]} cor="#8b5a3c" />
+      <Letreiro pos={[-2.0, 0.78, 0.57]} larg={0.5} alt={0.2} linhas={['MULTI', 'MIXER']} fundo="#c82f2f" cor="#fff" />
+    </group>
+    <Boneco pos={[1.2, 0, -5.5]} rotY={-0.4} t={t} v={KROC_V} esc={0.93} acao="parado" />
+    <Barra a={[6.5, 0, -9]} b={[6.5, 3.5, -9]} r={0.04} cor="#2b2b30" />
+    <Barra a={[6.5, 3.2, -9]} b={[9.0, 3.2, -9]} r={0.03} cor="#2b2b30" />
+    <Letreiro pos={[7.9, 3.2, -8.98]} larg={1.8} alt={0.6} linhas={['SAN BERNARDINO', '← 150 mi']} fundo="#fff" cor="#1d1b26" borda="#1d1b26" />
+  </group>
+);
+
+// 11. LANCHONETE DOS IRMÃOS McDONALD (três modos)
+const LanchoneteIrmaos: React.FC<{t: number; modo: 'fila' | 'balcao' | 'kroc'}> = ({t, modo}) => {
+  const BALDI: V3 = [2.5, 1.5, -4.08];
+  return (
+    <group>
+      <Caixa pos={[0, -0.05, 0]} tam={[40, 0.1, 40]} cor="#8a8a8a" />
+      <Caixa pos={[0, 2.0, -8]} tam={[14, 4.0, 8]} cor="#f5e6d0" />
+      <Caixa pos={[0, 4.15, -8]} tam={[15.5, 0.25, 9.5]} cor="#c8d84a" />
+      <Caixa pos={[0, 2.0, -4.0]} tam={[14, 4.0, 0.15]} cor="#ffd878" />
+      <Caixa pos={[BALDI[0], BALDI[1], BALDI[2]]} tam={[1.6, 1.4, 0.05]} cor="#9fd0ea" />
+      <Letreiro pos={[BALDI[0], BALDI[1] + 0.9, BALDI[2] + 0.01]} larg={1.5} alt={0.4} linhas={['ATENDIMENTO']} fundo="#ff6b00" cor="#fff" />
+      <Letreiro pos={[0, 4.75, -4.0]} larg={6} alt={1.1} linhas={["McDONALD'S", 'SPEEDEE SERVICE']} fundo="#ffd23f" cor="#c82f2f" borda="#c82f2f" />
+      {Array.from({length: 7}).map((_, i) => (
+        <Boneco key={i} pos={[BALDI[0] - i * 1.0, 0, 0.5 + i * 0.1]} rotY={Math.PI - 0.08 * i} t={t + i} v={FILA_MCD[i % 7]} esc={0.9 + (i % 3) * 0.03} acao={i === 0 ? 'aponta' : 'parado'} />
+      ))}
+      <Boneco pos={[BALDI[0], 0, -4.6]} rotY={0} t={t} v={IRMAO_V} esc={0.93} acao="acena" />
+      {modo === 'kroc' && <Ze pos={[-2.5, 0, 0.5]} rotY={Math.PI / 2 + 0.3} t={t} terno mic={false} acao="aponta" />}
+      {[-5, 5].map((x, i) => (
+        <group key={i} position={[x, 0, 6]}>
+          <CarroPremio pos={[0, 0, 0]} rotY={-Math.PI / 2} cor={['#e9e6df', '#c94f4f'][i]} laco={false} />
+        </group>
+      ))}
+      {[-6, 6].map((x) => <Poste key={x} pos={[x, 0, 1]} />)}
+    </group>
+  );
+};
+
+// 12. ESCRITÓRIO McDONALD'S SYSTEM INC. (três modos)
+const EscritorioMcd: React.FC<{t: number; p: number; modo: 'contrato' | 'sonneborn' | 'compra'}> = ({t, p, modo}) => {
+  const k = suave(clamp01(p * 1.5));
+  return (
+    <group>
+      <Sala larg={8} prof={6} piso="#b09870" parede="#e9e0d0" />
+      <Letreiro pos={[0, 2.9, -2.95]} larg={4.5} alt={1.0} linhas={["McDONALD'S SYSTEM INC.", 'OAK BROOK · ILLINOIS']} fundo="#1d1b26" cor="#ffd23f" />
+      <Caixa pos={[0, 0.74, -0.5]} tam={[2, 0.06, 1.1]} cor="#5a3a20" />
+      {[[-0.9, -0.9] as [number, number], [0.9, -0.9] as [number, number], [-0.9, 0.0] as [number, number], [0.9, 0.0] as [number, number]].map(([x, z], i) => (
+        <Caixa key={i} pos={[x, 0.37, z]} tam={[0.07, 0.74, 0.07]} cor="#4a2e18" />
+      ))}
+      <Letreiro pos={[0, 0.775, -0.4]} rot={[-Math.PI / 2, 0, 0.1]} larg={0.42} alt={0.56}
+        linhas={modo === 'compra' ? ['VENDA', 'DOS IRMÃOS', '$ 2,7 MI'] : modo === 'sonneborn' ? ['MODELO', 'IMOBILIÁRIO', '1956'] : ['CONTRATO', 'FRANQUIA', '1955']}
+        fundo="#fff" cor="#1d1b26" />
+      <Ze pos={[-0.4, 0, 0.6]} rotY={Math.PI} t={t} terno mic={false} acao={k > 0.5 ? 'acena' : 'parado'} />
+      {modo === 'sonneborn' && <Boneco pos={[0.1, 0, -1.4]} t={t} v={SONNEBORN_V} esc={0.93} acao="aponta" />}
+      {(modo === 'contrato' || modo === 'compra') && <Boneco pos={[0.1, 0, -1.4]} t={t} v={IRMAO_V} esc={0.93} acao={k > 0.6 ? 'aponta' : 'parado'} />}
+      {modo === 'compra' && (
+        <>
+          <PilhaNotas pos={[0.3, 0.772, -0.4]} n={Math.round(1 + 10 * k)} cor="#a8c8e8" />
+          {k < 0.95 && <Maco pos={[lerp(0.2, 0.3, k), lerp(1.1, 0.785, k), lerp(0.5, -0.4, k)]} cor="#a8c8e8" />}
+        </>
+      )}
+    </group>
+  );
+};
+
+// 13. MODELO DO TERRENO — McDonald's é o senhorio
+const TerrenoMcd: React.FC<{t: number; p: number}> = ({t, p}) => {
+  void p;
+  return (
+    <group>
+      <Caixa pos={[0, -0.05, 0]} tam={[40, 0.1, 40]} cor="#8b6a3a" />
+      <Letreiro pos={[0, 0.075, 2.5]} rot={[-Math.PI / 2, 0, 0]} larg={4.5} alt={1.0} linhas={["TERRENO:", "McDONALD'S CORP."]} fundo="#1d1b26" cor="#ffd23f" />
+      <Caixa pos={[0, 0.001, 1.5]} tam={[14, 0.02, 10]} cor="#55555a" />
+      <Caixa pos={[0, 2.0, -5]} tam={[8, 4.0, 6]} cor="#f5e6d0" />
+      <Caixa pos={[0, 4.15, -5]} tam={[9, 0.25, 7.5]} cor="#c8d84a" />
+      <Letreiro pos={[0, 4.75, -4.98]} larg={4} alt={0.8} linhas={['FRANQUEADO', '(locatário)']} fundo="#ffd23f" cor="#c82f2f" borda="#c82f2f" />
+      <Barra a={[-2.5, 0.2, 0]} b={[-2.5, 5.5, 0]} r={0.07} cor="#ff9f1c" />
+      <Caixa pos={[-2.5, 5.75, 0]} tam={[0.5, 0.5, 0.5]} cor="#ff9f1c" />
+      <Letreiro pos={[-2.5, 6.4, 0]} larg={1.6} alt={0.44} linhas={['ALUGUEL']} fundo="#ff9f1c" cor="#1d1b26" />
+      <Barra a={[2.5, 0.2, 0]} b={[2.5, 5.5, 0]} r={0.07} cor="#4ade80" />
+      <Caixa pos={[2.5, 5.75, 0]} tam={[0.5, 0.5, 0.5]} cor="#4ade80" />
+      <Letreiro pos={[2.5, 6.4, 0]} larg={1.6} alt={0.44} linhas={['ROYALTIES']} fundo="#4ade80" cor="#1d1b26" />
+      <Letreiro pos={[0, 7.4, 0]} larg={4.5} alt={0.9} linhas={["McDONALD'S CORP", 'recebe os dois']} fundo="#1d1b26" cor="#ffd23f" />
+      <Ze pos={[-3.8, 0, 2]} rotY={-0.3} t={t} terno mic={false} acao="aponta" />
+    </group>
+  );
+};
+
+// 14. REDE GLOBAL: painel de stats + mapa simplificado
+const Rede40k: React.FC<{t: number; p: number}> = ({t, p}) => {
+  const nRestaurantes = Math.round(p * 40000);
+  return (
+    <group>
+      <Caixa pos={[0, -0.05, 0]} tam={[22, 0.1, 10]} cor="#1d1b26" />
+      <Caixa pos={[0, 4.5, -4.5]} tam={[22, 9, 0.2]} cor="#16151c" />
+      <Letreiro pos={[-5, 7.6, -4.4]} larg={7} alt={1.4} linhas={['RESTAURANTES', nRestaurantes > 1000 ? `${Math.round(nRestaurantes / 1000)}K` : '...']} fundo="#ffd23f" cor="#1d1b26" />
+      <Letreiro pos={[5, 7.6, -4.4]} larg={7} alt={1.4} linhas={['PAÍSES', nRestaurantes > 20000 ? '100+' : '...']} fundo="#4ade80" cor="#1d1b26" />
+      <Letreiro pos={[-5, 5.6, -4.4]} larg={7} alt={1.4} linhas={['FRANQUIAS', nRestaurantes > 30000 ? '95%' : '...']} fundo="#ff9f1c" cor="#1d1b26" />
+      <Letreiro pos={[5, 5.6, -4.4]} larg={7} alt={1.4} linhas={['ALUGUEL+ROYALTIES', nRestaurantes > 35000 ? '$14 BI/ANO' : '...']} fundo="#ffffff" cor="#1d1b26" />
+      <Caixa pos={[0, 0.5, -2]} tam={[20, 0.08, 6]} cor="#1d3a5a" />
+      <Letreiro pos={[-7, 0.56, -1]} rot={[-Math.PI / 2, 0, 0]} larg={5} alt={2.5} linhas={['AMÉRICAS']} fundo="#2f5a8a" cor="#fff" />
+      <Letreiro pos={[0, 0.56, -1]} rot={[-Math.PI / 2, 0, 0]} larg={4} alt={2.5} linhas={['EUROPA']} fundo="#3a7a3a" cor="#fff" />
+      <Letreiro pos={[6.5, 0.56, -1]} rot={[-Math.PI / 2, 0, 0]} larg={5.5} alt={2.5} linhas={['ÁSIA/OCEANIA']} fundo="#8a3a3a" cor="#fff" />
+      {Array.from({length: Math.min(60, Math.round(p * 65))}).map((_, i) => {
+        const r = rnd(i + 500);
+        const setorX = i % 3 === 0 ? (r() * 4 - 9) : i % 3 === 1 ? (r() * 3 - 1.5) : (r() * 4 + 4);
+        const z = r() * 2 - 2;
+        return <Pino key={i} pos={[setorX, 0.6, z]} vis={1} h={0.4} />;
+      })}
+      <Ze pos={[9, 0, 0.5]} rotY={-Math.PI / 2} t={t} terno mic={false} acao="aponta" />
+    </group>
+  );
+};
+
 // ======================= registro dos sets e câmeras =======================
 export const SETS: Record<string, SetRico> = {
   rua: {
@@ -913,6 +1052,85 @@ export const SETS: Record<string, SetRico> = {
     render: ({t, p}) => <Escada t={t} p={p} topo />,
     cams: {
       topo: orb([0.05, degY(6) + 0.55, degZ(6)], -8, 12, 6.6, 5.6, 42, 6),
+    },
+  },
+  estrada50s: {
+    ceu: CEU_DIA,
+    luz: 'dia',
+    nevoa: [80, 500],
+    render: ({t}) => <EstradaKroc t={t} />,
+    cams: {
+      dirige: orb([0, 0.9, -4.5], 55, 12, 7.5, 6.0, 42, 8),
+    },
+  },
+  lanchonete50s: {
+    ceu: CEU_DIA,
+    luz: 'dia',
+    nevoa: [60, 300],
+    render: ({t}) => <LanchoneteIrmaos t={t} modo="fila" />,
+    cams: {
+      fila: orb([2.5, 1.5, -1.0], 60, 8, 8.5, 7.5, 42, 8),
+    },
+  },
+  lanchonete50sbalcao: {
+    ceu: CEU_DIA,
+    luz: 'dia',
+    nevoa: [60, 300],
+    render: ({t}) => <LanchoneteIrmaos t={t} modo="balcao" />,
+    cams: {
+      balcao: orb([2.5, 1.5, -4.0], 10, 8, 2.5, 2.0, 40, 6),
+    },
+  },
+  lanchonete50skroc: {
+    ceu: CEU_DIA,
+    luz: 'dia',
+    nevoa: [60, 300],
+    render: ({t}) => <LanchoneteIrmaos t={t} modo="kroc" />,
+    cams: {
+      kroc: orb([-2.5, 1.2, 0.5], -40, 10, 4.5, 3.8, 42, 8),
+    },
+  },
+  escritoriomcd: {
+    ceu: CEU_ESCRITORIO,
+    luz: 'interior',
+    render: ({t, p}) => <EscritorioMcd t={t} p={p} modo="contrato" />,
+    cams: {
+      contrato: orb([0, 1.1, 0.0], 20, 10, 5.5, 4.5, 42, 6),
+    },
+  },
+  escritoriomcdson: {
+    ceu: CEU_ESCRITORIO,
+    luz: 'interior',
+    render: ({t, p}) => <EscritorioMcd t={t} p={p} modo="sonneborn" />,
+    cams: {
+      sonneborn: orb([0, 1.2, -0.2], 50, 12, 5.0, 4.0, 42, 6),
+    },
+  },
+  escritoriomcdcompra: {
+    ceu: CEU_ESCRITORIO,
+    luz: 'interior',
+    render: ({t, p}) => <EscritorioMcd t={t} p={p} modo="compra" />,
+    cams: {
+      compra: orb([0.1, 1.0, -0.2], 70, 8, 5.5, 4.5, 42, 6),
+    },
+  },
+  terrenomcd: {
+    ceu: CEU_DIA,
+    luz: 'dia',
+    render: ({t, p}) => <TerrenoMcd t={t} p={p} />,
+    cams: {
+      geral: orb([0, 2.5, 0], 30, 20, 13.5, 11.0, 42, 8),
+      aluguel: orb([-2.5, 3.5, 0.5], -5, 15, 4.5, 3.5, 40, 6),
+      royalties: orb([2.5, 3.5, 0.5], 5, 15, 4.5, 3.5, 40, 6),
+    },
+  },
+  rede40k: {
+    ceu: CEU_ESTUDIO,
+    luz: 'interior',
+    render: ({t, p}) => <Rede40k t={t} p={p} />,
+    cams: {
+      painel: orb([0, 5.5, 0], 0, 8, 9.0, 7.5, 42, 6),
+      mundi: orb([0, 1.5, -1.5], 10, 28, 10.5, 8.5, 42, 6),
     },
   },
 };

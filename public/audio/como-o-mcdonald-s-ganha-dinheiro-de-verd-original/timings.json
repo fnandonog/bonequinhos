@@ -1,0 +1,839 @@
+{
+  "id": "como-o-mcdonald-s-ganha-dinheiro-de-verd",
+  "voz": "elevenlabs:zNEsdgTUa3ndwKry8Xcq:eleven_multilingual_v2",
+  "cenas": [
+    {
+      "id": "c1",
+      "duracao": 8.655624,
+      "palavras": [
+        {
+          "palavra": "Ray",
+          "inicio": 0.0,
+          "fim": 0.279
+        },
+        {
+          "palavra": "Kroc",
+          "inicio": 0.348,
+          "fim": 0.65
+        },
+        {
+          "palavra": "tinha",
+          "inicio": 0.72,
+          "fim": 0.952
+        },
+        {
+          "palavra": "cinquenta",
+          "inicio": 0.987,
+          "fim": 1.533
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.567,
+          "fim": 1.614
+        },
+        {
+          "palavra": "dois",
+          "inicio": 1.649,
+          "fim": 1.927
+        },
+        {
+          "palavra": "anos",
+          "inicio": 2.043,
+          "fim": 2.241
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.276,
+          "fim": 2.299
+        },
+        {
+          "palavra": "vendia",
+          "inicio": 2.334,
+          "fim": 2.624
+        },
+        {
+          "palavra": "máquinas",
+          "inicio": 2.682,
+          "fim": 3.065
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.1,
+          "fim": 3.17
+        },
+        {
+          "palavra": "milkshake",
+          "inicio": 3.251,
+          "fim": 3.913
+        },
+        {
+          "palavra": "Morreu",
+          "inicio": 4.203,
+          "fim": 4.481
+        },
+        {
+          "palavra": "em",
+          "inicio": 4.539,
+          "fim": 4.609
+        },
+        {
+          "palavra": "1984",
+          "inicio": 4.656,
+          "fim": 5.793
+        },
+        {
+          "palavra": "com",
+          "inicio": 5.851,
+          "fim": 5.968
+        },
+        {
+          "palavra": "quinhentos",
+          "inicio": 6.014,
+          "fim": 6.444
+        },
+        {
+          "palavra": "milhões",
+          "inicio": 6.502,
+          "fim": 6.803
+        },
+        {
+          "palavra": "de",
+          "inicio": 6.827,
+          "fim": 6.885
+        },
+        {
+          "palavra": "dólares",
+          "inicio": 6.943,
+          "fim": 7.442
+        },
+        {
+          "palavra": "Sabe",
+          "inicio": 7.581,
+          "fim": 7.837
+        },
+        {
+          "palavra": "como",
+          "inicio": 7.883,
+          "fim": 8.406
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "duracao": 7.448186,
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 0.0,
+          "fim": 0.128
+        },
+        {
+          "palavra": "quarenta",
+          "inicio": 0.174,
+          "fim": 0.557
+        },
+        {
+          "palavra": "e",
+          "inicio": 0.58,
+          "fim": 0.615
+        },
+        {
+          "palavra": "oito",
+          "inicio": 0.65,
+          "fim": 0.94
+        },
+        {
+          "palavra": "Dick",
+          "inicio": 0.975,
+          "fim": 1.254
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.335,
+          "fim": 1.416
+        },
+        {
+          "palavra": "Mac",
+          "inicio": 1.498,
+          "fim": 1.683
+        },
+        {
+          "palavra": "McDonald",
+          "inicio": 1.753,
+          "fim": 2.264
+        },
+        {
+          "palavra": "criam",
+          "inicio": 2.485,
+          "fim": 2.775
+        },
+        {
+          "palavra": "o",
+          "inicio": 2.81,
+          "fim": 2.833
+        },
+        {
+          "palavra": "serviço",
+          "inicio": 2.891,
+          "fim": 3.297
+        },
+        {
+          "palavra": "rápido",
+          "inicio": 3.344,
+          "fim": 3.762
+        },
+        {
+          "palavra": "hambúrguer",
+          "inicio": 3.866,
+          "fim": 4.319
+        },
+        {
+          "palavra": "pronto",
+          "inicio": 4.4,
+          "fim": 4.725
+        },
+        {
+          "palavra": "em",
+          "inicio": 4.76,
+          "fim": 4.818
+        },
+        {
+          "palavra": "trinta",
+          "inicio": 4.876,
+          "fim": 5.166
+        },
+        {
+          "palavra": "segundos",
+          "inicio": 5.213,
+          "fim": 5.631
+        },
+        {
+          "palavra": "fila",
+          "inicio": 5.654,
+          "fim": 5.84
+        },
+        {
+          "palavra": "enorme",
+          "inicio": 5.863,
+          "fim": 6.2
+        },
+        {
+          "palavra": "toda",
+          "inicio": 6.269,
+          "fim": 6.536
+        },
+        {
+          "palavra": "semana",
+          "inicio": 6.571,
+          "fim": 7.198
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "duracao": 11.209819,
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 0.0,
+          "fim": 0.174
+        },
+        {
+          "palavra": "1954",
+          "inicio": 0.209,
+          "fim": 1.451
+        },
+        {
+          "palavra": "Kroc",
+          "inicio": 1.509,
+          "fim": 1.776
+        },
+        {
+          "palavra": "visita",
+          "inicio": 1.881,
+          "fim": 2.206
+        },
+        {
+          "palavra": "a",
+          "inicio": 2.229,
+          "fim": 2.252
+        },
+        {
+          "palavra": "lanchonete",
+          "inicio": 2.276,
+          "fim": 2.798
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.821,
+          "fim": 2.844
+        },
+        {
+          "palavra": "propõe",
+          "inicio": 2.902,
+          "fim": 3.251
+        },
+        {
+          "palavra": "franquia",
+          "inicio": 3.297,
+          "fim": 3.913
+        },
+        {
+          "palavra": "Os",
+          "inicio": 4.133,
+          "fim": 4.261
+        },
+        {
+          "palavra": "irmãos",
+          "inicio": 4.307,
+          "fim": 4.54
+        },
+        {
+          "palavra": "aceitam",
+          "inicio": 4.598,
+          "fim": 5.004
+        },
+        {
+          "palavra": "meio",
+          "inicio": 5.108,
+          "fim": 5.306
+        },
+        {
+          "palavra": "por",
+          "inicio": 5.352,
+          "fim": 5.503
+        },
+        {
+          "palavra": "cento",
+          "inicio": 5.561,
+          "fim": 5.851
+        },
+        {
+          "palavra": "de",
+          "inicio": 5.898,
+          "fim": 5.956
+        },
+        {
+          "palavra": "cada",
+          "inicio": 6.014,
+          "fim": 6.211
+        },
+        {
+          "palavra": "venda",
+          "inicio": 6.269,
+          "fim": 6.676
+        },
+        {
+          "palavra": "Em",
+          "inicio": 6.838,
+          "fim": 6.978
+        },
+        {
+          "palavra": "1955",
+          "inicio": 7.012,
+          "fim": 8.406
+        },
+        {
+          "palavra": "abre",
+          "inicio": 8.545,
+          "fim": 8.777
+        },
+        {
+          "palavra": "a",
+          "inicio": 8.812,
+          "fim": 8.835
+        },
+        {
+          "palavra": "primeira",
+          "inicio": 8.882,
+          "fim": 9.253
+        },
+        {
+          "palavra": "filial",
+          "inicio": 9.311,
+          "fim": 9.718
+        },
+        {
+          "palavra": "em",
+          "inicio": 9.764,
+          "fim": 9.834
+        },
+        {
+          "palavra": "Illinois",
+          "inicio": 9.938,
+          "fim": 10.96
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "duracao": 6.751587,
+      "palavras": [
+        {
+          "palavra": "Harry",
+          "inicio": 0.0,
+          "fim": 0.372
+        },
+        {
+          "palavra": "Sonneborn",
+          "inicio": 0.453,
+          "fim": 1.126
+        },
+        {
+          "palavra": "o",
+          "inicio": 1.265,
+          "fim": 1.324
+        },
+        {
+          "palavra": "contador",
+          "inicio": 1.382,
+          "fim": 2.009
+        },
+        {
+          "palavra": "tem",
+          "inicio": 2.113,
+          "fim": 2.345
+        },
+        {
+          "palavra": "a",
+          "inicio": 2.392,
+          "fim": 2.415
+        },
+        {
+          "palavra": "ideia",
+          "inicio": 2.461,
+          "fim": 2.752
+        },
+        {
+          "palavra": "que",
+          "inicio": 2.798,
+          "fim": 2.891
+        },
+        {
+          "palavra": "vale",
+          "inicio": 2.949,
+          "fim": 3.193
+        },
+        {
+          "palavra": "tudo",
+          "inicio": 3.251,
+          "fim": 3.669
+        },
+        {
+          "palavra": "McDonald's",
+          "inicio": 3.831,
+          "fim": 4.389
+        },
+        {
+          "palavra": "compra",
+          "inicio": 4.447,
+          "fim": 4.737
+        },
+        {
+          "palavra": "o",
+          "inicio": 4.76,
+          "fim": 4.783
+        },
+        {
+          "palavra": "terreno",
+          "inicio": 4.841,
+          "fim": 5.236
+        },
+        {
+          "palavra": "Aluga",
+          "inicio": 5.271,
+          "fim": 5.573
+        },
+        {
+          "palavra": "pro",
+          "inicio": 5.619,
+          "fim": 5.712
+        },
+        {
+          "palavra": "franqueado",
+          "inicio": 5.759,
+          "fim": 6.502
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "duracao": 5.683469,
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 0.0,
+          "fim": 0.081
+        },
+        {
+          "palavra": "franqueado",
+          "inicio": 0.151,
+          "fim": 0.604
+        },
+        {
+          "palavra": "paga",
+          "inicio": 0.662,
+          "fim": 0.894
+        },
+        {
+          "palavra": "royalties",
+          "inicio": 0.952,
+          "fim": 1.556
+        },
+        {
+          "palavra": "E",
+          "inicio": 1.718,
+          "fim": 1.788
+        },
+        {
+          "palavra": "paga",
+          "inicio": 1.869,
+          "fim": 2.067
+        },
+        {
+          "palavra": "aluguel",
+          "inicio": 2.09,
+          "fim": 2.415
+        },
+        {
+          "palavra": "pro",
+          "inicio": 2.461,
+          "fim": 2.601
+        },
+        {
+          "palavra": "McDonald's",
+          "inicio": 2.624,
+          "fim": 3.251
+        },
+        {
+          "palavra": "O",
+          "inicio": 3.413,
+          "fim": 3.46
+        },
+        {
+          "palavra": "McDonald's",
+          "inicio": 3.529,
+          "fim": 4.029
+        },
+        {
+          "palavra": "é",
+          "inicio": 4.11,
+          "fim": 4.168
+        },
+        {
+          "palavra": "o",
+          "inicio": 4.226,
+          "fim": 4.249
+        },
+        {
+          "palavra": "senhorio",
+          "inicio": 4.307,
+          "fim": 4.69
+        },
+        {
+          "palavra": "do",
+          "inicio": 4.737,
+          "fim": 4.818
+        },
+        {
+          "palavra": "chão",
+          "inicio": 4.876,
+          "fim": 5.433
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "duracao": 5.915669,
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 0.0,
+          "fim": 0.209
+        },
+        {
+          "palavra": "1961",
+          "inicio": 0.232,
+          "fim": 1.509
+        },
+        {
+          "palavra": "Kroc",
+          "inicio": 1.672,
+          "fim": 2.043
+        },
+        {
+          "palavra": "compra",
+          "inicio": 2.183,
+          "fim": 2.519
+        },
+        {
+          "palavra": "os",
+          "inicio": 2.543,
+          "fim": 2.601
+        },
+        {
+          "palavra": "irmãos",
+          "inicio": 2.659,
+          "fim": 2.984
+        },
+        {
+          "palavra": "por",
+          "inicio": 3.042,
+          "fim": 3.181
+        },
+        {
+          "palavra": "dois",
+          "inicio": 3.262,
+          "fim": 3.529
+        },
+        {
+          "palavra": "vírgula",
+          "inicio": 3.634,
+          "fim": 4.052
+        },
+        {
+          "palavra": "sete",
+          "inicio": 4.156,
+          "fim": 4.481
+        },
+        {
+          "palavra": "milhões",
+          "inicio": 4.539,
+          "fim": 4.841
+        },
+        {
+          "palavra": "de",
+          "inicio": 4.865,
+          "fim": 4.923
+        },
+        {
+          "palavra": "dólares",
+          "inicio": 4.981,
+          "fim": 5.666
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "duracao": 8.005465000000001,
+      "palavras": [
+        {
+          "palavra": "Hoje",
+          "inicio": 0.0,
+          "fim": 0.476
+        },
+        {
+          "palavra": "quarenta",
+          "inicio": 0.592,
+          "fim": 0.987
+        },
+        {
+          "palavra": "mil",
+          "inicio": 1.033,
+          "fim": 1.149
+        },
+        {
+          "palavra": "restaurantes",
+          "inicio": 1.173,
+          "fim": 1.73
+        },
+        {
+          "palavra": "em",
+          "inicio": 1.788,
+          "fim": 1.858
+        },
+        {
+          "palavra": "cem",
+          "inicio": 1.916,
+          "fim": 2.125
+        },
+        {
+          "palavra": "países",
+          "inicio": 2.183,
+          "fim": 2.74
+        },
+        {
+          "palavra": "Noventa",
+          "inicio": 2.902,
+          "fim": 3.379
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.413,
+          "fim": 3.448
+        },
+        {
+          "palavra": "cinco",
+          "inicio": 3.483,
+          "fim": 3.785
+        },
+        {
+          "palavra": "por",
+          "inicio": 3.843,
+          "fim": 3.971
+        },
+        {
+          "palavra": "cento",
+          "inicio": 4.029,
+          "fim": 4.319
+        },
+        {
+          "palavra": "são",
+          "inicio": 4.377,
+          "fim": 4.528
+        },
+        {
+          "palavra": "franquias",
+          "inicio": 4.563,
+          "fim": 5.166
+        },
+        {
+          "palavra": "quatorze",
+          "inicio": 5.271,
+          "fim": 5.77
+        },
+        {
+          "palavra": "bilhões",
+          "inicio": 5.828,
+          "fim": 6.211
+        },
+        {
+          "palavra": "em",
+          "inicio": 6.258,
+          "fim": 6.316
+        },
+        {
+          "palavra": "aluguel",
+          "inicio": 6.362,
+          "fim": 6.757
+        },
+        {
+          "palavra": "e",
+          "inicio": 6.815,
+          "fim": 6.861
+        },
+        {
+          "palavra": "royalties",
+          "inicio": 6.92,
+          "fim": 7.755
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "duracao": 5.962109,
+      "palavras": [
+        {
+          "palavra": "A",
+          "inicio": 0.0,
+          "fim": 0.07
+        },
+        {
+          "palavra": "lição",
+          "inicio": 0.128,
+          "fim": 0.488
+        },
+        {
+          "palavra": "o",
+          "inicio": 0.592,
+          "fim": 0.627
+        },
+        {
+          "palavra": "negócio",
+          "inicio": 0.662,
+          "fim": 1.033
+        },
+        {
+          "palavra": "nunca",
+          "inicio": 1.138,
+          "fim": 1.428
+        },
+        {
+          "palavra": "foi",
+          "inicio": 1.486,
+          "fim": 1.649
+        },
+        {
+          "palavra": "o",
+          "inicio": 1.695,
+          "fim": 1.718
+        },
+        {
+          "palavra": "hambúrguer",
+          "inicio": 1.741,
+          "fim": 2.148
+        },
+        {
+          "palavra": "Foi",
+          "inicio": 2.171,
+          "fim": 2.287
+        },
+        {
+          "palavra": "o",
+          "inicio": 2.322,
+          "fim": 2.345
+        },
+        {
+          "palavra": "terreno",
+          "inicio": 2.392,
+          "fim": 2.659
+        },
+        {
+          "palavra": "embaixo",
+          "inicio": 2.682,
+          "fim": 3.123
+        },
+        {
+          "palavra": "Você",
+          "inicio": 3.158,
+          "fim": 3.332
+        },
+        {
+          "palavra": "alugaria",
+          "inicio": 3.379,
+          "fim": 3.75
+        },
+        {
+          "palavra": "o",
+          "inicio": 3.773,
+          "fim": 3.808
+        },
+        {
+          "palavra": "chão",
+          "inicio": 3.866,
+          "fim": 4.11
+        },
+        {
+          "palavra": "ou",
+          "inicio": 4.133,
+          "fim": 4.18
+        },
+        {
+          "palavra": "preferia",
+          "inicio": 4.238,
+          "fim": 4.598
+        },
+        {
+          "palavra": "só",
+          "inicio": 4.632,
+          "fim": 4.725
+        },
+        {
+          "palavra": "vender",
+          "inicio": 4.76,
+          "fim": 5.027
+        },
+        {
+          "palavra": "o",
+          "inicio": 5.062,
+          "fim": 5.085
+        },
+        {
+          "palavra": "lanche",
+          "inicio": 5.132,
+          "fim": 5.712
+        }
+      ]
+    }
+  ]
+}
