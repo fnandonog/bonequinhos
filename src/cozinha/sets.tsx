@@ -454,9 +454,190 @@ const BROWNIE: Record<string, SetCozinha> = {
   },
 };
 
+// ======================= PÃO DE QUEIJO DE LIQUIDIFICADOR (sets paoQ*) =======================
+const COR_CRU = '#e8d5b0';    // massa crua de polvilho
+const COR_ASSADO = '#c97d3a'; // pão de queijo dourado
+const COR_LEITE = '#f8f4ee';  // leite branco
+const COR_POLVILHO = '#ede8de'; // polvilho azedo (branco-creme)
+const COR_QUEIJO_RAL = '#f5d87a'; // queijo ralado amarelo
+
+// bolinha de pão de queijo (esfera levemente achatada no topo)
+const BolinhaPao: React.FC<{pos: V3; esc?: number; assado?: number}> = ({pos, esc = 1, assado = 1}) => {
+  const cor = assado > 0.5 ? COR_ASSADO : COR_CRU;
+  return (
+    <group position={pos} scale={esc}>
+      <mesh castShadow>
+        <sphereGeometry args={[0.025, 10, 8]} />
+        <meshStandardMaterial color={cor} roughness={0.65} flatShading />
+      </mesh>
+      {assado > 0.6 && (
+        <mesh position={[0, 0.022, 0]}>
+          <sphereGeometry args={[0.011, 8, 6]} />
+          <meshStandardMaterial color="#a05828" roughness={0.6} flatShading />
+        </mesh>
+      )}
+    </group>
+  );
+};
+
+// grade 4×5 de bolinhas sobre a bancada
+const BandejaPao: React.FC<{pos: V3; assado?: number}> = ({pos, assado = 1}) => (
+  <>
+    {Array.from({length: 5}, (_, i) => Array.from({length: 4}, (_, j) => (
+      <BolinhaPao key={`${i}-${j}`} pos={[pos[0] + (i - 2) * 0.058, pos[1], pos[2] + (j - 1.5) * 0.062]} assado={assado} />
+    )))}
+  </>
+);
+
+const PAO_QUEIJO: Record<string, SetCozinha> = {
+  // resultado final: bandeja na bancada, Zé comemorando
+  paoQPronto: {
+    render: ({t}) => (
+      <>
+        <Base t={t} ze="comemora" />
+        <Tabua pos={[0, T, 0.1]} />
+        <BandejaPao pos={[0, T + 0.025, 0.1]} assado={1} />
+        <Vapor t={t} pos={[0, T + 0.1, 0.1]} forca={0.5} />
+      </>
+    ),
+    cams: {
+      giro: orb([0, T + 0.08, 0.1], -25, 20, 1.1, 0.75, 40, 30),
+      close: orb([0.04, T + 0.08, 0.1], 30, 18, 0.5, 0.38, 40, 12),
+      mesa: orb([0, T + 0.1, 0.1], 10, 22, 1.4, 1.1, 42, 10),
+    },
+  },
+
+  // liquidificador com leite sendo despejado (copo inclinado)
+  liqLeite: {
+    render: ({t, p}) => {
+      const k = suave(p * 1.5);
+      return (
+        <>
+          <Base t={t} ze={null} />
+          <Liquidificador pos={[0, T, 0]} t={t} nivel={0.42 + p * 0.18} cor={mixCor(COR.gema, COR_LEITE, 0.7)} />
+          <Xicara pos={[-0.075, T + 0.47, 0]} rot={[0, 0, lerp(-0.6, -1.9, k)]} cheia={p < 0.75 ? COR_LEITE : null} />
+          <Fio a={[0, T + 0.42, 0]} b={[0, T + 0.26, 0]} r={0.006} cor={COR_LEITE} vis={clamp01(p * 3 - 0.4)} />
+        </>
+      );
+    },
+    cams: {close: orb([0, T + 0.34, 0], 25, 12, 0.6, 0.46, 40, 10)},
+  },
+
+  // polvilho azedo caindo no liquidificador
+  liqPolvilho: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <Liquidificador pos={[0, T, 0]} t={t} nivel={0.6 + p * 0.15} cor={COR_POLVILHO} />
+        <Peneira pos={[0, T + 0.44, 0]} balanca={Math.sin(t * 14)} />
+        <Chuvisco t={t} de={[0, T + 0.4, 0]} y1={T + 0.26} raio={0.04} n={110} cor={COR_POLVILHO} tam={0.004} vel={0.6} />
+        <Pacote pos={[0.28, T, -0.02]} texto={'POLVILHO\nAZEDO'} fundo="#8B6914" linha2="500 g" rotY={-0.4} />
+      </>
+    ),
+    cams: {
+      alto: orb([0, T + 0.32, 0], 18, 38, 0.72, 0.56, 40, 12),
+      close: orb([0, T + 0.38, 0], -26, 10, 0.55, 0.42, 40, 8),
+      frente: orb([0, T + 0.22, 0], 10, 6, 0.9, 0.68, 40, 10),
+    },
+  },
+
+  // queijo curado ralado caindo no liquidificador
+  liqQueijo: {
+    render: ({t, p}) => (
+      <>
+        <Base t={t} ze={null} />
+        <Liquidificador pos={[0, T, 0]} t={t} nivel={0.72 + p * 0.1} cor={mixCor(COR_POLVILHO, COR_QUEIJO_RAL, suave(p * 1.3))} />
+        <Colher pos={[0.01, T + 0.47, 0]} rot={[0, -Math.PI / 2, lerp(0, -1.6, suave(p * 1.6))]} cheia={p < 0.6 ? COR_QUEIJO_RAL : null} esc={1.2} />
+        <Chuvisco t={t} de={[0, T + 0.44, 0]} y1={T + 0.28} raio={0.012} n={55} cor={COR_QUEIJO_RAL} tam={0.004} vel={0.9} on={p > 0.25 && p < 0.88 ? 1 : 0} />
+        <Lata pos={[0.26, T, 0.05]} texto={'QUEIJO\nCURADO'} fundo="#d4a017" cor="#2b2233" r={0.035} h={0.07} />
+      </>
+    ),
+    cams: {
+      cima: orb([0, T + 0.3, 0], 20, 42, 0.68, 0.52, 40, 12),
+      close: orb([0, T + 0.38, 0], -20, 14, 0.52, 0.4, 40, 8),
+      frente: orb([0, T + 0.2, 0], 12, 8, 0.86, 0.66, 40, 10),
+    },
+  },
+
+  // forminhas de silicone com massa crua
+  formasPao: {
+    render: ({t, p}) => {
+      const nivel = suave(p * 1.4) * 0.5;
+      return (
+        <>
+          <Base t={t} ze={null} />
+          <Tabua pos={[0, T, 0.1]} />
+          {Array.from({length: 5}, (_, i) => Array.from({length: 4}, (_, j) => {
+            const px = (i - 2) * 0.062, pz = 0.1 + (j - 1.5) * 0.065;
+            return (
+              <group key={`${i}-${j}`} position={[px, T, pz]}>
+                {/* forminha de silicone (cilindro pequeno) */}
+                <mesh>
+                  <cylinderGeometry args={[0.025, 0.022, 0.025, 12]} />
+                  <meshStandardMaterial color="#ff6b35" roughness={0.6} />
+                </mesh>
+                {/* massa crua dentro */}
+                {nivel > 0.05 && (
+                  <mesh position={[0, 0.012 * nivel * 2, 0]}>
+                    <cylinderGeometry args={[0.023 * 0.9, 0.023 * 0.9, 0.025 * nivel * 2, 10]} />
+                    <meshStandardMaterial color={COR_CRU} roughness={0.7} />
+                  </mesh>
+                )}
+              </group>
+            );
+          }))}
+          {/* liquidificador inclinado despejando */}
+          {p > 0.1 && (
+            <group position={[0.15, T + 0.3, 0.05]} rotation={[0, 0, -1.4]}>
+              <Liquidificador pos={[0, -0.1, 0]} t={t} nivel={0.5 * (1 - suave(p * 0.8))} cor={COR_POLVILHO} semBase />
+            </group>
+          )}
+        </>
+      );
+    },
+    cams: {
+      cima: orb([0, T + 0.04, 0.1], 5, 62, 0.75, 0.56, 40, 14),
+      close: orb([0.04, T + 0.08, 0.08], 30, 24, 0.44, 0.34, 40, 10),
+      frente: orb([0, T + 0.1, 0.1], 15, 14, 0.8, 0.62, 40, 10),
+    },
+  },
+
+  // interior do forno com bolinhas crescendo
+  paoQForno: {
+    fundo: ['#1a0f0a', '#2b1a12'],
+    luz: 'forno',
+    render: ({t, p}) => {
+      const cresc = suave(p);
+      return (
+        <>
+          <InteriorForno t={t} />
+          <Tabua pos={[0, 0.003, 0]} />
+          {Array.from({length: 4}, (_, i) => Array.from({length: 3}, (_, j) => {
+            const px = (i - 1.5) * 0.065, pz = (j - 1) * 0.065;
+            const esc = 0.8 + cresc * 0.4;
+            return (
+              <group key={`${i}-${j}`} position={[px, 0.003 + cresc * 0.004, pz]} scale={esc}>
+                <mesh castShadow>
+                  <sphereGeometry args={[0.023, 10, 8]} />
+                  <meshStandardMaterial color={cresc > 0.5 ? COR_ASSADO : COR_CRU} roughness={0.65} flatShading />
+                </mesh>
+              </group>
+            );
+          }))}
+        </>
+      );
+    },
+    cams: {
+      vidro: orb([0, 0.07, 0], 0, 14, 0.62, 0.48, 42, 8),
+      alto: orb([0, 0.07, 0], -18, 38, 0.52, 0.42, 42, 10),
+    },
+  },
+};
+
 export const SETS: Record<string, SetCozinha> = {
   ...BROWNIE,
   ...PIZZA,
+  ...PAO_QUEIJO,
   // ===== gancho: bolo pronto com calda brilhando =====
   boloPronto: {
     render: ({t}) => (
@@ -649,7 +830,11 @@ export const SETS: Record<string, SetCozinha> = {
         <Tabua pos={[-0.32, T, 0.05]} />
       </>
     ),
-    cams: {frente: orb([0, T + 0.2, 0.05], -12, 6, 0.9, 0.62, 40, 14)},
+    cams: {
+      frente: orb([0, T + 0.2, 0.05], -12, 6, 0.9, 0.62, 40, 14),
+      alto: orb([0, T + 0.28, 0.05], 10, 48, 0.72, 0.56, 40, 16),
+      miolo: orb([0, T + 0.32, 0.05], -5, 20, 0.52, 0.42, 40, 10),
+    },
   },
 
   // ===== secos à parte =====

@@ -1,0 +1,897 @@
+{
+  "id": "pao-de-queijo-de-liquidificador",
+  "voz": "elevenlabs:fhtZMBwha5du5OxuvexO:eleven_multilingual_v2",
+  "cenas": [
+    {
+      "id": "c1",
+      "duracao": 7.773265,
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 0.0,
+          "fim": 0.081
+        },
+        {
+          "palavra": "pão",
+          "inicio": 0.209,
+          "fim": 0.383
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.418,
+          "fim": 0.488
+        },
+        {
+          "palavra": "queijo",
+          "inicio": 0.557,
+          "fim": 0.801
+        },
+        {
+          "palavra": "mais",
+          "inicio": 0.848,
+          "fim": 1.022
+        },
+        {
+          "palavra": "fácil",
+          "inicio": 1.091,
+          "fim": 1.382
+        },
+        {
+          "palavra": "do",
+          "inicio": 1.416,
+          "fim": 1.486
+        },
+        {
+          "palavra": "mundo",
+          "inicio": 1.521,
+          "fim": 1.8
+        },
+        {
+          "palavra": "entra",
+          "inicio": 1.869,
+          "fim": 2.113
+        },
+        {
+          "palavra": "tudo",
+          "inicio": 2.241,
+          "fim": 2.554
+        },
+        {
+          "palavra": "no",
+          "inicio": 2.601,
+          "fim": 2.67
+        },
+        {
+          "palavra": "liquidificador",
+          "inicio": 2.705,
+          "fim": 3.599
+        },
+        {
+          "palavra": "fica",
+          "inicio": 3.808,
+          "fim": 4.052
+        },
+        {
+          "palavra": "pronto",
+          "inicio": 4.098,
+          "fim": 4.342
+        },
+        {
+          "palavra": "em",
+          "inicio": 4.365,
+          "fim": 4.423
+        },
+        {
+          "palavra": "vinte",
+          "inicio": 4.505,
+          "fim": 4.807
+        },
+        {
+          "palavra": "minutos",
+          "inicio": 4.841,
+          "fim": 5.201
+        },
+        {
+          "palavra": "e",
+          "inicio": 5.317,
+          "fim": 5.422
+        },
+        {
+          "palavra": "a",
+          "inicio": 5.457,
+          "fim": 5.48
+        },
+        {
+          "palavra": "família",
+          "inicio": 5.515,
+          "fim": 5.793
+        },
+        {
+          "palavra": "pede",
+          "inicio": 5.84,
+          "fim": 6.072
+        },
+        {
+          "palavra": "toda",
+          "inicio": 6.2,
+          "fim": 6.502
+        },
+        {
+          "palavra": "semana",
+          "inicio": 6.536,
+          "fim": 7.523
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "duracao": 3.361474,
+      "palavras": [
+        {
+          "palavra": "Primeiro",
+          "inicio": 0.0,
+          "fim": 0.522
+        },
+        {
+          "palavra": "liga",
+          "inicio": 0.673,
+          "fim": 0.894
+        },
+        {
+          "palavra": "o",
+          "inicio": 0.917,
+          "fim": 0.94
+        },
+        {
+          "palavra": "forno",
+          "inicio": 1.022,
+          "fim": 1.289
+        },
+        {
+          "palavra": "em",
+          "inicio": 1.324,
+          "fim": 1.382
+        },
+        {
+          "palavra": "cento",
+          "inicio": 1.486,
+          "fim": 1.823
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.846,
+          "fim": 1.869
+        },
+        {
+          "palavra": "oitenta",
+          "inicio": 1.892,
+          "fim": 2.252
+        },
+        {
+          "palavra": "graus",
+          "inicio": 2.287,
+          "fim": 3.111
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "duracao": 5.033311,
+      "palavras": [
+        {
+          "palavra": "No",
+          "inicio": 0.0,
+          "fim": 0.093
+        },
+        {
+          "palavra": "liquidificador",
+          "inicio": 0.139,
+          "fim": 0.94
+        },
+        {
+          "palavra": "dois",
+          "inicio": 1.149,
+          "fim": 1.405
+        },
+        {
+          "palavra": "ovos",
+          "inicio": 1.486,
+          "fim": 1.985
+        },
+        {
+          "palavra": "meio",
+          "inicio": 2.229,
+          "fim": 2.554
+        },
+        {
+          "palavra": "copo",
+          "inicio": 2.612,
+          "fim": 2.868
+        },
+        {
+          "palavra": "de",
+          "inicio": 2.914,
+          "fim": 2.984
+        },
+        {
+          "palavra": "óleo",
+          "inicio": 3.088,
+          "fim": 3.309
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.39,
+          "fim": 3.46
+        },
+        {
+          "palavra": "um",
+          "inicio": 3.495,
+          "fim": 3.553
+        },
+        {
+          "palavra": "copo",
+          "inicio": 3.634,
+          "fim": 3.878
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.913,
+          "fim": 3.982
+        },
+        {
+          "palavra": "leite",
+          "inicio": 4.029,
+          "fim": 4.783
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "duracao": 6.472948,
+      "palavras": [
+        {
+          "palavra": "Dois",
+          "inicio": 0.0,
+          "fim": 0.267
+        },
+        {
+          "palavra": "copos",
+          "inicio": 0.337,
+          "fim": 0.592
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.627,
+          "fim": 0.685
+        },
+        {
+          "palavra": "polvilho",
+          "inicio": 0.743,
+          "fim": 1.103
+        },
+        {
+          "palavra": "azedo",
+          "inicio": 1.184,
+          "fim": 1.811
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.939,
+          "fim": 2.02
+        },
+        {
+          "palavra": "uma",
+          "inicio": 2.043,
+          "fim": 2.159
+        },
+        {
+          "palavra": "colher",
+          "inicio": 2.206,
+          "fim": 2.438
+        },
+        {
+          "palavra": "de",
+          "inicio": 2.485,
+          "fim": 2.554
+        },
+        {
+          "palavra": "sal",
+          "inicio": 2.601,
+          "fim": 2.949
+        },
+        {
+          "palavra": "Nunca",
+          "inicio": 3.286,
+          "fim": 3.611
+        },
+        {
+          "palavra": "polvilho",
+          "inicio": 3.646,
+          "fim": 3.959
+        },
+        {
+          "palavra": "doce",
+          "inicio": 4.005,
+          "fim": 4.481
+        },
+        {
+          "palavra": "o",
+          "inicio": 4.667,
+          "fim": 4.737
+        },
+        {
+          "palavra": "pão",
+          "inicio": 4.795,
+          "fim": 4.981
+        },
+        {
+          "palavra": "fica",
+          "inicio": 5.016,
+          "fim": 5.19
+        },
+        {
+          "palavra": "emborrachado",
+          "inicio": 5.213,
+          "fim": 6.223
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "duracao": 8.051905,
+      "palavras": [
+        {
+          "palavra": "Agora",
+          "inicio": 0.0,
+          "fim": 0.476
+        },
+        {
+          "palavra": "o",
+          "inicio": 0.499,
+          "fim": 0.522
+        },
+        {
+          "palavra": "segredo",
+          "inicio": 0.557,
+          "fim": 1.115
+        },
+        {
+          "palavra": "cem",
+          "inicio": 1.324,
+          "fim": 1.614
+        },
+        {
+          "palavra": "gramas",
+          "inicio": 1.683,
+          "fim": 2.055
+        },
+        {
+          "palavra": "de",
+          "inicio": 2.09,
+          "fim": 2.148
+        },
+        {
+          "palavra": "queijo",
+          "inicio": 2.264,
+          "fim": 2.554
+        },
+        {
+          "palavra": "curado",
+          "inicio": 2.589,
+          "fim": 2.937
+        },
+        {
+          "palavra": "ralado",
+          "inicio": 2.972,
+          "fim": 3.518
+        },
+        {
+          "palavra": "Parmesão",
+          "inicio": 3.796,
+          "fim": 4.458
+        },
+        {
+          "palavra": "ou",
+          "inicio": 4.54,
+          "fim": 4.679
+        },
+        {
+          "palavra": "minas",
+          "inicio": 4.737,
+          "fim": 5.283
+        },
+        {
+          "palavra": "Quanto",
+          "inicio": 5.561,
+          "fim": 5.875
+        },
+        {
+          "palavra": "mais",
+          "inicio": 5.921,
+          "fim": 6.095
+        },
+        {
+          "palavra": "queijo",
+          "inicio": 6.2,
+          "fim": 6.664
+        },
+        {
+          "palavra": "mais",
+          "inicio": 6.78,
+          "fim": 6.943
+        },
+        {
+          "palavra": "sabor",
+          "inicio": 6.966,
+          "fim": 7.802
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "duracao": 3.547234,
+      "palavras": [
+        {
+          "palavra": "Tampa",
+          "inicio": 0.0,
+          "fim": 0.476
+        },
+        {
+          "palavra": "e",
+          "inicio": 0.546,
+          "fim": 0.615
+        },
+        {
+          "palavra": "bate",
+          "inicio": 0.72,
+          "fim": 1.033
+        },
+        {
+          "palavra": "por",
+          "inicio": 1.08,
+          "fim": 1.184
+        },
+        {
+          "palavra": "um",
+          "inicio": 1.219,
+          "fim": 1.265
+        },
+        {
+          "palavra": "minuto",
+          "inicio": 1.289,
+          "fim": 1.591
+        },
+        {
+          "palavra": "até",
+          "inicio": 1.625,
+          "fim": 1.776
+        },
+        {
+          "palavra": "a",
+          "inicio": 1.834,
+          "fim": 1.858
+        },
+        {
+          "palavra": "massa",
+          "inicio": 1.927,
+          "fim": 2.183
+        },
+        {
+          "palavra": "ficar",
+          "inicio": 2.218,
+          "fim": 2.461
+        },
+        {
+          "palavra": "lisa",
+          "inicio": 2.508,
+          "fim": 3.297
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "duracao": 5.21907,
+      "palavras": [
+        {
+          "palavra": "Coloca",
+          "inicio": 0.0,
+          "fim": 0.43
+        },
+        {
+          "palavra": "nas",
+          "inicio": 0.464,
+          "fim": 0.592
+        },
+        {
+          "palavra": "forminhas",
+          "inicio": 0.639,
+          "fim": 1.045
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.08,
+          "fim": 1.138
+        },
+        {
+          "palavra": "silicone",
+          "inicio": 1.184,
+          "fim": 1.741
+        },
+        {
+          "palavra": "até",
+          "inicio": 1.811,
+          "fim": 2.125
+        },
+        {
+          "palavra": "a",
+          "inicio": 2.159,
+          "fim": 2.183
+        },
+        {
+          "palavra": "metade",
+          "inicio": 2.218,
+          "fim": 2.624
+        },
+        {
+          "palavra": "de",
+          "inicio": 2.659,
+          "fim": 2.728
+        },
+        {
+          "palavra": "cada",
+          "inicio": 2.775,
+          "fim": 3.042
+        },
+        {
+          "palavra": "uma",
+          "inicio": 3.077,
+          "fim": 3.379
+        },
+        {
+          "palavra": "Não",
+          "inicio": 3.715,
+          "fim": 3.843
+        },
+        {
+          "palavra": "precisa",
+          "inicio": 3.878,
+          "fim": 4.18
+        },
+        {
+          "palavra": "untar",
+          "inicio": 4.214,
+          "fim": 4.969
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "duracao": 5.822789,
+      "palavras": [
+        {
+          "palavra": "Forno",
+          "inicio": 0.0,
+          "fim": 0.441
+        },
+        {
+          "palavra": "a",
+          "inicio": 0.522,
+          "fim": 0.604
+        },
+        {
+          "palavra": "cento",
+          "inicio": 0.662,
+          "fim": 0.929
+        },
+        {
+          "palavra": "e",
+          "inicio": 0.952,
+          "fim": 0.975
+        },
+        {
+          "palavra": "oitenta",
+          "inicio": 0.998,
+          "fim": 1.312
+        },
+        {
+          "palavra": "graus",
+          "inicio": 1.358,
+          "fim": 1.567
+        },
+        {
+          "palavra": "por",
+          "inicio": 1.637,
+          "fim": 1.753
+        },
+        {
+          "palavra": "trinta",
+          "inicio": 1.858,
+          "fim": 2.159
+        },
+        {
+          "palavra": "minutos",
+          "inicio": 2.194,
+          "fim": 2.775
+        },
+        {
+          "palavra": "Ficou",
+          "inicio": 3.053,
+          "fim": 3.355
+        },
+        {
+          "palavra": "dourado",
+          "inicio": 3.39,
+          "fim": 3.785
+        },
+        {
+          "palavra": "e",
+          "inicio": 3.808,
+          "fim": 3.831
+        },
+        {
+          "palavra": "crescido",
+          "inicio": 3.866,
+          "fim": 4.447
+        },
+        {
+          "palavra": "Tá",
+          "inicio": 4.69,
+          "fim": 4.841
+        },
+        {
+          "palavra": "pronto",
+          "inicio": 4.946,
+          "fim": 5.573
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "duracao": 5.21907,
+      "palavras": [
+        {
+          "palavra": "Espera",
+          "inicio": 0.0,
+          "fim": 0.43
+        },
+        {
+          "palavra": "dois",
+          "inicio": 0.464,
+          "fim": 0.627
+        },
+        {
+          "palavra": "minutinhos",
+          "inicio": 0.673,
+          "fim": 1.161
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.231,
+          "fim": 1.265
+        },
+        {
+          "palavra": "as",
+          "inicio": 1.3,
+          "fim": 1.37
+        },
+        {
+          "palavra": "bolinhas",
+          "inicio": 1.416,
+          "fim": 1.73
+        },
+        {
+          "palavra": "soltam",
+          "inicio": 1.753,
+          "fim": 2.009
+        },
+        {
+          "palavra": "sozinhas",
+          "inicio": 2.055,
+          "fim": 2.856
+        },
+        {
+          "palavra": "Rende",
+          "inicio": 3.065,
+          "fim": 3.344
+        },
+        {
+          "palavra": "uns",
+          "inicio": 3.379,
+          "fim": 3.483
+        },
+        {
+          "palavra": "trinta",
+          "inicio": 3.587,
+          "fim": 3.889
+        },
+        {
+          "palavra": "pães",
+          "inicio": 3.936,
+          "fim": 4.18
+        },
+        {
+          "palavra": "de",
+          "inicio": 4.214,
+          "fim": 4.272
+        },
+        {
+          "palavra": "queijo",
+          "inicio": 4.342,
+          "fim": 4.969
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "duracao": 4.336712,
+      "palavras": [
+        {
+          "palavra": "Parabéns",
+          "inicio": 0.0,
+          "fim": 0.859
+        },
+        {
+          "palavra": "você",
+          "inicio": 1.045,
+          "fim": 1.219
+        },
+        {
+          "palavra": "fez",
+          "inicio": 1.289,
+          "fim": 1.44
+        },
+        {
+          "palavra": "o",
+          "inicio": 1.498,
+          "fim": 1.521
+        },
+        {
+          "palavra": "pão",
+          "inicio": 1.579,
+          "fim": 1.765
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.8,
+          "fim": 1.869
+        },
+        {
+          "palavra": "queijo",
+          "inicio": 1.939,
+          "fim": 2.183
+        },
+        {
+          "palavra": "que",
+          "inicio": 2.218,
+          "fim": 2.299
+        },
+        {
+          "palavra": "acaba",
+          "inicio": 2.334,
+          "fim": 2.717
+        },
+        {
+          "palavra": "antes",
+          "inicio": 2.752,
+          "fim": 3.123
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.158,
+          "fim": 3.216
+        },
+        {
+          "palavra": "esfriar",
+          "inicio": 3.251,
+          "fim": 4.087
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "duracao": 6.426508,
+      "palavras": [
+        {
+          "palavra": "Tem",
+          "inicio": 0.0,
+          "fim": 0.186
+        },
+        {
+          "palavra": "mais",
+          "inicio": 0.255,
+          "fim": 0.488
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.522,
+          "fim": 0.592
+        },
+        {
+          "palavra": "cento",
+          "inicio": 0.673,
+          "fim": 0.987
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.01,
+          "fim": 1.033
+        },
+        {
+          "palavra": "quarenta",
+          "inicio": 1.068,
+          "fim": 1.405
+        },
+        {
+          "palavra": "receitas",
+          "inicio": 1.44,
+          "fim": 1.892
+        },
+        {
+          "palavra": "assim",
+          "inicio": 1.962,
+          "fim": 2.218
+        },
+        {
+          "palavra": "no",
+          "inicio": 2.241,
+          "fim": 2.299
+        },
+        {
+          "palavra": "Precinho",
+          "inicio": 2.334,
+          "fim": 2.705
+        },
+        {
+          "palavra": "de",
+          "inicio": 2.74,
+          "fim": 2.81
+        },
+        {
+          "palavra": "Ouro",
+          "inicio": 2.914,
+          "fim": 3.193
+        },
+        {
+          "palavra": "E",
+          "inicio": 3.471,
+          "fim": 3.553
+        },
+        {
+          "palavra": "cinco",
+          "inicio": 3.68,
+          "fim": 4.04
+        },
+        {
+          "palavra": "por",
+          "inicio": 4.075,
+          "fim": 4.214
+        },
+        {
+          "palavra": "dia",
+          "inicio": 4.261,
+          "fim": 4.644
+        },
+        {
+          "palavra": "de",
+          "inicio": 4.795,
+          "fim": 4.876
+        },
+        {
+          "palavra": "graça",
+          "inicio": 4.981,
+          "fim": 5.375
+        },
+        {
+          "palavra": "no",
+          "inicio": 5.399,
+          "fim": 5.468
+        },
+        {
+          "palavra": "Telegram",
+          "inicio": 5.515,
+          "fim": 6.177
+        }
+      ]
+    }
+  ]
+}
