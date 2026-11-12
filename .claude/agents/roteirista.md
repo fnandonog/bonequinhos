@@ -15,3 +15,4 @@ Regras:
 - Fechar com "Parabéns: você construiu..." + total + fato-surpresa + pergunta para comentário.
 - Máximo ~1.300 caracteres (≈ 65 s com a voz acelerada). Use só números que estão em `roteiros/<id>.pesquisa.md`.
 Entregue o texto dividido em cenas (uma por etapa), com `|` onde deve haver corte.
+- Completo e claro (Fernando, 12/11/2026): quem assiste tem que sair sabendo tudo do assunto. Todo termo citado é explicado na mesma frase; vídeo de história conta o contexto inteiro (quando, onde, quem, como era a vida ali) antes do acontecimento; a voz e a imagem contam a mesma coisa ao mesmo tempo.
