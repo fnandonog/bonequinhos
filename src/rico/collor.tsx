@@ -7,7 +7,7 @@ import React, {useMemo} from 'react';
 import * as THREE from 'three';
 import {V3} from '../v4/planta';
 import {Cam} from '../v4/sets';
-import {Arvore, Betoneira, Carrinho as CarrinhoMao, Instancias, MonteTerra, PilhaBlocos, Visual} from '../v4/kit';
+import {Arvore, Betoneira, Carrinho as CarrinhoMao, Instancias, MonteTerra, PilhaBlocos, SacosCimento, Visual} from '../v4/kit';
 import {
   Barra, Boneco, Cadeado, Caixa, Cil, CarroPremio, Letreiro, Maco, Moeda, Nota, PilhaMoedas, Poste, Relogio, Sentado, Sofa, TVTubo, clamp01, lerp, linha, rnd, suave, tex,
 } from './pecas';
@@ -595,7 +595,6 @@ const Guiche: React.FC<{x: number; n: number; fechado?: boolean}> = ({x, n, fech
     </mesh>
     {[-1.2, 1.2].map((dx) => (<Caixa key={dx} pos={[dx, 1.75, -0.05]} tam={[0.1, 1.15, 0.1]} cor="#c9a24a" />))}
     <Caixa pos={[0, 2.33, -0.05]} tam={[2.5, 0.08, 0.1]} cor="#c9a24a" />
-    <mesh position={[0, 1.32, -0.03]}><torusGeometry args={[0.07, 0.008, 6, 20]} /><meshStandardMaterial color="#9aa0aa" metalness={0.5} /></mesh>
     {/* tablado do caixa (o caixa fica mais alto que o cliente) */}
     <Caixa pos={[0, 0.11, -1.25]} tam={[2.5, 0.22, 1.3]} cor="#6b3e26" map={texMadeira('#6b3e26', [3, 1])} />
     {/* placa CAIXA n e a placa de fechado */}
@@ -715,7 +714,6 @@ const Agencia: React.FC<{t: number; p: number; modo: ModoAgencia; expressao?: Ex
           <Boneco pos={[3.75, 0, -1.75]} rotY={Math.PI} t={t + 3} v={povo(9)} esc={0.88} acao="parado" expressao="triste" />
         </group>
       )}
-      {cheia && <Placa pos={[-0.55, 1.36, -2.2]} rotY={-0.25} larg={0.42} alt={0.26} txt="MÁX. 50 MIL" fundo="#fff27a" cor="#c62f2f" />}
       {/* caderneta de poupança e maço no balcão do guichê 2 */}
       <group position={[-1.25, 1.165, -2.25]}>
         <mesh rotation={[-Math.PI / 2, 0, 0.08]}>
@@ -930,8 +928,8 @@ const Cofre: React.FC<{t: number; p: number; modo: ModoCofre}> = ({t, p, modo}) 
       ))}
       <Cadeado pos={[0, 1.12 - abre * 1.0, 1.36]} esc={0.9} abre={abre} />
       {/* calendário de parede (folhinha virando os 18 meses), do lado de fora da grade */}
-      <Calendario pos={[-4.82, 1.8, 2.6]} rotY={Math.PI / 2} esc={2.2} mapa={cal} />
-      <Placa pos={[-4.82, 1.0, 2.6]} rotY={Math.PI / 2} larg={0.9} alt={0.36} txt={`MÊS ${Math.min(18, mes)} DE 18`} fundo="#1d2a3a" cor="#ffd23f" />
+      <Calendario pos={[-4.82, 1.6, 2.6]} rotY={Math.PI / 2} esc={2.0} mapa={cal} />
+      <Placa pos={[-4.82, 0.82, 2.6]} rotY={Math.PI / 2} larg={0.9} alt={0.36} txt={`MÊS ${Math.min(18, mes)} DE 18`} fundo="#1d2a3a" cor="#ffd23f" />
       {/* porta redonda do cofre, aberta, na entrada */}
       <group position={[3.4, 1.8, 4.6]} rotation={[0, -1.25, 0]}>
         <Cil rot={[Math.PI / 2, 0, 0]} r={1.6} h={0.5} cor="#8a95a0" seg={32} />
@@ -993,8 +991,8 @@ const MesaCaixa: React.FC<{t: number; p: number; modo: 'notas' | 'real'}> = ({t,
         <Caixa pos={[0, 0.2, -0.17]} rot={[0.3, 0, 0]} tam={[0.08, 0.2, 0.002]} cor="#fffbe8" />
       </group>
       <group position={[0.0, Math.abs(Math.sin(t * 5)) * 0.08, 0]}>
-        <Cil pos={[0.05, 1.0, 0.25]} r={0.03} h={0.12} cor="#7a4a2a" />
-        <Caixa pos={[0.05, 0.95, 0.25]} tam={[0.09, 0.02, 0.06]} cor="#c62f2f" />
+        <Cil pos={[-0.12, 1.0, 0.12]} r={0.03} h={0.12} cor="#7a4a2a" />
+        <Caixa pos={[-0.12, 0.95, 0.12]} tam={[0.09, 0.02, 0.06]} cor="#c62f2f" />
       </group>
       {/* "hoje": maço de reais genéricos crescendo ao lado, com a placa do valor corrigido */}
       {modo === 'real' && (
@@ -1040,7 +1038,7 @@ const RuaFila: React.FC<{t: number}> = ({t}) => (
     <Fusca pos={[-6, 0, 2.2]} rotY={0} cor="#e9d8a6" />
     <Fusca pos={[1.5, 0, -0.4]} rotY={Math.PI} cor="#c94f4f" />
     <CarroPremio pos={[10.5, 0, 9]} rotY={Math.PI / 2} cor="#5f8fb0" laco={false} />
-    <Orelhao pos={[-8, 0.12, -2.4]} rotY={Math.PI} />
+    <Orelhao pos={[-15, 0.12, -2.4]} rotY={Math.PI} />
     <group position={[6.5, 0.12, -2.4]}>
       <Caixa pos={[0, 1.0, 0]} tam={[1.6, 2.0, 1.0]} cor="#2f6a5a" />
       <Caixa pos={[0, 2.1, 0.1]} tam={[1.8, 0.1, 1.3]} cor="#c9a24a" />
@@ -1088,12 +1086,13 @@ const CasaParada: React.FC<{t: number; p: number; parada?: boolean}> = ({t, p, p
         <Caixa pos={[1.2, 1.1, 2.5]} tam={[0.9, 0.01, 0.16]} cor="#9a9a9a" />
       </group>
       <PilhaBlocos pos={[4.4, 0, 0.2]} nx={4} ny={4} nz={3} />
+      <SacosCimento pos={[2.2, 0, 0.9]} n={8} rotY={0.4} />
       <MonteTerra pos={[-4.6, 0, 0.8]} esc={1.1} cor="#d9b878" />
       <CarrinhoMao pos={[-3.2, 0, 1.6]} rotY={0.6} carga="#d9b878" />
       <Betoneira pos={[4.6, 0, -4.8]} rotY={-0.6} t={parada ? 0 : t} />
       {/* placa da obra e cerca de madeira com o portão (amarrado com corrente quando a obra para) */}
-      <Letreiro pos={parada ? [-0.75, 1.55, 2.3] : [-2.2, 1.6, 3.2]} rotY={0.1} larg={1.6} alt={0.8} linhas={parada ? ['OBRA', 'PARADA'] : ['AQUI VAI SER', 'NOSSA CASA']} fundo={parada ? '#fffbe8' : '#fbf7ec'} cor={parada ? '#c62f2f' : '#2f6a5a'} />
-      <Barra a={parada ? [-0.75, 0, 2.25] : [-2.2, 0, 3.15]} b={parada ? [-0.75, 1.2, 2.25] : [-2.2, 1.2, 3.15]} r={0.04} cor="#7a4a2a" />
+      <Letreiro pos={parada ? [-0.4, 1.55, 2.3] : [-2.2, 1.6, 3.2]} rotY={0.1} larg={1.6} alt={0.8} linhas={parada ? ['OBRA', 'PARADA'] : ['AQUI VAI SER', 'NOSSA CASA']} fundo={parada ? '#fffbe8' : '#fbf7ec'} cor={parada ? '#c62f2f' : '#2f6a5a'} />
+      <Barra a={parada ? [-0.4, 0, 2.25] : [-2.2, 0, 3.15]} b={parada ? [-0.4, 1.2, 2.25] : [-2.2, 1.2, 3.15]} r={0.04} cor="#7a4a2a" />
       {Array.from({length: 22}).map((_, i) => (<Caixa key={i} pos={[-8 + i * 0.75, 0.6, 4.2]} tam={[0.12, 1.2, 0.04]} cor={varia('#b07a4a', ((i * 7) % 5) * 0.02 - 0.04)} />))}
       {[0.35, 0.95].map((y) => (<Caixa key={y} pos={[0, y, 4.18]} tam={[16.5, 0.08, 0.03]} cor="#8b5a3c" />))}
       {/* pai com a caderneta de poupança na mão e o filho */}
@@ -1245,7 +1244,7 @@ const Tribunal: React.FC<{t: number; p: number}> = ({t, p}) => (
       </group>
     ))}
     <Boneco pos={[0.3, 0, 2.4]} rotY={Math.PI} t={t} v={{...povo(61), vovo: true, cabelo: '#e0e0e0'}} esc={0.88} ferramenta="bengala" acao="parado" expressao="bravo" />
-    <Letreiro pos={[-1.6, 4.4, -5.82]} larg={2.2} alt={0.7} linhas={['PLANOS', 'ECONÔMICOS']} fundo="#1d2a3a" cor="#ffd23f" />
+    <Letreiro pos={[-1.6, 3.3, -5.82]} larg={2.2} alt={0.7} linhas={['PLANOS', 'ECONÔMICOS']} fundo="#1d2a3a" cor="#ffd23f" />
     <Calendario pos={[5.2, 2.6, -5.82]} esc={1.8} mapa={texCalendario('MAIO', '2025', 4, 31, [], 23)} />
   </group>
 );
@@ -1276,11 +1275,11 @@ export const SETS_COLLOR: Record<string, SetRico> = {
   }),
   covarandajuros: varanda('juros', {
     // "Juros! Cem bilhões!": close no papagaio de bico aberto, Seu Tostão espantado desfocado ao lado
-    juros: cam([1.95, 1.7, 3.1], [1.7, 1.65, 2.7], [0.3, 1.3, 0.05], 40),
+    juros: cam([1.55, 1.75, 2.7], [1.42, 1.72, 2.35], [0.78, 1.6, 0.0], 40),
   }),
   covarandaaponta: varanda('aponta', {
     // "Só que a surpresa veio na volta": baixo, em 3/4, com leve giro
-    aponta: orbita([0.15, 1.1, 0.1], 26, 3, 4.3, 3.7, 40, -10),
+    aponta: orbita([-0.1, 1.1, 0.1], 26, 3, 4.3, 3.7, 40, -10),
   }),
   covarandalicao: varanda('licao', {
     // a lição: médio frontal, moeda girando na frente dele
@@ -1311,7 +1310,7 @@ export const SETS_COLLOR: Record<string, SetRico> = {
       // a caderneta de poupança aberta no balcão, carimbada "BLOQUEADO"
       caderneta: cam([-0.45, 1.8, -1.45], [-0.6, 1.7, -1.6], [-1.2, 1.16, -2.27], 42),
       // por cima do ombro do cliente: o Seu Tostão do outro lado do vidro, com o maço curto
-      guiche: cam([0.55, 1.35, -1.25], [0.35, 1.33, -1.55], [-1.05, 1.4, -2.7], 42),
+      guiche: cam([0.15, 1.6, -0.2], [-0.05, 1.57, -0.5], [-1.2, 1.3, -3.3], 40),
       // segunda-feira: a agência lotada, fila serpenteando até a porta
       fila: cam([6.2, 3.4, 4.4], [5.4, 3.1, 3.9], [-1.0, 0.9, -0.8], 50, [-1.4, 0.9, -1.2]),
     },
@@ -1347,7 +1346,7 @@ export const SETS_COLLOR: Record<string, SetRico> = {
       // gancho: o cadeado gigante na grade, o dinheiro preso atrás
       cadeado: cam([1.2, 1.9, 4.6], [0.8, 1.75, 3.8], [0, 1.1, 0.6], 42, [0, 1.05, 0.4]),
       // entrando no cofre pela porta redonda
-      porta: cam([3.9, 2.7, 3.4], [3.3, 2.5, 3.0], [-0.6, 2.0, -2.0], 46),
+      porta: cam([-1.6, 3.3, 7.4], [-1.0, 3.1, 6.4], [0.2, 2.1, -3.0], 44),
       // a folhinha virando os 18 meses
       calendario: cam([-2.1, 1.75, 4.6], [-2.4, 1.7, 4.2], [-4.82, 1.55, 2.6], 42),
       // de cima: a montanha de dinheiro crescendo atrás da grade
@@ -1367,7 +1366,7 @@ export const SETS_COLLOR: Record<string, SetRico> = {
     render: ({t, p}) => <MesaCaixa t={t} p={p} modo="notas" />,
     cams: {
       // close nas cédulas genéricas de cruzado novo na mesa do caixa
-      notas: cam([-0.15, 1.28, 0.95], [-0.25, 1.24, 0.75], [-0.4, 0.98, -0.1], 40),
+      notas: cam([-0.15, 1.3, 0.95], [-0.25, 1.26, 0.75], [-0.3, 0.8, -0.1], 40),
     },
   },
   cocarimboreal: {
@@ -1393,7 +1392,7 @@ export const SETS_COLLOR: Record<string, SetRico> = {
     render: ({t, p}) => <CasaParada t={t} p={p} />,
     cams: {
       // o pai com a caderneta na mão, a casa subindo atrás
-      pai: cam([2.3, 2.6, 6.6], [1.8, 2.45, 5.8], [0.2, 1.0, -0.6], 44),
+      pai: cam([2.0, 1.9, 5.6], [1.6, 1.85, 5.0], [0.3, 0.55, 0.4], 44),
     },
   },
   cocasaparada: {

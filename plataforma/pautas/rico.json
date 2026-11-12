@@ -1,7 +1,7 @@
 {
   "perfil": "rico",
   "pautas": [
-    {"tema": "O dia em que o Plano Collor confiscou a poupança de todo mundo", "status": "nova"},
+    {"tema": "O dia em que o Plano Collor confiscou a poupança de todo mundo", "status": "usada", "motivo": "Piloto do Seu Tostão (o-dia-que-o-plano-collor-confiscou-a-poupanca): pesquisa com fontes do BC/Lei 8.024/STF, roteiro aprovado pelo revisor, cenários de 1990 em src/rico/collor.tsx"},
     {"tema": "Como a inflação chegou a 80% em um único mês no Brasil", "status": "nova"},
     {"tema": "A URV: o truque que fez o real dar certo", "status": "nova"},
     {"tema": "Quanto custava um pão francês em 1980, 1994 e hoje", "status": "nova"},

@@ -50,11 +50,12 @@ CENAS = [
         ("cocarimboreal", "real", None, card("Corrigido pelo IPCA", valor="≈ R$ 8 MIL", sub="em reais de hoje · Calculadora do Cidadão (BC)", cor=VERDE)),
     ]),
     ("c5", "1990", "PRESO NO BANCO CENTRAL", "≈ US$ 100 BI",
-     "O resto ficou preso no Banco Central, o banco do governo. | Por dezoito meses. | Cerca de cem bilhões de dólares. | Juros! Cem bilhões!", [
-        ("cocofre", "porta", [0.3, 0.6], card("Banco Central", valor="O RESTO FICA PRESO", sub="corrigido + 6% ao ano")),
+     # o Juros NÃO fala (não há voz de papagaio): ele grita só na imagem, com o card "CEM BILHÕES!"
+     "O resto ficou preso no Banco Central, | o banco do governo. | Por dezoito meses. | Cerca de cem bilhões de dólares.", [
+        ("cocofre", "porta", [0.3, 0.5], card("O resto", valor="FICA PRESO", sub="acima de NCz$ 50 mil · Lei 8.024", cor=VERM)),
+        ("cocofre", "monte", [0.5, 0.8], card("Banco Central", valor="O BANCO DO GOVERNO", sub="corrigido + 6% ao ano")),
         ("cocofre", "calendario", None, card("Bloqueio", num=18, sufixo=" MESES", cor=OURO)),
-        ("cocofre", "monte", [0.6, 1], card("Dinheiro bloqueado", valor="≈ US$ 100 BI", sub="estimativa da época · cerca de 30% do PIB", cor=VERM), {"batida": "drama"}),
-        ("covarandajuros", "juros", None, card("Juros!", valor="CEM BILHÕES!", cor=OURO)),
+        ("covarandajuros", "juros", None, card("Juros!", valor="CEM BILHÕES!", sub="≈ US$ 100 bi presos · estimativa da época", cor=OURO), {"batida": "drama"}),
     ]),
     ("c7", "19/03/1990", "NA FILA", "≈ 10 MILHÕES",
      "Na segunda, eu abri o caixa. | Uns dez milhões de pessoas fizeram fila. | Teve pai que juntava para a casa própria. | Ficou tudo preso.", [
