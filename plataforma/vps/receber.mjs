@@ -21,10 +21,11 @@ for (const [id, status] of Object.entries(entrada.estados ?? {})) {
   const x = daqui[id];
   if (x && x.status === 'aprovado' && status !== 'aprovado') salvarItem({id, status});
 }
-// vídeo publicado há mais de 2 dias sai do disco da VPS
+// vídeo publicado há mais de 2 dias, ou tirado da agenda, sai do disco da VPS
 const limite = Date.now() - 2 * 86400000;
 for (const x of fila()) {
-  if (x.status !== 'publicado' || !x.video || new Date(x.publicado_em || x.atualizado) > limite) continue;
+  const velho = x.status === 'publicado' && new Date(x.publicado_em || x.atualizado) < limite;
+  if (!x.video || !(velho || x.status === 'rejeitado')) continue;
   fs.rmSync(path.join(RAIZ, x.video), {force: true});
 }
 process.stdout.write(JSON.stringify(fila()));
