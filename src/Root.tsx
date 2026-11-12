@@ -49,6 +49,8 @@ import roteiroPaoQueijo from '../roteiros/pao-de-queijo-de-liquidificador.json';
 import timingsPaoQueijo from '../public/audio/pao-de-queijo-de-liquidificador/timings.json';
 import roteiroKitnet25 from '../roteiros/kitnet-de-25-m-para-alugar.json';
 import timingsKitnet25 from '../public/audio/kitnet-de-25-m-para-alugar/timings.json';
+import roteiroRoboVP from '../roteiros/robo-aspirador-de-300-reais-vale-a-pena.json';
+import timingsRoboVP from '../public/audio/robo-aspirador-de-300-reais-vale-a-pena/timings.json';
 
 const total = (t: Timings) => t.cenas.reduce((s, c) => s + Math.round(c.duracao * FPS), 0);
 
@@ -97,6 +99,8 @@ export const Root: React.FC = () => {
         defaultProps={{roteiro: roteiroPaoQueijo as unknown as RoteiroReceita, timings: timingsPaoQueijo as Timings, comAudio: !(timingsPaoQueijo as Timings).estimado}} />
       <Composition id="kitnet-de-25-m-para-alugar" component={Obra} durationInFrames={total(timingsKitnet25 as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroKitnet25 as unknown as RoteiroObra, timings: timingsKitnet25 as Timings, comAudio: !(timingsKitnet25 as Timings).estimado}} />
+      <Composition id="robo-aspirador-de-300-reais-vale-a-pena" component={Teste} durationInFrames={total(timingsRoboVP as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroRoboVP as unknown as RoteiroValeAPena, timings: timingsRoboVP as Timings, comAudio: !(timingsRoboVP as Timings).estimado}} />
     </>
   );
 };

@@ -664,6 +664,119 @@ export const PaoDeQueijo: React.FC<{pos: V3; n?: number}> = ({pos, n = 6}) => (
   </group>
 );
 
+// ---------- ROBÔ ASPIRADOR ----------
+// Dimensões reais: ~32 cm de diâmetro, 7.7 cm de altura (faixa R$299, sem LiDAR)
+export const ROBO = {R: 0.155, H: 0.077};
+
+export const RoboAspirador: React.FC<{
+  pos: V3; t: number; rotY?: number;
+  corte?: number; // 0 = fechado, 1 = internos visíveis (tampa levantada)
+  ligado?: boolean; andando?: boolean; stuck?: boolean;
+}> = ({pos, t, rotY = 0, corte = 0, ligado = false, andando = false, stuck = false}) => {
+  const {R, H} = ROBO;
+  const mostraTampa = corte < 0.5;
+  const mostraInternos = corte > 0.4;
+  const giroEscova = andando ? t * 8 : stuck ? t * 1.5 : 0;
+  const wobble = stuck ? Math.sin(t * 24) * 0.006 : 0;
+  return (
+    <group position={[pos[0] + wobble, pos[1], pos[2]]} rotation={[0, rotY, 0]}>
+      {/* disco principal */}
+      <Cil pos={[0, H / 2, 0]} r={R} h={H} cor="#252628" seg={40} />
+      {/* bumper frontal */}
+      {mostraTampa && <Bloco pos={[0, H / 2, R * 0.08]} tam={[R * 1.08, H * 0.76, R * 0.54]} cor="#38393d" />}
+      {/* tampa */}
+      {mostraTampa && (
+        <>
+          <Cil pos={[0, H + 0.002, 0]} r={R * 0.98} h={0.006} cor="#2d2f33" seg={36} />
+          <Cil pos={[0, H + 0.006, 0]} r={0.038} h={0.016} cor="#1f2124" seg={14} />
+          <Cil pos={[R * 0.3, H + 0.019, 0.015]} r={0.007} h={0.004} cor={ligado ? '#2fbf71' : '#1c3022'} seg={8} />
+          {ligado && <pointLight position={[R * 0.3, H + 0.02, 0.015]} color="#2fbf71" intensity={0.3} distance={0.4} />}
+        </>
+      )}
+      {/* fundo */}
+      <Cil pos={[0, 0.004, 0]} r={R * 0.97} h={0.008} cor="#111" seg={36} />
+      <Bloco pos={[0, 0.005, R * 0.25]} tam={[0.065, 0.006, 0.08]} cor="#050506" />
+      {/* escovinha lateral */}
+      <group position={[R * 0.75, 0.004, R * 0.52]} rotation={[0, giroEscova, 0]}>
+        <Cil r={0.012} h={0.004} cor="#444" seg={8} />
+        {[0, 1, 2].map((i) => {
+          const a = (i / 3) * Math.PI * 2;
+          return <Barra key={i} a={[0, 0.001, 0]} b={[Math.cos(a) * 0.052, 0.001, Math.sin(a) * 0.052]} r={0.0025} cor="#c0c0c0" sombra={false} />;
+        })}
+      </group>
+      {/* rodas */}
+      {([-1, 1] as const).map((s) => (
+        <Cil key={s} pos={[s * R * 0.78, H * 0.3, 0]} rot={[Math.PI / 2, 0, 0]} r={0.026} h={0.016} cor="#111" seg={16} />
+      ))}
+      <Cil pos={[0, 0.012, R * 0.76]} rot={[Math.PI / 2, 0, 0]} r={0.012} h={0.009} cor="#222" seg={8} />
+      {/* internos no corte */}
+      {mostraInternos && (
+        <>
+          <Cil pos={[-0.038, H * 0.42, 0.005]} r={0.028} h={H * 0.68} cor="#888" seg={12} />
+          <Cil pos={[-0.038, H * 0.82, 0.005]} r={0.038} h={0.014} cor="#555" seg={12} />
+          <Bloco pos={[0.055, H * 0.42, -0.012]} tam={[0.08, H * 0.65, 0.105]} cor="#c8b898" />
+          <Bloco pos={[0.055, H * 0.8, -0.012]} tam={[0.08, H * 0.15, 0.105]} cor="#f0ece6" />
+          <Bloco pos={[0.052, H * 0.18, 0.07]} tam={[0.09, H * 0.28, 0.065]} cor="#4870b8" />
+          <Bloco pos={[-0.04, H * 0.88, 0.04]} tam={[0.09, 0.004, 0.072]} cor="#2a5c35" />
+          {([-1, 1] as const).map((s) => (
+            <Cil key={s} pos={[s * 0.112, H * 0.5, R * 0.62]} r={0.007} h={0.015} cor="#111" seg={8} />
+          ))}
+        </>
+      )}
+    </group>
+  );
+};
+
+// caixa do produto (robô aspirador, 38 × 40 × 38 cm)
+export const CaixaRobo: React.FC<{pos: V3; rotY?: number; aberta?: number}> = ({pos, rotY = 0, aberta = 0}) => {
+  const frente = texTexto('caixa-robo-frente', [{t: 'ROBÔ ASPIRADOR', tam: 72, cor: '#fff'}, {t: 'AUTO-RETORNO', tam: 56, cor: '#ffd23f'}, {t: '2.000 Pa · 90 min', tam: 48, cor: '#fff'}], '#1a3a6b');
+  const lado = texTexto('caixa-robo-lado', [{t: '2000', tam: 158, cor: '#1a3a6b'}, {t: 'Pa sucção', tam: 44, cor: '#16151c'}], '#fbf7ee');
+  return (
+    <group position={pos} rotation={[0, rotY, 0]}>
+      <Bloco pos={[0, 0.2, 0]} tam={[0.38, 0.4, 0.38]} cor="#1a3a6b" />
+      <Placa pos={[0, 0.2, 0.191]} w={0.37} h={0.39} tex={frente} />
+      <Placa pos={[0.191, 0.2, 0]} rot={[0, Math.PI / 2, 0]} w={0.37} h={0.39} tex={lado} />
+      {aberta > 0 && ([-1, 1] as const).map((s) => (
+        <group key={s} position={[s * 0.19, 0.4, 0]} rotation={[0, 0, s * (Math.PI / 2 + 0.4) * aberta * -1]}>
+          <Bloco pos={[s * -0.095, 0, 0]} tam={[0.19, 0.004, 0.38]} cor="#152f5a" />
+        </group>
+      ))}
+    </group>
+  );
+};
+
+// meia no chão (obstáculo para o robô)
+export const Meia: React.FC<{pos: V3; rotY?: number}> = ({pos, rotY = 0}) => (
+  <group position={pos} rotation={[0, rotY, 0]}>
+    <Bloco pos={[0, 0.016, 0]} tam={[0.055, 0.032, 0.14]} cor="#6b7de8" />
+    <mesh position={[0, 0.016, 0.07]}>
+      <sphereGeometry args={[0.027, 8, 6]} />
+      <meshStandardMaterial color="#5a6cd0" flatShading roughness={0.9} />
+    </mesh>
+    <mesh position={[0, 0.022, -0.07]}>
+      <sphereGeometry args={[0.03, 8, 6]} />
+      <meshStandardMaterial color="#5a6cd0" flatShading roughness={0.9} />
+    </mesh>
+  </group>
+);
+
+// pelo de animal no chão (representado como fios curtos)
+export const PeloAnimal: React.FC<{pos: V3; n?: number; seed?: number}> = ({pos, n = 30, seed = 7}) => {
+  let s = seed;
+  const r = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
+  return (
+    <group position={pos}>
+      {Array.from({length: n}).map((_, i) => {
+        const x = (r() - 0.5) * 0.1, z = (r() - 0.5) * 0.1;
+        const ang = r() * Math.PI, len = 0.018 + r() * 0.028;
+        return (
+          <Barra key={i} a={[x - Math.cos(ang) * len / 2, 0.001, z - Math.sin(ang) * len / 2]} b={[x + Math.cos(ang) * len / 2, 0.001, z + Math.sin(ang) * len / 2]} r={0.0007} cor={i % 3 === 0 ? '#6b3a1f' : '#8b4a2a'} sombra={false} />
+        );
+      })}
+    </group>
+  );
+};
+
 // mesa de jantar simples (1,6 × 0,9 m, 0,75 m de altura)
 export const Mesa: React.FC<{pos: V3; larg?: number; prof?: number; cor?: string}> = ({pos, larg = 1.6, prof = 0.9, cor = '#c8955c'}) => (
   <group position={pos}>

@@ -11,6 +11,7 @@ import {Cozinha, Fio, GarrafaOleo, Ilha, Panela, Colher, TOPO, texCanvas} from '
 import {
   AF, AF_IN, AirFryer, BANCADA, BATATA, Bancada, Batatas, Cabo, CaixaProduto, Calendario, Carimbo, EtiquetaPreco, Laboratorio, Medidor, Mesa,
   Moeda, PaoDeQueijo, PilhaMoedas, PratoBatata, Raio, ZeTestador, clamp01, lerp, suave,
+  RoboAspirador, ROBO, CaixaRobo, Meia, PeloAnimal,
 } from './pecas';
 
 export type LuzVP = 'lab' | 'escuro' | 'cozinha' | 'sala' | 'alerta';
@@ -370,6 +371,199 @@ export const SETS: Record<string, SetVP> = {
       rodadas: orb([1.62, M_TOPO + 0.02, 0.22], 0, 40, 1.9, 1.6, 40, 6),
     },
   },
+  // ======================================================================
+  // SETS DO ROBÔ ASPIRADOR (perfil Vale a Pena?)
+  // ======================================================================
+
+  // bancada do lab com o robô na bancada e o Zé testador
+  vpRoboBancada: {
+    luz: 'lab',
+    render: ({t}) => {
+      const B = BANCADA;
+      const {H} = ROBO;
+      return (
+        <>
+          <Laboratorio />
+          <RoboAspirador pos={[0, B, 0]} t={t} ligado />
+          <EtiquetaPreco pos={[0.0, B + H + 0.04, 0.06]} rot={[-0.65, -0.2, 0]} texto="R$ 299" sub="nov/2026" esc={1.0} />
+          <ZeTestador t={t} pos={[0.78, 0, 0.12]} rotY={-0.55} />
+        </>
+      );
+    },
+    cams: {
+      giro: orb([0, BANCADA + ROBO.H / 2, 0], -15, 22, 1.4, 1.1, 42, 20),
+      ze: orb([0.3, BANCADA + 0.04, 0.08], 8, 12, 3.6, 3.1, 40, 8),
+      close: orb([0, BANCADA + ROBO.H + 0.01, 0.0], 10, 8, 0.4, 0.3, 44, 6),
+      final: orb([0.2, BANCADA + 0.04, 0.1], -6, 14, 3.9, 3.5, 40, -8),
+    },
+  },
+
+  // caixa do produto + robô na bancada
+  vpRoboCaixa: {
+    luz: 'lab',
+    render: ({t}) => (
+      <>
+        <Laboratorio />
+        <CaixaRobo pos={[-0.3, BANCADA, -0.02]} rotY={0.15} aberta={0.5} />
+        <RoboAspirador pos={[0.22, BANCADA, 0.04]} t={t} rotY={-0.35} ligado />
+      </>
+    ),
+    cams: {
+      frente: orb([-0.3, BANCADA + 0.18, 0.0], 8, 10, 1.6, 1.35, 40, -8),
+      lado: orb([0.22, BANCADA + 0.06, 0.04], 30, 16, 1.4, 1.15, 40, 12),
+    },
+  },
+
+  // palco escuro: robô se abrindo em corte (tampa levantando)
+  vpRoboCorte: {
+    luz: 'escuro',
+    fundo: ['#0b1328', '#1b2c55'],
+    render: ({t, p}) => (
+      <>
+        <Palco />
+        <RoboAspirador pos={[0, 0.002, 0]} t={t} corte={clamp01(p * 1.8)} ligado />
+      </>
+    ),
+    cams: {
+      frente: orb([0, ROBO.H / 2, 0], -10, 15, 0.9, 0.7, 42, 12),
+    },
+  },
+
+  // palco escuro: robô já totalmente aberto mostrando as três peças
+  vpRoboAberto: {
+    luz: 'escuro',
+    fundo: ['#0b1328', '#1b2c55'],
+    render: ({t}) => (
+      <>
+        <Palco />
+        <RoboAspirador pos={[0, 0.002, 0]} t={t} corte={1} ligado andando />
+      </>
+    ),
+    cams: {
+      escova: orb([ROBO.R * 0.75, 0.004, ROBO.R * 0.52], 15, 30, 0.22, 0.16, 46, 8),
+      motor: orb([-0.038, ROBO.H * 0.55, 0.005], 20, 10, 0.3, 0.22, 44, 8),
+      sensor: orb([0.1, ROBO.H * 0.5, ROBO.R * 0.62], -10, 20, 0.22, 0.16, 46, 6),
+      geral: orb([0, ROBO.H / 2, 0], -10, 18, 0.95, 0.75, 42, 12),
+    },
+  },
+
+  // sala de casa: robô navegando no piso liso (câmera no nível do chão)
+  vpRoboSala: {
+    luz: 'sala',
+    fundo: ['#f3d9b8', '#fbe8d0'],
+    render: ({t}) => {
+      const ang = t * 0.35;
+      const rx = Math.sin(ang) * 0.3;
+      const rz = Math.cos(ang) * 0.25;
+      return (
+        <>
+          <Sala />
+          {/* tapete */}
+          <mesh position={[0, 0.004, 0.5]} rotation={[-Math.PI / 2, 0, 0]}>
+            <planeGeometry args={[1.5, 1.0]} />
+            <meshStandardMaterial color="#8b6a4f" roughness={0.95} />
+          </mesh>
+          {/* sofá */}
+          <Mesa pos={[0, 0.38 - 0.73, -0.9]} larg={2.0} prof={0.7} cor="#6b5a9e" />
+          <RoboAspirador pos={[rx, 0, rz]} t={t} rotY={ang + 0.5} andando ligado />
+        </>
+      );
+    },
+    cams: {
+      geral: orb([0, 0.3, 0], 20, 25, 3.0, 2.6, 44, 12),
+      piso: orb([0, 0.1, 0.4], -8, 10, 0.75, 0.6, 52, 8),
+      canto: orb([0.9, 0.08, -0.5], -20, 15, 1.1, 0.85, 50, 10),
+      tapete: orb([0, 0.15, 0.5], 5, 20, 1.3, 1.0, 46, 8),
+    },
+  },
+
+  // sala: robô preso em cabo/meia (o erro mais comum)
+  vpRoboErro: {
+    luz: 'sala',
+    fundo: ['#f3d9b8', '#fbe8d0'],
+    render: ({t}) => (
+      <>
+        <Sala />
+        <Cabo pts={[[-0.4, 0.004, -0.1], [-0.2, 0.004, 0.22], [0.1, 0.004, 0.3], [0.35, 0.004, 0.08]]} cor="#222" />
+        <Meia pos={[0.5, 0, -0.1]} rotY={0.6} />
+        <RoboAspirador pos={[0, 0, 0.1]} t={t} rotY={0.4} stuck ligado />
+      </>
+    ),
+    cams: {
+      geral: orb([0.1, 0.3, 0.3], 20, 30, 2.0, 1.7, 44, 12),
+      close: orb([0.05, 0.08, 0.35], 10, 15, 0.7, 0.55, 46, 6),
+      canto: orb([-0.6, 0.06, -1.0], -20, 20, 1.3, 1.0, 50, 8),
+    },
+  },
+
+  // bancada do lab: medidor de energia com o robô ligado (a conta de luz)
+  vpRoboMedidor: {
+    luz: 'lab',
+    render: ({t, p}) => {
+      const kwh = 0.03 * clamp01(p / 0.85);
+      const B = BANCADA;
+      return (
+        <>
+          <Laboratorio />
+          <RoboAspirador pos={[0.12, B, 0.02]} t={t} ligado andando />
+          <Mesa pos={[-0.3, 0, -0.15]} larg={0.14} prof={0.08} cor="#f2f2f0" />
+          <Medidor pos={[-0.32, B + 0.1, -0.19]} kwh={kwh} watts={kwh > 0.001 ? 20 : 0} />
+          <Cabo pts={[[0.0, B + 0.02, -0.05], [-0.1, B + 0.01, -0.15], [-0.25, B + 0.01, -0.14], [-0.32, B + 0.06, -0.12]]} />
+          <ZeTestador t={t} pos={[0.78, 0, 0.12]} rotY={-0.5} />
+        </>
+      );
+    },
+    cams: {
+      geral: orb([-0.1, BANCADA + 0.12, 0.0], 12, 22, 1.9, 1.6, 40, 10),
+      display: orb([-0.32, BANCADA + 0.12, -0.12], 4, 6, 0.3, 0.22, 40, 8),
+      compare: orb([0.1, BANCADA + 0.1, 0.0], -8, 18, 1.8, 1.5, 40, 8),
+    },
+  },
+
+  // bancada do lab: reservatório removido com pelo de animal
+  vpRoboReserv: {
+    luz: 'lab',
+    render: ({t}) => {
+      const B = BANCADA;
+      return (
+        <>
+          <Laboratorio />
+          <RoboAspirador pos={[0.1, B, 0.0]} t={t} corte={1} />
+          {/* reservatório removido ao lado */}
+          <Mesa pos={[-0.22, 0, 0.0]} larg={0.1} prof={0.14} cor="#c8b898" />
+          <PeloAnimal pos={[-0.22, B + 0.025, 0.0]} n={40} seed={12} />
+          <PeloAnimal pos={[0.0, B + 0.001, 0.1]} n={25} seed={5} />
+          <ZeTestador t={t} pos={[0.78, 0, 0.12]} rotY={-0.6} acao="aponta" />
+        </>
+      );
+    },
+    cams: {
+      geral: orb([0.0, BANCADA + 0.08, 0.0], 12, 20, 1.6, 1.3, 40, 10),
+      close: orb([-0.08, BANCADA + 0.04, 0.05], 5, 15, 0.55, 0.42, 42, 6),
+      pelo: orb([-0.22, BANCADA + 0.06, 0.0], 10, 18, 0.5, 0.38, 44, 6),
+    },
+  },
+
+  // bancada do lab: veredito DEPENDE (carimbo desce + Zé)
+  vpRoboVeredito: {
+    luz: 'lab',
+    render: ({t, p}) => {
+      const B = BANCADA;
+      return (
+        <>
+          <Laboratorio />
+          <RoboAspirador pos={[0.28, B, -0.12]} t={t} rotY={-0.3} ligado />
+          <Carimbo pos={[-0.12, B, 0.08]} desce={clamp01(p * 2.2)} texto="DEPENDE" cor="#ff8a1f" />
+          <ZeTestador t={t} pos={[0.78, 0, 0.12]} rotY={-0.6} acao={p > 0.55 ? 'comemora' : 'carrega'} />
+        </>
+      );
+    },
+    cams: {
+      carimbo: orb([0.0, BANCADA + 0.06, 0.05], 6, 32, 1.6, 1.3, 40, 10),
+      diarista: orb([0.0, BANCADA - 0.02, 0.05], -6, 14, 3.5, 3.0, 40, 8),
+    },
+  },
+
   // FINAL: o Zé acenando, batata e pão de queijo prontos
   vpFinal: {
     luz: 'lab',

@@ -1,0 +1,824 @@
+{
+  "id": "robo-aspirador-de-300-reais-vale-a-pena",
+  "serie": "Vale a Pena?",
+  "titulo": "VALE A PENA?",
+  "linha2": "robô aspirador R$ 299",
+  "site": "link na bio",
+  "cta": {
+    "titulo": "LINK NA BIO",
+    "texto": "Robô com desconto",
+    "botao": null
+  },
+  "veredito": {
+    "cena": "c7",
+    "texto": "DEPENDE",
+    "sub": "piso liso, sem pelo",
+    "cor": "#ff8a1f"
+  },
+  "elevenlabs": {
+    "voz_id": "S4M4JhZIzYGUlDsYIOow",
+    "modelo": "eleven_multilingual_v2",
+    "ajustes": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.4,
+      "use_speaker_boost": true,
+      "speed": 1.15
+    }
+  },
+  "fontes": "roteiros/robo-aspirador-de-300-reais-vale-a-pena.pesquisa.md",
+  "monetizacao": {
+    "afiliados": [
+      "robô aspirador básico sem LiDAR ~R$ 299",
+      "robô aspirador com LiDAR (upgrade ~R$ 599+)",
+      "tapete antiderrapante piso liso",
+      "saco coletor extra para robô aspirador"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Um robô aspirador de trezentos reais vale a pena? O Zé abriu um pra ver por dentro. E fez a conta.",
+      "destaques": [
+        "trezentos",
+        "reais",
+        "vale",
+        "pena",
+        "robô",
+        "aspirador",
+        "sozinho",
+        "dois",
+        "mil",
+        "pascais",
+        "sucção",
+        "noventa",
+        "minutos",
+        "bateria",
+        "cinquenta",
+        "cinco",
+        "decibéis",
+        "três",
+        "peças",
+        "escovinha",
+        "motor",
+        "vinte",
+        "watts",
+        "sensor",
+        "parede",
+        "faxina",
+        "cabo",
+        "meia",
+        "brinquedo",
+        "cantos",
+        "bordas",
+        "centavos",
+        "luz",
+        "reservatório",
+        "décimos",
+        "litro",
+        "cachorro",
+        "dez",
+        "depende",
+        "piso",
+        "liso",
+        "tapete",
+        "pelo",
+        "diaristas",
+        "desconto",
+        "bio",
+        "para",
+        "chega",
+        "enche",
+        "esvaziar"
+      ],
+      "planos": [
+        {
+          "set": "vpRoboBancada",
+          "cam": "giro",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Robô aspirador",
+            "num": 299,
+            "prefixo": "R$ ",
+            "sub": "menor preço · nov/2026",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "vpRoboBancada",
+          "cam": "ze",
+          "apartir": 11,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "vpRoboCorte",
+          "cam": "frente",
+          "apartir": 15,
+          "p": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Ele promete varrer e aspirar sozinho. Dois mil pascais de sucção. Noventa minutos de bateria. Cinquenta e cinco decibéis de ruído.",
+      "etapa": "A PROMESSA",
+      "chip": "sozinho",
+      "destaques": [
+        "trezentos",
+        "reais",
+        "vale",
+        "pena",
+        "robô",
+        "aspirador",
+        "sozinho",
+        "dois",
+        "mil",
+        "pascais",
+        "sucção",
+        "noventa",
+        "minutos",
+        "bateria",
+        "cinquenta",
+        "cinco",
+        "decibéis",
+        "três",
+        "peças",
+        "escovinha",
+        "motor",
+        "vinte",
+        "watts",
+        "sensor",
+        "parede",
+        "faxina",
+        "cabo",
+        "meia",
+        "brinquedo",
+        "cantos",
+        "bordas",
+        "centavos",
+        "luz",
+        "reservatório",
+        "décimos",
+        "litro",
+        "cachorro",
+        "dez",
+        "depende",
+        "piso",
+        "liso",
+        "tapete",
+        "pelo",
+        "diaristas",
+        "desconto",
+        "bio",
+        "para",
+        "chega",
+        "enche",
+        "esvaziar"
+      ],
+      "planos": [
+        {
+          "set": "vpRoboCaixa",
+          "cam": "frente",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "A promessa",
+            "valor": "VARRER SOZINHO"
+          }
+        },
+        {
+          "set": "vpRoboCaixa",
+          "cam": "lado",
+          "apartir": 6,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Sucção",
+            "num": 2000,
+            "sufixo": " Pa",
+            "sub": "ficha técnica"
+          }
+        },
+        {
+          "set": "vpRoboBancada",
+          "cam": "close",
+          "apartir": 11,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Autonomia",
+            "valor": "90 min",
+            "sub": "bateria 2.000 mAh"
+          }
+        },
+        {
+          "set": "vpRoboBancada",
+          "cam": "giro",
+          "apartir": 15,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Ruído",
+            "num": 55,
+            "sufixo": " dB",
+            "sub": "vs. 75 dB do aspirador"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "Por dentro tem três peças. Uma escovinha lateral que empurra a sujeira pro centro. Um motor de vinte watts que aspira. E um sensor que bate na parede, gira e segue em frente.",
+      "etapa": "POR DENTRO",
+      "chip": "3 peças",
+      "destaques": [
+        "trezentos",
+        "reais",
+        "vale",
+        "pena",
+        "robô",
+        "aspirador",
+        "sozinho",
+        "dois",
+        "mil",
+        "pascais",
+        "sucção",
+        "noventa",
+        "minutos",
+        "bateria",
+        "cinquenta",
+        "cinco",
+        "decibéis",
+        "três",
+        "peças",
+        "escovinha",
+        "motor",
+        "vinte",
+        "watts",
+        "sensor",
+        "parede",
+        "faxina",
+        "cabo",
+        "meia",
+        "brinquedo",
+        "cantos",
+        "bordas",
+        "centavos",
+        "luz",
+        "reservatório",
+        "décimos",
+        "litro",
+        "cachorro",
+        "dez",
+        "depende",
+        "piso",
+        "liso",
+        "tapete",
+        "pelo",
+        "diaristas",
+        "desconto",
+        "bio",
+        "para",
+        "chega",
+        "enche",
+        "esvaziar"
+      ],
+      "planos": [
+        {
+          "set": "vpRoboAberto",
+          "cam": "escova",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "1. Escovinha lateral",
+            "valor": "empurra pro centro"
+          }
+        },
+        {
+          "set": "vpRoboAberto",
+          "cam": "motor",
+          "apartir": 14,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "2. Motor de sucção",
+            "num": 20,
+            "sufixo": " W",
+            "sub": "modo padrão"
+          }
+        },
+        {
+          "set": "vpRoboAberto",
+          "cam": "sensor",
+          "apartir": 21,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "3. Sensor",
+            "valor": "BATE · GIRA · SEGUE",
+            "sub": "sem mapa (random walk)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "E aqui quase todo mundo erra. Acha que substitui a faxina. Mas cabo, meia ou brinquedo no chão? Ele para. E os cantos e as bordas: o robô não chega.",
+      "etapa": "O ERRO",
+      "chip": "obstáculos",
+      "destaques": [
+        "trezentos",
+        "reais",
+        "vale",
+        "pena",
+        "robô",
+        "aspirador",
+        "sozinho",
+        "dois",
+        "mil",
+        "pascais",
+        "sucção",
+        "noventa",
+        "minutos",
+        "bateria",
+        "cinquenta",
+        "cinco",
+        "decibéis",
+        "três",
+        "peças",
+        "escovinha",
+        "motor",
+        "vinte",
+        "watts",
+        "sensor",
+        "parede",
+        "faxina",
+        "cabo",
+        "meia",
+        "brinquedo",
+        "cantos",
+        "bordas",
+        "centavos",
+        "luz",
+        "reservatório",
+        "décimos",
+        "litro",
+        "cachorro",
+        "dez",
+        "depende",
+        "piso",
+        "liso",
+        "tapete",
+        "pelo",
+        "diaristas",
+        "desconto",
+        "bio",
+        "para",
+        "chega",
+        "enche",
+        "esvaziar"
+      ],
+      "planos": [
+        {
+          "set": "vpRoboErro",
+          "cam": "geral",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "O erro mais comum",
+            "valor": "NÃO SUBSTITUI",
+            "sub": "a faxina funda",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "vpRoboErro",
+          "cam": "close",
+          "apartir": 11,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Obstáculo no chão",
+            "valor": "CABO + MEIA",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "vpRoboSala",
+          "cam": "canto",
+          "apartir": 18,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Canto e bordas",
+            "valor": "ROBÔ NÃO CHEGA",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "A conta de luz: três centavos por sessão de noventa minutos. Um aspirador convencional gasta vinte vezes mais em meia hora.",
+      "etapa": "A CONTA",
+      "chip": "luz",
+      "destaques": [
+        "trezentos",
+        "reais",
+        "vale",
+        "pena",
+        "robô",
+        "aspirador",
+        "sozinho",
+        "dois",
+        "mil",
+        "pascais",
+        "sucção",
+        "noventa",
+        "minutos",
+        "bateria",
+        "cinquenta",
+        "cinco",
+        "decibéis",
+        "três",
+        "peças",
+        "escovinha",
+        "motor",
+        "vinte",
+        "watts",
+        "sensor",
+        "parede",
+        "faxina",
+        "cabo",
+        "meia",
+        "brinquedo",
+        "cantos",
+        "bordas",
+        "centavos",
+        "luz",
+        "reservatório",
+        "décimos",
+        "litro",
+        "cachorro",
+        "dez",
+        "depende",
+        "piso",
+        "liso",
+        "tapete",
+        "pelo",
+        "diaristas",
+        "desconto",
+        "bio",
+        "para",
+        "chega",
+        "enche",
+        "esvaziar"
+      ],
+      "planos": [
+        {
+          "set": "vpRoboMedidor",
+          "cam": "geral",
+          "p": [
+            0,
+            0.2
+          ]
+        },
+        {
+          "set": "vpRoboMedidor",
+          "cam": "display",
+          "apartir": 4,
+          "p": [
+            0.2,
+            0.9
+          ],
+          "card": {
+            "rotulo": "Custo por sessão",
+            "valor": "≈ R$ 0,03",
+            "sub": "0,03 kWh × R$1/kWh",
+            "cor": "#2fbf71"
+          }
+        },
+        {
+          "set": "vpRoboMedidor",
+          "cam": "compare",
+          "apartir": 11,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Aspirador convencional",
+            "valor": "20× MAIS LUZ",
+            "sub": "1.200 W × 30 min",
+            "cor": "#ffd23f"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "O problema não é a energia. É o reservatório de três décimos de litro. Com cachorro em casa, enche em dez minutos. Precisa esvaziar todo uso.",
+      "etapa": "A CONTA",
+      "chip": "reservatório",
+      "destaques": [
+        "trezentos",
+        "reais",
+        "vale",
+        "pena",
+        "robô",
+        "aspirador",
+        "sozinho",
+        "dois",
+        "mil",
+        "pascais",
+        "sucção",
+        "noventa",
+        "minutos",
+        "bateria",
+        "cinquenta",
+        "cinco",
+        "decibéis",
+        "três",
+        "peças",
+        "escovinha",
+        "motor",
+        "vinte",
+        "watts",
+        "sensor",
+        "parede",
+        "faxina",
+        "cabo",
+        "meia",
+        "brinquedo",
+        "cantos",
+        "bordas",
+        "centavos",
+        "luz",
+        "reservatório",
+        "décimos",
+        "litro",
+        "cachorro",
+        "dez",
+        "depende",
+        "piso",
+        "liso",
+        "tapete",
+        "pelo",
+        "diaristas",
+        "desconto",
+        "bio",
+        "para",
+        "chega",
+        "enche",
+        "esvaziar"
+      ],
+      "planos": [
+        {
+          "set": "vpRoboReserv",
+          "cam": "geral",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "O problema real",
+            "valor": "RESERVATÓRIO"
+          }
+        },
+        {
+          "set": "vpRoboReserv",
+          "cam": "close",
+          "apartir": 6,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Capacidade",
+            "valor": "0,3 L",
+            "sub": "≈ 1 copo de requeijão"
+          }
+        },
+        {
+          "set": "vpRoboReserv",
+          "cam": "pelo",
+          "apartir": 14,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Com cachorro",
+            "valor": "ENCHE EM 10 MIN",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "Veredito: depende. Vale pra apartamento com piso liso, sem tapete e sem bicho de pelo. Nesse caso, custa menos que três diaristas.",
+      "etapa": "VEREDITO",
+      "destaques": [
+        "trezentos",
+        "reais",
+        "vale",
+        "pena",
+        "robô",
+        "aspirador",
+        "sozinho",
+        "dois",
+        "mil",
+        "pascais",
+        "sucção",
+        "noventa",
+        "minutos",
+        "bateria",
+        "cinquenta",
+        "cinco",
+        "decibéis",
+        "três",
+        "peças",
+        "escovinha",
+        "motor",
+        "vinte",
+        "watts",
+        "sensor",
+        "parede",
+        "faxina",
+        "cabo",
+        "meia",
+        "brinquedo",
+        "cantos",
+        "bordas",
+        "centavos",
+        "luz",
+        "reservatório",
+        "décimos",
+        "litro",
+        "cachorro",
+        "dez",
+        "depende",
+        "piso",
+        "liso",
+        "tapete",
+        "pelo",
+        "diaristas",
+        "desconto",
+        "bio",
+        "para",
+        "chega",
+        "enche",
+        "esvaziar"
+      ],
+      "planos": [
+        {
+          "set": "vpRoboVeredito",
+          "cam": "carimbo",
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "vpRoboSala",
+          "cam": "piso",
+          "apartir": 2,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Piso liso",
+            "valor": "VALE",
+            "cor": "#2fbf71"
+          }
+        },
+        {
+          "set": "vpRoboVeredito",
+          "cam": "diarista",
+          "apartir": 15,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Custa menos que",
+            "num": 3,
+            "sufixo": " diaristas",
+            "sub": "R$299 < R$360",
+            "cor": "#2fbf71"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "Link com desconto na bio. E aí: você deixaria ele trabalhando sozinho ou ficaria olhando?",
+      "cta": true,
+      "destaques": [
+        "trezentos",
+        "reais",
+        "vale",
+        "pena",
+        "robô",
+        "aspirador",
+        "sozinho",
+        "dois",
+        "mil",
+        "pascais",
+        "sucção",
+        "noventa",
+        "minutos",
+        "bateria",
+        "cinquenta",
+        "cinco",
+        "decibéis",
+        "três",
+        "peças",
+        "escovinha",
+        "motor",
+        "vinte",
+        "watts",
+        "sensor",
+        "parede",
+        "faxina",
+        "cabo",
+        "meia",
+        "brinquedo",
+        "cantos",
+        "bordas",
+        "centavos",
+        "luz",
+        "reservatório",
+        "décimos",
+        "litro",
+        "cachorro",
+        "dez",
+        "depende",
+        "piso",
+        "liso",
+        "tapete",
+        "pelo",
+        "diaristas",
+        "desconto",
+        "bio",
+        "para",
+        "chega",
+        "enche",
+        "esvaziar"
+      ],
+      "planos": [
+        {
+          "set": "vpRoboBancada",
+          "cam": "final",
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "vpRoboBancada",
+          "cam": "close",
+          "apartir": 5,
+          "p": [
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "pagina": {
+    "texto": "🤖 Robô aspirador de R$300 vale a pena? (nov/2026)\n\nO VEREDITO: DEPENDE.\nVale pra apartamento com piso liso, sem tapete espesso e sem animal de pelo longo. Não substitui a faxina funda.\n\nCOMO FUNCIONA\nTrês peças: escovinha lateral (empurra a sujeira pro centro), motor de sucção de ~20 W e sensor de obstáculo. Sem LiDAR (nessa faixa de preço): usa random walk — bate, gira, segue, pode ignorar cantos.\n\nA CONTA DE LUZ\n• Consumo: ~20 W por sessão de 90 min = 0,03 kWh = R$ 0,03 (3 centavos).\n• Um aspirador convencional de 1.200 W usa 20× mais por uso.\n\nO PROBLEMA REAL: O RESERVATÓRIO\nCapacidade de ~0,3 L (1 copinho de requeijão). Com cachorro ou gato que solta pelo, enche em ~10 minutos. Precisa esvaziar todo uso.\n\nO QUE ELE NÃO FAZ\n• Não alcança cantos com precisão.\n• Não aspira tapete espesso nem sofá.\n• Para em cabo, meia ou brinquedo no chão.\n• Não substitui a faxina mensal funda.\n\nFontes: Canaltech, Shopee/ML (preços nov/2026), estimativas de consumo [E]."
+  }
+}
