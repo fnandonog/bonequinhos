@@ -207,7 +207,7 @@
       "youtube": "comoficourico.oficial",
       "formato": "rico",
       "comando": "/produzir",
-      "ativo": true,
+      "ativo": false,
       "motivo_inativo": "Falta aprovar o piloto do formato.",
       "horario": "07:30",
       "cta": "Os livros dessa história no Telegram do Zé: link na bio",
