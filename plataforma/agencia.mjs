@@ -138,6 +138,8 @@ async function produzir(p, tema, pautaMotivo) {
           `- Use o id "${id}" (roteiros/${id}.json, composição id="${id}" em src/Root.tsx).\n` +
           `- Não peça confirmação; decida sozinho seguindo docs/PIPELINE.md.\n` +
           `- NÃO rode tools/narrar.sh, git, nem o render final: a plataforma faz isso depois.\n` +
+          `- Depois do roteirista, o agente revisor-roteiro tem que dar APROVADO (todas as notas ≥ 8) antes de seguir para a cena.\n` +
+          `- Siga as barras de qualidade do diretor-cena, cenografo e qa (mostrar por dentro, cenário cheio, câmera viva; leia docs/agencia/espiao.md se existir).\n` +
           `- Pare quando o QA aprovar e a composição estiver registrada com tempos estimados.`,
         `video-${id}`,
       );

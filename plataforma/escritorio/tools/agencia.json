@@ -116,12 +116,25 @@
         "Bash(node plataforma/tendencias.mjs:*)"
       ],
       "prompt": "Caçada da semana: rode o tendencias.mjs, descubra por que os Shorts do topo viralizaram, atualize docs/agencia/ganchos.md e o relatório da semana, e ponha as 2 melhores pautas de cada perfil na fila."
+    },
+    "espiao": {
+      "max_runs_per_day": 1,
+      "max_budget_usd": 1.0,
+      "allowed_tools": [
+        "Bash(node plataforma/tendencias.mjs:*)",
+        "Bash(node plataforma/cli.mjs:*)"
+      ],
+      "prompt": "Rodada do espião de qualidade: compare os melhores Shorts 3D/explicativos da semana com os nossos e atualize docs/agencia/espiao.md e estilo.md com as 5 mudanças de maior impacto."
     }
   },
   "schedule": [
     {
       "agent": "cacador-tendencias",
       "cron": "0 7 * * 1,4"
+    },
+    {
+      "agent": "espiao",
+      "cron": "30 6 * * 1,3,5"
     },
     {
       "agent": "analista",
