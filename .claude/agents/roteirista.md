@@ -16,3 +16,5 @@ Regras:
 - Máximo ~1.300 caracteres (≈ 65 s com a voz acelerada). Use só números que estão em `roteiros/<id>.pesquisa.md`.
 Entregue o texto dividido em cenas (uma por etapa), com `|` onde deve haver corte.
 - Completo e claro (Fernando, 12/11/2026): quem assiste tem que sair sabendo tudo do assunto. Todo termo citado é explicado na mesma frase; vídeo de história conta o contexto inteiro (quando, onde, quem, como era a vida ali) antes do acontecimento; a voz e a imagem contam a mesma coisa ao mesmo tempo.
+
+- Fórmula das referências do Fernando (12/11/2026, estilo de shorts animados com 200 mi de views): 1) gancho = um paradoxo dito como fato, sem preparação ("Esse robô de trezentos reais anda batendo na parede de propósito"); 2) cenário em 1–2 frases (quando, onde, quem, um detalhe concreto); 3) escalada em 2–4 batidas, cada uma maior que a anterior; 4) virada com "Mas quando…"/"Só que…" revelando o mecanismo, de preferência com uma comparação do dia a dia; 5) fecho curto e irônico nas últimas palavras, depois a pergunta. Entre os blocos, uma frase de re-gancho que puxa o próximo. Nunca narre o que a imagem já mostra. ~3,5 palavras por segundo.
