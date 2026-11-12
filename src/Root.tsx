@@ -10,6 +10,8 @@ import roteiroGladiador from '../roteiros/um-dia-como-gladiador-em-roma.json';
 import timingsGladiador from '../public/audio/um-dia-como-gladiador-em-roma/timings.json';
 import roteiroTitanic from '../roteiros/voce-no-titanic-na-noite-do-naufragio.json';
 import timingsTitanic from '../public/audio/voce-no-titanic-na-noite-do-naufragio/timings.json';
+import roteiroPompeia from '../roteiros/voce-vive-em-pompeia-no-dia-da-erupcao.json';
+import timingsPompeia from '../public/audio/voce-vive-em-pompeia-no-dia-da-erupcao/timings.json';
 import roteiroBolo from '../roteiros/bolo-cenoura.json';
 import timingsBolo from '../public/audio/bolo-cenoura/timings.json';
 import roteiroBrownie from '../roteiros/brownie-facil.json';
@@ -73,6 +75,8 @@ export const Root: React.FC = () => {
         defaultProps={{roteiro: roteiroGladiador as unknown as RoteiroHistoria, timings: timingsGladiador as Timings, comAudio: !(timingsGladiador as Timings).estimado}} />
       <Composition id="voce-no-titanic-na-noite-do-naufragio" component={Historia} durationInFrames={total(timingsTitanic as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroTitanic as unknown as RoteiroHistoria, timings: timingsTitanic as Timings, comAudio: !(timingsTitanic as Timings).estimado}} />
+      <Composition id="voce-vive-em-pompeia-no-dia-da-erupcao" component={Historia} durationInFrames={total(timingsPompeia as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroPompeia as unknown as RoteiroHistoria, timings: timingsPompeia as Timings, comAudio: !(timingsPompeia as Timings).estimado}} />
       <Composition id="air-fryer-barata-vale-a-pena" component={Teste} durationInFrames={total(timingsAirFryerVP as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroAirFryerVP as unknown as RoteiroValeAPena, timings: timingsAirFryerVP as Timings, comAudio: !(timingsAirFryerVP as Timings).estimado}} />
       <Composition id="como-o-silvio-santos-ficou-rico" component={Rico} durationInFrames={total(timingsSilvio as Timings)} fps={FPS} width={1080} height={1920}

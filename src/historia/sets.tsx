@@ -10,6 +10,7 @@ import {
   ZE_ESCRAVO, ZE_GLAD, ZE_SEM_ESCUDO, clamp01, lerp, suave,
 } from './pecas';
 import {SETS_TITANIC} from './titanic';
+import {SETS_POMPEIA} from './pompeia';
 
 export type LuzHistoria = 'dia' | 'tarde' | 'noite' | 'interior' | 'tunel';
 export type SetHistoria = {
@@ -458,5 +459,7 @@ export const SETS: Record<string, SetHistoria> = {
   },
   // ===== Você no Titanic (1912): cenários em ./titanic.tsx =====
   ...SETS_TITANIC,
+  // ===== Pompeia (79 d.C.): cenários em ./pompeia.tsx =====
+  ...SETS_POMPEIA,
 };
 
