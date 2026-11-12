@@ -28,5 +28,5 @@ Dados da plataforma (sem rede, sem segredos): `node plataforma/cli.mjs resumo | 
 
 ## Os 6 perfis
 Zé na Cozinha (receitas), Você na História, Você Construiu (quanto custa construir), Caso Explicado (crimes e mistérios),
-Como Ficou Rico, Vale a Pena? (produtos, afiliado). Config em `plataforma/perfis.json`; guia de cada formato em `docs/formatos/`.
+Seu Tostão (histórias do dinheiro), Vale a Pena? (produtos, afiliado). Config em `plataforma/perfis.json`; guia de cada formato em `docs/formatos/`.
 Funil: vídeo viral → perfil → link na bio (página de links, `plataforma/links.json`) → grupo de ofertas → venda como afiliado.
