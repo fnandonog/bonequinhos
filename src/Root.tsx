@@ -43,6 +43,8 @@ import roteiroMH370 from '../roteiros/o-misterio-do-voo-mh370.json';
 import timingsMH370 from '../public/audio/o-misterio-do-voo-mh370/timings.json';
 import roteiroPaoQueijo from '../roteiros/pao-de-queijo-de-liquidificador.json';
 import timingsPaoQueijo from '../public/audio/pao-de-queijo-de-liquidificador/timings.json';
+import roteiroKitnet25 from '../roteiros/kitnet-de-25-m-para-alugar.json';
+import timingsKitnet25 from '../public/audio/kitnet-de-25-m-para-alugar/timings.json';
 
 const total = (t: Timings) => t.cenas.reduce((s, c) => s + Math.round(c.duracao * FPS), 0);
 
@@ -85,6 +87,8 @@ export const Root: React.FC = () => {
         defaultProps={{roteiro: roteiroMH370 as unknown as RoteiroCaso, timings: timingsMH370 as Timings, comAudio: !(timingsMH370 as Timings).estimado}} />
       <Composition id="pao-de-queijo-de-liquidificador" component={Receita} durationInFrames={total(timingsPaoQueijo as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroPaoQueijo as unknown as RoteiroReceita, timings: timingsPaoQueijo as Timings, comAudio: !(timingsPaoQueijo as Timings).estimado}} />
+      <Composition id="kitnet-de-25-m-para-alugar" component={Obra} durationInFrames={total(timingsKitnet25 as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroKitnet25 as unknown as RoteiroObra, timings: timingsKitnet25 as Timings, comAudio: !(timingsKitnet25 as Timings).estimado}} />
     </>
   );
 };
