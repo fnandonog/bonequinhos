@@ -1,5 +1,5 @@
 import React from 'react';
-import {Composition} from 'remotion';
+import {Composition, Still} from 'remotion';
 import {Video, FPS, Roteiro, Timings} from './Video';
 import {Serie, RoteiroSerie} from './v2/Serie';
 import {Construcao, RoteiroConstrucao} from './v3/Construcao';
@@ -36,6 +36,7 @@ import {Teste, RoteiroValeAPena} from './valeapena/Teste';
 import roteiroAirFryerVP from '../roteiros/air-fryer-barata-vale-a-pena.json';
 import timingsAirFryerVP from '../public/audio/air-fryer-barata-vale-a-pena/timings.json';
 import {Rico, RoteiroRico} from './rico/Rico';
+import {AvatarTostao, BannerTostao} from './rico/tostao';
 import roteiroSilvio from '../roteiros/como-o-silvio-santos-ficou-rico.json';
 import timingsSilvio from '../public/audio/como-o-silvio-santos-ficou-rico/timings.json';
 import roteiroMcDonald from '../roteiros/como-o-mcdonald-s-ganha-dinheiro-de-verd.json';
@@ -91,6 +92,8 @@ export const Root: React.FC = () => {
         defaultProps={{roteiro: roteiroPompeia as unknown as RoteiroHistoria, timings: timingsPompeia as Timings, comAudio: !(timingsPompeia as Timings).estimado}} />
       <Composition id="air-fryer-barata-vale-a-pena" component={Teste} durationInFrames={total(timingsAirFryerVP as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroAirFryerVP as unknown as RoteiroValeAPena, timings: timingsAirFryerVP as Timings, comAudio: !(timingsAirFryerVP as Timings).estimado}} />
+      <Still id="avatar-tostao" component={AvatarTostao} width={1080} height={1080} />
+      <Still id="banner-tostao" component={BannerTostao} width={2560} height={1440} />
       <Composition id="como-o-silvio-santos-ficou-rico" component={Rico} durationInFrames={total(timingsSilvio as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroSilvio as unknown as RoteiroRico, timings: timingsSilvio as Timings, comAudio: !(timingsSilvio as Timings).estimado}} />
       <Composition id="como-o-mcdonald-s-ganha-dinheiro-de-verd" component={Rico} durationInFrames={total(timingsMcDonald as Timings)} fps={FPS} width={1080} height={1920}
