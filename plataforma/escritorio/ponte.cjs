@@ -15,6 +15,8 @@ function ligar() {
       const d = await dados();
       const it = d.item(id);
       if (!it || ['publicado', 'publicando'].includes(it.status)) return;
+      // vídeo marcado "só o dono aprova" (ex.: refeitos que o Fernando pediu para ver) não é aprovado pelo Gerente
+      if (data.approval === 'aprovado' && it.so_dono && data.reviewed_by !== 'admin') return;
       if (data.approval === 'aprovado' && !['aprovado'].includes(it.status)) {
         const p = d.perfil(it.perfil);
         // aprovado no escritório (pelo Fernando ou pelo Gerente Geral): sai no melhor horário do perfil, não na hora
