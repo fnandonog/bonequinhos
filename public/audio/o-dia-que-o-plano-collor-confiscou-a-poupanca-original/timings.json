@@ -1,0 +1,1284 @@
+{
+  "id": "o-dia-que-o-plano-collor-confiscou-a-poupanca",
+  "voz": "elevenlabs:RGbeQtiShYRDVCrd9b9w:eleven_multilingual_v2",
+  "cenas": [
+    {
+      "id": "c1",
+      "duracao": 7.959025,
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 0.0,
+          "fim": 0.151
+        },
+        {
+          "palavra": "mil",
+          "inicio": 0.174,
+          "fim": 0.325
+        },
+        {
+          "palavra": "novecentos",
+          "inicio": 0.36,
+          "fim": 0.952
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.01,
+          "fim": 1.033
+        },
+        {
+          "palavra": "noventa",
+          "inicio": 1.08,
+          "fim": 1.579
+        },
+        {
+          "palavra": "o",
+          "inicio": 1.858,
+          "fim": 1.927
+        },
+        {
+          "palavra": "governo",
+          "inicio": 1.985,
+          "fim": 2.368
+        },
+        {
+          "palavra": "prendeu",
+          "inicio": 2.415,
+          "fim": 2.775
+        },
+        {
+          "palavra": "a",
+          "inicio": 2.833,
+          "fim": 2.856
+        },
+        {
+          "palavra": "poupança",
+          "inicio": 2.902,
+          "fim": 3.471
+        },
+        {
+          "palavra": "do",
+          "inicio": 3.529,
+          "fim": 3.587
+        },
+        {
+          "palavra": "Brasil",
+          "inicio": 3.622,
+          "fim": 4.11
+        },
+        {
+          "palavra": "Três",
+          "inicio": 4.551,
+          "fim": 4.818
+        },
+        {
+          "palavra": "dias",
+          "inicio": 4.841,
+          "fim": 5.05
+        },
+        {
+          "palavra": "antes",
+          "inicio": 5.12,
+          "fim": 5.492
+        },
+        {
+          "palavra": "o",
+          "inicio": 5.584,
+          "fim": 5.642
+        },
+        {
+          "palavra": "Banco",
+          "inicio": 5.7,
+          "fim": 5.909
+        },
+        {
+          "palavra": "Central",
+          "inicio": 5.944,
+          "fim": 6.269
+        },
+        {
+          "palavra": "garantiu",
+          "inicio": 6.316,
+          "fim": 6.745
+        },
+        {
+          "palavra": "que",
+          "inicio": 6.803,
+          "fim": 6.885
+        },
+        {
+          "palavra": "não",
+          "inicio": 6.943,
+          "fim": 7.709
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "duracao": 15.250091,
+      "palavras": [
+        {
+          "palavra": "Senta",
+          "inicio": 0.0,
+          "fim": 0.441
+        },
+        {
+          "palavra": "aí",
+          "inicio": 0.464,
+          "fim": 0.778
+        },
+        {
+          "palavra": "que",
+          "inicio": 0.813,
+          "fim": 0.917
+        },
+        {
+          "palavra": "essa",
+          "inicio": 0.987,
+          "fim": 1.231
+        },
+        {
+          "palavra": "ninguém",
+          "inicio": 1.277,
+          "fim": 1.625
+        },
+        {
+          "palavra": "te",
+          "inicio": 1.66,
+          "fim": 1.741
+        },
+        {
+          "palavra": "contou",
+          "inicio": 1.788,
+          "fim": 2.508
+        },
+        {
+          "palavra": "Eu",
+          "inicio": 2.891,
+          "fim": 3.077
+        },
+        {
+          "palavra": "era",
+          "inicio": 3.123,
+          "fim": 3.262
+        },
+        {
+          "palavra": "caixa",
+          "inicio": 3.344,
+          "fim": 3.692
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.75,
+          "fim": 3.82
+        },
+        {
+          "palavra": "banco",
+          "inicio": 3.889,
+          "fim": 4.574
+        },
+        {
+          "palavra": "Sexta",
+          "inicio": 5.085,
+          "fim": 5.724
+        },
+        {
+          "palavra": "dezesseis",
+          "inicio": 5.817,
+          "fim": 6.385
+        },
+        {
+          "palavra": "de",
+          "inicio": 6.409,
+          "fim": 6.478
+        },
+        {
+          "palavra": "março",
+          "inicio": 6.536,
+          "fim": 7.105
+        },
+        {
+          "palavra": "terceiro",
+          "inicio": 7.279,
+          "fim": 7.732
+        },
+        {
+          "palavra": "dia",
+          "inicio": 7.79,
+          "fim": 7.941
+        },
+        {
+          "palavra": "de",
+          "inicio": 7.999,
+          "fim": 8.069
+        },
+        {
+          "palavra": "banco",
+          "inicio": 8.127,
+          "fim": 8.44
+        },
+        {
+          "palavra": "fechado",
+          "inicio": 8.487,
+          "fim": 9.3
+        },
+        {
+          "palavra": "A",
+          "inicio": 9.996,
+          "fim": 10.066
+        },
+        {
+          "palavra": "ministra",
+          "inicio": 10.136,
+          "fim": 10.542
+        },
+        {
+          "palavra": "da",
+          "inicio": 10.588,
+          "fim": 10.646
+        },
+        {
+          "palavra": "Economia",
+          "inicio": 10.67,
+          "fim": 11.424
+        },
+        {
+          "palavra": "Zélia",
+          "inicio": 11.703,
+          "fim": 12.086
+        },
+        {
+          "palavra": "Cardoso",
+          "inicio": 12.144,
+          "fim": 12.632
+        },
+        {
+          "palavra": "de",
+          "inicio": 12.678,
+          "fim": 12.748
+        },
+        {
+          "palavra": "Mello",
+          "inicio": 12.806,
+          "fim": 13.293
+        },
+        {
+          "palavra": "anunciou",
+          "inicio": 13.537,
+          "fim": 13.99
+        },
+        {
+          "palavra": "um",
+          "inicio": 14.013,
+          "fim": 14.06
+        },
+        {
+          "palavra": "plano",
+          "inicio": 14.141,
+          "fim": 15.0
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "duracao": 8.887823,
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 0.0,
+          "fim": 0.07
+        },
+        {
+          "palavra": "motivo",
+          "inicio": 0.151,
+          "fim": 0.615
+        },
+        {
+          "palavra": "era",
+          "inicio": 0.639,
+          "fim": 0.755
+        },
+        {
+          "palavra": "a",
+          "inicio": 0.789,
+          "fim": 0.813
+        },
+        {
+          "palavra": "inflação",
+          "inicio": 0.929,
+          "fim": 1.765
+        },
+        {
+          "palavra": "o",
+          "inicio": 1.939,
+          "fim": 2.009
+        },
+        {
+          "palavra": "preço",
+          "inicio": 2.078,
+          "fim": 2.461
+        },
+        {
+          "palavra": "quase",
+          "inicio": 2.531,
+          "fim": 2.879
+        },
+        {
+          "palavra": "dobrando",
+          "inicio": 2.926,
+          "fim": 3.425
+        },
+        {
+          "palavra": "todo",
+          "inicio": 3.506,
+          "fim": 3.773
+        },
+        {
+          "palavra": "mês",
+          "inicio": 3.82,
+          "fim": 4.354
+        },
+        {
+          "palavra": "Num",
+          "inicio": 4.795,
+          "fim": 4.992
+        },
+        {
+          "palavra": "mês",
+          "inicio": 5.016,
+          "fim": 5.19
+        },
+        {
+          "palavra": "só",
+          "inicio": 5.236,
+          "fim": 5.561
+        },
+        {
+          "palavra": "oitenta",
+          "inicio": 5.631,
+          "fim": 6.177
+        },
+        {
+          "palavra": "e",
+          "inicio": 6.2,
+          "fim": 6.223
+        },
+        {
+          "palavra": "dois",
+          "inicio": 6.281,
+          "fim": 6.455
+        },
+        {
+          "palavra": "por",
+          "inicio": 6.525,
+          "fim": 6.641
+        },
+        {
+          "palavra": "cento",
+          "inicio": 6.699,
+          "fim": 7.21
+        },
+        {
+          "palavra": "Aí",
+          "inicio": 7.419,
+          "fim": 7.581
+        },
+        {
+          "palavra": "veio",
+          "inicio": 7.616,
+          "fim": 7.802
+        },
+        {
+          "palavra": "a",
+          "inicio": 7.825,
+          "fim": 7.86
+        },
+        {
+          "palavra": "regra",
+          "inicio": 7.953,
+          "fim": 8.638
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "duracao": 12.603016,
+      "palavras": [
+        {
+          "palavra": "Poupança",
+          "inicio": 0.0,
+          "fim": 0.662
+        },
+        {
+          "palavra": "é",
+          "inicio": 0.685,
+          "fim": 0.731
+        },
+        {
+          "palavra": "a",
+          "inicio": 0.755,
+          "fim": 0.778
+        },
+        {
+          "palavra": "conta",
+          "inicio": 0.848,
+          "fim": 1.161
+        },
+        {
+          "palavra": "onde",
+          "inicio": 1.184,
+          "fim": 1.347
+        },
+        {
+          "palavra": "o",
+          "inicio": 1.382,
+          "fim": 1.405
+        },
+        {
+          "palavra": "povo",
+          "inicio": 1.498,
+          "fim": 1.846
+        },
+        {
+          "palavra": "guarda",
+          "inicio": 1.916,
+          "fim": 2.287
+        },
+        {
+          "palavra": "dinheiro",
+          "inicio": 2.334,
+          "fim": 3.123
+        },
+        {
+          "palavra": "Cada",
+          "inicio": 3.367,
+          "fim": 3.634
+        },
+        {
+          "palavra": "um",
+          "inicio": 3.75,
+          "fim": 3.831
+        },
+        {
+          "palavra": "só",
+          "inicio": 3.878,
+          "fim": 3.994
+        },
+        {
+          "palavra": "sacava",
+          "inicio": 4.052,
+          "fim": 4.54
+        },
+        {
+          "palavra": "cinquenta",
+          "inicio": 4.574,
+          "fim": 5.097
+        },
+        {
+          "palavra": "mil",
+          "inicio": 5.143,
+          "fim": 5.283
+        },
+        {
+          "palavra": "cruzados",
+          "inicio": 5.329,
+          "fim": 5.979
+        },
+        {
+          "palavra": "novos",
+          "inicio": 6.037,
+          "fim": 6.362
+        },
+        {
+          "palavra": "por",
+          "inicio": 6.409,
+          "fim": 6.525
+        },
+        {
+          "palavra": "banco",
+          "inicio": 6.583,
+          "fim": 7.14
+        },
+        {
+          "palavra": "Era",
+          "inicio": 7.523,
+          "fim": 7.732
+        },
+        {
+          "palavra": "a",
+          "inicio": 7.755,
+          "fim": 7.906
+        },
+        {
+          "palavra": "moeda",
+          "inicio": 7.964,
+          "fim": 8.382
+        },
+        {
+          "palavra": "da",
+          "inicio": 8.44,
+          "fim": 8.522
+        },
+        {
+          "palavra": "época",
+          "inicio": 8.638,
+          "fim": 9.276
+        },
+        {
+          "palavra": "Isso",
+          "inicio": 9.555,
+          "fim": 9.822
+        },
+        {
+          "palavra": "dá",
+          "inicio": 9.892,
+          "fim": 9.985
+        },
+        {
+          "palavra": "uns",
+          "inicio": 10.101,
+          "fim": 10.205
+        },
+        {
+          "palavra": "oito",
+          "inicio": 10.275,
+          "fim": 10.519
+        },
+        {
+          "palavra": "mil",
+          "inicio": 10.565,
+          "fim": 10.716
+        },
+        {
+          "palavra": "reais",
+          "inicio": 10.786,
+          "fim": 11.053
+        },
+        {
+          "palavra": "de",
+          "inicio": 11.099,
+          "fim": 11.169
+        },
+        {
+          "palavra": "hoje",
+          "inicio": 11.227,
+          "fim": 12.353
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "duracao": 9.955941,
+      "palavras": [
+        {
+          "palavra": "O",
+          "inicio": 0.0,
+          "fim": 0.116
+        },
+        {
+          "palavra": "resto",
+          "inicio": 0.209,
+          "fim": 0.488
+        },
+        {
+          "palavra": "ficou",
+          "inicio": 0.534,
+          "fim": 0.801
+        },
+        {
+          "palavra": "preso",
+          "inicio": 0.859,
+          "fim": 1.219
+        },
+        {
+          "palavra": "no",
+          "inicio": 1.277,
+          "fim": 1.358
+        },
+        {
+          "palavra": "Banco",
+          "inicio": 1.416,
+          "fim": 1.695
+        },
+        {
+          "palavra": "Central",
+          "inicio": 1.73,
+          "fim": 2.403
+        },
+        {
+          "palavra": "o",
+          "inicio": 2.612,
+          "fim": 2.705
+        },
+        {
+          "palavra": "banco",
+          "inicio": 2.775,
+          "fim": 3.135
+        },
+        {
+          "palavra": "do",
+          "inicio": 3.193,
+          "fim": 3.262
+        },
+        {
+          "palavra": "governo",
+          "inicio": 3.309,
+          "fim": 3.982
+        },
+        {
+          "palavra": "Por",
+          "inicio": 5.283,
+          "fim": 5.457
+        },
+        {
+          "palavra": "dezoito",
+          "inicio": 5.526,
+          "fim": 6.026
+        },
+        {
+          "palavra": "meses",
+          "inicio": 6.072,
+          "fim": 6.722
+        },
+        {
+          "palavra": "Cerca",
+          "inicio": 7.001,
+          "fim": 7.454
+        },
+        {
+          "palavra": "de",
+          "inicio": 7.523,
+          "fim": 7.628
+        },
+        {
+          "palavra": "cem",
+          "inicio": 7.686,
+          "fim": 7.918
+        },
+        {
+          "palavra": "bilhões",
+          "inicio": 7.976,
+          "fim": 8.406
+        },
+        {
+          "palavra": "de",
+          "inicio": 8.429,
+          "fim": 8.499
+        },
+        {
+          "palavra": "dólares",
+          "inicio": 8.557,
+          "fim": 9.706
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "duracao": 9.909501,
+      "palavras": [
+        {
+          "palavra": "Na",
+          "inicio": 0.0,
+          "fim": 0.163
+        },
+        {
+          "palavra": "segunda",
+          "inicio": 0.209,
+          "fim": 0.639
+        },
+        {
+          "palavra": "eu",
+          "inicio": 0.673,
+          "fim": 0.778
+        },
+        {
+          "palavra": "abri",
+          "inicio": 0.836,
+          "fim": 1.022
+        },
+        {
+          "palavra": "o",
+          "inicio": 1.057,
+          "fim": 1.091
+        },
+        {
+          "palavra": "caixa",
+          "inicio": 1.161,
+          "fim": 1.66
+        },
+        {
+          "palavra": "Uns",
+          "inicio": 1.939,
+          "fim": 2.101
+        },
+        {
+          "palavra": "dez",
+          "inicio": 2.159,
+          "fim": 2.357
+        },
+        {
+          "palavra": "milhões",
+          "inicio": 2.426,
+          "fim": 2.775
+        },
+        {
+          "palavra": "de",
+          "inicio": 2.798,
+          "fim": 2.856
+        },
+        {
+          "palavra": "pessoas",
+          "inicio": 2.914,
+          "fim": 3.309
+        },
+        {
+          "palavra": "fizeram",
+          "inicio": 3.367,
+          "fim": 3.738
+        },
+        {
+          "palavra": "fila",
+          "inicio": 3.808,
+          "fim": 4.272
+        },
+        {
+          "palavra": "Teve",
+          "inicio": 4.656,
+          "fim": 4.946
+        },
+        {
+          "palavra": "pai",
+          "inicio": 5.062,
+          "fim": 5.259
+        },
+        {
+          "palavra": "que",
+          "inicio": 5.317,
+          "fim": 5.387
+        },
+        {
+          "palavra": "juntava",
+          "inicio": 5.445,
+          "fim": 5.898
+        },
+        {
+          "palavra": "para",
+          "inicio": 5.956,
+          "fim": 6.13
+        },
+        {
+          "palavra": "a",
+          "inicio": 6.153,
+          "fim": 6.177
+        },
+        {
+          "palavra": "casa",
+          "inicio": 6.235,
+          "fim": 6.513
+        },
+        {
+          "palavra": "própria",
+          "inicio": 6.571,
+          "fim": 7.163
+        },
+        {
+          "palavra": "Ficou",
+          "inicio": 7.546,
+          "fim": 7.872
+        },
+        {
+          "palavra": "tudo",
+          "inicio": 7.941,
+          "fim": 8.197
+        },
+        {
+          "palavra": "preso",
+          "inicio": 8.231,
+          "fim": 9.659
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "duracao": 18.222245,
+      "palavras": [
+        {
+          "palavra": "Só",
+          "inicio": 0.0,
+          "fim": 0.186
+        },
+        {
+          "palavra": "que",
+          "inicio": 0.244,
+          "fim": 0.325
+        },
+        {
+          "palavra": "a",
+          "inicio": 0.348,
+          "fim": 0.372
+        },
+        {
+          "palavra": "surpresa",
+          "inicio": 0.418,
+          "fim": 0.894
+        },
+        {
+          "palavra": "veio",
+          "inicio": 0.952,
+          "fim": 1.126
+        },
+        {
+          "palavra": "na",
+          "inicio": 1.161,
+          "fim": 1.254
+        },
+        {
+          "palavra": "volta",
+          "inicio": 1.3,
+          "fim": 1.707
+        },
+        {
+          "palavra": "Voltou",
+          "inicio": 1.916,
+          "fim": 2.299
+        },
+        {
+          "palavra": "aos",
+          "inicio": 2.357,
+          "fim": 2.473
+        },
+        {
+          "palavra": "poucos",
+          "inicio": 2.554,
+          "fim": 3.007
+        },
+        {
+          "palavra": "só",
+          "inicio": 3.181,
+          "fim": 3.332
+        },
+        {
+          "palavra": "em",
+          "inicio": 3.39,
+          "fim": 3.448
+        },
+        {
+          "palavra": "agosto",
+          "inicio": 3.483,
+          "fim": 3.889
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.947,
+          "fim": 4.017
+        },
+        {
+          "palavra": "noventa",
+          "inicio": 4.075,
+          "fim": 4.481
+        },
+        {
+          "palavra": "e",
+          "inicio": 4.528,
+          "fim": 4.563
+        },
+        {
+          "palavra": "um",
+          "inicio": 4.644,
+          "fim": 4.911
+        },
+        {
+          "palavra": "Lembra",
+          "inicio": 5.724,
+          "fim": 6.037
+        },
+        {
+          "palavra": "dos",
+          "inicio": 6.084,
+          "fim": 6.246
+        },
+        {
+          "palavra": "oitenta",
+          "inicio": 6.293,
+          "fim": 6.664
+        },
+        {
+          "palavra": "e",
+          "inicio": 6.687,
+          "fim": 6.711
+        },
+        {
+          "palavra": "dois",
+          "inicio": 6.769,
+          "fim": 6.954
+        },
+        {
+          "palavra": "por",
+          "inicio": 7.001,
+          "fim": 7.129
+        },
+        {
+          "palavra": "cento",
+          "inicio": 7.175,
+          "fim": 7.744
+        },
+        {
+          "palavra": "O",
+          "inicio": 8.44,
+          "fim": 8.522
+        },
+        {
+          "palavra": "governo",
+          "inicio": 8.58,
+          "fim": 8.975
+        },
+        {
+          "palavra": "corrigiu",
+          "inicio": 9.021,
+          "fim": 9.404
+        },
+        {
+          "palavra": "o",
+          "inicio": 9.427,
+          "fim": 9.451
+        },
+        {
+          "palavra": "dinheiro",
+          "inicio": 9.509,
+          "fim": 9.845
+        },
+        {
+          "palavra": "preso",
+          "inicio": 9.915,
+          "fim": 10.24
+        },
+        {
+          "palavra": "por",
+          "inicio": 10.298,
+          "fim": 10.437
+        },
+        {
+          "palavra": "outra",
+          "inicio": 10.495,
+          "fim": 10.728
+        },
+        {
+          "palavra": "conta",
+          "inicio": 10.774,
+          "fim": 11.273
+        },
+        {
+          "palavra": "Deu",
+          "inicio": 11.389,
+          "fim": 11.564
+        },
+        {
+          "palavra": "só",
+          "inicio": 11.622,
+          "fim": 11.738
+        },
+        {
+          "palavra": "quarenta",
+          "inicio": 11.796,
+          "fim": 12.167
+        },
+        {
+          "palavra": "e",
+          "inicio": 12.202,
+          "fim": 12.248
+        },
+        {
+          "palavra": "um",
+          "inicio": 12.318,
+          "fim": 12.643
+        },
+        {
+          "palavra": "É",
+          "inicio": 13.456,
+          "fim": 13.537
+        },
+        {
+          "palavra": "como",
+          "inicio": 13.618,
+          "fim": 13.862
+        },
+        {
+          "palavra": "o",
+          "inicio": 13.885,
+          "fim": 13.909
+        },
+        {
+          "palavra": "pão",
+          "inicio": 13.967,
+          "fim": 14.118
+        },
+        {
+          "palavra": "de",
+          "inicio": 14.164,
+          "fim": 14.234
+        },
+        {
+          "palavra": "dez",
+          "inicio": 14.303,
+          "fim": 14.547
+        },
+        {
+          "palavra": "ir",
+          "inicio": 14.663,
+          "fim": 14.745
+        },
+        {
+          "palavra": "para",
+          "inicio": 14.803,
+          "fim": 14.93
+        },
+        {
+          "palavra": "dezoito",
+          "inicio": 14.988,
+          "fim": 15.592
+        },
+        {
+          "palavra": "E",
+          "inicio": 15.836,
+          "fim": 15.929
+        },
+        {
+          "palavra": "seus",
+          "inicio": 16.022,
+          "fim": 16.219
+        },
+        {
+          "palavra": "dez",
+          "inicio": 16.277,
+          "fim": 16.463
+        },
+        {
+          "palavra": "virarem",
+          "inicio": 16.521,
+          "fim": 16.881
+        },
+        {
+          "palavra": "catorze",
+          "inicio": 16.927,
+          "fim": 17.972
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "duracao": 18.082925,
+      "palavras": [
+        {
+          "palavra": "Trinta",
+          "inicio": 0.0,
+          "fim": 0.418
+        },
+        {
+          "palavra": "e",
+          "inicio": 0.441,
+          "fim": 0.464
+        },
+        {
+          "palavra": "seis",
+          "inicio": 0.522,
+          "fim": 0.755
+        },
+        {
+          "palavra": "anos",
+          "inicio": 0.824,
+          "fim": 1.022
+        },
+        {
+          "palavra": "depois",
+          "inicio": 1.068,
+          "fim": 1.556
+        },
+        {
+          "palavra": "ainda",
+          "inicio": 1.602,
+          "fim": 1.892
+        },
+        {
+          "palavra": "tem",
+          "inicio": 1.95,
+          "fim": 2.113
+        },
+        {
+          "palavra": "gente",
+          "inicio": 2.159,
+          "fim": 2.461
+        },
+        {
+          "palavra": "na",
+          "inicio": 2.508,
+          "fim": 2.589
+        },
+        {
+          "palavra": "Justiça",
+          "inicio": 2.635,
+          "fim": 3.274
+        },
+        {
+          "palavra": "O",
+          "inicio": 3.971,
+          "fim": 4.04
+        },
+        {
+          "palavra": "acordo",
+          "inicio": 4.11,
+          "fim": 4.505
+        },
+        {
+          "palavra": "com",
+          "inicio": 4.551,
+          "fim": 4.667
+        },
+        {
+          "palavra": "os",
+          "inicio": 4.69,
+          "fim": 4.737
+        },
+        {
+          "palavra": "bancos",
+          "inicio": 4.795,
+          "fim": 5.155
+        },
+        {
+          "palavra": "deixou",
+          "inicio": 5.201,
+          "fim": 5.503
+        },
+        {
+          "palavra": "de",
+          "inicio": 5.561,
+          "fim": 5.631
+        },
+        {
+          "palavra": "fora",
+          "inicio": 5.7,
+          "fim": 5.956
+        },
+        {
+          "palavra": "o",
+          "inicio": 5.979,
+          "fim": 6.002
+        },
+        {
+          "palavra": "dinheiro",
+          "inicio": 6.06,
+          "fim": 6.385
+        },
+        {
+          "palavra": "preso",
+          "inicio": 6.444,
+          "fim": 6.954
+        },
+        {
+          "palavra": "A",
+          "inicio": 7.198,
+          "fim": 7.268
+        },
+        {
+          "palavra": "lição",
+          "inicio": 7.338,
+          "fim": 7.953
+        },
+        {
+          "palavra": "Nem",
+          "inicio": 8.336,
+          "fim": 8.638
+        },
+        {
+          "palavra": "dinheiro",
+          "inicio": 8.673,
+          "fim": 9.067
+        },
+        {
+          "palavra": "guardado",
+          "inicio": 9.114,
+          "fim": 9.683
+        },
+        {
+          "palavra": "fica",
+          "inicio": 9.729,
+          "fim": 9.973
+        },
+        {
+          "palavra": "guardado",
+          "inicio": 10.008,
+          "fim": 10.762
+        },
+        {
+          "palavra": "Você",
+          "inicio": 11.146,
+          "fim": 11.459
+        },
+        {
+          "palavra": "ou",
+          "inicio": 11.552,
+          "fim": 11.598
+        },
+        {
+          "palavra": "seus",
+          "inicio": 11.645,
+          "fim": 11.831
+        },
+        {
+          "palavra": "pais",
+          "inicio": 11.889,
+          "fim": 12.098
+        },
+        {
+          "palavra": "perderam",
+          "inicio": 12.167,
+          "fim": 12.597
+        },
+        {
+          "palavra": "dinheiro",
+          "inicio": 12.643,
+          "fim": 13.015
+        },
+        {
+          "palavra": "nessa",
+          "inicio": 13.073,
+          "fim": 13.642
+        },
+        {
+          "palavra": "Guarda",
+          "inicio": 14.338,
+          "fim": 14.791
+        },
+        {
+          "palavra": "esse",
+          "inicio": 14.826,
+          "fim": 14.988
+        },
+        {
+          "palavra": "tostão",
+          "inicio": 15.035,
+          "fim": 15.755
+        },
+        {
+          "palavra": "Amanhã",
+          "inicio": 15.964,
+          "fim": 16.382
+        },
+        {
+          "palavra": "eu",
+          "inicio": 16.416,
+          "fim": 16.521
+        },
+        {
+          "palavra": "conto",
+          "inicio": 16.614,
+          "fim": 16.962
+        },
+        {
+          "palavra": "outra",
+          "inicio": 17.078,
+          "fim": 17.833
+        }
+      ]
+    }
+  ]
+}
