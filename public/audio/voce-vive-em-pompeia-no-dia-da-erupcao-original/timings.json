@@ -4,1028 +4,1268 @@
   "cenas": [
     {
       "id": "c1",
-      "duracao": 9.955941,
+      "duracao": 12.974535,
       "palavras": [
         {
-          "palavra": "Vinte",
+          "palavra": "Em",
           "inicio": 0.0,
-          "fim": 0.313
+          "fim": 0.163
         },
         {
-          "palavra": "e",
-          "inicio": 0.337,
-          "fim": 0.36
-        },
-        {
-          "palavra": "quatro",
-          "inicio": 0.43,
-          "fim": 0.766
+          "palavra": "menos",
+          "inicio": 0.209,
+          "fim": 0.453
         },
         {
           "palavra": "de",
-          "inicio": 0.813,
-          "fim": 0.882
+          "inicio": 0.499,
+          "fim": 0.546
         },
         {
-          "palavra": "agosto",
-          "inicio": 0.917,
-          "fim": 1.428
+          "palavra": "um",
+          "inicio": 0.604,
+          "fim": 0.662
         },
         {
-          "palavra": "ano",
-          "inicio": 1.474,
-          "fim": 1.649
+          "palavra": "dia",
+          "inicio": 0.743,
+          "fim": 1.103
         },
         {
-          "palavra": "setenta",
-          "inicio": 1.695,
-          "fim": 2.171
-        },
-        {
-          "palavra": "e",
-          "inicio": 2.206,
-          "fim": 2.241
-        },
-        {
-          "palavra": "nove",
-          "inicio": 2.276,
-          "fim": 2.566
-        },
-        {
-          "palavra": "depois",
-          "inicio": 2.601,
-          "fim": 2.868
-        },
-        {
-          "palavra": "de",
-          "inicio": 2.914,
-          "fim": 2.972
-        },
-        {
-          "palavra": "Cristo",
-          "inicio": 3.03,
-          "fim": 3.553
-        },
-        {
-          "palavra": "Você",
-          "inicio": 3.796,
-          "fim": 4.005
-        },
-        {
-          "palavra": "mora",
-          "inicio": 4.063,
-          "fim": 4.238
-        },
-        {
-          "palavra": "em",
-          "inicio": 4.261,
-          "fim": 4.319
-        },
-        {
-          "palavra": "Pompeia",
-          "inicio": 4.365,
-          "fim": 5.132
-        },
-        {
-          "palavra": "uma",
-          "inicio": 5.283,
-          "fim": 5.445
+          "palavra": "essa",
+          "inicio": 1.138,
+          "fim": 1.37
         },
         {
           "palavra": "cidade",
-          "inicio": 5.48,
-          "fim": 5.909
+          "inicio": 1.416,
+          "fim": 1.846
         },
         {
-          "palavra": "de",
-          "inicio": 5.979,
-          "fim": 6.072
+          "palavra": "vai",
+          "inicio": 1.892,
+          "fim": 2.009
         },
         {
-          "palavra": "onze",
-          "inicio": 6.13,
-          "fim": 6.362
+          "palavra": "sumir",
+          "inicio": 2.043,
+          "fim": 2.461
         },
         {
-          "palavra": "mil",
-          "inicio": 6.432,
-          "fim": 6.571
+          "palavra": "do",
+          "inicio": 2.531,
+          "fim": 2.612
         },
         {
-          "palavra": "pessoas",
-          "inicio": 6.606,
-          "fim": 7.268
+          "palavra": "mapa",
+          "inicio": 2.682,
+          "fim": 3.204
         },
         {
           "palavra": "E",
-          "inicio": 7.454,
-          "fim": 7.558
+          "inicio": 3.413,
+          "fim": 3.506
         },
         {
-          "palavra": "a",
-          "inicio": 7.628,
-          "fim": 7.651
+          "palavra": "você",
+          "inicio": 3.576,
+          "fim": 3.808
+        },
+        {
+          "palavra": "mora",
+          "inicio": 3.924,
+          "fim": 4.203
+        },
+        {
+          "palavra": "nela",
+          "inicio": 4.272,
+          "fim": 4.795
+        },
+        {
+          "palavra": "É",
+          "inicio": 4.969,
+          "fim": 5.05
+        },
+        {
+          "palavra": "Pompeia",
+          "inicio": 5.132,
+          "fim": 5.817
+        },
+        {
+          "palavra": "cidade",
+          "inicio": 5.909,
+          "fim": 6.339
+        },
+        {
+          "palavra": "romana",
+          "inicio": 6.374,
+          "fim": 6.861
+        },
+        {
+          "palavra": "de",
+          "inicio": 6.92,
+          "fim": 7.012
+        },
+        {
+          "palavra": "onze",
+          "inicio": 7.082,
+          "fim": 7.291
+        },
+        {
+          "palavra": "mil",
+          "inicio": 7.361,
+          "fim": 7.512
+        },
+        {
+          "palavra": "pessoas",
+          "inicio": 7.558,
+          "fim": 8.278
+        },
+        {
+          "palavra": "quase",
+          "inicio": 8.487,
+          "fim": 8.812
+        },
+        {
+          "palavra": "dois",
+          "inicio": 8.882,
+          "fim": 9.102
+        },
+        {
+          "palavra": "mil",
+          "inicio": 9.183,
+          "fim": 9.346
+        },
+        {
+          "palavra": "anos",
+          "inicio": 9.416,
+          "fim": 9.648
+        },
+        {
+          "palavra": "atrás",
+          "inicio": 9.718,
+          "fim": 10.321
+        },
+        {
+          "palavra": "E",
+          "inicio": 10.53,
+          "fim": 10.623
+        },
+        {
+          "palavra": "ninguém",
+          "inicio": 10.716,
+          "fim": 11.088
+        },
+        {
+          "palavra": "tem",
+          "inicio": 11.146,
+          "fim": 11.285
+        },
+        {
+          "palavra": "medo",
+          "inicio": 11.378,
+          "fim": 11.633
+        },
+        {
+          "palavra": "da",
+          "inicio": 11.68,
+          "fim": 11.738
         },
         {
           "palavra": "montanha",
-          "inicio": 7.697,
-          "fim": 8.069
-        },
-        {
-          "palavra": "no",
-          "inicio": 8.104,
-          "fim": 8.185
-        },
-        {
-          "palavra": "fundo",
-          "inicio": 8.243,
-          "fim": 8.499
-        },
-        {
-          "palavra": "está",
-          "inicio": 8.533,
-          "fim": 8.719
-        },
-        {
-          "palavra": "acordando",
-          "inicio": 8.754,
-          "fim": 9.706
+          "inicio": 11.784,
+          "fim": 12.725
         }
       ]
     },
     {
       "id": "c2",
-      "duracao": 12.324376,
+      "duracao": 15.48229,
       "palavras": [
         {
-          "palavra": "Pompeia",
+          "palavra": "Fica",
           "inicio": 0.0,
+          "fim": 0.372
+        },
+        {
+          "palavra": "no",
+          "inicio": 0.418,
           "fim": 0.534
         },
         {
-          "palavra": "fica",
-          "inicio": 0.58,
-          "fim": 0.801
-        },
-        {
-          "palavra": "no",
-          "inicio": 0.848,
-          "fim": 0.929
-        },
-        {
           "palavra": "sul",
-          "inicio": 0.998,
-          "fim": 1.219
+          "inicio": 0.627,
+          "fim": 0.882
         },
         {
           "palavra": "da",
-          "inicio": 1.254,
-          "fim": 1.324
+          "inicio": 0.929,
+          "fim": 1.01
         },
         {
           "palavra": "Itália",
-          "inicio": 1.358,
-          "fim": 1.939
+          "inicio": 1.068,
+          "fim": 1.718
         },
         {
-          "palavra": "à",
-          "inicio": 2.09,
-          "fim": 2.136
+          "palavra": "a",
+          "inicio": 1.869,
+          "fim": 1.927
         },
         {
-          "palavra": "beira",
-          "inicio": 2.241,
-          "fim": 2.461
+          "palavra": "oito",
+          "inicio": 1.962,
+          "fim": 2.276
         },
         {
-          "palavra": "do",
-          "inicio": 2.496,
-          "fim": 2.566
+          "palavra": "quilômetros",
+          "inicio": 2.322,
+          "fim": 2.902
         },
         {
-          "palavra": "Mar",
-          "inicio": 2.624,
-          "fim": 2.775
+          "palavra": "da",
+          "inicio": 2.949,
+          "fim": 3.007
         },
         {
-          "palavra": "Tirreno",
-          "inicio": 2.821,
-          "fim": 3.413
+          "palavra": "montanha",
+          "inicio": 3.053,
+          "fim": 3.715
         },
         {
           "palavra": "Tem",
-          "inicio": 3.541,
-          "fim": 3.704
+          "inicio": 3.924,
+          "fim": 4.122
         },
         {
-          "palavra": "fórum",
-          "inicio": 3.762,
-          "fim": 4.214
+          "palavra": "praça",
+          "inicio": 4.191,
+          "fim": 4.772
         },
         {
-          "palavra": "termas",
-          "inicio": 4.272,
-          "fim": 4.992
+          "palavra": "banho",
+          "inicio": 4.899,
+          "fim": 5.143
+        },
+        {
+          "palavra": "público",
+          "inicio": 5.213,
+          "fim": 5.759
         },
         {
           "palavra": "e",
-          "inicio": 5.12,
-          "fim": 5.248
+          "inicio": 5.968,
+          "fim": 6.118
+        },
+        {
+          "palavra": "mais",
+          "inicio": 6.211,
+          "fim": 6.467
+        },
+        {
+          "palavra": "de",
+          "inicio": 6.525,
+          "fim": 6.571
         },
         {
           "palavra": "oitenta",
-          "inicio": 5.283,
-          "fim": 5.619
+          "inicio": 6.606,
+          "fim": 7.129
         },
         {
-          "palavra": "e",
-          "inicio": 5.642,
-          "fim": 5.666
-        },
-        {
-          "palavra": "seis",
-          "inicio": 5.735,
-          "fim": 5.968
-        },
-        {
-          "palavra": "thermopolia",
-          "inicio": 6.026,
-          "fim": 6.815
-        },
-        {
-          "palavra": "os",
-          "inicio": 7.094,
-          "fim": 7.21
-        },
-        {
-          "palavra": "bares",
-          "inicio": 7.268,
-          "fim": 7.477
+          "palavra": "lanchonetes",
+          "inicio": 7.175,
+          "fim": 7.802
         },
         {
           "palavra": "de",
-          "inicio": 7.512,
-          "fim": 7.57
-        },
-        {
-          "palavra": "comida",
-          "inicio": 7.605,
+          "inicio": 7.848,
           "fim": 7.918
         },
         {
-          "palavra": "quente",
-          "inicio": 7.999,
-          "fim": 8.301
-        },
-        {
-          "palavra": "de",
-          "inicio": 8.348,
+          "palavra": "rua",
+          "inicio": 7.976,
           "fim": 8.429
         },
         {
-          "palavra": "Roma",
-          "inicio": 8.475,
+          "palavra": "Muita",
+          "inicio": 8.638,
           "fim": 8.951
         },
         {
-          "palavra": "Você",
-          "inicio": 9.23,
-          "fim": 9.439
+          "palavra": "casa",
+          "inicio": 9.009,
+          "fim": 9.404
         },
         {
-          "palavra": "compra",
-          "inicio": 9.509,
-          "fim": 9.752
+          "palavra": "nem",
+          "inicio": 9.462,
+          "fim": 9.601
+        },
+        {
+          "palavra": "tem",
+          "inicio": 9.671,
+          "fim": 9.822
+        },
+        {
+          "palavra": "cozinha",
+          "inicio": 9.868,
+          "fim": 10.565
+        },
+        {
+          "palavra": "então",
+          "inicio": 10.716,
+          "fim": 11.227
+        },
+        {
+          "palavra": "o",
+          "inicio": 11.25,
+          "fim": 11.285
+        },
+        {
+          "palavra": "povo",
+          "inicio": 11.378,
+          "fim": 11.761
+        },
+        {
+          "palavra": "come",
+          "inicio": 11.819,
+          "fim": 12.063
+        },
+        {
+          "palavra": "fora",
+          "inicio": 12.132,
+          "fim": 12.632
+        },
+        {
+          "palavra": "E",
+          "inicio": 12.841,
+          "fim": 12.957
+        },
+        {
+          "palavra": "o",
+          "inicio": 13.038,
+          "fim": 13.073
         },
         {
           "palavra": "pão",
-          "inicio": 9.81,
-          "fim": 9.996
+          "inicio": 13.142,
+          "fim": 13.41
         },
         {
-          "palavra": "no",
-          "inicio": 10.031,
-          "fim": 10.101
+          "palavra": "sai",
+          "inicio": 13.468,
+          "fim": 13.677
         },
         {
-          "palavra": "balcão",
-          "inicio": 10.136,
-          "fim": 10.437
+          "palavra": "quente",
+          "inicio": 13.793,
+          "fim": 14.118
         },
         {
-          "palavra": "de",
-          "inicio": 10.472,
-          "fim": 10.542
+          "palavra": "da",
+          "inicio": 14.176,
+          "fim": 14.245
         },
         {
-          "palavra": "pedra",
-          "inicio": 10.612,
-          "fim": 10.925
-        },
-        {
-          "palavra": "de",
-          "inicio": 10.96,
-          "fim": 11.018
-        },
-        {
-          "palavra": "manhã",
-          "inicio": 11.064,
-          "fim": 11.273
-        },
-        {
-          "palavra": "cedo",
-          "inicio": 11.343,
-          "fim": 12.074
+          "palavra": "padaria",
+          "inicio": 14.292,
+          "fim": 15.232
         }
       ]
     },
     {
       "id": "c3",
-      "duracao": 8.376984,
+      "duracao": 10.884739,
       "palavras": [
         {
           "palavra": "O",
           "inicio": 0.0,
-          "fim": 0.093
+          "fim": 0.139
         },
         {
           "palavra": "chão",
-          "inicio": 0.174,
-          "fim": 0.43
+          "inicio": 0.232,
+          "fim": 0.546
         },
         {
-          "palavra": "às",
-          "inicio": 0.464,
-          "fim": 0.534
-        },
-        {
-          "palavra": "vezes",
+          "palavra": "anda",
           "inicio": 0.592,
-          "fim": 0.836
+          "fim": 0.778
         },
         {
-          "palavra": "treme",
-          "inicio": 0.906,
-          "fim": 1.335
+          "palavra": "tremendo",
+          "inicio": 0.824,
+          "fim": 1.533
         },
         {
           "palavra": "Dezessete",
-          "inicio": 1.544,
-          "fim": 2.125
+          "inicio": 1.974,
+          "fim": 2.752
         },
         {
           "palavra": "anos",
-          "inicio": 2.159,
-          "fim": 2.334
+          "inicio": 2.81,
+          "fim": 3.088
         },
         {
-          "palavra": "atrás",
-          "inicio": 2.392,
-          "fim": 2.81
-        },
-        {
-          "palavra": "em",
-          "inicio": 2.844,
-          "fim": 2.914
-        },
-        {
-          "palavra": "sessenta",
-          "inicio": 2.961,
-          "fim": 3.344
-        },
-        {
-          "palavra": "e",
-          "inicio": 3.367,
-          "fim": 3.402
-        },
-        {
-          "palavra": "dois",
-          "inicio": 3.437,
-          "fim": 3.878
+          "palavra": "antes",
+          "inicio": 3.17,
+          "fim": 3.715
         },
         {
           "palavra": "um",
-          "inicio": 4.029,
-          "fim": 4.098
+          "inicio": 3.831,
+          "fim": 3.913
         },
         {
           "palavra": "terremoto",
-          "inicio": 4.133,
-          "fim": 4.586
+          "inicio": 3.959,
+          "fim": 4.458
         },
         {
           "palavra": "derrubou",
-          "inicio": 4.632,
-          "fim": 4.969
+          "inicio": 4.516,
+          "fim": 4.899
         },
         {
           "palavra": "parte",
-          "inicio": 5.05,
-          "fim": 5.306
+          "inicio": 4.969,
+          "fim": 5.259
         },
         {
           "palavra": "da",
-          "inicio": 5.341,
-          "fim": 5.41
+          "inicio": 5.306,
+          "fim": 5.375
         },
         {
           "palavra": "cidade",
-          "inicio": 5.445,
-          "fim": 5.991
+          "inicio": 5.422,
+          "fim": 6.06
         },
         {
           "palavra": "Mas",
-          "inicio": 6.118,
-          "fim": 6.281
+          "inicio": 6.235,
+          "fim": 6.42
         },
         {
-          "palavra": "ninguém",
-          "inicio": 6.316,
-          "fim": 6.571
-        },
-        {
-          "palavra": "liga",
-          "inicio": 6.641,
-          "fim": 6.873
-        },
-        {
-          "palavra": "o",
-          "inicio": 6.908,
-          "fim": 6.943
+          "palavra": "ali",
+          "inicio": 6.49,
+          "fim": 6.676
         },
         {
           "palavra": "tremor",
-          "inicio": 6.978,
-          "fim": 7.279
+          "inicio": 6.745,
+          "fim": 7.117
         },
         {
-          "palavra": "à",
-          "inicio": 7.314,
-          "fim": 7.338
+          "palavra": "é",
+          "inicio": 7.163,
+          "fim": 7.187
+        },
+        {
+          "palavra": "normal",
+          "inicio": 7.245,
+          "fim": 7.883
+        },
+        {
+          "palavra": "e",
+          "inicio": 8.092,
+          "fim": 8.208
+        },
+        {
+          "palavra": "a",
+          "inicio": 8.266,
+          "fim": 8.29
         },
         {
           "palavra": "montanha",
-          "inicio": 7.372,
-          "fim": 8.127
+          "inicio": 8.336,
+          "fim": 8.742
+        },
+        {
+          "palavra": "não",
+          "inicio": 8.777,
+          "fim": 8.916
+        },
+        {
+          "palavra": "solta",
+          "inicio": 8.963,
+          "fim": 9.276
+        },
+        {
+          "palavra": "fogo",
+          "inicio": 9.358,
+          "fim": 9.659
+        },
+        {
+          "palavra": "há",
+          "inicio": 9.683,
+          "fim": 9.729
+        },
+        {
+          "palavra": "séculos",
+          "inicio": 9.822,
+          "fim": 10.635
         }
       ]
     },
     {
       "id": "c4",
-      "duracao": 10.095261,
+      "duracao": 17.107687,
       "palavras": [
         {
-          "palavra": "Ao",
+          "palavra": "Depois",
           "inicio": 0.0,
-          "fim": 0.139
-        },
-        {
-          "palavra": "meio-dia",
-          "inicio": 0.174,
-          "fim": 0.639
-        },
-        {
-          "palavra": "o",
-          "inicio": 0.673,
-          "fim": 0.731
-        },
-        {
-          "palavra": "Vesúvio",
-          "inicio": 0.789,
-          "fim": 1.37
-        },
-        {
-          "palavra": "explode",
-          "inicio": 1.428,
-          "fim": 2.09
-        },
-        {
-          "palavra": "Uma",
-          "inicio": 2.276,
-          "fim": 2.461
-        },
-        {
-          "palavra": "coluna",
-          "inicio": 2.508,
-          "fim": 2.821
-        },
-        {
-          "palavra": "de",
-          "inicio": 2.856,
-          "fim": 2.949
-        },
-        {
-          "palavra": "cinza",
-          "inicio": 2.995,
-          "fim": 3.39
-        },
-        {
-          "palavra": "e",
-          "inicio": 3.437,
-          "fim": 3.495
-        },
-        {
-          "palavra": "pedra",
-          "inicio": 3.553,
-          "fim": 3.901
-        },
-        {
-          "palavra": "sobe",
-          "inicio": 3.959,
-          "fim": 4.284
-        },
-        {
-          "palavra": "trinta",
-          "inicio": 4.342,
-          "fim": 4.632
-        },
-        {
-          "palavra": "quilômetros",
-          "inicio": 4.679,
-          "fim": 5.375
-        },
-        {
-          "palavra": "Por",
-          "inicio": 5.654,
-          "fim": 5.828
-        },
-        {
-          "palavra": "horas",
-          "inicio": 5.863,
-          "fim": 6.258
-        },
-        {
-          "palavra": "chovem",
-          "inicio": 6.293,
-          "fim": 6.653
-        },
-        {
-          "palavra": "pedras-pomes",
-          "inicio": 6.711,
-          "fim": 7.407
+          "fim": 0.372
         },
         {
           "palavra": "do",
-          "inicio": 7.454,
-          "fim": 7.523
+          "inicio": 0.418,
+          "fim": 0.476
         },
         {
-          "palavra": "tamanho",
-          "inicio": 7.581,
-          "fim": 7.895
+          "palavra": "meio-dia",
+          "inicio": 0.534,
+          "fim": 1.289
+        },
+        {
+          "palavra": "a",
+          "inicio": 1.44,
+          "fim": 1.486
+        },
+        {
+          "palavra": "montanha",
+          "inicio": 1.556,
+          "fim": 1.974
+        },
+        {
+          "palavra": "explode",
+          "inicio": 1.997,
+          "fim": 2.833
+        },
+        {
+          "palavra": "É",
+          "inicio": 3.077,
+          "fim": 3.146
+        },
+        {
+          "palavra": "um",
+          "inicio": 3.228,
+          "fim": 3.274
+        },
+        {
+          "palavra": "vulcão",
+          "inicio": 3.32,
+          "fim": 3.913
+        },
+        {
+          "palavra": "o",
+          "inicio": 3.982,
+          "fim": 4.075
+        },
+        {
+          "palavra": "Vesúvio",
+          "inicio": 4.156,
+          "fim": 5.085
+        },
+        {
+          "palavra": "Uma",
+          "inicio": 5.236,
+          "fim": 5.422
+        },
+        {
+          "palavra": "coluna",
+          "inicio": 5.48,
+          "fim": 5.805
         },
         {
           "palavra": "de",
-          "inicio": 7.93,
-          "fim": 7.988
+          "inicio": 5.851,
+          "fim": 5.944
         },
         {
-          "palavra": "laranjas",
-          "inicio": 8.022,
-          "fim": 8.406
+          "palavra": "cinza",
+          "inicio": 6.002,
+          "fim": 6.397
         },
         {
-          "palavra": "em",
-          "inicio": 8.464,
-          "fim": 8.533
+          "palavra": "sobe",
+          "inicio": 6.467,
+          "fim": 6.873
         },
         {
-          "palavra": "cima",
-          "inicio": 8.591,
-          "fim": 8.835
+          "palavra": "trinta",
+          "inicio": 6.943,
+          "fim": 7.291
         },
         {
-          "palavra": "da",
-          "inicio": 8.87,
-          "fim": 8.94
+          "palavra": "quilômetros",
+          "inicio": 7.349,
+          "fim": 8.115
         },
         {
-          "palavra": "cidade",
-          "inicio": 8.975,
-          "fim": 9.845
+          "palavra": "três",
+          "inicio": 8.29,
+          "fim": 8.591
+        },
+        {
+          "palavra": "vezes",
+          "inicio": 8.661,
+          "fim": 8.998
+        },
+        {
+          "palavra": "a",
+          "inicio": 9.067,
+          "fim": 9.091
+        },
+        {
+          "palavra": "altura",
+          "inicio": 9.114,
+          "fim": 9.474
+        },
+        {
+          "palavra": "de",
+          "inicio": 9.509,
+          "fim": 9.567
+        },
+        {
+          "palavra": "um",
+          "inicio": 9.613,
+          "fim": 9.659
+        },
+        {
+          "palavra": "avião",
+          "inicio": 9.706,
+          "fim": 10.275
+        },
+        {
+          "palavra": "Chove",
+          "inicio": 10.484,
+          "fim": 10.902
+        },
+        {
+          "palavra": "pedra-pomes",
+          "inicio": 10.971,
+          "fim": 11.981
+        },
+        {
+          "palavra": "uma",
+          "inicio": 12.132,
+          "fim": 12.318
+        },
+        {
+          "palavra": "pedra",
+          "inicio": 12.388,
+          "fim": 12.713
+        },
+        {
+          "palavra": "leve",
+          "inicio": 12.829,
+          "fim": 13.27
+        },
+        {
+          "palavra": "e",
+          "inicio": 13.293,
+          "fim": 13.363
+        },
+        {
+          "palavra": "furada",
+          "inicio": 13.433,
+          "fim": 14.048
+        },
+        {
+          "palavra": "E",
+          "inicio": 14.222,
+          "fim": 14.315
+        },
+        {
+          "palavra": "a",
+          "inicio": 14.385,
+          "fim": 14.419
+        },
+        {
+          "palavra": "chuva",
+          "inicio": 14.477,
+          "fim": 14.837
+        },
+        {
+          "palavra": "dura",
+          "inicio": 14.93,
+          "fim": 15.348
+        },
+        {
+          "palavra": "a",
+          "inicio": 15.395,
+          "fim": 15.418
+        },
+        {
+          "palavra": "noite",
+          "inicio": 15.511,
+          "fim": 15.905
+        },
+        {
+          "palavra": "inteira",
+          "inicio": 15.952,
+          "fim": 16.857
         }
       ]
     },
     {
       "id": "c5",
-      "duracao": 12.185057,
+      "duracao": 16.875488,
       "palavras": [
         {
           "palavra": "Muita",
           "inicio": 0.0,
-          "fim": 0.29
+          "fim": 0.313
         },
         {
           "palavra": "gente",
-          "inicio": 0.325,
-          "fim": 0.546
+          "inicio": 0.348,
+          "fim": 0.592
         },
         {
           "palavra": "foge",
-          "inicio": 0.615,
-          "fim": 0.987
+          "inicio": 0.673,
+          "fim": 1.033
         },
         {
-          "palavra": "à",
-          "inicio": 1.022,
-          "fim": 1.057
+          "palavra": "durante",
+          "inicio": 1.091,
+          "fim": 1.393
         },
         {
-          "palavra": "tarde",
-          "inicio": 1.138,
-          "fim": 1.66
+          "palavra": "a",
+          "inicio": 1.428,
+          "fim": 1.451
         },
         {
-          "palavra": "Mas",
-          "inicio": 1.904,
-          "fim": 2.055
+          "palavra": "chuva",
+          "inicio": 1.486,
+          "fim": 2.043
         },
         {
-          "palavra": "quem",
-          "inicio": 2.101,
-          "fim": 2.218
+          "palavra": "Quem",
+          "inicio": 2.252,
+          "fim": 2.426
         },
         {
           "palavra": "fica",
-          "inicio": 2.276,
-          "fim": 2.531
+          "inicio": 2.485,
+          "fim": 2.752
         },
         {
-          "palavra": "recebe",
-          "inicio": 2.577,
-          "fim": 2.949
+          "palavra": "se",
+          "inicio": 2.798,
+          "fim": 2.902
         },
         {
-          "palavra": "a",
-          "inicio": 2.972,
-          "fim": 2.995
+          "palavra": "tranca",
+          "inicio": 2.984,
+          "fim": 3.355
         },
         {
-          "palavra": "surpresa",
-          "inicio": 3.03,
-          "fim": 3.785
+          "palavra": "em",
+          "inicio": 3.379,
+          "fim": 3.448
         },
         {
-          "palavra": "às",
-          "inicio": 4.029,
-          "fim": 4.168
+          "palavra": "casa",
+          "inicio": 3.529,
+          "fim": 4.145
         },
         {
-          "palavra": "três",
-          "inicio": 4.238,
-          "fim": 4.458
-        },
-        {
-          "palavra": "da",
-          "inicio": 4.505,
-          "fim": 4.574
-        },
-        {
-          "palavra": "manhã",
-          "inicio": 4.609,
-          "fim": 5.039
-        },
-        {
-          "palavra": "a",
-          "inicio": 5.19,
-          "fim": 5.248
-        },
-        {
-          "palavra": "coluna",
-          "inicio": 5.306,
-          "fim": 5.666
-        },
-        {
-          "palavra": "desaba",
-          "inicio": 5.7,
-          "fim": 6.374
-        },
-        {
-          "palavra": "Um",
-          "inicio": 6.618,
-          "fim": 6.711
-        },
-        {
-          "palavra": "fluxo",
-          "inicio": 6.757,
-          "fim": 7.047
+          "palavra": "Mas",
+          "inicio": 4.319,
+          "fim": 4.54
         },
         {
           "palavra": "de",
-          "inicio": 7.094,
-          "fim": 7.175
+          "inicio": 4.574,
+          "fim": 4.644
         },
         {
-          "palavra": "rocha",
-          "inicio": 7.233,
-          "fim": 7.628
+          "palavra": "madrugada",
+          "inicio": 4.702,
+          "fim": 5.399
         },
         {
-          "palavra": "e",
-          "inicio": 7.663,
-          "fim": 7.721
+          "palavra": "a",
+          "inicio": 5.445,
+          "fim": 5.492
+        },
+        {
+          "palavra": "coluna",
+          "inicio": 5.561,
+          "fim": 5.921
+        },
+        {
+          "palavra": "de",
+          "inicio": 5.968,
+          "fim": 6.06
+        },
+        {
+          "palavra": "cinza",
+          "inicio": 6.107,
+          "fim": 6.478
+        },
+        {
+          "palavra": "desaba",
+          "inicio": 6.536,
+          "fim": 7.21
+        },
+        {
+          "palavra": "Desce",
+          "inicio": 7.454,
+          "fim": 7.837
+        },
+        {
+          "palavra": "uma",
+          "inicio": 7.883,
+          "fim": 8.034
+        },
+        {
+          "palavra": "nuvem",
+          "inicio": 8.092,
+          "fim": 8.429
+        },
+        {
+          "palavra": "de",
+          "inicio": 8.475,
+          "fim": 8.533
         },
         {
           "palavra": "gás",
-          "inicio": 7.755,
-          "fim": 8.092
+          "inicio": 8.603,
+          "fim": 8.916
         },
         {
-          "palavra": "a",
-          "inicio": 8.197,
-          "fim": 8.231
-        },
-        {
-          "palavra": "setecentos",
-          "inicio": 8.336,
+          "palavra": "e",
+          "inicio": 8.975,
           "fim": 9.021
         },
         {
-          "palavra": "graus",
-          "inicio": 9.079,
-          "fim": 9.404
-        },
-        {
-          "palavra": "chega",
-          "inicio": 9.451,
-          "fim": 9.799
+          "palavra": "cinza",
+          "inicio": 9.067,
+          "fim": 9.671
         },
         {
           "palavra": "a",
-          "inicio": 9.822,
-          "fim": 9.845
+          "inicio": 9.799,
+          "fim": 9.857
         },
         {
           "palavra": "trezentos",
-          "inicio": 9.892,
-          "fim": 10.426
+          "inicio": 9.915,
+          "fim": 10.472
+        },
+        {
+          "palavra": "graus",
+          "inicio": 10.53,
+          "fim": 11.122
+        },
+        {
+          "palavra": "Vem",
+          "inicio": 11.169,
+          "fim": 11.343
+        },
+        {
+          "palavra": "a",
+          "inicio": 11.389,
+          "fim": 11.413
+        },
+        {
+          "palavra": "setenta",
+          "inicio": 11.471,
+          "fim": 11.935
         },
         {
           "palavra": "quilômetros",
-          "inicio": 10.472,
-          "fim": 11.018
+          "inicio": 11.981,
+          "fim": 12.597
         },
         {
           "palavra": "por",
-          "inicio": 11.076,
-          "fim": 11.204
+          "inicio": 12.666,
+          "fim": 12.806
         },
         {
           "palavra": "hora",
-          "inicio": 11.25,
-          "fim": 11.935
+          "inicio": 12.864,
+          "fim": 13.282
+        },
+        {
+          "palavra": "Ninguém",
+          "inicio": 13.456,
+          "fim": 13.851
+        },
+        {
+          "palavra": "corre",
+          "inicio": 13.932,
+          "fim": 14.187
+        },
+        {
+          "palavra": "tanto",
+          "inicio": 14.269,
+          "fim": 14.814
+        },
+        {
+          "palavra": "E",
+          "inicio": 14.965,
+          "fim": 15.047
+        },
+        {
+          "palavra": "mata",
+          "inicio": 15.163,
+          "fim": 15.453
+        },
+        {
+          "palavra": "em",
+          "inicio": 15.488,
+          "fim": 15.534
+        },
+        {
+          "palavra": "segundos",
+          "inicio": 15.615,
+          "fim": 16.625
         }
       ]
     },
     {
       "id": "c6",
-      "duracao": 9.027143,
+      "duracao": 10.74542,
       "palavras": [
         {
-          "palavra": "Plínio",
+          "palavra": "O",
           "inicio": 0.0,
-          "fim": 0.557
+          "fim": 0.151
         },
         {
-          "palavra": "o",
-          "inicio": 0.627,
-          "fim": 0.731
-        },
-        {
-          "palavra": "Velho",
-          "inicio": 0.801,
-          "fim": 1.254
-        },
-        {
-          "palavra": "vai",
-          "inicio": 1.382,
-          "fim": 1.521
-        },
-        {
-          "palavra": "de",
-          "inicio": 1.556,
-          "fim": 1.614
-        },
-        {
-          "palavra": "barco",
-          "inicio": 1.66,
-          "fim": 1.916
-        },
-        {
-          "palavra": "tentar",
-          "inicio": 1.95,
-          "fim": 2.241
-        },
-        {
-          "palavra": "resgatar",
-          "inicio": 2.276,
-          "fim": 2.635
-        },
-        {
-          "palavra": "sobreviventes",
-          "inicio": 2.67,
-          "fim": 3.553
-        },
-        {
-          "palavra": "Morre",
-          "inicio": 3.738,
-          "fim": 4.005
-        },
-        {
-          "palavra": "naquela",
-          "inicio": 4.04,
-          "fim": 4.342
-        },
-        {
-          "palavra": "noite",
-          "inicio": 4.377,
-          "fim": 4.888
-        },
-        {
-          "palavra": "Seu",
-          "inicio": 5.039,
-          "fim": 5.178
-        },
-        {
-          "palavra": "sobrinho",
-          "inicio": 5.213,
-          "fim": 5.526
-        },
-        {
-          "palavra": "escreve",
-          "inicio": 5.561,
-          "fim": 5.898
-        },
-        {
-          "palavra": "a",
-          "inicio": 5.933,
-          "fim": 5.956
-        },
-        {
-          "palavra": "única",
-          "inicio": 6.026,
-          "fim": 6.269
-        },
-        {
-          "palavra": "descrição",
-          "inicio": 6.304,
-          "fim": 6.815
+          "palavra": "chefe",
+          "inicio": 0.209,
+          "fim": 0.476
         },
         {
           "palavra": "da",
-          "inicio": 6.85,
-          "fim": 6.908
+          "inicio": 0.499,
+          "fim": 0.569
         },
         {
-          "palavra": "erupção",
-          "inicio": 6.943,
-          "fim": 7.384
+          "palavra": "frota",
+          "inicio": 0.627,
+          "fim": 0.882
         },
         {
-          "palavra": "que",
-          "inicio": 7.419,
-          "fim": 7.5
+          "palavra": "romana",
+          "inicio": 0.929,
+          "fim": 1.358
         },
         {
-          "palavra": "chegou",
-          "inicio": 7.535,
-          "fim": 7.825
+          "palavra": "Plínio",
+          "inicio": 1.405,
+          "fim": 1.962
         },
         {
-          "palavra": "até",
-          "inicio": 7.872,
-          "fim": 8.034
+          "palavra": "o",
+          "inicio": 2.009,
+          "fim": 2.101
         },
         {
-          "palavra": "hoje",
-          "inicio": 8.081,
-          "fim": 8.777
+          "palavra": "Velho",
+          "inicio": 2.183,
+          "fim": 2.682
+        },
+        {
+          "palavra": "sai",
+          "inicio": 2.891,
+          "fim": 3.1
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.123,
+          "fim": 3.193
+        },
+        {
+          "palavra": "barco",
+          "inicio": 3.262,
+          "fim": 3.564
+        },
+        {
+          "palavra": "pra",
+          "inicio": 3.611,
+          "fim": 3.727
+        },
+        {
+          "palavra": "salvar",
+          "inicio": 3.773,
+          "fim": 4.122
+        },
+        {
+          "palavra": "gente",
+          "inicio": 4.203,
+          "fim": 4.748
+        },
+        {
+          "palavra": "E",
+          "inicio": 4.923,
+          "fim": 5.039
+        },
+        {
+          "palavra": "morre",
+          "inicio": 5.155,
+          "fim": 5.457
+        },
+        {
+          "palavra": "na",
+          "inicio": 5.503,
+          "fim": 5.596
+        },
+        {
+          "palavra": "praia",
+          "inicio": 5.654,
+          "fim": 6.235
+        },
+        {
+          "palavra": "O",
+          "inicio": 6.513,
+          "fim": 6.594
+        },
+        {
+          "palavra": "sobrinho",
+          "inicio": 6.676,
+          "fim": 7.036
+        },
+        {
+          "palavra": "dele",
+          "inicio": 7.094,
+          "fim": 7.326
+        },
+        {
+          "palavra": "viu",
+          "inicio": 7.372,
+          "fim": 7.523
+        },
+        {
+          "palavra": "tudo",
+          "inicio": 7.605,
+          "fim": 7.883
+        },
+        {
+          "palavra": "de",
+          "inicio": 7.93,
+          "fim": 7.999
+        },
+        {
+          "palavra": "longe",
+          "inicio": 8.046,
+          "fim": 8.44
+        },
+        {
+          "palavra": "e",
+          "inicio": 8.591,
+          "fim": 8.707
+        },
+        {
+          "palavra": "foi",
+          "inicio": 8.777,
+          "fim": 8.951
+        },
+        {
+          "palavra": "o",
+          "inicio": 8.986,
+          "fim": 9.009
+        },
+        {
+          "palavra": "único",
+          "inicio": 9.056,
+          "fim": 9.416
+        },
+        {
+          "palavra": "a",
+          "inicio": 9.451,
+          "fim": 9.474
+        },
+        {
+          "palavra": "contar",
+          "inicio": 9.509,
+          "fim": 10.495
         }
       ]
     },
     {
       "id": "c7",
-      "duracao": 8.980703,
+      "duracao": 12.417256,
       "palavras": [
         {
-          "palavra": "Dois",
+          "palavra": "Até",
           "inicio": 0.0,
-          "fim": 0.325
+          "fim": 0.267
+        },
+        {
+          "palavra": "hoje",
+          "inicio": 0.337,
+          "fim": 0.592
+        },
+        {
+          "palavra": "acharam",
+          "inicio": 0.615,
+          "fim": 1.022
+        },
+        {
+          "palavra": "uns",
+          "inicio": 1.068,
+          "fim": 1.207
         },
         {
           "palavra": "mil",
-          "inicio": 0.395,
-          "fim": 0.546
+          "inicio": 1.3,
+          "fim": 1.602
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.672,
+          "fim": 1.753
+        },
+        {
+          "palavra": "cem",
+          "inicio": 1.788,
+          "fim": 2.02
         },
         {
           "palavra": "corpos",
-          "inicio": 0.604,
-          "fim": 0.964
-        },
-        {
-          "palavra": "foram",
-          "inicio": 1.01,
-          "fim": 1.196
-        },
-        {
-          "palavra": "achados",
-          "inicio": 1.242,
-          "fim": 1.614
-        },
-        {
-          "palavra": "em",
-          "inicio": 1.672,
-          "fim": 1.73
-        },
-        {
-          "palavra": "Pompeia",
-          "inicio": 1.765,
-          "fim": 2.403
+          "inicio": 2.101,
+          "fim": 2.74
         },
         {
           "palavra": "Mas",
-          "inicio": 2.682,
-          "fim": 2.821
+          "inicio": 2.949,
+          "fim": 3.123
         },
         {
           "palavra": "a",
-          "inicio": 2.879,
-          "fim": 2.902
+          "inicio": 3.193,
+          "fim": 3.216
         },
         {
           "palavra": "cidade",
-          "inicio": 2.937,
-          "fim": 3.32
+          "inicio": 3.251,
+          "fim": 3.715
         },
         {
           "palavra": "tinha",
-          "inicio": 3.355,
-          "fim": 3.541
+          "inicio": 3.762,
+          "fim": 3.982
         },
         {
           "palavra": "onze",
-          "inicio": 3.587,
-          "fim": 3.843
-        },
-        {
-          "palavra": "mil",
-          "inicio": 3.913,
+          "inicio": 4.029,
           "fim": 4.284
         },
         {
-          "palavra": "Para",
-          "inicio": 4.621,
-          "fim": 4.795
+          "palavra": "mil",
+          "inicio": 4.365,
+          "fim": 4.772
         },
         {
-          "palavra": "onde",
-          "inicio": 4.841,
-          "fim": 4.992
+          "palavra": "Cadê",
+          "inicio": 4.981,
+          "fim": 5.259
         },
         {
-          "palavra": "foram",
-          "inicio": 5.039,
-          "fim": 5.271
+          "palavra": "o",
+          "inicio": 5.317,
+          "fim": 5.341
         },
         {
-          "palavra": "os",
-          "inicio": 5.306,
-          "fim": 5.364
+          "palavra": "resto",
+          "inicio": 5.399,
+          "fim": 5.886
         },
         {
-          "palavra": "outros",
-          "inicio": 5.468,
-          "fim": 5.921
+          "palavra": "A",
+          "inicio": 6.06,
+          "fim": 6.13
         },
         {
-          "palavra": "Ninguém",
-          "inicio": 6.037,
-          "fim": 6.339
+          "palavra": "maioria",
+          "inicio": 6.2,
+          "fim": 6.536
         },
         {
-          "palavra": "sabe",
-          "inicio": 6.397,
-          "fim": 6.629
+          "palavra": "fugiu",
+          "inicio": 6.583,
+          "fim": 6.954
         },
         {
-          "palavra": "com",
-          "inicio": 6.664,
-          "fim": 6.769
+          "palavra": "enquanto",
+          "inicio": 7.001,
+          "fim": 7.338
         },
         {
-          "palavra": "certeza",
-          "inicio": 6.803,
-          "fim": 7.407
+          "palavra": "chovia",
+          "inicio": 7.372,
+          "fim": 7.755
         },
         {
-          "palavra": "Você",
-          "inicio": 7.593,
-          "fim": 7.825
+          "palavra": "pedra",
+          "inicio": 7.825,
+          "fim": 8.336
         },
         {
-          "palavra": "aguentaria",
-          "inicio": 7.86,
-          "fim": 8.731
+          "palavra": "E",
+          "inicio": 8.51,
+          "fim": 8.591
+        },
+        {
+          "palavra": "você",
+          "inicio": 8.673,
+          "fim": 9.172
+        },
+        {
+          "palavra": "fugia",
+          "inicio": 9.288,
+          "fim": 9.625
+        },
+        {
+          "palavra": "na",
+          "inicio": 9.683,
+          "fim": 9.764
+        },
+        {
+          "palavra": "hora",
+          "inicio": 9.822,
+          "fim": 10.077
+        },
+        {
+          "palavra": "ou",
+          "inicio": 10.101,
+          "fim": 10.147
+        },
+        {
+          "palavra": "ficava",
+          "inicio": 10.205,
+          "fim": 10.646
+        },
+        {
+          "palavra": "pra",
+          "inicio": 10.681,
+          "fim": 10.797
+        },
+        {
+          "palavra": "salvar",
+          "inicio": 10.844,
+          "fim": 11.169
+        },
+        {
+          "palavra": "sua",
+          "inicio": 11.227,
+          "fim": 11.389
+        },
+        {
+          "palavra": "casa",
+          "inicio": 11.447,
+          "fim": 12.167
         }
       ]
     }
