@@ -30,3 +30,26 @@
 - [S] = Verificado em fonte primária ou reportagem de referência
 - [C] = Confirmado em múltiplas fontes
 - [E] = Estimativa / relato indireto com fonte identificada
+
+## Complemento (refação v2, 12/11/2026): números do 10-K 2023 e do modelo antigo
+
+Correção: os valores "receita $23,2 bi / franquias $14,9 bi" acima são de 2022. O vídeo v2 usa os de 2023:
+
+| # | Fato | Valor | Fonte |
+|---|------|-------|-------|
+| [S] | Receita total 2023 | US$ 25,494 bilhões ("vinte e cinco bilhões e meio") | McDonald's Corp, Form 10-K FY2023 (SEC), https://www.sec.gov/Archives/edgar/data/63908/000006390824000072/mcd-20231231.htm |
+| [S] | Receita de restaurantes franqueados 2023 | US$ 15,437 bilhões | 10-K FY2023 |
+| [S] | Aluguéis (rents) pagos pelos franqueados em 2023 | US$ 9,840 bilhões | 10-K FY2023, nota Franchise Arrangements (tabela reproduzida em stock-analysis-on.net/NYSE/Company/McDonalds-Corp/Analysis/Revenues) |
+| [S] | Royalties 2023 | US$ 5,531 bilhões (aluguel ≈ 1,8× royalties: "quase o dobro") | idem |
+| [S] | Taxas iniciais 2023 | US$ 66 milhões | idem |
+| [S] | Restaurantes no fim de 2023 | 41.822, ~95% franqueados | 10-K FY2023 ("Of the 41,822 McDonald's restaurants at year-end 2023, approximately 95% were franchised") |
+| [S] | Países | mais de 100 | 10-K FY2023 |
+| [S] | Imóveis: a empresa é dona de ~57% dos terrenos e ~80% dos prédios dos restaurantes (mercados consolidados, fim de 2023) | 57% / 80% | 10-K FY2023, Properties/Leasing |
+| [S] | No franchising convencional, "the Company generally owns or secures a long-term lease on the land and building"; aluguel e royalties são % das vendas, com aluguel mínimo | — | 10-K FY2023 |
+| [S] | Contrato de franquia: em geral 20 anos | 20 anos | 10-K FY2023 |
+| [S] | Royalty (taxa de serviço) nos EUA: 4% das vendas mensais; 5% para restaurantes novos a partir de 2024 ("4 a 5%") | 4–5% | McDonald's FDD 2023/2024 (citado por Franchise Times, abr/2023) |
+| [S] | Taxa inicial de franquia | US$ 45.000 | McDonald's FDD 2023 (já na tabela acima) |
+| [C] | Modelo de Kroc em 1955: taxa de franquia de US$ 950 + 1,9% das vendas; 0,5% ia para os irmãos, sobrava 1,4% para a empresa do Kroc, que quase não cobria os custos | $950 / 1,9% / 1,4% | Behind the Arches (John F. Love, 1986), cap. 4; Grinding It Out |
+| [C] | Sonneborn: empresa compra/arrenda o terreno, constrói e subloca ao franqueado com margem (Franchise Realty Corp., 1956). Frase atribuída a ele: "We are not technically in the food business. We are in the real estate business." | — | Behind the Arches, cap. 8 |
+| [C] | Speedee Service System: cozinha dividida em tarefas fixas como numa linha de montagem (chapeiro, fritas, milk-shake, embalagem); cada funcionário faz uma só tarefa | "1 tarefa por funcionário" | Behind the Arches (Love, 1986), cap. 1; Grinding It Out |
+| [E] | Mapa do vídeo: 1.600 pinos para 41.822 lojas (~26 lojas por pino), distribuição aproximada por região | ilustrativo | cálculo do vídeo |

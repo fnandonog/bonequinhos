@@ -56,7 +56,7 @@ export const InstCor: React.FC<{geo: THREE.BufferGeometry; mats: THREE.Matrix4[]
   }, [mats, cores]);
   return (
     <instancedMesh ref={ref} args={[geo, undefined, Math.max(1, mats.length)]} castShadow={sombra} receiveShadow frustumCulled={false}>
-      <meshStandardMaterial flatShading roughness={rugoso} />
+      <meshStandardMaterial roughness={rugoso} />
     </instancedMesh>
   );
 };
@@ -234,12 +234,12 @@ export const Coliseu: React.FC<{pulvinar?: boolean}> = ({pulvinar = true}) => {
   return (
     <group>
       <ArenaPiso />
-      <mesh geometry={g.podio} receiveShadow castShadow><meshStandardMaterial color={COR.podio} flatShading side={THREE.DoubleSide} /></mesh>
-      <mesh geometry={g.cornijaPodio}><meshStandardMaterial color="#f4efe2" flatShading side={THREE.DoubleSide} /></mesh>
-      <mesh geometry={g.interno}><meshStandardMaterial color={COR.travertinoEsc} flatShading side={THREE.DoubleSide} /></mesh>
-      <mesh geometry={g.cavea} receiveShadow castShadow><meshStandardMaterial color={COR.degrau} flatShading side={THREE.DoubleSide} roughness={0.95} /></mesh>
-      <mesh geometry={g.fachada} receiveShadow castShadow><meshStandardMaterial color={COR.travertino} flatShading side={THREE.DoubleSide} /></mesh>
-      {[0, 1, 2, 3].map((i) => (<mesh key={i} geometry={g['cornija' + i]}><meshStandardMaterial color={COR.travertinoEsc} flatShading side={THREE.DoubleSide} /></mesh>))}
+      <mesh geometry={g.podio} receiveShadow castShadow><meshStandardMaterial color={COR.podio} side={THREE.DoubleSide} /></mesh>
+      <mesh geometry={g.cornijaPodio}><meshStandardMaterial color="#f4efe2" side={THREE.DoubleSide} /></mesh>
+      <mesh geometry={g.interno}><meshStandardMaterial color={COR.travertinoEsc} side={THREE.DoubleSide} /></mesh>
+      <mesh geometry={g.cavea} receiveShadow castShadow><meshStandardMaterial color={COR.degrau} side={THREE.DoubleSide} roughness={0.95} /></mesh>
+      <mesh geometry={g.fachada} receiveShadow castShadow><meshStandardMaterial color={COR.travertino} side={THREE.DoubleSide} /></mesh>
+      {[0, 1, 2, 3].map((i) => (<mesh key={i} geometry={g['cornija' + i]}><meshStandardMaterial color={COR.travertinoEsc} side={THREE.DoubleSide} /></mesh>))}
       <Inst geo={f.geoArco} mats={f.arcos} cor={COR.arco} />
       <Inst geo={f.geoTopo} mats={f.topos} cor={COR.arco} />
       <Inst geo={f.geoCol} mats={f.colunas} cor="#efe4c9" />
@@ -424,8 +424,8 @@ export const Corrente: React.FC<{a: V3; b: V3; elo?: number}> = ({a, b, elo = 0.
         const queda = Math.sin(k * Math.PI) * 0.12;
         return (
           <mesh key={i} position={[lerp(a[0], b[0], k), lerp(a[1], b[1], k) - queda, lerp(a[2], b[2], k)]} rotation={[0, i % 2 ? Math.PI / 2 : 0, Math.atan2(b[1] - a[1], b[0] - a[0])]}>
-            <torusGeometry args={[elo * 0.45, elo * 0.12, 4, 8]} />
-            <meshStandardMaterial color="#5c5f66" roughness={0.5} metalness={0.4} flatShading />
+            <torusGeometry args={[elo * 0.45, elo * 0.12, 10, 28]} />
+            <meshStandardMaterial color="#5c5f66" roughness={0.5} metalness={0.4} />
           </mesh>
         );
       })}
@@ -448,17 +448,17 @@ export const Braseiro: React.FC<{pos: V3; t: number; ferros?: boolean}> = ({pos,
   <group position={pos}>
     {[0, 2.09, 4.19].map((a) => (<Barra key={a} a={[Math.cos(a) * 0.32, 0, Math.sin(a) * 0.32]} b={[Math.cos(a) * 0.18, 0.75, Math.sin(a) * 0.18]} r={0.025} cor="#2b2b30" />))}
     <Cil pos={[0, 0.8, 0]} r={0.36} r2={0.22} h={0.18} cor="#3a3a40" seg={12} />
-    <mesh position={[0, 0.88, 0]}><cylinderGeometry args={[0.33, 0.33, 0.04, 12]} /><meshStandardMaterial color="#ff5a1a" emissive="#ff3a00" emissiveIntensity={1.6 + Math.sin(t * 9) * 0.25} /></mesh>
+    <mesh position={[0, 0.88, 0]}><cylinderGeometry args={[0.33, 0.33, 0.04, 24]} /><meshStandardMaterial color="#ff5a1a" emissive="#ff3a00" emissiveIntensity={1.6 + Math.sin(t * 9) * 0.25} /></mesh>
     {[0, 1, 2, 3, 4].map((i) => (
       <mesh key={i} position={[Math.cos(i * 1.3) * 0.15, 1.02 + Math.sin(t * 11 + i) * 0.03, Math.sin(i * 1.3) * 0.15]} scale={[1, 1 + Math.sin(t * 13 + i * 2) * 0.25, 1]}>
-        <coneGeometry args={[0.06, 0.22, 5]} />
+        <coneGeometry args={[0.06, 0.22, 24]} />
         <meshStandardMaterial color="#ffb23a" emissive="#ff7a00" emissiveIntensity={1.3} transparent opacity={0.85} />
       </mesh>
     ))}
     {ferros && [-0.4, 0.15, 0.6].map((a, i) => (
       <group key={i}>
         <Barra a={[Math.cos(a) * 0.05, 0.9, Math.sin(a) * 0.05]} b={[Math.cos(a) * 0.7, 1.15, Math.sin(a) * 0.7]} r={0.016} cor="#3a3a40" />
-        <mesh position={[Math.cos(a) * 0.1, 0.92, Math.sin(a) * 0.1]}><sphereGeometry args={[0.04, 6, 6]} /><meshStandardMaterial color="#ff5a1a" emissive="#ff3a00" emissiveIntensity={2} /></mesh>
+        <mesh position={[Math.cos(a) * 0.1, 0.92, Math.sin(a) * 0.1]}><sphereGeometry args={[0.04, 20, 14]} /><meshStandardMaterial color="#ff5a1a" emissive="#ff3a00" emissiveIntensity={2} /></mesh>
       </group>
     ))}
     <pointLight position={[0, 1.4, 0]} color="#ff8a3a" intensity={6} distance={7} decay={1.6} />
@@ -468,7 +468,7 @@ export const Braseiro: React.FC<{pos: V3; t: number; ferros?: boolean}> = ({pos,
 export const TochaParede: React.FC<{pos: V3; t: number; luz?: boolean}> = ({pos, t, luz = true}) => (
   <group position={pos}>
     <Barra a={[0, -0.25, 0]} b={[0, 0.15, 0.15]} r={0.03} cor="#4a3426" />
-    <mesh position={[0, 0.3, 0.18]} scale={[1, 1 + Math.sin(t * 12) * 0.15, 1]}><coneGeometry args={[0.09, 0.32, 6]} /><meshStandardMaterial color="#ffb23a" emissive="#ff7a00" emissiveIntensity={1.6} /></mesh>
+    <mesh position={[0, 0.3, 0.18]} scale={[1, 1 + Math.sin(t * 12) * 0.15, 1]}><coneGeometry args={[0.09, 0.32, 24]} /><meshStandardMaterial color="#ffb23a" emissive="#ff7a00" emissiveIntensity={1.6} /></mesh>
     {luz && <pointLight position={[0, 0.4, 0.4]} color="#ff9a4a" intensity={3} distance={6} decay={1.6} />}
   </group>
 );
@@ -507,7 +507,7 @@ export const Tigela: React.FC<{pos: V3; grao: string; r?: number; seed?: number}
   }, [seed, r]);
   return (
     <group position={pos}>
-      <mesh position={[0, 0.035, 0]} castShadow><cylinderGeometry args={[r, r * 0.6, 0.07, 14, 1, true]} /><meshStandardMaterial color="#b5653a" flatShading side={THREE.DoubleSide} /></mesh>
+      <mesh position={[0, 0.035, 0]} castShadow><cylinderGeometry args={[r, r * 0.6, 0.07, 24, 1, true]} /><meshStandardMaterial color="#b5653a" side={THREE.DoubleSide} /></mesh>
       <Cil pos={[0, 0.005, 0]} r={r * 0.6} h={0.01} cor="#a35a33" seg={14} />
       <Cil pos={[0, 0.05, 0]} r={r * 0.92} h={0.012} cor={grao} seg={14} />
       {gs.map((g, i) => (<mesh key={i} position={g}><icosahedronGeometry args={[0.012, 0]} /><Mat cor={grao} /></mesh>))}
@@ -523,13 +523,13 @@ export const Anfora: React.FC<{pos: V3; esc?: number; rot?: number}> = ({pos, es
   return (
     <group position={pos} scale={esc} rotation={[0, 0, rot]}>
       <mesh geometry={geo} castShadow><Mat cor="#c0703f" /></mesh>
-      {[-1, 1].map((s) => (<mesh key={s} position={[s * 0.08, 0.72, 0]} rotation={[0, 0, s * 0.3]}><torusGeometry args={[0.05, 0.012, 4, 8, Math.PI]} /><Mat cor="#c0703f" /></mesh>))}
+      {[-1, 1].map((s) => (<mesh key={s} position={[s * 0.08, 0.72, 0]} rotation={[0, 0, s * 0.3]}><torusGeometry args={[0.05, 0.012, 10, 28, Math.PI]} /><Mat cor="#c0703f" /></mesh>))}
     </group>
   );
 };
 
 export const Pao: React.FC<{pos: V3}> = ({pos}) => (
-  <mesh position={pos} scale={[1, 0.45, 1]} castShadow><sphereGeometry args={[0.09, 10, 6]} /><Mat cor="#c98a4a" /></mesh>
+  <mesh position={pos} scale={[1, 0.45, 1]} castShadow><sphereGeometry args={[0.09, 20, 14]} /><Mat cor="#c98a4a" /></mesh>
 );
 
 // moedas de ouro e prata (áureos e denários) e o saco do dono
@@ -571,7 +571,7 @@ export const Mao: React.FC<{pos: V3; ang: number; esc?: number}> = ({pos, ang, e
 // rede do retiário (malha)
 export const Rede: React.FC<{pos: V3; t: number}> = ({pos, t}) => (
   <mesh position={pos} rotation={[0.2 + Math.sin(t * 3) * 0.1, 0, 0.3]}>
-    <sphereGeometry args={[0.45, 8, 6, 0, Math.PI * 2, 0, Math.PI / 2.2]} />
+    <sphereGeometry args={[0.45, 20, 14, 0, Math.PI * 2, 0, Math.PI / 2.2]} />
     <meshStandardMaterial color="#d8c7a0" wireframe />
   </mesh>
 );

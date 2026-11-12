@@ -8,14 +8,18 @@ import {FPS, Timings} from '../Video';
 import {Cam, SETS} from './sets';
 import {Nuvem} from './kit';
 import {LOTE, V3} from './planta';
+import {CEU_BATIDA, FundoHorizonte, LuzEstudio, luzDaBatida} from '../estilo/visual';
+import type {Batida} from '../estilo/visual';
+import {FlashSalto, Trilha} from '../estilo/montagem';
+import {ClimaZe} from '../estilo/ze';
 
 const FONTE = "'Baloo 2', sans-serif";
 const TINTA = '#16151c';
 
 export type Card = {rotulo: string; valor?: string; num?: number; prefixo?: string; sufixo?: string; sub?: string; cor?: string};
-export type Plano = {set: string; cam: string | Cam; apartir?: number; p?: [number, number]; card?: Card};
+export type Plano = {set: string; cam: string | Cam; apartir?: number; p?: [number, number]; card?: Card; batida?: Batida; salto?: boolean};
 export type CenaObra = {id: string; texto: string; etapa?: string; custo?: number; destaques?: string[]; planos: Plano[]};
-export type RoteiroObra = {id: string; titulo: string; linha2?: string; total?: number; cenas: CenaObra[]};
+export type RoteiroObra = {id: string; trilha?: string; titulo: string; linha2?: string; total?: number; cenas: CenaObra[]};
 export type ObraProps = {roteiro: RoteiroObra; timings: Timings; comAudio: boolean};
 
 type PlanoT = Plano & {de: number; ate: number; cena: number; cam: Cam};
@@ -77,8 +81,8 @@ const Ceu: React.FC = () => (
     <Nuvem pos={[2, 18, -40]} esc={2} />
     {[[-30, -45, 9], [-8, -55, 12], [18, -50, 10], [40, -42, 8]].map(([x, z, h], i) => (
       <mesh key={i} position={[x, -1.8 + h / 2, z]}>
-        <coneGeometry args={[h * 1.6, h, 6]} />
-        <meshStandardMaterial color={i % 2 ? '#79b86a' : '#6aa95d'} flatShading />
+        <coneGeometry args={[h * 1.6, h, 24]} />
+        <meshStandardMaterial color={i % 2 ? '#79b86a' : '#6aa95d'} roughness={0.95} />
       </mesh>
     ))}
   </group>
@@ -170,19 +174,26 @@ export const Obra: React.FC<ObraProps> = ({roteiro, timings, comAudio}) => {
   const p = p0 + (p1 - p0) * Math.min(1, Math.max(0, (f - pl.de) / dur));
   const t = (f - pl.de) / FPS;
   const luz = LUZ[set.luz ?? 'dia'];
-  const ceu = set.ceu ?? ['#7cc8ff', '#d9f1ff'];
+  const ceu: [string, string] = pl.batida ? CEU_BATIDA[pl.batida] : set.ceu ?? ['#7cc8ff', '#d9f1ff'];
   const icn = pl.cena;
+  const LB = luzDaBatida(pl.batida, {hemi: [luz.hemi[0], luz.hemi[1], luz.hemi[2]], sol: [luz.sol[0], luz.sol[1]], dir: luz.pos as unknown as V3}, set.noite);
+  const kc = ease(Math.min(1, Math.max(0, (f - pl.de) / dur)));
+  const mixc = (a: V3, b: V3): V3 => [a[0] + (b[0] - a[0]) * kc, a[1] + (b[1] - a[1]) * kc, a[2] + (b[2] - a[2]) * kc];
+  const alvoCam = pl.cam.alvoPara ? mixc(pl.cam.alvo, pl.cam.alvoPara) : pl.cam.alvo;
+  const posCam = mixc(pl.cam.de, pl.cam.para);
+  const distCam = Math.hypot(posCam[0] - alvoCam[0], posCam[1] - alvoCam[1], posCam[2] - alvoCam[2]);
   return (
     <AbsoluteFill style={{background: `linear-gradient(180deg, ${ceu[0]} 0%, ${ceu[1]} 70%)`}}>
       <ThreeCanvas width={width} height={height} shadows camera={{fov: 42, near: 0.1, far: 300, position: [10, 8, 12]}}>
         <Camera pl={pl} f={f} />
-        <hemisphereLight args={[luz.hemi[0], luz.hemi[1], luz.hemi[2]]} />
-        <directionalLight position={luz.pos as unknown as V3} color={luz.sol[0]} intensity={luz.sol[1]} castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-14} shadow-camera-right={14} shadow-camera-top={14} shadow-camera-bottom={-14} shadow-camera-far={60} shadow-bias={-0.0004} />
+        <LuzEstudio L={LB.L} noite={LB.noite} alvo={alvoCam} R={Math.min(16, Math.max(6, distCam * 0.9))} corNevoa={ceu[1]} nevoa={set.nevoa ? [ceu[1], set.nevoa[0], set.nevoa[1]] : undefined} />
         <Ceu />
-        <group key={ip}>{set.render({t, p})}</group>
+        {set.horizonte && <FundoHorizonte {...(typeof set.horizonte === 'object' ? set.horizonte : {})} />}
+        <ClimaZe.Provider value={set.clima}><group key={ip}>{set.render({t, p})}</group></ClimaZe.Provider>
       </ThreeCanvas>
       {/* vinheta leve para dar profundidade e destacar o texto */}
       <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 78%, rgba(0,0,0,0.18) 100%)'}} />
+      {pl.salto && <FlashSalto df={f - pl.de} />}
       <Topo m={m} f={f} i={icn} />
       {icn === 0 && <Titulo titulo={roteiro.titulo} linha2={roteiro.linha2} f={f} />}
       <Palavra cn={m.cenas[icn]} f={f} />
@@ -211,6 +222,7 @@ export const Obra: React.FC<ObraProps> = ({roteiro, timings, comAudio}) => {
           )}
         </React.Fragment>
       ))}
+      <Trilha src={roteiro.trilha} ativo={comAudio} />
       <div style={{position: 'absolute', bottom: 0, left: 0, height: 12, width: `${(f / durationInFrames) * 100}%`, background: '#ffd23f'}} />
     </AbsoluteFill>
   );

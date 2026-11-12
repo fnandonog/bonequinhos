@@ -4,7 +4,7 @@
 import React, {useMemo} from 'react';
 import * as THREE from 'three';
 import {V3} from '../v4/planta';
-import {Barra, Boneco, Caixa, Cil, Mat, Visual, clamp01, lerp, suave, texPilula} from '../v4/kit';
+import {Barra, Boneco, Caixa, Cil, Mat, Visual, Expressao, clamp01, lerp, suave, texPilula} from '../v4/kit';
 
 export {clamp01, lerp, suave};
 
@@ -50,31 +50,16 @@ export const Lupa: React.FC<{pos: V3; rot?: V3; esc?: number}> = ({pos, rot = [0
   <group position={pos} rotation={rot} scale={esc}>
     <Cil pos={[0, 0, 0]} rot={[Math.PI / 2, 0, 0]} r={0.025} h={0.16} cor="#5a3a22" />
     <group position={[0, 0, 0.2]}>
-      <mesh rotation={[0, 0, 0]}><torusGeometry args={[0.11, 0.018, 6, 18]} /><Mat cor="#c9a24a" rugoso={0.4} /></mesh>
-      <mesh><circleGeometry args={[0.1, 18]} /><meshStandardMaterial color="#bfe6ff" transparent opacity={0.45} side={2} roughness={0.1} /></mesh>
+      <mesh rotation={[0, 0, 0]}><torusGeometry args={[0.11, 0.018, 10, 28]} /><Mat cor="#c9a24a" rugoso={0.4} /></mesh>
+      <mesh><circleGeometry args={[0.1, 40]} /><meshStandardMaterial color="#bfe6ff" transparent opacity={0.45} side={2} roughness={0.1} /></mesh>
     </group>
   </group>
 );
 
-export const ZeDetetive: React.FC<{pos: V3; rotY?: number; t: number; aponta?: boolean; esc?: number}> = ({pos, rotY = 0, t, aponta = true, esc = 0.92}) => (
-  <group>
-    <Boneco pos={pos} rotY={rotY} acao={aponta ? 'aponta' : 'parado'} t={t} v={ZE_DETETIVE} esc={esc} />
-    <group position={pos} rotation={[0, rotY, 0]} scale={esc}>
-      {/* chapéu de detetive (fedora): aba + copa + fita */}
-      <group position={[0, 1.88, -0.02]} rotation={[-0.08, 0, 0]}>
-        <Cil pos={[0, 0, 0]} r={0.52} h={0.04} cor="#4a3426" seg={18} />
-        <Cil pos={[0, 0.15, 0]} r={0.3} r2={0.36} h={0.28} cor="#4a3426" seg={14} />
-        <Cil pos={[0, 0.05, 0]} r={0.365} h={0.07} cor="#1d1b26" seg={14} />
-      </group>
-      {/* gola do sobretudo */}
-      <mesh position={[0, 1.12, 0.02]} rotation={[0.1, 0, 0]}><torusGeometry args={[0.24, 0.06, 5, 12]} /><Mat cor="#b08a52" /></mesh>
-      {aponta ? (
-        <Lupa pos={[0.3, 0.97, 0.52]} rot={[0, 0, 0]} esc={1.1} />
-      ) : (
-        <Lupa pos={[0.39, 0.5, 0.06]} rot={[Math.PI / 2, 0, 0]} esc={1.1} />
-      )}
-    </group>
-  </group>
+export const ZeDetetive: React.FC<{pos: V3; rotY?: number; t: number; aponta?: boolean; esc?: number; expressao?: Expressao}> = ({pos, rotY = 0, t, aponta = true, esc = 0.92, expressao = 'serio'}) => (
+  // Zé 2.0 investigador: fedora, gola de sobretudo e lupa NA MÃO; sério (Caso Explicado)
+  <Boneco pos={pos} rotY={rotY} acao={aponta ? 'aponta' : 'parado'} t={t} v={{...ZE_DETETIVE, chapeu: {tipo: 'fedora', cor: '#4a3426'}, gola: '#b08a52'}} esc={esc} expressao={expressao}
+    maoD={<Lupa pos={[0, 0, 0.02]} esc={1.1} />} />
 );
 
 // ---------- Boeing 777 (nariz para +X; origem no centro da fuselagem) ----------
@@ -95,12 +80,12 @@ export const Aviao: React.FC<{pos?: V3; rot?: V3; esc?: number; t?: number; luze
   return (
     <group position={pos} rotation={rot} scale={esc}>
       {/* fuselagem */}
-      <mesh rotation={[0, 0, Math.PI / 2]} castShadow><cylinderGeometry args={[3.1, 3.1, 44, 18]} /><Mat cor={BRANCO} rugoso={0.5} /></mesh>
-      <mesh position={[25.5, -0.2, 0]} rotation={[0, 0, -Math.PI / 2]} castShadow><cylinderGeometry args={[0.6, 3.1, 7, 18]} /><Mat cor={BRANCO} rugoso={0.5} /></mesh>
-      <mesh position={[29.2, -0.35, 0]}><sphereGeometry args={[0.65, 10, 8]} /><Mat cor="#e7e9ee" /></mesh>
-      <mesh position={[-27, 0.9, 0]} rotation={[0, 0, Math.PI / 2 + 0.08]} castShadow><cylinderGeometry args={[3.0, 0.7, 10.5, 18]} /><Mat cor={BRANCO} rugoso={0.5} /></mesh>
+      <mesh rotation={[0, 0, Math.PI / 2]} castShadow><cylinderGeometry args={[3.1, 3.1, 44, 24]} /><Mat cor={BRANCO} rugoso={0.5} /></mesh>
+      <mesh position={[25.5, -0.2, 0]} rotation={[0, 0, -Math.PI / 2]} castShadow><cylinderGeometry args={[0.6, 3.1, 7, 24]} /><Mat cor={BRANCO} rugoso={0.5} /></mesh>
+      <mesh position={[29.2, -0.35, 0]}><sphereGeometry args={[0.65, 20, 14]} /><Mat cor="#e7e9ee" /></mesh>
+      <mesh position={[-27, 0.9, 0]} rotation={[0, 0, Math.PI / 2 + 0.08]} castShadow><cylinderGeometry args={[3.0, 0.7, 10.5, 24]} /><Mat cor={BRANCO} rugoso={0.5} /></mesh>
       {/* faixa da barriga e faixa colorida da lateral */}
-      <mesh position={[0, -1.25, 0]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[2.85, 2.85, 44.2, 18, 1, true, Math.PI * 0.62, Math.PI * 0.76]} /><meshStandardMaterial color="#1f3c7a" flatShading side={2} /></mesh>
+      <mesh position={[0, -1.25, 0]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[2.85, 2.85, 44.2, 24, 1, true, Math.PI * 0.62, Math.PI * 0.76]} /><meshStandardMaterial color="#1f3c7a" side={2} /></mesh>
       {/* para-brisa */}
       <mesh position={[25.6, 0.85, 0]} rotation={[0, 0, -0.55]}><boxGeometry args={[1.2, 0.5, 3.0]} /><meshStandardMaterial color="#1d2233" roughness={0.2} /></mesh>
       {/* janelas (faixa escura dos dois lados) */}
@@ -114,8 +99,8 @@ export const Aviao: React.FC<{pos?: V3; rot?: V3; esc?: number; t?: number; luze
       {/* motores */}
       {[1, -1].map((s) => (
         <group key={'m' + s} position={[7.5, -3.0, s * 9.8]}>
-          <mesh rotation={[0, 0, Math.PI / 2]} castShadow><cylinderGeometry args={[1.75, 1.55, 7.2, 14]} /><Mat cor="#d9dce3" rugoso={0.4} /></mesh>
-          <mesh position={[3.62, 0, 0]} rotation={[0, 0, Math.PI / 2]}><circleGeometry args={[1.55, 14]} /><meshStandardMaterial color="#2b2f3a" side={2} /></mesh>
+          <mesh rotation={[0, 0, Math.PI / 2]} castShadow><cylinderGeometry args={[1.75, 1.55, 7.2, 24]} /><Mat cor="#d9dce3" rugoso={0.4} /></mesh>
+          <mesh position={[3.62, 0, 0]} rotation={[0, 0, Math.PI / 2]}><circleGeometry args={[1.55, 40]} /><meshStandardMaterial color="#2b2f3a" side={2} /></mesh>
           <Caixa pos={[0.8, 1.6, 0]} tam={[4, 1.2, 0.5]} cor="#e3e6ec" />
         </group>
       ))}
@@ -138,9 +123,9 @@ export const Aviao: React.FC<{pos?: V3; rot?: V3; esc?: number; t?: number; luze
       {/* luzes de navegação: vermelha à esquerda, verde à direita, pisca branco */}
       {luzes && (
         <>
-          <mesh position={[-15.5, -1.0, -30.5]}><sphereGeometry args={[0.35, 8, 6]} /><meshBasicMaterial color="#ff3b3b" /></mesh>
-          <mesh position={[-15.5, -1.0, 30.5]}><sphereGeometry args={[0.35, 8, 6]} /><meshBasicMaterial color="#3bff7a" /></mesh>
-          {pisca && <mesh position={[-1, 3.3, 0]}><sphereGeometry args={[0.45, 8, 6]} /><meshBasicMaterial color="#ff4040" /></mesh>}
+          <mesh position={[-15.5, -1.0, -30.5]}><sphereGeometry args={[0.35, 20, 14]} /><meshBasicMaterial color="#ff3b3b" /></mesh>
+          <mesh position={[-15.5, -1.0, 30.5]}><sphereGeometry args={[0.35, 20, 14]} /><meshBasicMaterial color="#3bff7a" /></mesh>
+          {pisca && <mesh position={[-1, 3.3, 0]}><sphereGeometry args={[0.45, 20, 14]} /><meshBasicMaterial color="#ff4040" /></mesh>}
           {pisca && <pointLight position={[-15.5, -0.5, 31]} color="#ffffff" intensity={60} distance={20} decay={1.5} />}
         </>
       )}
@@ -272,7 +257,7 @@ export const Pino: React.FC<{ll: LL; cor: string; alt?: number}> = ({ll, cor, al
   return (
     <group position={[x, ALT_TERRA, z]}>
       <Cil pos={[0, alt / 2, 0]} r={0.12} h={alt} cor="#1d1b26" seg={6} />
-      <mesh position={[0, alt, 0]} castShadow><sphereGeometry args={[0.7, 12, 10]} /><Mat cor={cor} rugoso={0.4} /></mesh>
+      <mesh position={[0, alt, 0]} castShadow><sphereGeometry args={[0.7, 20, 14]} /><Mat cor={cor} rugoso={0.4} /></mesh>
     </group>
   );
 };
@@ -285,7 +270,7 @@ const Arco: React.FC<{raio: number; th0: number; th1: number; cor: string; vis: 
   return (
     <group position={c} rotation={[-Math.PI / 2, 0, 0]}>
       <mesh rotation={[0, 0, (th0 * Math.PI) / 180]}>
-        <torusGeometry args={[raio * K, r, 4, 90, ang * suave(vis)]} />
+        <torusGeometry args={[raio * K, r, 10, 90, ang * suave(vis)]} />
         <meshBasicMaterial color={cor} transparent opacity={0.9} />
       </mesh>
     </group>
@@ -332,12 +317,12 @@ export const Mapa: React.FC<{p: number; t: number; pergunta?: boolean}> = ({p, t
   return (
     <group>
       {/* mar */}
-      <mesh position={[-30, -0.05, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow><planeGeometry args={[420, 320]} /><meshStandardMaterial color="#2c77ad" roughness={0.6} flatShading /></mesh>
+      <mesh position={[-30, -0.05, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow><planeGeometry args={[420, 320]} /><meshStandardMaterial color="#2c77ad" roughness={0.6} /></mesh>
       {grade}
       {/* terras */}
       {geos.map((g, i) => (
         <mesh key={i} geometry={g} rotation={[-Math.PI / 2, 0, 0]} castShadow receiveShadow>
-          <meshStandardMaterial color={i === 1 || i === 0 ? '#d9c98f' : '#a9cf7a'} flatShading roughness={0.9} />
+          <meshStandardMaterial color={i === 1 || i === 0 ? '#d9c98f' : '#a9cf7a'} roughness={0.9} />
         </mesh>
       ))}
       {/* Ilha da Reunião e Maurício */}
@@ -396,17 +381,17 @@ export const TelaRadar: React.FC<{pos: V3; rot?: V3; r?: number; t: number; blip
       <mesh position={[-r * 0.45, -r * 0.1, 0.004]} rotation={[0, 0, 0.5]}><planeGeometry args={[r * 0.35, r * 1.3]} /><meshBasicMaterial color="#0f4a30" /></mesh>
       {/* feixe girando */}
       <group rotation={[0, 0, -varre]} position={[0, 0, 0.006]}>
-        <mesh><circleGeometry args={[r, 20, 0, 0.5]} /><meshBasicMaterial color="#3bff9a" transparent opacity={0.25} /></mesh>
+        <mesh><circleGeometry args={[r, 40, 0, 0.5]} /><meshBasicMaterial color="#3bff9a" transparent opacity={0.25} /></mesh>
         <Caixa pos={[r / 2, 0.003, 0]} tam={[r, 0.008, 0.001]} cor="#3bff9a" sombra={false} />
       </group>
       {/* rastro (pontos antigos) */}
       {Array.from({length: Math.round(rastro * 8)}).map((_, i) => {
         const a = rumo + Math.PI - i * 0.12;
-        return <mesh key={i} position={[r * 0.25 + Math.cos(a) * r * 0.06 * i, r * 0.2 + Math.sin(a) * r * 0.035 * i, 0.007]}><circleGeometry args={[0.012, 8]} /><meshBasicMaterial color="#3bff9a" transparent opacity={0.6 - i * 0.06} /></mesh>;
+        return <mesh key={i} position={[r * 0.25 + Math.cos(a) * r * 0.06 * i, r * 0.2 + Math.sin(a) * r * 0.035 * i, 0.007]}><circleGeometry args={[0.012, 40]} /><meshBasicMaterial color="#3bff9a" transparent opacity={0.6 - i * 0.06} /></mesh>;
       })}
       {blip > 0.01 && (
         <group position={[r * 0.25, r * 0.2, 0.008]}>
-          <mesh><circleGeometry args={[0.028, 10]} /><meshBasicMaterial color="#b6ffd6" transparent opacity={blip * pisca} /></mesh>
+          <mesh><circleGeometry args={[0.028, 40]} /><meshBasicMaterial color="#b6ffd6" transparent opacity={blip * pisca} /></mesh>
           <Placa texto="MH370" pos={[0.12, 0.05, 0]} larg={0.26 * blip} fundo="#0f4a30" cor="#b6ffd6" />
         </group>
       )}
@@ -427,7 +412,7 @@ export const Satelite: React.FC<{pos: V3; esc?: number; rotY?: number}> = ({pos,
       </group>
     ))}
     {/* antena virada para a Terra */}
-    <mesh position={[0, -1.25, 0]} rotation={[Math.PI, 0, 0]}><coneGeometry args={[0.95, 0.5, 16, 1, true]} /><meshStandardMaterial color="#eef0f4" side={2} flatShading /></mesh>
+    <mesh position={[0, -1.25, 0]} rotation={[Math.PI, 0, 0]}><coneGeometry args={[0.95, 0.5, 24, 1, true]} /><meshStandardMaterial color="#eef0f4" side={2} /></mesh>
     <Cil pos={[0, -1.0, 0]} r={0.05} h={0.5} cor="#9aa0aa" />
   </group>
 );
@@ -447,7 +432,7 @@ export const Navio: React.FC<{pos: V3; rotY?: number; t: number}> = ({pos, rotY 
       <Caixa pos={[21, 12, 0]} tam={[10, 2.6, 14]} cor="#f4f5f7" />
       {[-5, -2.5, 0, 2.5, 5].map((z) => (<Caixa key={z} pos={[26.05, 12, z]} tam={[0.1, 1.2, 1.8]} cor="#1d2233" sombra={false} />))}
       <Cil pos={[16, 16, 0]} r={0.3} h={6} cor="#e3e6ec" />
-      <mesh position={[16, 19.2, 0]}><sphereGeometry args={[1.1, 12, 8]} /><Mat cor="#ffffff" /></mesh>
+      <mesh position={[16, 19.2, 0]}><sphereGeometry args={[1.1, 20, 14]} /><Mat cor="#ffffff" /></mesh>
       {/* convés de popa com guindaste (pórtico) e o drone pronto */}
       <group position={[-28, 2.3, 0]}>
         {[-6, 6].map((z) => (<Caixa key={z} pos={[0, 5, z]} tam={[1, 10, 1]} cor="#ff8a1f" />))}
@@ -460,7 +445,7 @@ export const Navio: React.FC<{pos: V3; rotY?: number; t: number}> = ({pos, rotY 
 
 export const Drone: React.FC<{pos: V3; rotY?: number; t: number; sonar?: number}> = ({pos, rotY = 0, t, sonar = 1}) => (
   <group position={pos} rotation={[0, rotY, 0]}>
-    <mesh rotation={[0, 0, Math.PI / 2]} castShadow><capsuleGeometry args={[0.45, 5, 6, 12]} /><Mat cor="#ffd23f" rugoso={0.5} /></mesh>
+    <mesh rotation={[0, 0, Math.PI / 2]} castShadow><capsuleGeometry args={[0.45, 5, 6, 16]} /><Mat cor="#ffd23f" rugoso={0.5} /></mesh>
     <mesh position={[-3.0, 0, 0]} rotation={[t * 8, 0, 0]}><boxGeometry args={[0.08, 0.9, 0.12]} /><Mat cor="#1d1b26" /></mesh>
     {[-1, 1].map((s) => (<Caixa key={s} pos={[-2.4, 0, s * 0.55]} tam={[0.6, 0.06, 0.5]} cor="#ff8a1f" />))}
     <Caixa pos={[-2.4, 0.55, 0]} tam={[0.6, 0.5, 0.06]} cor="#ff8a1f" />
@@ -487,7 +472,7 @@ export const Flaperon: React.FC<{pos: V3; rot?: V3}> = ({pos, rot = [0, 0, 0]}) 
         <mesh geometry={geo} castShadow receiveShadow><Mat cor="#eef0f2" /></mesh>
         {/* borda quebrada e cracas (bichinhos do mar) */}
         <Caixa pos={[0.05, 0.55, 0.11]} tam={[0.1, 1.0, 0.24]} cor="#8a8f96" />
-        {cracas.map(([x, y, r], i) => (<mesh key={i} position={[x, y, 0.23]}><sphereGeometry args={[r, 5, 4]} /><Mat cor={i % 3 ? '#b8ad95' : '#8f8672'} /></mesh>))}
+        {cracas.map(([x, y, r], i) => (<mesh key={i} position={[x, y, 0.23]}><sphereGeometry args={[r, 20, 14]} /><Mat cor={i % 3 ? '#b8ad95' : '#8f8672'} /></mesh>))}
       </group>
     </group>
   );
@@ -497,7 +482,7 @@ export const Flaperon: React.FC<{pos: V3; rot?: V3}> = ({pos, rot = [0, 0, 0]}) 
 export const Vela: React.FC<{pos: V3; t: number; h?: number}> = ({pos, t, h = 0.16}) => (
   <group position={pos}>
     <Cil pos={[0, h / 2, 0]} r={0.035} h={h} cor="#f4efe2" seg={8} />
-    <mesh position={[0, h + 0.04, 0]} scale={[1, 1 + Math.sin(t * 13 + pos[0] * 7) * 0.15, 1]}><coneGeometry args={[0.018, 0.07, 6]} /><meshStandardMaterial color="#ffb347" emissive="#ff8a1f" emissiveIntensity={1.6} /></mesh>
+    <mesh position={[0, h + 0.04, 0]} scale={[1, 1 + Math.sin(t * 13 + pos[0] * 7) * 0.15, 1]}><coneGeometry args={[0.018, 0.07, 24]} /><meshStandardMaterial color="#ffb347" emissive="#ff8a1f" emissiveIntensity={1.6} /></mesh>
   </group>
 );
 

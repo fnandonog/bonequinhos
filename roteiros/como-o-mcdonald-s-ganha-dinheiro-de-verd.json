@@ -1,547 +1,975 @@
 {
-  "id": "como-o-mcdonald-s-ganha-dinheiro-de-verd",
-  "serie": "Como Ficou Rico",
-  "perfil": "rico",
-  "titulo": "O REAL NEGÓCIO DO MC",
-  "linha2": "McDonald's · $500 MI → $23 BI",
-  "voz": "pt-BR-AntonioNeural",
-  "velocidade": "+10%",
-  "elevenlabs": {
-    "voz_id": "zNEsdgTUa3ndwKry8Xcq",
-    "modelo": "eleven_multilingual_v2",
-    "ajustes": {
-      "stability": 0.45,
-      "similarity_boost": 0.8,
-      "style": 0.35,
-      "use_speaker_boost": true,
-      "speed": 1.1
-    }
-  },
-  "fontes": "roteiros/como-o-mcdonald-s-ganha-dinheiro-de-verd.pesquisa.md",
-  "monetizacao": {
-    "afiliados": [
-      "livro: Grinding It Out — Ray Kroc (autobiografia)",
-      "livro: Behind the Arches — John F. Love",
-      "livro: Pai Rico, Pai Pobre",
-      "livro: Do mil ao milhão — Thiago Nigro"
-    ]
-  },
-  "cenas": [
-    {
-      "id": "c1",
-      "texto": "Ray Kroc tinha cinquenta e dois anos e vendia máquinas de milkshake. Morreu em 1984 com quinhentos milhões de dólares. Sabe como?",
-      "ano": "1954",
-      "tem": "UM VENDEDOR",
-      "destaques": [
-        "kroc",
-        "cinquenta",
-        "dois",
-        "milkshake",
-        "1984",
-        "quinhentos",
-        "milhões",
-        "dólares",
-        "1948",
-        "1954",
-        "1955",
-        "1956",
-        "1961",
-        "quarenta",
-        "cinco",
-        "quatorze",
-        "bilhões",
-        "sonneborn",
-        "terreno",
-        "aluguel",
-        "royalties",
-        "senhorio",
-        "speedee",
-        "hambúrguer",
-        "franquia",
-        "illinois",
-        "meio",
-        "sete",
-        "cem",
-        "2024"
-      ],
-      "planos": [
-        {
-          "set": "estrada50s",
-          "cam": "dirige",
-          "card": {
-            "rotulo": "Vendedor ambulante",
-            "num": 52,
-            "sufixo": " anos",
-            "sub": "Multi-Mixer · San Bernardino, 1954"
-          }
-        },
-        {
-          "set": "escadatopo",
-          "cam": "topo",
-          "apartir": 12,
-          "card": {
-            "rotulo": "Fortuna ao morrer",
-            "valor": "$ 500 MI",
-            "sub": "1984 · Forbes",
-            "cor": "#ffd23f"
-          }
-        }
-      ]
-    },
-    {
-      "id": "c2",
-      "texto": "Em quarenta e oito, Dick e Mac McDonald criam o serviço rápido: hambúrguer pronto em trinta segundos, fila enorme toda semana.",
-      "ano": "1948",
-      "tem": "O SISTEMA SPEEDEE",
-      "destaques": [
-        "kroc",
-        "cinquenta",
-        "dois",
-        "milkshake",
-        "1984",
-        "quinhentos",
-        "milhões",
-        "dólares",
-        "1948",
-        "1954",
-        "1955",
-        "1956",
-        "1961",
-        "quarenta",
-        "cinco",
-        "quatorze",
-        "bilhões",
-        "sonneborn",
-        "terreno",
-        "aluguel",
-        "royalties",
-        "senhorio",
-        "speedee",
-        "hambúrguer",
-        "franquia",
-        "illinois",
-        "meio",
-        "sete",
-        "cem",
-        "2024"
-      ],
-      "planos": [
-        {
-          "set": "lanchonete50s",
-          "cam": "fila",
-          "card": {
-            "rotulo": "San Bernardino · CA",
-            "valor": "1948",
-            "sub": "Speedee Service System"
-          }
-        },
-        {
-          "set": "lanchonete50sbalcao",
-          "cam": "balcao",
-          "apartir": 12,
-          "card": {
-            "rotulo": "Hambúrguer",
-            "valor": "$0,15",
-            "sub": "pronto em ~30 segundos",
-            "cor": "#ffd23f"
-          }
-        }
-      ]
-    },
-    {
-      "id": "c3",
-      "texto": "Em 1954, Kroc visita a lanchonete e propõe franquia. Os irmãos aceitam meio por cento de cada venda. Em 1955, abre a primeira filial em Illinois.",
-      "ano": "1955",
-      "tem": "A FRANQUIA",
-      "destaques": [
-        "kroc",
-        "cinquenta",
-        "dois",
-        "milkshake",
-        "1984",
-        "quinhentos",
-        "milhões",
-        "dólares",
-        "1948",
-        "1954",
-        "1955",
-        "1956",
-        "1961",
-        "quarenta",
-        "cinco",
-        "quatorze",
-        "bilhões",
-        "sonneborn",
-        "terreno",
-        "aluguel",
-        "royalties",
-        "senhorio",
-        "speedee",
-        "hambúrguer",
-        "franquia",
-        "illinois",
-        "meio",
-        "sete",
-        "cem",
-        "2024"
-      ],
-      "planos": [
-        {
-          "set": "lanchonete50skroc",
-          "cam": "kroc",
-          "card": {
-            "rotulo": "Proposta Kroc",
-            "valor": "FRANQUIA",
-            "sub": "dez/1954"
-          }
-        },
-        {
-          "set": "escritoriomcd",
-          "cam": "contrato",
-          "apartir": 9,
-          "card": {
-            "rotulo": "Os irmãos recebem",
-            "valor": "0,5% POR VENDA",
-            "sub": "de cada franquia Kroc"
-          }
-        },
-        {
-          "set": "lanchonete50s",
-          "cam": "fila",
-          "apartir": 18,
-          "card": {
-            "rotulo": "1a Filial",
-            "valor": "DES PLAINES · IL",
-            "sub": "15 abr 1955",
-            "cor": "#4ade80"
-          }
-        }
-      ]
-    },
-    {
-      "id": "c4",
-      "texto": "Harry Sonneborn, o contador, tem a ideia que vale tudo: McDonald's compra o terreno. Aluga pro franqueado.",
-      "ano": "1956",
-      "tem": "A VIRADA",
-      "destaques": [
-        "kroc",
-        "cinquenta",
-        "dois",
-        "milkshake",
-        "1984",
-        "quinhentos",
-        "milhões",
-        "dólares",
-        "1948",
-        "1954",
-        "1955",
-        "1956",
-        "1961",
-        "quarenta",
-        "cinco",
-        "quatorze",
-        "bilhões",
-        "sonneborn",
-        "terreno",
-        "aluguel",
-        "royalties",
-        "senhorio",
-        "speedee",
-        "hambúrguer",
-        "franquia",
-        "illinois",
-        "meio",
-        "sete",
-        "cem",
-        "2024"
-      ],
-      "planos": [
-        {
-          "set": "escritoriomcdson",
-          "cam": "sonneborn",
-          "card": {
-            "rotulo": "Harry Sonneborn",
-            "valor": "A IDEIA",
-            "sub": "1956 · VP Finanças"
-          }
-        },
-        {
-          "set": "terrenomcd",
-          "cam": "geral",
-          "apartir": 10,
-          "p": [
-            0,
-            1
-          ],
-          "card": {
-            "rotulo": "McDonald's Corp",
-            "valor": "COMPRA O TERRENO",
-            "sub": "depois aluga pro franqueado",
-            "cor": "#4ade80"
-          }
-        }
-      ]
-    },
-    {
-      "id": "c5",
-      "texto": "O franqueado paga royalties. E paga aluguel pro McDonald's. O McDonald's é o senhorio do chão.",
-      "ano": "1961",
-      "tem": "DOIS RIOS",
-      "destaques": [
-        "kroc",
-        "cinquenta",
-        "dois",
-        "milkshake",
-        "1984",
-        "quinhentos",
-        "milhões",
-        "dólares",
-        "1948",
-        "1954",
-        "1955",
-        "1956",
-        "1961",
-        "quarenta",
-        "cinco",
-        "quatorze",
-        "bilhões",
-        "sonneborn",
-        "terreno",
-        "aluguel",
-        "royalties",
-        "senhorio",
-        "speedee",
-        "hambúrguer",
-        "franquia",
-        "illinois",
-        "meio",
-        "sete",
-        "cem",
-        "2024"
-      ],
-      "planos": [
-        {
-          "set": "terrenomcd",
-          "cam": "royalties",
-          "p": [
-            0,
-            0.5
-          ],
-          "card": {
-            "rotulo": "Royalties",
-            "valor": "5% DAS VENDAS",
-            "sub": "todo mês, direto pra corp.",
-            "cor": "#4ade80"
-          }
-        },
-        {
-          "set": "terrenomcd",
-          "cam": "aluguel",
-          "apartir": 4,
-          "p": [
-            0,
-            0.5
-          ],
-          "card": {
-            "rotulo": "Aluguel",
-            "valor": "10-15% DO FATURAMENTO",
-            "sub": "McDonald's é o senhorio",
-            "cor": "#ff9f1c"
-          }
-        },
-        {
-          "set": "terrenomcd",
-          "cam": "geral",
-          "apartir": 9,
-          "card": {
-            "rotulo": "O McDonald's",
-            "valor": "= SENHORIO",
-            "sub": "dono do chão embaixo",
-            "cor": "#ffd23f"
-          }
-        }
-      ]
-    },
-    {
-      "id": "c6",
-      "texto": "Em 1961, Kroc compra os irmãos por dois vírgula sete milhões de dólares.",
-      "ano": "1961",
-      "tem": "$ 2,7 MI",
-      "destaques": [
-        "kroc",
-        "cinquenta",
-        "dois",
-        "milkshake",
-        "1984",
-        "quinhentos",
-        "milhões",
-        "dólares",
-        "1948",
-        "1954",
-        "1955",
-        "1956",
-        "1961",
-        "quarenta",
-        "cinco",
-        "quatorze",
-        "bilhões",
-        "sonneborn",
-        "terreno",
-        "aluguel",
-        "royalties",
-        "senhorio",
-        "speedee",
-        "hambúrguer",
-        "franquia",
-        "illinois",
-        "meio",
-        "sete",
-        "cem",
-        "2024"
-      ],
-      "planos": [
-        {
-          "set": "escritoriomcdcompra",
-          "cam": "compra",
-          "p": [
-            0,
-            1
-          ],
-          "card": {
-            "rotulo": "Compra dos irmãos",
-            "valor": "$ 2,7 MI",
-            "sub": "fim dos 0,5% de royalties",
-            "cor": "#ff5d5d"
-          }
-        }
-      ]
-    },
-    {
-      "id": "c7",
-      "texto": "Hoje: quarenta mil restaurantes em cem países. Noventa e cinco por cento são franquias, quatorze bilhões em aluguel e royalties.",
-      "ano": "2024",
-      "tem": "40.000 RESTAURANTES",
-      "destaques": [
-        "kroc",
-        "cinquenta",
-        "dois",
-        "milkshake",
-        "1984",
-        "quinhentos",
-        "milhões",
-        "dólares",
-        "1948",
-        "1954",
-        "1955",
-        "1956",
-        "1961",
-        "quarenta",
-        "cinco",
-        "quatorze",
-        "bilhões",
-        "sonneborn",
-        "terreno",
-        "aluguel",
-        "royalties",
-        "senhorio",
-        "speedee",
-        "hambúrguer",
-        "franquia",
-        "illinois",
-        "meio",
-        "sete",
-        "cem",
-        "2024"
-      ],
-      "planos": [
-        {
-          "set": "rede40k",
-          "cam": "painel",
-          "p": [
-            0,
-            0.6
-          ],
-          "card": {
-            "rotulo": "Restaurantes",
-            "num": 40000,
-            "sub": "em 100+ países · 2024"
-          }
-        },
-        {
-          "set": "rede40k",
-          "cam": "mundi",
-          "apartir": 7,
-          "p": [
-            0,
-            1
-          ],
-          "card": {
-            "rotulo": "Aluguel + Royalties",
-            "valor": "$14 BI/ANO",
-            "sub": "60% da receita total",
-            "cor": "#ffd23f"
-          }
-        }
-      ]
-    },
-    {
-      "id": "c8",
-      "texto": "A lição: o negócio nunca foi o hambúrguer. Foi o terreno embaixo. Você alugaria o chão ou preferia só vender o lanche?",
-      "ano": "2024",
-      "tem": "40.000 RESTAURANTES",
-      "destaques": [
-        "kroc",
-        "cinquenta",
-        "dois",
-        "milkshake",
-        "1984",
-        "quinhentos",
-        "milhões",
-        "dólares",
-        "1948",
-        "1954",
-        "1955",
-        "1956",
-        "1961",
-        "quarenta",
-        "cinco",
-        "quatorze",
-        "bilhões",
-        "sonneborn",
-        "terreno",
-        "aluguel",
-        "royalties",
-        "senhorio",
-        "speedee",
-        "hambúrguer",
-        "franquia",
-        "illinois",
-        "meio",
-        "sete",
-        "cem",
-        "2024"
-      ],
-      "planos": [
-        {
-          "set": "terrenomcd",
-          "cam": "geral",
-          "card": {
-            "rotulo": "O negócio real",
-            "valor": "O TERRENO",
-            "sub": "não o hambúrguer",
-            "cor": "#ffd23f"
-          }
-        },
-        {
-          "set": "auditorio",
-          "cam": "ze",
-          "apartir": 12,
-          "card": {
-            "rotulo": "Alugaria o chão?",
-            "valor": "SIM OU NÃO?"
-          }
-        }
-      ]
-    }
+ "id": "como-o-mcdonald-s-ganha-dinheiro-de-verd",
+ "serie": "Como Ficou Rico",
+ "perfil": "rico",
+ "titulo": "O McDONALD'S NÃO VIVE DE LANCHE",
+ "linha2": "de onde vem os US$ 25,5 BI",
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+10%",
+ "elevenlabs": {
+  "voz_id": "zNEsdgTUa3ndwKry8Xcq",
+  "modelo": "eleven_multilingual_v2",
+  "ajustes": {
+   "stability": 0.45,
+   "similarity_boost": 0.8,
+   "style": 0.35,
+   "use_speaker_boost": true,
+   "speed": 1.1
+  }
+ },
+ "fontes": "roteiros/como-o-mcdonald-s-ganha-dinheiro-de-verd.pesquisa.md",
+ "monetizacao": {
+  "afiliados": [
+   "livro: Grinding It Out — Ray Kroc (autobiografia)",
+   "livro: Behind the Arches — John F. Love",
+   "livro: Pai Rico, Pai Pobre",
+   "livro: Do mil ao milhão — Thiago Nigro"
   ]
+ },
+ "cenas": [
+  {
+   "id": "c1",
+   "texto": "O McDonald's fatura vinte e cinco bilhões de dólares por ano. Mas quase não frita hambúrguer. De onde vem isso?",
+   "ano": "2023",
+   "tem": "US$ 25,5 BI POR ANO",
+   "destaques": [
+    "mcdonald's",
+    "vinte",
+    "bilhões",
+    "frita",
+    "hambúrguer",
+    "dinheiro",
+    "novecentos",
+    "califórnia",
+    "irmãos",
+    "funcionário",
+    "lanchonete",
+    "cozinha",
+    "fábrica",
+    "tarefa",
+    "quinze",
+    "trinta",
+    "oito",
+    "milkshake",
+    "ray",
+    "kroc",
+    "cinquenta",
+    "franquia",
+    "igual",
+    "nome",
+    "taxa",
+    "royalties",
+    "dólares",
+    "contas",
+    "sonneborn",
+    "finanças",
+    "inverte",
+    "lucro",
+    "terreno",
+    "aluga",
+    "imóvel",
+    "negócio",
+    "três",
+    "quarenta",
+    "aluguel",
+    "sobe",
+    "recebeu",
+    "nove",
+    "oitocentos",
+    "dobro",
+    "chão",
+    "sete",
+    "lojas",
+    "cem",
+    "países",
+    "cliente",
+    "lanchonete"
+   ],
+   "planos": [
+    {
+     "set": "mccidade",
+     "cam": "drone",
+     "card": {
+      "rotulo": "Receita em 2023",
+      "valor": "US$ 25,5 BI",
+      "sub": "balanço anual (10-K)",
+      "cor": "#ffd23f"
+     }
+    },
+    {
+     "set": "mccozinha",
+     "cam": "chapa",
+     "apartir": 11,
+     "card": {
+      "rotulo": "Lojas de franqueados",
+      "num": 95,
+      "sufixo": "%",
+      "sub": "quem frita é o dono da loja"
+     }
+    },
+    {
+     "set": "mccidade",
+     "cam": "drive",
+     "apartir": 16
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "texto": "Em mil novecentos e quarenta e oito, os irmãos McDonald têm uma lanchonete. Cada funcionário faz uma tarefa só, como numa fábrica. O hambúrguer custa quinze centavos e sai em trinta segundos.",
+   "ano": "1948",
+   "tem": "1 LANCHONETE",
+   "destaques": [
+    "mcdonald's",
+    "vinte",
+    "bilhões",
+    "frita",
+    "hambúrguer",
+    "dinheiro",
+    "novecentos",
+    "califórnia",
+    "irmãos",
+    "funcionário",
+    "lanchonete",
+    "cozinha",
+    "fábrica",
+    "tarefa",
+    "quinze",
+    "trinta",
+    "oito",
+    "milkshake",
+    "ray",
+    "kroc",
+    "cinquenta",
+    "franquia",
+    "igual",
+    "nome",
+    "taxa",
+    "royalties",
+    "dólares",
+    "contas",
+    "sonneborn",
+    "finanças",
+    "inverte",
+    "lucro",
+    "terreno",
+    "aluga",
+    "imóvel",
+    "negócio",
+    "três",
+    "quarenta",
+    "aluguel",
+    "sobe",
+    "recebeu",
+    "nove",
+    "oitocentos",
+    "dobro",
+    "chão",
+    "sete",
+    "lojas",
+    "cem",
+    "países",
+    "cliente",
+    "lanchonete"
+   ],
+   "planos": [
+    {
+     "set": "mc48",
+     "cam": "aberto",
+     "card": {
+      "rotulo": "San Bernardino · Califórnia",
+      "valor": "1948"
+     }
+    },
+    {
+     "set": "mc48",
+     "cam": "irmaos",
+     "apartir": 7,
+     "card": {
+      "rotulo": "Os donos",
+      "valor": "DICK E MAC",
+      "sub": "os irmãos McDonald"
+     }
+    },
+    {
+     "set": "mc48linha",
+     "cam": "linha",
+     "apartir": 13,
+     "card": {
+      "rotulo": "Cozinha em linha",
+      "valor": "1 TAREFA",
+      "sub": "por funcionário, como numa fábrica"
+     }
+    },
+    {
+     "set": "mc48balcao",
+     "cam": "balcao",
+     "apartir": 22,
+     "card": {
+      "rotulo": "Hambúrguer",
+      "valor": "US$ 0,15",
+      "sub": "pronto em ~30 segundos",
+      "cor": "#ffd23f"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "texto": "Seis anos depois, eles compram oito máquinas de milkshake de uma vez. O vendedor, Ray Kroc, vai ver por quê. E fecha com os irmãos um contrato de franquia. Gente de fora abre uma loja igual e paga pelo nome.",
+   "ano": "1954",
+   "tem": "1 VENDEDOR",
+   "destaques": [
+    "mcdonald's",
+    "vinte",
+    "bilhões",
+    "frita",
+    "hambúrguer",
+    "dinheiro",
+    "novecentos",
+    "califórnia",
+    "irmãos",
+    "funcionário",
+    "lanchonete",
+    "cozinha",
+    "fábrica",
+    "tarefa",
+    "quinze",
+    "trinta",
+    "oito",
+    "milkshake",
+    "ray",
+    "kroc",
+    "cinquenta",
+    "franquia",
+    "igual",
+    "nome",
+    "taxa",
+    "royalties",
+    "dólares",
+    "contas",
+    "sonneborn",
+    "finanças",
+    "inverte",
+    "lucro",
+    "terreno",
+    "aluga",
+    "imóvel",
+    "negócio",
+    "três",
+    "quarenta",
+    "aluguel",
+    "sobe",
+    "recebeu",
+    "nove",
+    "oitocentos",
+    "dobro",
+    "chão",
+    "sete",
+    "lojas",
+    "cem",
+    "países",
+    "cliente",
+    "lanchonete"
+   ],
+   "planos": [
+    {
+     "set": "mcestrada",
+     "cam": "mixer",
+     "card": {
+      "rotulo": "Multi-Mixer",
+      "valor": "8 MÁQUINAS",
+      "sub": "o maior pedido da empresa do Kroc"
+     }
+    },
+    {
+     "set": "mcestrada",
+     "cam": "carro",
+     "apartir": 12,
+     "card": {
+      "rotulo": "Ray Kroc",
+      "num": 52,
+      "sufixo": " anos",
+      "sub": "vendedor de máquinas de milkshake"
+     }
+    },
+    {
+     "set": "mcesc54",
+     "cam": "contrato",
+     "apartir": 20,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Contrato com os irmãos",
+      "valor": "FRANQUIA",
+      "sub": "1954"
+     }
+    },
+    {
+     "set": "mcfranquias",
+     "cam": "rua",
+     "apartir": 29,
+     "card": {
+      "rotulo": "Franquia",
+      "valor": "LOJA IGUAL",
+      "sub": "o dono paga pra usar o nome e o jeito",
+      "cor": "#4ade80"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "texto": "O franqueado, dono da loja, pagava uma taxa pra entrar e um pedaço de cada venda, os royalties. De cada cem dólares, sobravam um e quarenta pro Kroc. A empresa dele mal pagava as contas.",
+   "ano": "1955",
+   "tem": "FRANQUIAS",
+   "destaques": [
+    "mcdonald's",
+    "vinte",
+    "bilhões",
+    "frita",
+    "hambúrguer",
+    "dinheiro",
+    "novecentos",
+    "califórnia",
+    "irmãos",
+    "funcionário",
+    "lanchonete",
+    "cozinha",
+    "fábrica",
+    "tarefa",
+    "quinze",
+    "trinta",
+    "oito",
+    "milkshake",
+    "ray",
+    "kroc",
+    "cinquenta",
+    "franquia",
+    "igual",
+    "nome",
+    "taxa",
+    "royalties",
+    "dólares",
+    "contas",
+    "sonneborn",
+    "finanças",
+    "inverte",
+    "lucro",
+    "terreno",
+    "aluga",
+    "imóvel",
+    "negócio",
+    "três",
+    "quarenta",
+    "aluguel",
+    "sobe",
+    "recebeu",
+    "nove",
+    "oitocentos",
+    "dobro",
+    "chão",
+    "sete",
+    "lojas",
+    "cem",
+    "países",
+    "cliente",
+    "lanchonete"
+   ],
+   "planos": [
+    {
+     "set": "mcfranquias",
+     "cam": "caixa",
+     "card": {
+      "rotulo": "Taxa de entrada",
+      "valor": "US$ 950",
+      "sub": "em 1955"
+     }
+    },
+    {
+     "set": "mccontas",
+     "cam": "mesa",
+     "apartir": 10,
+     "p": [
+      0,
+      0.5
+     ],
+     "card": {
+      "rotulo": "Royalties",
+      "valor": "1,9%",
+      "sub": "de cada venda",
+      "cor": "#4ade80"
+     }
+    },
+    {
+     "set": "mccontas",
+     "cam": "livro",
+     "apartir": 18,
+     "p": [
+      0.5,
+      1
+     ],
+     "card": {
+      "rotulo": "Sobrava pro Kroc",
+      "valor": "1,4%",
+      "sub": "0,5% ia para os irmãos",
+      "cor": "#ff5d5d"
+     }
+    },
+    {
+     "set": "mccofre",
+     "cam": "cofre",
+     "apartir": 28,
+     "p": [
+      1,
+      1
+     ],
+     "card": {
+      "rotulo": "A empresa do Kroc",
+      "valor": "MAL PAGAVA AS CONTAS",
+      "cor": "#ff5d5d"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c5",
+   "texto": "Aí o chefe das finanças, Harry Sonneborn, inverte o jogo. A rede compra o terreno, ergue a loja e aluga pro franqueado com lucro. Ele dizia que o negócio era imóvel, não comida.",
+   "ano": "1956",
+   "tem": "TERRENOS",
+   "destaques": [
+    "mcdonald's",
+    "vinte",
+    "bilhões",
+    "frita",
+    "hambúrguer",
+    "dinheiro",
+    "novecentos",
+    "califórnia",
+    "irmãos",
+    "funcionário",
+    "lanchonete",
+    "cozinha",
+    "fábrica",
+    "tarefa",
+    "quinze",
+    "trinta",
+    "oito",
+    "milkshake",
+    "ray",
+    "kroc",
+    "cinquenta",
+    "franquia",
+    "igual",
+    "nome",
+    "taxa",
+    "royalties",
+    "dólares",
+    "contas",
+    "sonneborn",
+    "finanças",
+    "inverte",
+    "lucro",
+    "terreno",
+    "aluga",
+    "imóvel",
+    "negócio",
+    "três",
+    "quarenta",
+    "aluguel",
+    "sobe",
+    "recebeu",
+    "nove",
+    "oitocentos",
+    "dobro",
+    "chão",
+    "sete",
+    "lojas",
+    "cem",
+    "países",
+    "cliente",
+    "lanchonete"
+   ],
+   "planos": [
+    {
+     "set": "mcsonneborn",
+     "cam": "mesa",
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Harry Sonneborn",
+      "valor": "A VIRADA",
+      "sub": "chefe das finanças · 1956",
+      "cor": "#ffd23f"
+     }
+    },
+    {
+     "set": "mclote",
+     "cam": "placa",
+     "apartir": 10,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "A rede",
+      "valor": "COMPRA O TERRENO",
+      "sub": "e ergue a loja",
+      "cor": "#4ade80"
+     }
+    },
+    {
+     "set": "mcobra",
+     "cam": "sobe",
+     "apartir": 18,
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Depois",
+      "valor": "ALUGA COM LUCRO",
+      "sub": "o franqueado vira inquilino",
+      "cor": "#ffd23f"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c6",
+   "texto": "Hoje, nos Estados Unidos, o franqueado paga quarenta e cinco mil dólares pra entrar. Mais quatro a cinco por cento das vendas. E o aluguel, que sobe com elas.",
+   "ano": "HOJE",
+   "tem": "TERRENOS",
+   "destaques": [
+    "mcdonald's",
+    "vinte",
+    "bilhões",
+    "frita",
+    "hambúrguer",
+    "dinheiro",
+    "novecentos",
+    "califórnia",
+    "irmãos",
+    "funcionário",
+    "lanchonete",
+    "cozinha",
+    "fábrica",
+    "tarefa",
+    "quinze",
+    "trinta",
+    "oito",
+    "milkshake",
+    "ray",
+    "kroc",
+    "cinquenta",
+    "franquia",
+    "igual",
+    "nome",
+    "taxa",
+    "royalties",
+    "dólares",
+    "contas",
+    "sonneborn",
+    "finanças",
+    "inverte",
+    "lucro",
+    "terreno",
+    "aluga",
+    "imóvel",
+    "negócio",
+    "três",
+    "quarenta",
+    "aluguel",
+    "sobe",
+    "recebeu",
+    "nove",
+    "oitocentos",
+    "dobro",
+    "chão",
+    "sete",
+    "lojas",
+    "cem",
+    "países",
+    "cliente",
+    "lanchonete"
+   ],
+   "planos": [
+    {
+     "set": "mcfranqueado",
+     "cam": "assina",
+     "p": [
+      0,
+      1
+     ],
+     "card": {
+      "rotulo": "Contas do franqueado",
+      "num": 3,
+      "sub": "contrato de 20 anos"
+     }
+    },
+    {
+     "set": "mcfluxo",
+     "cam": "taxa",
+     "apartir": 6,
+     "p": [
+      0,
+      0.34
+     ],
+     "card": {
+      "rotulo": "Taxa de entrada",
+      "valor": "US$ 45 MIL",
+      "sub": "uma vez só · EUA"
+     }
+    },
+    {
+     "set": "mcfluxo",
+     "cam": "royalties",
+     "apartir": 14,
+     "p": [
+      0.34,
+      0.67
+     ],
+     "card": {
+      "rotulo": "Royalties",
+      "valor": "4 a 5%",
+      "sub": "de cada venda, todo mês · EUA",
+      "cor": "#4ade80"
+     }
+    },
+    {
+     "set": "mcfluxo",
+     "cam": "aluguel",
+     "apartir": 22,
+     "p": [
+      0.67,
+      1
+     ],
+     "card": {
+      "rotulo": "Aluguel",
+      "valor": "SOBE COM AS VENDAS",
+      "sub": "% das vendas, com mínimo fixo",
+      "cor": "#ffd23f"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c7",
+   "texto": "Em dois mil e vinte e três, só de aluguel, a rede recebeu nove bilhões e oitocentos milhões de dólares. Quase o dobro dos royalties. Porque ela é dona do chão, de cinquenta e sete por cento dos terrenos.",
+   "ano": "2023",
+   "tem": "57% DOS TERRENOS",
+   "destaques": [
+    "mcdonald's",
+    "vinte",
+    "bilhões",
+    "frita",
+    "hambúrguer",
+    "dinheiro",
+    "novecentos",
+    "califórnia",
+    "irmãos",
+    "funcionário",
+    "lanchonete",
+    "cozinha",
+    "fábrica",
+    "tarefa",
+    "quinze",
+    "trinta",
+    "oito",
+    "milkshake",
+    "ray",
+    "kroc",
+    "cinquenta",
+    "franquia",
+    "igual",
+    "nome",
+    "taxa",
+    "royalties",
+    "dólares",
+    "contas",
+    "sonneborn",
+    "finanças",
+    "inverte",
+    "lucro",
+    "terreno",
+    "aluga",
+    "imóvel",
+    "negócio",
+    "três",
+    "quarenta",
+    "aluguel",
+    "sobe",
+    "recebeu",
+    "nove",
+    "oitocentos",
+    "dobro",
+    "chão",
+    "sete",
+    "lojas",
+    "cem",
+    "países",
+    "cliente",
+    "lanchonete"
+   ],
+   "planos": [
+    {
+     "set": "mcpilares",
+     "cam": "geral",
+     "p": [
+      0.05,
+      0.3
+     ]
+    },
+    {
+     "set": "mcpilares",
+     "cam": "aluguel",
+     "apartir": 7,
+     "p": [
+      0.3,
+      1
+     ],
+     "card": {
+      "rotulo": "Aluguel em 2023",
+      "valor": "US$ 9,8 BI",
+      "sub": "pago pelos franqueados",
+      "cor": "#ffd23f"
+     }
+    },
+    {
+     "set": "mcpilares",
+     "cam": "royalties",
+     "apartir": 20,
+     "p": [
+      1,
+      1
+     ],
+     "card": {
+      "rotulo": "Royalties em 2023",
+      "valor": "US$ 5,5 BI",
+      "sub": "aluguel ≈ 1,8 vez isso",
+      "cor": "#4ade80"
+     }
+    },
+    {
+     "set": "mcdono",
+     "cam": "placa",
+     "apartir": 25,
+     "p": [
+      0,
+      0.4
+     ],
+     "card": {
+      "rotulo": "Dono do chão",
+      "valor": "A REDE",
+      "sub": "não o franqueado",
+      "cor": "#7cc4ff"
+     }
+    },
+    {
+     "set": "mcdono",
+     "cam": "geral",
+     "apartir": 31,
+     "p": [
+      0.4,
+      1
+     ],
+     "card": {
+      "rotulo": "Terrenos da rede",
+      "num": 57,
+      "sufixo": "%",
+      "sub": "e 80% dos prédios",
+      "cor": "#7cc4ff"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c8",
+   "texto": "São mais de quarenta e um mil lojas, em mais de cem países.",
+   "ano": "2023",
+   "tem": "41.822 LOJAS",
+   "destaques": [
+    "mcdonald's",
+    "vinte",
+    "bilhões",
+    "frita",
+    "hambúrguer",
+    "dinheiro",
+    "novecentos",
+    "califórnia",
+    "irmãos",
+    "funcionário",
+    "lanchonete",
+    "cozinha",
+    "fábrica",
+    "tarefa",
+    "quinze",
+    "trinta",
+    "oito",
+    "milkshake",
+    "ray",
+    "kroc",
+    "cinquenta",
+    "franquia",
+    "igual",
+    "nome",
+    "taxa",
+    "royalties",
+    "dólares",
+    "contas",
+    "sonneborn",
+    "finanças",
+    "inverte",
+    "lucro",
+    "terreno",
+    "aluga",
+    "imóvel",
+    "negócio",
+    "três",
+    "quarenta",
+    "aluguel",
+    "sobe",
+    "recebeu",
+    "nove",
+    "oitocentos",
+    "dobro",
+    "chão",
+    "sete",
+    "lojas",
+    "cem",
+    "países",
+    "cliente",
+    "lanchonete"
+   ],
+   "planos": [
+    {
+     "set": "mcmapa",
+     "cam": "cima",
+     "p": [
+      0,
+      0.7
+     ],
+     "card": {
+      "rotulo": "Restaurantes",
+      "num": 41822,
+      "sub": "fim de 2023 · 95% franquias"
+     }
+    },
+    {
+     "set": "mcmapa",
+     "cam": "globo",
+     "apartir": 8,
+     "p": [
+      0.7,
+      1
+     ],
+     "card": {
+      "rotulo": "Países",
+      "valor": "100+",
+      "cor": "#4ade80"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c9",
+   "texto": "No fim, o hambúrguer traz o cliente. O terreno paga a conta. E você, ficava com a lanchonete ou com o chão embaixo dela?",
+   "ano": "2023",
+   "tem": "41.822 LOJAS",
+   "destaques": [
+    "mcdonald's",
+    "vinte",
+    "bilhões",
+    "frita",
+    "hambúrguer",
+    "dinheiro",
+    "novecentos",
+    "califórnia",
+    "irmãos",
+    "funcionário",
+    "lanchonete",
+    "cozinha",
+    "fábrica",
+    "tarefa",
+    "quinze",
+    "trinta",
+    "oito",
+    "milkshake",
+    "ray",
+    "kroc",
+    "cinquenta",
+    "franquia",
+    "igual",
+    "nome",
+    "taxa",
+    "royalties",
+    "dólares",
+    "contas",
+    "sonneborn",
+    "finanças",
+    "inverte",
+    "lucro",
+    "terreno",
+    "aluga",
+    "imóvel",
+    "negócio",
+    "três",
+    "quarenta",
+    "aluguel",
+    "sobe",
+    "recebeu",
+    "nove",
+    "oitocentos",
+    "dobro",
+    "chão",
+    "sete",
+    "lojas",
+    "cem",
+    "países",
+    "cliente",
+    "lanchonete"
+   ],
+   "planos": [
+    {
+     "set": "mcfinal",
+     "cam": "lanche",
+     "p": [
+      0,
+      0.3
+     ],
+     "card": {
+      "rotulo": "O hambúrguer",
+      "valor": "TRAZ O CLIENTE"
+     }
+    },
+    {
+     "set": "mcfinal",
+     "cam": "chao",
+     "apartir": 7,
+     "p": [
+      0.3,
+      1
+     ],
+     "card": {
+      "rotulo": "O terreno",
+      "valor": "PAGA A CONTA",
+      "cor": "#ffd23f"
+     }
+    },
+    {
+     "set": "mcze",
+     "cam": "pergunta",
+     "apartir": 12,
+     "card": {
+      "rotulo": "E você?",
+      "valor": "LANCHONETE OU CHÃO?"
+     }
+    }
+   ]
+  }
+ ]
 }

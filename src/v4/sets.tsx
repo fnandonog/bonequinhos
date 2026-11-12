@@ -1,4 +1,5 @@
 // CENÁRIOS (sets). Cada set é um lugar/momento diferente da obra, com câmeras nomeadas.
+import type {Expressao} from '../estilo/ze';
 // O diretor escolhe no roteiro: {"set": "alvenaria", "cam": "close", "p": [0, 0.6]}.
 // p = progresso da ação dentro do plano (0 a 1); t = segundos desde o começo do plano.
 import React from 'react';
@@ -7,12 +8,17 @@ import {Arvore, Barra, Betoneira, Boneco, Caixa, Carrinho, Chuva, CRIANCA, ENGEN
 import {ALTURA_CUMEEIRA, Arredores, Esquadrias, Fundacao, Gabarito, Laje, Lote, Moveis, Paredes, Piso, Telhado} from './casa';
 import {BROCA_FUNDO, BROCA_FURO, Bancada, CH, CamadasEsq, Churrasqueira, DUTO_TOPO, ED, ED_BROCAS, ED_PAREDES, ED_PILARES, ED_YC, EdFundacao, EdInstalacoes, EdPiso, EdTelhado, Fumaca, Lavabo, Mesa, Trado, VigaFrente} from './edicula';
 import {PI_SETS} from './piscina';
+import {VD_SETS} from './viaduto';
 
 export type Cam = {de: V3; para: V3; alvo: V3; alvoPara?: V3; fov?: number; corte?: boolean};
 export type Ctx = {t: number; p: number};
 export type SetDef = {
   ceu?: [string, string];
   luz?: 'dia' | 'tarde' | 'nublado';
+  clima?: Expressao; // expressão padrão dos bonecos no set
+  horizonte?: boolean | {raio?: number; y?: number}; // cena externa: morros, árvores e casas ao longe (src/estilo/visual.tsx)
+  noite?: boolean; // noite: luz azul-marinho + fonte quente (nunca preto)
+  nevoa?: [number, number];
   corte?: boolean; // corta tudo que passa da frente do lote (vista em corte)
   render: (c: Ctx) => React.ReactNode;
   cams: Record<string, Cam>;
@@ -763,6 +769,7 @@ export const SETS: Record<string, SetDef> = {
   },
   // piscina de fibra 6 × 3 (src/v4/piscina.tsx), cenários com prefixo "pi"
   ...PI_SETS,
+  ...VD_SETS, // viaduto (src/v4/viaduto.tsx)
 };
 
 // chão da edícula: o mesmo lote da casa, com furos de broca (25 cm) em vez das sapatas

@@ -55,7 +55,9 @@
     },
     {
       "tema": "Quanto custa construir um viaduto",
-      "status": "nova"
+      "status": "usada",
+      "id": "quanto-custa-construir-um-viaduto",
+      "motivo": "Fernando 12/11: coisa extremamente curiosa e completa (obra pública que todo mundo vê e ninguém sabe quanto custa); 3D de cidade com avenida, máquinas pesadas e içamento de viga à noite."
     },
     {
       "tema": "Como se constrói uma praça de pedágio",

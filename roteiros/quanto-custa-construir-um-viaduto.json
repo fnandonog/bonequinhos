@@ -1,0 +1,662 @@
+{
+  "id": "quanto-custa-construir-um-viaduto",
+  "serie": "Você construiu",
+  "titulo": "VIADUTO DE 385 m",
+  "linha2": "quanto custa DE VERDADE?",
+  "elevenlabs": {
+    "voz_id": "ZqE9vIHPcrC35dZv0Svu",
+    "modelo": "eleven_multilingual_v2",
+    "ajustes": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.4,
+      "use_speaker_boost": true,
+      "speed": 1.15
+    }
+  },
+  "fontes": "roteiros/quanto-custa-construir-um-viaduto.pesquisa.md",
+  "post": {
+    "legenda": "Um metro desse viaduto custa mais que uma casa inteira 🏗️\n\nSão 385 metros em Hortolândia-SP, passando por cima da linha do trem. Somando sondagem, 120 estacas, 88 vigas de 60 toneladas cada e o resto, deu R$ 57 milhões. Isso dá uns R$ 148 mil por metro, mais que uma casa de 50 m².\n\nQual é o viaduto da sua cidade? Você acha que vale o que custou? Comenta aí 👇\n\nMateriais e ferramentas em oferta no Telegram do Zé: link na bio\n\n#construcao #obra #quantocusta #casapropria #viaduto #engenhariacivil #hortolandia",
+    "titulo_youtube": "Viaduto de R$ 57 milhões: 1 metro custa mais que uma casa #shorts"
+  },
+  "monetizacao": {
+    "afiliados": [
+      "capacete de segurança com jugular",
+      "colete refletivo",
+      "trena a laser",
+      "nível a laser",
+      "cone de sinalização",
+      "fita zebrada",
+      "luva de vaqueta",
+      "bota de segurança com bico de aço",
+      "lanterna de cabeça (obra à noite)",
+      "livro de pontes e viadutos para engenharia"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Um metro desse viaduto custa mais que uma casa. São trezentos e oitenta e cinco metros, em Hortolândia, por cima do trem.",
+      "destaques": [
+        "metros",
+        "metro",
+        "viaduto",
+        "casa",
+        "trem"
+      ],
+      "planos": [
+        {
+          "set": "vdCidade",
+          "cam": "drone"
+        },
+        {
+          "set": "vdCidade",
+          "cam": "lateral",
+          "apartir": 9,
+          "card": {
+            "rotulo": "Viaduto em Hortolândia-SP",
+            "valor": "385 m",
+            "sub": "4 faixas · 21 m de largura"
+          }
+        },
+        {
+          "set": "vdTerreno",
+          "cam": "geral",
+          "apartir": 18,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Antes da obra",
+            "valor": "LINHA DO TREM",
+            "sub": "o viaduto passa por cima dela",
+            "cor": "#ffd23f"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Primeiro, você testa o chão. Um martelo de sessenta e cinco quilos bate num tubo, e quanto menos o tubo afunda, mais firme o chão. Com o projeto, cerca de um milhão e meio.",
+      "etapa": "SONDAGEM E PROJETO",
+      "custo": 1550000,
+      "destaques": [
+        "milhão",
+        "quilos",
+        "chão",
+        "martelo"
+      ],
+      "planos": [
+        {
+          "set": "vdSondagem",
+          "cam": "geral",
+          "p": [
+            0,
+            0.25
+          ]
+        },
+        {
+          "set": "vdSondagem",
+          "cam": "martelo",
+          "apartir": 5,
+          "p": [
+            0.25,
+            0.5
+          ],
+          "card": {
+            "rotulo": "Martelo da sondagem",
+            "num": 65,
+            "sufixo": " kg",
+            "sub": "cai de 75 cm a cada pancada"
+          }
+        },
+        {
+          "set": "vdSondagem",
+          "cam": "tripe",
+          "apartir": 12,
+          "p": [
+            0.5,
+            0.6
+          ]
+        },
+        {
+          "set": "vdSolo",
+          "cam": "corte",
+          "apartir": 15,
+          "p": [
+            0.6,
+            0.9
+          ],
+          "card": {
+            "rotulo": "Tubo afundou pouco?",
+            "valor": "CHÃO FIRME",
+            "sub": "teste a cada metro de furo"
+          }
+        },
+        {
+          "set": "vdSondagem",
+          "cam": "projeto",
+          "apartir": 25,
+          "p": [
+            0.9,
+            1
+          ],
+          "card": {
+            "rotulo": "Sondagem + projeto",
+            "num": 1550000,
+            "prefixo": "≈ R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "Aí você fecha a rua de madrugada. Desvio e pátio da obra custam uns três milhões.",
+      "etapa": "DESVIO DO TRÂNSITO",
+      "custo": 3000000,
+      "destaques": [
+        "milhões",
+        "madrugada"
+      ],
+      "planos": [
+        {
+          "set": "vdDesvio",
+          "cam": "geral",
+          "p": [
+            0,
+            0.6
+          ],
+          "card": {
+            "rotulo": "Obra de viaduto em BH",
+            "valor": "23h às 4h30",
+            "sub": "faixas fechadas de madrugada"
+          }
+        },
+        {
+          "set": "vdDesvio",
+          "cam": "cones",
+          "apartir": 7,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "Canteiro + desvio",
+            "num": 3000000,
+            "prefixo": "≈ R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "Agora as estacas, os pés do viaduto. Uma rosca gigante fura a terra e enche de concreto. Umas cento e vinte, presas no topo por blocos, custam uns cinco milhões.",
+      "etapa": "ESTACAS E BLOCOS",
+      "custo": 5000000,
+      "destaques": [
+        "milhões",
+        "viaduto",
+        "estacas"
+      ],
+      "planos": [
+        {
+          "set": "vdEstaca",
+          "cam": "rosca",
+          "p": [
+            0,
+            0.45
+          ]
+        },
+        {
+          "set": "vdEstacaCorte",
+          "cam": "corte",
+          "apartir": 7,
+          "p": [
+            0.45,
+            1
+          ],
+          "card": {
+            "rotulo": "Cada estaca",
+            "valor": "Ø 80 cm",
+            "sub": "≈ R$ 560 por metro furado"
+          }
+        },
+        {
+          "set": "vdEstaca",
+          "cam": "campo",
+          "apartir": 17,
+          "p": [
+            0.4,
+            1
+          ],
+          "card": {
+            "rotulo": "Estacas",
+            "num": 120,
+            "prefixo": "≈ "
+          }
+        },
+        {
+          "set": "vdBloco",
+          "cam": "geral",
+          "apartir": 21,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Estacas + blocos",
+            "num": 5000000,
+            "prefixo": "≈ R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "Os pilares têm sete metros. A surpresa? A estaca embaixo tem vinte e dois. Uns três milhões.",
+      "etapa": "PILARES",
+      "custo": 3000000,
+      "destaques": [
+        "milhões",
+        "metros",
+        "estaca",
+        "surpresa",
+        "pilares"
+      ],
+      "planos": [
+        {
+          "set": "vdPilar",
+          "cam": "forma",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Pilar",
+            "num": 7,
+            "prefixo": "≈ ",
+            "sufixo": " m"
+          }
+        },
+        {
+          "set": "vdRaiz",
+          "cam": "desce",
+          "apartir": 5,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Estaca",
+            "num": 22,
+            "sufixo": " m",
+            "sub": "3 vezes o pilar, debaixo da terra",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "vdPilar",
+          "cam": "fileira",
+          "apartir": 14,
+          "p": [
+            1,
+            1
+          ],
+          "card": {
+            "rotulo": "20 pilares",
+            "num": 3000000,
+            "prefixo": "≈ R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "O mais caro são as vigas, de pilar a pilar. Quase noventa, sessenta toneladas cada. Dois guindastes erguem cada uma. Uns dezessete milhões.",
+      "etapa": "VIGAS",
+      "custo": 17000000,
+      "destaques": [
+        "milhões",
+        "toneladas",
+        "vigas",
+        "guindastes"
+      ],
+      "planos": [
+        {
+          "set": "vdCarreta",
+          "cam": "geral",
+          "p": [
+            0.3,
+            0.5
+          ]
+        },
+        {
+          "set": "vdCarreta",
+          "cam": "viga",
+          "apartir": 10,
+          "p": [
+            0.5,
+            1
+          ],
+          "card": {
+            "rotulo": "Vigas de concreto",
+            "num": 88,
+            "prefixo": "≈ ",
+            "sub": "35 m e ≈ 60 t cada"
+          }
+        },
+        {
+          "set": "vdIcamento",
+          "cam": "gancho",
+          "apartir": 15,
+          "p": [
+            0.2,
+            0.75
+          ],
+          "card": {
+            "rotulo": "Guindastes",
+            "num": 2,
+            "sub": "içamento costuma ser de madrugada"
+          }
+        },
+        {
+          "set": "vdIcamento",
+          "cam": "encaixe",
+          "apartir": 20,
+          "p": [
+            0.75,
+            1
+          ],
+          "card": {
+            "rotulo": "Vigas + guindastes",
+            "num": 17000000,
+            "prefixo": "≈ R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "O tabuleiro, o chão do viaduto, é feito de placas prontas e quase duzentos caminhões de concreto. Uns oito milhões.",
+      "etapa": "TABULEIRO",
+      "custo": 8000000,
+      "destaques": [
+        "milhões",
+        "viaduto",
+        "tabuleiro",
+        "chão",
+        "caminhões"
+      ],
+      "planos": [
+        {
+          "set": "vdTabuleiro",
+          "cam": "bomba",
+          "p": [
+            0,
+            0.35
+          ]
+        },
+        {
+          "set": "vdTabuleiro",
+          "cam": "fila",
+          "apartir": 6,
+          "p": [
+            0.35,
+            0.75
+          ],
+          "card": {
+            "rotulo": "Concreto da laje",
+            "num": 1550,
+            "prefixo": "≈ ",
+            "sufixo": " m³",
+            "sub": "quase 200 caminhões-betoneira"
+          }
+        },
+        {
+          "set": "vdTabuleiro",
+          "cam": "cima",
+          "apartir": 17,
+          "p": [
+            0.75,
+            1
+          ],
+          "card": {
+            "rotulo": "Tabuleiro",
+            "num": 8000000,
+            "prefixo": "≈ R$ ",
+            "sub": "8.085 m² de laje"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "O viaduto respira, sabia? No calor, estica uns onze centímetros. Daí as juntas, frestas na pista, e apoios de borracha. Uns setecentos mil.",
+      "etapa": "JUNTAS E APOIOS",
+      "custo": 700000,
+      "destaques": [
+        "mil",
+        "centímetros",
+        "viaduto",
+        "respira",
+        "juntas"
+      ],
+      "planos": [
+        {
+          "set": "vdJunta",
+          "cam": "geral",
+          "p": [
+            0,
+            0.3
+          ]
+        },
+        {
+          "set": "vdJunta",
+          "cam": "abre",
+          "apartir": 4,
+          "p": [
+            0.3,
+            1
+          ],
+          "card": {
+            "rotulo": "Dilatação no calor",
+            "num": 11,
+            "prefixo": "≈ ",
+            "sufixo": " cm"
+          }
+        },
+        {
+          "set": "vdApoio",
+          "cam": "explodido",
+          "apartir": 16,
+          "p": [
+            0,
+            0.8
+          ],
+          "card": {
+            "rotulo": "Apoios de borracha",
+            "num": 176,
+            "sub": "neoprene com chapas de aço"
+          }
+        },
+        {
+          "set": "vdApoio",
+          "cam": "close",
+          "apartir": 20,
+          "p": [
+            0.8,
+            1
+          ],
+          "card": {
+            "rotulo": "Juntas + apoios",
+            "num": 700000,
+            "prefixo": "≈ R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "texto": "Vem o asfalto, a mureta contra carro desgovernado, postes e ralos. Quase três milhões.",
+      "etapa": "ACABAMENTO",
+      "custo": 2750000,
+      "destaques": [
+        "milhões"
+      ],
+      "planos": [
+        {
+          "set": "vdAcabamento",
+          "cam": "asfalto",
+          "p": [
+            0,
+            0.45
+          ],
+          "card": {
+            "rotulo": "Asfalto",
+            "num": 400,
+            "sufixo": " m³"
+          }
+        },
+        {
+          "set": "vdAcabamento",
+          "cam": "mureta",
+          "apartir": 3,
+          "p": [
+            0.45,
+            0.8
+          ],
+          "card": {
+            "rotulo": "Mureta New Jersey",
+            "num": 770,
+            "sufixo": " m"
+          }
+        },
+        {
+          "set": "vdAcabamento",
+          "cam": "postes",
+          "apartir": 8,
+          "p": [
+            0.8,
+            1
+          ],
+          "card": {
+            "rotulo": "Acabamento",
+            "num": 2750000,
+            "prefixo": "≈ R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "texto": "Rampas nas pontas e canos mudando de lugar, uns dez milhões. Mais seis de gerência e imprevistos.",
+      "etapa": "RAMPAS E REDES",
+      "custo": 16000000,
+      "destaques": [
+        "milhões",
+        "imprevistos"
+      ],
+      "planos": [
+        {
+          "set": "vdAcessos",
+          "cam": "redes",
+          "p": [
+            0,
+            0.6
+          ],
+          "card": {
+            "rotulo": "Rampas + redes",
+            "num": 10000000,
+            "prefixo": "≈ R$ "
+          }
+        },
+        {
+          "set": "vdAcessos",
+          "cam": "aereo",
+          "apartir": 11,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "Com gerência e imprevistos",
+            "num": 16000000,
+            "prefixo": "≈ R$ ",
+            "sub": "10 mi + 6 mi"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "texto": "Parabéns, você construiu um viaduto. Cinquenta e sete milhões. Cento e quarenta e oito mil por metro.",
+      "destaques": [
+        "mil",
+        "milhões",
+        "metro",
+        "viaduto",
+        "parabéns"
+      ],
+      "planos": [
+        {
+          "set": "vdCidade",
+          "cam": "drone2"
+        },
+        {
+          "set": "vdCidadeNoite",
+          "cam": "geral",
+          "apartir": 5,
+          "card": {
+            "rotulo": "Total do viaduto",
+            "num": 57000000,
+            "prefixo": "R$ ",
+            "sub": "385 m · Hortolândia-SP, 2026"
+          }
+        },
+        {
+          "set": "vdMetro",
+          "cam": "geral",
+          "apartir": 9,
+          "card": {
+            "rotulo": "Cada metro",
+            "num": 148000,
+            "prefixo": "≈ R$ "
+          }
+        },
+        {
+          "set": "vdMetroCasa",
+          "cam": "geral",
+          "apartir": 15,
+          "card": {
+            "rotulo": "Casa de 50 m²",
+            "num": 135000,
+            "prefixo": "≈ R$ ",
+            "sub": "1 metro de viaduto custa mais"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c12",
+      "texto": "Em dois mil e treze, a prefeitura falava em trinta. Saiu quase o dobro. Vale o que custou? Comenta aí.",
+      "destaques": [
+        "mil",
+        "dobro",
+        "comenta"
+      ],
+      "planos": [
+        {
+          "set": "vdCidade",
+          "cam": "drone3",
+          "card": {
+            "rotulo": "Estimativa de 2013",
+            "num": 30000000,
+            "prefixo": "R$ ",
+            "sub": "saiu por R$ 57 mi em 2026"
+          }
+        }
+      ]
+    }
+  ]
+}

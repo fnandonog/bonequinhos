@@ -50,12 +50,12 @@ export const Lote: React.FC<{cava?: number; topo?: 'terra' | 'grama'; mato?: boo
         return (
           <mesh key={i} position={[(c.x0 + c.x1) / 2, -PROF + h / 2, (c.z0 + c.z1) / 2]} receiveShadow castShadow={false}>
             <boxGeometry args={[w, h, d]} />
-            <meshStandardMaterial attach="material-0" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-1" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-2" color={c.furo ? '#8a5a35' : corTopo} flatShading />
+            <meshStandardMaterial attach="material-0" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-1" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-2" color={c.furo ? '#8a5a35' : corTopo} />
             <meshStandardMaterial attach="material-3" color="#8a5a35" />
-            <meshStandardMaterial attach="material-4" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-5" color="#ffffff" map={terra} flatShading />
+            <meshStandardMaterial attach="material-4" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-5" color="#ffffff" map={terra} />
           </mesh>
         );
       })}
@@ -63,12 +63,12 @@ export const Lote: React.FC<{cava?: number; topo?: 'terra' | 'grama'; mato?: boo
         <group>
           <mesh position={[(LOTE.x0 + LOTE.x1) / 2, LOTE.fundo / 2, LOTE.z1 + QUINTAL / 2]} receiveShadow>
             <boxGeometry args={[LOTE.x1 - LOTE.x0, -LOTE.fundo, QUINTAL]} />
-            <meshStandardMaterial attach="material-0" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-1" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-2" color={corTopo} flatShading />
+            <meshStandardMaterial attach="material-0" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-1" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-2" color={corTopo} />
             <meshStandardMaterial attach="material-3" color="#8a5a35" />
-            <meshStandardMaterial attach="material-4" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-5" color="#ffffff" map={terra} flatShading />
+            <meshStandardMaterial attach="material-4" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-5" color="#ffffff" map={terra} />
           </mesh>
           <Caixa pos={[0, 0.03, LOTE.z1 + QUINTAL - 0.6]} tam={[LOTE.x1 - LOTE.x0, 0.06, 1.2]} cor="#d9d4ca" />
           <Caixa pos={[1.5, 0.02, LOTE.z1 + 1.4]} tam={[1.0, 0.04, 2.8]} cor="#cfc8bb" />
@@ -239,7 +239,7 @@ export const Esquadrias: React.FC<{esconder?: string[]; p?: number; lista?: Pare
             {v.tipo === 'porta' ? (
               <>
                 <Caixa tam={[v.larg, v.alt, 0.04]} cor={w.ext ? '#8b5a3c' : '#e9d8b6'} />
-                <mesh position={[v.larg * 0.35, -0.05, 0.05]}><sphereGeometry args={[0.035, 6, 6]} /><Mat cor="#ffd23f" /></mesh>
+                <mesh position={[v.larg * 0.35, -0.05, 0.05]}><sphereGeometry args={[0.035, 20, 14]} /><Mat cor="#ffd23f" /></mesh>
               </>
             ) : (
               <>

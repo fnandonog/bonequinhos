@@ -249,8 +249,8 @@ export const Fogo: React.FC<{pos: V3; t: number}> = ({pos, t}) => (
       const h = 0.16 + 0.06 * Math.sin(t * 9 + i * 1.7);
       return (
         <mesh key={i} position={[dx, 0.06 + h / 2, (i % 2) * 0.1 - 0.05]}>
-          <coneGeometry args={[0.07, h, 5]} />
-          <meshStandardMaterial color={i % 2 ? '#ffb02e' : '#ff6a1f'} emissive={i % 2 ? '#ff9a1f' : '#ff4a10'} emissiveIntensity={1.2} flatShading />
+          <coneGeometry args={[0.07, h, 24]} />
+          <meshStandardMaterial color={i % 2 ? '#ffb02e' : '#ff6a1f'} emissive={i % 2 ? '#ff9a1f' : '#ff4a10'} emissiveIntensity={1.2} />
         </mesh>
       );
     })}
@@ -269,7 +269,7 @@ export const Fumaca: React.FC<{t: number; modo: 'boa' | 'ruim'; n?: number}> = (
       return (
         <mesh key={i} position={pos} scale={s}>
           <icosahedronGeometry args={[1, 0]} />
-          <meshStandardMaterial color={modo === 'boa' ? '#e9edf2' : '#8d9198'} transparent opacity={0.85 * (1 - fase * 0.7)} flatShading depthWrite={false} />
+          <meshStandardMaterial color={modo === 'boa' ? '#e9edf2' : '#8d9198'} transparent opacity={0.85 * (1 - fase * 0.7)} depthWrite={false} />
         </mesh>
       );
     })}

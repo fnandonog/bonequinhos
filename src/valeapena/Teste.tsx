@@ -3,6 +3,10 @@
 import React from 'react';
 import * as THREE from 'three';
 import {ThreeCanvas} from '@remotion/three';
+import {CEU_BATIDA, LuzEstudio, luzDaBatida} from '../estilo/visual';
+import type {Batida} from '../estilo/visual';
+import {FlashSalto, Trilha} from '../estilo/montagem';
+import {ClimaZe} from '../estilo/ze';
 import {useThree} from '@react-three/fiber';
 import {AbsoluteFill, Audio, Easing, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {FPS, Timings} from '../Video';
@@ -14,11 +18,11 @@ const FONTE = "'Baloo 2', sans-serif";
 const TINTA = '#16151c';
 
 export type CardVP = {rotulo: string; valor?: string; num?: number; prefixo?: string; sufixo?: string; sub?: string; cor?: string};
-export type PlanoVP = {set: string; cam: string | Cam; apartir?: number; p?: [number, number]; card?: CardVP};
+export type PlanoVP = {set: string; cam: string | Cam; apartir?: number; p?: [number, number]; card?: CardVP; batida?: Batida; salto?: boolean};
 export type CenaVP = {id: string; texto: string; etapa?: string; chip?: string; cta?: boolean; destaques?: string[]; planos: PlanoVP[]};
 export type VereditoVP = {cena: string; texto: string; sub?: string; cor?: string};
 export type RoteiroValeAPena = {
-  id: string; titulo: string; linha2?: string; site?: string;
+  id: string; trilha?: string; titulo: string; linha2?: string; site?: string;
   cta?: {titulo?: string; texto?: string; botao?: string | null};
   veredito?: VereditoVP; cenas: CenaVP[];
 };
@@ -71,8 +75,8 @@ const Camera: React.FC<{pl: PlanoT; f: number}> = ({pl, f}) => {
 
 const LUZ = {
   lab: {hemi: ['#fffaf0', '#a89a88', 1.2], sol: ['#fff3dd', 1.8], pos: [2.0, 4.0, 3.0]},
-  escuro: {hemi: ['#a9c4ff', '#0b1328', 0.95], sol: ['#e6eeff', 1.5], pos: [1.0, 2.5, 2.5]},
-  alerta: {hemi: ['#ffc2b0', '#2a0d12', 0.95], sol: ['#ffe6dc', 1.5], pos: [1.0, 2.5, 2.5]},
+  escuro: {hemi: ['#b9d0ff', '#3a4a70', 1.15], sol: ['#e6eeff', 1.5], pos: [1.0, 2.5, 2.5]},
+  alerta: {hemi: ['#ffc2b0', '#5a3038', 1.1], sol: ['#ffe6dc', 1.5], pos: [1.0, 2.5, 2.5]},
   cozinha: {hemi: ['#fff6e8', '#b98a5b', 1.15], sol: ['#fff0d6', 1.9], pos: [2.5, 4.5, 2.5]},
   sala: {hemi: ['#fff3e0', '#b08560', 1.15], sol: ['#fff0d6', 1.8], pos: [1.5, 4.5, 3.5]},
 } as const;
@@ -195,8 +199,14 @@ export const Teste: React.FC<TesteProps> = ({roteiro, timings, comAudio}) => {
   const p = p0 + (p1 - p0) * Math.min(1, Math.max(0, (f - pl.de) / dur));
   const t = (f - pl.de) / FPS;
   const luz = LUZ[set.luz ?? 'lab'];
-  const ceu = set.fundo ?? ['#e9e3d6', '#f6f1e7'];
+  const ceu: [string, string] = pl.batida ? CEU_BATIDA[pl.batida] : set.fundo ?? ['#e9e3d6', '#f6f1e7'];
   const icn = pl.cena;
+  const LB = luzDaBatida(pl.batida, {hemi: [luz.hemi[0], luz.hemi[1], luz.hemi[2]], sol: [luz.sol[0], luz.sol[1]], dir: luz.pos as unknown as V3}, false);
+  const kc = ease(Math.min(1, Math.max(0, (f - pl.de) / dur)));
+  const mixc = (a: V3, b: V3): V3 => [a[0] + (b[0] - a[0]) * kc, a[1] + (b[1] - a[1]) * kc, a[2] + (b[2] - a[2]) * kc];
+  const alvoCam = pl.cam.alvoPara ? mixc(pl.cam.alvo, pl.cam.alvoPara) : pl.cam.alvo;
+  const posCam = mixc(pl.cam.de, pl.cam.para);
+  const distCam = Math.hypot(posCam[0] - alvoCam[0], posCam[1] - alvoCam[1], posCam[2] - alvoCam[2]);
   const cn = m.cenas[icn];
   // selo do veredito: grande no 1º plano da cena do veredito e de novo no final (CTA)
   const v = roteiro.veredito;
@@ -208,11 +218,11 @@ export const Teste: React.FC<TesteProps> = ({roteiro, timings, comAudio}) => {
     <AbsoluteFill style={{background: `linear-gradient(180deg, ${ceu[0]} 0%, ${ceu[1]} 70%)`}}>
       <ThreeCanvas width={width} height={height} shadows camera={{fov: 42, near: 0.02, far: 60, position: [2, 2, 2]}}>
         <Camera pl={pl} f={f} />
-        <hemisphereLight args={[luz.hemi[0], luz.hemi[1], luz.hemi[2]]} />
-        <directionalLight position={luz.pos as unknown as V3} color={luz.sol[0]} intensity={luz.sol[1]} castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-3.5} shadow-camera-right={3.5} shadow-camera-top={3.5} shadow-camera-bottom={-3.5} shadow-camera-far={20} shadow-bias={-0.0004} />
-        <group key={ip}>{set.render({t, p})}</group>
+        <LuzEstudio L={LB.L} noite={LB.noite} alvo={alvoCam} R={Math.min(4, Math.max(1.6, distCam * 0.9))} corNevoa={ceu[1]} />
+        <ClimaZe.Provider value={set.clima}><group key={ip}>{set.render({t, p})}</group></ClimaZe.Provider>
       </ThreeCanvas>
       <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 78%, rgba(0,0,0,0.18) 100%)'}} />
+      {pl.salto && <FlashSalto df={f - pl.de} />}
       <Topo m={m} f={f} i={icn} />
       {icn === 0 && <Titulo titulo={roteiro.titulo} linha2={roteiro.linha2} f={f} />}
       <Palavra cn={cn} f={f} />
@@ -244,6 +254,7 @@ export const Teste: React.FC<TesteProps> = ({roteiro, timings, comAudio}) => {
           <Audio src={staticFile('sfx/pop.mp3')} volume={0.45} />
         </Sequence>
       )}
+      <Trilha src={roteiro.trilha} ativo={comAudio} />
       <div style={{position: 'absolute', bottom: 0, left: 0, height: 12, width: `${(f / durationInFrames) * 100}%`, background: '#ffd23f'}} />
     </AbsoluteFill>
   );

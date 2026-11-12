@@ -1,5 +1,6 @@
 // CENÁRIOS do "Você na História: um dia como gladiador" (80 d.C., Roma). Cada set é um LUGAR diferente do dia do gladiador.
 // Escala real (1 unidade = 1 m). O diretor escolhe no roteiro: {"set": "ludus", "cam": "poste", "p": [0, 0.6]}.
+import type {Expressao} from '../estilo/ze';
 import React from 'react';
 import {V3} from '../v4/planta';
 import {Barra, Boneco, Caixa, Cil, Rotulo, texPilula} from '../v4/kit';
@@ -16,6 +17,8 @@ export type LuzHistoria = 'dia' | 'tarde' | 'noite' | 'interior' | 'tunel';
 export type SetHistoria = {
   ceu?: [string, string];
   luz?: LuzHistoria;
+  clima?: Expressao; // expressão padrão dos bonecos no set
+  horizonte?: boolean | {raio?: number; y?: number}; // cena externa: morros, árvores e casas ao longe (src/estilo/visual.tsx)
   nevoa?: [number, number];
   render: (c: Ctx) => React.ReactNode;
   cams: Record<string, Cam>;
@@ -63,8 +66,8 @@ const PatioLudus: React.FC = () => {
       <Caixa pos={[0, 0.0, 0]} tam={[17.4, 0.04, 12.4]} cor={COR.areia} />
       {cols.map((c, i) => (<Coluna key={i} pos={c} h={3.4} r={0.2} cor="#d9cbb0" />))}
       {/* telhado da colunata */}
-      {[-7.9, 7.9].map((z) => (<mesh key={z} position={[0, 3.75, z]} rotation={[z > 0 ? -0.35 : 0.35, 0, 0]} castShadow><boxGeometry args={[19.5, 0.12, 3.2]} /><meshStandardMaterial color={COR.telha} flatShading /></mesh>))}
-      {[-10.4, 10.4].map((x) => (<mesh key={x} position={[x, 3.75, 0]} rotation={[0, 0, x > 0 ? 0.35 : -0.35]} castShadow><boxGeometry args={[3.2, 0.12, 13]} /><meshStandardMaterial color={COR.telha} flatShading /></mesh>))}
+      {[-7.9, 7.9].map((z) => (<mesh key={z} position={[0, 3.75, z]} rotation={[z > 0 ? -0.35 : 0.35, 0, 0]} castShadow><boxGeometry args={[19.5, 0.12, 3.2]} /><meshStandardMaterial color={COR.telha} /></mesh>))}
+      {[-10.4, 10.4].map((x) => (<mesh key={x} position={[x, 3.75, 0]} rotation={[0, 0, x > 0 ? 0.35 : -0.35]} castShadow><boxGeometry args={[3.2, 0.12, 13]} /><meshStandardMaterial color={COR.telha} /></mesh>))}
       {/* parede do fundo com as portas das celas */}
       <Caixa pos={[0, 2, -9.2]} tam={[24, 4, 0.4]} cor="#c9b591" />
       {[-8, -5.3, -2.6, 0, 2.6, 5.3, 8].map((x) => (
@@ -114,8 +117,8 @@ const Tunel: React.FC<{t: number}> = ({t}) => {
       <Caixa pos={[0, -0.05, -L / 2]} tam={[3.4, 0.1, L]} cor="#6f645a" />
       {[-1.7, 1.7].map((x) => (<Caixa key={x} pos={[x, 1.4, -L / 2]} tam={[0.3, 2.8, L]} cor="#857869" />))}
       {/* abóbada */}
-      <mesh position={[0, 2.8, -L / 2]} rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[1.85, 1.85, L, 14, 1, true, -Math.PI / 2, Math.PI]} /><meshStandardMaterial color="#776a5c" flatShading side={2} /></mesh>
-      {Array.from({length: 7}).map((_, i) => (<mesh key={i} position={[0, 2.8, -2 - i * 3.4]} rotation={[0, 0, 0]}><torusGeometry args={[1.8, 0.12, 4, 14, Math.PI]} /><meshStandardMaterial color="#5f554b" flatShading /></mesh>))}
+      <mesh position={[0, 2.8, -L / 2]} rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[1.85, 1.85, L, 24, 1, true, -Math.PI / 2, Math.PI]} /><meshStandardMaterial color="#776a5c" side={2} /></mesh>
+      {Array.from({length: 7}).map((_, i) => (<mesh key={i} position={[0, 2.8, -2 - i * 3.4]} rotation={[0, 0, 0]}><torusGeometry args={[1.8, 0.12, 10, 28, Math.PI]} /><meshStandardMaterial color="#5f554b" /></mesh>))}
       {[-4, -10, -16].map((z) => (<TochaParede key={z} pos={[-1.5, 1.9, z]} t={t + z} />))}
       {[-7, -13].map((z) => (<group key={z} rotation={[0, Math.PI, 0]}><TochaParede pos={[-1.5, 1.9, -z]} t={t + z} luz={false} /></group>))}
       {/* boca do túnel: a arena clara lá fora */}

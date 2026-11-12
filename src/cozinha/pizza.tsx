@@ -66,7 +66,7 @@ export const Frigideira: React.FC<{pos: V3; rotY?: number}> = ({pos, rotY = 0}) 
       </mesh>
       <Cil pos={[0, 0.002, 0]} r={rb} h={0.004} cor="#24242b" seg={28} />
       <mesh position={[0, h, 0]} rotation={[Math.PI / 2, 0, 0]}>
-        <torusGeometry args={[r, 0.003, 6, 32]} />
+        <torusGeometry args={[r, 0.003, 10, 32]} />
         <meshStandardMaterial color="#9aa0aa" metalness={0.5} roughness={0.3} />
       </mesh>
       <Barra a={[r - 0.005, h * 0.8, 0]} b={[r + 0.05, h * 1.05, 0]} r={0.008} cor="#9aa0aa" />
@@ -79,11 +79,11 @@ export const Frigideira: React.FC<{pos: V3; rotY?: number}> = ({pos, rotY = 0}) 
 export const TampaVidro: React.FC<{pos: V3; rot?: V3; embaçada?: number}> = ({pos, rot = [0, 0, 0], embaçada = 0}) => (
   <group position={pos} rotation={rot}>
     <mesh scale={[1, 0.32, 1]}>
-      <sphereGeometry args={[0.124, 28, 10, 0, Math.PI * 2, 0, Math.PI / 2]} />
+      <sphereGeometry args={[0.124, 28, 14, 0, Math.PI * 2, 0, Math.PI / 2]} />
       <meshStandardMaterial color={PZ.vidro} transparent opacity={0.22 + embaçada * 0.25} roughness={0.05} metalness={0.1} depthWrite={false} side={THREE.DoubleSide} />
     </mesh>
     <mesh rotation={[Math.PI / 2, 0, 0]}>
-      <torusGeometry args={[0.124, 0.004, 6, 32]} />
+      <torusGeometry args={[0.124, 0.004, 10, 32]} />
       <meshStandardMaterial color="#c3c8cf" metalness={0.6} roughness={0.3} />
     </mesh>
     <Cil pos={[0, 0.045, 0]} r={0.008} h={0.012} cor="#1d1b26" />
@@ -106,13 +106,13 @@ export const DiscoMassa: React.FC<{pos: V3; r?: number; cima?: string; baixo?: s
       <Cil pos={[0, 0.002, 0]} r={r} h={0.004} cor={cima} seg={32} />
       {bolhas > 0.01 && pts.map(([x, z, s], i) => (
         <mesh key={i} position={[x * r, 0.004, z * r]} scale={[0.008 * s * bolhas, 0.004 * s * bolhas, 0.008 * s * bolhas]}>
-          <sphereGeometry args={[1, 8, 5, 0, Math.PI * 2, 0, Math.PI / 2]} />
-          <meshStandardMaterial color={mix(cima, '#fff6e0', 0.4)} flatShading />
+          <sphereGeometry args={[1, 20, 14, 0, Math.PI * 2, 0, Math.PI / 2]} />
+          <meshStandardMaterial color={mix(cima, '#fff6e0', 0.4)} />
         </mesh>
       ))}
       {manchas > 0.01 && pts.map(([x, z, s], i) => (
         <mesh key={'m' + i} position={[x * r * 0.9, 0.0042, z * r * 0.9]} rotation={[-Math.PI / 2, 0, 0]}>
-          <circleGeometry args={[0.009 * s * manchas, 7]} />
+          <circleGeometry args={[0.009 * s * manchas, 40]} />
           <meshStandardMaterial color="#b46a22" />
         </mesh>
       ))}
@@ -170,12 +170,12 @@ export const PizzaDisco: React.FC<{pos: V3; r?: number; massa?: string; molho?: 
     <group position={pos}>
       <mesh position={[0, 0.003, 0]} castShadow receiveShadow>
         <cylinderGeometry args={[r, r, 0.006, 40, 1, false, ini, ang]} />
-        <meshStandardMaterial color={massa} flatShading roughness={0.85} />
+        <meshStandardMaterial color={massa} roughness={0.85} />
       </mesh>
       {/* borda (cornicione) */}
       <mesh position={[0, 0.0065, 0]} rotation={[Math.PI / 2, 0, Math.PI / 2 - ini - ang]}>
-        <torusGeometry args={[r - 0.004, 0.0045, 6, 40, ang]} />
-        <meshStandardMaterial color={PZ.borda} flatShading roughness={0.8} />
+        <torusGeometry args={[r - 0.004, 0.0045, 10, 40, ang]} />
+        <meshStandardMaterial color={PZ.borda} roughness={0.8} />
       </mesh>
       {molho > 0.01 && (
         <mesh position={[0, 0.0068, 0]}>
@@ -194,7 +194,7 @@ export const PizzaDisco: React.FC<{pos: V3; r?: number; massa?: string; molho?: 
         const p = new THREE.Vector3().setFromMatrixPosition(m);
         return (
           <mesh key={'t' + i} position={[p.x * 0.95, 0.0095, p.z * 0.95]} rotation={[-Math.PI / 2, 0, 0]}>
-            <circleGeometry args={[0.005 + (i % 3) * 0.002, 7]} />
+            <circleGeometry args={[0.005 + (i % 3) * 0.002, 40]} />
             <meshStandardMaterial color={PZ.tostado} />
           </mesh>
         );
@@ -202,7 +202,7 @@ export const PizzaDisco: React.FC<{pos: V3; r?: number; massa?: string; molho?: 
       {cal.slice(0, Math.round(cal.length * clamp01(calabresa))).map(([x, z], i) => (
         <group key={'c' + i} position={[x, 0.0105, z]}>
           <Cil r={0.014} h={0.003} cor={PZ.calabresa} seg={12} />
-          <mesh position={[0, 0.0016, 0]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[0.011, 10]} /><meshStandardMaterial color="#d8695c" /></mesh>
+          <mesh position={[0, 0.0016, 0]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[0.011, 40]} /><meshStandardMaterial color="#d8695c" /></mesh>
         </group>
       ))}
       {oregano > 0.01 && <Instancias matrizes={mo} n={Math.floor(mo.length * clamp01(oregano))} geo={geoO} cor={PZ.oregano} sombra={false} />}
@@ -250,7 +250,7 @@ export const FatiaPizza: React.FC<{pos: V3; rot?: V3; r?: number; mole?: number;
       <group position={[piv, 0, 0]} rotation={[0, 0, i < bandas - 1 ? mole * 0.42 : 0]}>
         <group position={[-piv, 0, 0]}>
           <mesh geometry={g.massa} rotation={[-Math.PI / 2, 0, 0]} castShadow>
-            <meshStandardMaterial color={fundo} flatShading roughness={0.8} />
+            <meshStandardMaterial color={fundo} roughness={0.8} />
           </mesh>
           {i * r / bandas < r * 0.9 && (
             <mesh geometry={g.queijo} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.006, 0]}>
@@ -269,7 +269,7 @@ export const FatiaPizza: React.FC<{pos: V3; rot?: V3; r?: number; mole?: number;
         {banda(bandas - 1)}
         {/* borda alta */}
         <mesh position={[r - 0.004, 0.0065, 0]} rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[0.0045, 0.0045, 6, 8]} />
+          <torusGeometry args={[0.0045, 0.0045, 10, 28]} />
           <meshStandardMaterial color={PZ.borda} />
         </mesh>
         <Barra a={[r - 0.004, 0.0065, -Math.sin(a / 2) * r]} b={[r - 0.004, 0.0065, Math.sin(a / 2) * r]} r={0.0048} cor={PZ.borda} />
@@ -296,8 +296,8 @@ const FiosQueijo: React.FC<{a: V3; b: V3; vis?: number}> = ({a, b, vis = 1}) =>
 
 const BolaMassa: React.FC<{pos: V3; esc?: number}> = ({pos, esc = 1}) => (
   <mesh position={[pos[0], pos[1] + 0.022 * esc, pos[2]]} scale={[0.042 * esc, 0.026 * esc, 0.042 * esc]} castShadow>
-    <sphereGeometry args={[1, 16, 10]} />
-    <meshStandardMaterial color={PZ.crua} flatShading roughness={0.9} />
+    <sphereGeometry args={[1, 20, 14]} />
+    <meshStandardMaterial color={PZ.crua} roughness={0.9} />
   </mesh>
 );
 
@@ -494,7 +494,7 @@ export const PIZZA: Record<string, SetPz> = {
         <Tigela pos={[0, T, 0.05]} nivel={0.5} cor="#fbf4e2" />
         <GarrafaAzeite pos={[-0.05, T + 0.17, 0.05]} rot={[0, 0, -2.0]} />
         {p < 0.8 && <Barra a={[-0.012, T + 0.16, 0.05]} b={[-0.004, T + 0.08, 0.05]} r={0.0025} cor="#d9b62a" sombra={false} />}
-        <mesh position={[0, T + 0.087, 0.05]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[0.012 + 0.02 * p, 16]} /><meshStandardMaterial color="#e3c23a" roughness={0.1} /></mesh>
+        <mesh position={[0, T + 0.087, 0.05]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[0.012 + 0.02 * p, 40]} /><meshStandardMaterial color="#e3c23a" roughness={0.1} /></mesh>
       </>
     ),
     cams: {close: orb([0, T + 0.13, 0.05], -28, 16, 0.62, 0.48, 40, 8)},
@@ -520,7 +520,7 @@ export const PIZZA: Record<string, SetPz> = {
       <>
         <Base t={t} ze={null} />
         <Tabua pos={[0, T, 0.05]} />
-        <mesh position={[0, T + 0.0205, 0.05]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[0.1, 16]} /><meshStandardMaterial color={PZ.farinha} transparent opacity={0.7} /></mesh>
+        <mesh position={[0, T + 0.0205, 0.05]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[0.1, 40]} /><meshStandardMaterial color={PZ.farinha} transparent opacity={0.7} /></mesh>
         <BolaMassa pos={[-0.06 - 0.02 * suave(p), T + 0.02, 0.05]} esc={0.95} />
         <BolaMassa pos={[0.06 + 0.02 * suave(p), T + 0.02, 0.05]} esc={0.95} />
         <RoloMassa pos={[0.26, T + 0.025, 0.04]} />

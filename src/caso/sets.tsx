@@ -1,6 +1,7 @@
 // CENÁRIOS do "Caso Explicado: o mistério do voo MH370". Cada set é um LUGAR diferente do caso.
 // Escala real (1 unidade = 1 m), menos o mapa (K unidades por grau, ver pecas.tsx) e o satélite (esquemático).
 // O diretor escolhe no roteiro: {"set": "mapa", "cam": "volta", "p": [0.1, 0.42]}.
+import type {Expressao} from '../estilo/ze';
 import React, {useMemo} from 'react';
 import * as THREE from 'three';
 import {V3} from '../v4/planta';
@@ -10,11 +11,14 @@ import {
   Aviao, CONTROLADOR, Drone, FAMILIA, Flaperon, GARI, MILITAR, Mapa, Navio, PILOTO, PISTA, Palmeira, Placa, Satelite,
   TelaRadar, Vela, W, ZeDetetive, clamp01, lerp, rnd, suave,
 } from './pecas';
+import {SETS_COOPER} from './cooper';
 
 export type LuzCaso = 'dia' | 'noite' | 'interior' | 'espaco' | 'nublado' | 'tarde' | 'fundo' | 'mapa';
 export type SetCaso = {
   ceu?: [string, string];
   luz?: LuzCaso;
+  clima?: Expressao; // expressão padrão dos bonecos no set
+  horizonte?: boolean | {raio?: number; y?: number}; // cena externa: morros, árvores e casas ao longe (src/estilo/visual.tsx)
   nevoa?: [number, number];
   render: (c: Ctx) => React.ReactNode;
   cams: Record<string, Cam>;
@@ -61,7 +65,7 @@ const Mar: React.FC<{t: number; cor?: string; tam?: number; amp?: number}> = ({t
     p.needsUpdate = true;
     geo.computeVertexNormals();
   }, [geo, Math.round(t * 30), amp]);
-  return <mesh geometry={geo} receiveShadow><meshStandardMaterial color={cor} flatShading roughness={0.5} /></mesh>;
+  return <mesh geometry={geo} receiveShadow><meshStandardMaterial color={cor} roughness={0.5} /></mesh>;
 };
 
 // ================= sets =================
@@ -110,7 +114,7 @@ const Cabine: React.FC<{t: number; p: number; pilotos?: boolean; manche?: number
       <group position={[0, 0.775, -0.45]}>
         <Caixa pos={[0, 0, 0]} tam={[0.42, 0.03, 0.22]} cor="#1d1b26" />
         <mesh position={[0, 0.017, -0.02]} rotation={[-Math.PI / 2, 0, 0]}><planeGeometry args={[0.26, 0.06]} /><meshBasicMaterial map={texPilula(ligado ? 'TRANSP. ON' : 'TRANSP. OFF', ligado ? '#1f8f5a' : '#8f1f1a', '#ffffff')} transparent /></mesh>
-        <mesh position={[0.16, 0.02, 0.06]}><sphereGeometry args={[0.014, 8, 6]} /><meshBasicMaterial color={ligado ? '#3bff7a' : '#3a1414'} /></mesh>
+        <mesh position={[0.16, 0.02, 0.06]}><sphereGeometry args={[0.014, 20, 14]} /><meshBasicMaterial color={ligado ? '#3bff7a' : '#3a1414'} /></mesh>
         {[-0.12, -0.06, 0, 0.06].map((x) => (<Cil key={x} pos={[x, 0.02, 0.06]} r={0.012} h={0.02} cor="#9aa0aa" seg={8} />))}
       </group>
       {/* manches (yokes) */}
@@ -133,7 +137,7 @@ const Cabine: React.FC<{t: number; p: number; pilotos?: boolean; manche?: number
       ))}
       {pilotos && [-0.55, 0.55].map((x, i) => (<Boneco key={x} pos={[x, 0.24, -0.2]} rotY={Math.PI} acao="senta" t={t + i} v={PILOTO} esc={0.8} />))}
       <Estrelas centro={[0, 0, -40]} raio={300} n={300} />
-      <mesh position={[3, 7, -45]}><sphereGeometry args={[2.5, 16, 12]} /><meshBasicMaterial color="#f4f0d8" /></mesh>
+      <mesh position={[3, 7, -45]}><sphereGeometry args={[2.5, 20, 14]} /><meshBasicMaterial color="#f4f0d8" /></mesh>
       <pointLight position={[0, 1.1, -0.6]} color="#7fb2ff" intensity={2.2} distance={4} decay={1.5} />
     </group>
   );
@@ -183,7 +187,7 @@ const Pista: React.FC<{t: number; p: number}> = ({t, p}) => {
       <Caixa pos={[200, -0.06, 0]} tam={[2400, 0.1, 1400]} cor="#2f4a3a" />
       <Caixa pos={[200, 0, 0]} tam={[1200, 0.04, 60]} cor="#4a4e58" />
       {Array.from({length: 24}).map((_, i) => (<Caixa key={i} pos={[-280 + i * 50, 0.03, 0]} tam={[30, 0.02, 0.9]} cor="#e9e9e9" sombra={false} />))}
-      {luzes.map((q, i) => (<mesh key={i} position={q}><sphereGeometry args={[0.45, 6, 5]} /><meshBasicMaterial color={i % 2 ? '#ffd27a' : '#fff3c9'} /></mesh>))}
+      {luzes.map((q, i) => (<mesh key={i} position={q}><sphereGeometry args={[0.45, 20, 14]} /><meshBasicMaterial color={i % 2 ? '#ffd27a' : '#fff3c9'} /></mesh>))}
       {/* terminal e torre ao fundo, com janelas acesas */}
       <Caixa pos={[60, 9, -240]} tam={[420, 18, 40]} cor="#3a3f4c" />
       <mesh position={[60, 10, -219.9]}><planeGeometry args={[400, 5]} /><meshBasicMaterial color="#ffd98a" /></mesh>
@@ -203,8 +207,8 @@ const Pista: React.FC<{t: number; p: number}> = ({t, p}) => {
 const RadarMilitar: React.FC<{t: number}> = ({t}) => (
   <group>
     <Caixa pos={[0, -0.06, 0]} tam={[600, 0.1, 600]} cor="#22301f" />
-    <mesh position={[0, -18, -260]}><coneGeometry args={[160, 60, 7]} /><meshStandardMaterial color="#1c2a1c" flatShading /></mesh>
-    <mesh position={[0, -2, -300]} rotation={[-Math.PI / 2, 0, 0]}><planeGeometry args={[1200, 200]} /><meshStandardMaterial color="#1b3550" flatShading /></mesh>
+    <mesh position={[0, -18, -260]}><coneGeometry args={[160, 60, 24]} /><meshStandardMaterial color="#1c2a1c" /></mesh>
+    <mesh position={[0, -2, -300]} rotation={[-Math.PI / 2, 0, 0]}><planeGeometry args={[1200, 200]} /><meshStandardMaterial color="#1b3550" /></mesh>
     {/* torre treliçada de 14 m */}
     {[[-2, -2], [2, -2], [-2, 2], [2, 2]].map(([x, z], i) => (<Barra key={i} a={[x * 1.4, 0, z * 1.4]} b={[x * 0.6, 14, z * 0.6]} r={0.18} cor="#9aa0aa" quadrada />))}
     {[3, 6.5, 10].map((y) => (<Caixa key={y} pos={[0, y, 0]} tam={[5.2 - y * 0.25, 0.25, 5.2 - y * 0.25]} cor="#9aa0aa" />))}
@@ -213,12 +217,12 @@ const RadarMilitar: React.FC<{t: number}> = ({t}) => (
     <group position={[0, 15.5, 0]} rotation={[0, t * 1.4, 0]}>
       <Cil pos={[0, 0, 0]} r={0.4} h={1.6} cor="#c9ced6" />
       <mesh position={[0, 2.2, -0.8]} rotation={[0.25, 0, 0]}>
-        <cylinderGeometry args={[6, 6, 3.5, 16, 1, true, -0.55, 1.1]} />
-        <meshStandardMaterial color="#e3e6ec" side={2} flatShading />
+        <cylinderGeometry args={[6, 6, 3.5, 24, 1, true, -0.55, 1.1]} />
+        <meshStandardMaterial color="#e3e6ec" side={2} />
       </mesh>
       <Barra a={[0, 0.6, 0]} b={[0, 2.2, 4.4]} r={0.12} cor="#9aa0aa" />
     </group>
-    <mesh position={[0, 21.2, 0]}><sphereGeometry args={[0.3, 8, 6]} /><meshBasicMaterial color={Math.sin(t * 6) > 0 ? '#ff3b3b' : '#4a1010'} /></mesh>
+    <mesh position={[0, 21.2, 0]}><sphereGeometry args={[0.3, 20, 14]} /><meshBasicMaterial color={Math.sin(t * 6) > 0 ? '#ff3b3b' : '#4a1010'} /></mesh>
     {/* prédio, cerca e o vigia (1,7 m) */}
     <Caixa pos={[9, 1.6, 4]} tam={[8, 3.2, 4.5]} cor="#6b7356" />
     <mesh position={[9, 1.7, 6.26]}><planeGeometry args={[2.2, 0.9]} /><meshBasicMaterial color="#ffd98a" /></mesh>
@@ -250,12 +254,12 @@ const Espaco: React.FC<{t: number}> = ({t}) => {
   const pulso: V3 = [lerp(av[0], sat[0], k), lerp(av[1], sat[1], k), lerp(av[2], sat[2], k)];
   return (
     <group>
-      <mesh position={[0, -RT, 0]} receiveShadow><icosahedronGeometry args={[RT, 4]} /><meshStandardMaterial color="#2c77ad" flatShading roughness={0.7} /></mesh>
-      {manchas.map((m, i) => (<mesh key={i} position={m.pos} scale={[m.e, m.e * 0.06, m.e]} rotation={[m.pos[2] * 0.02, 0, -m.pos[0] * 0.02]}><icosahedronGeometry args={[1, 0]} /><meshStandardMaterial color="#8fbf6a" flatShading /></mesh>))}
+      <mesh position={[0, -RT, 0]} receiveShadow><icosahedronGeometry args={[RT, 4]} /><meshStandardMaterial color="#2c77ad" roughness={0.7} /></mesh>
+      {manchas.map((m, i) => (<mesh key={i} position={m.pos} scale={[m.e, m.e * 0.06, m.e]} rotation={[m.pos[2] * 0.02, 0, -m.pos[0] * 0.02]}><icosahedronGeometry args={[1, 0]} /><meshStandardMaterial color="#8fbf6a" /></mesh>))}
       <mesh position={[0, -RT, 0]}><sphereGeometry args={[RT * 1.04, 32, 24]} /><meshBasicMaterial color="#7fc4ff" transparent opacity={0.12} depthWrite={false} /></mesh>
       {ALFAS.map((a, i) => (
         <mesh key={i} position={[0, anelY(a), 0]} rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[anelR(a), i === 6 ? 0.9 : 0.5, 4, 80]} />
+          <torusGeometry args={[anelR(a), i === 6 ? 0.9 : 0.5, 10, 80]} />
           <meshBasicMaterial color={i === 4 ? '#ffd23f' : i === 6 ? '#ff4d4d' : '#ffffff'} />
         </mesh>
       ))}
@@ -266,10 +270,10 @@ const Espaco: React.FC<{t: number}> = ({t}) => {
         const u0 = i / 16, u1 = u0 + 1 / 32;
         return <Barra key={i} a={[lerp(av[0], sat[0], u0), lerp(av[1], sat[1], u0), lerp(av[2], sat[2], u0)]} b={[lerp(av[0], sat[0], u1), lerp(av[1], sat[1], u1), lerp(av[2], sat[2], u1)]} r={0.12} cor="#6fd3ff" sombra={false} />;
       })}
-      <mesh position={pulso}><sphereGeometry args={[0.9, 10, 8]} /><meshBasicMaterial color="#bff0ff" /></mesh>
+      <mesh position={pulso}><sphereGeometry args={[0.9, 20, 14]} /><meshBasicMaterial color="#bff0ff" /></mesh>
       <Rotulo texto="satélite" ancora={[sat[0], sat[1] + 1.5, sat[2]]} sobe={3} lado={4} fundo="#6fd3ff" />
       <Estrelas />
-      <mesh position={[300, 160, -500]}><sphereGeometry args={[22, 16, 12]} /><meshBasicMaterial color="#fff3c9" /></mesh>
+      <mesh position={[300, 160, -500]}><sphereGeometry args={[22, 20, 14]} /><meshBasicMaterial color="#fff3c9" /></mesh>
     </group>
   );
 };
@@ -289,14 +293,14 @@ const FundoMar: React.FC<{t: number}> = ({t}) => {
   const x = -6 + t * 2.2;
   return (
     <group>
-      <mesh geometry={geo} position={[0, -2, 0]} receiveShadow><meshStandardMaterial color="#5f6f72" flatShading roughness={1} /></mesh>
-      {[[-12, -8], [9, -14], [16, 6], [-20, 10], [4, 12]].map(([rx, rz], i) => (<mesh key={i} position={[rx, -1.2, rz]} scale={[2 + i, 1 + (i % 2), 2]}><dodecahedronGeometry args={[1, 0]} /><meshStandardMaterial color="#4f5c5f" flatShading /></mesh>))}
+      <mesh geometry={geo} position={[0, -2, 0]} receiveShadow><meshStandardMaterial color="#5f6f72" roughness={1} /></mesh>
+      {[[-12, -8], [9, -14], [16, 6], [-20, 10], [4, 12]].map(([rx, rz], i) => (<mesh key={i} position={[rx, -1.2, rz]} scale={[2 + i, 1 + (i % 2), 2]}><dodecahedronGeometry args={[1, 0]} /><meshStandardMaterial color="#4f5c5f" /></mesh>))}
       <Drone pos={[x, 3.2, 0]} t={t} />
       <pointLight position={[x + 3, 2.5, 0]} color="#bff0ff" intensity={30} distance={22} decay={1.4} />
       {/* partículas em suspensão */}
       {Array.from({length: 40}).map((_, i) => {
         const r = rnd(i + 3);
-        return <mesh key={i} position={[r() * 50 - 25, r() * 14 - 1 + Math.sin(t + i) * 0.2, r() * 40 - 20]}><sphereGeometry args={[0.06, 4, 3]} /><meshBasicMaterial color="#9fc6d6" /></mesh>;
+        return <mesh key={i} position={[r() * 50 - 25, r() * 14 - 1 + Math.sin(t + i) * 0.2, r() * 40 - 20]}><sphereGeometry args={[0.06, 20, 14]} /><meshBasicMaterial color="#9fc6d6" /></mesh>;
       })}
     </group>
   );
@@ -310,7 +314,7 @@ const Praia: React.FC<{t: number}> = ({t}) => (
       const r = rnd(i + 11);
       const x = r() * 16 - 8, z = r() * 10 - 4;
       if (Math.hypot(x, z) < 1.6) return null;
-      return <mesh key={i} position={[x, 0.02, z]} scale={[1, 0.5, 0.8]}><dodecahedronGeometry args={[0.06 + r() * 0.08, 0]} /><meshStandardMaterial color={i % 3 ? '#3a3734' : '#5c5650'} flatShading /></mesh>;
+      return <mesh key={i} position={[x, 0.02, z]} scale={[1, 0.5, 0.8]}><dodecahedronGeometry args={[0.06 + r() * 0.08, 0]} /><meshStandardMaterial color={i % 3 ? '#3a3734' : '#5c5650'} /></mesh>;
     })}
     <group position={[0, -0.25, -60]}><Mar t={t} cor="#2a88b8" tam={240} amp={0.25} /></group>
     {/* espuma das ondas chegando */}
@@ -318,8 +322,8 @@ const Praia: React.FC<{t: number}> = ({t}) => (
       const k = ((t * 0.35 + i / 3) % 1);
       return <Caixa key={i} pos={[0, 0.0, -10 + k * 4.5]} tam={[200, 0.04, 0.5 + (1 - k) * 0.8]} cor="#eaf6ff" sombra={false} />;
     })}
-    <mesh position={[60, 0, 70]}><coneGeometry args={[60, 45, 7]} /><meshStandardMaterial color="#3f8f4a" flatShading /></mesh>
-    <mesh position={[-40, 0, 90]}><coneGeometry args={[70, 55, 6]} /><meshStandardMaterial color="#357a40" flatShading /></mesh>
+    <mesh position={[60, 0, 70]}><coneGeometry args={[60, 45, 24]} /><meshStandardMaterial color="#3f8f4a" /></mesh>
+    <mesh position={[-40, 0, 90]}><coneGeometry args={[70, 55, 24]} /><meshStandardMaterial color="#357a40" /></mesh>
     {[[-9, 4], [-6, 7], [8, 5], [11, 9], [-13, 9]].map(([x, z], i) => (<Palmeira key={i} pos={[x, 0, z]} esc={0.9 + (i % 2) * 0.2} inc={i % 2 ? 0.15 : -0.12} />))}
     <Flaperon pos={[0, 0.12, 0]} rot={[0, 0.35, 0.05]} />
     <Boneco pos={[-2.3, 0, 0.9]} rotY={1.9} acao="aponta" t={t} v={GARI} />
@@ -360,7 +364,7 @@ const Quadro: React.FC<{t: number; p: number}> = ({t, p}) => {
       <mesh position={[0, 1.88, Z]}><planeGeometry args={[0.55, 0.42]} /><meshBasicMaterial color="#2c77ad" /></mesh>
       <mesh position={[-0.08, 1.95, Z + 0.001]} rotation={[0, 0, 0.4]}><planeGeometry args={[0.1, 0.3]} /><meshBasicMaterial color="#a9cf7a" /></mesh>
       <Barra a={[-0.05, 1.98, Z + 0.004]} b={[-0.02, 1.72, Z + 0.004]} r={0.006} cor="#ffd23f" sombra={false} />
-      <mesh position={[-0.02, 1.71, Z + 0.004]}><circleGeometry args={[0.025, 10]} /><meshBasicMaterial color="#ff4d4d" /></mesh>
+      <mesh position={[-0.02, 1.71, Z + 0.004]}><circleGeometry args={[0.025, 40]} /><meshBasicMaterial color="#ff4d4d" /></mesh>
       {PISTAS.map((q, i) => (
         <group key={i} position={[q.pos[0], q.pos[1], Z]} rotation={[0, 0, q.rot]}>
           <mesh position={[0, 0, -0.002]}><planeGeometry args={[0.56, 0.17]} /><meshBasicMaterial color="#f4efe2" /></mesh>
@@ -369,7 +373,7 @@ const Quadro: React.FC<{t: number; p: number}> = ({t, p}) => {
       ))}
       {/* barbantes vermelhos ligando as pistas ao mapa */}
       {pinos.map((a, i) => (<Barra key={'b' + i} a={a} b={[0, 1.95, Z + 0.03]} r={0.005} cor="#d6282b" sombra={false} />))}
-      {pinos.map((a, i) => (<mesh key={'p' + i} position={a}><sphereGeometry args={[0.022, 8, 6]} /><meshStandardMaterial color="#d6282b" /></mesh>))}
+      {pinos.map((a, i) => (<mesh key={'p' + i} position={a}><sphereGeometry args={[0.022, 20, 14]} /><meshStandardMaterial color="#d6282b" /></mesh>))}
       {/* as três teorias com o peso das evidências */}
       {TEORIAS.map((te, i) => {
         const on = ativo === i;
@@ -381,7 +385,7 @@ const Quadro: React.FC<{t: number; p: number}> = ({t, p}) => {
             <Placa texto={te.txt} pos={[0, 0.06, 0]} larg={0.76} fundo="#1d1b26" cor="#ffffff" />
             <mesh position={[0, -0.13, 0.001]}><planeGeometry args={[0.66, 0.08]} /><meshBasicMaterial color="#d9d4c4" /></mesh>
             <mesh position={[-0.33 + (0.66 * te.peso * barra) / 2, -0.13, 0.002]}><planeGeometry args={[Math.max(0.001, 0.66 * te.peso * barra), 0.08]} /><meshBasicMaterial color={te.cor} /></mesh>
-            <mesh position={[0, 0.19, 0.01]}><sphereGeometry args={[0.025, 8, 6]} /><meshStandardMaterial color="#d6282b" /></mesh>
+            <mesh position={[0, 0.19, 0.01]}><sphereGeometry args={[0.025, 20, 14]} /><meshStandardMaterial color="#d6282b" /></mesh>
           </group>
         );
       })}
@@ -391,7 +395,7 @@ const Quadro: React.FC<{t: number; p: number}> = ({t, p}) => {
       {[[-3.0, 0.2], [-1.6, 0.2], [-3.0, 0.8], [-1.6, 0.8]].map(([x, z], i) => (<Caixa key={i} pos={[x, 0.36, z]} tam={[0.06, 0.72, 0.06]} cor="#4a3426" />))}
       <Cil pos={[-2.7, 0.79, 0.35]} r={0.1} h={0.04} cor="#2b2f3a" />
       <Barra a={[-2.7, 0.8, 0.35]} b={[-2.6, 1.2, 0.4]} r={0.012} cor="#2b2f3a" />
-      <mesh position={[-2.55, 1.2, 0.42]} rotation={[0.4, 0, -0.5]}><coneGeometry args={[0.13, 0.18, 10, 1, true]} /><meshStandardMaterial color="#2f6f4f" side={2} /></mesh>
+      <mesh position={[-2.55, 1.2, 0.42]} rotation={[0.4, 0, -0.5]}><coneGeometry args={[0.13, 0.18, 24, 1, true]} /><meshStandardMaterial color="#2f6f4f" side={2} /></mesh>
       <Cil pos={[-1.9, 0.82, 0.6]} r={0.045} h={0.1} cor="#f4efe2" />
       <Caixa pos={[-2.2, 0.78, 0.65]} rot={0.2} tam={[0.34, 0.02, 0.24]} cor="#d9a85a" />
       <pointLight position={[-2.5, 1.15, 0.5]} color="#ffd9a0" intensity={4} distance={5} decay={1.5} />
@@ -426,230 +430,6 @@ const Vigilia: React.FC<{t: number}> = ({t}) => {
   );
 };
 
-// ===== D.B. COOPER — cabine de passageiros do 727 =====
-const CabinePassageiros: React.FC<{t: number}> = ({t}) => {
-  const cooper = {...CONTROLADOR, camisa: '#2b2f3a', calca: '#3a3d47', pele: '#d9b896', cabelo: '#1d1b26'};
-  const comissaria = {...CONTROLADOR, camisa: '#c8dff0', calca: '#2b3d6e', pele: '#f0c8a8', cabelo: '#5a3a28'};
-  return (
-    <group>
-      <Caixa pos={[0, -0.05, 0]} tam={[8, 0.1, 5]} cor="#6b6a62" />
-      <Caixa pos={[0, 2.1, 0]} tam={[8, 0.1, 5]} cor="#e9e5d9" />
-      <Caixa pos={[-1.9, 1.0, 0]} tam={[0.12, 2.1, 5]} cor="#d9d4c8" />
-      <Caixa pos={[1.9, 1.0, 0]} tam={[0.12, 2.1, 5]} cor="#d9d4c8" />
-      {/* janelas ovais (noite = escuro) */}
-      {[-1.5, -0.1, 1.3].map((z, i) => (
-        <group key={i} position={[-1.84, 1.3, z]} rotation={[0, Math.PI / 2, 0]}>
-          <mesh><torusGeometry args={[0.19, 0.035, 5, 14]} /><meshStandardMaterial color="#c9c5b8" flatShading /></mesh>
-          <mesh><circleGeometry args={[0.185, 12]} /><meshBasicMaterial color="#0a1428" /></mesh>
-        </group>
-      ))}
-      {/* bins superiores */}
-      <Caixa pos={[-1.35, 1.95, 0]} tam={[0.55, 0.3, 4.6]} cor="#c9c5b8" />
-      <Caixa pos={[1.35, 1.95, 0]} tam={[0.55, 0.3, 4.6]} cor="#c9c5b8" />
-      {/* assentos lado esquerdo (2 por fileira) */}
-      {[-1.6, 0, 1.6].map((z, ri) => (
-        <group key={'le' + ri}>
-          {[-1.5, -0.95].map((x, si) => (
-            <group key={'s' + si} position={[x, 0, z]}>
-              <Caixa pos={[0, 0.44, 0]} tam={[0.46, 0.12, 0.44]} cor="#2b3a4a" />
-              <Caixa pos={[0, 0.88, 0.22]} rot={[-0.1, 0, 0] as [number, number, number]} tam={[0.46, 0.75, 0.1]} cor="#2b3a4a" />
-            </group>
-          ))}
-        </group>
-      ))}
-      {/* assentos lado direito (3 por fileira) */}
-      {[-1.6, 0, 1.6].map((z, ri) => (
-        <group key={'ri' + ri}>
-          {[0.35, 0.9, 1.45].map((x, si) => (
-            <group key={'s' + si} position={[x, 0, z]}>
-              <Caixa pos={[0, 0.44, 0]} tam={[0.46, 0.12, 0.44]} cor="#2b3a4a" />
-              <Caixa pos={[0, 0.88, 0.22]} rot={[-0.1, 0, 0] as [number, number, number]} tam={[0.46, 0.75, 0.1]} cor="#2b3a4a" />
-            </group>
-          ))}
-        </group>
-      ))}
-      {/* corredor central */}
-      <Caixa pos={[-0.3, 0, 0]} tam={[0.55, 0.06, 5]} cor="#4a4e58" />
-      {/* Cooper sentado na janela, fileira central */}
-      <Boneco pos={[-1.5, 0.44, 0]} rotY={Math.PI * 0.5} acao="senta" t={t} v={cooper} esc={0.72} />
-      {/* pasta preta de Cooper no colo */}
-      <Caixa pos={[-1.5, 0.78, 0]} tam={[0.28, 0.12, 0.42]} cor="#1a1a1a" />
-      {[-0.08, 0.08].map((dx) => (<Cil key={dx} pos={[-1.5 + dx, 0.845, 0]} r={0.012} h={0.025} cor="#c9a046" seg={6} />))}
-      {/* comissária no corredor passando o bilhete */}
-      <Boneco pos={[-0.1, 0, -0.2]} rotY={Math.PI * 0.6} acao="aponta" t={t} v={comissaria} esc={0.8} />
-      {/* bilhete (papel branco) */}
-      <mesh position={[-0.75, 0.95, 0.1]} rotation={[0, 0.2, 0.15]}>
-        <planeGeometry args={[0.13, 0.09]} />
-        <meshBasicMaterial color="#f4efe2" />
-      </mesh>
-      <pointLight position={[0, 1.9, 0]} color="#fff0d8" intensity={18} distance={9} decay={1.4} />
-      <pointLight position={[0, 1.5, 2.2]} color="#fff3e6" intensity={10} distance={7} decay={1.5} />
-    </group>
-  );
-};
-
-// ===== D.B. COOPER — salto à noite sobre a floresta do Pacific Northwest =====
-const QuedaCooper: React.FC<{t: number}> = ({t}) => {
-  const cooper = {...CONTROLADOR, camisa: '#2b2f3a', calca: '#3a3d47', pele: '#d9b896', cabelo: '#1d1b26'};
-  const arvores = useMemo(() => {
-    const r = rnd(55);
-    return Array.from({length: 60}).map(() => ({x: r() * 200 - 100, z: r() * 200 - 100, h: 8 + r() * 12, raio: 2.5 + r() * 3}));
-  }, []);
-  const chuva = useMemo(() => {
-    const r = rnd(89);
-    return Array.from({length: 180}).map(() => ({x: r() * 60 - 30, z: r() * 40 - 20, fase: r() * Math.PI * 2}));
-  }, []);
-  return (
-    <group>
-      <Caixa pos={[0, -55, 0]} tam={[400, 0.5, 400]} cor="#1c2e1c" />
-      {arvores.map((a, i) => (
-        <group key={i} position={[a.x, -55, a.z]}>
-          <Cil pos={[0, a.h * 0.25, 0]} r={0.4} h={a.h * 0.5} cor="#4a3426" />
-          <mesh position={[0, a.h * 0.6, 0]}><coneGeometry args={[a.raio, a.h * 0.75, 7]} /><meshStandardMaterial color="#2a4a2a" flatShading /></mesh>
-          <mesh position={[0, a.h * 0.75, 0]}><coneGeometry args={[a.raio * 0.72, a.h * 0.6, 7]} /><meshStandardMaterial color="#2f5330" flatShading /></mesh>
-        </group>
-      ))}
-      {/* Cooper em queda livre (~25m do chão) */}
-      <group position={[0, -20, 0]} rotation={[0.3, 0, -0.15]}>
-        <Boneco pos={[0, 0, 0]} rotY={Math.PI} acao="comemora" t={t} v={cooper} esc={1.0} />
-        {/* mochila de paraquedas */}
-        <Caixa pos={[0, 1.0, -0.28]} tam={[0.42, 0.52, 0.18]} cor="#6b8a4a" />
-        <Barra a={[-0.14, 1.3, -0.2]} b={[-0.14, 0.72, 0.1]} r={0.016} cor="#c9b88a" sombra={false} />
-        <Barra a={[0.14, 1.3, -0.2]} b={[0.14, 0.72, 0.1]} r={0.016} cor="#c9b88a" sombra={false} />
-        {/* maço de dinheiro preso ao corpo */}
-        <Caixa pos={[0, 0.88, 0.2]} tam={[0.26, 0.14, 0.08]} cor="#6b7a4a" />
-      </group>
-      {/* chuva */}
-      {chuva.map((q, i) => {
-        const y = ((q.fase - t * 15) % 70) - 10;
-        return (
-          <mesh key={i} position={[q.x, y - 20, q.z]} rotation={[0.1, 0, 0]}>
-            <capsuleGeometry args={[0.015, 0.4, 2, 4]} />
-            <meshBasicMaterial color="#8ab8d0" transparent opacity={0.6} />
-          </mesh>
-        );
-      })}
-      <Estrelas />
-    </group>
-  );
-};
-
-// ===== D.B. COOPER — beira do Rio Columbia, fevereiro de 1980 =====
-const RioColumbia: React.FC<{t: number}> = ({t}) => {
-  const menino = {...GARI, camisa: '#e9d8c0', calca: '#3a4a66', colete: null, pele: '#f0c8a8', cabelo: '#5a3a28'};
-  const notas = useMemo(() => {
-    const r = rnd(63);
-    return Array.from({length: 24}).map(() => ({
-      x: r() * 3.6 - 1.8, z: r() * 2.4 - 1.2,
-      rot: r() * 0.8 - 0.4, ry: r() * Math.PI,
-      larg: 0.14 + r() * 0.06, deg: r() > 0.4,
-    }));
-  }, []);
-  const arvores = useMemo(() => {
-    const r = rnd(29);
-    return Array.from({length: 18}).map(() => ({x: r() * 60 - 30, z: -20 + r() * 8, h: 6 + r() * 10, raio: 1.8 + r() * 2.5}));
-  }, []);
-  return (
-    <group>
-      {/* areia da margem */}
-      <Caixa pos={[0, -0.06, 2]} tam={[30, 0.1, 10]} cor="#b89060" />
-      {/* cascalho escuro perto d'água */}
-      <Caixa pos={[0, -0.06, -3]} tam={[30, 0.08, 4]} cor="#6a5a4a" />
-      {/* rio */}
-      <group position={[0, -0.1, -15]}><Mar t={t} cor="#3a6090" tam={60} amp={0.08} /></group>
-      {/* floresta */}
-      {arvores.map((a, i) => (
-        <group key={i} position={[a.x, 0, a.z]}>
-          <Cil pos={[0, a.h * 0.25, 0]} r={0.35} h={a.h * 0.5} cor="#4a3426" />
-          <mesh position={[0, a.h * 0.65, 0]}><coneGeometry args={[a.raio, a.h * 0.8, 6]} /><meshStandardMaterial color="#2a4f2a" flatShading /></mesh>
-        </group>
-      ))}
-      {/* notas deterioradas na areia */}
-      {notas.map((n, i) => (
-        <mesh key={i} position={[n.x, 0.02, n.z - 0.5]} rotation={[n.rot * 0.4, n.ry, n.rot]}>
-          <planeGeometry args={[n.larg, n.larg * 0.45]} />
-          <meshStandardMaterial color={n.deg ? '#5a4a30' : '#7a6a3a'} roughness={0.9} />
-        </mesh>
-      ))}
-      {/* menino agachado */}
-      <Boneco pos={[0.5, 0, -0.2]} rotY={2.4} acao="cava" t={t} v={menino} esc={0.65} />
-      {/* Zé detetive */}
-      <ZeDetetive pos={[-1.5, 0, 0.8]} rotY={1.2} t={t} />
-      <Placa texto="$5.800 · RIO COLUMBIA" pos={[0, 2.4, 0.5]} larg={2.2} fundo="#ffd23f" cor="#1d1b26" />
-    </group>
-  );
-};
-
-// ===== D.B. COOPER — quadro de investigação =====
-const TEORIAS_COOPER = [
-  {x: -0.95, txt: '1 · MORREU', peso: 0.72, cor: '#ffd23f'},
-  {x: 0, txt: '2 · ESCAPOU', peso: 0.42, cor: '#ff9f1c'},
-  {x: 0.95, txt: '3 · VIVEU RICO', peso: 0.12, cor: '#ff5d5d'},
-];
-const PISTAS_COOPER: {txt: string; pos: [number, number]; rot: number}[] = [
-  {txt: 'NOTAS NO RIO', pos: [-1.1, 2.15], rot: 0.04},
-  {txt: 'ZERO TREINAMENTO', pos: [-0.3, 2.2], rot: -0.03},
-  {txt: 'TEMP: −15 °C', pos: [0.5, 2.15], rot: 0.05},
-  {txt: 'ZONA DE POUSO', pos: [1.1, 2.2], rot: -0.04},
-  {txt: 'SEM RASTROS', pos: [-1.1, 1.75], rot: -0.05},
-  {txt: 'VENTO 100 KM/H', pos: [1.0, 1.75], rot: 0.04},
-];
-const QuadroCooper: React.FC<{t: number; p: number}> = ({t, p}) => {
-  const ativo = p >= 0.1 && p < 0.4 ? 0 : p >= 0.4 && p < 0.65 ? 1 : p >= 0.65 && p < 0.95 ? 2 : -1;
-  const barra = clamp01(p / 0.1);
-  const fim = p >= 0.95;
-  const pergunta = p >= 0.999;
-  const Z = -0.02;
-  const pinos: V3[] = PISTAS_COOPER.map((q) => [q.pos[0], q.pos[1] + 0.07, Z + 0.03]);
-  return (
-    <group>
-      <Caixa pos={[0, -0.05, 1]} tam={[7, 0.1, 5]} cor="#5a4030" />
-      <Caixa pos={[0, 1.6, -0.15]} tam={[7, 3.2, 0.2]} cor="#3d4a5c" />
-      <Caixa pos={[0, 1.65, -0.07]} tam={[3.2, 1.9, 0.06]} cor="#6b4429" />
-      <Caixa pos={[0, 1.65, -0.04]} tam={[3.0, 1.7, 0.03]} cor="#c49563" />
-      {/* silhueta sem rosto — retrato de identidade desconhecida */}
-      <mesh position={[0, 1.88, Z]}><planeGeometry args={[0.45, 0.42]} /><meshBasicMaterial color="#1d1b26" /></mesh>
-      <mesh position={[0, 1.78, Z + 0.001]}><circleGeometry args={[0.09, 10]} /><meshBasicMaterial color="#c9b896" /></mesh>
-      <mesh position={[0, 1.98, Z + 0.001]}><planeGeometry args={[0.26, 0.2]} /><meshBasicMaterial color="#c9b896" /></mesh>
-      <Placa texto="?" pos={[0, 1.88, Z + 0.005]} larg={0.3} fundo="#1d1b26" cor="#ffd23f" />
-      <Barra a={[0, 1.68, Z + 0.004]} b={[0, 2.08, Z + 0.004]} r={0.006} cor="#ffd23f" sombra={false} />
-      {PISTAS_COOPER.map((q, i) => (
-        <group key={i} position={[q.pos[0], q.pos[1], Z]} rotation={[0, 0, q.rot]}>
-          <mesh position={[0, 0, -0.002]}><planeGeometry args={[0.56, 0.17]} /><meshBasicMaterial color="#f4efe2" /></mesh>
-          <Placa texto={q.txt} pos={[0, 0, 0.001]} larg={0.54} fundo="#f4efe2" cor="#1d1b26" />
-        </group>
-      ))}
-      {pinos.map((a, i) => (<Barra key={'b' + i} a={a} b={[0, 1.98, Z + 0.03]} r={0.005} cor="#d6282b" sombra={false} />))}
-      {pinos.map((a, i) => (<mesh key={'p' + i} position={a}><sphereGeometry args={[0.022, 8, 6]} /><meshStandardMaterial color="#d6282b" /></mesh>))}
-      {TEORIAS_COOPER.map((te, i) => {
-        const on = ativo === i;
-        const s = on ? 1.08 : 1;
-        return (
-          <group key={i} position={[te.x, 1.2, Z + (on ? 0.02 : 0)]} scale={s}>
-            {on && <mesh position={[0, -0.05, -0.004]}><planeGeometry args={[0.86, 0.5]} /><meshBasicMaterial color="#ffd23f" /></mesh>}
-            <mesh position={[0, -0.05, -0.002]}><planeGeometry args={[0.8, 0.44]} /><meshBasicMaterial color="#ffffff" /></mesh>
-            <Placa texto={te.txt} pos={[0, 0.06, 0]} larg={0.76} fundo="#1d1b26" cor="#ffffff" />
-            <mesh position={[0, -0.13, 0.001]}><planeGeometry args={[0.66, 0.08]} /><meshBasicMaterial color="#d9d4c4" /></mesh>
-            <mesh position={[-0.33 + (0.66 * te.peso * barra) / 2, -0.13, 0.002]}><planeGeometry args={[Math.max(0.001, 0.66 * te.peso * barra), 0.08]} /><meshBasicMaterial color={te.cor} /></mesh>
-            <mesh position={[0, 0.19, 0.01]}><sphereGeometry args={[0.025, 8, 6]} /><meshStandardMaterial color="#d6282b" /></mesh>
-          </group>
-        );
-      })}
-      {fim && <Placa texto="?" pos={[1.25, 2.55, Z + 0.05]} larg={0.9 * suave((p - 0.95) * 20)} fundo="#d6282b" cor="#ffffff" />}
-      <Caixa pos={[-2.3, 0.74, 0.5]} tam={[1.6, 0.06, 0.8]} cor="#6b4429" />
-      {[[-3.0, 0.2], [-1.6, 0.2], [-3.0, 0.8], [-1.6, 0.8]].map(([x, z], i) => (<Caixa key={i} pos={[x, 0.36, z]} tam={[0.06, 0.72, 0.06]} cor="#4a3426" />))}
-      <Cil pos={[-2.7, 0.79, 0.35]} r={0.1} h={0.04} cor="#2b2f3a" />
-      <Barra a={[-2.7, 0.8, 0.35]} b={[-2.6, 1.2, 0.4]} r={0.012} cor="#2b2f3a" sombra={false} />
-      <mesh position={[-2.55, 1.2, 0.42]} rotation={[0.4, 0, -0.5]}><coneGeometry args={[0.13, 0.18, 10, 1, true]} /><meshStandardMaterial color="#2f6f4f" side={2} /></mesh>
-      <Cil pos={[-1.9, 0.82, 0.6]} r={0.045} h={0.1} cor="#f4efe2" />
-      <Caixa pos={[-2.2, 0.78, 0.65]} rot={0.2} tam={[0.34, 0.02, 0.24]} cor="#d9a85a" />
-      <pointLight position={[-2.5, 1.15, 0.5]} color="#ffd9a0" intensity={4} distance={5} decay={1.5} />
-      <pointLight position={[0, 2.8, 1.8]} color="#fff0d8" intensity={9} distance={8} decay={1.3} />
-      <ZeDetetive pos={pergunta ? [1.95, 0, 0.9] : [1.95, 0, 0.75]} rotY={pergunta ? -0.35 : -1.75} t={t} aponta={!pergunta} />
-    </group>
-  );
-};
-
 export const SETS: Record<string, SetCaso> = {
   // ===== o 777 voando à noite sobre as nuvens (p > 0,6: some na escuridão) =====
   voo: {
@@ -660,7 +440,7 @@ export const SETS: Record<string, SetCaso> = {
         <Aviao pos={[0, p > 0.6 ? -Math.pow((p - 0.6) / 0.4, 1.4) * 60 : 0, 0]} rot={[0, 0, p > 0.6 ? -0.08 : 0]} t={t} luzes={p < 0.75} />
         <Nuvens t={t} />
         <Estrelas />
-        <mesh position={[-260, 160, -520]}><sphereGeometry args={[24, 16, 12]} /><meshBasicMaterial color="#f4f0d8" /></mesh>
+        <mesh position={[-260, 160, -520]}><sphereGeometry args={[24, 20, 14]} /><meshBasicMaterial color="#f4f0d8" /></mesh>
       </>
     ),
     cams: {
@@ -836,53 +616,6 @@ export const SETS: Record<string, SetCaso> = {
     },
   },
 
-  // ===== D.B. COOPER — cabine de passageiros do 727 (24/11/1971, noite) =====
-  cabin727: {
-    ceu: CEU_NOITE,
-    luz: 'interior',
-    render: ({t}) => <CabinePassageiros t={t} />,
-    cams: {
-      janela: orb([-1.5, 1.0, 0], 90, 15, 2.8, 2.4, 46, 8),
-      nota: orb([-0.5, 0.9, 0], 10, 15, 1.6, 1.3, 46, 8),
-      pasta: orb([-1.5, 0.78, 0], -30, 50, 1.3, 1.1, 42, 8),
-    },
-  },
-
-  // ===== D.B. COOPER — salto à noite sobre a floresta =====
-  queda_cooper: {
-    ceu: CEU_NOITE,
-    luz: 'noite',
-    nevoa: [120, 600],
-    render: ({t}) => <QuedaCooper t={t} />,
-    cams: {
-      geral: orb([0, -18, 0], 10, 22, 48, 40, 44, 8),
-      close: orb([0, -17, 0], 35, 10, 14, 11, 44, 8),
-    },
-  },
-
-  // ===== D.B. COOPER — beira do Rio Columbia, notas deterioradas (1980) =====
-  rio_columbia: {
-    ceu: CEU_DIA,
-    luz: 'dia',
-    render: ({t}) => <RioColumbia t={t} />,
-    cams: {
-      geral: orb([0, 0.5, 0], 10, 20, 14, 12, 42, 8),
-      notas: orb([0.5, 0.1, -0.3], -20, 45, 3.2, 2.6, 44, 8),
-    },
-  },
-
-  // ===== D.B. COOPER — quadro de investigação =====
-  quadro_cooper: {
-    ceu: ['#141826', '#232a3d'],
-    luz: 'interior',
-    render: ({t, p}) => <QuadroCooper t={t} p={p} />,
-    cams: {
-      geral: orb([0.3, 1.45, 0], 12, 6, 5.4, 4.6, 44, 8),
-      t1: orb([-0.9, 1.05, 0], -12, 2, 2.6, 2.3, 40, 8),
-      t2: orb([0, 1.05, 0], -8, 2, 2.6, 2.3, 40, 8),
-      t3: orb([0.85, 1.05, 0], 14, 2, 2.6, 2.3, 40, 8),
-      ze: orb([1.8, 1.3, 0.75], -40, 6, 2.8, 2.4, 40, 8),
-      pergunta: orb([1.35, 1.35, 0.6], 15, 6, 4.8, 4.3, 44, 6),
-    },
-  },
+  // ===== D.B. COOPER (24/11/1971): cenários em src/caso/cooper.tsx =====
+  ...SETS_COOPER,
 };

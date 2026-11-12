@@ -1,4 +1,5 @@
 // CENÁRIOS da receita. Cada set é um momento DIFERENTE do preparo, com câmeras nomeadas.
+import type {Expressao} from '../estilo/ze';
 // Coordenadas: ilha no centro (tampo em y = TOPO), Zé atrás dela olhando para +z, fogão no fundo (x 0,68; z -2).
 import React from 'react';
 import * as THREE from 'three';
@@ -14,7 +15,7 @@ import {
 import {PIZZA} from './pizza';
 
 export type Luz = 'cozinha' | 'forno' | 'frio';
-export type SetCozinha = {fundo?: [string, string]; luz?: Luz; render: (c: Ctx) => React.ReactNode; cams: Record<string, Cam>};
+export type SetCozinha = {fundo?: [string, string]; luz?: Luz; clima?: Expressao; render: (c: Ctx) => React.ReactNode; cams: Record<string, Cam>};
 
 const T = TOPO;
 const Ze: React.FC<{t: number; acao?: AcaoBoneco; pos?: V3; rotY?: number; ferramenta?: 'colher' | null}> = ({t, acao = 'parado', pos = [0, 0, -0.85], rotY = 0, ferramenta = null}) => (
@@ -66,11 +67,11 @@ const InteriorForno: React.FC<{t: number; frio?: number}> = ({t, frio = 0}) => {
       {[-0.2, 0, 0.2].map((z, i) => (
         <group key={i}>
           <mesh position={[0, 0.47, z]} rotation={[0, 0, Math.PI / 2]}>
-            <cylinderGeometry args={[0.008, 0.008, 0.8, 6]} />
+            <cylinderGeometry args={[0.008, 0.008, 0.8, 24]} />
             <meshStandardMaterial color="#ff5a1a" emissive="#ff4a10" emissiveIntensity={(1.6 + Math.sin(t * 3 + i) * 0.2) * brilho} />
           </mesh>
           <mesh position={[0, -0.07, z]} rotation={[0, 0, Math.PI / 2]}>
-            <cylinderGeometry args={[0.008, 0.008, 0.8, 6]} />
+            <cylinderGeometry args={[0.008, 0.008, 0.8, 24]} />
             <meshStandardMaterial color="#ff5a1a" emissive="#ff4a10" emissiveIntensity={1.4 * brilho} />
           </mesh>
         </group>
@@ -84,7 +85,7 @@ const InteriorForno: React.FC<{t: number; frio?: number}> = ({t, frio = 0}) => {
 // meio bolo em corte (para comparar fofo × solado)
 const MeioBolo: React.FC<{pos: V3; h: number; cor: string; furos?: boolean}> = ({pos, h, cor, furos}) => (
   <group position={pos}>
-    <mesh position={[0, h / 2, 0]} castShadow><cylinderGeometry args={[0.1, 0.1, h, 24, 1, false, Math.PI / 2, Math.PI]} /><meshStandardMaterial color={COR.massaAssada} flatShading /></mesh>
+    <mesh position={[0, h / 2, 0]} castShadow><cylinderGeometry args={[0.1, 0.1, h, 24, 1, false, Math.PI / 2, Math.PI]} /><meshStandardMaterial color={COR.massaAssada} /></mesh>
     <mesh position={[0, h / 2, 0.0005]}><planeGeometry args={[0.2, h]} /><meshStandardMaterial color={cor} /></mesh>
     {furos && Array.from({length: 22}).map((_, i) => (
       <mesh key={i} position={[((i * 37) % 17) / 17 * 0.17 - 0.085, ((i * 23) % 11) / 11 * h * 0.8 + h * 0.1, 0.002]}>
@@ -104,7 +105,7 @@ const Fita: React.FC<{t: number; pos: V3; cor: string}> = ({t, pos, cor}) => (
     <Fio a={[pos[0], pos[1] + 0.12, pos[2]]} b={[pos[0], pos[1] + 0.005, pos[2]]} r={0.004} cor={cor} />
     {[0, 1, 2].map((i) => (
       <mesh key={i} position={[pos[0] + Math.cos(i * 2.1 + t) * 0.012, pos[1] + 0.004, pos[2] + Math.sin(i * 2.1 + t) * 0.012]} rotation={[-Math.PI / 2, 0, 0]}>
-        <torusGeometry args={[0.012 + i * 0.006, 0.0025, 4, 16]} />
+        <torusGeometry args={[0.012 + i * 0.006, 0.0025, 10, 28]} />
         <meshStandardMaterial color={cor} />
       </mesh>
     ))}
@@ -467,13 +468,13 @@ const BolinhaPao: React.FC<{pos: V3; esc?: number; assado?: number}> = ({pos, es
   return (
     <group position={pos} scale={esc}>
       <mesh castShadow>
-        <sphereGeometry args={[0.025, 10, 8]} />
-        <meshStandardMaterial color={cor} roughness={0.65} flatShading />
+        <sphereGeometry args={[0.025, 20, 14]} />
+        <meshStandardMaterial color={cor} roughness={0.65} />
       </mesh>
       {assado > 0.6 && (
         <mesh position={[0, 0.022, 0]}>
-          <sphereGeometry args={[0.011, 8, 6]} />
-          <meshStandardMaterial color="#a05828" roughness={0.6} flatShading />
+          <sphereGeometry args={[0.011, 20, 14]} />
+          <meshStandardMaterial color="#a05828" roughness={0.6} />
         </mesh>
       )}
     </group>
@@ -573,13 +574,13 @@ const PAO_QUEIJO: Record<string, SetCozinha> = {
               <group key={`${i}-${j}`} position={[px, T, pz]}>
                 {/* forminha de silicone (cilindro pequeno) */}
                 <mesh>
-                  <cylinderGeometry args={[0.025, 0.022, 0.025, 12]} />
+                  <cylinderGeometry args={[0.025, 0.022, 0.025, 24]} />
                   <meshStandardMaterial color="#ff6b35" roughness={0.6} />
                 </mesh>
                 {/* massa crua dentro */}
                 {nivel > 0.05 && (
                   <mesh position={[0, 0.012 * nivel * 2, 0]}>
-                    <cylinderGeometry args={[0.023 * 0.9, 0.023 * 0.9, 0.025 * nivel * 2, 10]} />
+                    <cylinderGeometry args={[0.023 * 0.9, 0.023 * 0.9, 0.025 * nivel * 2, 24]} />
                     <meshStandardMaterial color={COR_CRU} roughness={0.7} />
                   </mesh>
                 )}
@@ -618,8 +619,8 @@ const PAO_QUEIJO: Record<string, SetCozinha> = {
             return (
               <group key={`${i}-${j}`} position={[px, 0.003 + cresc * 0.004, pz]} scale={esc}>
                 <mesh castShadow>
-                  <sphereGeometry args={[0.023, 10, 8]} />
-                  <meshStandardMaterial color={cresc > 0.5 ? COR_ASSADO : COR_CRU} roughness={0.65} flatShading />
+                  <sphereGeometry args={[0.023, 20, 14]} />
+                  <meshStandardMaterial color={cresc > 0.5 ? COR_ASSADO : COR_CRU} roughness={0.65} />
                 </mesh>
               </group>
             );
@@ -728,7 +729,7 @@ export const SETS: Record<string, SetCozinha> = {
             <Caixa pos={[0, 0.018, 0.016]} tam={[0.006, 0.032, 0.004]} cor="#ff3b30" sombra={false} />
           </group>
           <mesh position={[0.75, 0.875, -1.66]}>
-            <sphereGeometry args={[0.006, 8, 6]} />
+            <sphereGeometry args={[0.006, 20, 14]} />
             <meshStandardMaterial color="#ff8a1f" emissive="#ff6a00" emissiveIntensity={p > 0.5 ? 2 : 0} />
           </mesh>
         </>

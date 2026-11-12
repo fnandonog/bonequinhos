@@ -90,12 +90,12 @@ const PiChao: React.FC<{furos?: Furo[]; corte?: boolean; topo?: 'terra' | 'grama
         return (
           <mesh key={i} position={[(c.x0 + c.x1) / 2, BASE_Y + h / 2, (c.z0 + c.z1) / 2]} receiveShadow>
             <boxGeometry args={[c.x1 - c.x0, h, c.z1 - c.z0]} />
-            <meshStandardMaterial attach="material-0" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-1" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-2" color={c.prof > 0 ? '#8a5a35' : corTopo} flatShading />
+            <meshStandardMaterial attach="material-0" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-1" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-2" color={c.prof > 0 ? '#8a5a35' : corTopo} />
             <meshStandardMaterial attach="material-3" color="#8a5a35" />
-            <meshStandardMaterial attach="material-4" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-5" color="#ffffff" map={terra} flatShading />
+            <meshStandardMaterial attach="material-4" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-5" color="#ffffff" map={terra} />
           </mesh>
         );
       })}
@@ -295,7 +295,7 @@ const Filtro: React.FC<{t: number}> = ({t}) => {
     <group>
       <Caixa pos={[5.0, y0 + 0.05, 3.45]} tam={[0.6, 0.1, 0.6]} cor="#6f7378" />
       <Cil pos={[5.0, y0 + 0.5, 3.45]} r={0.27} h={0.8} cor="#2f6fd6" seg={14} />
-      <mesh position={[5.0, y0 + 0.9, 3.45]} castShadow><sphereGeometry args={[0.27, 14, 8, 0, Math.PI * 2, 0, Math.PI / 2]} /><Mat cor="#2f6fd6" /></mesh>
+      <mesh position={[5.0, y0 + 0.9, 3.45]} castShadow><sphereGeometry args={[0.27, 20, 14, 0, Math.PI * 2, 0, Math.PI / 2]} /><Mat cor="#2f6fd6" /></mesh>
       <Cil pos={[5.0, y0 + 1.22, 3.45]} r={0.1} h={0.12} cor="#1d1b26" seg={10} />
       <Barra a={[5.0, y0 + 1.3, 3.45]} b={[5.0 + Math.cos(t) * 0.15, y0 + 1.3, 3.45 + Math.sin(t) * 0.15]} r={0.02} cor="#e8402f" />
       {/* motobomba: pré-filtro transparente + corpo + motor */}
@@ -430,7 +430,7 @@ const Seta: React.FC<{de: V3; para: V3; vis: number}> = ({de, para, vis}) => {
     <group>
       <Barra a={de} b={b} r={0.05} cor="#ff3b3b" sombra={false} />
       <mesh position={b} rotation={[0, 0, -dir * Math.PI / 2]}>
-        <coneGeometry args={[0.13, 0.28, 8]} />
+        <coneGeometry args={[0.13, 0.28, 24]} />
         <meshBasicMaterial color="#ff3b3b" />
       </mesh>
     </group>

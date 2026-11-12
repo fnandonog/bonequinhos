@@ -103,11 +103,11 @@ export const Fio: React.FC<{a: V3; b: V3; r?: number; cor: string; vis?: number}
   return (
     <group>
       <mesh position={[a[0], (a[1] + y1) / 2, a[2]]}>
-        <cylinderGeometry args={[r * 1.25, r * 0.8, h, 14]} />
+        <cylinderGeometry args={[r * 1.25, r * 0.8, h, 24]} />
         <meshStandardMaterial color={cor} roughness={0.15} metalness={0.05} />
       </mesh>
       <mesh position={[a[0], y1, a[2]]} scale={[r * 1.8, r * 0.7, r * 1.8]}>
-        <sphereGeometry args={[1, 12, 8]} />
+        <sphereGeometry args={[1, 20, 14]} />
         <meshStandardMaterial color={cor} roughness={0.15} />
       </mesh>
     </group>
@@ -161,7 +161,7 @@ export const Fogao: React.FC<{pos: V3; t?: number; chama?: number[]; dial?: numb
             const h = (0.024 + 0.006 * Math.sin(t * 20 + k)) * chama[i];
             return (
               <mesh key={'c' + k} position={[Math.cos(a) * 0.055, 0.012 + h / 2, Math.sin(a) * 0.055]}>
-                <coneGeometry args={[0.009, h, 5]} />
+                <coneGeometry args={[0.009, h, 24]} />
                 <meshStandardMaterial color="#4fa3ff" emissive="#2b7cff" emissiveIntensity={1.4} transparent opacity={0.9} />
               </mesh>
             );
@@ -254,8 +254,8 @@ export const Cozinha: React.FC<{t?: number; chama?: number[]; dial?: number; sem
       {[-0.55, 0.55].map((x) => (
         <group key={x} position={[x, 2.2, 0]}>
           <Barra a={[0, 0.8, 0]} b={[0, 0.1, 0]} r={0.006} cor="#2b2233" sombra={false} />
-          <mesh position={[0, 0.05, 0]}><coneGeometry args={[0.16, 0.18, 12, 1, true]} /><meshStandardMaterial color="#ffd23f" side={THREE.DoubleSide} flatShading /></mesh>
-          <mesh position={[0, -0.02, 0]}><sphereGeometry args={[0.05, 8, 8]} /><meshStandardMaterial color="#fff6d8" emissive="#fff1b0" emissiveIntensity={1.5} /></mesh>
+          <mesh position={[0, 0.05, 0]}><coneGeometry args={[0.16, 0.18, 24, 1, true]} /><meshStandardMaterial color="#ffd23f" side={THREE.DoubleSide} /></mesh>
+          <mesh position={[0, -0.02, 0]}><sphereGeometry args={[0.05, 20, 14]} /><meshStandardMaterial color="#fff6d8" emissive="#fff1b0" emissiveIntensity={1.5} /></mesh>
         </group>
       ))}
     </group>
@@ -265,7 +265,7 @@ export const Cozinha: React.FC<{t?: number; chama?: number[]; dial?: number; sem
 // ---------- ingredientes ----------
 export const Cenoura: React.FC<{pos: V3; rot?: V3; esc?: number; folha?: boolean}> = ({pos, rot = [0, 0, Math.PI / 2], esc = 1, folha = true}) => (
   <group position={pos} rotation={rot} scale={esc}>
-    <mesh castShadow><coneGeometry args={[0.022, 0.17, 8]} /><Mat cor={COR.cenoura} /></mesh>
+    <mesh castShadow><coneGeometry args={[0.022, 0.17, 24]} /><Mat cor={COR.cenoura} /></mesh>
     {folha && [-0.3, 0, 0.3].map((a) => (
       <mesh key={a} position={[Math.sin(a) * 0.01, 0.12, 0]} rotation={[0, 0, a]}><coneGeometry args={[0.008, 0.08, 4]} /><Mat cor={COR.folha} /></mesh>
     ))}
@@ -291,7 +291,7 @@ export const Ovo: React.FC<{pos: V3; rot?: V3; aberto?: number}> = ({pos, rot = 
   if (aberto <= 0)
     return (
       <mesh position={pos} rotation={rot} scale={[0.022, 0.03, 0.022]} castShadow>
-        <sphereGeometry args={[1, 12, 10]} />
+        <sphereGeometry args={[1, 20, 14]} />
         <Mat cor={COR.ovo} rugoso={0.6} />
       </mesh>
     );
@@ -300,12 +300,12 @@ export const Ovo: React.FC<{pos: V3; rot?: V3; aberto?: number}> = ({pos, rot = 
     <group position={pos}>
       {[-1, 1].map((s) => (
         <mesh key={s} position={[s * 0.02 * k, 0, 0]} rotation={[0, 0, s * (Math.PI / 2) * k]} scale={[0.022, 0.03, 0.022]}>
-          <sphereGeometry args={[1, 12, 8, 0, Math.PI * 2, 0, Math.PI / 2]} />
-          <meshStandardMaterial color={COR.ovo} flatShading side={THREE.DoubleSide} />
+          <sphereGeometry args={[1, 20, 14, 0, Math.PI * 2, 0, Math.PI / 2]} />
+          <meshStandardMaterial color={COR.ovo} side={THREE.DoubleSide} />
         </mesh>
       ))}
       <mesh position={[0, -0.02 - 0.2 * clamp01(aberto * 1.5 - 0.3), 0]} scale={[0.016, 0.014, 0.016]}>
-        <sphereGeometry args={[1, 10, 8]} />
+        <sphereGeometry args={[1, 20, 14]} />
         <Mat cor={COR.gema} rugoso={0.3} />
       </mesh>
     </group>
@@ -321,7 +321,7 @@ export const CaixaOvos: React.FC<{pos: V3; n?: number}> = ({pos, n = 6}) => (
 
 export const GarrafaOleo: React.FC<{pos: V3; rot?: V3}> = ({pos, rot = [0, 0, 0]}) => (
   <group position={pos} rotation={rot}>
-    <mesh position={[0, 0.1, 0]}><cylinderGeometry args={[0.036, 0.036, 0.2, 12]} /><Vidro cor="#ffe27a" op={0.55} /></mesh>
+    <mesh position={[0, 0.1, 0]}><cylinderGeometry args={[0.036, 0.036, 0.2, 24]} /><Vidro cor="#ffe27a" op={0.55} /></mesh>
     <Cil pos={[0, 0.085, 0]} r={0.032} h={0.17} cor={COR.oleo} seg={12} />
     <Cil pos={[0, 0.225, 0]} r={0.02} r2={0.036} h={0.05} cor="#ffe27a" seg={12} />
     <Cil pos={[0, 0.26, 0]} r={0.016} h={0.025} cor="#e8322b" seg={10} />
@@ -364,7 +364,7 @@ export const Liquidificador: React.FC<{pos: V3; t: number; nivel?: number; cor?:
         <>
           <Caixa pos={[0, 0.07, 0]} tam={[0.18, 0.14, 0.18]} cor="#2b2b3a" />
           <Caixa pos={[0, 0.07, 0.091]} tam={[0.12, 0.05, 0.004]} cor="#3d3d50" sombra={false} />
-          <mesh position={[0.03, 0.07, 0.095]}><sphereGeometry args={[0.012, 8, 6]} /><meshStandardMaterial color={batendo > 0 ? '#5cff7a' : '#e8322b'} emissive={batendo > 0 ? '#2fbf55' : '#000'} emissiveIntensity={1} /></mesh>
+          <mesh position={[0.03, 0.07, 0.095]}><sphereGeometry args={[0.012, 20, 14]} /><meshStandardMaterial color={batendo > 0 ? '#5cff7a' : '#e8322b'} emissive={batendo > 0 ? '#2fbf55' : '#000'} emissiveIntensity={1} /></mesh>
           <Cil pos={[-0.03, 0.07, 0.095]} rot={[Math.PI / 2, 0, 0]} r={0.012} h={0.012} cor="#c3c8cf" />
         </>
       )}
@@ -378,20 +378,20 @@ export const Liquidificador: React.FC<{pos: V3; t: number; nivel?: number; cor?:
         {nivel > 0.001 && (
           <group>
             <mesh position={[0, 0.03 + h / 2, 0]}>
-              <cylinderGeometry args={[0.058 + nivel * 0.015, 0.056, h, 16]} />
+              <cylinderGeometry args={[0.058 + nivel * 0.015, 0.056, h, 24]} />
               <Mat cor={cor} rugoso={0.5} />
             </mesh>
             {batendo > 0 && (
               <mesh position={[0, 0.03 + h - 0.012 * batendo, 0]} rotation={[Math.PI, t * 30, 0]}>
-                <coneGeometry args={[0.05, 0.03 * batendo, 10]} />
-                <meshStandardMaterial color="#e08a28" flatShading />
+                <coneGeometry args={[0.05, 0.03 * batendo, 24]} />
+                <meshStandardMaterial color="#e08a28" />
               </mesh>
             )}
           </group>
         )}
         {conteudo}
         <mesh position={[0, 0.03 + hCopo / 2, 0]}>
-          <cylinderGeometry args={[0.078, 0.062, hCopo, 16, 1, true]} />
+          <cylinderGeometry args={[0.078, 0.062, hCopo, 24, 1, true]} />
           <Vidro />
         </mesh>
         {/* alça */}
@@ -413,8 +413,8 @@ export const Tigela: React.FC<{pos: V3; r?: number; nivel?: number; cor?: string
     <group position={pos} rotation={rot}>
       <group position={[0, prof, 0]}>
         <mesh castShadow>
-          <sphereGeometry args={[r, 20, 10, 0, Math.PI * 2, Math.PI / 2, Math.acos(0.25) - 0.02]} />
-          <meshStandardMaterial color="#ffffff" flatShading side={THREE.DoubleSide} roughness={0.4} />
+          <sphereGeometry args={[r, 20, 14, 0, Math.PI * 2, Math.PI / 2, Math.acos(0.25) - 0.02]} />
+          <meshStandardMaterial color="#ffffff" side={THREE.DoubleSide} roughness={0.4} />
         </mesh>
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.001, 0]}>
           <ringGeometry args={[r * 0.985, r * 1.03, 24]} />
@@ -423,14 +423,14 @@ export const Tigela: React.FC<{pos: V3; r?: number; nivel?: number; cor?: string
         {nivel > 0.01 && (
           <group position={[0, y, 0]}>
             <mesh rotation={[-Math.PI / 2, 0, 0]}>
-              <circleGeometry args={[rr, 24]} />
+              <circleGeometry args={[rr, 40]} />
               <meshStandardMaterial color={cor} roughness={0.6} />
             </mesh>
             {cor2 && mistura < 1 && (
               <group rotation={[0, t * 2, 0]}>
                 {[0, 1, 2].map((i) => (
                   <mesh key={i} rotation={[-Math.PI / 2, 0, (i * 2 * Math.PI) / 3]} position={[Math.cos(i * 2.1) * rr * 0.4, 0.002, Math.sin(i * 2.1) * rr * 0.4]} scale={1 - mistura}>
-                    <circleGeometry args={[rr * 0.35, 10]} />
+                    <circleGeometry args={[rr * 0.35, 40]} />
                     <meshStandardMaterial color={cor2} />
                   </mesh>
                 ))}
@@ -452,12 +452,12 @@ export const Tigela: React.FC<{pos: V3; r?: number; nivel?: number; cor?: string
 export const Peneira: React.FC<{pos: V3; rot?: V3; balanca?: number}> = ({pos, rot = [0, 0, 0], balanca = 0}) => (
   <group position={[pos[0] + balanca * 0.01, pos[1], pos[2]]} rotation={rot}>
     <mesh position={[0, 0, 0]}>
-      <sphereGeometry args={[0.09, 14, 6, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2]} />
+      <sphereGeometry args={[0.09, 20, 14, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2]} />
       <meshStandardMaterial color="#9aa0aa" wireframe />
     </mesh>
-    <mesh rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[0.09, 0.006, 6, 20]} /><Mat cor={COR.inox} rugoso={0.3} /></mesh>
+    <mesh rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[0.09, 0.006, 10, 28]} /><Mat cor={COR.inox} rugoso={0.3} /></mesh>
     <Barra a={[0.09, 0, 0]} b={[0.26, 0.02, 0]} r={0.008} cor="#e8322b" />
-    <mesh position={[0, -0.035, 0]} rotation={[Math.PI, 0, 0]}><coneGeometry args={[0.06, 0.04, 12]} /><Mat cor={COR.farinha} /></mesh>
+    <mesh position={[0, -0.035, 0]} rotation={[Math.PI, 0, 0]}><coneGeometry args={[0.06, 0.04, 24]} /><Mat cor={COR.farinha} /></mesh>
   </group>
 );
 
@@ -465,7 +465,7 @@ export const Fue: React.FC<{pos: V3; rot?: V3}> = ({pos, rot = [0, 0, 0]}) => (
   <group position={pos} rotation={rot}>
     {[0, 1, 2, 3].map((i) => (
       <mesh key={i} position={[0, 0.06, 0]} rotation={[0, (i * Math.PI) / 4, 0]} scale={[0.03, 0.065, 0.03]}>
-        <torusGeometry args={[1, 0.08, 4, 16]} />
+        <torusGeometry args={[1, 0.08, 10, 28]} />
         <Mat cor={COR.inox} rugoso={0.3} />
       </mesh>
     ))}
@@ -475,15 +475,15 @@ export const Fue: React.FC<{pos: V3; rot?: V3}> = ({pos, rot = [0, 0, 0]}) => (
 
 export const Colher: React.FC<{pos: V3; rot?: V3; cheia?: string | null; esc?: number}> = ({pos, rot = [0, 0, 0], cheia = null, esc = 1}) => (
   <group position={pos} rotation={rot} scale={esc}>
-    <mesh scale={[0.022, 0.008, 0.032]}><sphereGeometry args={[1, 10, 6, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2]} /><meshStandardMaterial color={COR.inox} side={THREE.DoubleSide} roughness={0.3} /></mesh>
-    {cheia && <mesh position={[0, 0.002, 0]} scale={[0.02, 0.008, 0.029]}><sphereGeometry args={[1, 10, 6, 0, Math.PI * 2, 0, Math.PI / 2]} /><Mat cor={cheia} /></mesh>}
+    <mesh scale={[0.022, 0.008, 0.032]}><sphereGeometry args={[1, 20, 14, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2]} /><meshStandardMaterial color={COR.inox} side={THREE.DoubleSide} roughness={0.3} /></mesh>
+    {cheia && <mesh position={[0, 0.002, 0]} scale={[0.02, 0.008, 0.029]}><sphereGeometry args={[1, 20, 14, 0, Math.PI * 2, 0, Math.PI / 2]} /><Mat cor={cheia} /></mesh>}
     <Barra a={[0, 0, -0.03]} b={[0, 0.02, -0.15]} r={0.004} cor={COR.inox} />
   </group>
 );
 
 export const Xicara: React.FC<{pos: V3; rot?: V3; cheia?: string | null}> = ({pos, rot = [0, 0, 0], cheia = null}) => (
   <group position={pos} rotation={rot}>
-    <mesh position={[0, 0.035, 0]}><cylinderGeometry args={[0.042, 0.034, 0.07, 14, 1, true]} /><meshStandardMaterial color="#ff8a1f" side={THREE.DoubleSide} flatShading /></mesh>
+    <mesh position={[0, 0.035, 0]}><cylinderGeometry args={[0.042, 0.034, 0.07, 24, 1, true]} /><meshStandardMaterial color="#ff8a1f" side={THREE.DoubleSide} /></mesh>
     <Cil pos={[0, 0.002, 0]} r={0.034} h={0.004} cor="#ff8a1f" />
     {cheia && <Cil pos={[0, 0.06, 0]} r={0.039} h={0.006} cor={cheia} />}
     <Barra a={[0.04, 0.05, 0]} b={[0.12, 0.06, 0]} r={0.006} cor="#ff8a1f" />
@@ -506,21 +506,21 @@ export const Panela: React.FC<{pos: V3; t: number; nivel?: number; cor?: string;
   const hh = 0.006 + nivel * 0.05;
   return (
     <group position={pos} rotation={rot}>
-      <mesh position={[0, h / 2, 0]} castShadow><cylinderGeometry args={[r, r * 0.95, h, 18, 1, true]} /><meshStandardMaterial color="#d8442f" side={THREE.DoubleSide} flatShading /></mesh>
+      <mesh position={[0, h / 2, 0]} castShadow><cylinderGeometry args={[r, r * 0.95, h, 24, 1, true]} /><meshStandardMaterial color="#d8442f" side={THREE.DoubleSide} /></mesh>
       <Cil pos={[0, 0.003, 0]} r={r * 0.95} h={0.006} cor="#5a5a62" seg={18} />
       <Barra a={[r, h * 0.8, 0]} b={[r + 0.17, h * 0.95, 0]} r={0.012} cor="#2b2233" />
       {nivel > 0.01 && (
         <group position={[desgruda * 0.02, 0, 0]}>
           <mesh position={[0, 0.006 + hh / 2, 0]} scale={[1 - desgruda * 0.28, 1 + desgruda * 0.5, 1 - desgruda * 0.28]}>
-            <cylinderGeometry args={[r * 0.93, r * 0.92, hh, 18]} />
-            <meshStandardMaterial color={cor} roughness={0.25} flatShading />
+            <cylinderGeometry args={[r * 0.93, r * 0.92, hh, 24]} />
+            <meshStandardMaterial color={cor} roughness={0.25} />
           </mesh>
           {bolhas > 0 &&
             Array.from({length: 6}).map((_, i) => {
               const k = (t * 1.6 + i * 0.37) % 1;
               return (
                 <mesh key={i} position={[Math.cos(i * 2.4) * 0.05, 0.006 + hh * (1 + desgruda * 0.5), Math.sin(i * 2.4) * 0.05]} scale={0.012 * Math.sin(k * Math.PI) * bolhas}>
-                  <sphereGeometry args={[1, 8, 6, 0, Math.PI * 2, 0, Math.PI / 2]} />
+                  <sphereGeometry args={[1, 20, 14, 0, Math.PI * 2, 0, Math.PI / 2]} />
                   <meshStandardMaterial color={COR.caldaBrilho} />
                 </mesh>
               );
@@ -552,7 +552,7 @@ export const Forma: React.FC<{pos: V3; massa?: number; cresce?: number; assado?:
         <group>
           <Cil pos={[0, 0.004 + altura / 2, 0]} r={r * 0.99} h={altura} cor={cor} seg={24} />
           <mesh position={[0, 0.004 + altura, 0]} scale={[r * 0.99, 0.012 * cresce * (1 - murcha) + 0.002, r * 0.99]}>
-            <sphereGeometry args={[1, 24, 8, 0, Math.PI * 2, 0, Math.PI / 2]} />
+            <sphereGeometry args={[1, 24, 14, 0, Math.PI * 2, 0, Math.PI / 2]} />
             <Mat cor={cor} />
           </mesh>
         </group>
@@ -600,7 +600,7 @@ export const Bolo: React.FC<{pos: V3; calda?: number; granulado?: number; semFat
       {calda > 0.01 && (
         <mesh position={[0, h + 0.006, 0]}>
           <cylinderGeometry args={[r * 1.01 * Math.min(1, calda * 1.2), r * 1.01 * Math.min(1, calda * 1.2), 0.012, 32, 1, false, th0, len]} />
-          <meshStandardMaterial color={COR.calda} roughness={0.2} flatShading />
+          <meshStandardMaterial color={COR.calda} roughness={0.2} />
         </mesh>
       )}
       {calda > 0.8 &&
@@ -609,7 +609,7 @@ export const Bolo: React.FC<{pos: V3; calda?: number; granulado?: number; semFat
           const comp = (0.015 + (i % 3) * 0.012) * escorre * clamp01((calda - 0.8) * 5);
           return (
             <mesh key={i} position={[Math.sin(a) * r * 1.01, h + 0.004 - comp / 2, Math.cos(a) * r * 1.01]}>
-              <capsuleGeometry args={[0.006, comp, 3, 6]} />
+              <capsuleGeometry args={[0.006, comp, 5, 16]} />
               <meshStandardMaterial color={COR.calda} roughness={0.2} />
             </mesh>
           );
@@ -630,10 +630,10 @@ export const Fatia: React.FC<{pos: V3; rot?: V3}> = ({pos, rot = [0, 0, 0]}) => 
   );
   return (
     <group position={pos} rotation={rot}>
-      <mesh position={[0, h / 2, 0]} castShadow><cylinderGeometry args={[r, r, h, 8, 1, false, 0, w]} /><Mat cor={COR.massaAssada} /></mesh>
+      <mesh position={[0, h / 2, 0]} castShadow><cylinderGeometry args={[r, r, h, 24, 1, false, 0, w]} /><Mat cor={COR.massaAssada} /></mesh>
       {corte(0)}
       {corte(w)}
-      <mesh position={[0, h + 0.006, 0]}><cylinderGeometry args={[r * 1.01, r * 1.01, 0.012, 8, 1, false, 0, w]} /><meshStandardMaterial color={COR.calda} roughness={0.2} flatShading /></mesh>
+      <mesh position={[0, h + 0.006, 0]}><cylinderGeometry args={[r * 1.01, r * 1.01, 0.012, 24, 1, false, 0, w]} /><meshStandardMaterial color={COR.calda} roughness={0.2} /></mesh>
       {[0.3, 0.5, 0.7].map((d, i) => (<mesh key={i} position={[Math.sin(w * (0.3 + i * 0.2)) * r * d, h + 0.014, Math.cos(w * (0.3 + i * 0.2)) * r * d]}><boxGeometry args={[0.009, 0.003, 0.003]} /><Mat cor="#3a1c0e" /></mesh>))}
     </group>
   );
@@ -921,7 +921,7 @@ export const PalitoBrownie: React.FC<{pos: V3; migalhas?: number}> = ({pos, miga
       Array.from({length: 9}).map((_, i) => (
         <mesh key={i} position={[Math.cos(i * 2.1) * 0.0032, 0.008 + i * 0.0045, Math.sin(i * 2.1) * 0.0032]} scale={0.0028 * migalhas * (1 + (i % 3) * 0.3)}>
           <icosahedronGeometry args={[1, 0]} />
-          <meshStandardMaterial color={BW.miolo} roughness={0.5} flatShading />
+          <meshStandardMaterial color={BW.miolo} roughness={0.5} />
         </mesh>
       ))}
   </group>

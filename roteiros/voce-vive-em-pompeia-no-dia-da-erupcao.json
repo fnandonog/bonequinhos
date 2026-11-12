@@ -1,368 +1,486 @@
 {
-  "id": "voce-vive-em-pompeia-no-dia-da-erupcao",
-  "serie": "Você na História",
-  "perfil": "historia",
-  "titulo": "VOCÊ EM POMPEIA",
-  "linha2": "você aguentaria?",
-  "quando": "79 d.C.",
-  "onde": "POMPEIA",
-  "voz": "pt-BR-AntonioNeural",
-  "velocidade": "+10%",
-  "elevenlabs": {
-    "voz_id": "5lrBPYY4YvMbKHTo8kvZ",
-    "modelo": "eleven_multilingual_v2",
-    "ajustes": {
-      "stability": 0.45,
-      "similarity_boost": 0.8,
-      "style": 0.4,
-      "use_speaker_boost": true,
-      "speed": 1.15
-    }
-  },
-  "fontes": "roteiros/voce-vive-em-pompeia-no-dia-da-erupcao.pesquisa.md",
-  "monetizacao": {
-    "afiliados": [
-      "livro: Pompeia (Robert Harris)",
-      "livro: A Última Noite de Pompeia",
-      "livro: Pompeia - Uma História Real",
-      "maquete/puzzle do Vesúvio e Pompeia",
-      "documentário: Pompeia: Vida e Morte"
-    ]
-  },
-  "cenas": [
-    {
-      "id": "c1",
-      "texto": "Vinte e quatro de agosto, ano setenta e nove depois de Cristo. Você mora em Pompeia, uma cidade de onze mil pessoas. E a montanha no fundo está acordando.",
-      "quando": "24 AGO 79 d.C.",
-      "onde": "POMPEIA",
-      "destaques": [
-        "vinte",
-        "quatro",
-        "onze",
-        "mil",
-        "oitenta",
-        "seis",
-        "dezessete",
-        "sessenta",
-        "dois",
-        "trinta",
-        "setecentos",
-        "trezentos",
-        "três",
-        "surpresa",
-        "morre",
-        "aguentaria"
-      ],
-      "planos": [
-        {
-          "set": "pom_cidade",
-          "cam": "drone",
-          "card": {
-            "rotulo": "Pompeia",
-            "num": 11000,
-            "sub": "habitantes em 79 d.C."
-          }
-        },
-        {
-          "set": "pom_cidade",
-          "cam": "ze",
-          "apartir": 12
-        }
-      ]
-    },
-    {
-      "id": "c2",
-      "texto": "Pompeia fica no sul da Itália, à beira do Mar Tirreno. Tem fórum, termas, e oitenta e seis thermopolia: os bares de comida quente de Roma. Você compra pão no balcão de pedra de manhã cedo.",
-      "quando": "79 d.C.",
-      "onde": "THERMOPOLIUM",
-      "destaques": [
-        "vinte",
-        "quatro",
-        "onze",
-        "mil",
-        "oitenta",
-        "seis",
-        "dezessete",
-        "sessenta",
-        "dois",
-        "trinta",
-        "setecentos",
-        "trezentos",
-        "três",
-        "surpresa",
-        "morre",
-        "aguentaria"
-      ],
-      "planos": [
-        {
-          "set": "pom_thermopolium",
-          "cam": "geral",
-          "p": [
-            0,
-            0.4
-          ]
-        },
-        {
-          "set": "pom_thermopolium",
-          "cam": "balcao",
-          "apartir": 15,
-          "p": [
-            0.4,
-            0.75
-          ],
-          "card": {
-            "rotulo": "Thermopolia em Pompeia",
-            "num": 86,
-            "sub": "bares de comida quente"
-          }
-        },
-        {
-          "set": "pom_thermopolium",
-          "cam": "comida",
-          "apartir": 26,
-          "p": [
-            0.75,
-            1
-          ]
-        }
-      ]
-    },
-    {
-      "id": "c3",
-      "texto": "O chão às vezes treme. Dezessete anos atrás, em sessenta e dois, um terremoto derrubou parte da cidade. Mas ninguém liga o tremor à montanha.",
-      "quando": "79 d.C.",
-      "onde": "POMPEIA",
-      "destaques": [
-        "vinte",
-        "quatro",
-        "onze",
-        "mil",
-        "oitenta",
-        "seis",
-        "dezessete",
-        "sessenta",
-        "dois",
-        "trinta",
-        "setecentos",
-        "trezentos",
-        "três",
-        "surpresa",
-        "morre",
-        "aguentaria"
-      ],
-      "planos": [
-        {
-          "set": "pom_rua",
-          "cam": "geral",
-          "p": [
-            0,
-            0.4
-          ]
-        },
-        {
-          "set": "pom_rua",
-          "cam": "tremor",
-          "apartir": 5,
-          "p": [
-            0.4,
-            1
-          ],
-          "card": {
-            "rotulo": "Terremoto anterior",
-            "valor": "62 d.C.",
-            "sub": "17 anos antes da erupção"
-          }
-        }
-      ]
-    },
-    {
-      "id": "c4",
-      "texto": "Ao meio-dia, o Vesúvio explode. Uma coluna de cinza e pedra sobe trinta quilômetros. Por horas, chovem pedras-pomes do tamanho de laranjas em cima da cidade.",
-      "quando": "24 AGO 79 d.C.",
-      "onde": "VESÚVIO",
-      "destaques": [
-        "vinte",
-        "quatro",
-        "onze",
-        "mil",
-        "oitenta",
-        "seis",
-        "dezessete",
-        "sessenta",
-        "dois",
-        "trinta",
-        "setecentos",
-        "trezentos",
-        "três",
-        "surpresa",
-        "morre",
-        "aguentaria"
-      ],
-      "planos": [
-        {
-          "set": "pom_erupcao",
-          "cam": "longe",
-          "p": [
-            0,
-            0.4
-          ],
-          "card": {
-            "rotulo": "Coluna de cinza",
-            "valor": "30 KM",
-            "sub": "de altura"
-          }
-        },
-        {
-          "set": "pom_erupcao",
-          "cam": "coluna",
-          "apartir": 5,
-          "p": [
-            0.4,
-            1
-          ]
-        }
-      ]
-    },
-    {
-      "id": "c5",
-      "texto": "Muita gente foge à tarde. Mas quem fica recebe a surpresa: às três da manhã, a coluna desaba. Um fluxo de rocha e gás a setecentos graus chega a trezentos quilômetros por hora.",
-      "quando": "25 AGO 79 d.C.",
-      "onde": "POMPEIA",
-      "destaques": [
-        "vinte",
-        "quatro",
-        "onze",
-        "mil",
-        "oitenta",
-        "seis",
-        "dezessete",
-        "sessenta",
-        "dois",
-        "trinta",
-        "setecentos",
-        "trezentos",
-        "três",
-        "surpresa",
-        "morre",
-        "aguentaria"
-      ],
-      "planos": [
-        {
-          "set": "pom_fluxo",
-          "cam": "fuga",
-          "p": [
-            0,
-            0.5
-          ]
-        },
-        {
-          "set": "pom_fluxo",
-          "cam": "descida",
-          "apartir": 11,
-          "p": [
-            0.5,
-            1
-          ],
-          "card": {
-            "rotulo": "Fluxo piroclástico",
-            "valor": "700 °C",
-            "sub": "300 km/h",
-            "cor": "#ff5d5d"
-          }
-        }
-      ]
-    },
-    {
-      "id": "c6",
-      "texto": "Plínio, o Velho, vai de barco tentar resgatar sobreviventes. Morre naquela noite. Seu sobrinho escreve a única descrição da erupção que chegou até hoje.",
-      "quando": "24–25 AGO 79 d.C.",
-      "onde": "MAR TIRRENO",
-      "destaques": [
-        "vinte",
-        "quatro",
-        "onze",
-        "mil",
-        "oitenta",
-        "seis",
-        "dezessete",
-        "sessenta",
-        "dois",
-        "trinta",
-        "setecentos",
-        "trezentos",
-        "três",
-        "surpresa",
-        "morre",
-        "aguentaria"
-      ],
-      "planos": [
-        {
-          "set": "pom_barca",
-          "cam": "geral",
-          "p": [
-            0,
-            0.5
-          ],
-          "card": {
-            "rotulo": "Plínio, o Velho",
-            "valor": "MORRE",
-            "sub": "na tentativa de resgate",
-            "cor": "#ff5d5d"
-          }
-        },
-        {
-          "set": "pom_barca",
-          "cam": "ze",
-          "apartir": 9,
-          "p": [
-            0.5,
-            1
-          ]
-        }
-      ]
-    },
-    {
-      "id": "c7",
-      "texto": "Dois mil corpos foram achados em Pompeia. Mas a cidade tinha onze mil. Para onde foram os outros? Ninguém sabe com certeza. Você aguentaria?",
-      "quando": "79 d.C.",
-      "onde": "POMPEIA",
-      "destaques": [
-        "vinte",
-        "quatro",
-        "onze",
-        "mil",
-        "oitenta",
-        "seis",
-        "dezessete",
-        "sessenta",
-        "dois",
-        "trinta",
-        "setecentos",
-        "trezentos",
-        "três",
-        "surpresa",
-        "morre",
-        "aguentaria"
-      ],
-      "planos": [
-        {
-          "set": "pom_fim",
-          "cam": "aereo",
-          "card": {
-            "rotulo": "Corpos encontrados",
-            "num": 2000,
-            "sub": "Pompeia tinha 11.000 habitantes"
-          }
-        },
-        {
-          "set": "pom_fim",
-          "cam": "ze",
-          "apartir": 13
-        }
-      ]
-    }
-  ],
-  "pagina": {
-    "texto": "🌋 Você vive em Pompeia no dia da erupção (79 d.C.)\n\nO CENÁRIO\nPompeia era uma cidade romana de cerca de 11.000 habitantes no sul da Itália, à beira do Mar Tirreno, com o Vesúvio a apenas 9 km.\n\nO QUE A HISTÓRIA CONTA\n• A data: 24 de agosto de 79 d.C. (algumas pesquisas recentes apontam para outubro).\n• A cidade: tinha fórum, termas, anfiteatro e 86 thermopolia — bares de comida quente onde os romanos almoçavam, já que fogão em casa era raro e perigoso.\n• O sinal ignorado: um terremoto em 62 d.C. danificou a cidade. Os tremores continuaram nos dias antes da erupção, mas ninguém associou à montanha.\n• A erupção: o Vesúvio explodiu ao meio-dia. Uma coluna de cinza e pedra subiu 30 km. Pedras-pomes choveram por horas.\n• A surpresa: a maioria das vítimas não morreu soterrada pela cinza. Um fluxo piroclástico (rocha e gás a 700 °C, chegando a 300 km/h) matou em segundos, nas primeiras horas de 25 de agosto.\n• Plínio, o Velho: almirante romano, foi de barco resgatar sobreviventes na costa. Morreu naquela noite — provavelmente por gases tóxicos. Seu sobrinho, Plínio, o Jovem, assistiu de longe e escreveu as cartas que são a única descrição ocular da erupção.\n• Os desaparecidos: 2.000 corpos foram encontrados, mas a cidade tinha cerca de 11.000 habitantes. Os outros fugiram antes — a maioria sobreviveu.\n\nFontes: Plínio, o Jovem (Cartas a Tácito, VI.16 e VI.20), National Geographic, British Museum, estudos de volcanologia da Universidade de Nápoles, escavações de Pompeia (Parco Archaeologico di Pompei)."
+ "id": "voce-vive-em-pompeia-no-dia-da-erupcao",
+ "serie": "Você na História",
+ "perfil": "historia",
+ "titulo": "VOCÊ EM POMPEIA",
+ "linha2": "você aguentaria?",
+ "quando": "79 d.C.",
+ "onde": "POMPEIA",
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+10%",
+ "elevenlabs": {
+  "voz_id": "5lrBPYY4YvMbKHTo8kvZ",
+  "modelo": "eleven_multilingual_v2",
+  "ajustes": {
+   "stability": 0.45,
+   "similarity_boost": 0.8,
+   "style": 0.4,
+   "use_speaker_boost": true,
+   "speed": 1.15
   }
+ },
+ "fontes": "roteiros/voce-vive-em-pompeia-no-dia-da-erupcao.pesquisa.md",
+ "monetizacao": {
+  "afiliados": [
+   "livro: Pompeia (Robert Harris)",
+   "livro: A Última Noite de Pompeia",
+   "livro: Pompeia - Uma História Real",
+   "maquete/puzzle do Vesúvio e Pompeia",
+   "documentário: Pompeia: Vida e Morte"
+  ]
+ },
+ "cenas": [
+  {
+   "id": "c1",
+   "texto": "Em menos de um dia, essa cidade vai sumir do mapa. E você mora nela. É Pompeia, cidade romana de onze mil pessoas, quase dois mil anos atrás. E ninguém tem medo da montanha.",
+   "quando": "24 AGO 79 d.C.",
+   "onde": "POMPEIA",
+   "destaques": [
+    "sumir",
+    "onze",
+    "mil",
+    "oitenta",
+    "dezessete",
+    "vulcão",
+    "séculos",
+    "trinta",
+    "quilômetros",
+    "madrugada",
+    "trezentos",
+    "setenta",
+    "segundos",
+    "plínio",
+    "único",
+    "cem",
+    "cadê",
+    "maioria",
+    "fugiu"
+   ],
+   "planos": [
+    {
+     "set": "pom_cidade",
+     "cam": "drone"
+    },
+    {
+     "set": "pom_rua",
+     "cam": "ze",
+     "apartir": 11
+    },
+    {
+     "set": "pom_cidade",
+     "cam": "telhados",
+     "apartir": 15,
+     "card": {
+      "rotulo": "Pompeia",
+      "num": 11000,
+      "sub": "moradores em 79 d.C."
+     }
+    },
+    {
+     "set": "pom_forum",
+     "cam": "vesuvio",
+     "apartir": 28
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "texto": "Fica no sul da Itália, a oito quilômetros da montanha. Tem praça, banho público e mais de oitenta lanchonetes de rua. Muita casa nem tem cozinha, então o povo come fora. E o pão sai quente da padaria.",
+   "quando": "79 d.C.",
+   "onde": "POMPEIA",
+   "destaques": [
+    "sumir",
+    "onze",
+    "mil",
+    "oitenta",
+    "dezessete",
+    "vulcão",
+    "séculos",
+    "trinta",
+    "quilômetros",
+    "madrugada",
+    "trezentos",
+    "setenta",
+    "segundos",
+    "plínio",
+    "único",
+    "cem",
+    "cadê",
+    "maioria",
+    "fugiu"
+   ],
+   "planos": [
+    {
+     "set": "pom_baia",
+     "cam": "baia"
+    },
+    {
+     "set": "pom_forum_termas",
+     "cam": "geral",
+     "apartir": 10
+    },
+    {
+     "set": "pom_thermo",
+     "cam": "rua",
+     "apartir": 14,
+     "p": [
+      0,
+      0.6
+     ],
+     "card": {
+      "rotulo": "Lanchonetes de rua",
+      "valor": "MAIS DE 80",
+      "sub": "os thermopolia de Pompeia"
+     }
+    },
+    {
+     "set": "pom_thermo",
+     "cam": "potes",
+     "apartir": 21,
+     "p": [
+      0.6,
+      1
+     ]
+    },
+    {
+     "set": "pom_padaria",
+     "cam": "geral",
+     "apartir": 31
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "texto": "O chão anda tremendo. Dezessete anos antes, um terremoto derrubou parte da cidade. Mas ali tremor é normal, e a montanha não solta fogo há séculos.",
+   "quando": "79 d.C.",
+   "onde": "POMPEIA",
+   "destaques": [
+    "sumir",
+    "onze",
+    "mil",
+    "oitenta",
+    "dezessete",
+    "vulcão",
+    "séculos",
+    "trinta",
+    "quilômetros",
+    "madrugada",
+    "trezentos",
+    "setenta",
+    "segundos",
+    "plínio",
+    "único",
+    "cem",
+    "cadê",
+    "maioria",
+    "fugiu"
+   ],
+   "planos": [
+    {
+     "set": "pom_tremor",
+     "cam": "chao"
+    },
+    {
+     "set": "pom_terremoto",
+     "cam": "geral",
+     "apartir": 4,
+     "p": [
+      0,
+      0.45
+     ],
+     "card": {
+      "rotulo": "Terremoto anterior",
+      "valor": "62 d.C.",
+      "sub": "17 anos antes da erupção"
+     }
+    },
+    {
+     "set": "pom_terremoto",
+     "cam": "queda",
+     "apartir": 9,
+     "p": [
+      0.45,
+      1
+     ]
+    },
+    {
+     "set": "pom_rua_vesuvio",
+     "cam": "fundo",
+     "apartir": 13
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "texto": "Depois do meio-dia, a montanha explode. É um vulcão, o Vesúvio. Uma coluna de cinza sobe trinta quilômetros, três vezes a altura de um avião. Chove pedra-pomes, uma pedra leve e furada. E a chuva dura a noite inteira.",
+   "quando": "79 d.C.",
+   "onde": "VESÚVIO",
+   "destaques": [
+    "sumir",
+    "onze",
+    "mil",
+    "oitenta",
+    "dezessete",
+    "vulcão",
+    "séculos",
+    "trinta",
+    "quilômetros",
+    "madrugada",
+    "trezentos",
+    "setenta",
+    "segundos",
+    "plínio",
+    "único",
+    "cem",
+    "cadê",
+    "maioria",
+    "fugiu"
+   ],
+   "planos": [
+    {
+     "set": "pom_erupcao",
+     "cam": "explode",
+     "p": [
+      0,
+      0.45
+     ]
+    },
+    {
+     "set": "pom_erupcao",
+     "cam": "coluna",
+     "apartir": 6,
+     "p": [
+      0.45,
+      1
+     ]
+    },
+    {
+     "set": "pom_pluma",
+     "cam": "alto",
+     "apartir": 11,
+     "card": {
+      "rotulo": "Coluna de cinza",
+      "valor": "30 KM",
+      "sub": "3 vezes a altura de um avião"
+     }
+    },
+    {
+     "set": "pom_pomes",
+     "cam": "telhados",
+     "apartir": 25
+    },
+    {
+     "set": "pom_pomes_rua",
+     "cam": "ze",
+     "apartir": 32,
+     "card": {
+      "rotulo": "Chuva de pedra-pomes",
+      "valor": "18 HORAS",
+      "sub": "a tarde e a noite inteira"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c5",
+   "texto": "Muita gente foge durante a chuva. Quem fica se tranca em casa. Mas de madrugada, a coluna de cinza desaba. Desce uma nuvem de gás e cinza, a trezentos graus. Vem a setenta quilômetros por hora. Ninguém corre tanto. E mata em segundos.",
+   "quando": "79 d.C.",
+   "onde": "POMPEIA",
+   "destaques": [
+    "sumir",
+    "onze",
+    "mil",
+    "oitenta",
+    "dezessete",
+    "vulcão",
+    "séculos",
+    "trinta",
+    "quilômetros",
+    "madrugada",
+    "trezentos",
+    "setenta",
+    "segundos",
+    "plínio",
+    "único",
+    "cem",
+    "cadê",
+    "maioria",
+    "fugiu"
+   ],
+   "planos": [
+    {
+     "set": "pom_porto",
+     "cam": "fuga"
+    },
+    {
+     "set": "pom_casa",
+     "cam": "atrio",
+     "apartir": 6
+    },
+    {
+     "set": "pom_colapso",
+     "cam": "geral",
+     "apartir": 12,
+     "card": {
+      "rotulo": "O dia seguinte",
+      "valor": "MADRUGADA",
+      "sub": "a coluna desaba",
+      "cor": "#ffd23f"
+     }
+    },
+    {
+     "set": "pom_fluxo",
+     "cam": "descida",
+     "apartir": 20,
+     "card": {
+      "rotulo": "Nuvem de gás e cinza",
+      "valor": "~300 °C",
+      "sub": "fluxo piroclástico",
+      "cor": "#ff5d5d"
+     }
+    },
+    {
+     "set": "pom_fluxo_rua",
+     "cam": "rua",
+     "apartir": 30,
+     "card": {
+      "rotulo": "Velocidade",
+      "valor": "~70 KM/H",
+      "sub": "ninguém corre tanto",
+      "cor": "#ff5d5d"
+     }
+    }
+   ]
+  },
+  {
+   "id": "c6",
+   "texto": "O chefe da frota romana, Plínio, o Velho, sai de barco pra salvar gente. E morre na praia. O sobrinho dele viu tudo de longe e foi o único a contar.",
+   "quando": "79 d.C.",
+   "onde": "BAÍA DE NÁPOLES",
+   "destaques": [
+    "sumir",
+    "onze",
+    "mil",
+    "oitenta",
+    "dezessete",
+    "vulcão",
+    "séculos",
+    "trinta",
+    "quilômetros",
+    "madrugada",
+    "trezentos",
+    "setenta",
+    "segundos",
+    "plínio",
+    "único",
+    "cem",
+    "cadê",
+    "maioria",
+    "fugiu"
+   ],
+   "planos": [
+    {
+     "set": "pom_barca",
+     "cam": "geral"
+    },
+    {
+     "set": "pom_barca",
+     "cam": "plinio",
+     "apartir": 8
+    },
+    {
+     "set": "pom_praia",
+     "cam": "plinio",
+     "apartir": 14,
+     "card": {
+      "rotulo": "Plínio, o Velho",
+      "valor": "MORRE",
+      "sub": "tentando resgatar gente",
+      "cor": "#ff5d5d"
+     }
+    },
+    {
+     "set": "pom_carta",
+     "cam": "geral",
+     "apartir": 18,
+     "card": {
+      "rotulo": "Plínio, o Jovem",
+      "valor": "ÚNICO RELATO",
+      "sub": "cartas ao historiador Tácito"
+     }
+    },
+    {
+     "set": "pom_carta",
+     "cam": "tabua",
+     "apartir": 25
+    }
+   ]
+  },
+  {
+   "id": "c7",
+   "texto": "Até hoje, acharam uns mil e cem corpos. Mas a cidade tinha onze mil. Cadê o resto? A maioria fugiu enquanto chovia pedra. E você, fugia na hora ou ficava pra salvar sua casa?",
+   "quando": "HOJE",
+   "onde": "POMPEIA",
+   "destaques": [
+    "sumir",
+    "onze",
+    "mil",
+    "oitenta",
+    "dezessete",
+    "vulcão",
+    "séculos",
+    "trinta",
+    "quilômetros",
+    "madrugada",
+    "trezentos",
+    "setenta",
+    "segundos",
+    "plínio",
+    "único",
+    "cem",
+    "cadê",
+    "maioria",
+    "fugiu"
+   ],
+   "planos": [
+    {
+     "set": "pom_moldes",
+     "cam": "geral",
+     "card": {
+      "rotulo": "Corpos achados",
+      "num": 1150,
+      "sub": "muitos viraram moldes de gesso"
+     }
+    },
+    {
+     "set": "pom_ruinas",
+     "cam": "aereo",
+     "apartir": 8,
+     "card": {
+      "rotulo": "Pompeia tinha",
+      "num": 11000,
+      "sub": "moradores"
+     }
+    },
+    {
+     "set": "pom_moldes",
+     "cam": "close",
+     "apartir": 17,
+     "card": {
+      "rotulo": "A maioria",
+      "valor": "FUGIU A TEMPO",
+      "cor": "#ffd23f"
+     }
+    },
+    {
+     "set": "pom_ruinas_ze",
+     "cam": "ze",
+     "apartir": 23
+    }
+   ]
+  }
+ ],
+ "pagina": {
+  "texto": "🌋 Você vive em Pompeia no dia da erupção (79 d.C.)\n\nO CENÁRIO\nPompeia era uma cidade romana de cerca de 11.000 habitantes no sul da Itália, na Baía de Nápoles, a uns 8 km do Vesúvio.\n\nO QUE A HISTÓRIA CONTA\n• A data: tradicionalmente 24 de agosto de 79 d.C. (uma inscrição achada em 2018 sugere outubro).\n• A cidade: tinha fórum, termas e mais de 80 thermopolia, lanchonetes de rua com balcão de pedra. Muita casa não tinha cozinha.\n• O sinal ignorado: um terremoto em 62 d.C. já tinha danificado a cidade. Os tremores voltaram nos dias antes da erupção.\n• A erupção: no começo da tarde o Vesúvio explodiu. A coluna de cinza subiu uns 30 km e choveu pedra-pomes por cerca de 18 horas.\n• A surpresa: de madrugada a coluna desabou. Nuvens de gás e cinza (fluxos piroclásticos) a cerca de 300 °C e uns 70 km/h chegaram a Pompeia e mataram em segundos.\n• Plínio, o Velho: comandante da frota romana, foi de barco resgatar gente na costa e morreu na praia. O sobrinho, Plínio, o Jovem, viu de longe e escreveu as cartas que são o único relato de testemunha.\n• Os que fugiram: cerca de 1.150 corpos foram achados em Pompeia. A maioria dos moradores escapou durante a chuva de pedra.\n\nFontes: Plínio, o Jovem (Cartas a Tácito, VI.16 e VI.20), Parco Archeologico di Pompei, Mastrolorenzo et al. (PLoS ONE, 2010), The Guardian (2020)."
+ }
 }

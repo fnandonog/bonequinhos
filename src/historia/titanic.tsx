@@ -4,7 +4,7 @@
 import React, {useLayoutEffect, useMemo, useRef} from 'react';
 import * as THREE from 'three';
 import {V3} from '../v4/planta';
-import {Barra, Boneco, Caixa, Cil, Rotulo, Visual, texPilula} from '../v4/kit';
+import {Barra, Boneco, Caixa, Cil, Rotulo, Visual, Expressao, texPilula} from '../v4/kit';
 import {orb} from '../v4/sets';
 import type {SetHistoria} from './sets';
 import {clamp01, lerp, rnd, suave} from './pecas';
@@ -68,7 +68,7 @@ const Inst: React.FC<{mats: THREE.Matrix4[]; geo: THREE.BufferGeometry; cor: str
   }, [mats]);
   return (
     <instancedMesh ref={ref} args={[geo, undefined, Math.max(1, mats.length)]} frustumCulled={false}>
-      {brilha ? <meshBasicMaterial color={cor} /> : <meshStandardMaterial color={cor} flatShading />}
+      {brilha ? <meshBasicMaterial color={cor} /> : <meshStandardMaterial color={cor} />}
     </instancedMesh>
   );
 };
@@ -92,11 +92,11 @@ export const Bote: React.FC<{pos: V3; rotY?: number}> = ({pos, rotY = 0}) => {
   const g = useBoteGeo();
   return (
     <group position={pos} rotation={[0, rotY, 0]}>
-      <mesh geometry={g.fundo} castShadow receiveShadow><meshStandardMaterial color="#f4f2ea" flatShading /></mesh>
-      <mesh geometry={g.parede} position={[0, 0.3, 0]} castShadow receiveShadow><meshStandardMaterial color="#f4f2ea" flatShading side={2} /></mesh>
-      <mesh geometry={g.piso} position={[0, 0.3, 0]} receiveShadow><meshStandardMaterial color="#a8743f" flatShading /></mesh>
+      <mesh geometry={g.fundo} castShadow receiveShadow><meshStandardMaterial color="#f4f2ea" /></mesh>
+      <mesh geometry={g.parede} position={[0, 0.3, 0]} castShadow receiveShadow><meshStandardMaterial color="#f4f2ea" side={2} /></mesh>
+      <mesh geometry={g.piso} position={[0, 0.3, 0]} receiveShadow><meshStandardMaterial color="#a8743f" /></mesh>
       {/* friso de madeira na borda */}
-      <mesh geometry={g.piso} position={[0, 1.08, 0]} scale={[1.03, 1, 1.08]}><meshStandardMaterial color="#8b5a3c" flatShading /></mesh>
+      <mesh geometry={g.piso} position={[0, 1.08, 0]} scale={[1.03, 1, 1.08]}><meshStandardMaterial color="#8b5a3c" /></mesh>
       {[-3, -1.5, 0, 1.5, 3].map((x) => (<Caixa key={x} pos={[x, 0.7, 0]} tam={[0.3, 0.05, 2 * Math.max(0.3, lerpW(x)) - 0.25]} cor="#b98a55" />))}
     </group>
   );
@@ -114,22 +114,15 @@ const Sentado: React.FC<{bote: V3; x: number; z: number; t: number; v: Visual; r
   <ComColete pos={[bote[0] + x, bote[1] + 0.62, bote[2] + z]} rotY={rotY} t={t} v={v} acao="senta" colete={colete} />
 );
 
-// colete salva-vidas branco (blocos de cortiça) por cima da roupa
-export const ComColete: React.FC<{pos: V3; rotY?: number; t: number; v: Visual; acao?: 'parado' | 'anda' | 'aponta' | 'acena' | 'senta' | 'carrega'; colete?: boolean; esc?: number}> = ({pos, rotY = 0, t, v, acao = 'parado', colete = true, esc = 0.92}) => {
-  const pulo = acao === 'anda' ? Math.abs(Math.sin(t * 9)) * 0.04 : 0;
-  return (
-    <group position={pos} rotation={[0, rotY, 0]}>
-      <Boneco pos={[0, 0, 0]} acao={acao} t={t} v={v} esc={esc} />
-      {colete && (
-        <group position={[0, pulo, 0]} scale={esc / 0.92}>
-          <Caixa pos={[0, 0.74, 0.22]} tam={[0.52, 0.42, 0.12]} cor="#f4f0e2" sombra={false} />
-          <Caixa pos={[0, 0.74, -0.22]} tam={[0.52, 0.42, 0.12]} cor="#f4f0e2" sombra={false} />
-          {[-0.27, 0.27].map((x) => (<Caixa key={x} pos={[x, 0.95, 0]} tam={[0.08, 0.06, 0.5]} cor="#f4f0e2" sombra={false} />))}
-          {[0.62, 0.86].map((y) => (<Caixa key={y} pos={[0, y, 0.285]} tam={[0.5, 0.025, 0.01]} cor="#c9c2ad" sombra={false} />))}
-        </group>
-      )}
+// colete salva-vidas branco (blocos de cortiça) preso ao peito e às costas do Zé 2.0
+export const ComColete: React.FC<{pos: V3; rotY?: number; t: number; v: Visual; acao?: 'parado' | 'anda' | 'aponta' | 'acena' | 'senta' | 'carrega'; colete?: boolean; esc?: number; expressao?: Expressao; simples?: boolean}> = ({pos, rotY = 0, t, v, acao = 'parado', colete = true, esc = 0.92, expressao, simples}) => {
+  const bloco = (z: number) => (
+    <group position={[0, -0.06, z]}>
+      <Caixa pos={[0, 0, 0]} tam={[0.44, 0.38, 0.1]} cor="#f4f0e2" sombra={false} />
+      {z > 0 && [-0.1, 0.12].map((y) => (<Caixa key={y} pos={[0, y, 0.052]} tam={[0.42, 0.025, 0.01]} cor="#c9c2ad" sombra={false} />))}
     </group>
   );
+  return <Boneco pos={pos} rotY={rotY} acao={acao} t={t} v={v} esc={esc} expressao={expressao} simples={simples} peito={colete ? bloco(0.03) : undefined} costas={colete ? bloco(-0.03) : undefined} />;
 };
 
 // ---------- o navio inteiro ----------
@@ -173,10 +166,10 @@ export const Titanic: React.FC<NavioProps> = ({noite = true, botes, luzes = true
   const corJan = noite && luzes ? '#ffd98a' : noite ? '#20242e' : '#2a2a33';
   return (
     <group>
-      <mesh geometry={geo.vermelho} position={[0, -10, 0]}><meshStandardMaterial color="#8f2a22" flatShading /></mesh>
-      <mesh geometry={geo.preto} position={[0, -0.4, 0]} castShadow receiveShadow><meshStandardMaterial color="#17161c" flatShading roughness={0.7} /></mesh>
-      <mesh geometry={geo.faixa} position={[0, 13.0, 0]}><meshStandardMaterial color="#c9a24a" flatShading /></mesh>
-      <mesh geometry={geo.convés} position={[0, 14.2, 0]} receiveShadow><meshStandardMaterial color="#c9a97a" flatShading /></mesh>
+      <mesh geometry={geo.vermelho} position={[0, -10, 0]}><meshStandardMaterial color="#8f2a22" /></mesh>
+      <mesh geometry={geo.preto} position={[0, -0.4, 0]} castShadow receiveShadow><meshStandardMaterial color="#17161c" roughness={0.7} /></mesh>
+      <mesh geometry={geo.faixa} position={[0, 13.0, 0]}><meshStandardMaterial color="#c9a24a" /></mesh>
+      <mesh geometry={geo.convés} position={[0, 14.2, 0]} receiveShadow><meshStandardMaterial color="#c9a97a" /></mesh>
       {/* castelo de proa (mais alto) e popa */}
       <Caixa pos={[112, 15.4, 0]} tam={[34, 2.4, 2 * meiaBoca(112) - 1]} cor="#17161c" />
       <Caixa pos={[-118, 15.4, 0]} tam={[24, 2.4, 25]} cor="#17161c" />
@@ -193,14 +186,14 @@ export const Titanic: React.FC<NavioProps> = ({noite = true, botes, luzes = true
       {/* quatro chaminés (a 4ª era falsa), inclinadas para trás */}
       {[50, 25, 0, -25].map((x) => (
         <group key={x} position={[x, DECK + 2.8, 0]} rotation={[0, 0, 0.1]}>
-          <mesh position={[0, 10.5, 0]} scale={[1.15, 1, 0.85]} castShadow><cylinderGeometry args={[3.4, 3.4, 21, 18]} /><meshStandardMaterial color="#d79a3a" flatShading /></mesh>
-          <mesh position={[0, 19.2, 0]} scale={[1.15, 1, 0.85]}><cylinderGeometry args={[3.45, 3.45, 3.8, 18]} /><meshStandardMaterial color="#141318" flatShading /></mesh>
+          <mesh position={[0, 10.5, 0]} scale={[1.15, 1, 0.85]} castShadow><cylinderGeometry args={[3.4, 3.4, 21, 24]} /><meshStandardMaterial color="#d79a3a" /></mesh>
+          <mesh position={[0, 19.2, 0]} scale={[1.15, 1, 0.85]}><cylinderGeometry args={[3.45, 3.45, 3.8, 24]} /><meshStandardMaterial color="#141318" /></mesh>
         </group>
       ))}
       {/* mastros, cesto da gávea e antena */}
       <Cil pos={[100, 37, 0]} r={0.3} r2={0.42} h={46} cor="#b8935a" />
       <group position={[100, 29, 0]}>
-        <mesh><cylinderGeometry args={[1.05, 0.95, 1.3, 14, 1, true]} /><meshStandardMaterial color="#f2efe6" flatShading side={2} /></mesh>
+        <mesh><cylinderGeometry args={[1.05, 0.95, 1.3, 24, 1, true]} /><meshStandardMaterial color="#f2efe6" side={2} /></mesh>
         <Cil pos={[0, -0.62, 0]} r={0.95} h={0.08} cor="#8b5a3c" />
       </group>
       <Cil pos={[-108, 35, 0]} r={0.3} r2={0.4} h={42} cor="#b8935a" />
@@ -295,9 +288,9 @@ export const Iceberg: React.FC<{pos: V3; esc?: number}> = ({pos, esc = 1}) => {
   const b = useGelo(9, 1);
   return (
     <group position={pos} scale={esc}>
-      <mesh geometry={a} scale={[17, 21, 14]} position={[0, 0, 0]} castShadow><meshStandardMaterial color="#eaf6ff" emissive="#4a6a8a" emissiveIntensity={0.35} flatShading roughness={0.6} /></mesh>
-      <mesh geometry={b} scale={[11, 13, 10]} position={[-12, 0, 3]} rotation={[0, 0.7, 0]} castShadow><meshStandardMaterial color="#dff0ff" emissive="#4a6a8a" emissiveIntensity={0.35} flatShading roughness={0.6} /></mesh>
-      <mesh geometry={b} scale={[8, 9, 8]} position={[11, 0, -2]} rotation={[0.4, 1.7, 0]}><meshStandardMaterial color="#f4fbff" emissive="#4a6a8a" emissiveIntensity={0.35} flatShading roughness={0.6} /></mesh>
+      <mesh geometry={a} scale={[17, 21, 14]} position={[0, 0, 0]} castShadow><meshStandardMaterial color="#eaf6ff" emissive="#4a6a8a" emissiveIntensity={0.35} roughness={0.6} /></mesh>
+      <mesh geometry={b} scale={[11, 13, 10]} position={[-12, 0, 3]} rotation={[0, 0.7, 0]} castShadow><meshStandardMaterial color="#dff0ff" emissive="#4a6a8a" emissiveIntensity={0.35} roughness={0.6} /></mesh>
+      <mesh geometry={b} scale={[8, 9, 8]} position={[11, 0, -2]} rotation={[0.4, 1.7, 0]}><meshStandardMaterial color="#f4fbff" emissive="#4a6a8a" emissiveIntensity={0.35} roughness={0.6} /></mesh>
     </group>
   );
 };
@@ -311,7 +304,7 @@ const Pedacos: React.FC<{centro: V3; raio: number; n?: number; esc?: number; see
     <group position={centro}>
       {lista.map((q, i) => (
         <mesh key={i} geometry={g} position={[q.x, 0.05 + Math.sin(t * 1.5 + i) * 0.03, q.z]} rotation={[0, q.ry, 0]} scale={[q.s * esc, q.s * esc * 0.45, q.s * esc]}>
-          <meshStandardMaterial color="#e6f3ff" emissive="#3a5a7a" emissiveIntensity={0.3} flatShading />
+          <meshStandardMaterial color="#e6f3ff" emissive="#3a5a7a" emissiveIntensity={0.3} />
         </mesh>
       ))}
     </group>
@@ -377,8 +370,8 @@ const Beliche: React.FC<{pos: V3; rotY?: number}> = ({pos, rotY = 0}) => (
 );
 const Escotilha: React.FC<{pos: V3; rotY?: number; noite?: boolean}> = ({pos, rotY = 0, noite = false}) => (
   <group position={pos} rotation={[0, rotY, 0]}>
-    <mesh><torusGeometry args={[0.2, 0.04, 6, 16]} /><meshStandardMaterial color="#b88a3a" /></mesh>
-    <mesh position={[0, 0, -0.01]}><circleGeometry args={[0.2, 16]} /><meshBasicMaterial color={noite ? '#0d1a30' : '#8fc4ea'} /></mesh>
+    <mesh><torusGeometry args={[0.2, 0.04, 10, 28]} /><meshStandardMaterial color="#b88a3a" /></mesh>
+    <mesh position={[0, 0, -0.01]}><circleGeometry args={[0.2, 40]} /><meshBasicMaterial color={noite ? '#0d1a30' : '#8fc4ea'} /></mesh>
   </group>
 );
 const Canos: React.FC<{larg: number; alt: number; prof: number}> = ({larg, alt, prof}) => (
@@ -396,7 +389,7 @@ const Banheira: React.FC<{pos: V3}> = ({pos}) => (
 );
 const Lampada: React.FC<{pos: V3; luz?: boolean; forca?: number}> = ({pos, luz = true, forca = 6}) => (
   <group position={pos}>
-    <mesh><sphereGeometry args={[0.09, 10, 8]} /><meshBasicMaterial color="#fff2c0" /></mesh>
+    <mesh><sphereGeometry args={[0.09, 20, 14]} /><meshBasicMaterial color="#fff2c0" /></mesh>
     {luz && <pointLight color="#ffe0a0" intensity={forca} distance={9} decay={1.6} />}
   </group>
 );
@@ -419,7 +412,7 @@ const Escadaria: React.FC = () => {
       {/* relógio no patamar */}
       <group position={[0, 4.1, -4.85]}>
         <Caixa pos={[0, 0, 0]} tam={[1.8, 1.3, 0.1]} cor="#5a3a20" />
-        <mesh position={[0, 0, 0.07]}><circleGeometry args={[0.35, 20]} /><meshStandardMaterial color="#f4efe2" /></mesh>
+        <mesh position={[0, 0, 0.07]}><circleGeometry args={[0.35, 40]} /><meshStandardMaterial color="#f4efe2" /></mesh>
       </group>
       {/* degraus largos subindo até o patamar */}
       {Array.from({length: degraus}).map((_, i) => (
@@ -432,16 +425,16 @@ const Escadaria: React.FC = () => {
           <Barra a={[sg * 2.2, 1.0, 1.8]} b={[sg * 2.2, 3.5, -2.6]} r={0.07} cor="#5a3a20" />
           {Array.from({length: 9}).map((_, i) => (<Cil key={i} pos={[sg * 2.2, 0.5 + i * 0.28, 1.6 - i * 0.48]} r={0.04} h={0.9} cor="#e0c88a" seg={6} />))}
           <Cil pos={[sg * 2.2, 0.75, 1.9]} r={0.16} h={1.5} cor="#5a3a20" />
-          <mesh position={[sg * 2.2, 1.65, 1.9]}><sphereGeometry args={[0.16, 10, 8]} /><meshBasicMaterial color="#fff2c0" /></mesh>
+          <mesh position={[sg * 2.2, 1.65, 1.9]}><sphereGeometry args={[0.16, 20, 14]} /><meshBasicMaterial color="#fff2c0" /></mesh>
         </group>
       ))}
       {/* domo de vidro e lustre */}
       <Caixa pos={[0, 6.05, 0]} tam={[12, 0.1, 10]} cor="#e8dcc0" sombra={false} />
-      <mesh position={[0, 6.0, 0]} rotation={[Math.PI, 0, 0]}><sphereGeometry args={[3.2, 18, 8, 0, Math.PI * 2, 0, Math.PI / 2]} /><meshStandardMaterial color="#cfe6f0" emissive="#8fb8d0" emissiveIntensity={0.4} side={2} flatShading /></mesh>
+      <mesh position={[0, 6.0, 0]} rotation={[Math.PI, 0, 0]}><sphereGeometry args={[3.2, 20, 14, 0, Math.PI * 2, 0, Math.PI / 2]} /><meshStandardMaterial color="#cfe6f0" emissive="#8fb8d0" emissiveIntensity={0.4} side={2} /></mesh>
       <group position={[0, 4.6, 0.3]}>
         <Barra a={[0, 1.4, 0]} b={[0, 0.3, 0]} r={0.02} cor="#c9a24a" />
-        <mesh><torusGeometry args={[0.6, 0.04, 6, 18]} /><meshStandardMaterial color="#c9a24a" /></mesh>
-        {Array.from({length: 8}).map((_, i) => (<mesh key={i} position={[Math.cos(i * 0.785) * 0.6, 0.05, Math.sin(i * 0.785) * 0.6]}><sphereGeometry args={[0.07, 8, 6]} /><meshBasicMaterial color="#fff2c0" /></mesh>))}
+        <mesh><torusGeometry args={[0.6, 0.04, 10, 28]} /><meshStandardMaterial color="#c9a24a" /></mesh>
+        {Array.from({length: 8}).map((_, i) => (<mesh key={i} position={[Math.cos(i * 0.785) * 0.6, 0.05, Math.sin(i * 0.785) * 0.6]}><sphereGeometry args={[0.07, 20, 14]} /><meshBasicMaterial color="#fff2c0" /></mesh>))}
         <pointLight color="#ffe0a0" intensity={14} distance={14} decay={1.4} />
       </group>
     </group>
@@ -521,6 +514,7 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
   },
   // ===== convés dos botes: gente demais, botes de menos =====
   ti_botes: {
+    clima: 'serio',
     ceu: CEU_NOITE,
     luz: 'noite',
     nevoa: [300, 2200],
@@ -557,7 +551,7 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
         {[-60, 20, 90].map((x) => (
           <group key={x}>
             <Caixa pos={[x, 3.1 + 5, 82]} tam={[50, 10, 20]} cor="#8a4a3a" />
-            <mesh position={[x, 3.1 + 10, 82]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[10.2, 10.2, 50, 3]} /><meshStandardMaterial color="#5a5f6a" flatShading /></mesh>
+            <mesh position={[x, 3.1 + 10, 82]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[10.2, 10.2, 50, 3]} /><meshStandardMaterial color="#5a5f6a" /></mesh>
           </group>
         ))}
         <group position={[-20, 3.1, 22]}>
@@ -651,6 +645,7 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
   },
   // ===== o cesto da gávea: o vigia vê o iceberg =====
   ti_gavea: {
+    clima: 'surpreso',
     ceu: CEU_NOITE,
     luz: 'noite',
     nevoa: [250, 2400],
@@ -673,6 +668,7 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
   },
   // ===== a batida: o casco raspa no iceberg =====
   ti_iceberg: {
+    clima: 'medo',
     ceu: CEU_NOITE,
     luz: 'noite',
     nevoa: [300, 2400],
@@ -688,12 +684,12 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
           {/* gelo caindo no convés da proa */}
           {p > 0.45 && Array.from({length: 18}).map((_, i) => {
             const k = ((t * 0.9 + i * 0.13) % 1);
-            return (<mesh key={i} position={[contato - 6 + (i % 6) * 2.2, 26 - k * 10, 9 + (i % 3) * 1.4]}><icosahedronGeometry args={[0.35, 0]} /><meshStandardMaterial color="#eaf6ff" emissive="#4a6a8a" emissiveIntensity={0.4} flatShading /></mesh>);
+            return (<mesh key={i} position={[contato - 6 + (i % 6) * 2.2, 26 - k * 10, 9 + (i % 3) * 1.4]}><icosahedronGeometry args={[0.35, 0]} /><meshStandardMaterial color="#eaf6ff" emissive="#4a6a8a" emissiveIntensity={0.4} /></mesh>);
           })}
           {/* água espirrando no ponto da batida */}
           {p > 0.45 && Array.from({length: 26}).map((_, i) => {
             const k = ((t * 1.6 + i * 0.077) % 1);
-            return (<mesh key={'s' + i} position={[contato - 10 + i * 0.8, 1 + Math.sin(k * Math.PI) * 4, 14.6 + k * 1.5]}><sphereGeometry args={[0.28, 6, 5]} /><meshBasicMaterial color="#cfe6ff" /></mesh>);
+            return (<mesh key={'s' + i} position={[contato - 10 + i * 0.8, 1 + Math.sin(k * Math.PI) * 4, 14.6 + k * 1.5]}><sphereGeometry args={[0.28, 20, 14]} /><meshBasicMaterial color="#cfe6ff" /></mesh>);
           })}
         </>
       );
@@ -705,6 +701,7 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
   },
   // ===== o bote descendo pelo costado (e embarque de mulheres e crianças) =====
   ti_bote: {
+    clima: 'medo',
     ceu: CEU_NOITE,
     luz: 'noite',
     nevoa: [300, 2400],
@@ -741,6 +738,7 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
   },
   // ===== o labirinto de corredores, com água no chão =====
   ti_corredor: {
+    clima: 'medo',
     ceu: ['#1a1612', '#1a1612'],
     luz: 'tunel',
     render: ({t, p}) => {
@@ -796,6 +794,7 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
   },
   // ===== 2h20: o navio afunda de proa =====
   ti_naufragio: {
+    clima: 'medo',
     ceu: CEU_NOITE,
     luz: 'noite',
     nevoa: [400, 2600],
@@ -825,6 +824,7 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
   },
   // ===== a água a -2 °C, vista de dentro do bote =====
   ti_agua: {
+    clima: 'medo',
     ceu: CEU_NOITE,
     luz: 'noite',
     nevoa: [200, 2400],
@@ -843,7 +843,7 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
           {/* vapor do frio saindo da boca */}
           {Array.from({length: 6}).map((_, i) => {
             const k = (t * 0.6 + i / 6) % 1;
-            return (<mesh key={i} position={[0.05, 1.82 + k * 0.4, -0.15 + k * 0.5]}><sphereGeometry args={[0.04 + k * 0.08, 6, 5]} /><meshBasicMaterial color="#dfe8f5" transparent opacity={0.5 * (1 - k)} /></mesh>);
+            return (<mesh key={i} position={[0.05, 1.82 + k * 0.4, -0.15 + k * 0.5]}><sphereGeometry args={[0.04 + k * 0.08, 20, 14]} /><meshBasicMaterial color="#dfe8f5" transparent opacity={0.5 * (1 - k)} /></mesh>);
           })}
           <Pilula texto="-2 °C" pos={[2.4, 0.6, 2.6]} fundo="#2a6a9a" vis={1} tam={0.7} />
         </>
@@ -855,6 +855,7 @@ export const SETS_TITANIC: Record<string, SetHistoria> = {
   },
   // ===== fecho: botes espalhados no mar escuro e a pergunta =====
   ti_fim: {
+    clima: 'triste',
     ceu: CEU_NOITE,
     luz: 'noite',
     nevoa: [300, 2400],

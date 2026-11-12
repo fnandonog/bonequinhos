@@ -4,6 +4,10 @@
 import React, {useMemo} from 'react';
 import * as THREE from 'three';
 import {ThreeCanvas} from '@remotion/three';
+import {CEU_BATIDA, FundoHorizonte, LuzEstudio, luzDaBatida} from '../estilo/visual';
+import type {Batida} from '../estilo/visual';
+import {FlashSalto, Trilha} from '../estilo/montagem';
+import {ClimaZe} from '../estilo/ze';
 import {useThree} from '@react-three/fiber';
 import {AbsoluteFill, Audio, Easing, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {FPS, Timings} from '../Video';
@@ -15,9 +19,9 @@ const FONTE = "'Baloo 2', sans-serif";
 const TINTA = '#16151c';
 
 export type Card = {rotulo: string; valor?: string; num?: number; prefixo?: string; sufixo?: string; sub?: string; cor?: string};
-export type Plano = {set: string; cam: string | Cam; apartir?: number; p?: [number, number]; card?: Card};
+export type Plano = {set: string; cam: string | Cam; apartir?: number; p?: [number, number]; card?: Card; batida?: Batida; salto?: boolean};
 export type CenaRico = {id: string; texto: string; ano?: string; tem?: string; patrimonio?: number; destaques?: string[]; planos: Plano[]};
-export type RoteiroRico = {id: string; titulo: string; linha2?: string; cenas: CenaRico[]};
+export type RoteiroRico = {id: string; trilha?: string; titulo: string; linha2?: string; cenas: CenaRico[]};
 export type RicoProps = {roteiro: RoteiroRico; timings: Timings; comAudio: boolean};
 
 type PlanoT = Plano & {de: number; ate: number; cena: number; cam: Cam};
@@ -78,23 +82,13 @@ const LUZ: Record<LuzRico, {hemi: [string, string, number]; sol: [string, number
 };
 
 // sol com sombra centrada no que a câmera olha (vale para o Coliseu inteiro e para um close de 3 m)
-const Sol: React.FC<{pl: PlanoT; luz: LuzRico}> = ({pl, luz}) => {
-  const L = LUZ[luz];
+// luz de estúdio (src/estilo/visual.tsx): sol com sombra PCF soft 1024 centrada no que a câmera olha + contraluz + névoa leve
+const Sol: React.FC<{pl: PlanoT; luz: LuzRico; ceu: [string, string]; nevoa?: [number, number]}> = ({pl, luz, ceu, nevoa}) => {
+  const {L, noite} = luzDaBatida(pl.batida, LUZ[luz], (luz as string) === 'noite');
   const alvo = pl.cam.alvo;
   const dist = Math.hypot(pl.cam.de[0] - alvo[0], pl.cam.de[1] - alvo[1], pl.cam.de[2] - alvo[2]);
   const R = Math.min(160, Math.max(7, dist * 0.9));
-  const tgt = useMemo(() => new THREE.Object3D(), []);
-  tgt.position.set(alvo[0], alvo[1], alvo[2]);
-  tgt.updateMatrixWorld();
-  const n = Math.hypot(...L.dir);
-  const pos: V3 = [alvo[0] + (L.dir[0] / n) * R * 2, alvo[1] + (L.dir[1] / n) * R * 2, alvo[2] + (L.dir[2] / n) * R * 2];
-  return (
-    <>
-      <primitive object={tgt} />
-      <directionalLight target={tgt} position={pos} color={L.sol[0]} intensity={L.sol[1]} castShadow shadow-mapSize={[2048, 2048]}
-        shadow-camera-left={-R} shadow-camera-right={R} shadow-camera-top={R} shadow-camera-bottom={-R} shadow-camera-near={0.5} shadow-camera-far={R * 5} shadow-bias={-0.0005} />
-    </>
-  );
+  return <LuzEstudio L={L} alvo={alvo} R={R} noite={noite} corNevoa={ceu[1]} nevoa={nevoa ? [ceu[1], nevoa[0], nevoa[1]] : undefined} />;
 };
 
 // legenda: UMA palavra por vez, no alto e no centro
@@ -199,19 +193,19 @@ export const Rico: React.FC<RicoProps> = ({roteiro, timings, comAudio}) => {
   const t = (f - pl.de) / FPS;
   const luz = set.luz ?? 'dia';
   const L = LUZ[luz];
-  const ceu = set.ceu ?? ['#6fbcf2', '#fdf0d8'];
+  const ceu: [string, string] = pl.batida ? CEU_BATIDA[pl.batida] : set.ceu ?? ['#6fbcf2', '#fdf0d8'];
   const icn = pl.cena;
   return (
     <AbsoluteFill style={{background: `linear-gradient(180deg, ${ceu[0]} 0%, ${ceu[1]} 70%)`}}>
       <ThreeCanvas width={width} height={height} shadows camera={{fov: 42, near: 0.05, far: 2500, position: [10, 8, 12]}}>
         <Camera pl={pl} f={f} />
-        {set.nevoa && <fog attach="fog" args={[ceu[1], set.nevoa[0], set.nevoa[1]]} />}
-        <hemisphereLight args={[L.hemi[0], L.hemi[1], L.hemi[2]]} />
-        <Sol key={'sol' + ip} pl={pl} luz={luz} />
-        <group key={ip}>{set.render({t, p})}</group>
+        <Sol key={'sol' + ip} pl={pl} luz={luz} ceu={ceu} nevoa={set.nevoa} />
+        {set.horizonte && <FundoHorizonte {...(typeof set.horizonte === 'object' ? set.horizonte : {})} />}
+        <ClimaZe.Provider value={set.clima}><group key={ip}>{set.render({t, p})}</group></ClimaZe.Provider>
       </ThreeCanvas>
       {/* vinheta leve para dar profundidade e destacar o texto */}
       <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 78%, rgba(0,0,0,0.18) 100%)'}} />
+      {pl.salto && <FlashSalto df={f - pl.de} />}
       <Topo m={m} f={f} i={icn} />
       {icn === 0 && <Titulo titulo={roteiro.titulo} linha2={roteiro.linha2} f={f} />}
       <Palavra cn={m.cenas[icn]} f={f} />
@@ -242,6 +236,7 @@ export const Rico: React.FC<RicoProps> = ({roteiro, timings, comAudio}) => {
           )}
         </React.Fragment>
       ))}
+      <Trilha src={roteiro.trilha} ativo={comAudio} />
       <div style={{position: 'absolute', bottom: 0, left: 0, height: 12, width: `${(f / durationInFrames) * 100}%`, background: '#ffd23f'}} />
     </AbsoluteFill>
   );

@@ -20,7 +20,8 @@
     },
     {
       "tema": "Você vive em Pompeia no dia da erupção",
-      "status": "nova"
+      "status": "usada",
+      "motivo": "Pompeia tem o gancho mais forte para retenção — o espectador sabe que a erupção vem e você não, criando tensão irresistível que prende do início ao fim e gera compartilhamento; livros de história romana são bestsellers constantes para afiliado."
     },
     {
       "tema": "Um dia como samurai no Japão",
@@ -28,11 +29,42 @@
     },
     {
       "tema": "Você no Titanic na noite do naufrágio",
-      "status": "nova"
+      "status": "usada",
+      "motivo": "Titanic é o naufrágio mais buscado do mundo e rende cenários bem diferentes em 3D (cais, terceira classe, ponte, iceberg, botes, mar à noite); gancho forte com número: havia bote para só metade das 2.224 pessoas a bordo, e a classe da passagem decidiu quem viveu."
     },
     {
       "tema": "Você na construção da Muralha da China",
       "status": "nova"
+    },
+    {
+      "tema": "Essa cidade tem o maior número de [superlativo] do Brasil e você nunca ouviu falar dela",
+      "status": "nova",
+      "motivo": "Nessa cidade TODO MUNDO é FLAMENGO (Vila dos Bloquinhos, bonequinho 3D) com 164k views/dia W46; curiosidade geográfica + identidade tribal = formato mais viral da semana",
+      "sugerida_em": "2026-11-12T10:07:38.346Z"
+    },
+    {
+      "tema": "A corrida que revelou Ayrton Senna ao mundo em 1984",
+      "status": "nova",
+      "motivo": "Corrida que revelou Senna com 123k views/dia (28 s, retenção quase total); F1 no calendário de novembro; orgulho nacional perene",
+      "sugerida_em": "2026-11-12T10:07:38.515Z"
+    },
+    {
+      "tema": "Só 1 em cada 10 escravos romanos era liberto. Veja como conseguiam",
+      "status": "nova",
+      "motivo": "mesmo formato do gladiador (1 em X + motivo surpreendente); retenção do gladiador foi 23,5 s — maior de historia",
+      "sugerida_em": "2026-11-12T10:35:20.314Z"
+    },
+    {
+      "tema": "A batalha que durou 1 hora e mudou o rumo do Brasil",
+      "status": "nova",
+      "motivo": "número específico (1 hora) + impacto nacional = curiosidade histórica; formato curto e direto",
+      "sugerida_em": "2026-11-12T10:35:20.476Z"
+    },
+    {
+      "tema": "Você estava em Lisboa no dia do terremoto de 1755. O que aconteceria",
+      "status": "nova",
+      "motivo": "formato 2ª pessoa como gladiador e Titanic; 1755 é menos saturado que Titanic, mais surpresa percebida",
+      "sugerida_em": "2026-11-12T10:35:20.643Z"
     }
   ]
 }

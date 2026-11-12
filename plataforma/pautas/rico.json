@@ -3,7 +3,8 @@
   "pautas": [
     {
       "tema": "Como o Silvio Santos ficou rico",
-      "status": "nova"
+      "status": "usada",
+      "motivo": "Piloto do formato: história brasileira real e documentada (camelô nas barcas Rio-Niterói vira dono do SBT e do Baú da Felicidade, Forbes 2013 US$ 1,3 bi), começo humilde muito visual, virada clara no meio (o Baú que ele comprou de um amigo) e todo mundo no Brasil conhece o personagem."
     },
     {
       "tema": "Como a Havaianas virou febre mundial",
@@ -15,7 +16,8 @@
     },
     {
       "tema": "Como o McDonald's ganha dinheiro de verdade",
-      "status": "nova"
+      "status": "usada",
+      "motivo": "O gancho 'McDonald's não ganha dinheiro com hambúrguer, ganha com imóveis' é o mais surpreendente da lista, está comprovado como viral no formato curto, e abre caminho direto para afiliados de cursos de franquia e empreendedorismo."
     },
     {
       "tema": "Como a Nubank cresceu tão rápido",
@@ -32,6 +34,36 @@
     {
       "tema": "Como o Jeff Bezos começou a Amazon numa garagem",
       "status": "nova"
+    },
+    {
+      "tema": "Ele começou do zero sem herança e hoje vale bilhões: ninguém conta essa parte da história",
+      "status": "nova",
+      "motivo": "Cirilo milionário com 68k views/dia W46 prova que trajetória de ascensão de personagem conhecido viraliza; Anitta em alta no Trends = ascensão financeira pop",
+      "sugerida_em": "2026-11-12T10:08:01.662Z"
+    },
+    {
+      "tema": "Se você vir ISSO num leilão de imóveis compra sem pensar",
+      "status": "nova",
+      "motivo": "formato ISSO com 104k views/dia (Renderizado, 3D, 16s) é o mais viral da semana; leilão de imóveis = tema financeiro de alta intenção e baixa concorrência",
+      "sugerida_em": "2026-11-12T10:08:01.823Z"
+    },
+    {
+      "tema": "Ele vendia camelô na rua. 20 anos depois tinha R$ 2 bilhões",
+      "status": "nova",
+      "motivo": "escalada dramática + número concreto; mesmo padrão do Silvio Santos (nostalgia + número âncora) que gerou 22,1 s avg",
+      "sugerida_em": "2026-11-12T10:35:38.921Z"
+    },
+    {
+      "tema": "Luiza Trajano começou com 1 loja. O que ela fez diferente dos outros",
+      "status": "nova",
+      "motivo": "número 1 + nome conhecido + pergunta implícita; retenção maior em personagens conhecidos do público brasileiro",
+      "sugerida_em": "2026-11-12T10:35:39.074Z"
+    },
+    {
+      "tema": "O segredo das lojas de R$ 1,99: quem fica rico de verdade não é quem você pensa",
+      "status": "nova",
+      "motivo": "cotidiano + revelar mecanismo oculto; quebra expectativa — padrão que segurou nos melhores posts da rede",
+      "sugerida_em": "2026-11-12T10:35:39.213Z"
     }
   ]
 }

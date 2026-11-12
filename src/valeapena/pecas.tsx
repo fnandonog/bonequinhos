@@ -3,7 +3,7 @@
 import React, {useMemo} from 'react';
 import * as THREE from 'three';
 import {V3} from '../v4/planta';
-import {AcaoBoneco, Barra, Boneco, Caixa, Cil, Instancias, Mat, Visual, clamp01, lerp, suave} from '../v4/kit';
+import {AcaoBoneco, Barra, Boneco, Caixa, Cil, Expressao, Instancias, Mat, Visual, clamp01, lerp, suave} from '../v4/kit';
 import {texCanvas} from '../cozinha/pecas';
 
 export {clamp01, lerp, suave};
@@ -15,7 +15,7 @@ export const BATATA = {crua: '#f3dc9a', dourada: '#dc9433', mole: '#ecdca6'};
 
 // material que pode sumir (a metade da frente some quando a air fryer abre em corte)
 const MatF: React.FC<{cor: string; op?: number; emissivo?: string; ei?: number; rugoso?: number}> = ({cor, op = 1, emissivo = '#000000', ei = 1, rugoso = 0.7}) => (
-  <meshStandardMaterial color={cor} flatShading roughness={rugoso} transparent={op < 1} opacity={op} depthWrite={op >= 1} emissive={emissivo} emissiveIntensity={ei} />
+  <meshStandardMaterial color={cor} roughness={rugoso} transparent={op < 1} opacity={op} depthWrite={op >= 1} emissive={emissivo} emissiveIntensity={ei} />
 );
 const Bloco: React.FC<{pos: V3; tam: V3; cor: string; op?: number; rot?: V3}> = ({pos, tam, cor, op = 1, rot = [0, 0, 0]}) =>
   op <= 0.01 ? null : (
@@ -161,7 +161,7 @@ export const Ventoinha: React.FC<{giro: number; pos?: V3}> = ({giro, pos = [0, A
           <group position={[0.055, 0, 0]} rotation={[0.55, 0, 0]}>
             <mesh castShadow>
               <boxGeometry args={[0.07, 0.022, 0.003]} />
-              <meshStandardMaterial color="#c7ccd6" flatShading roughness={0.35} metalness={0.4} />
+              <meshStandardMaterial color="#c7ccd6" roughness={0.35} metalness={0.4} />
             </mesh>
           </group>
         </group>
@@ -315,7 +315,7 @@ export const AirFryer: React.FC<AirFryerProps> = ({pos, rotY = 0, t, corte = 0, 
           {[{x: -0.065, tipo: 'temp' as const, ang: DIAL_TEMP(dialTemp)}, {x: 0.065, tipo: 'timer' as const, ang: ((-120 + (dialTimer / 60) * 240) * Math.PI) / 180}].map((d) => (
             <group key={d.tipo} position={[d.x, (GAVETA_Y1 + H) / 2, D / 2 + 0.001]}>
               <mesh>
-                <circleGeometry args={[0.04, 24]} />
+                <circleGeometry args={[0.04, 40]} />
                 <meshStandardMaterial map={texDialAF(d.tipo)} transparent={op < 1} opacity={op} />
               </mesh>
               <group rotation={[0, 0, -d.ang]}>
@@ -325,7 +325,7 @@ export const AirFryer: React.FC<AirFryerProps> = ({pos, rotY = 0, t, corte = 0, 
             </group>
           ))}
           <mesh position={[0, H - 0.02, D / 2 + 0.001]}>
-            <circleGeometry args={[0.005, 10]} />
+            <circleGeometry args={[0.005, 40]} />
             <meshStandardMaterial color={luzOn ? '#ff3a1a' : '#552222'} emissive="#ff2a00" emissiveIntensity={luzOn ? 2 : 0} transparent={op < 1} opacity={op} />
           </mesh>
         </group>
@@ -387,16 +387,10 @@ export const Prancheta: React.FC<{pos?: V3; rot?: V3; esc?: number}> = ({pos = [
     <Caixa pos={[0, 0.36, 0.02]} tam={[0.22, 0.07, 0.03]} cor={COR.inox} />
   </group>
 );
-// Zé segurando a prancheta com as duas mãos (pose "carrega" do kit: mãos a ~0,8 m, 0,4 m à frente do peito)
-export const ZeTestador: React.FC<{t: number; pos: V3; rotY?: number; acao?: AcaoBoneco; esc?: number; prancheta?: boolean}> = ({t, pos, rotY = 0, acao = 'carrega', esc = 0.92, prancheta = true}) => (
-  <group>
-    <Boneco pos={pos} rotY={rotY} acao={acao} t={t} v={TESTADOR} esc={esc} />
-    {prancheta && acao === 'carrega' && (
-      <group position={pos} rotation={[0, rotY, 0]} scale={esc}>
-        <Prancheta pos={[0, 0.84, 0.44]} rot={[-1.05, 0, 0]} />
-      </group>
-    )}
-  </group>
+// Zé segurando a prancheta com as duas mãos (encaixe "frente" do Zé 2.0: as mãos pegam a borda de baixo)
+export const ZeTestador: React.FC<{t: number; pos: V3; rotY?: number; acao?: AcaoBoneco; esc?: number; prancheta?: boolean; expressao?: Expressao; maoD?: React.ReactNode}> = ({t, pos, rotY = 0, acao = 'carrega', esc = 0.92, prancheta = true, expressao, maoD}) => (
+  <Boneco pos={pos} rotY={rotY} acao={acao} t={t} v={TESTADOR} esc={esc} expressao={expressao} maoD={maoD}
+    frente={prancheta && acao === 'carrega' ? <Prancheta pos={[0, 0.06, 0.1]} rot={[-1.05, 0, 0]} esc={0.8} /> : undefined} />
 );
 
 // ---------- laboratório de teste ----------
@@ -570,7 +564,7 @@ export const Raio: React.FC<{pos: V3; esc?: number; rotY?: number}> = ({pos, esc
   }, []);
   return (
     <mesh geometry={geo} position={pos} rotation={[0, rotY, 0]} scale={esc}>
-      <meshStandardMaterial color="#ffd23f" emissive="#ffb000" emissiveIntensity={0.6} flatShading />
+      <meshStandardMaterial color="#ffd23f" emissive="#ffb000" emissiveIntensity={0.6} />
     </mesh>
   );
 };
@@ -635,7 +629,7 @@ export const Carimbo: React.FC<{pos: V3; desce: number; texto: string; cor: stri
         <Caixa pos={[0, 0.02, 0]} tam={[0.2, 0.04, 0.12]} cor="#16151c" />
         <Caixa pos={[0, 0.002, 0]} tam={[0.19, 0.006, 0.11]} cor={cor} />
         <Cil pos={[0, 0.09, 0]} r={0.02} h={0.1} cor="#8b5a3c" seg={10} />
-        <mesh position={[0, 0.16, 0]} castShadow><sphereGeometry args={[0.045, 12, 10]} /><Mat cor="#8b5a3c" /></mesh>
+        <mesh position={[0, 0.16, 0]} castShadow><sphereGeometry args={[0.045, 20, 14]} /><Mat cor="#8b5a3c" /></mesh>
       </group>
     </group>
   );
@@ -656,8 +650,8 @@ export const PaoDeQueijo: React.FC<{pos: V3; n?: number}> = ({pos, n = 6}) => (
       const r = i === 0 ? 0 : 0.05;
       return (
         <mesh key={i} position={[Math.cos(a) * r, 0.026, Math.sin(a) * r]} scale={[1, 0.8, 1]} castShadow>
-          <sphereGeometry args={[0.022, 10, 8]} />
-          <meshStandardMaterial color={i % 2 ? '#e8b85a' : '#f0c56a'} flatShading roughness={0.8} />
+          <sphereGeometry args={[0.022, 20, 14]} />
+          <meshStandardMaterial color={i % 2 ? '#e8b85a' : '#f0c56a'} roughness={0.8} />
         </mesh>
       );
     })}
@@ -750,12 +744,12 @@ export const Meia: React.FC<{pos: V3; rotY?: number}> = ({pos, rotY = 0}) => (
   <group position={pos} rotation={[0, rotY, 0]}>
     <Bloco pos={[0, 0.016, 0]} tam={[0.055, 0.032, 0.14]} cor="#6b7de8" />
     <mesh position={[0, 0.016, 0.07]}>
-      <sphereGeometry args={[0.027, 8, 6]} />
-      <meshStandardMaterial color="#5a6cd0" flatShading roughness={0.9} />
+      <sphereGeometry args={[0.027, 20, 14]} />
+      <meshStandardMaterial color="#5a6cd0" roughness={0.9} />
     </mesh>
     <mesh position={[0, 0.022, -0.07]}>
-      <sphereGeometry args={[0.03, 8, 6]} />
-      <meshStandardMaterial color="#5a6cd0" flatShading roughness={0.9} />
+      <sphereGeometry args={[0.03, 20, 14]} />
+      <meshStandardMaterial color="#5a6cd0" roughness={0.9} />
     </mesh>
   </group>
 );
