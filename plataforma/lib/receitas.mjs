@@ -353,7 +353,7 @@ export function gerar() {
     const s = u.match(/\/receita\/([^/]+)\//)?.[1];
     return `<url><loc>${u}</loc><lastmod>${DATA}</lastmod>${s ? `<image:image><image:loc>${cfg.site}/receitas/img/${s}.jpg</image:loc></image:image>` : ''}</url>`;
   }).join('\n')}\n</urlset>\n`);
-  fs.writeFileSync(path.join(SITE, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /receitas/minha-lista/\n\nSitemap: ${cfg.site}/sitemap-receitas.xml\n`);
+  fs.writeFileSync(path.join(SITE, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /receitas/minha-lista/\n\nSitemap: ${cfg.site}/sitemap-receitas.xml\nSitemap: ${cfg.site}/sitemap-paginas.xml\n`);
   const semImg = lista.filter((r) => !fs.existsSync(path.join(imgDir, `${r.s}.jpg`))).length;
   return {receitas: lista.length, paginas: lista.length + urls.length - lista.length + 1, semImagem: semImg};
 }

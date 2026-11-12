@@ -150,6 +150,11 @@ export function gerar() {
     }
   }
 
+  // Sitemap das páginas da rede (início, perfis e vídeos) para o Google Search Console
+  const SITE_URL = 'https://zeexplica.com.br';
+  const urls = ['/', ...ps.map((p) => `/${p.id}/`), ...videos.map((v) => `/${v.perfil}/${v.id}/`)];
+  fs.writeFileSync(path.join(SITE, 'sitemap-paginas.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `<url><loc>${SITE_URL}${esc(u)}</loc></url>`).join('\n')}\n</urlset>\n`);
+
   // Política de privacidade e termos (exigidos pelos apps do Google, Meta e TikTok)
   const doc = (titulo, corpo) => `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${titulo} · Zé Explica</title>
 <style>body{font:16px/1.6 -apple-system,system-ui,sans-serif;max-width:720px;margin:0 auto;padding:32px 16px;color:#1d1b18;background:#fff7ee}h1{font-size:24px}h2{font-size:18px;margin-top:24px}</style></head><body><h1>${titulo}</h1>${corpo}<p><a href="/">Voltar</a></p></body></html>`;
