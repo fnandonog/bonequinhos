@@ -196,7 +196,7 @@ async function produzir(p, tema, pautaMotivo) {
     const mp4 = `out/${id}.mp4`;
     const mtime = (a) => (fs.existsSync(path.join(RAIZ, a)) ? fs.statSync(path.join(RAIZ, a)).mtimeMs : Infinity);
     const renderAtual = mtime(mp4) !== Infinity && mtime(mp4) > Math.max(mtime(`roteiros/${id}.json`), mtime(`public/audio/${id}/timings.json`));
-    if (!renderAtual) await rodar('npx', ['remotion', 'render', 'src/index.ts', id, mp4], {nome: `video-${id}`, minutos: 60});
+    if (!renderAtual) await rodar('npx', ['remotion', 'render', 'src/index.ts', id, mp4, '--timeout=120000'], {nome: `video-${id}`, minutos: 60});
     execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '1.5', '-i', mp4, '-frames:v', '1', '-vf', 'scale=360:-1', `out/${id}.jpg`], {cwd: RAIZ});
 
     // 4. Legenda (agente legendista)
