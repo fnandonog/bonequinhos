@@ -426,6 +426,230 @@ const Vigilia: React.FC<{t: number}> = ({t}) => {
   );
 };
 
+// ===== D.B. COOPER — cabine de passageiros do 727 =====
+const CabinePassageiros: React.FC<{t: number}> = ({t}) => {
+  const cooper = {...CONTROLADOR, camisa: '#2b2f3a', calca: '#3a3d47', pele: '#d9b896', cabelo: '#1d1b26'};
+  const comissaria = {...CONTROLADOR, camisa: '#c8dff0', calca: '#2b3d6e', pele: '#f0c8a8', cabelo: '#5a3a28'};
+  return (
+    <group>
+      <Caixa pos={[0, -0.05, 0]} tam={[8, 0.1, 5]} cor="#6b6a62" />
+      <Caixa pos={[0, 2.1, 0]} tam={[8, 0.1, 5]} cor="#e9e5d9" />
+      <Caixa pos={[-1.9, 1.0, 0]} tam={[0.12, 2.1, 5]} cor="#d9d4c8" />
+      <Caixa pos={[1.9, 1.0, 0]} tam={[0.12, 2.1, 5]} cor="#d9d4c8" />
+      {/* janelas ovais (noite = escuro) */}
+      {[-1.5, -0.1, 1.3].map((z, i) => (
+        <group key={i} position={[-1.84, 1.3, z]} rotation={[0, Math.PI / 2, 0]}>
+          <mesh><torusGeometry args={[0.19, 0.035, 5, 14]} /><meshStandardMaterial color="#c9c5b8" flatShading /></mesh>
+          <mesh><circleGeometry args={[0.185, 12]} /><meshBasicMaterial color="#0a1428" /></mesh>
+        </group>
+      ))}
+      {/* bins superiores */}
+      <Caixa pos={[-1.35, 1.95, 0]} tam={[0.55, 0.3, 4.6]} cor="#c9c5b8" />
+      <Caixa pos={[1.35, 1.95, 0]} tam={[0.55, 0.3, 4.6]} cor="#c9c5b8" />
+      {/* assentos lado esquerdo (2 por fileira) */}
+      {[-1.6, 0, 1.6].map((z, ri) => (
+        <group key={'le' + ri}>
+          {[-1.5, -0.95].map((x, si) => (
+            <group key={'s' + si} position={[x, 0, z]}>
+              <Caixa pos={[0, 0.44, 0]} tam={[0.46, 0.12, 0.44]} cor="#2b3a4a" />
+              <Caixa pos={[0, 0.88, 0.22]} rot={[-0.1, 0, 0] as [number, number, number]} tam={[0.46, 0.75, 0.1]} cor="#2b3a4a" />
+            </group>
+          ))}
+        </group>
+      ))}
+      {/* assentos lado direito (3 por fileira) */}
+      {[-1.6, 0, 1.6].map((z, ri) => (
+        <group key={'ri' + ri}>
+          {[0.35, 0.9, 1.45].map((x, si) => (
+            <group key={'s' + si} position={[x, 0, z]}>
+              <Caixa pos={[0, 0.44, 0]} tam={[0.46, 0.12, 0.44]} cor="#2b3a4a" />
+              <Caixa pos={[0, 0.88, 0.22]} rot={[-0.1, 0, 0] as [number, number, number]} tam={[0.46, 0.75, 0.1]} cor="#2b3a4a" />
+            </group>
+          ))}
+        </group>
+      ))}
+      {/* corredor central */}
+      <Caixa pos={[-0.3, 0, 0]} tam={[0.55, 0.06, 5]} cor="#4a4e58" />
+      {/* Cooper sentado na janela, fileira central */}
+      <Boneco pos={[-1.5, 0.44, 0]} rotY={Math.PI * 0.5} acao="senta" t={t} v={cooper} esc={0.72} />
+      {/* pasta preta de Cooper no colo */}
+      <Caixa pos={[-1.5, 0.78, 0]} tam={[0.28, 0.12, 0.42]} cor="#1a1a1a" />
+      {[-0.08, 0.08].map((dx) => (<Cil key={dx} pos={[-1.5 + dx, 0.845, 0]} r={0.012} h={0.025} cor="#c9a046" seg={6} />))}
+      {/* comissária no corredor passando o bilhete */}
+      <Boneco pos={[-0.1, 0, -0.2]} rotY={Math.PI * 0.6} acao="aponta" t={t} v={comissaria} esc={0.8} />
+      {/* bilhete (papel branco) */}
+      <mesh position={[-0.75, 0.95, 0.1]} rotation={[0, 0.2, 0.15]}>
+        <planeGeometry args={[0.13, 0.09]} />
+        <meshBasicMaterial color="#f4efe2" />
+      </mesh>
+      <pointLight position={[0, 1.9, 0]} color="#fff0d8" intensity={18} distance={9} decay={1.4} />
+      <pointLight position={[0, 1.5, 2.2]} color="#fff3e6" intensity={10} distance={7} decay={1.5} />
+    </group>
+  );
+};
+
+// ===== D.B. COOPER — salto à noite sobre a floresta do Pacific Northwest =====
+const QuedaCooper: React.FC<{t: number}> = ({t}) => {
+  const cooper = {...CONTROLADOR, camisa: '#2b2f3a', calca: '#3a3d47', pele: '#d9b896', cabelo: '#1d1b26'};
+  const arvores = useMemo(() => {
+    const r = rnd(55);
+    return Array.from({length: 60}).map(() => ({x: r() * 200 - 100, z: r() * 200 - 100, h: 8 + r() * 12, raio: 2.5 + r() * 3}));
+  }, []);
+  const chuva = useMemo(() => {
+    const r = rnd(89);
+    return Array.from({length: 180}).map(() => ({x: r() * 60 - 30, z: r() * 40 - 20, fase: r() * Math.PI * 2}));
+  }, []);
+  return (
+    <group>
+      <Caixa pos={[0, -55, 0]} tam={[400, 0.5, 400]} cor="#1c2e1c" />
+      {arvores.map((a, i) => (
+        <group key={i} position={[a.x, -55, a.z]}>
+          <Cil pos={[0, a.h * 0.25, 0]} r={0.4} h={a.h * 0.5} cor="#4a3426" />
+          <mesh position={[0, a.h * 0.6, 0]}><coneGeometry args={[a.raio, a.h * 0.75, 7]} /><meshStandardMaterial color="#2a4a2a" flatShading /></mesh>
+          <mesh position={[0, a.h * 0.75, 0]}><coneGeometry args={[a.raio * 0.72, a.h * 0.6, 7]} /><meshStandardMaterial color="#2f5330" flatShading /></mesh>
+        </group>
+      ))}
+      {/* Cooper em queda livre (~25m do chão) */}
+      <group position={[0, -20, 0]} rotation={[0.3, 0, -0.15]}>
+        <Boneco pos={[0, 0, 0]} rotY={Math.PI} acao="comemora" t={t} v={cooper} esc={1.0} />
+        {/* mochila de paraquedas */}
+        <Caixa pos={[0, 1.0, -0.28]} tam={[0.42, 0.52, 0.18]} cor="#6b8a4a" />
+        <Barra a={[-0.14, 1.3, -0.2]} b={[-0.14, 0.72, 0.1]} r={0.016} cor="#c9b88a" sombra={false} />
+        <Barra a={[0.14, 1.3, -0.2]} b={[0.14, 0.72, 0.1]} r={0.016} cor="#c9b88a" sombra={false} />
+        {/* maço de dinheiro preso ao corpo */}
+        <Caixa pos={[0, 0.88, 0.2]} tam={[0.26, 0.14, 0.08]} cor="#6b7a4a" />
+      </group>
+      {/* chuva */}
+      {chuva.map((q, i) => {
+        const y = ((q.fase - t * 15) % 70) - 10;
+        return (
+          <mesh key={i} position={[q.x, y - 20, q.z]} rotation={[0.1, 0, 0]}>
+            <capsuleGeometry args={[0.015, 0.4, 2, 4]} />
+            <meshBasicMaterial color="#8ab8d0" transparent opacity={0.6} />
+          </mesh>
+        );
+      })}
+      <Estrelas />
+    </group>
+  );
+};
+
+// ===== D.B. COOPER — beira do Rio Columbia, fevereiro de 1980 =====
+const RioColumbia: React.FC<{t: number}> = ({t}) => {
+  const menino = {...GARI, camisa: '#e9d8c0', calca: '#3a4a66', colete: null, pele: '#f0c8a8', cabelo: '#5a3a28'};
+  const notas = useMemo(() => {
+    const r = rnd(63);
+    return Array.from({length: 24}).map(() => ({
+      x: r() * 3.6 - 1.8, z: r() * 2.4 - 1.2,
+      rot: r() * 0.8 - 0.4, ry: r() * Math.PI,
+      larg: 0.14 + r() * 0.06, deg: r() > 0.4,
+    }));
+  }, []);
+  const arvores = useMemo(() => {
+    const r = rnd(29);
+    return Array.from({length: 18}).map(() => ({x: r() * 60 - 30, z: -20 + r() * 8, h: 6 + r() * 10, raio: 1.8 + r() * 2.5}));
+  }, []);
+  return (
+    <group>
+      {/* areia da margem */}
+      <Caixa pos={[0, -0.06, 2]} tam={[30, 0.1, 10]} cor="#b89060" />
+      {/* cascalho escuro perto d'água */}
+      <Caixa pos={[0, -0.06, -3]} tam={[30, 0.08, 4]} cor="#6a5a4a" />
+      {/* rio */}
+      <group position={[0, -0.1, -15]}><Mar t={t} cor="#3a6090" tam={60} amp={0.08} /></group>
+      {/* floresta */}
+      {arvores.map((a, i) => (
+        <group key={i} position={[a.x, 0, a.z]}>
+          <Cil pos={[0, a.h * 0.25, 0]} r={0.35} h={a.h * 0.5} cor="#4a3426" />
+          <mesh position={[0, a.h * 0.65, 0]}><coneGeometry args={[a.raio, a.h * 0.8, 6]} /><meshStandardMaterial color="#2a4f2a" flatShading /></mesh>
+        </group>
+      ))}
+      {/* notas deterioradas na areia */}
+      {notas.map((n, i) => (
+        <mesh key={i} position={[n.x, 0.02, n.z - 0.5]} rotation={[n.rot * 0.4, n.ry, n.rot]}>
+          <planeGeometry args={[n.larg, n.larg * 0.45]} />
+          <meshStandardMaterial color={n.deg ? '#5a4a30' : '#7a6a3a'} roughness={0.9} />
+        </mesh>
+      ))}
+      {/* menino agachado */}
+      <Boneco pos={[0.5, 0, -0.2]} rotY={2.4} acao="cava" t={t} v={menino} esc={0.65} />
+      {/* Zé detetive */}
+      <ZeDetetive pos={[-1.5, 0, 0.8]} rotY={1.2} t={t} />
+      <Placa texto="$5.800 · RIO COLUMBIA" pos={[0, 2.4, 0.5]} larg={2.2} fundo="#ffd23f" cor="#1d1b26" />
+    </group>
+  );
+};
+
+// ===== D.B. COOPER — quadro de investigação =====
+const TEORIAS_COOPER = [
+  {x: -0.95, txt: '1 · MORREU', peso: 0.72, cor: '#ffd23f'},
+  {x: 0, txt: '2 · ESCAPOU', peso: 0.42, cor: '#ff9f1c'},
+  {x: 0.95, txt: '3 · VIVEU RICO', peso: 0.12, cor: '#ff5d5d'},
+];
+const PISTAS_COOPER: {txt: string; pos: [number, number]; rot: number}[] = [
+  {txt: 'NOTAS NO RIO', pos: [-1.1, 2.15], rot: 0.04},
+  {txt: 'ZERO TREINAMENTO', pos: [-0.3, 2.2], rot: -0.03},
+  {txt: 'TEMP: −15 °C', pos: [0.5, 2.15], rot: 0.05},
+  {txt: 'ZONA DE POUSO', pos: [1.1, 2.2], rot: -0.04},
+  {txt: 'SEM RASTROS', pos: [-1.1, 1.75], rot: -0.05},
+  {txt: 'VENTO 100 KM/H', pos: [1.0, 1.75], rot: 0.04},
+];
+const QuadroCooper: React.FC<{t: number; p: number}> = ({t, p}) => {
+  const ativo = p >= 0.1 && p < 0.4 ? 0 : p >= 0.4 && p < 0.65 ? 1 : p >= 0.65 && p < 0.95 ? 2 : -1;
+  const barra = clamp01(p / 0.1);
+  const fim = p >= 0.95;
+  const pergunta = p >= 0.999;
+  const Z = -0.02;
+  const pinos: V3[] = PISTAS_COOPER.map((q) => [q.pos[0], q.pos[1] + 0.07, Z + 0.03]);
+  return (
+    <group>
+      <Caixa pos={[0, -0.05, 1]} tam={[7, 0.1, 5]} cor="#5a4030" />
+      <Caixa pos={[0, 1.6, -0.15]} tam={[7, 3.2, 0.2]} cor="#3d4a5c" />
+      <Caixa pos={[0, 1.65, -0.07]} tam={[3.2, 1.9, 0.06]} cor="#6b4429" />
+      <Caixa pos={[0, 1.65, -0.04]} tam={[3.0, 1.7, 0.03]} cor="#c49563" />
+      {/* silhueta sem rosto — retrato de identidade desconhecida */}
+      <mesh position={[0, 1.88, Z]}><planeGeometry args={[0.45, 0.42]} /><meshBasicMaterial color="#1d1b26" /></mesh>
+      <mesh position={[0, 1.78, Z + 0.001]}><circleGeometry args={[0.09, 10]} /><meshBasicMaterial color="#c9b896" /></mesh>
+      <mesh position={[0, 1.98, Z + 0.001]}><planeGeometry args={[0.26, 0.2]} /><meshBasicMaterial color="#c9b896" /></mesh>
+      <Placa texto="?" pos={[0, 1.88, Z + 0.005]} larg={0.3} fundo="#1d1b26" cor="#ffd23f" />
+      <Barra a={[0, 1.68, Z + 0.004]} b={[0, 2.08, Z + 0.004]} r={0.006} cor="#ffd23f" sombra={false} />
+      {PISTAS_COOPER.map((q, i) => (
+        <group key={i} position={[q.pos[0], q.pos[1], Z]} rotation={[0, 0, q.rot]}>
+          <mesh position={[0, 0, -0.002]}><planeGeometry args={[0.56, 0.17]} /><meshBasicMaterial color="#f4efe2" /></mesh>
+          <Placa texto={q.txt} pos={[0, 0, 0.001]} larg={0.54} fundo="#f4efe2" cor="#1d1b26" />
+        </group>
+      ))}
+      {pinos.map((a, i) => (<Barra key={'b' + i} a={a} b={[0, 1.98, Z + 0.03]} r={0.005} cor="#d6282b" sombra={false} />))}
+      {pinos.map((a, i) => (<mesh key={'p' + i} position={a}><sphereGeometry args={[0.022, 8, 6]} /><meshStandardMaterial color="#d6282b" /></mesh>))}
+      {TEORIAS_COOPER.map((te, i) => {
+        const on = ativo === i;
+        const s = on ? 1.08 : 1;
+        return (
+          <group key={i} position={[te.x, 1.2, Z + (on ? 0.02 : 0)]} scale={s}>
+            {on && <mesh position={[0, -0.05, -0.004]}><planeGeometry args={[0.86, 0.5]} /><meshBasicMaterial color="#ffd23f" /></mesh>}
+            <mesh position={[0, -0.05, -0.002]}><planeGeometry args={[0.8, 0.44]} /><meshBasicMaterial color="#ffffff" /></mesh>
+            <Placa texto={te.txt} pos={[0, 0.06, 0]} larg={0.76} fundo="#1d1b26" cor="#ffffff" />
+            <mesh position={[0, -0.13, 0.001]}><planeGeometry args={[0.66, 0.08]} /><meshBasicMaterial color="#d9d4c4" /></mesh>
+            <mesh position={[-0.33 + (0.66 * te.peso * barra) / 2, -0.13, 0.002]}><planeGeometry args={[Math.max(0.001, 0.66 * te.peso * barra), 0.08]} /><meshBasicMaterial color={te.cor} /></mesh>
+            <mesh position={[0, 0.19, 0.01]}><sphereGeometry args={[0.025, 8, 6]} /><meshStandardMaterial color="#d6282b" /></mesh>
+          </group>
+        );
+      })}
+      {fim && <Placa texto="?" pos={[1.25, 2.55, Z + 0.05]} larg={0.9 * suave((p - 0.95) * 20)} fundo="#d6282b" cor="#ffffff" />}
+      <Caixa pos={[-2.3, 0.74, 0.5]} tam={[1.6, 0.06, 0.8]} cor="#6b4429" />
+      {[[-3.0, 0.2], [-1.6, 0.2], [-3.0, 0.8], [-1.6, 0.8]].map(([x, z], i) => (<Caixa key={i} pos={[x, 0.36, z]} tam={[0.06, 0.72, 0.06]} cor="#4a3426" />))}
+      <Cil pos={[-2.7, 0.79, 0.35]} r={0.1} h={0.04} cor="#2b2f3a" />
+      <Barra a={[-2.7, 0.8, 0.35]} b={[-2.6, 1.2, 0.4]} r={0.012} cor="#2b2f3a" sombra={false} />
+      <mesh position={[-2.55, 1.2, 0.42]} rotation={[0.4, 0, -0.5]}><coneGeometry args={[0.13, 0.18, 10, 1, true]} /><meshStandardMaterial color="#2f6f4f" side={2} /></mesh>
+      <Cil pos={[-1.9, 0.82, 0.6]} r={0.045} h={0.1} cor="#f4efe2" />
+      <Caixa pos={[-2.2, 0.78, 0.65]} rot={0.2} tam={[0.34, 0.02, 0.24]} cor="#d9a85a" />
+      <pointLight position={[-2.5, 1.15, 0.5]} color="#ffd9a0" intensity={4} distance={5} decay={1.5} />
+      <pointLight position={[0, 2.8, 1.8]} color="#fff0d8" intensity={9} distance={8} decay={1.3} />
+      <ZeDetetive pos={pergunta ? [1.95, 0, 0.9] : [1.95, 0, 0.75]} rotY={pergunta ? -0.35 : -1.75} t={t} aponta={!pergunta} />
+    </group>
+  );
+};
+
 export const SETS: Record<string, SetCaso> = {
   // ===== o 777 voando à noite sobre as nuvens (p > 0,6: some na escuridão) =====
   voo: {
@@ -609,6 +833,56 @@ export const SETS: Record<string, SetCaso> = {
     render: ({t}) => <Vigilia t={t} />,
     cams: {
       velas: orb([0, 1.2, -1.6], 8, 22, 6.4, 5.6, 44, 8),
+    },
+  },
+
+  // ===== D.B. COOPER — cabine de passageiros do 727 (24/11/1971, noite) =====
+  cabin727: {
+    ceu: CEU_NOITE,
+    luz: 'interior',
+    render: ({t}) => <CabinePassageiros t={t} />,
+    cams: {
+      janela: orb([-1.5, 1.0, 0], 90, 15, 2.8, 2.4, 46, 8),
+      nota: orb([-0.5, 0.9, 0], 10, 15, 1.6, 1.3, 46, 8),
+      pasta: orb([-1.5, 0.78, 0], -30, 50, 1.3, 1.1, 42, 8),
+    },
+  },
+
+  // ===== D.B. COOPER — salto à noite sobre a floresta =====
+  queda_cooper: {
+    ceu: CEU_NOITE,
+    luz: 'noite',
+    nevoa: [120, 600],
+    render: ({t}) => <QuedaCooper t={t} />,
+    cams: {
+      geral: orb([0, -18, 0], 10, 22, 48, 40, 44, 8),
+      close: orb([0, -17, 0], 35, 10, 14, 11, 44, 8),
+    },
+  },
+
+  // ===== D.B. COOPER — beira do Rio Columbia, notas deterioradas (1980) =====
+  rio_columbia: {
+    ceu: CEU_DIA,
+    luz: 'dia',
+    render: ({t}) => <RioColumbia t={t} />,
+    cams: {
+      geral: orb([0, 0.5, 0], 10, 20, 14, 12, 42, 8),
+      notas: orb([0.5, 0.1, -0.3], -20, 45, 3.2, 2.6, 44, 8),
+    },
+  },
+
+  // ===== D.B. COOPER — quadro de investigação =====
+  quadro_cooper: {
+    ceu: ['#141826', '#232a3d'],
+    luz: 'interior',
+    render: ({t, p}) => <QuadroCooper t={t} p={p} />,
+    cams: {
+      geral: orb([0.3, 1.45, 0], 12, 6, 5.4, 4.6, 44, 8),
+      t1: orb([-0.9, 1.05, 0], -12, 2, 2.6, 2.3, 40, 8),
+      t2: orb([0, 1.05, 0], -8, 2, 2.6, 2.3, 40, 8),
+      t3: orb([0.85, 1.05, 0], 14, 2, 2.6, 2.3, 40, 8),
+      ze: orb([1.8, 1.3, 0.75], -40, 6, 2.8, 2.4, 40, 8),
+      pergunta: orb([1.35, 1.35, 0.6], 15, 6, 4.8, 4.3, 44, 6),
     },
   },
 };

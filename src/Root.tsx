@@ -41,6 +41,8 @@ import timingsSilvio from '../public/audio/como-o-silvio-santos-ficou-rico/timin
 import {Caso, RoteiroCaso} from './caso/Caso';
 import roteiroMH370 from '../roteiros/o-misterio-do-voo-mh370.json';
 import timingsMH370 from '../public/audio/o-misterio-do-voo-mh370/timings.json';
+import roteiroCooper from '../roteiros/o-sequestro-do-aviao-d-b-cooper.json';
+import timingsCooper from '../public/audio/o-sequestro-do-aviao-d-b-cooper/timings.json';
 import roteiroPaoQueijo from '../roteiros/pao-de-queijo-de-liquidificador.json';
 import timingsPaoQueijo from '../public/audio/pao-de-queijo-de-liquidificador/timings.json';
 import roteiroKitnet25 from '../roteiros/kitnet-de-25-m-para-alugar.json';
@@ -85,6 +87,8 @@ export const Root: React.FC = () => {
         defaultProps={{roteiro: roteiroSilvio as unknown as RoteiroRico, timings: timingsSilvio as Timings, comAudio: !(timingsSilvio as Timings).estimado}} />
       <Composition id="o-misterio-do-voo-mh370" component={Caso} durationInFrames={total(timingsMH370 as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroMH370 as unknown as RoteiroCaso, timings: timingsMH370 as Timings, comAudio: !(timingsMH370 as Timings).estimado}} />
+      <Composition id="o-sequestro-do-aviao-d-b-cooper" component={Caso} durationInFrames={total(timingsCooper as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroCooper as unknown as RoteiroCaso, timings: timingsCooper as Timings, comAudio: !(timingsCooper as Timings).estimado}} />
       <Composition id="pao-de-queijo-de-liquidificador" component={Receita} durationInFrames={total(timingsPaoQueijo as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroPaoQueijo as unknown as RoteiroReceita, timings: timingsPaoQueijo as Timings, comAudio: !(timingsPaoQueijo as Timings).estimado}} />
       <Composition id="kitnet-de-25-m-para-alugar" component={Obra} durationInFrames={total(timingsKitnet25 as Timings)} fps={FPS} width={1080} height={1920}
