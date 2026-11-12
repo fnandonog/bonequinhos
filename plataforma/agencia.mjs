@@ -229,7 +229,7 @@ async function produzir(p, tema, pautaMotivo) {
     livre('legendista');
     ESC.anexar(tarefa, 'editor', {kind: 'link', label: 'Vídeo pronto (mp4)', url: `/${mp4}`});
     ESC.anexar(tarefa, 'legendista', {kind: 'texto', label: 'Legenda do post', content: `${leg.legenda}\n\nTítulo do Shorts: ${leg.titulo_youtube}`});
-    const auto = E.AUTO_PUBLICAR === '1';
+    const auto = E.AUTO_PUBLICAR === '1' && !item(id)?.so_dono; // só-o-dono: espera o Fernando mesmo com publicação automática
     if (!auto) {
       await ESC.mover(tarefa, 'editor', {status: 'review'});
       ESC.batida('showrunner', 'waiting', `Esperando sua aprovação: ${tema}`, tarefa, `Vídeo pronto para você aprovar: ${tema}`, 'warn');
