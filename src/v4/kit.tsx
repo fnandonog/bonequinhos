@@ -183,6 +183,10 @@ export type Visual = {
   cartola?: string; gravata?: string;
   // perfil Você na História (1912): boné de pano (cor). Opcional.
   bone?: string;
+  // perfil Seu Tostão: senhor de idade (careca no alto, cabelo branco dos lados, bigode, óculos redondos). Opcional.
+  vovo?: boolean;
+  // expressão do rosto (por enquanto só desenhada no vovo): sobrancelhas e boca.
+  expressao?: 'normal' | 'bravo' | 'espanto' | 'ri';
 };
 export const CHEF: Visual = {camisa: '#ffffff', colete: null, capacete: null, calca: '#2b2233', chef: true};
 export const OBREIRO: Visual = {camisa: '#4f8cff', colete: '#ff8a1f', capacete: '#ffd23f', calca: '#30406b'};
@@ -191,9 +195,9 @@ export const ENGENHEIRA: Visual = {camisa: '#ffffff', colete: '#2fbf71', capacet
 export const MORADOR: Visual = {camisa: '#ff5d73', colete: null, capacete: null, calca: '#2f5d8a', cabelo: '#3b2a20'};
 export const CRIANCA: Visual = {camisa: '#ffd23f', colete: null, capacete: null, calca: '#4f8cff', cabelo: '#6b3e26'};
 
-export type Ferramenta = 'pa' | 'rolo' | 'colher' | 'planta' | 'bloco' | 'martelo' | 'gladio' | 'rudis' | 'tridente' | 'chicote' | 'tocha' | 'taca' | null;
+export type Ferramenta = 'pa' | 'rolo' | 'colher' | 'planta' | 'bloco' | 'martelo' | 'gladio' | 'rudis' | 'tridente' | 'chicote' | 'tocha' | 'taca' | 'bengala' | null;
 export const Boneco: React.FC<{pos: V3; rotY?: number; acao?: AcaoBoneco; t: number; v?: Visual; esc?: number; ferramenta?: Ferramenta}> = ({pos, rotY = 0, acao = 'parado', t, v = OBREIRO, esc = 0.92, ferramenta = null}) => {
-  const {camisa = '#4f8cff', colete = '#ff8a1f', capacete = '#ffd23f', calca = '#30406b', pele = '#ffd2ad', cabelo = '#3b2a20', chef = false, elmo, escudo, toga, coroa, cartola, gravata, bone} = v;
+  const {camisa = '#4f8cff', colete = '#ff8a1f', capacete = '#ffd23f', calca = '#30406b', pele = '#ffd2ad', cabelo = '#3b2a20', chef = false, elmo, escudo, toga, coroa, cartola, gravata, bone, vovo, expressao = 'normal'} = v;
   const passo = acao === 'anda' ? Math.sin(t * 9) * 0.6 : 0;
   const pulo = acao === 'comemora' ? Math.abs(Math.sin(t * 6)) * 0.3 : acao === 'anda' ? Math.abs(Math.sin(t * 9)) * 0.04 : 0;
   let bD = passo * -0.8, bE = passo * 0.8, bDz = -0.15, bEz = 0.15, tronco = 0;
@@ -219,6 +223,7 @@ export const Boneco: React.FC<{pos: V3; rotY?: number; acao?: AcaoBoneco; t: num
     if (ferramenta === 'chicote') return (<group position={[0, -0.48, 0.05]}><Cil pos={[0, 0, 0.08]} rot={[Math.PI / 2, 0, 0]} r={0.02} h={0.22} cor="#4a3426" />{[0, 1, 2, 3].map((i) => (<Barra key={i} a={[0, -i * 0.12 + Math.sin(t * 6 + i) * 0.03, 0.19 + i * 0.12]} b={[0, -(i + 1) * 0.12 + Math.sin(t * 6 + i + 1) * 0.03, 0.19 + (i + 1) * 0.12]} r={0.012} cor="#3b2a20" sombra={false} />))}</group>);
     if (ferramenta === 'tocha') return (<group position={[0, -0.48, 0.05]}><Cil pos={[0, 0.2, 0]} r={0.025} h={0.5} cor="#6b3e26" /><mesh position={[0, 0.52, 0]} scale={[1, 1 + Math.sin(t * 14) * 0.12, 1]}><coneGeometry args={[0.07, 0.22, 6]} /><meshStandardMaterial color="#ff9a2a" emissive="#ff6a00" emissiveIntensity={1.4} /></mesh></group>);
     if (ferramenta === 'taca') return (<group position={[0, -0.5, 0.1]}><Cil pos={[0, 0.06, 0]} r={0.06} r2={0.04} h={0.12} cor="#9a8f80" /><Cil pos={[0, 0.115, 0]} r={0.05} h={0.01} cor="#6f6a66" /></group>);
+    if (ferramenta === 'bengala') return (<group position={[0, -0.48, 0.06]}><Cil pos={[0, -0.12, 0.02]} r={0.022} h={0.62} cor="#6b3e26" /><mesh position={[0, 0.2, 0.08]} rotation={[0, Math.PI / 2, 0]}><torusGeometry args={[0.08, 0.022, 6, 10, Math.PI]} /><Mat cor="#6b3e26" /></mesh></group>);
     if (ferramenta === 'planta') return (<Caixa pos={[0, -0.5, 0.15]} rot={[-0.6, 0, 0]} tam={[0.5, 0.35, 0.01]} cor="#2f6fd6" />);
     return null;
   })();
@@ -278,6 +283,18 @@ export const Boneco: React.FC<{pos: V3; rotY?: number; acao?: AcaoBoneco; t: num
             {[-0.12, 0.12].map((x) => (<mesh key={x} position={[x, 0.02, 0.32]}><sphereGeometry args={[0.055, 8, 8]} /><meshStandardMaterial color="#1d1b26" /></mesh>))}
             {[-0.2, 0.2].map((x) => (<mesh key={x} position={[x, -0.1, 0.28]}><sphereGeometry args={[0.05, 8, 8]} /><meshStandardMaterial color="#ff9b8a" /></mesh>))}
             <mesh position={[0, -0.14, 0.31]} rotation={[0, 0, Math.PI]}><torusGeometry args={[0.07, 0.02, 6, 10, Math.PI]} /><meshStandardMaterial color="#5a1f2b" /></mesh>
+            {vovo && (
+              <>
+                {[-1, 1].map((sx) => (<mesh key={'c' + sx} position={[sx * 0.31, 0.02, -0.08]} scale={[0.55, 0.9, 1]}><sphereGeometry args={[0.16, 10, 8]} /><Mat cor="#eeeeee" /></mesh>))}
+                <mesh position={[0, 0.06, -0.24]} scale={[1.6, 0.8, 0.7]}><sphereGeometry args={[0.16, 10, 8]} /><Mat cor="#eeeeee" /></mesh>
+                {[-1, 1].map((sx) => (<mesh key={'s' + sx} position={[sx * 0.12, expressao === 'espanto' ? 0.17 : expressao === 'bravo' ? 0.11 : 0.13, 0.31]} rotation={[0, 0, sx * (expressao === 'bravo' ? 0.4 : expressao === 'espanto' ? 0.1 : -0.15)]}><boxGeometry args={[0.12, 0.03, 0.03]} /><Mat cor="#e6e6e6" /></mesh>))}
+                {expressao === 'espanto' && (<mesh position={[0, -0.16, 0.315]} scale={[1, 1.3, 0.5]}><sphereGeometry args={[0.045, 8, 8]} /><meshStandardMaterial color="#5a1f2b" /></mesh>)}
+                {expressao === 'ri' && (<mesh position={[0, -0.15, 0.305]} rotation={[0, 0, Math.PI]} scale={[1.4, 1.4, 1]}><circleGeometry args={[0.06, 12, 0, Math.PI]} /><meshStandardMaterial color="#5a1f2b" side={2} /></mesh>)}
+                <mesh position={[0, -0.075, 0.345]} scale={[1.5, 0.55, 0.8]}><sphereGeometry args={[0.085, 10, 8]} /><Mat cor="#f2f2f2" /></mesh>
+                {[-0.12, 0.12].map((x) => (<mesh key={'o' + x} position={[x, 0.02, 0.35]}><torusGeometry args={[0.085, 0.014, 6, 16]} /><meshStandardMaterial color="#2b2233" /></mesh>))}
+                <mesh position={[0, 0.03, 0.355]}><boxGeometry args={[0.07, 0.014, 0.014]} /><meshStandardMaterial color="#2b2233" /></mesh>
+              </>
+            )}
             {cartola && (
               <group position={[0, 0.3, -0.02]} rotation={[-0.08, 0, 0.06]}>
                 <mesh castShadow><cylinderGeometry args={[0.52, 0.52, 0.04, 18]} /><Mat cor={cartola} rugoso={0.5} /></mesh>
@@ -310,7 +327,7 @@ export const Boneco: React.FC<{pos: V3; rotY?: number; acao?: AcaoBoneco; t: num
                 <mesh position={[0, 0.12, 0]} castShadow><sphereGeometry args={[0.39, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2]} /><Mat cor={capacete} /></mesh>
                 <mesh position={[0, 0.12, 0.08]}><cylinderGeometry args={[0.46, 0.46, 0.04, 16]} /><Mat cor={capacete} /></mesh>
               </>
-            ) : (
+            ) : vovo ? null : (
               <mesh position={[0, 0.08, -0.03]} castShadow><sphereGeometry args={[0.375, 14, 10, 0, Math.PI * 2, 0, Math.PI / 2.1]} /><Mat cor={cabelo} /></mesh>
             )}
           </group>
