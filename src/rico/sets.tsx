@@ -8,6 +8,7 @@ import {V3} from '../v4/planta';
 import {orb, Cam, Ctx} from '../v4/sets';
 import {Corrente} from '../historia/pecas';
 import {SETS_MCD} from './mcd';
+import {SETS_COLLOR} from './collor';
 import {
   ArvoreNatal, Agua, Balao, Barca, Barra, Bau, BANCARIO, Boneca, Boneco, Bonde, Caixa, Caixote, CameraEstudio, Carne, CarroPremio, Cartela, CartelaCap, CasaPremio, Cil,
   CofreOuro, MonteMoedas, Corneta, CORES_PELE, CORES_ROUPA, DIRETOR_TV, EXECUTIVO, FAMILIA, Garrafa, Lampada, Letreiro, Maco, MapaBrasil, MicRadio, Miniatura, Moeda, Morro, NotasMusicais,
@@ -921,6 +922,8 @@ export const SETS: Record<string, SetRico> = {
   },
   // v2 do McDonald's: cenários novos em src/rico/mcd.tsx (prefixo "mc")
   ...SETS_MCD,
+  // piloto do Seu Tostão (Plano Collor): cenários de 1990 em src/rico/collor.tsx (prefixo "co")
+  ...SETS_COLLOR,
 };
 void THREE;
 void [Boneca, Carrinho, Urso, Cartela, Corneta, Sentado, CORES_PELE, CORES_ROUPA, Morro, Poste, Cil];

@@ -23,9 +23,9 @@ AZUL = "#7cc4ff"
 # extra: {"batida": "drama"|"noite", "salto": True}
 CENAS = [
     ("c1", "1990", "POUPANÇA", "BLOQUEADA",
-     "Em mil novecentos e noventa, o governo travou a poupança do Brasil. | De todo mundo, num dia só.", [
+     "Em mil novecentos e noventa, o governo prendeu a poupança do Brasil. | Três dias antes, o Banco Central garantiu que não.", [
         ("cocofre", "cadeado", [0.2, 0.6], card("Março de 1990", valor="POUPANÇA PRESA", cor=VERM), None),
-        ("cofila", "drone", None, card("Num dia só", valor="DE TODO MUNDO", sub="saque limitado por pessoa, em cada banco"), None),
+        ("cofila", "drone", None, card("Três dias antes", valor="\"NINGUÉM VAI CONFISCÁ-LA\"", sub="presidente do Banco Central, 13/03/1990"), None),
     ]),
     ("c2", "16/03/1990", "BANCOS", "FECHADOS",
      "Senta aí, que essa ninguém te contou. | Eu era caixa de banco. | "
@@ -38,61 +38,56 @@ CENAS = [
     ("c3", "MAR 1990", "INFLAÇÃO", "82% NO MÊS",
      "O motivo era a inflação, o preço quase dobrando todo mês. | Num mês só, oitenta e dois por cento. | Aí veio a regra.", [
         ("copreco", "gondola", None, card("Inflação", valor="PREÇO QUASE DOBRA", sub="a cada mês, no começo de 1990")),
-        ("copreco", "etiqueta", None, card("Inflação em março de 1990", num=82, sufixo="%", sub="em um mês só · IPCA (IBGE)", cor=VERM)),
-        ("covaranda", "bravo", None, None),
+        ("copreco2", "etiqueta", None, card("Inflação em março de 1990", num=82, sufixo="%", sub="em um mês só · IPCA (IBGE)", cor=VERM)),
+        ("covarandabravo", "bravo", None, None),
     ]),
     ("c4", "16/03/1990", "SAQUE MÁXIMO HOJE", 8079,
-     "Poupança é a conta onde o povo guarda dinheiro. | Dela, cada um só tirava cinquenta mil cruzados novos por banco. | "
+     "Poupança é a conta onde o povo guarda dinheiro. | Cada um só sacava cinquenta mil cruzados novos por banco. | "
      "Era a moeda da época. | Isso dá uns oito mil reais de hoje.", [
-        ("coagencia", "caderneta", None, card("Poupança", valor="CADERNETA", sub="onde o povo guardava o dinheiro")),
-        ("coagencia", "guiche", None, card("Saque máximo", valor="NCz$ 50 MIL", sub="por pessoa, em cada banco · Lei 8.024", cor=OURO)),
+        ("cobalcao", "caderneta", None, card("Poupança", valor="CADERNETA", sub="onde o povo guardava o dinheiro")),
+        ("cobalcao", "guiche", None, card("Saque máximo", valor="NCz$ 50 MIL", sub="por pessoa, em cada banco · Lei 8.024", cor=OURO)),
         ("cocarimbo", "notas", None, card("Cruzado novo", valor="NCz$", sub="a moeda de 1990")),
-        ("cocarimbo", "real", None, card("Corrigido pelo IPCA", valor="≈ R$ 8 MIL", sub="em reais de hoje · Calculadora do Cidadão (BC)", cor=VERDE)),
+        ("cocarimboreal", "real", None, card("Corrigido pelo IPCA", valor="≈ R$ 8 MIL", sub="em reais de hoje · Calculadora do Cidadão (BC)", cor=VERDE)),
     ]),
     ("c5", "1990", "PRESO NO BANCO CENTRAL", "≈ US$ 100 BI",
      "O resto ficou preso no Banco Central, o banco do governo. | Por dezoito meses. | Cerca de cem bilhões de dólares. | Juros! Cem bilhões!", [
         ("cocofre", "porta", [0.3, 0.6], card("Banco Central", valor="O RESTO FICA PRESO", sub="corrigido + 6% ao ano")),
         ("cocofre", "calendario", None, card("Bloqueio", num=18, sufixo=" MESES", cor=OURO)),
         ("cocofre", "monte", [0.6, 1], card("Dinheiro bloqueado", valor="≈ US$ 100 BI", sub="estimativa da época · cerca de 30% do PIB", cor=VERM), {"batida": "drama"}),
-        ("covaranda", "juros", None, card("Juros!", valor="CEM BILHÕES!", cor=OURO)),
-    ]),
-    ("c6", "1990", "MOEDA NOVA", "Cr$ + NCz$",
-     "A moeda virou cruzeiro, mas o dinheiro preso continuou em cruzado novo. | Duas moedas ao mesmo tempo.", [
-        ("cocarimbo", "carimbo", None, card("Moeda nova", valor="CRUZEIRO (Cr$)", sub="1 cruzado novo = 1 cruzeiro")),
-        ("cocarimbo", "duas", None, card("Ao mesmo tempo", valor="Cr$ LIVRE · NCz$ PRESO", cor=AZUL)),
+        ("covarandajuros", "juros", None, card("Juros!", valor="CEM BILHÕES!", cor=OURO)),
     ]),
     ("c7", "19/03/1990", "NA FILA", "≈ 10 MILHÕES",
-     "Segunda, eu tava no balcão. | Cerca de dez milhões de pessoas fizeram fila. | Teve pai que juntava para a casa própria. | Ficou tudo preso.", [
-        ("coagencia", "fila", None, card("Segunda-feira", valor="19/03/1990", sub="os bancos reabrem"), {"salto": True}),
+     "Na segunda, eu abri o caixa. | Uns dez milhões de pessoas fizeram fila. | Teve pai que juntava para a casa própria. | Ficou tudo preso.", [
+        ("cobalcao", "fila", None, card("Segunda-feira", valor="19/03/1990", sub="os bancos reabrem"), {"salto": True}),
         ("cofila", "rua", None, card("Na fila dos bancos", valor="≈ 10 MILHÕES", sub="estimativa da Febraban")),
         ("cocasa", "pai", None, card("O sonho", valor="CASA PRÓPRIA", sub="o dinheiro guardado anos a fio")),
-        ("cocasa", "parada", None, card("A obra", valor="FICOU PRESA", cor=VERM), {"batida": "drama"}),
+        ("cocasaparada", "parada", None, card("A obra", valor="FICOU PRESA", cor=VERM), {"batida": "drama"}),
     ]),
     ("c8", "AGO 1991", "DEVOLUÇÃO", "EM PARCELAS",
-     "Só que a surpresa veio na volta. | Voltou aos poucos, a partir de agosto de noventa e um. | "
-     "Na conta oficial, março deu oitenta e quatro por cento. | O dinheiro preso subiu só quarenta e um. | "
-     "É como o pão quase dobrar e seu dinheiro subir metade.", [
-        ("covaranda", "aponta", None, None, {"batida": "drama"}),
-        ("cocofre", "volta", None, card("Devolução", valor="EM PARCELAS", sub="a partir de 15/08/1991, até agosto de 1992", cor=VERDE), {"salto": True}),
-        ("copao", "pao", None, card("Inflação de março (IPC)", num=84, sufixo="%", sub="o índice oficial da época", cor=VERM)),
-        ("copao", "notas", None, card("Correção do dinheiro preso", num=41, sufixo="%", sub="BTN Fiscal · Idec", cor=AZUL)),
-        ("copao", "dois", None, card("Na prática", valor="PÃO 84% · DINHEIRO 41%", sub="o dinheiro voltou valendo menos")),
+     "Só que a surpresa veio na volta. | Voltou aos poucos, só em agosto de noventa e um. | "
+     "Lembra dos oitenta e dois por cento? | O governo corrigiu o dinheiro preso por outra conta. Deu só quarenta e um. | "
+     "É como o pão de dez ir para dezoito. E seus dez virarem catorze.", [
+        ("covarandaaponta", "aponta", None, None, {"batida": "drama"}),
+        ("cocofrevolta", "volta", None, card("Devolução", valor="EM PARCELAS", sub="a partir de 15/08/1991, até agosto de 1992", cor=VERDE), {"salto": True}),
+        ("copao", "pao", None, card("Inflação de março", num=82, sufixo="%", sub="IPCA (IBGE)", cor=VERM)),
+        ("copaonotas", "notas", None, card("Correção do dinheiro preso", num=41, sufixo="%", sub="outro índice: BTN Fiscal · Idec", cor=AZUL)),
+        ("copaodois", "dois", None, card("Na prática", valor="PREÇOS 82% · DINHEIRO 41%", sub="o dinheiro voltou valendo menos")),
     ]),
     ("c9", "2026", "AINDA", "NA JUSTIÇA",
-     "Trinta e cinco anos depois, ainda tem gente na Justiça. | A lição é que nem dinheiro parado fica parado. | "
+     "Trinta e seis anos depois, ainda tem gente na Justiça. O acordo com os bancos deixou de fora o dinheiro preso. | "
+     "A lição? Nem dinheiro guardado fica guardado. | "
      "Você ou seus pais perderam dinheiro nessa? | Guarda esse tostão. Amanhã eu conto outra.", [
-        ("cojustica", "salao", None, card("35 anos depois", valor="326 MIL", sub="poupadores no acordo · STF, 2025", cor=OURO), {"salto": True}),
-        ("covaranda", "licao", None, card("A lição", valor="DINHEIRO PARADO NÃO FICA PARADO")),
-        ("covaranda", "pergunta", None, card("E na sua casa?", valor="PERDERAM NESSA?", cor=OURO)),
-        ("covaranda", "fecho", None, None, {"batida": "drama"}),
+        ("cojustica", "salao", None, card("36 anos depois", valor="FORA DO ACORDO", sub="o dinheiro preso em março · STF, 2025", cor=OURO), {"salto": True}),
+        ("covarandalicao", "licao", None, card("A lição", valor="NEM GUARDADO FICA GUARDADO")),
+        ("covarandapergunta", "pergunta", None, card("E na sua casa?", valor="PERDERAM NESSA?", cor=OURO)),
+        ("covarandafecho", "fecho", None, None, {"batida": "drama"}),
     ]),
 ]
 
 # Destaque = palavra que começa com o termo (Rico.tsx usa startsWith)
-DESTAQUES = ["novecentos", "noventa", "governo", "travou", "poupança", "todo", "caixa", "dezesseis", "março", "terceiro", "fechado", "zélia",
+DESTAQUES = ["novecentos", "noventa", "governo", "poupança", "todo", "caixa", "dezesseis", "março", "fechado", "zélia",
              "inflação", "dobrando", "oitenta", "regra", "cinquenta", "cruzados", "cruzado", "oito", "reais", "preso", "presa", "central", "dezoito",
-             "cem", "bilhões", "juros", "cruzeiro", "duas", "segunda", "balcão", "dez", "milhões", "fila", "casa", "surpresa", "agosto", "quatro",
-             "quarenta", "pão", "metade", "trinta", "justiça", "parado", "perderam", "tostão"]
+             "cem", "bilhões", "juros", "segunda", "balcão", "dez", "milhões", "fila", "casa", "surpresa", "agosto", "quarenta", "pão", "trinta", "justiça", "guardado", "acordo", "perderam", "catorze", "dezoito", "antes", "garantiu", "tostão"]
 
 rot = {
     "id": ID,
@@ -107,6 +102,8 @@ rot = {
     "elevenlabs": {"voz_id": "RGbeQtiShYRDVCrd9b9w", "modelo": "eleven_multilingual_v2",
                    "ajustes": {"stability": 0.5, "similarity_boost": 0.8, "style": 0.3, "use_speaker_boost": True, "speed": 1.0}},
     "fontes": f"roteiros/{ID}.pesquisa.md",
+    # legendista (legenda do post e título do Shorts)
+    "post": {"legenda": "O Banco Central garantiu que não. Três dias depois, a poupança do Brasil ficou presa.\n\nEu tava no caixa naquela segunda de 1990, com uns 10 milhões de pessoas na fila. Cerca de 100 bilhões de dólares presos por 18 meses. E quando o dinheiro voltou, veio a parte que quase ninguém te contou.\n\nVocê ou seus pais perderam dinheiro nessa? Me conta aqui embaixo, que o Juros quer saber também 🦜\n\nO livro dessa história e outros em oferta no Telegram do Zé: link na bio\nSe preferir, comenta LIVRO que eu te mando por direct.\n\n#historiadodinheiro #economia #dinheiro #curiosidades #planocollor #poupanca #historiadobrasil", "titulo_youtube": "O BC garantiu que não. 3 dias depois, prenderam a poupança #shorts"},
     "monetizacao": {"afiliados": [
         "livro: Zélia, uma paixão — Fernando Sabino (1991)",
         "livro: Saga Brasileira — Miriam Leitão",

@@ -20,7 +20,7 @@ const TINTA = '#16151c';
 
 export type Card = {rotulo: string; valor?: string; num?: number; prefixo?: string; sufixo?: string; sub?: string; cor?: string};
 export type Plano = {set: string; cam: string | Cam; apartir?: number; p?: [number, number]; card?: Card; batida?: Batida; salto?: boolean};
-export type CenaRico = {id: string; texto: string; ano?: string; tem?: string; patrimonio?: number; destaques?: string[]; planos: Plano[]};
+export type CenaRico = {id: string; texto: string; ano?: string; tem?: string; rotulo?: string; patrimonio?: number; destaques?: string[]; planos: Plano[]};
 export type RoteiroRico = {id: string; trilha?: string; titulo: string; linha2?: string; cenas: CenaRico[]};
 export type RicoProps = {roteiro: RoteiroRico; timings: Timings; comAudio: boolean};
 
@@ -161,7 +161,7 @@ const Topo: React.FC<{m: ReturnType<typeof montar>; f: number; i: number}> = ({m
         {ano}
       </div>
       <div style={{background: neg ? '#ff5d5d' : '#fff', color: TINTA, fontFamily: FONTE, fontWeight: 800, fontSize: valor.length > 13 ? 38 : 46, padding: '6px 24px', borderRadius: 40, border: `5px solid ${TINTA}`, transform: `scale(${0.9 + 0.1 * pop})`, whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 10}}>
-        <span style={{fontSize: 26, color: neg ? TINTA : '#6b6880', letterSpacing: 1}}>{neg ? 'DÍVIDA' : num !== undefined ? 'FORTUNA' : 'TEM'}</span>
+        <span style={{fontSize: 26, color: neg ? TINTA : '#6b6880', letterSpacing: 1}}>{cn.c.rotulo ?? (neg ? 'DÍVIDA' : num !== undefined ? 'FORTUNA' : 'TEM')}</span>
         {valor}
       </div>
     </div>
