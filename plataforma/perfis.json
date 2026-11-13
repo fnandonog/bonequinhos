@@ -75,15 +75,19 @@
         "curiosidades históricas"
       ],
       "voz_elevenlabs": {
-        "id": "5lrBPYY4YvMbKHTo8kvZ",
-        "nome": "Arthur Freeman",
-        "dono": "48143cce7e5fa20756f6a0efb5a707037db7db794850921724439771b7c48767",
+        "id": "acdKA5HckGxoxxvy40dA",
+        "nome": "Nassif",
+        "dono": "4cfcb957e75c90ea503104fa6bb6b0e1d1b63e50cda26bebfb33d488d311710e",
         "ajustes": {
           "stability": 0.5,
           "similarity_boost": 0.8,
           "style": 0.25,
           "use_speaker_boost": true,
           "speed": 1.0
+        },
+        "anterior": {
+          "id": "5lrBPYY4YvMbKHTo8kvZ",
+          "nome": "Arthur Freeman"
         }
       },
       "horarios": [
@@ -224,13 +228,13 @@
         "quanto custava antigamente"
       ],
       "voz_elevenlabs": {
-        "id": "RGbeQtiShYRDVCrd9b9w",
-        "nome": "Sergio (Seu Tostão)",
-        "dono": "a199ae0144fe0cc9d5af91ad3d20996fcddf5ff2e3088cff74e1b537a742bee9",
+        "id": "zoe2cQFqDDW4DteHDEWI",
+        "nome": "Manoel Lopes (Seu Tostão)",
+        "dono": "5556c30d7ea4556f4c1493b55432d6be304f9cd93822bfba97451d8bd2768394",
         "ajustes": {
           "stability": 0.5,
           "similarity_boost": 0.8,
-          "style": 0.3,
+          "style": 0.25,
           "use_speaker_boost": true,
           "speed": 1.0
         }
