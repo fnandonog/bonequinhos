@@ -1,0 +1,602 @@
+{
+  "id": "kitnet-de-25-m-para-alugar",
+  "serie": "Você construiu",
+  "titulo": "KITNET DE 25 m² DO ZERO",
+  "linha2": "quanto custa e quanto RENDE?",
+  "elevenlabs": {
+    "voz_id": "ZqE9vIHPcrC35dZv0Svu",
+    "modelo": "eleven_multilingual_v2",
+    "ajustes": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.4,
+      "use_speaker_boost": true,
+      "speed": 1.15
+    }
+  },
+  "fontes": "roteiros/kitnet-de-25-m-para-alugar.pesquisa.md",
+  "monetizacao": {
+    "afiliados": [
+      {
+        "produto": "blocos cerâmicos"
+      },
+      {
+        "produto": "cimento e areia"
+      },
+      {
+        "produto": "kit banheiro (vaso+pia+chuveiro)"
+      },
+      {
+        "produto": "porcelanato"
+      },
+      {
+        "produto": "tinta"
+      },
+      {
+        "produto": "porta e janelas de alumínio"
+      }
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Quanto custa, de verdade, uma kitnet de vinte e cinco metros quadrados? Esquece o que te falaram.",
+      "destaques": [
+        "mil",
+        "reais",
+        "metros",
+        "total",
+        "parabéns",
+        "radier",
+        "dobro",
+        "anos",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "fachada",
+          "cam": "drone"
+        },
+        {
+          "set": "casaAberta",
+          "cam": "cima",
+          "apartir": 6,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Kitnet 25 m²",
+            "valor": "1 cômodo · banheiro · cozinha americana"
+          }
+        },
+        {
+          "set": "terreno",
+          "cam": "geral",
+          "apartir": 12,
+          "card": {
+            "rotulo": "Quanto custa?",
+            "valor": "BORA CONTAR",
+            "cor": "#ffd23f"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Projeto, ART — a assinatura do engenheiro — e alvará: três mil reais.",
+      "etapa": "PROJETO",
+      "custo": 3000,
+      "destaques": [
+        "mil",
+        "reais",
+        "metros",
+        "total",
+        "parabéns",
+        "radier",
+        "dobro",
+        "anos",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "projeto",
+          "cam": "cima",
+          "p": [
+            0,
+            0.85
+          ]
+        },
+        {
+          "set": "projeto",
+          "cam": "lado",
+          "apartir": 8,
+          "p": [
+            0.85,
+            1
+          ],
+          "card": {
+            "rotulo": "Projeto + ART + alvará",
+            "num": 3000,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "Você lança o radier — laje no chão que já nivela o piso. Cinco mil reais. Economiza até dez mil.",
+      "etapa": "RADIER",
+      "custo": 5000,
+      "destaques": [
+        "mil",
+        "reais",
+        "metros",
+        "total",
+        "parabéns",
+        "radier",
+        "dobro",
+        "anos",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "armadura",
+          "cam": "cima",
+          "p": [
+            0,
+            0.4
+          ]
+        },
+        {
+          "set": "armadura",
+          "cam": "macro",
+          "apartir": 5,
+          "p": [
+            0.4,
+            0.8
+          ]
+        },
+        {
+          "set": "concretagem",
+          "cam": "betoneira",
+          "apartir": 13,
+          "p": [
+            0.8,
+            1
+          ],
+          "card": {
+            "rotulo": "Radier 25 m²",
+            "num": 5000,
+            "prefixo": "R$ ",
+            "sub": "economiza até R$ 10 mil vs. sapatas"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "Você levanta mil e seiscentos blocos cerâmicos. São sessenta metros quadrados de parede. Seis mil e duzentos reais.",
+      "etapa": "PAREDES",
+      "custo": 6200,
+      "destaques": [
+        "mil",
+        "reais",
+        "metros",
+        "total",
+        "parabéns",
+        "radier",
+        "dobro",
+        "anos",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "alvenaria",
+          "cam": "geral",
+          "p": [
+            0,
+            0.4
+          ]
+        },
+        {
+          "set": "alvenaria",
+          "cam": "close",
+          "apartir": 7,
+          "p": [
+            0.4,
+            0.8
+          ]
+        },
+        {
+          "set": "alvenaria",
+          "cam": "lateral",
+          "apartir": 13,
+          "p": [
+            0.8,
+            1
+          ],
+          "card": {
+            "rotulo": "1.600 blocos cerâmicos",
+            "num": 6200,
+            "prefixo": "R$ ",
+            "sub": "60 m² de parede"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "Pilares e cintas de amarração travam tudo junto. Dois mil e quinhentos reais.",
+      "etapa": "ESTRUTURA",
+      "custo": 2500,
+      "destaques": [
+        "mil",
+        "reais",
+        "metros",
+        "total",
+        "parabéns",
+        "radier",
+        "dobro",
+        "anos",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "estrutura",
+          "cam": "quina",
+          "p": [
+            0,
+            0.5
+          ]
+        },
+        {
+          "set": "estrutura",
+          "cam": "janela",
+          "apartir": 8,
+          "p": [
+            0.5,
+            1
+          ],
+          "card": {
+            "rotulo": "Pilares + cintas de amarração",
+            "num": 2500,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "Laje treliçada fecha o teto. Com nervuras de ferro. Quatro mil e oitocentos.",
+      "etapa": "LAJE",
+      "custo": 4800,
+      "destaques": [
+        "mil",
+        "reais",
+        "metros",
+        "total",
+        "parabéns",
+        "radier",
+        "dobro",
+        "anos",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "laje",
+          "cam": "cima",
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "lajeEscoras",
+          "cam": "dentro",
+          "apartir": 5,
+          "card": {
+            "rotulo": "Laje treliçada 25 m²",
+            "num": 4800,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "Madeiramento e quinhentas e cinquenta telhas. Quatro mil e duzentos reais.",
+      "etapa": "TELHADO",
+      "custo": 4200,
+      "destaques": [
+        "mil",
+        "reais",
+        "metros",
+        "total",
+        "parabéns",
+        "radier",
+        "dobro",
+        "anos",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "telhado",
+          "cam": "madeira",
+          "p": [
+            0,
+            0.5
+          ]
+        },
+        {
+          "set": "telhado",
+          "cam": "telhas",
+          "apartir": 6,
+          "p": [
+            0.5,
+            1
+          ],
+          "card": {
+            "rotulo": "≈ 550 telhas cerâmicas",
+            "num": 4200,
+            "prefixo": "R$ ",
+            "sub": "madeiramento + telha"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "Quase todo mundo erra aqui: elétrica mais hidráulica somam oito mil reais.",
+      "etapa": "INSTALAÇÕES",
+      "custo": 8000,
+      "destaques": [
+        "mil",
+        "reais",
+        "metros",
+        "total",
+        "parabéns",
+        "radier",
+        "dobro",
+        "anos",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "instalacoes",
+          "cam": "cima",
+          "p": [
+            0,
+            0.6
+          ]
+        },
+        {
+          "set": "instalacoes",
+          "cam": "banheiro",
+          "apartir": 5,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "Elétrica + hidráulica",
+            "num": 8000,
+            "prefixo": "R$ ",
+            "sub": "quase todo mundo erra aqui"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "texto": "Você aplica chapisco e reboco — as camadas que alisam as paredes. Cem metros quadrados. Sete mil reais.",
+      "etapa": "REBOCO",
+      "custo": 7000,
+      "destaques": [
+        "mil",
+        "reais",
+        "metros",
+        "total",
+        "parabéns",
+        "radier",
+        "dobro",
+        "anos",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "reboco",
+          "cam": "fachada",
+          "p": [
+            0,
+            0.4
+          ]
+        },
+        {
+          "set": "reboco",
+          "cam": "rente",
+          "apartir": 6,
+          "p": [
+            0.4,
+            0.8
+          ]
+        },
+        {
+          "set": "casaAberta",
+          "cam": "cima",
+          "apartir": 12,
+          "p": [
+            0.8,
+            1
+          ],
+          "card": {
+            "rotulo": "Chapisco + reboco",
+            "num": 7000,
+            "prefixo": "R$ ",
+            "sub": "100 m² (interno + externo)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "texto": "Contrapiso, porcelanato e esquadrias — porta e duas janelas. Oito mil e trezentos reais.",
+      "etapa": "PISO E ESQUADRIAS",
+      "custo": 8300,
+      "destaques": [
+        "mil",
+        "reais",
+        "metros",
+        "total",
+        "parabéns",
+        "radier",
+        "dobro",
+        "anos",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "piso",
+          "cam": "cima",
+          "p": [
+            0,
+            0.6
+          ]
+        },
+        {
+          "set": "piso",
+          "cam": "porta",
+          "apartir": 5,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "Contrapiso + porcelanato + esquadrias",
+            "num": 8300,
+            "prefixo": "R$ ",
+            "sub": "porta + 2 janelas"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "texto": "Pintura, banheiro completo e cozinha americana. Cinco mil e setecentos reais.",
+      "etapa": "PINTURA, BANHEIRO E COZINHA",
+      "custo": 5700,
+      "destaques": [
+        "mil",
+        "reais",
+        "metros",
+        "total",
+        "parabéns",
+        "radier",
+        "dobro",
+        "anos",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "pintura",
+          "cam": "fachada",
+          "p": [
+            0,
+            0.6
+          ]
+        },
+        {
+          "set": "pintura",
+          "cam": "pintor",
+          "apartir": 3,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "Pintura + banheiro + cozinha americana",
+            "num": 5700,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c12",
+      "texto": "Parabéns: você construiu. Uma kitnet de vinte e cinco metros. O custo total: sessenta e cinco mil reais. Aluga por oitocentos reais por mês. O retorno é quatorze vírgula oito ao ano. Dobro do mercado, em sete anos se paga. Você faria isso no fundo de casa?",
+      "destaques": [
+        "mil",
+        "reais",
+        "metros",
+        "total",
+        "parabéns",
+        "radier",
+        "dobro",
+        "anos",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "casaCorte",
+          "cam": "frente"
+        },
+        {
+          "set": "casaAberta",
+          "cam": "cima",
+          "apartir": 3,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "casaCorte",
+          "cam": "sala",
+          "apartir": 10,
+          "card": {
+            "rotulo": "Total sem terreno",
+            "num": 65000,
+            "prefixo": "R$ ",
+            "sub": "interior Sudeste/Sul, out/2026"
+          }
+        },
+        {
+          "set": "fachada",
+          "cam": "baixa",
+          "apartir": 18,
+          "card": {
+            "rotulo": "Aluguel típico",
+            "num": 800,
+            "prefixo": "R$ ",
+            "sufixo": "/mês"
+          }
+        },
+        {
+          "set": "fachada",
+          "cam": "drone",
+          "apartir": 24,
+          "card": {
+            "rotulo": "Yield bruto",
+            "valor": "14,8% ao ano",
+            "sub": "dobro do mercado (FipeZAP 6,74%)",
+            "cor": "#2fbf71"
+          }
+        },
+        {
+          "set": "terreno",
+          "cam": "geral",
+          "apartir": 32,
+          "card": {
+            "rotulo": "Payback",
+            "valor": "7 anos"
+          }
+        },
+        {
+          "set": "terreno",
+          "cam": "ze",
+          "apartir": 40
+        }
+      ]
+    }
+  ]
+}

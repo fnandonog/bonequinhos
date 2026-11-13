@@ -1,0 +1,24 @@
+# Caddy da VPS: HTTPS na frente do Precinho de Ouro e da página de links do Zé.
+# Reaproveita os volumes do Caddy antigo do Convertajá (certificados já emitidos).
+services:
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./sites/zeexplica:/srv/zeexplica:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks: [edge]
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+volumes:
+  caddy_data: { external: true, name: convertaja_caddy_data }
+  caddy_config: { external: true, name: convertaja_caddy_config }
+networks:
+  edge: { external: true }

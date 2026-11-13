@@ -1,0 +1,842 @@
+{
+  "id": "air-fryer-barata-vale-a-pena",
+  "serie": "Vale a Pena?",
+  "titulo": "VALE A PENA?",
+  "linha2": "air fryer de R$ 250",
+  "site": "link na bio",
+  "cta": {
+    "titulo": "LINK NA BIO",
+    "texto": "Air fryer com desconto",
+    "botao": null
+  },
+  "veredito": {
+    "cena": "c7",
+    "texto": "VALE",
+    "sub": "até 3 pessoas",
+    "cor": "#2fbf71"
+  },
+  "elevenlabs": {
+    "voz_id": "S4M4JhZIzYGUlDsYIOow",
+    "modelo": "eleven_flash_v2_5",
+    "ajustes": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.4,
+      "use_speaker_boost": true,
+      "speed": 1.15
+    }
+  },
+  "fontes": "roteiros/air-fryer-barata-vale-a-pena.pesquisa.md",
+  "monetizacao": {
+    "afiliados": [
+      "air fryer Mondial Family AFN-40 4 L 1500 W",
+      "air fryer 5 L ou mais (família grande)",
+      "forma de silicone para air fryer",
+      "borrifador de óleo"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Uma air fryer de duzentos e cinquenta reais vale a pena? O Zé abriu uma pra ver por dentro. E fez a conta até o último centavo.",
+      "destaques": [
+        "vale",
+        "pena",
+        "reais",
+        "centavo",
+        "litros",
+        "watts",
+        "graus",
+        "óleo",
+        "nada",
+        "forninho",
+        "ventilador",
+        "resistência",
+        "ventoinha",
+        "erra",
+        "lota",
+        "mole",
+        "fina",
+        "chacoalha",
+        "conta",
+        "minutos",
+        "quilowatt",
+        "centavos",
+        "liga",
+        "desliga",
+        "sete",
+        "colher",
+        "semana",
+        "ano",
+        "veredito",
+        "três",
+        "cinco",
+        "rodadas",
+        "link",
+        "desconto",
+        "bio",
+        "duzentos",
+        "mil",
+        "zero",
+        "trinta",
+        "vinte",
+        "duas",
+        "um",
+        "batata",
+        "pão"
+      ],
+      "planos": [
+        {
+          "set": "vpBancada",
+          "cam": "giro",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Air fryer 4 litros",
+            "num": 250,
+            "prefixo": "R$ ",
+            "sub": "menor preço · nov/2026",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "vpAbrindo",
+          "cam": "frente",
+          "apartir": 11,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "vpBancada",
+          "cam": "ze",
+          "apartir": 19,
+          "p": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Ela promete fritar sem óleo. Quatro litros, mil e quinhentos watts e até duzentos graus.",
+      "etapa": "A PROMESSA",
+      "chip": "sem óleo",
+      "destaques": [
+        "vale",
+        "pena",
+        "reais",
+        "centavo",
+        "litros",
+        "watts",
+        "graus",
+        "óleo",
+        "nada",
+        "forninho",
+        "ventilador",
+        "resistência",
+        "ventoinha",
+        "erra",
+        "lota",
+        "mole",
+        "fina",
+        "chacoalha",
+        "conta",
+        "minutos",
+        "quilowatt",
+        "centavos",
+        "liga",
+        "desliga",
+        "sete",
+        "colher",
+        "semana",
+        "ano",
+        "veredito",
+        "três",
+        "cinco",
+        "rodadas",
+        "link",
+        "desconto",
+        "bio",
+        "duzentos",
+        "mil",
+        "zero",
+        "trinta",
+        "vinte",
+        "duas",
+        "um",
+        "batata",
+        "pão"
+      ],
+      "planos": [
+        {
+          "set": "vpCaixa",
+          "cam": "frente",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "A promessa",
+            "valor": "FRITAR SEM ÓLEO"
+          }
+        },
+        {
+          "set": "vpCaixa",
+          "cam": "lado",
+          "apartir": 5,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Cesto + potência",
+            "valor": "4 L · 1.500 W",
+            "sub": "ficha do fabricante"
+          }
+        },
+        {
+          "set": "vpPainel",
+          "cam": "close",
+          "apartir": 11,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Temperatura máxima",
+            "num": 200,
+            "sufixo": " °C"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "Só que ela não frita nada. Por dentro, é um forninho com ventilador. No teto, uma resistência esquenta o ar. Uma ventoinha empurra esse ar pra baixo. Ele bate no fundo e sobe passando pela comida.",
+      "etapa": "POR DENTRO",
+      "chip": "convecção",
+      "destaques": [
+        "vale",
+        "pena",
+        "reais",
+        "centavo",
+        "litros",
+        "watts",
+        "graus",
+        "óleo",
+        "nada",
+        "forninho",
+        "ventilador",
+        "resistência",
+        "ventoinha",
+        "erra",
+        "lota",
+        "mole",
+        "fina",
+        "chacoalha",
+        "conta",
+        "minutos",
+        "quilowatt",
+        "centavos",
+        "liga",
+        "desliga",
+        "sete",
+        "colher",
+        "semana",
+        "ano",
+        "veredito",
+        "três",
+        "cinco",
+        "rodadas",
+        "link",
+        "desconto",
+        "bio",
+        "duzentos",
+        "mil",
+        "zero",
+        "trinta",
+        "vinte",
+        "duas",
+        "um",
+        "batata",
+        "pão"
+      ],
+      "planos": [
+        {
+          "set": "vpNaoFrita",
+          "cam": "frente",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Fritar de verdade?",
+            "valor": "NÃO FRITA",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "vpAberta",
+          "cam": "fluxo",
+          "apartir": 6,
+          "p": [
+            0,
+            0.4
+          ],
+          "card": {
+            "rotulo": "Na real é um",
+            "valor": "FORNO + VENTILADOR",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "vpAberta",
+          "cam": "resist",
+          "apartir": 13,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Resistência",
+            "valor": "esquenta o ar",
+            "sub": "até 200 °C"
+          }
+        },
+        {
+          "set": "vpAberta",
+          "cam": "venti",
+          "apartir": 20,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Ventoinha",
+            "valor": "sopra pra baixo"
+          }
+        },
+        {
+          "set": "vpAberta",
+          "cam": "lado",
+          "apartir": 27,
+          "p": [
+            0.3,
+            1
+          ],
+          "card": {
+            "rotulo": "Ar quente",
+            "valor": "desce e sobe",
+            "sub": "passa pela comida"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "E aqui quase todo mundo erra: lota o cesto. O ar não passa, e a batata sai mole. Faz camada fina e chacoalha no meio.",
+      "etapa": "O ERRO",
+      "chip": "cesto cheio",
+      "destaques": [
+        "vale",
+        "pena",
+        "reais",
+        "centavo",
+        "litros",
+        "watts",
+        "graus",
+        "óleo",
+        "nada",
+        "forninho",
+        "ventilador",
+        "resistência",
+        "ventoinha",
+        "erra",
+        "lota",
+        "mole",
+        "fina",
+        "chacoalha",
+        "conta",
+        "minutos",
+        "quilowatt",
+        "centavos",
+        "liga",
+        "desliga",
+        "sete",
+        "colher",
+        "semana",
+        "ano",
+        "veredito",
+        "três",
+        "cinco",
+        "rodadas",
+        "link",
+        "desconto",
+        "bio",
+        "duzentos",
+        "mil",
+        "zero",
+        "trinta",
+        "vinte",
+        "duas",
+        "um",
+        "batata",
+        "pão"
+      ],
+      "planos": [
+        {
+          "set": "vpErro",
+          "cam": "geral"
+        },
+        {
+          "set": "vpLotado",
+          "cam": "cima",
+          "apartir": 6,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Cesto lotado",
+            "valor": "AR NÃO PASSA",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "vpLotado",
+          "cam": "lado",
+          "apartir": 9,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Resultado",
+            "valor": "BATATA MOLE",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "vpFina",
+          "cam": "cima",
+          "apartir": 18,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Camada fina",
+            "valor": "+ chacoalhar",
+            "sub": "no meio do tempo",
+            "cor": "#2fbf71"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "Agora a conta. Num teste de vinte minutos a duzentos graus, ela gastou só zero vírgula três quilowatt-hora. Uns trinta centavos de luz. É que a resistência liga e desliga sozinha.",
+      "etapa": "A CONTA",
+      "chip": "luz",
+      "destaques": [
+        "vale",
+        "pena",
+        "reais",
+        "centavo",
+        "litros",
+        "watts",
+        "graus",
+        "óleo",
+        "nada",
+        "forninho",
+        "ventilador",
+        "resistência",
+        "ventoinha",
+        "erra",
+        "lota",
+        "mole",
+        "fina",
+        "chacoalha",
+        "conta",
+        "minutos",
+        "quilowatt",
+        "centavos",
+        "liga",
+        "desliga",
+        "sete",
+        "colher",
+        "semana",
+        "ano",
+        "veredito",
+        "três",
+        "cinco",
+        "rodadas",
+        "link",
+        "desconto",
+        "bio",
+        "duzentos",
+        "mil",
+        "zero",
+        "trinta",
+        "vinte",
+        "duas",
+        "um",
+        "batata",
+        "pão"
+      ],
+      "planos": [
+        {
+          "set": "vpMedidor",
+          "cam": "geral",
+          "p": [
+            0,
+            0.2
+          ]
+        },
+        {
+          "set": "vpMedidor",
+          "cam": "timer",
+          "apartir": 3,
+          "p": [
+            0.2,
+            0.6
+          ],
+          "card": {
+            "rotulo": "Teste",
+            "valor": "20 min a 200 °C"
+          }
+        },
+        {
+          "set": "vpMedidor",
+          "cam": "display",
+          "apartir": 11,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "Consumo medido",
+            "valor": "0,3 kWh",
+            "sub": "teste Canaltech",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "vpMoedas",
+          "cam": "luz",
+          "apartir": 18,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Custo de luz por uso",
+            "valor": "≈ R$ 0,30",
+            "sub": "tarifa ≈ R$ 1/kWh",
+            "cor": "#2fbf71"
+          }
+        },
+        {
+          "set": "vpTermostato",
+          "cam": "close",
+          "apartir": 23,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Termostato",
+            "valor": "liga e desliga"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "Na panela, a batata pede uma garrafa de óleo de sete reais. Na air fryer, basta uma colher. Usando duas vezes por semana, ela se paga em cerca de um ano.",
+      "etapa": "A CONTA",
+      "chip": "óleo",
+      "destaques": [
+        "vale",
+        "pena",
+        "reais",
+        "centavo",
+        "litros",
+        "watts",
+        "graus",
+        "óleo",
+        "nada",
+        "forninho",
+        "ventilador",
+        "resistência",
+        "ventoinha",
+        "erra",
+        "lota",
+        "mole",
+        "fina",
+        "chacoalha",
+        "conta",
+        "minutos",
+        "quilowatt",
+        "centavos",
+        "liga",
+        "desliga",
+        "sete",
+        "colher",
+        "semana",
+        "ano",
+        "veredito",
+        "três",
+        "cinco",
+        "rodadas",
+        "link",
+        "desconto",
+        "bio",
+        "duzentos",
+        "mil",
+        "zero",
+        "trinta",
+        "vinte",
+        "duas",
+        "um",
+        "batata",
+        "pão"
+      ],
+      "planos": [
+        {
+          "set": "vpPanela",
+          "cam": "panela",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Óleo de soja 900 ml",
+            "valor": "R$ 7,32",
+            "sub": "média 2026 · Deral-PR"
+          }
+        },
+        {
+          "set": "vpColher",
+          "cam": "close",
+          "apartir": 12,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Na air fryer",
+            "valor": "1 colher",
+            "sub": "≈ 15 ml",
+            "cor": "#2fbf71"
+          }
+        },
+        {
+          "set": "vpMoedas",
+          "cam": "semana",
+          "apartir": 18,
+          "p": [
+            0,
+            0.5
+          ],
+          "card": {
+            "rotulo": "Uso",
+            "valor": "2× por semana"
+          }
+        },
+        {
+          "set": "vpMoedas",
+          "cam": "paga",
+          "apartir": 23,
+          "p": [
+            0.5,
+            1
+          ],
+          "card": {
+            "rotulo": "Se paga em",
+            "valor": "≈ 1 ano",
+            "sub": "R$ 250 ÷ ≈ R$ 2 por fritura",
+            "cor": "#2fbf71"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "Veredito: vale. Mas pra até três pessoas. Família grande? Pega uma de cinco litros pra cima, senão a janta sai em três rodadas.",
+      "etapa": "VEREDITO",
+      "destaques": [
+        "vale",
+        "pena",
+        "reais",
+        "centavo",
+        "litros",
+        "watts",
+        "graus",
+        "óleo",
+        "nada",
+        "forninho",
+        "ventilador",
+        "resistência",
+        "ventoinha",
+        "erra",
+        "lota",
+        "mole",
+        "fina",
+        "chacoalha",
+        "conta",
+        "minutos",
+        "quilowatt",
+        "centavos",
+        "liga",
+        "desliga",
+        "sete",
+        "colher",
+        "semana",
+        "ano",
+        "veredito",
+        "três",
+        "cinco",
+        "rodadas",
+        "link",
+        "desconto",
+        "bio",
+        "duzentos",
+        "mil",
+        "zero",
+        "trinta",
+        "vinte",
+        "duas",
+        "um",
+        "batata",
+        "pão"
+      ],
+      "planos": [
+        {
+          "set": "vpVeredito",
+          "cam": "carimbo",
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "vpFamilia",
+          "cam": "tres",
+          "apartir": 2,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "4 litros servem",
+            "valor": "até 3 pessoas",
+            "cor": "#2fbf71"
+          }
+        },
+        {
+          "set": "vpFamilia",
+          "cam": "cinco",
+          "apartir": 7,
+          "p": [
+            0,
+            0.1
+          ],
+          "card": {
+            "rotulo": "Família grande",
+            "valor": "5 L ou mais",
+            "sub": "senão: 3 rodadas",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "vpFamilia",
+          "cam": "rodadas",
+          "apartir": 16,
+          "p": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "Link com desconto na bio. E aí: você usaria pra batata ou pra pão de queijo?",
+      "cta": true,
+      "destaques": [
+        "vale",
+        "pena",
+        "reais",
+        "centavo",
+        "litros",
+        "watts",
+        "graus",
+        "óleo",
+        "nada",
+        "forninho",
+        "ventilador",
+        "resistência",
+        "ventoinha",
+        "erra",
+        "lota",
+        "mole",
+        "fina",
+        "chacoalha",
+        "conta",
+        "minutos",
+        "quilowatt",
+        "centavos",
+        "liga",
+        "desliga",
+        "sete",
+        "colher",
+        "semana",
+        "ano",
+        "veredito",
+        "três",
+        "cinco",
+        "rodadas",
+        "link",
+        "desconto",
+        "bio",
+        "duzentos",
+        "mil",
+        "zero",
+        "trinta",
+        "vinte",
+        "duas",
+        "um",
+        "batata",
+        "pão"
+      ],
+      "planos": [
+        {
+          "set": "vpFinal",
+          "cam": "final",
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "vpFinal",
+          "cam": "close",
+          "apartir": 5,
+          "p": [
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "pagina": {
+    "texto": "🍟 Air fryer barata vale a pena? (nov/2026)\n\nO VEREDITO: VALE, para até 3 pessoas.\nA de referência é a de 4 litros e 1.500 W, a mais barata e mais vendida, por uns R$ 250. Família maior fica apertada: vá de 5 litros ou mais.\n\nA CONTA\n• Luz: num teste de 20 minutos a 200 °C, ela gastou só 0,3 kWh, uns 30 centavos.\n• Óleo: em vez de uma garrafa de fritura, uma colher de sopa. Economia de uns R$ 2,40 por fritura.\n• Volta do dinheiro: usando 2 vezes por semana, ela se paga em mais ou menos 1 ano.\n\nCOMO FUNCIONA\nEla não frita: é um forninho com ventilador. A resistência no teto esquenta o ar e a ventoinha sopra esse ar em volta da comida. Quando chega na temperatura, a resistência desliga e religa, por isso gasta menos que parece.\n\nO ERRO QUE QUASE TODO MUNDO COMETE\nLotar o cesto. O ar quente precisa passar entre os pedaços. Cesto cheio é batata mole. Faz em levas e remexe na metade do tempo.\n\nFontes: Buscapé, Canaltech (teste de consumo), Aneel e Deral-PR. Preços mudam todo dia."
+  }
+}

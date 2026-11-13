@@ -2,7 +2,7 @@
 // pode mostrar a casa exatamente no ponto da obra em que a narração está.
 import React, {useMemo} from 'react';
 import * as THREE from 'three';
-import {CASA, ESP_LAJE, ESP_PAREDE, LOTE, NIVEL_PISO, PAREDES, PE_DIREITO, PILARES, Parede, TOPO_LAJE, TOPO_PAREDE, V3, angulo, comprimento, solidos} from './planta';
+import {CASA, ESP_LAJE, ESP_PAREDE, LOTE, NIVEL_PISO, PAREDES, PE_DIREITO, PILARES, Parede, TOPO_LAJE, TOPO_PAREDE, V2, V3, angulo, comprimento, solidos} from './planta';
 import {Barra, Caixa, Cil, Instancias, Mat, Tufo, caixaUV, clamp01, lerp, texBloco, texTerra} from './kit';
 import {Armario, Bancada, Cama, Chuveiro, Geladeira, Sofa, Vaso} from '../v3/Pecas';
 
@@ -11,7 +11,9 @@ const FURO = 0.8; // sapata 80 x 80 cm
 const PROF = 1.0; // 1 m de profundidade
 
 export const QUINTAL = 4.0; // metros de frente (calçada + jardim) quando a cena não é em corte
-export const Lote: React.FC<{cava?: number; topo?: 'terra' | 'grama'; mato?: boolean; quintal?: boolean}> = ({cava = 0, topo = 'terra', mato = false, quintal = true}) => {
+// furos/furo/fundo: outra obra (ex.: brocas da edícula) usa o mesmo lote com outros buracos
+export const Lote: React.FC<{cava?: number; topo?: 'terra' | 'grama'; mato?: boolean; quintal?: boolean; furos?: V2[]; furo?: number; fundo?: number}> = ({cava = 0, topo = 'terra', mato = false, quintal = true, furos = PILARES, furo = FURO, fundo = PROF}) => {
+  const FURO = furo, PROF = fundo, PILARES = furos;
   const terra = texTerra();
   const corTopo = topo === 'grama' ? '#7cc576' : '#b98b5e';
   // grade de células que deixa um buraco em cada sapata
@@ -32,7 +34,7 @@ export const Lote: React.FC<{cava?: number; topo?: 'terra' | 'grama'; mato?: boo
       out.push({x0: X[i], x1: X[i + 1], z0: Z[j], z1: Z[j + 1], furo});
     }
     return out;
-  }, []);
+  }, [PILARES, FURO]);
   const prof = PROF * clamp01(cava);
   return (
     <group>
@@ -48,12 +50,12 @@ export const Lote: React.FC<{cava?: number; topo?: 'terra' | 'grama'; mato?: boo
         return (
           <mesh key={i} position={[(c.x0 + c.x1) / 2, -PROF + h / 2, (c.z0 + c.z1) / 2]} receiveShadow castShadow={false}>
             <boxGeometry args={[w, h, d]} />
-            <meshStandardMaterial attach="material-0" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-1" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-2" color={c.furo ? '#8a5a35' : corTopo} flatShading />
+            <meshStandardMaterial attach="material-0" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-1" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-2" color={c.furo ? '#8a5a35' : corTopo} />
             <meshStandardMaterial attach="material-3" color="#8a5a35" />
-            <meshStandardMaterial attach="material-4" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-5" color="#ffffff" map={terra} flatShading />
+            <meshStandardMaterial attach="material-4" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-5" color="#ffffff" map={terra} />
           </mesh>
         );
       })}
@@ -61,12 +63,12 @@ export const Lote: React.FC<{cava?: number; topo?: 'terra' | 'grama'; mato?: boo
         <group>
           <mesh position={[(LOTE.x0 + LOTE.x1) / 2, LOTE.fundo / 2, LOTE.z1 + QUINTAL / 2]} receiveShadow>
             <boxGeometry args={[LOTE.x1 - LOTE.x0, -LOTE.fundo, QUINTAL]} />
-            <meshStandardMaterial attach="material-0" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-1" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-2" color={corTopo} flatShading />
+            <meshStandardMaterial attach="material-0" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-1" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-2" color={corTopo} />
             <meshStandardMaterial attach="material-3" color="#8a5a35" />
-            <meshStandardMaterial attach="material-4" color="#ffffff" map={terra} flatShading />
-            <meshStandardMaterial attach="material-5" color="#ffffff" map={terra} flatShading />
+            <meshStandardMaterial attach="material-4" color="#ffffff" map={terra} />
+            <meshStandardMaterial attach="material-5" color="#ffffff" map={terra} />
           </mesh>
           <Caixa pos={[0, 0.03, LOTE.z1 + QUINTAL - 0.6]} tam={[LOTE.x1 - LOTE.x0, 0.06, 1.2]} cor="#d9d4ca" />
           <Caixa pos={[1.5, 0.02, LOTE.z1 + 1.4]} tam={[1.0, 0.04, 2.8]} cor="#cfc8bb" />
@@ -173,8 +175,9 @@ const Viga: React.FC<{w: Parede; baldrame: number; forma: boolean; imp: number}>
 
 // ---------- paredes ----------
 export type Acab = 'bloco' | 'reboco' | 'pintura';
-export const Paredes: React.FC<{h?: number; acab?: Acab; corExt?: string; corInt?: string; esconder?: string[]; corte?: number; pilares?: boolean; vergas?: boolean; so?: string[]}> = ({h = PE_DIREITO, acab = 'bloco', corExt = '#f2e2c4', corInt = '#fbf7ef', esconder = [], corte, pilares = false, vergas = false, so}) => {
+export const Paredes: React.FC<{h?: number; acab?: Acab; corExt?: string; corInt?: string; esconder?: string[]; corte?: number; pilares?: boolean; vergas?: boolean; so?: string[]; lista?: Parede[]; listaPilares?: V2[]}> = ({h = PE_DIREITO, acab = 'bloco', corExt = '#f2e2c4', corInt = '#fbf7ef', esconder = [], corte, pilares = false, vergas = false, so, lista = PAREDES, listaPilares = PILARES}) => {
   const bloco = texBloco();
+  const PAREDES = lista, PILARES = listaPilares;
   return (
     <group>
       {PAREDES.filter((w) => !esconder.includes(w.id) && (!so || so.includes(w.id))).map((w) => {
@@ -222,9 +225,9 @@ const PecaParede: React.FC<{pos: V3; ang: number; w: number; h: number; ou: numb
 };
 
 // portas e janelas
-export const Esquadrias: React.FC<{esconder?: string[]; p?: number}> = ({esconder = [], p = 1}) => (
+export const Esquadrias: React.FC<{esconder?: string[]; p?: number; lista?: Parede[]}> = ({esconder = [], p = 1, lista = PAREDES}) => (
   <group>
-    {PAREDES.filter((w) => !esconder.includes(w.id)).flatMap((w) => {
+    {lista.filter((w) => !esconder.includes(w.id)).flatMap((w) => {
       const L = comprimento(w), ang = angulo(w);
       const dx = (w.b[0] - w.a[0]) / L, dz = (w.b[1] - w.a[1]) / L;
       return w.vaos.filter((v) => v.tipo !== 'passagem').map((v, i) => {
@@ -236,7 +239,7 @@ export const Esquadrias: React.FC<{esconder?: string[]; p?: number}> = ({esconde
             {v.tipo === 'porta' ? (
               <>
                 <Caixa tam={[v.larg, v.alt, 0.04]} cor={w.ext ? '#8b5a3c' : '#e9d8b6'} />
-                <mesh position={[v.larg * 0.35, -0.05, 0.05]}><sphereGeometry args={[0.035, 6, 6]} /><Mat cor="#ffd23f" /></mesh>
+                <mesh position={[v.larg * 0.35, -0.05, 0.05]}><sphereGeometry args={[0.035, 20, 14]} /><Mat cor="#ffd23f" /></mesh>
               </>
             ) : (
               <>

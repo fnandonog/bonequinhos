@@ -40,6 +40,10 @@ for (let i = 0; i < planos.length; i++) {
   console.log(i, p.nome, 'frame', frame);
   lista.push(out);
 }
+// apaga o bundle temporário que este script criou (antes ficava no TMP e enchia o disco: ~90 MB por rodada)
+try {
+  fs.rmSync(serveUrl, {recursive: true, force: true});
+} catch {}
 if (!so) {
   execSync(`ffmpeg -y -loglevel error -pattern_type glob -i '${pasta}/p*.jpg' -vf "scale=270:-1,tile=8x5" -frames:v 1 ${pasta}/folha.jpg`);
   console.log('folha:', `${pasta}/folha.jpg`);

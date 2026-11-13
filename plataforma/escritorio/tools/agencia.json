@@ -1,0 +1,198 @@
+{
+  "enabled": true,
+  "_leia": "Interruptor geral no Mac: com enabled=false nada roda (nem pela agenda, nem pelos pedidos do escritório). Só o Fernando liga. Horários em America/Sao_Paulo, cron de 5 campos. A PRODUÇÃO de vídeo não roda por aqui: é a plataforma/agencia.mjs (painel → Produzir agora, ou PRODUCAO_AUTOMATICA=1).",
+  "timezone": "America/Sao_Paulo",
+  "claude_bin": "claude",
+  "auto_update": false,
+  "limits": {
+    "max_runs_per_day": 30,
+    "max_usd_per_day": 8,
+    "run_timeout_minutes": 20,
+    "catch_up_minutes": 20,
+    "_conta": "Agenda fixa: ~14 rodadas/dia com teto de US$ 0,50 cada. O teto em US$ é o freio real."
+  },
+  "defaults": {
+    "max_budget_usd": 0.5,
+    "max_runs_per_day": 3,
+    "permission_mode": "default",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Skill",
+      "WebSearch",
+      "WebFetch",
+      "Write(docs/agencia/**)",
+      "Edit(docs/agencia/**)",
+      "Bash(node plataforma/escritorio/tools/office.mjs:*)",
+      "Bash(node plataforma/cli.mjs:*)"
+    ],
+    "disallowed_tools": [
+      "Bash(ssh:*)",
+      "Bash(scp:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(git push:*)",
+      "Bash(rm:*)",
+      "Bash(launchctl:*)",
+      "Bash(crontab:*)",
+      "Bash(cat .env:*)",
+      "Read(.env)",
+      "Bash(npm publish:*)"
+    ],
+    "prompt": "Faça a sua rodada de hoje seguindo as suas instruções e docs/agencia/REGRAS.md."
+  },
+  "agents": {
+    "gerente": {
+      "max_runs_per_day": 6,
+      "prompt": "Rodada do Gerente Geral: revise a fila (gerente fila), aprove ou peça ajustes com comentário concreto seguindo o checklist do vídeo, deixe o sensível para o dono com parecer."
+    },
+    "diretor": {
+      "max_runs_per_day": 2,
+      "prompt": "Rodada do diretor: leia o escritório e cli.mjs resumo, defina a prioridade por perfil e escreva o resumo para o dono."
+    },
+    "showrunner": {
+      "prompt": "Abertura do Estúdio: confira pautas e fila de cada perfil ativo, destrave erros e pré-aprove ou devolva o que está em Revisão."
+    },
+    "gerente-marketing": {
+      "prompt": "Planejamento de Redes: o que performou, melhores horários, prioridades da equipe e funil."
+    },
+    "gerente-crescimento": {
+      "max_runs_per_day": 1
+    },
+    "comunidade": {
+      "max_runs_per_day": 4,
+      "prompt": "Rascunhos de resposta para os comentários novos (cli.mjs comentarios / rascunho)."
+    },
+    "analista": {
+      "max_runs_per_day": 1
+    },
+    "afiliados": {
+      "max_runs_per_day": 2
+    },
+    "social-media": {
+      "max_runs_per_day": 2
+    },
+    "pauteiro": {
+      "max_runs_per_day": 2,
+      "allowed_tools": [
+        "Write(plataforma/pautas/**)",
+        "Edit(plataforma/pautas/**)"
+      ],
+      "prompt": "Pesquisa de tendências: atualize docs/agencia/pauteiro/tendencias-AAAA-Www.md e acrescente pautas fortes com cli.mjs pauta."
+    },
+    "pesquisador": {
+      "enabled": false,
+      "_nota": "roda dentro da produção (plataforma/agencia.mjs)"
+    },
+    "roteirista": {
+      "enabled": false,
+      "_nota": "roda dentro da produção"
+    },
+    "diretor-cena": {
+      "enabled": false,
+      "_nota": "roda dentro da produção"
+    },
+    "cenografo": {
+      "enabled": false,
+      "_nota": "roda dentro da produção"
+    },
+    "editor": {
+      "enabled": false,
+      "_nota": "roda dentro da produção"
+    },
+    "qa": {
+      "enabled": false,
+      "_nota": "roda dentro da produção"
+    },
+    "legendista": {
+      "enabled": false,
+      "_nota": "roda dentro da produção"
+    },
+    "cacador-tendencias": {
+      "max_runs_per_day": 1,
+      "max_budget_usd": 0.8,
+      "allowed_tools": [
+        "Bash(node plataforma/tendencias.mjs:*)"
+      ],
+      "prompt": "Caçada da semana: rode o tendencias.mjs, descubra por que os Shorts do topo viralizaram, atualize docs/agencia/ganchos.md e o relatório da semana, e ponha as 2 melhores pautas de cada perfil na fila."
+    },
+    "espiao": {
+      "max_runs_per_day": 1,
+      "max_budget_usd": 1.0,
+      "allowed_tools": [
+        "Bash(node plataforma/tendencias.mjs:*)",
+        "Bash(node plataforma/cli.mjs:*)"
+      ],
+      "prompt": "Rodada do espião de qualidade: compare os melhores Shorts 3D/explicativos da semana com os nossos e atualize docs/agencia/espiao.md e estilo.md com as 5 mudanças de maior impacto."
+    }
+  },
+  "schedule": [
+    {
+      "agent": "cacador-tendencias",
+      "cron": "0 7 * * 1,4"
+    },
+    {
+      "agent": "espiao",
+      "cron": "30 6 * * 1,3,5"
+    },
+    {
+      "agent": "analista",
+      "cron": "30 7 * * *"
+    },
+    {
+      "agent": "showrunner",
+      "cron": "0 8 * * *"
+    },
+    {
+      "agent": "diretor",
+      "cron": "30 8 * * *"
+    },
+    {
+      "agent": "gerente-marketing",
+      "cron": "45 8 * * 1-6"
+    },
+    {
+      "agent": "gerente-crescimento",
+      "cron": "0 9 * * 1"
+    },
+    {
+      "agent": "pauteiro",
+      "cron": "0 9 * * 1,4"
+    },
+    {
+      "agent": "afiliados",
+      "cron": "0 10 * * *"
+    },
+    {
+      "agent": "comunidade",
+      "cron": "0 11,15,19 * * *"
+    },
+    {
+      "agent": "social-media",
+      "cron": "30 12 * * *"
+    },
+    {
+      "agent": "gerente",
+      "cron": "0 10-20/2 * * *"
+    },
+    {
+      "agent": "diretor",
+      "cron": "0 21 * * *",
+      "prompt": "Fechamento do dia: o que saiu, o que espera o Fernando, o que travou, em 5 linhas."
+    }
+  ],
+  "estudio": {
+    "_leia": "Tarefa com a etiqueta estudio (ex.: o Chefe do Estúdio pedindo pautas ao Pauteiro) acorda o responsável na hora, dentro do horário.",
+    "hours": [
+      8,
+      22
+    ]
+  },
+  "comentarios": {
+    "hours": [
+      8,
+      22
+    ]
+  }
+}

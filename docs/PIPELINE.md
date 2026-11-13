@@ -5,9 +5,11 @@ No Mac, dentro do projeto: `claude` e depois `/video <tema>` (comando em `.claud
 
 | # | Agente | Entrega | Não pode passar adiante se... |
 |---|---|---|---|
+| 0 | `pauteiro` | tema checado com `node plataforma/cli.mjs saturacao "<tema>"` (YouTube Shorts pt do último ano) + busca no TikTok/Instagram | já existe um monte de vídeo igual na internet |
 | 1 | `pesquisador` | `roteiros/<id>.pesquisa.md` com cada número marcado [S]/[C]/[E] e as fontes | algum número do vídeo não tiver origem |
 | 2 | `roteirista` | texto da narração (você, 2ª pessoa), gancho em 3 s, 1 número por frase, final "Parabéns: você construiu..." | passar de ~1.300 caracteres (~65 s) |
-| 3 | `diretor` | storyboard em `tools/gerar_<id>.py`: cada `|` é um corte, cada plano = cenário + câmera + card | dois planos seguidos iguais, plano > 3 s, card sem número |
+| 2b | `revisor-roteiro` | nota 0–10 em gancho, clareza, ritmo falado e surpresa; APROVADO só com todas ≥ 8 | qualquer nota < 8 |
+| 3 | `diretor-cena` | storyboard em `tools/gerar_<id>.py`: cada `|` é um corte, cada plano = cenário + câmera + card | dois planos seguidos iguais, plano > 3 s, card sem número |
 | 4 | `cenografo` | cenários novos em `src/v4/sets.tsx` usando `planta.ts` e `kit.tsx` (1 unidade = 1 metro) | peça fora de escala, personagem atravessando parede |
 | 5 | `editor` | montagem em `src/v4/Obra.tsx`: legenda de 1 palavra no alto, card de número embaixo, etapa + gasto no topo, sons | texto fora da área segura (topo 150 px, base 420 px, direita 140 px) |
 | 6 | `qa` | `node tools/qa.mjs <id>` → `qa/<id>/folha.jpg` (1 still por plano) e lista de reprovações | qualquer item da lista de reprovação |

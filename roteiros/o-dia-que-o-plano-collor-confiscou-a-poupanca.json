@@ -1,0 +1,795 @@
+{
+  "id": "o-dia-que-o-plano-collor-confiscou-a-poupanca",
+  "serie": "Seu Tostão",
+  "perfil": "rico",
+  "titulo": "O DIA QUE PRENDERAM A POUPANÇA",
+  "linha2": "16 de março de 1990",
+  "voz": "pt-BR-AntonioNeural",
+  "velocidade": "+0%",
+  "elevenlabs": {
+    "voz_id": "RGbeQtiShYRDVCrd9b9w",
+    "modelo": "eleven_multilingual_v2",
+    "ajustes": {
+      "stability": 0.5,
+      "similarity_boost": 0.8,
+      "style": 0.3,
+      "use_speaker_boost": true,
+      "speed": 1
+    }
+  },
+  "fontes": "roteiros/o-dia-que-o-plano-collor-confiscou-a-poupanca.pesquisa.md",
+  "post": {
+    "legenda": "O Banco Central garantiu que não. Três dias depois, a poupança do Brasil ficou presa.\n\nEu tava no caixa naquela segunda de 1990, com uns 10 milhões de pessoas na fila. Cerca de 100 bilhões de dólares presos por 18 meses. E quando o dinheiro voltou, veio a parte que quase ninguém te contou.\n\nVocê ou seus pais perderam dinheiro nessa? Me conta aqui embaixo, que o Juros quer saber também 🦜\n\nO livro dessa história e outros em oferta no Telegram do Zé: link na bio\nSe preferir, comenta LIVRO que eu te mando por direct.\n\n#historiadodinheiro #economia #dinheiro #curiosidades #planocollor #poupanca #historiadobrasil",
+    "titulo_youtube": "O BC garantiu que não. 3 dias depois, prenderam a poupança #shorts"
+  },
+  "monetizacao": {
+    "afiliados": [
+      "livro: Zélia, uma paixão — Fernando Sabino (1991)",
+      "livro: Saga Brasileira — Miriam Leitão",
+      "livro: 3.000 Dias no Bunker — Guilherme Fiuza"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Em mil novecentos e noventa, o governo prendeu a poupança do Brasil. Três dias antes, o Banco Central garantiu que não.",
+      "ano": "1990",
+      "rotulo": "POUPANÇA",
+      "destaques": [
+        "novecentos",
+        "noventa",
+        "governo",
+        "poupança",
+        "todo",
+        "caixa",
+        "dezesseis",
+        "março",
+        "fechado",
+        "zélia",
+        "inflação",
+        "dobrando",
+        "oitenta",
+        "regra",
+        "cinquenta",
+        "cruzados",
+        "cruzado",
+        "oito",
+        "reais",
+        "preso",
+        "presa",
+        "central",
+        "dezoito",
+        "cem",
+        "bilhões",
+        "juros",
+        "segunda",
+        "balcão",
+        "dez",
+        "milhões",
+        "fila",
+        "casa",
+        "surpresa",
+        "agosto",
+        "quarenta",
+        "pão",
+        "trinta",
+        "justiça",
+        "guardado",
+        "acordo",
+        "perderam",
+        "catorze",
+        "dezoito",
+        "antes",
+        "garantiu",
+        "tostão"
+      ],
+      "planos": [
+        {
+          "set": "cocofre",
+          "cam": "cadeado",
+          "p": [
+            0.2,
+            0.6
+          ],
+          "card": {
+            "rotulo": "Março de 1990",
+            "valor": "POUPANÇA PRESA",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "cofila",
+          "cam": "drone",
+          "apartir": 12,
+          "card": {
+            "rotulo": "Três dias antes",
+            "valor": "\"NINGUÉM VAI CONFISCÁ-LA\"",
+            "sub": "presidente do Banco Central, 13/03/1990"
+          }
+        }
+      ],
+      "tem": "BLOQUEADA"
+    },
+    {
+      "id": "c2",
+      "texto": "Senta aí, que essa ninguém te contou. Eu era caixa de banco. Sexta, dezesseis de março, terceiro dia de banco fechado. A ministra da Economia, Zélia Cardoso de Mello, anunciou um plano.",
+      "ano": "16/03/1990",
+      "rotulo": "BANCOS",
+      "destaques": [
+        "novecentos",
+        "noventa",
+        "governo",
+        "poupança",
+        "todo",
+        "caixa",
+        "dezesseis",
+        "março",
+        "fechado",
+        "zélia",
+        "inflação",
+        "dobrando",
+        "oitenta",
+        "regra",
+        "cinquenta",
+        "cruzados",
+        "cruzado",
+        "oito",
+        "reais",
+        "preso",
+        "presa",
+        "central",
+        "dezoito",
+        "cem",
+        "bilhões",
+        "juros",
+        "segunda",
+        "balcão",
+        "dez",
+        "milhões",
+        "fila",
+        "casa",
+        "surpresa",
+        "agosto",
+        "quarenta",
+        "pão",
+        "trinta",
+        "justiça",
+        "guardado",
+        "acordo",
+        "perderam",
+        "catorze",
+        "dezoito",
+        "antes",
+        "garantiu",
+        "tostão"
+      ],
+      "planos": [
+        {
+          "set": "covaranda",
+          "cam": "abre",
+          "salto": true
+        },
+        {
+          "set": "coagencia",
+          "cam": "balcao",
+          "apartir": 7,
+          "card": {
+            "rotulo": "Seu Tostão",
+            "valor": "CAIXA DE BANCO",
+            "sub": "40 anos de balcão"
+          }
+        },
+        {
+          "set": "coagencia",
+          "cam": "porta",
+          "apartir": 12,
+          "card": {
+            "rotulo": "Feriado bancário",
+            "valor": "14, 15 E 16/03",
+            "sub": "sexta-feira, 16/03/1990: o anúncio",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "cosala",
+          "cam": "tv",
+          "apartir": 21,
+          "card": {
+            "rotulo": "Ministra da Economia",
+            "valor": "ZÉLIA CARDOSO DE MELLO",
+            "sub": "anuncia o plano · 16/03/1990"
+          }
+        }
+      ],
+      "tem": "FECHADOS"
+    },
+    {
+      "id": "c3",
+      "texto": "O motivo era a inflação, o preço quase dobrando todo mês. Num mês só, oitenta e dois por cento. Aí veio a regra.",
+      "ano": "MAR 1990",
+      "rotulo": "INFLAÇÃO",
+      "destaques": [
+        "novecentos",
+        "noventa",
+        "governo",
+        "poupança",
+        "todo",
+        "caixa",
+        "dezesseis",
+        "março",
+        "fechado",
+        "zélia",
+        "inflação",
+        "dobrando",
+        "oitenta",
+        "regra",
+        "cinquenta",
+        "cruzados",
+        "cruzado",
+        "oito",
+        "reais",
+        "preso",
+        "presa",
+        "central",
+        "dezoito",
+        "cem",
+        "bilhões",
+        "juros",
+        "segunda",
+        "balcão",
+        "dez",
+        "milhões",
+        "fila",
+        "casa",
+        "surpresa",
+        "agosto",
+        "quarenta",
+        "pão",
+        "trinta",
+        "justiça",
+        "guardado",
+        "acordo",
+        "perderam",
+        "catorze",
+        "dezoito",
+        "antes",
+        "garantiu",
+        "tostão"
+      ],
+      "planos": [
+        {
+          "set": "copreco",
+          "cam": "gondola",
+          "card": {
+            "rotulo": "Inflação",
+            "valor": "PREÇO QUASE DOBRA",
+            "sub": "a cada mês, no começo de 1990"
+          }
+        },
+        {
+          "set": "copreco2",
+          "cam": "etiqueta",
+          "apartir": 11,
+          "card": {
+            "rotulo": "Inflação em março de 1990",
+            "num": 82,
+            "sufixo": "%",
+            "sub": "em um mês só · IPCA (IBGE)",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "covarandabravo",
+          "cam": "bravo",
+          "apartir": 19
+        }
+      ],
+      "tem": "82% NO MÊS"
+    },
+    {
+      "id": "c4",
+      "texto": "Poupança é a conta onde o povo guarda dinheiro. Cada um só sacava cinquenta mil cruzados novos por banco. Era a moeda da época. Isso dá uns oito mil reais de hoje.",
+      "ano": "16/03/1990",
+      "rotulo": "SAQUE MÁXIMO HOJE",
+      "destaques": [
+        "novecentos",
+        "noventa",
+        "governo",
+        "poupança",
+        "todo",
+        "caixa",
+        "dezesseis",
+        "março",
+        "fechado",
+        "zélia",
+        "inflação",
+        "dobrando",
+        "oitenta",
+        "regra",
+        "cinquenta",
+        "cruzados",
+        "cruzado",
+        "oito",
+        "reais",
+        "preso",
+        "presa",
+        "central",
+        "dezoito",
+        "cem",
+        "bilhões",
+        "juros",
+        "segunda",
+        "balcão",
+        "dez",
+        "milhões",
+        "fila",
+        "casa",
+        "surpresa",
+        "agosto",
+        "quarenta",
+        "pão",
+        "trinta",
+        "justiça",
+        "guardado",
+        "acordo",
+        "perderam",
+        "catorze",
+        "dezoito",
+        "antes",
+        "garantiu",
+        "tostão"
+      ],
+      "planos": [
+        {
+          "set": "cobalcao",
+          "cam": "caderneta",
+          "card": {
+            "rotulo": "Poupança",
+            "valor": "CADERNETA",
+            "sub": "onde o povo guardava o dinheiro"
+          }
+        },
+        {
+          "set": "cobalcao",
+          "cam": "guiche",
+          "apartir": 9,
+          "card": {
+            "rotulo": "Saque máximo",
+            "valor": "NCz$ 50 MIL",
+            "sub": "por pessoa, em cada banco · Lei 8.024",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "cocarimbo",
+          "cam": "notas",
+          "apartir": 19,
+          "card": {
+            "rotulo": "Cruzado novo",
+            "valor": "NCz$",
+            "sub": "a moeda de 1990"
+          }
+        },
+        {
+          "set": "cocarimboreal",
+          "cam": "real",
+          "apartir": 24,
+          "card": {
+            "rotulo": "Corrigido pelo IPCA",
+            "valor": "≈ R$ 8 MIL",
+            "sub": "em reais de hoje · Calculadora do Cidadão (BC)",
+            "cor": "#4ade80"
+          }
+        }
+      ],
+      "patrimonio": 8079
+    },
+    {
+      "id": "c5",
+      "texto": "O resto ficou preso no Banco Central, o banco do governo. Por dezoito meses. Cerca de cem bilhões de dólares.",
+      "ano": "1990",
+      "rotulo": "PRESO NO BANCO CENTRAL",
+      "destaques": [
+        "novecentos",
+        "noventa",
+        "governo",
+        "poupança",
+        "todo",
+        "caixa",
+        "dezesseis",
+        "março",
+        "fechado",
+        "zélia",
+        "inflação",
+        "dobrando",
+        "oitenta",
+        "regra",
+        "cinquenta",
+        "cruzados",
+        "cruzado",
+        "oito",
+        "reais",
+        "preso",
+        "presa",
+        "central",
+        "dezoito",
+        "cem",
+        "bilhões",
+        "juros",
+        "segunda",
+        "balcão",
+        "dez",
+        "milhões",
+        "fila",
+        "casa",
+        "surpresa",
+        "agosto",
+        "quarenta",
+        "pão",
+        "trinta",
+        "justiça",
+        "guardado",
+        "acordo",
+        "perderam",
+        "catorze",
+        "dezoito",
+        "antes",
+        "garantiu",
+        "tostão"
+      ],
+      "planos": [
+        {
+          "set": "cocofre",
+          "cam": "porta",
+          "p": [
+            0.3,
+            0.5
+          ],
+          "card": {
+            "rotulo": "O resto",
+            "valor": "FICA PRESO",
+            "sub": "acima de NCz$ 50 mil · Lei 8.024",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "cocofre",
+          "cam": "monte",
+          "apartir": 7,
+          "p": [
+            0.5,
+            0.8
+          ],
+          "card": {
+            "rotulo": "Banco Central",
+            "valor": "O BANCO DO GOVERNO",
+            "sub": "corrigido + 6% ao ano"
+          }
+        },
+        {
+          "set": "cocofre",
+          "cam": "calendario",
+          "apartir": 11,
+          "card": {
+            "rotulo": "Bloqueio",
+            "num": 18,
+            "sufixo": " MESES",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "covarandajuros",
+          "cam": "juros",
+          "apartir": 14,
+          "card": {
+            "rotulo": "Juros!",
+            "valor": "CEM BILHÕES!",
+            "sub": "≈ US$ 100 bi presos · estimativa da época",
+            "cor": "#ffd23f"
+          },
+          "batida": "drama"
+        }
+      ],
+      "tem": "≈ US$ 100 BI"
+    },
+    {
+      "id": "c7",
+      "texto": "Na segunda, eu abri o caixa. Uns dez milhões de pessoas fizeram fila. Teve pai que juntava para a casa própria. Ficou tudo preso.",
+      "ano": "19/03/1990",
+      "rotulo": "NA FILA",
+      "destaques": [
+        "novecentos",
+        "noventa",
+        "governo",
+        "poupança",
+        "todo",
+        "caixa",
+        "dezesseis",
+        "março",
+        "fechado",
+        "zélia",
+        "inflação",
+        "dobrando",
+        "oitenta",
+        "regra",
+        "cinquenta",
+        "cruzados",
+        "cruzado",
+        "oito",
+        "reais",
+        "preso",
+        "presa",
+        "central",
+        "dezoito",
+        "cem",
+        "bilhões",
+        "juros",
+        "segunda",
+        "balcão",
+        "dez",
+        "milhões",
+        "fila",
+        "casa",
+        "surpresa",
+        "agosto",
+        "quarenta",
+        "pão",
+        "trinta",
+        "justiça",
+        "guardado",
+        "acordo",
+        "perderam",
+        "catorze",
+        "dezoito",
+        "antes",
+        "garantiu",
+        "tostão"
+      ],
+      "planos": [
+        {
+          "set": "cobalcao",
+          "cam": "fila",
+          "card": {
+            "rotulo": "Segunda-feira",
+            "valor": "19/03/1990",
+            "sub": "os bancos reabrem"
+          },
+          "salto": true
+        },
+        {
+          "set": "cofila",
+          "cam": "rua",
+          "apartir": 6,
+          "card": {
+            "rotulo": "Na fila dos bancos",
+            "valor": "≈ 10 MILHÕES",
+            "sub": "estimativa da Febraban"
+          }
+        },
+        {
+          "set": "cocasa",
+          "cam": "pai",
+          "apartir": 13,
+          "card": {
+            "rotulo": "O sonho",
+            "valor": "CASA PRÓPRIA",
+            "sub": "o dinheiro guardado anos a fio"
+          }
+        },
+        {
+          "set": "cocasaparada",
+          "cam": "parada",
+          "apartir": 21,
+          "card": {
+            "rotulo": "A obra",
+            "valor": "FICOU PRESA",
+            "cor": "#ff5d5d"
+          },
+          "batida": "drama"
+        }
+      ],
+      "tem": "≈ 10 MILHÕES"
+    },
+    {
+      "id": "c8",
+      "texto": "Só que a surpresa veio na volta. Voltou aos poucos, só em agosto de noventa e um. Lembra dos oitenta e dois por cento? O governo corrigiu o dinheiro preso por outra conta. Deu só quarenta e um. É como o pão de dez ir para dezoito. E seus dez virarem catorze.",
+      "ano": "AGO 1991",
+      "rotulo": "DEVOLUÇÃO",
+      "destaques": [
+        "novecentos",
+        "noventa",
+        "governo",
+        "poupança",
+        "todo",
+        "caixa",
+        "dezesseis",
+        "março",
+        "fechado",
+        "zélia",
+        "inflação",
+        "dobrando",
+        "oitenta",
+        "regra",
+        "cinquenta",
+        "cruzados",
+        "cruzado",
+        "oito",
+        "reais",
+        "preso",
+        "presa",
+        "central",
+        "dezoito",
+        "cem",
+        "bilhões",
+        "juros",
+        "segunda",
+        "balcão",
+        "dez",
+        "milhões",
+        "fila",
+        "casa",
+        "surpresa",
+        "agosto",
+        "quarenta",
+        "pão",
+        "trinta",
+        "justiça",
+        "guardado",
+        "acordo",
+        "perderam",
+        "catorze",
+        "dezoito",
+        "antes",
+        "garantiu",
+        "tostão"
+      ],
+      "planos": [
+        {
+          "set": "covarandaaponta",
+          "cam": "aponta",
+          "batida": "drama"
+        },
+        {
+          "set": "cocofrevolta",
+          "cam": "volta",
+          "apartir": 7,
+          "card": {
+            "rotulo": "Devolução",
+            "valor": "EM PARCELAS",
+            "sub": "a partir de 15/08/1991, até agosto de 1992",
+            "cor": "#4ade80"
+          },
+          "salto": true
+        },
+        {
+          "set": "copao",
+          "cam": "pao",
+          "apartir": 17,
+          "card": {
+            "rotulo": "Inflação de março",
+            "num": 82,
+            "sufixo": "%",
+            "sub": "IPCA (IBGE)",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "copaonotas",
+          "cam": "notas",
+          "apartir": 24,
+          "card": {
+            "rotulo": "Correção do dinheiro preso",
+            "num": 41,
+            "sufixo": "%",
+            "sub": "outro índice: BTN Fiscal · Idec",
+            "cor": "#7cc4ff"
+          }
+        },
+        {
+          "set": "copaodois",
+          "cam": "dois",
+          "apartir": 38,
+          "card": {
+            "rotulo": "Na prática",
+            "valor": "PREÇOS 82% · DINHEIRO 41%",
+            "sub": "o dinheiro voltou valendo menos"
+          }
+        }
+      ],
+      "tem": "EM PARCELAS"
+    },
+    {
+      "id": "c9",
+      "texto": "Trinta e seis anos depois, ainda tem gente na Justiça. O acordo com os bancos deixou de fora o dinheiro preso. A lição? Nem dinheiro guardado fica guardado. Você ou seus pais perderam dinheiro nessa? Guarda esse tostão. Amanhã eu conto outra.",
+      "ano": "2026",
+      "rotulo": "AINDA",
+      "destaques": [
+        "novecentos",
+        "noventa",
+        "governo",
+        "poupança",
+        "todo",
+        "caixa",
+        "dezesseis",
+        "março",
+        "fechado",
+        "zélia",
+        "inflação",
+        "dobrando",
+        "oitenta",
+        "regra",
+        "cinquenta",
+        "cruzados",
+        "cruzado",
+        "oito",
+        "reais",
+        "preso",
+        "presa",
+        "central",
+        "dezoito",
+        "cem",
+        "bilhões",
+        "juros",
+        "segunda",
+        "balcão",
+        "dez",
+        "milhões",
+        "fila",
+        "casa",
+        "surpresa",
+        "agosto",
+        "quarenta",
+        "pão",
+        "trinta",
+        "justiça",
+        "guardado",
+        "acordo",
+        "perderam",
+        "catorze",
+        "dezoito",
+        "antes",
+        "garantiu",
+        "tostão"
+      ],
+      "planos": [
+        {
+          "set": "cojustica",
+          "cam": "salao",
+          "card": {
+            "rotulo": "36 anos depois",
+            "valor": "FORA DO ACORDO",
+            "sub": "o dinheiro preso em março · STF, 2025",
+            "cor": "#ffd23f"
+          },
+          "salto": true
+        },
+        {
+          "set": "covarandalicao",
+          "cam": "licao",
+          "apartir": 21,
+          "card": {
+            "rotulo": "A lição",
+            "valor": "NEM GUARDADO FICA GUARDADO"
+          }
+        },
+        {
+          "set": "covarandapergunta",
+          "cam": "pergunta",
+          "apartir": 28,
+          "card": {
+            "rotulo": "E na sua casa?",
+            "valor": "PERDERAM NESSA?",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "covarandafecho",
+          "cam": "fecho",
+          "apartir": 35,
+          "batida": "drama"
+        }
+      ],
+      "tem": "NA JUSTIÇA"
+    }
+  ]
+}

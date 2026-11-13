@@ -1,0 +1,448 @@
+{
+  "id": "ela-usou-7-identidades-falsas-e-viveu-as",
+  "serie": "Caso Explicado",
+  "perfil": "caso",
+  "titulo": "ELA TINHA 7 NOMES",
+  "linha2": "20 anos sem ninguém saber quem era",
+  "quando": "2001–2019",
+  "onde": "EUA",
+  "voz": "pt-BR-FranciscaNeural",
+  "velocidade": "+10%",
+  "elevenlabs": {
+    "voz_id": "YNOujSUmHtgN6anjqXPf",
+    "modelo": "eleven_multilingual_v2",
+    "ajustes": {
+      "stability": 0.5,
+      "similarity_boost": 0.8,
+      "style": 0.25,
+      "use_speaker_boost": true,
+      "speed": 1
+    }
+  },
+  "fontes": "roteiros/ela-usou-7-identidades-falsas-e-viveu-as.pesquisa.md",
+  "monetizacao": {
+    "afiliados": [
+      "VPN (proteção de identidade digital)",
+      "livro de true crime",
+      "serviço de monitoramento de CPF/identidade"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Mais de três milhões de dólares. Era o golpe de uma mulher com sete nomes e ninguém sabia qual era o real.",
+      "quando": "2001–2019",
+      "onde": "EUA",
+      "destaques": [
+        "sete",
+        "vinte",
+        "nomes",
+        "nove",
+        "seis",
+        "nfl",
+        "cingapura",
+        "manicure",
+        "carteira",
+        "luxo",
+        "porsches",
+        "ferraris",
+        "tribunal",
+        "lee",
+        "obama",
+        "prisão",
+        "malásia",
+        "fbi",
+        "funeral",
+        "governador"
+      ],
+      "planos": [
+        {
+          "set": "id_quadro",
+          "cam": "geral",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "7 identidades",
+            "valor": "20 ANOS NOS EUA",
+            "sub": "2001–2019"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Em 2001, ela veio da Malásia para os EUA com um visto de turista que vencia em meses. Ficou vinte anos.",
+      "quando": "2001",
+      "onde": "MALÁSIA / EUA",
+      "destaques": [
+        "sete",
+        "vinte",
+        "nomes",
+        "nove",
+        "seis",
+        "nfl",
+        "cingapura",
+        "manicure",
+        "carteira",
+        "luxo",
+        "porsches",
+        "ferraris",
+        "tribunal",
+        "lee",
+        "obama",
+        "prisão",
+        "malásia",
+        "fbi",
+        "funeral",
+        "governador"
+      ],
+      "planos": [
+        {
+          "set": "id_quadro",
+          "cam": "close",
+          "p": [
+            0,
+            0.5
+          ],
+          "card": {
+            "rotulo": "1ª identidade roubada",
+            "valor": "LEE SAU HOONG",
+            "sub": "dona de casa em Kuala Lumpur"
+          }
+        },
+        {
+          "set": "id_quadro",
+          "cam": "geral",
+          "apartir": 18,
+          "p": [
+            0.5,
+            1
+          ],
+          "card": {
+            "rotulo": "Entrada nos EUA",
+            "valor": "2001",
+            "sub": "visto de turista com prazo"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "Com cada novo nome, cultivava amizade e roubava os documentos. Cada vítima abria a porta da seguinte. Convencia as vítimas a financiar carros no próprio nome delas, prometendo pagar as parcelas. As parcelas nunca vieram. A conta ficou com as vítimas e ela ficou com quinze carros de luxo.",
+      "quando": "2012–2016",
+      "onde": "VIRGÍNIA / CALIFORNIA",
+      "destaques": [
+        "sete",
+        "vinte",
+        "nomes",
+        "nove",
+        "seis",
+        "nfl",
+        "cingapura",
+        "manicure",
+        "carteira",
+        "luxo",
+        "porsches",
+        "ferraris",
+        "tribunal",
+        "lee",
+        "obama",
+        "prisão",
+        "malásia",
+        "fbi",
+        "funeral",
+        "governador"
+      ],
+      "planos": [
+        {
+          "set": "id_escritorio",
+          "cam": "geral",
+          "p": [
+            0,
+            0.5
+          ]
+        },
+        {
+          "set": "id_concessio",
+          "cam": "geral",
+          "apartir": 17,
+          "p": [
+            0.4,
+            1
+          ],
+          "card": {
+            "rotulo": "Veículos financiados",
+            "valor": "9 PORSCHES + 6 FERRARIS",
+            "sub": "as parcelas nunca vieram"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "Disse ser neta de Lee Kuan Yew, premier de Cingapura. Um jogador de futebol americano entregou um milhão e duzentos mil dólares para comprar participação num negócio que nunca existiu. Em 2015, Lee Kuan Yew morreu. O treinador de boxe que a conhecia foi ao funeral ao vivo e não a viu entre os familiares.",
+      "quando": "2014–2015",
+      "onde": "VIRGÍNIA",
+      "destaques": [
+        "sete",
+        "vinte",
+        "nomes",
+        "nove",
+        "seis",
+        "nfl",
+        "cingapura",
+        "manicure",
+        "carteira",
+        "luxo",
+        "porsches",
+        "ferraris",
+        "tribunal",
+        "lee",
+        "obama",
+        "prisão",
+        "malásia",
+        "fbi",
+        "funeral",
+        "governador"
+      ],
+      "planos": [
+        {
+          "set": "id_escritorio",
+          "cam": "mesa",
+          "p": [
+            0,
+            0.3
+          ]
+        },
+        {
+          "set": "id_escritorio",
+          "cam": "geral",
+          "apartir": 9,
+          "p": [
+            0.2,
+            0.55
+          ],
+          "card": {
+            "rotulo": "Maior golpe",
+            "num": 1200000,
+            "prefixo": "US$ ",
+            "sub": "participação no Washington Wizards — negócio que nunca existiu"
+          }
+        },
+        {
+          "set": "id_quadro",
+          "cam": "detalhe",
+          "apartir": 30,
+          "p": [
+            0.5,
+            0.75
+          ],
+          "card": {
+            "rotulo": "Março 2015",
+            "valor": "PREMIER MORREU",
+            "sub": "funeral ao vivo — ela não foi"
+          }
+        },
+        {
+          "set": "id_quadro",
+          "cam": "geral",
+          "apartir": 36,
+          "p": [
+            0.72,
+            1
+          ],
+          "card": {
+            "rotulo": "Primeira suspeita",
+            "valor": "UM AMIGO PERCEBEU",
+            "cor": "#ffd23f"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "Uns dizem que era só luxo, e os Porsches falam por si. Outros acham que ela escondia uma condenação por roubo de identidade que já tinha cumprido na Califórnia. Tem quem diga que ela fugia da deportação e mentiu sob juramento para ficar no país. A evidência aponta para o luxo.",
+      "quando": "2014–2016",
+      "onde": "VIRGÍNIA",
+      "destaques": [
+        "sete",
+        "vinte",
+        "nomes",
+        "nove",
+        "seis",
+        "nfl",
+        "cingapura",
+        "manicure",
+        "carteira",
+        "luxo",
+        "porsches",
+        "ferraris",
+        "tribunal",
+        "lee",
+        "obama",
+        "prisão",
+        "malásia",
+        "fbi",
+        "funeral",
+        "governador"
+      ],
+      "planos": [
+        {
+          "set": "id_concessio",
+          "cam": "close",
+          "p": [
+            0,
+            0.4
+          ],
+          "card": {
+            "rotulo": "3 teorias",
+            "valor": "LUXO · FUGA · IDENTIDADE",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "id_quadro",
+          "cam": "detalhe",
+          "apartir": 12,
+          "p": [
+            0.35,
+            0.7
+          ]
+        },
+        {
+          "set": "id_quadro",
+          "cam": "geral",
+          "apartir": 45,
+          "p": [
+            0.65,
+            1
+          ],
+          "card": {
+            "rotulo": "Teoria com mais evidência",
+            "valor": "LUXO",
+            "sub": "nove Porsches não são acidente",
+            "cor": "#ffd23f"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "Em 2017, a Malásia avisou a polícia federal americana. No apartamento dela em Los Angeles acharam a carteira de Cindy Lin, a manicure de quem ela roubou o nome. Em 2019, recebeu cinquenta e um meses de prisão federal.",
+      "quando": "2017–2019",
+      "onde": "LOS ANGELES / VIRGINIA",
+      "destaques": [
+        "sete",
+        "vinte",
+        "nomes",
+        "nove",
+        "seis",
+        "nfl",
+        "cingapura",
+        "manicure",
+        "carteira",
+        "luxo",
+        "porsches",
+        "ferraris",
+        "tribunal",
+        "lee",
+        "obama",
+        "prisão",
+        "malásia",
+        "fbi",
+        "funeral",
+        "governador"
+      ],
+      "planos": [
+        {
+          "set": "id_apartamento",
+          "cam": "geral",
+          "p": [
+            0,
+            0.4
+          ],
+          "card": {
+            "rotulo": "2017",
+            "valor": "FBI BATE NA PORTA",
+            "sub": "apartamento em Los Angeles"
+          }
+        },
+        {
+          "set": "id_apartamento",
+          "cam": "close",
+          "apartir": 9,
+          "p": [
+            0.3,
+            0.6
+          ],
+          "card": {
+            "rotulo": "Prova física",
+            "valor": "CARTEIRA DE OUTRA PESSOA",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "id_delegacia",
+          "cam": "geral",
+          "apartir": 29,
+          "p": [
+            0.55,
+            1
+          ],
+          "card": {
+            "rotulo": "Sentença · out/2019",
+            "num": 51,
+            "sub": "meses de prisão federal",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "Foram vinte anos e sete nomes. No tribunal ela tentou o oitavo. Qual teoria você acha que é real?",
+      "quando": "HOJE",
+      "onde": "CASO ENCERRADO",
+      "destaques": [
+        "sete",
+        "vinte",
+        "nomes",
+        "nove",
+        "seis",
+        "nfl",
+        "cingapura",
+        "manicure",
+        "carteira",
+        "luxo",
+        "porsches",
+        "ferraris",
+        "tribunal",
+        "lee",
+        "obama",
+        "prisão",
+        "malásia",
+        "fbi",
+        "funeral",
+        "governador"
+      ],
+      "planos": [
+        {
+          "set": "id_delegacia",
+          "cam": "espelho",
+          "p": [
+            1,
+            1
+          ],
+          "card": {
+            "rotulo": "Qual teoria?",
+            "valor": "LUXO · FUGA · IDENTIDADE",
+            "sub": "comenta aqui",
+            "cor": "#ffd23f"
+          }
+        }
+      ]
+    }
+  ]
+}

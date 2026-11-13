@@ -1,0 +1,751 @@
+{
+  "id": "pao-de-queijo-de-liquidificador",
+  "serie": "Zé na Cozinha",
+  "titulo": "PÃO DE QUEIJO DE LIQUIDIFICADOR",
+  "linha2": "o segredo que ninguém conta",
+  "site": "precinhodeouro.com.br/receitas",
+  "elevenlabs": {
+    "voz_id": "fhtZMBwha5du5OxuvexO",
+    "modelo": "eleven_multilingual_v2",
+    "ajustes": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.4,
+      "use_speaker_boost": true,
+      "speed": 1.15
+    }
+  },
+  "fontes": "roteiros/pao-de-queijo-de-liquidificador.pesquisa.md",
+  "monetizacao": {
+    "afiliados": [
+      "forminhas de silicone para pão de queijo",
+      "liquidificador",
+      "polvilho azedo Yoki"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "O pão de queijo mais fácil do mundo entra tudo no liquidificador, fica pronto em vinte minutos e a família pede toda semana.",
+      "destaques": [
+        "queijo",
+        "polvilho",
+        "azedo",
+        "doce",
+        "emborracha",
+        "nunca",
+        "graus",
+        "minuto",
+        "minutos",
+        "pronto",
+        "parabéns",
+        "telegram",
+        "precinho",
+        "ouro",
+        "grátis",
+        "trinta",
+        "dois",
+        "duas",
+        "meia",
+        "cento",
+        "cima",
+        "leite",
+        "ovos",
+        "óleo",
+        "forminhas",
+        "silicone",
+        "dourado"
+      ],
+      "planos": [
+        {
+          "set": "paoQPronto",
+          "cam": "giro"
+        },
+        {
+          "set": "liqBate",
+          "cam": "frente",
+          "apartir": 8,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "paoQPronto",
+          "cam": "close",
+          "apartir": 12
+        },
+        {
+          "set": "paoQPronto",
+          "cam": "mesa",
+          "apartir": 17,
+          "p": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Primeiro, liga o forno em cento e oitenta graus.",
+      "etapa": "FORNO",
+      "chip": "180 °C",
+      "destaques": [
+        "queijo",
+        "polvilho",
+        "azedo",
+        "doce",
+        "emborracha",
+        "nunca",
+        "graus",
+        "minuto",
+        "minutos",
+        "pronto",
+        "parabéns",
+        "telegram",
+        "precinho",
+        "ouro",
+        "grátis",
+        "trinta",
+        "dois",
+        "duas",
+        "meia",
+        "cento",
+        "cima",
+        "leite",
+        "ovos",
+        "óleo",
+        "forminhas",
+        "silicone",
+        "dourado"
+      ],
+      "planos": [
+        {
+          "set": "cozinha",
+          "cam": "geral"
+        },
+        {
+          "set": "botao",
+          "cam": "macro",
+          "apartir": 1,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Pré-aquecer o forno",
+            "num": 180,
+            "sufixo": " °C"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "No liquidificador: dois ovos, meio copo de óleo e um copo de leite.",
+      "etapa": "OVOS E LÍQUIDOS",
+      "chip": "2 ovos",
+      "destaques": [
+        "queijo",
+        "polvilho",
+        "azedo",
+        "doce",
+        "emborracha",
+        "nunca",
+        "graus",
+        "minuto",
+        "minutos",
+        "pronto",
+        "parabéns",
+        "telegram",
+        "precinho",
+        "ouro",
+        "grátis",
+        "trinta",
+        "dois",
+        "duas",
+        "meia",
+        "cento",
+        "cima",
+        "leite",
+        "ovos",
+        "óleo",
+        "forminhas",
+        "silicone",
+        "dourado"
+      ],
+      "planos": [
+        {
+          "set": "liqOvos",
+          "cam": "close",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Ovos",
+            "num": 2,
+            "sufixo": " inteiros"
+          }
+        },
+        {
+          "set": "liqOleo",
+          "cam": "close",
+          "apartir": 4,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Óleo",
+            "valor": "½ copo",
+            "sub": "120 ml"
+          }
+        },
+        {
+          "set": "liqLeite",
+          "cam": "close",
+          "apartir": 8,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Leite inteiro",
+            "valor": "1 copo",
+            "sub": "240 ml"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "Dois copos de polvilho azedo e uma colher de sal. Nunca polvilho doce: o pão fica emborrachado.",
+      "etapa": "POLVILHO AZEDO",
+      "chip": "200 g",
+      "destaques": [
+        "queijo",
+        "polvilho",
+        "azedo",
+        "doce",
+        "emborracha",
+        "nunca",
+        "graus",
+        "minuto",
+        "minutos",
+        "pronto",
+        "parabéns",
+        "telegram",
+        "precinho",
+        "ouro",
+        "grátis",
+        "trinta",
+        "dois",
+        "duas",
+        "meia",
+        "cento",
+        "cima",
+        "leite",
+        "ovos",
+        "óleo",
+        "forminhas",
+        "silicone",
+        "dourado"
+      ],
+      "planos": [
+        {
+          "set": "liqPolvilho",
+          "cam": "alto",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Polvilho azedo",
+            "valor": "2 copos",
+            "sub": "200 g"
+          }
+        },
+        {
+          "set": "liqPolvilho",
+          "cam": "close",
+          "apartir": 5,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "liqPolvilho",
+          "cam": "frente",
+          "apartir": 10,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Polvilho doce",
+            "valor": "EMBORRACHA",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "liqBate",
+          "cam": "frente",
+          "apartir": 13,
+          "p": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "Agora o segredo: cem gramas de queijo curado ralado. Parmesão ou minas. Quanto mais queijo, mais sabor.",
+      "etapa": "QUEIJO",
+      "chip": "100 g",
+      "destaques": [
+        "queijo",
+        "polvilho",
+        "azedo",
+        "doce",
+        "emborracha",
+        "nunca",
+        "graus",
+        "minuto",
+        "minutos",
+        "pronto",
+        "parabéns",
+        "telegram",
+        "precinho",
+        "ouro",
+        "grátis",
+        "trinta",
+        "dois",
+        "duas",
+        "meia",
+        "cento",
+        "cima",
+        "leite",
+        "ovos",
+        "óleo",
+        "forminhas",
+        "silicone",
+        "dourado"
+      ],
+      "planos": [
+        {
+          "set": "liqQueijo",
+          "cam": "cima",
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "liqQueijo",
+          "cam": "close",
+          "apartir": 3,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Queijo curado ralado",
+            "num": 100,
+            "sufixo": " g"
+          }
+        },
+        {
+          "set": "liqQueijo",
+          "cam": "frente",
+          "apartir": 9,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "liqBate",
+          "cam": "alto",
+          "apartir": 12,
+          "p": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "Tampa e bate por um minuto até a massa ficar lisa.",
+      "etapa": "BATER",
+      "chip": "1 min",
+      "destaques": [
+        "queijo",
+        "polvilho",
+        "azedo",
+        "doce",
+        "emborracha",
+        "nunca",
+        "graus",
+        "minuto",
+        "minutos",
+        "pronto",
+        "parabéns",
+        "telegram",
+        "precinho",
+        "ouro",
+        "grátis",
+        "trinta",
+        "dois",
+        "duas",
+        "meia",
+        "cento",
+        "cima",
+        "leite",
+        "ovos",
+        "óleo",
+        "forminhas",
+        "silicone",
+        "dourado"
+      ],
+      "planos": [
+        {
+          "set": "liqBate",
+          "cam": "frente"
+        },
+        {
+          "set": "liqBate",
+          "cam": "alto",
+          "apartir": 1,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Bater até ficar liso",
+            "num": 1,
+            "sufixo": " min"
+          }
+        },
+        {
+          "set": "liqBate",
+          "cam": "miolo",
+          "apartir": 6,
+          "p": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "Coloca nas forminhas de silicone até a metade de cada uma. Não precisa untar.",
+      "etapa": "FORMA",
+      "chip": "½ cheio",
+      "destaques": [
+        "queijo",
+        "polvilho",
+        "azedo",
+        "doce",
+        "emborracha",
+        "nunca",
+        "graus",
+        "minuto",
+        "minutos",
+        "pronto",
+        "parabéns",
+        "telegram",
+        "precinho",
+        "ouro",
+        "grátis",
+        "trinta",
+        "dois",
+        "duas",
+        "meia",
+        "cento",
+        "cima",
+        "leite",
+        "ovos",
+        "óleo",
+        "forminhas",
+        "silicone",
+        "dourado"
+      ],
+      "planos": [
+        {
+          "set": "formasPao",
+          "cam": "cima",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Forminhas de silicone",
+            "valor": "não untar"
+          }
+        },
+        {
+          "set": "formasPao",
+          "cam": "close",
+          "apartir": 5,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "formasPao",
+          "cam": "frente",
+          "apartir": 11,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Encher até a metade",
+            "valor": "½ cheio",
+            "cor": "#2fbf71"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "Forno a cento e oitenta graus por trinta minutos. Ficou dourado e crescido? Tá pronto.",
+      "etapa": "ASSAR",
+      "chip": "30 min",
+      "destaques": [
+        "queijo",
+        "polvilho",
+        "azedo",
+        "doce",
+        "emborracha",
+        "nunca",
+        "graus",
+        "minuto",
+        "minutos",
+        "pronto",
+        "parabéns",
+        "telegram",
+        "precinho",
+        "ouro",
+        "grátis",
+        "trinta",
+        "dois",
+        "duas",
+        "meia",
+        "cento",
+        "cima",
+        "leite",
+        "ovos",
+        "óleo",
+        "forminhas",
+        "silicone",
+        "dourado"
+      ],
+      "planos": [
+        {
+          "set": "paoQForno",
+          "cam": "vidro"
+        },
+        {
+          "set": "paoQForno",
+          "cam": "alto",
+          "apartir": 6,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Forno a 180 °C",
+            "num": 30,
+            "sufixo": " min"
+          }
+        },
+        {
+          "set": "paoQForno",
+          "cam": "vidro",
+          "apartir": 9,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "paoQPronto",
+          "cam": "giro",
+          "apartir": 13,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Dourado e crescido",
+            "valor": "PRONTO",
+            "cor": "#2fbf71"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "texto": "Espera dois minutinhos e as bolinhas soltam sozinhas. Rende uns trinta pães de queijo.",
+      "destaques": [
+        "queijo",
+        "polvilho",
+        "azedo",
+        "doce",
+        "emborracha",
+        "nunca",
+        "graus",
+        "minuto",
+        "minutos",
+        "pronto",
+        "parabéns",
+        "telegram",
+        "precinho",
+        "ouro",
+        "grátis",
+        "trinta",
+        "dois",
+        "duas",
+        "meia",
+        "cento",
+        "cima",
+        "leite",
+        "ovos",
+        "óleo",
+        "forminhas",
+        "silicone",
+        "dourado"
+      ],
+      "planos": [
+        {
+          "set": "paoQPronto",
+          "cam": "mesa"
+        },
+        {
+          "set": "paoQPronto",
+          "cam": "close",
+          "apartir": 3,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "paoQPronto",
+          "cam": "giro",
+          "apartir": 8,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Rende",
+            "num": 30,
+            "sufixo": " bolinhas"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "texto": "Parabéns: você fez o pão de queijo que acaba antes de esfriar.",
+      "destaques": [
+        "queijo",
+        "polvilho",
+        "azedo",
+        "doce",
+        "emborracha",
+        "nunca",
+        "graus",
+        "minuto",
+        "minutos",
+        "pronto",
+        "parabéns",
+        "telegram",
+        "precinho",
+        "ouro",
+        "grátis",
+        "trinta",
+        "dois",
+        "duas",
+        "meia",
+        "cento",
+        "cima",
+        "leite",
+        "ovos",
+        "óleo",
+        "forminhas",
+        "silicone",
+        "dourado"
+      ],
+      "planos": [
+        {
+          "set": "paoQPronto",
+          "cam": "mesa"
+        },
+        {
+          "set": "paoQPronto",
+          "cam": "close",
+          "apartir": 7
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "texto": "Tem mais de cento e quarenta receitas assim no Precinho de Ouro. E cinco por dia, de graça, no Telegram.",
+      "cta": true,
+      "destaques": [
+        "queijo",
+        "polvilho",
+        "azedo",
+        "doce",
+        "emborracha",
+        "nunca",
+        "graus",
+        "minuto",
+        "minutos",
+        "pronto",
+        "parabéns",
+        "telegram",
+        "precinho",
+        "ouro",
+        "grátis",
+        "trinta",
+        "dois",
+        "duas",
+        "meia",
+        "cento",
+        "cima",
+        "leite",
+        "ovos",
+        "óleo",
+        "forminhas",
+        "silicone",
+        "dourado"
+      ],
+      "planos": [
+        {
+          "set": "site",
+          "cam": "tela",
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "telegram",
+          "cam": "ze",
+          "apartir": 12
+        }
+      ]
+    }
+  ]
+}

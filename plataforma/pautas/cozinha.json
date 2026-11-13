@@ -1,0 +1,77 @@
+{
+  "perfil": "cozinha",
+  "pautas": [
+    {
+      "tema": "Bolo de cenoura fofinho",
+      "status": "nova"
+    },
+    {
+      "tema": "Frango na air fryer crocante",
+      "status": "nova"
+    },
+    {
+      "tema": "Pão de queijo de liquidificador",
+      "status": "usada",
+      "motivo": "Pão de queijo de liquidificador une o nicho em alta (7.195 views/dia) com o formato de liquidificador que já é o maior retentor e compartilhador do canal, e ainda abre venda natural de liquidificador como afiliado."
+    },
+    {
+      "tema": "Brigadeiro de colher em 5 minutos",
+      "status": "nova"
+    },
+    {
+      "tema": "Arroz soltinho que não gruda",
+      "status": "nova"
+    },
+    {
+      "tema": "Pizza de frigideira",
+      "status": "usada",
+      "motivo": "Pizza é o tema de receita que mais viraliza na semana (Short \"Pizza rápida\" com ~198 mil views/dia nas tendências de 11/11/2026); versão sem forno e sem esperar a massa crescer resolve uma dor real, tem erro comum forte para o gancho (rechear a massa crua) e vende frigideira antiaderente com tampa como afiliado."
+    },
+    {
+      "tema": "Pudim sem forno",
+      "status": "nova"
+    },
+    {
+      "tema": "Batata frita sequinha na air fryer",
+      "status": "nova"
+    },
+    {
+      "tema": "Panqueca americana",
+      "status": "nova"
+    },
+    {
+      "tema": "Strogonoff de frango em 20 minutos",
+      "status": "nova"
+    },
+    {
+      "tema": "Rabanada de airfryer em 10 minutos: seu natal sem ligar o forno",
+      "status": "nova",
+      "motivo": "pizza rápida com 155k views/dia prova que airfryer + receita rápida viraliza; novembro é início de preparação natalina, pré-Black Friday",
+      "sugerida_em": "2026-11-12T10:07:32.625Z"
+    },
+    {
+      "tema": "Pizza caseira com 5 ingredientes que você já tem em casa",
+      "status": "nova",
+      "motivo": "pizza rápida com 155 k views/dia (semana W46); simplicidade e poucos ingredientes são o ângulo que falta nos tops do nicho",
+      "sugerida_em": "2026-11-12T10:07:32.792Z"
+    },
+    {
+      "tema": "1 segredo do arroz soltinho que todo mundo ignora",
+      "status": "nova",
+      "motivo": "mesmo formato do melhor post (1 segredo + contraintuitivo); arroz é tema cotidiano universal — maior chance de alcance que receitas específicas",
+      "sugerida_em": "2026-11-12T10:35:14.497Z"
+    },
+    {
+      "tema": "Por que o bolo afunda no meio? A explicação real",
+      "status": "nova",
+      "motivo": "curiosidade + erro comum = salvos altos; o brownie gerou 28 salvos com gancho de explicação de mecanismo",
+      "sugerida_em": "2026-11-12T10:35:14.666Z"
+    },
+    {
+      "tema": "Ovo frito perfeito em 60 segundos: o que você está errando",
+      "status": "nova",
+      "motivo": "cotidiano máximo + contraintuitivo + número (60 s); segue padrão de retenção do bolo (12,9 s avg)",
+      "sugerida_em": "2026-11-12T10:35:14.832Z"
+    }
+  ]
+}

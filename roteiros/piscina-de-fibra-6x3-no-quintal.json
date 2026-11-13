@@ -1,0 +1,631 @@
+{
+  "id": "piscina-de-fibra-6x3-no-quintal",
+  "serie": "Você construiu",
+  "titulo": "PISCINA DE FIBRA 6 × 3",
+  "linha2": "quanto custa DE VERDADE?",
+  "elevenlabs": {
+    "voz_id": "ZqE9vIHPcrC35dZv0Svu",
+    "modelo": "eleven_multilingual_v2",
+    "ajustes": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.4,
+      "use_speaker_boost": true,
+      "speed": 1.15
+    }
+  },
+  "fontes": "roteiros/piscina-de-fibra-6x3-no-quintal.pesquisa.md",
+  "monetizacao": {
+    "afiliados": [
+      "filtro de areia + motobomba para piscina",
+      "borda atérmica para piscina",
+      "kit limpeza (peneira, aspirador, escova)",
+      "cloro, algicida e kit teste de pH",
+      "clorador salino",
+      "capa de proteção para piscina",
+      "piso antiderrapante para área de piscina",
+      "cimento e areia (aterro)",
+      "pá, enxada e nível de bolha",
+      "mangueira de jardim"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Quanto custa, de verdade, uma piscina de fibra de seis por três no quintal? A loja só te mostra o casco. Bora fazer a conta toda.",
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "litros",
+        "caçambas",
+        "casco",
+        "barro",
+        "areia",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "piFinal",
+          "cam": "drone"
+        },
+        {
+          "set": "piFinal",
+          "cam": "cima",
+          "apartir": 4,
+          "card": {
+            "rotulo": "Piscina de fibra",
+            "valor": "6 × 3 m",
+            "sub": "1,40 m de fundo · 22 mil litros"
+          }
+        },
+        {
+          "set": "piLoja",
+          "cam": "geral",
+          "apartir": 14,
+          "card": {
+            "rotulo": "Só o casco?",
+            "valor": "FALTA MUITO",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "piQuintal",
+          "cam": "geral",
+          "apartir": 21,
+          "p": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Primeiro, o buraco: uma escavadeira tira a terra. Dá umas cinco caçambas. Tudo isso: quatro mil.",
+      "etapa": "ESCAVAÇÃO",
+      "custo": 4000,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "litros",
+        "caçambas",
+        "casco",
+        "barro",
+        "areia",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "piEscavacao",
+          "cam": "geral",
+          "p": [
+            0,
+            0.3
+          ]
+        },
+        {
+          "set": "piEscavacao",
+          "cam": "braco",
+          "apartir": 3,
+          "p": [
+            0.3,
+            0.6
+          ]
+        },
+        {
+          "set": "piEscavacao",
+          "cam": "cacamba",
+          "apartir": 8,
+          "p": [
+            0.6,
+            0.85
+          ],
+          "card": {
+            "rotulo": "Caçambas de terra",
+            "num": 5,
+            "prefixo": "≈ ",
+            "sub": "R$ 280 a R$ 400 cada"
+          }
+        },
+        {
+          "set": "piEscavacao",
+          "cam": "cima",
+          "apartir": 12,
+          "p": [
+            0.85,
+            1
+          ],
+          "card": {
+            "rotulo": "Escavação + caçambas",
+            "num": 4000,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "No fundo, concreto e pó de pedra, tudo no nível. Dois mil.",
+      "etapa": "BASE",
+      "custo": 2000,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "litros",
+        "caçambas",
+        "casco",
+        "barro",
+        "areia",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "piBase",
+          "cam": "corte",
+          "p": [
+            0,
+            0.55
+          ]
+        },
+        {
+          "set": "piBase",
+          "cam": "close",
+          "apartir": 3,
+          "p": [
+            0.55,
+            1
+          ],
+          "card": {
+            "rotulo": "Concreto + pó de pedra",
+            "num": 2000,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "Aí chega o casco de fibra, inteiro, num caminhão. Um guindaste desce ele no buraco. Casco e guindaste: dezessete mil.",
+      "etapa": "CASCO",
+      "custo": 17000,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "litros",
+        "caçambas",
+        "casco",
+        "barro",
+        "areia",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "piGuindaste",
+          "cam": "geral",
+          "p": [
+            0,
+            0.3
+          ]
+        },
+        {
+          "set": "piGuindaste",
+          "cam": "caminhao",
+          "apartir": 6,
+          "p": [
+            0.3,
+            0.5
+          ]
+        },
+        {
+          "set": "piGuindaste",
+          "cam": "desce",
+          "apartir": 9,
+          "p": [
+            0.5,
+            0.88
+          ]
+        },
+        {
+          "set": "piGuindaste",
+          "cam": "encaixe",
+          "apartir": 15,
+          "p": [
+            0.88,
+            1
+          ],
+          "card": {
+            "rotulo": "Casco 6 × 3 + guindaste",
+            "num": 17000,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "E quase todo mundo erra aqui: fecha as laterais com a terra do buraco. O barro segura água e empurra a fibra. O certo é areia com cimento, enchendo a piscina junto. Vinte e dois mil litros: uns quatrocentos reais de água.",
+      "etapa": "ATERRO E ÁGUA",
+      "custo": 1500,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "litros",
+        "caçambas",
+        "casco",
+        "barro",
+        "areia",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "piErro",
+          "cam": "geral",
+          "p": [
+            0,
+            0.35
+          ]
+        },
+        {
+          "set": "piErro",
+          "cam": "corte",
+          "apartir": 6,
+          "p": [
+            0.35,
+            0.65
+          ]
+        },
+        {
+          "set": "piErro",
+          "cam": "close",
+          "apartir": 14,
+          "p": [
+            0.65,
+            1
+          ],
+          "card": {
+            "rotulo": "Aterro com barro",
+            "valor": "EMPURRA A FIBRA",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "piAterro",
+          "cam": "corte",
+          "apartir": 22,
+          "p": [
+            0,
+            0.45
+          ],
+          "card": {
+            "rotulo": "Aterro certo",
+            "valor": "AREIA + CIMENTO",
+            "cor": "#2fbf71"
+          }
+        },
+        {
+          "set": "piAterro",
+          "cam": "close",
+          "apartir": 28,
+          "p": [
+            0.45,
+            0.75
+          ]
+        },
+        {
+          "set": "piAterro",
+          "cam": "cima",
+          "apartir": 32,
+          "p": [
+            0.75,
+            0.9
+          ],
+          "card": {
+            "rotulo": "Água para encher",
+            "num": 22000,
+            "sufixo": " litros"
+          }
+        },
+        {
+          "set": "piAterro",
+          "cam": "mangueira",
+          "apartir": 37,
+          "p": [
+            0.9,
+            1
+          ],
+          "card": {
+            "rotulo": "Conta de água",
+            "num": 400,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "Pra água não virar sopa verde, filtro de areia e motobomba: três mil e quinhentos.",
+      "etapa": "FILTRO",
+      "custo": 3500,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "litros",
+        "caçambas",
+        "casco",
+        "barro",
+        "areia",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "piFiltro",
+          "cam": "verde",
+          "p": [
+            0,
+            0.4
+          ]
+        },
+        {
+          "set": "piFiltro",
+          "cam": "filtro",
+          "apartir": 6,
+          "p": [
+            0.4,
+            0.75
+          ]
+        },
+        {
+          "set": "piFiltro",
+          "cam": "limpa",
+          "apartir": 11,
+          "p": [
+            0.75,
+            1
+          ],
+          "card": {
+            "rotulo": "Filtro + motobomba",
+            "num": 3500,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "Os canos vão por baixo até a casa de máquinas, com quadro de luz e aterramento. Seis mil.",
+      "etapa": "CASA DE MÁQUINAS",
+      "custo": 6000,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "litros",
+        "caçambas",
+        "casco",
+        "barro",
+        "areia",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "piMaquinas",
+          "cam": "corte",
+          "p": [
+            0,
+            0.6
+          ]
+        },
+        {
+          "set": "piMaquinas",
+          "cam": "quadro",
+          "apartir": 10,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "Hidráulica + elétrica",
+            "num": 6000,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "Dezoito metros de borda que não esquenta o pé. Três mil e quinhentos.",
+      "etapa": "BORDA",
+      "custo": 3500,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "litros",
+        "caçambas",
+        "casco",
+        "barro",
+        "areia",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "piBorda",
+          "cam": "geral",
+          "p": [
+            0,
+            0.6
+          ]
+        },
+        {
+          "set": "piBorda",
+          "cam": "close",
+          "apartir": 4,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "Borda atérmica",
+            "num": 18,
+            "sufixo": " m",
+            "sub": "com colocação: R$ 3.500"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "texto": "E calçada que não escorrega, um metro em volta. Cinco mil e quinhentos.",
+      "etapa": "CALÇADA",
+      "custo": 5500,
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "litros",
+        "caçambas",
+        "casco",
+        "barro",
+        "areia",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "piCalcada",
+          "cam": "cima",
+          "p": [
+            0,
+            0.6
+          ]
+        },
+        {
+          "set": "piCalcada",
+          "cam": "rente",
+          "apartir": 5,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "Calçada antiderrapante",
+            "num": 5500,
+            "prefixo": "R$ "
+          }
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "texto": "Parabéns: você construiu sua piscina. Uns quarenta e três mil reais. E a surpresa: o casco foi só quarenta por cento. Depois, uns quinhentos por mês de manutenção.",
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "litros",
+        "caçambas",
+        "casco",
+        "barro",
+        "areia",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "piFinal",
+          "cam": "baixa"
+        },
+        {
+          "set": "piFinal",
+          "cam": "cima2",
+          "apartir": 5,
+          "card": {
+            "rotulo": "Total sem aquecimento",
+            "num": 43000,
+            "prefixo": "R$ ",
+            "sub": "preços de São Paulo, 2026"
+          }
+        },
+        {
+          "set": "piLoja",
+          "cam": "geral2",
+          "apartir": 11,
+          "card": {
+            "rotulo": "Casco na conta",
+            "valor": "só 40%",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "piFinal",
+          "cam": "agua",
+          "apartir": 21,
+          "card": {
+            "rotulo": "Manutenção",
+            "num": 500,
+            "prefixo": "≈ R$ ",
+            "sufixo": " /mês"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "texto": "Você faria de fibra ou de alvenaria? Comenta aí.",
+      "destaques": [
+        "mil",
+        "metros",
+        "metro",
+        "reais",
+        "litros",
+        "caçambas",
+        "casco",
+        "barro",
+        "areia",
+        "total",
+        "parabéns",
+        "surpresa"
+      ],
+      "planos": [
+        {
+          "set": "piFinal",
+          "cam": "drone2"
+        }
+      ]
+    }
+  ]
+}

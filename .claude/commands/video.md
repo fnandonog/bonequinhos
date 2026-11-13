@@ -7,7 +7,7 @@ Produza o vídeo sobre: $ARGUMENTS
 Siga `docs/PIPELINE.md`. Chame os agentes em ordem e passe a saída de um para o próximo:
 1. `pesquisador` → `roteiros/<id>.pesquisa.md`
 2. `roteirista` → narração dividida em cenas com `|`
-3. `diretor` → `tools/gerar_<id>.py` → `roteiros/<id>.json` + tempos estimados
+3. `diretor-cena` → `tools/gerar_<id>.py` → `roteiros/<id>.json` + tempos estimados
 4. `cenografo` → só se o diretor pedir cenários/câmeras novas
 5. Registre a composição em `src/Root.tsx` (igual à `casa-50m2`)
 6. `qa` → repita 3–5 até APROVADO (no máximo 4 rodadas)

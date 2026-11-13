@@ -1,0 +1,593 @@
+{
+  "id": "robo-aspirador-de-300-reais-vale-a-pena",
+  "serie": "Vale a Pena?",
+  "titulo": "VALE A PENA?",
+  "linha2": "robô aspirador R$ 299",
+  "site": "link na bio",
+  "cta": {
+    "titulo": "LINK NA BIO",
+    "texto": "Robô aspirador básico",
+    "botao": null
+  },
+  "veredito": {
+    "cena": "c7",
+    "texto": "DEPENDE",
+    "sub": "piso liso, sem pelo",
+    "cor": "#ff8a1f"
+  },
+  "elevenlabs": {
+    "voz_id": "S4M4JhZIzYGUlDsYIOow",
+    "modelo": "eleven_multilingual_v2",
+    "ajustes": {
+      "stability": 0.5,
+      "similarity_boost": 0.8,
+      "style": 0.25,
+      "use_speaker_boost": true,
+      "speed": 1
+    }
+  },
+  "fontes": "roteiros/robo-aspirador-de-300-reais-vale-a-pena.pesquisa.md",
+  "monetizacao": {
+    "afiliados": [
+      "robô aspirador básico sem LiDAR ~R$ 299",
+      "robô aspirador com LiDAR (upgrade ~R$ 599+)",
+      "tapete antiderrapante piso liso",
+      "saco coletor extra para robô aspirador"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Esse robô de trezentos reais gasta uns três centavos de luz por limpeza. Mas tem um problema que a caixa não conta. O Zé abriu um e fez as contas.",
+      "destaques": [
+        "robô",
+        "trezentos",
+        "reais",
+        "três",
+        "centavos",
+        "problema",
+        "caixa",
+        "contas"
+      ],
+      "planos": [
+        {
+          "set": "vpR2Gancho",
+          "cam": "baixo",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Robô aspirador",
+            "num": 299,
+            "prefixo": "R$ ",
+            "sub": "menor preço · nov/2026",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "vpR2Oficina",
+          "cam": "abre",
+          "apartir": 13,
+          "p": [
+            0,
+            0.55
+          ]
+        },
+        {
+          "set": "vpR2Conta",
+          "cam": "calc",
+          "apartir": 22,
+          "p": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Na caixa, ele promete limpar a casa sozinho. A bateria dura uma hora e meia. E faz bem menos barulho que um aspirador comum.",
+      "etapa": "A PROMESSA",
+      "chip": "sozinho",
+      "destaques": [
+        "promete",
+        "sozinho",
+        "bateria",
+        "hora",
+        "meia",
+        "barulho"
+      ],
+      "planos": [
+        {
+          "set": "vpR2Base",
+          "cam": "sai",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "A promessa",
+            "valor": "LIMPAR SOZINHO"
+          }
+        },
+        {
+          "set": "vpR2Bateria",
+          "cam": "close",
+          "apartir": 8,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Bateria",
+            "valor": "90 min",
+            "sub": "bateria 2.000 mAh"
+          }
+        },
+        {
+          "set": "vpR2Silencio",
+          "cam": "cao",
+          "apartir": 15,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Ruído",
+            "num": 55,
+            "sufixo": " dB",
+            "sub": "vs. 75 dB do aspirador comum"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "Por dentro, são três peças. Uma escovinha lateral joga a sujeira pra baixo dele. Lá, um motor pequeno suga tudo. Na frente, um para-choque com sensor sente a batida na parede. Aí ele gira e muda de direção.",
+      "etapa": "POR DENTRO",
+      "chip": "3 peças",
+      "destaques": [
+        "três",
+        "peças",
+        "escovinha",
+        "motor",
+        "suga",
+        "para-choque",
+        "sensor",
+        "batida",
+        "gira"
+      ],
+      "planos": [
+        {
+          "set": "vpR2Oficina",
+          "cam": "geral",
+          "p": [
+            0.45,
+            1
+          ],
+          "card": {
+            "rotulo": "Por dentro",
+            "valor": "3 PEÇAS"
+          }
+        },
+        {
+          "set": "vpR2Escova",
+          "cam": "escova",
+          "apartir": 5,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "1. Escovinha lateral",
+            "valor": "JOGA PRA BAIXO"
+          }
+        },
+        {
+          "set": "vpR2Corte",
+          "cam": "motor",
+          "apartir": 14,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "2. Motor de sucção",
+            "num": 20,
+            "sufixo": " W",
+            "sub": "pequeno · modo padrão"
+          }
+        },
+        {
+          "set": "vpR2Bate",
+          "cam": "bate",
+          "apartir": 20,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "3. Para-choque com sensor",
+            "valor": "BATE · GIRA · MUDA"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "Sem mapa da casa, ele anda no chute. Mapa, só nos de uns seiscentos reais. Pode passar três vezes no mesmo lugar e pular um canto. Cabo ou meia no chão enroscam e travam ele. E aqui quase todo mundo se engana. Ele não substitui a faxina. Não limpa sofá nem escada.",
+      "etapa": "O ERRO",
+      "chip": "obstáculos",
+      "destaques": [
+        "mapa",
+        "chute",
+        "seiscentos",
+        "três",
+        "canto",
+        "cabo",
+        "trava",
+        "meia",
+        "brinquedo",
+        "engana",
+        "substitui",
+        "faxina",
+        "sofá",
+        "escada"
+      ],
+      "planos": [
+        {
+          "set": "vpR2Mapa",
+          "cam": "cima",
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "vpR2Canto",
+          "cam": "canto",
+          "apartir": 15,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "No chute",
+            "valor": "3× NO MESMO LUGAR",
+            "sub": "e o canto fica sujo",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "vpR2Obstaculo",
+          "cam": "cabo",
+          "apartir": 26,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Cabo no chão",
+            "valor": "ENROSCA",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "vpR2Obstaculo",
+          "cam": "parou",
+          "apartir": 31,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Resultado",
+            "valor": "TRAVA",
+            "sub": "recolha antes de ligar",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "vpR2Sofa",
+          "cam": "geral",
+          "apartir": 35,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "vpR2Sofa",
+          "cam": "pes",
+          "apartir": 42,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "O erro mais comum",
+            "valor": "NÃO SUBSTITUI",
+            "sub": "não limpa sofá nem escada",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "E a luz? Uma hora e meia de robô gasta uns três centavos. O aspirador comum, em meia hora, gasta uns sessenta centavos. O robô gasta vinte vezes menos.",
+      "etapa": "A CONTA",
+      "chip": "luz",
+      "destaques": [
+        "luz",
+        "três",
+        "centavos",
+        "comum",
+        "sessenta",
+        "vinte",
+        "menos"
+      ],
+      "planos": [
+        {
+          "set": "vpR2Luz",
+          "cam": "geral",
+          "p": [
+            0,
+            0.45
+          ]
+        },
+        {
+          "set": "vpR2Luz",
+          "cam": "display",
+          "apartir": 3,
+          "p": [
+            0.45,
+            1
+          ],
+          "card": {
+            "rotulo": "1h30 de robô",
+            "valor": "≈ R$ 0,03",
+            "sub": "0,03 kWh × R$1/kWh",
+            "cor": "#2fbf71"
+          }
+        },
+        {
+          "set": "vpR2Convencional",
+          "cam": "aspirador",
+          "apartir": 13,
+          "p": [
+            0,
+            0
+          ],
+          "card": {
+            "rotulo": "Aspirador comum",
+            "valor": "1.200 W"
+          }
+        },
+        {
+          "set": "vpR2Convencional",
+          "cam": "colunas",
+          "apartir": 16,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Em meia hora",
+            "valor": "≈ R$ 0,60",
+            "sub": "20× o robô · 0,6 kWh",
+            "cor": "#ffd23f"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "O problema é outro. No pote de sujeira cabe só um copo de requeijão. Com cachorro em casa, enche em uns dez minutos. Mas a bateria dura noventa minutos. O pote cheio entope o filtro, e ele só passeia.",
+      "etapa": "A CONTA",
+      "chip": "reservatório",
+      "destaques": [
+        "problema",
+        "pote",
+        "requeijão",
+        "cachorro",
+        "enche",
+        "dez",
+        "bateria",
+        "noventa",
+        "cheio",
+        "filtro",
+        "entope",
+        "passeia"
+      ],
+      "planos": [
+        {
+          "set": "vpR2Pelo",
+          "cam": "geral",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Com bicho em casa",
+            "valor": "O PROBLEMA É OUTRO",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "vpR2Reserv",
+          "cam": "close",
+          "apartir": 4,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Pote de sujeira",
+            "valor": "0,3 L",
+            "sub": "≈ 1 copo de requeijão"
+          }
+        },
+        {
+          "set": "vpR2Enche",
+          "cam": "corte",
+          "apartir": 14,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Com cachorro",
+            "valor": "CHEIO EM 10 MIN",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "vpR2Esvazia",
+          "cam": "ze",
+          "apartir": 23,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Pote cheio em 10 min",
+            "valor": "BATERIA 90 MIN",
+            "sub": "esvazie no meio da faxina",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "vpR2Enche",
+          "cam": "filtro",
+          "apartir": 29,
+          "p": [
+            1,
+            1
+          ],
+          "card": {
+            "rotulo": "Pote cheio",
+            "valor": "FILTRO ENTOPE",
+            "sub": "a sucção cai",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "Então, depende. Vale em apartamento de piso liso. Sem tapete grosso e sem bicho que solta pelo. Custa menos que três diárias de faxineira. E varre todo dia, entre uma faxina e outra.",
+      "etapa": "VEREDITO",
+      "destaques": [
+        "depende",
+        "piso",
+        "liso",
+        "tapete",
+        "grosso",
+        "bicho",
+        "pelo",
+        "três",
+        "diárias",
+        "faxineira",
+        "varre"
+      ],
+      "planos": [
+        {
+          "set": "vpR2Veredito",
+          "cam": "carimbo",
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "vpR2Liso",
+          "cam": "piso",
+          "apartir": 2,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Piso liso",
+            "valor": "VALE",
+            "cor": "#2fbf71"
+          }
+        },
+        {
+          "set": "vpR2Tapete",
+          "cam": "tapete",
+          "apartir": 8,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Tapete grosso ou pelo",
+            "valor": "NÃO VALE",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "vpR2Diaristas",
+          "cam": "tres",
+          "apartir": 17,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Custa menos que",
+            "num": 3,
+            "sufixo": " diárias",
+            "sub": "R$299 < 3 × R$120",
+            "cor": "#2fbf71"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "Link na bio. E aí, com bicho em casa, você compraria mesmo assim?",
+      "cta": true,
+      "destaques": [
+        "link",
+        "bio",
+        "bicho",
+        "compraria"
+      ],
+      "planos": [
+        {
+          "set": "vpR2Base",
+          "cam": "volta",
+          "p": [
+            1,
+            0
+          ]
+        },
+        {
+          "set": "vpR2Final",
+          "cam": "alto",
+          "apartir": 3,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "vpR2Sofa",
+          "cam": "final",
+          "apartir": 9,
+          "p": [
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "pagina": {
+    "texto": "🤖 Robô aspirador de R$300 vale a pena? (nov/2026)\n\nO VEREDITO: DEPENDE.\nVale pra apartamento com piso liso, sem tapete espesso e sem animal de pelo longo. Não substitui a faxina funda.\n\nCOMO FUNCIONA\nTrês peças: escovinha lateral (empurra a sujeira pro centro), motor de sucção de ~20 W e sensor de obstáculo. Sem LiDAR (nessa faixa de preço): usa random walk — bate, gira, segue, pode ignorar cantos.\n\nA CONTA DE LUZ\n• Consumo: ~20 W por sessão de 90 min = 0,03 kWh = R$ 0,03 (3 centavos).\n• Um aspirador convencional de 1.200 W usa 20× mais por uso.\n\nO PROBLEMA REAL: O RESERVATÓRIO\nCapacidade de ~0,3 L (1 copinho de requeijão). Com cachorro ou gato que solta pelo, enche em ~10 minutos. A bateria dura ~90 min: com pote cheio o filtro entope e a sucção cai, então esvazie no meio da faxina.\n\nO QUE ELE NÃO FAZ\n• Não alcança cantos com precisão.\n• Não aspira tapete espesso nem sofá.\n• Para em cabo, meia ou brinquedo no chão.\n• Não substitui a faxina mensal funda.\n\nFontes: Canaltech, Shopee/ML (preços nov/2026), estimativas de consumo [E]."
+  }
+}

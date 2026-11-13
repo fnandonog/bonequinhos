@@ -1,0 +1,107 @@
+{
+  "perfil": "construiu",
+  "pautas": [
+    {
+      "tema": "Kitnet de 25 m² para alugar",
+      "status": "usada",
+      "motivo": "Concorrente direto valida 2.680 views/dia no tema exato, o gancho de renda passiva (aluguel) gera desejo imediato no brasileiro e materiais como cerâmica, kit hidráulico e porta de alumínio convertem bem como afiliado."
+    },
+    {
+      "tema": "Piscina de fibra 6x3 no quintal",
+      "status": "usada",
+      "motivo": "Maior demanda do nicho agora (Shorts de piscina com 3,7 mil views/dia, o tema que mais rende entre as pautas novas; kitnet já tem piloto), vende filtro, bomba, borda e produtos de piscina, e o motor v4 mostra bem o mecanismo: buraco em corte, guindaste descendo o casco, aterro com água subindo."
+    },
+    {
+      "tema": "Edícula com churrasqueira",
+      "status": "usada",
+      "motivo": "Sonho de quintal muito buscado no Brasil, vende churrasqueira, grelha e material de obra, e o motor v4 mostra bem uma obra pequena reaproveitando o kit."
+    },
+    {
+      "tema": "Muro de 30 metros com portão",
+      "status": "descartada",
+      "motivo": "Fernando 12/11: chega de variação de casa"
+    },
+    {
+      "tema": "Laje para segundo andar",
+      "status": "descartada",
+      "motivo": "Fernando 12/11: chega de variação de casa"
+    },
+    {
+      "tema": "Casa de 70 m² com 3 quartos",
+      "status": "descartada",
+      "motivo": "Fernando 12/11: chega de variação de casa"
+    },
+    {
+      "tema": "Garagem coberta para 2 carros",
+      "status": "descartada",
+      "motivo": "Fernando 12/11: chega de variação de casa"
+    },
+    {
+      "tema": "Banheiro completo do zero",
+      "status": "descartada",
+      "motivo": "Fernando 12/11: chega de variação de casa"
+    },
+    {
+      "tema": "Quanto custa reformar um banheiro do zero? A conta real",
+      "status": "descartada",
+      "motivo": "Fernando 12/11: chega de variação de casa",
+      "sugerida_em": "2026-11-12T10:35:26.100Z"
+    },
+    {
+      "tema": "Muro de alvenaria 10 metros: o que ninguém te fala antes de contratar",
+      "status": "descartada",
+      "motivo": "Fernando 12/11: chega de variação de casa",
+      "sugerida_em": "2026-11-12T10:35:26.270Z"
+    },
+    {
+      "tema": "Quanto custa construir um viaduto",
+      "status": "usada",
+      "id": "quanto-custa-construir-um-viaduto",
+      "motivo": "Fernando 12/11: coisa extremamente curiosa e completa (obra pública que todo mundo vê e ninguém sabe quanto custa); 3D de cidade com avenida, máquinas pesadas e içamento de viga à noite."
+    },
+    {
+      "tema": "Como se constrói uma praça de pedágio",
+      "status": "nova"
+    },
+    {
+      "tema": "Horta autossustentável com aquaponia: peixe adubando a horta",
+      "status": "nova"
+    },
+    {
+      "tema": "Poço artesiano de 100 metros: como furam e quanto custa",
+      "status": "nova"
+    },
+    {
+      "tema": "Estufa hidropônica: alface sem terra",
+      "status": "nova"
+    },
+    {
+      "tema": "Cisterna que guarda a água da chuva",
+      "status": "nova"
+    },
+    {
+      "tema": "Quanto custa construir um posto de gasolina",
+      "status": "nova"
+    },
+    {
+      "tema": "Campo de futebol society com grama sintética",
+      "status": "nova"
+    },
+    {
+      "tema": "Casa feita de contêiner",
+      "status": "nova"
+    },
+    {
+      "tema": "Torre de celular: como se ergue uma antena de 40 metros",
+      "status": "nova"
+    },
+    {
+      "tema": "Piscina natural com plantas que limpam a água",
+      "status": "nova"
+    },
+    {
+      "tema": "Ponte de concreto sobre um rio",
+      "status": "nova"
+    }
+  ]
+}

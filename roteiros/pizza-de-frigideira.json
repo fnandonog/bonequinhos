@@ -1,0 +1,958 @@
+{
+  "id": "pizza-de-frigideira",
+  "serie": "Zé na Cozinha",
+  "titulo": "PIZZA DE FRIGIDEIRA",
+  "linha2": "sem forno e sem massa crua",
+  "site": "link na bio",
+  "cta": {
+    "titulo": "LINK NA BIO",
+    "texto": "Receita completa",
+    "botao": "Utensílios em oferta"
+  },
+  "elevenlabs": {
+    "voz_id": "fhtZMBwha5du5OxuvexO",
+    "modelo": "eleven_multilingual_v2",
+    "ajustes": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.4,
+      "use_speaker_boost": true,
+      "speed": 1.15
+    }
+  },
+  "fontes": "roteiros/pizza-de-frigideira.pesquisa.md",
+  "monetizacao": {
+    "afiliados": [
+      "frigideira antiaderente 24 cm com tampa de vidro",
+      "rolo de massa",
+      "espátula de silicone",
+      "tigela de vidro",
+      "ralador de queijo"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Sua pizza de frigideira fica crua no meio? O erro é colocar o recheio cedo demais. O segredo é dourar a massa antes.",
+      "destaques": [
+        "segredo",
+        "crua",
+        "erro",
+        "erra",
+        "dourar",
+        "dourado",
+        "forno",
+        "minutos",
+        "xícara",
+        "colher",
+        "colheres",
+        "pitada",
+        "copo",
+        "gramas",
+        "bolinhas",
+        "fininha",
+        "médio",
+        "baixo",
+        "tampa",
+        "tampada",
+        "mole",
+        "vapor",
+        "queima",
+        "pronto",
+        "reais",
+        "link",
+        "bio",
+        "oferta",
+        "uma",
+        "duas",
+        "dois",
+        "três",
+        "quinze",
+        "meio",
+        "cinquenta",
+        "dez"
+      ],
+      "planos": [
+        {
+          "set": "pzPronta",
+          "cam": "giro",
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "pzCrua",
+          "cam": "alto",
+          "apartir": 8,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Recheio na massa crua",
+            "valor": "CRUA",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "pzVira",
+          "cam": "frente",
+          "apartir": 16,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "O segredo",
+            "valor": "DOURAR ANTES",
+            "cor": "#ffd23f"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "É pizza sem forno e sem esperar a massa crescer. Fica pronta em uns quinze minutos.",
+      "destaques": [
+        "segredo",
+        "crua",
+        "erro",
+        "erra",
+        "dourar",
+        "dourado",
+        "forno",
+        "minutos",
+        "xícara",
+        "colher",
+        "colheres",
+        "pitada",
+        "copo",
+        "gramas",
+        "bolinhas",
+        "fininha",
+        "médio",
+        "baixo",
+        "tampa",
+        "tampada",
+        "mole",
+        "vapor",
+        "queima",
+        "pronto",
+        "reais",
+        "link",
+        "bio",
+        "oferta",
+        "uma",
+        "duas",
+        "dois",
+        "três",
+        "quinze",
+        "meio",
+        "cinquenta",
+        "dez"
+      ],
+      "planos": [
+        {
+          "set": "pzCozinha",
+          "cam": "geral",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Forno",
+            "valor": "NÃO PRECISA",
+            "cor": "#2fbf71"
+          }
+        },
+        {
+          "set": "pzBolinhas",
+          "cam": "cima",
+          "apartir": 4,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Massa",
+            "valor": "sem descanso"
+          }
+        },
+        {
+          "set": "pzFogo",
+          "cam": "alto",
+          "apartir": 10,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Pronta em",
+            "num": 15,
+            "sufixo": " min",
+            "sub": "as duas pizzas"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "Numa tigela, uma xícara de farinha de trigo, uma colher de chá de fermento químico, o de bolo, e uma pitada de sal.",
+      "etapa": "MASSA",
+      "chip": "sem descanso",
+      "destaques": [
+        "segredo",
+        "crua",
+        "erro",
+        "erra",
+        "dourar",
+        "dourado",
+        "forno",
+        "minutos",
+        "xícara",
+        "colher",
+        "colheres",
+        "pitada",
+        "copo",
+        "gramas",
+        "bolinhas",
+        "fininha",
+        "médio",
+        "baixo",
+        "tampa",
+        "tampada",
+        "mole",
+        "vapor",
+        "queima",
+        "pronto",
+        "reais",
+        "link",
+        "bio",
+        "oferta",
+        "uma",
+        "duas",
+        "dois",
+        "três",
+        "quinze",
+        "meio",
+        "cinquenta",
+        "dez"
+      ],
+      "planos": [
+        {
+          "set": "pzFarinha",
+          "cam": "close",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Farinha de trigo",
+            "valor": "1 xícara",
+            "sub": "120 g"
+          }
+        },
+        {
+          "set": "pzFermento",
+          "cam": "colher",
+          "apartir": 8,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Fermento químico",
+            "valor": "1 colher de chá",
+            "sub": "o fermento de bolo"
+          }
+        },
+        {
+          "set": "pzSal",
+          "cam": "close",
+          "apartir": 18,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Sal",
+            "valor": "1 pitada"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "Junta meio copo de iogurte natural e uma colher de sopa de azeite. Mistura até desgrudar da mão.",
+      "etapa": "MASSA",
+      "chip": "½ copo",
+      "destaques": [
+        "segredo",
+        "crua",
+        "erro",
+        "erra",
+        "dourar",
+        "dourado",
+        "forno",
+        "minutos",
+        "xícara",
+        "colher",
+        "colheres",
+        "pitada",
+        "copo",
+        "gramas",
+        "bolinhas",
+        "fininha",
+        "médio",
+        "baixo",
+        "tampa",
+        "tampada",
+        "mole",
+        "vapor",
+        "queima",
+        "pronto",
+        "reais",
+        "link",
+        "bio",
+        "oferta",
+        "uma",
+        "duas",
+        "dois",
+        "três",
+        "quinze",
+        "meio",
+        "cinquenta",
+        "dez"
+      ],
+      "planos": [
+        {
+          "set": "pzIogurte",
+          "cam": "close",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Iogurte natural",
+            "valor": "½ copo",
+            "sub": "sem açúcar · 100 g"
+          }
+        },
+        {
+          "set": "pzAzeite",
+          "cam": "close",
+          "apartir": 6,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Azeite",
+            "valor": "1 colher de sopa"
+          }
+        },
+        {
+          "set": "pzMassa",
+          "cam": "cima",
+          "apartir": 13,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Ponto",
+            "valor": "desgruda da mão",
+            "cor": "#2fbf71"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "Divide em duas bolinhas e abre cada uma bem fininha, do tamanho da frigideira.",
+      "etapa": "ABRIR",
+      "chip": "2 discos",
+      "destaques": [
+        "segredo",
+        "crua",
+        "erro",
+        "erra",
+        "dourar",
+        "dourado",
+        "forno",
+        "minutos",
+        "xícara",
+        "colher",
+        "colheres",
+        "pitada",
+        "copo",
+        "gramas",
+        "bolinhas",
+        "fininha",
+        "médio",
+        "baixo",
+        "tampa",
+        "tampada",
+        "mole",
+        "vapor",
+        "queima",
+        "pronto",
+        "reais",
+        "link",
+        "bio",
+        "oferta",
+        "uma",
+        "duas",
+        "dois",
+        "três",
+        "quinze",
+        "meio",
+        "cinquenta",
+        "dez"
+      ],
+      "planos": [
+        {
+          "set": "pzBolinhas",
+          "cam": "lado",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Divida em",
+            "num": 2,
+            "sufixo": " bolinhas"
+          }
+        },
+        {
+          "set": "pzAbre",
+          "cam": "lado",
+          "apartir": 4,
+          "p": [
+            0,
+            0.6
+          ],
+          "card": {
+            "rotulo": "Abra com o rolo",
+            "valor": "bem fininha"
+          }
+        },
+        {
+          "set": "pzAbre",
+          "cam": "cima",
+          "apartir": 10,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "Frigideira de",
+            "num": 24,
+            "sufixo": " cm",
+            "sub": "disco do tamanho dela"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "Frigideira antiaderente em fogo médio, sem óleo. Dois minutos de um lado, vira e mais dois do outro.",
+      "etapa": "DOURAR",
+      "chip": "fogo médio",
+      "destaques": [
+        "segredo",
+        "crua",
+        "erro",
+        "erra",
+        "dourar",
+        "dourado",
+        "forno",
+        "minutos",
+        "xícara",
+        "colher",
+        "colheres",
+        "pitada",
+        "copo",
+        "gramas",
+        "bolinhas",
+        "fininha",
+        "médio",
+        "baixo",
+        "tampa",
+        "tampada",
+        "mole",
+        "vapor",
+        "queima",
+        "pronto",
+        "reais",
+        "link",
+        "bio",
+        "oferta",
+        "uma",
+        "duas",
+        "dois",
+        "três",
+        "quinze",
+        "meio",
+        "cinquenta",
+        "dez"
+      ],
+      "planos": [
+        {
+          "set": "pzFogo",
+          "cam": "lado",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Fogo médio",
+            "valor": "sem óleo"
+          }
+        },
+        {
+          "set": "pzDisco",
+          "cam": "close",
+          "apartir": 7,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Primeiro lado",
+            "num": 2,
+            "sufixo": " min"
+          }
+        },
+        {
+          "set": "pzVira",
+          "cam": "lado",
+          "apartir": 12,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Vira e mais",
+            "num": 2,
+            "sufixo": " min",
+            "cor": "#2fbf71"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "E aqui quase todo mundo erra: recheia a massa ainda crua. O molho pesa, o vapor fica preso e o meio fica mole.",
+      "destaques": [
+        "segredo",
+        "crua",
+        "erro",
+        "erra",
+        "dourar",
+        "dourado",
+        "forno",
+        "minutos",
+        "xícara",
+        "colher",
+        "colheres",
+        "pitada",
+        "copo",
+        "gramas",
+        "bolinhas",
+        "fininha",
+        "médio",
+        "baixo",
+        "tampa",
+        "tampada",
+        "mole",
+        "vapor",
+        "queima",
+        "pronto",
+        "reais",
+        "link",
+        "bio",
+        "oferta",
+        "uma",
+        "duas",
+        "dois",
+        "três",
+        "quinze",
+        "meio",
+        "cinquenta",
+        "dez"
+      ],
+      "planos": [
+        {
+          "set": "pzErra",
+          "cam": "frente"
+        },
+        {
+          "set": "pzCrua",
+          "cam": "lado",
+          "apartir": 6,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Massa crua + recheio",
+            "valor": "NÃO",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "pzVapor",
+          "cam": "close",
+          "apartir": 11,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Vapor preso",
+            "valor": "encharca",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "pzMole",
+          "cam": "close",
+          "apartir": 18,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "O meio",
+            "valor": "MOLE",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "Agora sim, no lado dourado: duas colheres de sopa de molho de tomate, cinquenta gramas de muçarela e uma pitada de orégano.",
+      "etapa": "RECHEAR",
+      "chip": "lado dourado",
+      "destaques": [
+        "segredo",
+        "crua",
+        "erro",
+        "erra",
+        "dourar",
+        "dourado",
+        "forno",
+        "minutos",
+        "xícara",
+        "colher",
+        "colheres",
+        "pitada",
+        "copo",
+        "gramas",
+        "bolinhas",
+        "fininha",
+        "médio",
+        "baixo",
+        "tampa",
+        "tampada",
+        "mole",
+        "vapor",
+        "queima",
+        "pronto",
+        "reais",
+        "link",
+        "bio",
+        "oferta",
+        "uma",
+        "duas",
+        "dois",
+        "três",
+        "quinze",
+        "meio",
+        "cinquenta",
+        "dez"
+      ],
+      "planos": [
+        {
+          "set": "pzDourado",
+          "cam": "cima",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Lado de cima",
+            "valor": "já dourado",
+            "cor": "#2fbf71"
+          }
+        },
+        {
+          "set": "pzMolho",
+          "cam": "close",
+          "apartir": 5,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Molho de tomate",
+            "valor": "2 colheres",
+            "sub": "de sopa · pouco molho"
+          }
+        },
+        {
+          "set": "pzQueijo",
+          "cam": "close",
+          "apartir": 13,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Muçarela ralada",
+            "num": 50,
+            "sufixo": " g",
+            "sub": "por pizza"
+          }
+        },
+        {
+          "set": "pzOregano",
+          "cam": "close",
+          "apartir": 17,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Orégano",
+            "valor": "1 pitada"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "texto": "O segundo segredo é a tampa. Fogo baixo e uns três minutos tampada: o vapor derrete o queijo e o fundo não queima.",
+      "etapa": "TAMPAR",
+      "chip": "fogo baixo",
+      "destaques": [
+        "segredo",
+        "crua",
+        "erro",
+        "erra",
+        "dourar",
+        "dourado",
+        "forno",
+        "minutos",
+        "xícara",
+        "colher",
+        "colheres",
+        "pitada",
+        "copo",
+        "gramas",
+        "bolinhas",
+        "fininha",
+        "médio",
+        "baixo",
+        "tampa",
+        "tampada",
+        "mole",
+        "vapor",
+        "queima",
+        "pronto",
+        "reais",
+        "link",
+        "bio",
+        "oferta",
+        "uma",
+        "duas",
+        "dois",
+        "três",
+        "quinze",
+        "meio",
+        "cinquenta",
+        "dez"
+      ],
+      "planos": [
+        {
+          "set": "pzTampa",
+          "cam": "frente",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Segredo 2",
+            "valor": "TAMPAR",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "pzTampa",
+          "cam": "cima",
+          "apartir": 6,
+          "p": [
+            1,
+            1
+          ],
+          "card": {
+            "rotulo": "Fogo baixo, tampada",
+            "num": 3,
+            "sufixo": " min"
+          }
+        },
+        {
+          "set": "pzDerrete",
+          "cam": "vidro",
+          "apartir": 13,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "pzFundo",
+          "cam": "baixo",
+          "apartir": 18,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Fundo",
+            "valor": "crocante",
+            "sub": "sem queimar",
+            "cor": "#2fbf71"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "texto": "Pronto: duas pizzas por uns dez reais. E na sua, vai o quê: muçarela ou calabresa?",
+      "destaques": [
+        "segredo",
+        "crua",
+        "erro",
+        "erra",
+        "dourar",
+        "dourado",
+        "forno",
+        "minutos",
+        "xícara",
+        "colher",
+        "colheres",
+        "pitada",
+        "copo",
+        "gramas",
+        "bolinhas",
+        "fininha",
+        "médio",
+        "baixo",
+        "tampa",
+        "tampada",
+        "mole",
+        "vapor",
+        "queima",
+        "pronto",
+        "reais",
+        "link",
+        "bio",
+        "oferta",
+        "uma",
+        "duas",
+        "dois",
+        "três",
+        "quinze",
+        "meio",
+        "cinquenta",
+        "dez"
+      ],
+      "planos": [
+        {
+          "set": "pzMesa",
+          "cam": "geral",
+          "card": {
+            "rotulo": "Duas pizzas por",
+            "num": 10,
+            "prefixo": "≈ R$ "
+          }
+        },
+        {
+          "set": "pzFatia",
+          "cam": "close",
+          "apartir": 7,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "pzDuas",
+          "cam": "cima",
+          "apartir": 13,
+          "p": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "texto": "Receita completa e utensílios em oferta: link na bio.",
+      "cta": true,
+      "destaques": [
+        "segredo",
+        "crua",
+        "erro",
+        "erra",
+        "dourar",
+        "dourado",
+        "forno",
+        "minutos",
+        "xícara",
+        "colher",
+        "colheres",
+        "pitada",
+        "copo",
+        "gramas",
+        "bolinhas",
+        "fininha",
+        "médio",
+        "baixo",
+        "tampa",
+        "tampada",
+        "mole",
+        "vapor",
+        "queima",
+        "pronto",
+        "reais",
+        "link",
+        "bio",
+        "oferta",
+        "uma",
+        "duas",
+        "dois",
+        "três",
+        "quinze",
+        "meio",
+        "cinquenta",
+        "dez"
+      ],
+      "planos": [
+        {
+          "set": "pzPronta",
+          "cam": "final",
+          "p": [
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

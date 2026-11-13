@@ -1,0 +1,1328 @@
+{
+  "id": "ela-usou-7-identidades-falsas-e-viveu-as",
+  "voz": "elevenlabs:YNOujSUmHtgN6anjqXPf:eleven_multilingual_v2",
+  "cenas": [
+    {
+      "id": "c1",
+      "duracao": 8.144784999999999,
+      "palavras": [
+        {
+          "palavra": "Mais",
+          "inicio": 0.0,
+          "fim": 0.348
+        },
+        {
+          "palavra": "de",
+          "inicio": 0.406,
+          "fim": 0.488
+        },
+        {
+          "palavra": "três",
+          "inicio": 0.569,
+          "fim": 0.882
+        },
+        {
+          "palavra": "milhões",
+          "inicio": 0.952,
+          "fim": 1.347
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.393,
+          "fim": 1.474
+        },
+        {
+          "palavra": "dólares",
+          "inicio": 1.533,
+          "fim": 2.276
+        },
+        {
+          "palavra": "Era",
+          "inicio": 2.601,
+          "fim": 2.81
+        },
+        {
+          "palavra": "o",
+          "inicio": 2.833,
+          "fim": 2.856
+        },
+        {
+          "palavra": "golpe",
+          "inicio": 2.937,
+          "fim": 3.332
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.367,
+          "fim": 3.425
+        },
+        {
+          "palavra": "uma",
+          "inicio": 3.46,
+          "fim": 3.587
+        },
+        {
+          "palavra": "mulher",
+          "inicio": 3.634,
+          "fim": 3.982
+        },
+        {
+          "palavra": "com",
+          "inicio": 4.052,
+          "fim": 4.18
+        },
+        {
+          "palavra": "sete",
+          "inicio": 4.261,
+          "fim": 4.598
+        },
+        {
+          "palavra": "nomes",
+          "inicio": 4.667,
+          "fim": 5.132
+        },
+        {
+          "palavra": "e",
+          "inicio": 5.306,
+          "fim": 5.399
+        },
+        {
+          "palavra": "ninguém",
+          "inicio": 5.457,
+          "fim": 5.805
+        },
+        {
+          "palavra": "sabia",
+          "inicio": 5.875,
+          "fim": 6.339
+        },
+        {
+          "palavra": "qual",
+          "inicio": 6.397,
+          "fim": 6.571
+        },
+        {
+          "palavra": "era",
+          "inicio": 6.618,
+          "fim": 6.792
+        },
+        {
+          "palavra": "o",
+          "inicio": 6.827,
+          "fim": 6.85
+        },
+        {
+          "palavra": "real",
+          "inicio": 6.908,
+          "fim": 7.895
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "duracao": 9.491542,
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 0.0,
+          "fim": 0.151
+        },
+        {
+          "palavra": "2001",
+          "inicio": 0.221,
+          "fim": 1.138
+        },
+        {
+          "palavra": "ela",
+          "inicio": 1.231,
+          "fim": 1.451
+        },
+        {
+          "palavra": "veio",
+          "inicio": 1.509,
+          "fim": 1.695
+        },
+        {
+          "palavra": "da",
+          "inicio": 1.73,
+          "fim": 1.811
+        },
+        {
+          "palavra": "Malásia",
+          "inicio": 1.869,
+          "fim": 2.438
+        },
+        {
+          "palavra": "para",
+          "inicio": 2.485,
+          "fim": 2.67
+        },
+        {
+          "palavra": "os",
+          "inicio": 2.694,
+          "fim": 3.053
+        },
+        {
+          "palavra": "EUA",
+          "inicio": 3.495,
+          "fim": 3.878
+        },
+        {
+          "palavra": "com",
+          "inicio": 4.122,
+          "fim": 4.319
+        },
+        {
+          "palavra": "um",
+          "inicio": 4.342,
+          "fim": 4.4
+        },
+        {
+          "palavra": "visto",
+          "inicio": 4.481,
+          "fim": 4.853
+        },
+        {
+          "palavra": "de",
+          "inicio": 4.911,
+          "fim": 4.981
+        },
+        {
+          "palavra": "turista",
+          "inicio": 5.039,
+          "fim": 5.538
+        },
+        {
+          "palavra": "que",
+          "inicio": 5.596,
+          "fim": 5.677
+        },
+        {
+          "palavra": "vencia",
+          "inicio": 5.724,
+          "fim": 6.188
+        },
+        {
+          "palavra": "em",
+          "inicio": 6.211,
+          "fim": 6.269
+        },
+        {
+          "palavra": "meses",
+          "inicio": 6.351,
+          "fim": 7.082
+        },
+        {
+          "palavra": "Ficou",
+          "inicio": 7.407,
+          "fim": 7.802
+        },
+        {
+          "palavra": "vinte",
+          "inicio": 7.895,
+          "fim": 8.313
+        },
+        {
+          "palavra": "anos",
+          "inicio": 8.371,
+          "fim": 9.242
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "duracao": 21.844558,
+      "palavras": [
+        {
+          "palavra": "Com",
+          "inicio": 0.0,
+          "fim": 0.186
+        },
+        {
+          "palavra": "cada",
+          "inicio": 0.232,
+          "fim": 0.488
+        },
+        {
+          "palavra": "novo",
+          "inicio": 0.534,
+          "fim": 0.766
+        },
+        {
+          "palavra": "nome",
+          "inicio": 0.836,
+          "fim": 1.37
+        },
+        {
+          "palavra": "cultivava",
+          "inicio": 1.486,
+          "fim": 2.101
+        },
+        {
+          "palavra": "amizade",
+          "inicio": 2.125,
+          "fim": 2.775
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.833,
+          "fim": 2.914
+        },
+        {
+          "palavra": "roubava",
+          "inicio": 2.972,
+          "fim": 3.483
+        },
+        {
+          "palavra": "os",
+          "inicio": 3.506,
+          "fim": 3.576
+        },
+        {
+          "palavra": "documentos",
+          "inicio": 3.634,
+          "fim": 4.574
+        },
+        {
+          "palavra": "Cada",
+          "inicio": 4.899,
+          "fim": 5.19
+        },
+        {
+          "palavra": "vítima",
+          "inicio": 5.271,
+          "fim": 5.793
+        },
+        {
+          "palavra": "abria",
+          "inicio": 5.944,
+          "fim": 6.339
+        },
+        {
+          "palavra": "a",
+          "inicio": 6.362,
+          "fim": 6.385
+        },
+        {
+          "palavra": "porta",
+          "inicio": 6.467,
+          "fim": 6.873
+        },
+        {
+          "palavra": "da",
+          "inicio": 6.92,
+          "fim": 7.001
+        },
+        {
+          "palavra": "seguinte",
+          "inicio": 7.047,
+          "fim": 7.779
+        },
+        {
+          "palavra": "Convencia",
+          "inicio": 8.104,
+          "fim": 8.754
+        },
+        {
+          "palavra": "as",
+          "inicio": 8.789,
+          "fim": 8.858
+        },
+        {
+          "palavra": "vítimas",
+          "inicio": 8.94,
+          "fim": 9.404
+        },
+        {
+          "palavra": "a",
+          "inicio": 9.474,
+          "fim": 9.497
+        },
+        {
+          "palavra": "financiar",
+          "inicio": 9.555,
+          "fim": 10.124
+        },
+        {
+          "palavra": "carros",
+          "inicio": 10.182,
+          "fim": 10.623
+        },
+        {
+          "palavra": "no",
+          "inicio": 10.693,
+          "fim": 10.774
+        },
+        {
+          "palavra": "próprio",
+          "inicio": 10.832,
+          "fim": 11.192
+        },
+        {
+          "palavra": "nome",
+          "inicio": 11.227,
+          "fim": 11.447
+        },
+        {
+          "palavra": "delas",
+          "inicio": 11.494,
+          "fim": 12.167
+        },
+        {
+          "palavra": "prometendo",
+          "inicio": 12.376,
+          "fim": 13.003
+        },
+        {
+          "palavra": "pagar",
+          "inicio": 13.061,
+          "fim": 13.468
+        },
+        {
+          "palavra": "as",
+          "inicio": 13.514,
+          "fim": 13.584
+        },
+        {
+          "palavra": "parcelas",
+          "inicio": 13.653,
+          "fim": 14.547
+        },
+        {
+          "palavra": "As",
+          "inicio": 14.756,
+          "fim": 14.907
+        },
+        {
+          "palavra": "parcelas",
+          "inicio": 14.977,
+          "fim": 15.569
+        },
+        {
+          "palavra": "nunca",
+          "inicio": 15.65,
+          "fim": 15.964
+        },
+        {
+          "palavra": "vieram",
+          "inicio": 16.01,
+          "fim": 16.556
+        },
+        {
+          "palavra": "A",
+          "inicio": 16.835,
+          "fim": 16.904
+        },
+        {
+          "palavra": "conta",
+          "inicio": 17.02,
+          "fim": 17.311
+        },
+        {
+          "palavra": "ficou",
+          "inicio": 17.357,
+          "fim": 17.659
+        },
+        {
+          "palavra": "com",
+          "inicio": 17.705,
+          "fim": 17.81
+        },
+        {
+          "palavra": "as",
+          "inicio": 17.88,
+          "fim": 17.949
+        },
+        {
+          "palavra": "vítimas",
+          "inicio": 18.03,
+          "fim": 18.541
+        },
+        {
+          "palavra": "e",
+          "inicio": 18.657,
+          "fim": 18.832
+        },
+        {
+          "palavra": "ela",
+          "inicio": 18.866,
+          "fim": 19.029
+        },
+        {
+          "palavra": "ficou",
+          "inicio": 19.075,
+          "fim": 19.389
+        },
+        {
+          "palavra": "com",
+          "inicio": 19.435,
+          "fim": 19.563
+        },
+        {
+          "palavra": "quinze",
+          "inicio": 19.679,
+          "fim": 20.074
+        },
+        {
+          "palavra": "carros",
+          "inicio": 20.132,
+          "fim": 20.515
+        },
+        {
+          "palavra": "de",
+          "inicio": 20.573,
+          "fim": 20.654
+        },
+        {
+          "palavra": "luxo",
+          "inicio": 20.712,
+          "fim": 21.595
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "duracao": 23.423515,
+      "palavras": [
+        {
+          "palavra": "Disse",
+          "inicio": 0.0,
+          "fim": 0.348
+        },
+        {
+          "palavra": "ser",
+          "inicio": 0.406,
+          "fim": 0.604
+        },
+        {
+          "palavra": "neta",
+          "inicio": 0.685,
+          "fim": 1.068
+        },
+        {
+          "palavra": "de",
+          "inicio": 1.126,
+          "fim": 1.219
+        },
+        {
+          "palavra": "Lee",
+          "inicio": 1.335,
+          "fim": 1.474
+        },
+        {
+          "palavra": "Kuan",
+          "inicio": 1.533,
+          "fim": 1.846
+        },
+        {
+          "palavra": "Yew",
+          "inicio": 1.939,
+          "fim": 2.392
+        },
+        {
+          "palavra": "premier",
+          "inicio": 2.635,
+          "fim": 3.17
+        },
+        {
+          "palavra": "de",
+          "inicio": 3.251,
+          "fim": 3.332
+        },
+        {
+          "palavra": "Cingapura",
+          "inicio": 3.402,
+          "fim": 4.331
+        },
+        {
+          "palavra": "Um",
+          "inicio": 4.841,
+          "fim": 4.946
+        },
+        {
+          "palavra": "jogador",
+          "inicio": 4.992,
+          "fim": 5.399
+        },
+        {
+          "palavra": "de",
+          "inicio": 5.457,
+          "fim": 5.515
+        },
+        {
+          "palavra": "futebol",
+          "inicio": 5.573,
+          "fim": 5.991
+        },
+        {
+          "palavra": "americano",
+          "inicio": 6.026,
+          "fim": 6.653
+        },
+        {
+          "palavra": "entregou",
+          "inicio": 6.687,
+          "fim": 7.163
+        },
+        {
+          "palavra": "um",
+          "inicio": 7.291,
+          "fim": 7.454
+        },
+        {
+          "palavra": "milhão",
+          "inicio": 7.477,
+          "fim": 7.848
+        },
+        {
+          "palavra": "e",
+          "inicio": 7.883,
+          "fim": 7.906
+        },
+        {
+          "palavra": "duzentos",
+          "inicio": 7.953,
+          "fim": 8.51
+        },
+        {
+          "palavra": "mil",
+          "inicio": 8.591,
+          "fim": 8.731
+        },
+        {
+          "palavra": "dólares",
+          "inicio": 8.789,
+          "fim": 9.288
+        },
+        {
+          "palavra": "para",
+          "inicio": 9.358,
+          "fim": 9.532
+        },
+        {
+          "palavra": "comprar",
+          "inicio": 9.578,
+          "fim": 9.985
+        },
+        {
+          "palavra": "participação",
+          "inicio": 10.054,
+          "fim": 10.89
+        },
+        {
+          "palavra": "num",
+          "inicio": 10.937,
+          "fim": 11.053
+        },
+        {
+          "palavra": "negócio",
+          "inicio": 11.088,
+          "fim": 11.61
+        },
+        {
+          "palavra": "que",
+          "inicio": 11.656,
+          "fim": 11.749
+        },
+        {
+          "palavra": "nunca",
+          "inicio": 11.819,
+          "fim": 12.121
+        },
+        {
+          "palavra": "existiu",
+          "inicio": 12.156,
+          "fim": 12.864
+        },
+        {
+          "palavra": "Em",
+          "inicio": 13.305,
+          "fim": 13.444
+        },
+        {
+          "palavra": "2015",
+          "inicio": 13.514,
+          "fim": 14.675
+        },
+        {
+          "palavra": "Lee",
+          "inicio": 15.0,
+          "fim": 15.198
+        },
+        {
+          "palavra": "Kuan",
+          "inicio": 15.244,
+          "fim": 15.557
+        },
+        {
+          "palavra": "Yew",
+          "inicio": 15.65,
+          "fim": 15.824
+        },
+        {
+          "palavra": "morreu",
+          "inicio": 15.894,
+          "fim": 16.509
+        },
+        {
+          "palavra": "O",
+          "inicio": 16.951,
+          "fim": 17.02
+        },
+        {
+          "palavra": "treinador",
+          "inicio": 17.102,
+          "fim": 17.566
+        },
+        {
+          "palavra": "de",
+          "inicio": 17.612,
+          "fim": 17.694
+        },
+        {
+          "palavra": "boxe",
+          "inicio": 17.752,
+          "fim": 18.158
+        },
+        {
+          "palavra": "que",
+          "inicio": 18.216,
+          "fim": 18.286
+        },
+        {
+          "palavra": "a",
+          "inicio": 18.321,
+          "fim": 18.344
+        },
+        {
+          "palavra": "conhecia",
+          "inicio": 18.379,
+          "fim": 18.971
+        },
+        {
+          "palavra": "foi",
+          "inicio": 19.04,
+          "fim": 19.226
+        },
+        {
+          "palavra": "ao",
+          "inicio": 19.249,
+          "fim": 19.307
+        },
+        {
+          "palavra": "funeral",
+          "inicio": 19.366,
+          "fim": 19.842
+        },
+        {
+          "palavra": "ao",
+          "inicio": 19.865,
+          "fim": 19.969
+        },
+        {
+          "palavra": "vivo",
+          "inicio": 20.051,
+          "fim": 20.468
+        },
+        {
+          "palavra": "e",
+          "inicio": 20.677,
+          "fim": 20.805
+        },
+        {
+          "palavra": "não",
+          "inicio": 20.875,
+          "fim": 21.026
+        },
+        {
+          "palavra": "a",
+          "inicio": 21.084,
+          "fim": 21.107
+        },
+        {
+          "palavra": "viu",
+          "inicio": 21.188,
+          "fim": 21.409
+        },
+        {
+          "palavra": "entre",
+          "inicio": 21.479,
+          "fim": 21.688
+        },
+        {
+          "palavra": "os",
+          "inicio": 21.711,
+          "fim": 21.78
+        },
+        {
+          "palavra": "familiares",
+          "inicio": 21.838,
+          "fim": 23.174
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "duracao": 20.172721,
+      "palavras": [
+        {
+          "palavra": "Uns",
+          "inicio": 0.0,
+          "fim": 0.279
+        },
+        {
+          "palavra": "dizem",
+          "inicio": 0.348,
+          "fim": 0.72
+        },
+        {
+          "palavra": "que",
+          "inicio": 0.778,
+          "fim": 0.871
+        },
+        {
+          "palavra": "era",
+          "inicio": 0.894,
+          "fim": 1.045
+        },
+        {
+          "palavra": "só",
+          "inicio": 1.091,
+          "fim": 1.231
+        },
+        {
+          "palavra": "luxo",
+          "inicio": 1.312,
+          "fim": 1.904
+        },
+        {
+          "palavra": "e",
+          "inicio": 2.032,
+          "fim": 2.148
+        },
+        {
+          "palavra": "os",
+          "inicio": 2.206,
+          "fim": 2.299
+        },
+        {
+          "palavra": "Porsches",
+          "inicio": 2.415,
+          "fim": 2.961
+        },
+        {
+          "palavra": "falam",
+          "inicio": 3.053,
+          "fim": 3.332
+        },
+        {
+          "palavra": "por",
+          "inicio": 3.39,
+          "fim": 3.564
+        },
+        {
+          "palavra": "si",
+          "inicio": 3.634,
+          "fim": 4.04
+        },
+        {
+          "palavra": "Outros",
+          "inicio": 4.423,
+          "fim": 4.899
+        },
+        {
+          "palavra": "acham",
+          "inicio": 5.05,
+          "fim": 5.329
+        },
+        {
+          "palavra": "que",
+          "inicio": 5.399,
+          "fim": 5.503
+        },
+        {
+          "palavra": "ela",
+          "inicio": 5.526,
+          "fim": 5.631
+        },
+        {
+          "palavra": "escondia",
+          "inicio": 5.654,
+          "fim": 6.2
+        },
+        {
+          "palavra": "uma",
+          "inicio": 6.223,
+          "fim": 6.351
+        },
+        {
+          "palavra": "condenação",
+          "inicio": 6.397,
+          "fim": 7.094
+        },
+        {
+          "palavra": "por",
+          "inicio": 7.129,
+          "fim": 7.326
+        },
+        {
+          "palavra": "roubo",
+          "inicio": 7.396,
+          "fim": 7.732
+        },
+        {
+          "palavra": "de",
+          "inicio": 7.779,
+          "fim": 7.86
+        },
+        {
+          "palavra": "identidade",
+          "inicio": 7.883,
+          "fim": 8.626
+        },
+        {
+          "palavra": "que",
+          "inicio": 8.673,
+          "fim": 8.742
+        },
+        {
+          "palavra": "já",
+          "inicio": 8.8,
+          "fim": 8.905
+        },
+        {
+          "palavra": "tinha",
+          "inicio": 8.975,
+          "fim": 9.207
+        },
+        {
+          "palavra": "cumprido",
+          "inicio": 9.265,
+          "fim": 9.764
+        },
+        {
+          "palavra": "na",
+          "inicio": 9.81,
+          "fim": 9.88
+        },
+        {
+          "palavra": "Califórnia",
+          "inicio": 9.927,
+          "fim": 10.855
+        },
+        {
+          "palavra": "Tem",
+          "inicio": 11.238,
+          "fim": 11.413
+        },
+        {
+          "palavra": "quem",
+          "inicio": 11.471,
+          "fim": 11.633
+        },
+        {
+          "palavra": "diga",
+          "inicio": 11.703,
+          "fim": 12.051
+        },
+        {
+          "palavra": "que",
+          "inicio": 12.109,
+          "fim": 12.202
+        },
+        {
+          "palavra": "ela",
+          "inicio": 12.225,
+          "fim": 12.342
+        },
+        {
+          "palavra": "fugia",
+          "inicio": 12.4,
+          "fim": 12.876
+        },
+        {
+          "palavra": "da",
+          "inicio": 12.922,
+          "fim": 13.004
+        },
+        {
+          "palavra": "deportação",
+          "inicio": 13.062,
+          "fim": 13.932
+        },
+        {
+          "palavra": "e",
+          "inicio": 14.176,
+          "fim": 14.304
+        },
+        {
+          "palavra": "mentiu",
+          "inicio": 14.362,
+          "fim": 14.861
+        },
+        {
+          "palavra": "sob",
+          "inicio": 14.919,
+          "fim": 15.14
+        },
+        {
+          "palavra": "juramento",
+          "inicio": 15.221,
+          "fim": 15.79
+        },
+        {
+          "palavra": "para",
+          "inicio": 15.836,
+          "fim": 15.987
+        },
+        {
+          "palavra": "ficar",
+          "inicio": 16.034,
+          "fim": 16.324
+        },
+        {
+          "palavra": "no",
+          "inicio": 16.37,
+          "fim": 16.44
+        },
+        {
+          "palavra": "país",
+          "inicio": 16.487,
+          "fim": 17.183
+        },
+        {
+          "palavra": "A",
+          "inicio": 17.508,
+          "fim": 17.59
+        },
+        {
+          "palavra": "evidência",
+          "inicio": 17.659,
+          "fim": 18.228
+        },
+        {
+          "palavra": "aponta",
+          "inicio": 18.286,
+          "fim": 18.727
+        },
+        {
+          "palavra": "para",
+          "inicio": 18.774,
+          "fim": 18.948
+        },
+        {
+          "palavra": "o",
+          "inicio": 18.971,
+          "fim": 18.994
+        },
+        {
+          "palavra": "luxo",
+          "inicio": 19.041,
+          "fim": 19.923
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "duracao": 16.364649,
+      "palavras": [
+        {
+          "palavra": "Em",
+          "inicio": 0.0,
+          "fim": 0.128
+        },
+        {
+          "palavra": "2017",
+          "inicio": 0.197,
+          "fim": 1.265
+        },
+        {
+          "palavra": "a",
+          "inicio": 1.335,
+          "fim": 1.393
+        },
+        {
+          "palavra": "Malásia",
+          "inicio": 1.463,
+          "fim": 1.962
+        },
+        {
+          "palavra": "avisou",
+          "inicio": 2.032,
+          "fim": 2.485
+        },
+        {
+          "palavra": "a",
+          "inicio": 2.554,
+          "fim": 2.577
+        },
+        {
+          "palavra": "polícia",
+          "inicio": 2.624,
+          "fim": 2.984
+        },
+        {
+          "palavra": "federal",
+          "inicio": 3.042,
+          "fim": 3.425
+        },
+        {
+          "palavra": "americana",
+          "inicio": 3.46,
+          "fim": 4.156
+        },
+        {
+          "palavra": "No",
+          "inicio": 4.563,
+          "fim": 4.679
+        },
+        {
+          "palavra": "apartamento",
+          "inicio": 4.702,
+          "fim": 5.271
+        },
+        {
+          "palavra": "dela",
+          "inicio": 5.329,
+          "fim": 5.596
+        },
+        {
+          "palavra": "em",
+          "inicio": 5.619,
+          "fim": 5.666
+        },
+        {
+          "palavra": "Los",
+          "inicio": 5.724,
+          "fim": 5.886
+        },
+        {
+          "palavra": "Angeles",
+          "inicio": 5.991,
+          "fim": 6.385
+        },
+        {
+          "palavra": "acharam",
+          "inicio": 6.502,
+          "fim": 6.954
+        },
+        {
+          "palavra": "a",
+          "inicio": 7.012,
+          "fim": 7.024
+        },
+        {
+          "palavra": "carteira",
+          "inicio": 7.07,
+          "fim": 7.546
+        },
+        {
+          "palavra": "de",
+          "inicio": 7.593,
+          "fim": 7.674
+        },
+        {
+          "palavra": "Cindy",
+          "inicio": 7.732,
+          "fim": 8.046
+        },
+        {
+          "palavra": "Lin",
+          "inicio": 8.104,
+          "fim": 8.429
+        },
+        {
+          "palavra": "a",
+          "inicio": 8.777,
+          "fim": 8.835
+        },
+        {
+          "palavra": "manicure",
+          "inicio": 8.893,
+          "fim": 9.427
+        },
+        {
+          "palavra": "de",
+          "inicio": 9.485,
+          "fim": 9.567
+        },
+        {
+          "palavra": "quem",
+          "inicio": 9.613,
+          "fim": 9.729
+        },
+        {
+          "palavra": "ela",
+          "inicio": 9.776,
+          "fim": 9.892
+        },
+        {
+          "palavra": "roubou",
+          "inicio": 9.927,
+          "fim": 10.333
+        },
+        {
+          "palavra": "o",
+          "inicio": 10.368,
+          "fim": 10.391
+        },
+        {
+          "palavra": "nome",
+          "inicio": 10.437,
+          "fim": 10.913
+        },
+        {
+          "palavra": "Em",
+          "inicio": 11.262,
+          "fim": 11.378
+        },
+        {
+          "palavra": "2019",
+          "inicio": 11.471,
+          "fim": 12.62
+        },
+        {
+          "palavra": "recebeu",
+          "inicio": 12.783,
+          "fim": 13.235
+        },
+        {
+          "palavra": "cinquenta",
+          "inicio": 13.293,
+          "fim": 13.932
+        },
+        {
+          "palavra": "e",
+          "inicio": 13.978,
+          "fim": 14.071
+        },
+        {
+          "palavra": "um",
+          "inicio": 14.141,
+          "fim": 14.222
+        },
+        {
+          "palavra": "meses",
+          "inicio": 14.292,
+          "fim": 14.675
+        },
+        {
+          "palavra": "de",
+          "inicio": 14.721,
+          "fim": 14.78
+        },
+        {
+          "palavra": "prisão",
+          "inicio": 14.826,
+          "fim": 15.139
+        },
+        {
+          "palavra": "federal",
+          "inicio": 15.163,
+          "fim": 16.115
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "duracao": 8.376984,
+      "palavras": [
+        {
+          "palavra": "Foram",
+          "inicio": 0.0,
+          "fim": 0.29
+        },
+        {
+          "palavra": "vinte",
+          "inicio": 0.36,
+          "fim": 0.685
+        },
+        {
+          "palavra": "anos",
+          "inicio": 0.731,
+          "fim": 1.022
+        },
+        {
+          "palavra": "e",
+          "inicio": 1.103,
+          "fim": 1.219
+        },
+        {
+          "palavra": "sete",
+          "inicio": 1.3,
+          "fim": 1.637
+        },
+        {
+          "palavra": "nomes",
+          "inicio": 1.695,
+          "fim": 2.334
+        },
+        {
+          "palavra": "No",
+          "inicio": 2.717,
+          "fim": 2.833
+        },
+        {
+          "palavra": "tribunal",
+          "inicio": 2.879,
+          "fim": 3.46
+        },
+        {
+          "palavra": "ela",
+          "inicio": 3.587,
+          "fim": 3.808
+        },
+        {
+          "palavra": "tentou",
+          "inicio": 3.855,
+          "fim": 4.261
+        },
+        {
+          "palavra": "o",
+          "inicio": 4.319,
+          "fim": 4.342
+        },
+        {
+          "palavra": "oitavo",
+          "inicio": 4.377,
+          "fim": 5.19
+        },
+        {
+          "palavra": "Qual",
+          "inicio": 5.793,
+          "fim": 6.014
+        },
+        {
+          "palavra": "teoria",
+          "inicio": 6.084,
+          "fim": 6.525
+        },
+        {
+          "palavra": "você",
+          "inicio": 6.571,
+          "fim": 6.815
+        },
+        {
+          "palavra": "acha",
+          "inicio": 6.931,
+          "fim": 7.163
+        },
+        {
+          "palavra": "que",
+          "inicio": 7.21,
+          "fim": 7.291
+        },
+        {
+          "palavra": "é",
+          "inicio": 7.314,
+          "fim": 7.338
+        },
+        {
+          "palavra": "real",
+          "inicio": 7.407,
+          "fim": 8.127
+        }
+      ]
+    }
+  ]
+}

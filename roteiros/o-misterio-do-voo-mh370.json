@@ -1,0 +1,926 @@
+{
+  "id": "o-misterio-do-voo-mh370",
+  "serie": "Caso Explicado",
+  "perfil": "caso",
+  "titulo": "O SUMIÇO DO MH370",
+  "linha2": "239 pessoas, nenhum avião",
+  "quando": "08/03/2014",
+  "onde": "MALÁSIA",
+  "voz": "pt-BR-FranciscaNeural",
+  "velocidade": "+10%",
+  "elevenlabs": {
+    "voz_id": "YNOujSUmHtgN6anjqXPf",
+    "modelo": "eleven_multilingual_v2",
+    "ajustes": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.4,
+      "use_speaker_boost": true,
+      "speed": 1.15
+    }
+  },
+  "fontes": "roteiros/o-misterio-do-voo-mh370.pesquisa.md",
+  "monetizacao": {
+    "afiliados": [
+      "livro: The Hidden Truth / O Sumiço do MH370 (livros sobre o caso)",
+      "documentário: MH370: O Avião Que Desapareceu (Netflix)",
+      "lupa de leitura com luz",
+      "quadro de cortiça + alfinetes (mural de investigação)",
+      "jogo de tabuleiro de investigação"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Um avião com duzentas e trinta e nove pessoas some do radar, mas dá sinal por quase sete horas. E nunca é achado.",
+      "quando": "08/03/2014",
+      "onde": "MAR DO SUL DA CHINA",
+      "destaques": [
+        "duzentas",
+        "trinta",
+        "nove",
+        "radar",
+        "sete",
+        "horas",
+        "nunca",
+        "mh370",
+        "meia-noite",
+        "boa",
+        "noite",
+        "transponder",
+        "desliga",
+        "militar",
+        "meia-volta",
+        "mão",
+        "satélite",
+        "distância",
+        "arco",
+        "ponto",
+        "oito",
+        "dezenove",
+        "três",
+        "quarenta",
+        "nada",
+        "surpresa",
+        "dezesseis",
+        "asa",
+        "reunião",
+        "quatro",
+        "fantasma",
+        "sequestro",
+        "propósito",
+        "indícios",
+        "provado",
+        "março",
+        "famílias",
+        "nenhum",
+        "teoria"
+      ],
+      "planos": [
+        {
+          "set": "voo",
+          "cam": "lado",
+          "p": [
+            0,
+            0.3
+          ],
+          "card": {
+            "rotulo": "Pessoas a bordo",
+            "num": 239,
+            "sub": "voo MH370"
+          }
+        },
+        {
+          "set": "radar",
+          "cam": "tela",
+          "apartir": 9,
+          "p": [
+            0.3,
+            1
+          ]
+        },
+        {
+          "set": "satelite",
+          "cam": "geral",
+          "apartir": 15,
+          "card": {
+            "rotulo": "Sinal pro satélite",
+            "valor": "QUASE 7 HORAS",
+            "cor": "#6fd3ff"
+          }
+        },
+        {
+          "set": "mapa",
+          "cam": "oceano",
+          "apartir": 19,
+          "p": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Março de dois mil e catorze. O voo MH370 sai da Malásia rumo a Pequim, à meia-noite e quarenta e dois.",
+      "quando": "08/03/2014",
+      "onde": "KUALA LUMPUR",
+      "destaques": [
+        "duzentas",
+        "trinta",
+        "nove",
+        "radar",
+        "sete",
+        "horas",
+        "nunca",
+        "mh370",
+        "meia-noite",
+        "boa",
+        "noite",
+        "transponder",
+        "desliga",
+        "militar",
+        "meia-volta",
+        "mão",
+        "satélite",
+        "distância",
+        "arco",
+        "ponto",
+        "oito",
+        "dezenove",
+        "três",
+        "quarenta",
+        "nada",
+        "surpresa",
+        "dezesseis",
+        "asa",
+        "reunião",
+        "quatro",
+        "fantasma",
+        "sequestro",
+        "propósito",
+        "indícios",
+        "provado",
+        "março",
+        "famílias",
+        "nenhum",
+        "teoria"
+      ],
+      "planos": [
+        {
+          "set": "aeroporto",
+          "cam": "pista",
+          "p": [
+            0,
+            0.35
+          ]
+        },
+        {
+          "set": "mapa",
+          "cam": "asia",
+          "apartir": 6,
+          "p": [
+            0,
+            0.03
+          ],
+          "card": {
+            "rotulo": "Voo MH370",
+            "valor": "KUALA LUMPUR",
+            "sub": "Malásia → Pequim (China)"
+          }
+        },
+        {
+          "set": "aeroporto",
+          "cam": "decola",
+          "apartir": 15,
+          "p": [
+            0.35,
+            0.75
+          ],
+          "card": {
+            "rotulo": "Decolagem",
+            "valor": "00:42",
+            "sub": "Boeing 777, à noite",
+            "cor": "#ffd23f"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "À uma e dezenove, a cabine diz: boa noite. Minutos depois, o transponder, que mostra o avião no radar, desliga.",
+      "quando": "08/03/2014",
+      "onde": "MAR DO SUL DA CHINA",
+      "destaques": [
+        "duzentas",
+        "trinta",
+        "nove",
+        "radar",
+        "sete",
+        "horas",
+        "nunca",
+        "mh370",
+        "meia-noite",
+        "boa",
+        "noite",
+        "transponder",
+        "desliga",
+        "militar",
+        "meia-volta",
+        "mão",
+        "satélite",
+        "distância",
+        "arco",
+        "ponto",
+        "oito",
+        "dezenove",
+        "três",
+        "quarenta",
+        "nada",
+        "surpresa",
+        "dezesseis",
+        "asa",
+        "reunião",
+        "quatro",
+        "fantasma",
+        "sequestro",
+        "propósito",
+        "indícios",
+        "provado",
+        "março",
+        "famílias",
+        "nenhum",
+        "teoria"
+      ],
+      "planos": [
+        {
+          "set": "cockpit",
+          "cam": "painel",
+          "card": {
+            "rotulo": "Última fala",
+            "valor": "01:19",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "cockpit",
+          "cam": "janela",
+          "apartir": 4,
+          "card": {
+            "rotulo": "A frase",
+            "valor": "“BOA NOITE”",
+            "sub": "good night, Malaysian 370"
+          }
+        },
+        {
+          "set": "manche",
+          "cam": "transponder",
+          "apartir": 9,
+          "p": [
+            0.2,
+            0.75
+          ]
+        },
+        {
+          "set": "radar",
+          "cam": "sala",
+          "apartir": 13,
+          "p": [
+            0.3,
+            1
+          ],
+          "card": {
+            "rotulo": "Transponder",
+            "valor": "DESLIGADO",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "Mas o radar militar viu: o avião deu meia-volta, cruzou a Malásia e sumiu no mar. E a curva foi feita à mão.",
+      "quando": "08/03/2014",
+      "onde": "MALÁSIA",
+      "destaques": [
+        "duzentas",
+        "trinta",
+        "nove",
+        "radar",
+        "sete",
+        "horas",
+        "nunca",
+        "mh370",
+        "meia-noite",
+        "boa",
+        "noite",
+        "transponder",
+        "desliga",
+        "militar",
+        "meia-volta",
+        "mão",
+        "satélite",
+        "distância",
+        "arco",
+        "ponto",
+        "oito",
+        "dezenove",
+        "três",
+        "quarenta",
+        "nada",
+        "surpresa",
+        "dezesseis",
+        "asa",
+        "reunião",
+        "quatro",
+        "fantasma",
+        "sequestro",
+        "propósito",
+        "indícios",
+        "provado",
+        "março",
+        "famílias",
+        "nenhum",
+        "teoria"
+      ],
+      "planos": [
+        {
+          "set": "radarmil",
+          "cam": "antena"
+        },
+        {
+          "set": "mapa",
+          "cam": "volta",
+          "apartir": 5,
+          "p": [
+            0.1,
+            0.3
+          ]
+        },
+        {
+          "set": "mapa",
+          "cam": "andamao",
+          "apartir": 9,
+          "p": [
+            0.3,
+            0.55
+          ],
+          "card": {
+            "rotulo": "Último ponto no radar",
+            "valor": "02:22",
+            "sub": "mar de Andamão",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "manche",
+          "cam": "yoke",
+          "apartir": 16,
+          "card": {
+            "rotulo": "A curva",
+            "valor": "FEITA À MÃO",
+            "sub": "relatório oficial, 2018",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "Depois, só um satélite ouviu o avião. Ele mede distância, não lugar: um arco, não um ponto. Último sinal: oito e dezenove.",
+      "quando": "08/03/2014",
+      "onde": "OCEANO ÍNDICO",
+      "destaques": [
+        "duzentas",
+        "trinta",
+        "nove",
+        "radar",
+        "sete",
+        "horas",
+        "nunca",
+        "mh370",
+        "meia-noite",
+        "boa",
+        "noite",
+        "transponder",
+        "desliga",
+        "militar",
+        "meia-volta",
+        "mão",
+        "satélite",
+        "distância",
+        "arco",
+        "ponto",
+        "oito",
+        "dezenove",
+        "três",
+        "quarenta",
+        "nada",
+        "surpresa",
+        "dezesseis",
+        "asa",
+        "reunião",
+        "quatro",
+        "fantasma",
+        "sequestro",
+        "propósito",
+        "indícios",
+        "provado",
+        "março",
+        "famílias",
+        "nenhum",
+        "teoria"
+      ],
+      "planos": [
+        {
+          "set": "satelite",
+          "cam": "sat"
+        },
+        {
+          "set": "satelite",
+          "cam": "arco",
+          "apartir": 7,
+          "card": {
+            "rotulo": "O satélite mede",
+            "valor": "SÓ DISTÂNCIA",
+            "cor": "#6fd3ff"
+          }
+        },
+        {
+          "set": "mapa",
+          "cam": "arcos",
+          "apartir": 12,
+          "p": [
+            0.55,
+            0.62
+          ],
+          "card": {
+            "rotulo": "Sinais automáticos",
+            "num": 7,
+            "sub": "cada um vira um arco"
+          }
+        },
+        {
+          "set": "mapa",
+          "cam": "sul",
+          "apartir": 17,
+          "p": [
+            0.62,
+            1
+          ],
+          "card": {
+            "rotulo": "Último sinal",
+            "valor": "08:19",
+            "sub": "combustível no fim",
+            "cor": "#ffd23f"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "Três buscas varreram quase duzentos e quarenta mil quilômetros quadrados de mar. Nada.",
+      "quando": "2014 · 2018 · 2026",
+      "onde": "SUL DO OCEANO ÍNDICO",
+      "destaques": [
+        "duzentas",
+        "trinta",
+        "nove",
+        "radar",
+        "sete",
+        "horas",
+        "nunca",
+        "mh370",
+        "meia-noite",
+        "boa",
+        "noite",
+        "transponder",
+        "desliga",
+        "militar",
+        "meia-volta",
+        "mão",
+        "satélite",
+        "distância",
+        "arco",
+        "ponto",
+        "oito",
+        "dezenove",
+        "três",
+        "quarenta",
+        "nada",
+        "surpresa",
+        "dezesseis",
+        "asa",
+        "reunião",
+        "quatro",
+        "fantasma",
+        "sequestro",
+        "propósito",
+        "indícios",
+        "provado",
+        "março",
+        "famílias",
+        "nenhum",
+        "teoria"
+      ],
+      "planos": [
+        {
+          "set": "mapa",
+          "cam": "busca",
+          "p": [
+            1,
+            1.45
+          ]
+        },
+        {
+          "set": "busca",
+          "cam": "navio",
+          "apartir": 3,
+          "card": {
+            "rotulo": "Fundo do mar varrido",
+            "valor": "≈ 240 MIL KM²",
+            "sub": "em 3 buscas"
+          }
+        },
+        {
+          "set": "fundo",
+          "cam": "sonar",
+          "apartir": 10,
+          "card": {
+            "rotulo": "Avião encontrado",
+            "valor": "NADA",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "A surpresa: dezesseis meses depois, um pedaço da asa aparece na Ilha da Reunião, a quatro mil quilômetros dali. Era do MH370.",
+      "quando": "29/07/2015",
+      "onde": "ILHA DA REUNIÃO",
+      "destaques": [
+        "duzentas",
+        "trinta",
+        "nove",
+        "radar",
+        "sete",
+        "horas",
+        "nunca",
+        "mh370",
+        "meia-noite",
+        "boa",
+        "noite",
+        "transponder",
+        "desliga",
+        "militar",
+        "meia-volta",
+        "mão",
+        "satélite",
+        "distância",
+        "arco",
+        "ponto",
+        "oito",
+        "dezenove",
+        "três",
+        "quarenta",
+        "nada",
+        "surpresa",
+        "dezesseis",
+        "asa",
+        "reunião",
+        "quatro",
+        "fantasma",
+        "sequestro",
+        "propósito",
+        "indícios",
+        "provado",
+        "março",
+        "famílias",
+        "nenhum",
+        "teoria"
+      ],
+      "planos": [
+        {
+          "set": "praia",
+          "cam": "geral",
+          "card": {
+            "rotulo": "Achado na praia",
+            "valor": "16 MESES DEPOIS",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "praia",
+          "cam": "flaperon",
+          "apartir": 5,
+          "card": {
+            "rotulo": "Pedaço da asa",
+            "valor": "FLAPERON",
+            "sub": "o \"flape\" da asa direita"
+          }
+        },
+        {
+          "set": "mapa",
+          "cam": "reuniao",
+          "apartir": 14,
+          "p": [
+            1.5,
+            2
+          ],
+          "card": {
+            "rotulo": "Longe da busca",
+            "num": 4000,
+            "prefixo": "≈ ",
+            "sufixo": " km"
+          }
+        },
+        {
+          "set": "praia",
+          "cam": "lupa",
+          "apartir": 19,
+          "card": {
+            "rotulo": "Número de série",
+            "valor": "ERA DO MH370",
+            "sub": "confirmado pela França"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "As teorias: pane, tripulação desmaiada, o avião fantasma; sequestro por alguém de fora, a com menos prova; ou alguém na cabine desviou de propósito: a com mais indícios, nada provado.",
+      "quando": "2014 → HOJE",
+      "onde": "AS TEORIAS",
+      "destaques": [
+        "duzentas",
+        "trinta",
+        "nove",
+        "radar",
+        "sete",
+        "horas",
+        "nunca",
+        "mh370",
+        "meia-noite",
+        "boa",
+        "noite",
+        "transponder",
+        "desliga",
+        "militar",
+        "meia-volta",
+        "mão",
+        "satélite",
+        "distância",
+        "arco",
+        "ponto",
+        "oito",
+        "dezenove",
+        "três",
+        "quarenta",
+        "nada",
+        "surpresa",
+        "dezesseis",
+        "asa",
+        "reunião",
+        "quatro",
+        "fantasma",
+        "sequestro",
+        "propósito",
+        "indícios",
+        "provado",
+        "março",
+        "famílias",
+        "nenhum",
+        "teoria"
+      ],
+      "planos": [
+        {
+          "set": "quadro",
+          "cam": "geral",
+          "p": [
+            0,
+            0.1
+          ]
+        },
+        {
+          "set": "fantasma",
+          "cam": "geral",
+          "apartir": 3,
+          "card": {
+            "rotulo": "Teoria 1",
+            "valor": "AVIÃO FANTASMA",
+            "sub": "pane e tripulação desmaiada"
+          }
+        },
+        {
+          "set": "quadro",
+          "cam": "t2",
+          "apartir": 8,
+          "p": [
+            0.3,
+            0.55
+          ],
+          "card": {
+            "rotulo": "Teoria 2 · sequestro",
+            "valor": "MENOS PROVA",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "quadro",
+          "cam": "t3",
+          "apartir": 17,
+          "p": [
+            0.55,
+            0.8
+          ],
+          "card": {
+            "rotulo": "Teoria 3 · desvio de propósito",
+            "valor": "MAIS INDÍCIOS",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "quadro",
+          "cam": "ze",
+          "apartir": 24,
+          "p": [
+            0.8,
+            0.99
+          ],
+          "card": {
+            "rotulo": "Até hoje",
+            "valor": "NADA PROVADO",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "texto": "Em março de dois mil e vinte e seis, a última busca acabou sem nada. As famílias pedem pra não desistir.",
+      "quando": "MARÇO DE 2026",
+      "onde": "OCEANO ÍNDICO",
+      "destaques": [
+        "duzentas",
+        "trinta",
+        "nove",
+        "radar",
+        "sete",
+        "horas",
+        "nunca",
+        "mh370",
+        "meia-noite",
+        "boa",
+        "noite",
+        "transponder",
+        "desliga",
+        "militar",
+        "meia-volta",
+        "mão",
+        "satélite",
+        "distância",
+        "arco",
+        "ponto",
+        "oito",
+        "dezenove",
+        "três",
+        "quarenta",
+        "nada",
+        "surpresa",
+        "dezesseis",
+        "asa",
+        "reunião",
+        "quatro",
+        "fantasma",
+        "sequestro",
+        "propósito",
+        "indícios",
+        "provado",
+        "março",
+        "famílias",
+        "nenhum",
+        "teoria"
+      ],
+      "planos": [
+        {
+          "set": "retorno",
+          "cam": "volta"
+        },
+        {
+          "set": "mapa",
+          "cam": "fim",
+          "apartir": 9,
+          "p": [
+            2,
+            2
+          ],
+          "card": {
+            "rotulo": "Última busca",
+            "valor": "ENCERRADA",
+            "sub": "sem achar o avião",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "vigilia",
+          "cam": "velas",
+          "apartir": 15
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "texto": "Duzentas e trinta e nove pessoas, sete horas de sinal, nenhum avião. Qual teoria você acha?",
+      "quando": "HOJE",
+      "onde": "CASO ABERTO",
+      "destaques": [
+        "duzentas",
+        "trinta",
+        "nove",
+        "radar",
+        "sete",
+        "horas",
+        "nunca",
+        "mh370",
+        "meia-noite",
+        "boa",
+        "noite",
+        "transponder",
+        "desliga",
+        "militar",
+        "meia-volta",
+        "mão",
+        "satélite",
+        "distância",
+        "arco",
+        "ponto",
+        "oito",
+        "dezenove",
+        "três",
+        "quarenta",
+        "nada",
+        "surpresa",
+        "dezesseis",
+        "asa",
+        "reunião",
+        "quatro",
+        "fantasma",
+        "sequestro",
+        "propósito",
+        "indícios",
+        "provado",
+        "março",
+        "famílias",
+        "nenhum",
+        "teoria"
+      ],
+      "planos": [
+        {
+          "set": "voo",
+          "cam": "lado",
+          "p": [
+            0,
+            0.3
+          ],
+          "card": {
+            "rotulo": "Pessoas a bordo",
+            "num": 239
+          }
+        },
+        {
+          "set": "voo",
+          "cam": "some",
+          "apartir": 6,
+          "p": [
+            0.45,
+            1
+          ],
+          "card": {
+            "rotulo": "Avião",
+            "valor": "NUNCA ACHADO",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "quadro",
+          "cam": "pergunta",
+          "apartir": 12,
+          "p": [
+            1,
+            1
+          ],
+          "card": {
+            "rotulo": "E você?",
+            "valor": "QUAL TEORIA?",
+            "sub": "1, 2 ou 3? comenta",
+            "cor": "#ffd23f"
+          }
+        }
+      ]
+    }
+  ],
+  "pagina": {
+    "texto": "✈️ O mistério do voo MH370\n\nO QUE SE SABE\n• 08/03/2014, 00:42: um Boeing 777 da Malaysia Airlines decola de Kuala Lumpur para Pequim, com 239 pessoas.\n• 01:19: a última fala do cockpit é um \"boa noite\".\n• 01:21: o avião some do radar civil, entre a Malásia e o Vietnã.\n• Depois disso, o radar militar vê o avião dar a volta para oeste e cruzar a Malásia. O último ponto é às 02:22, no Mar de Andamão.\n• Até as 08:19 ele ainda troca 7 sinais automáticos com um satélite: quase 7 horas voando sem ninguém ver.\n• 16 meses depois, um pedaço da asa aparece na Ilha da Reunião, a uns 4.000 km da área de busca.\n• Três buscas varreram quase 240 mil km² de fundo do mar. A última terminou em março de 2026, sem achar o avião.\n\nAS TEORIAS\n1. Alguém no cockpit desviou o avião de propósito. É a que reúne mais indícios, porque a volta foi feita à mão. Não é conclusão oficial.\n2. Pane ou fogo, com a tripulação desacordada (o \"avião fantasma\"). Explica o fim, mas não a volta feita à mão.\n3. Sequestro. É a com menos evidência: ninguém assumiu.\n\nO relatório oficial da Malásia (2018) não chegou a uma causa. Fontes: relatório de segurança da Malásia, ATSB (Austrália), BBC e AP."
+  }
+}

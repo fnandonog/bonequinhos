@@ -1,0 +1,682 @@
+{
+  "id": "voce-no-titanic-na-noite-do-naufragio",
+  "serie": "Você na História",
+  "perfil": "historia",
+  "titulo": "VOCÊ NO TITANIC",
+  "linha2": "você aguentaria?",
+  "quando": "1912",
+  "onde": "ATLÂNTICO NORTE",
+  "voz": "pt-BR-AntonioNeural",
+  "velocidade": "+10%",
+  "elevenlabs": {
+    "voz_id": "5lrBPYY4YvMbKHTo8kvZ",
+    "modelo": "eleven_multilingual_v2",
+    "ajustes": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.4,
+      "use_speaker_boost": true,
+      "speed": 1.15
+    }
+  },
+  "fontes": "roteiros/voce-no-titanic-na-noite-do-naufragio.pesquisa.md",
+  "monetizacao": {
+    "afiliados": [
+      "livro: Titanic, uma noite para recordar (Walter Lord)",
+      "livro: Titanic (história do naufrágio)",
+      "maquete/LEGO do Titanic",
+      "quebra-cabeça 3D do Titanic",
+      "filme Titanic (1997) em Blu-ray"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Duas mil e duzentas pessoas no meio do oceano, e os botes só dão pra metade. Uma delas é você, no Titanic.",
+      "quando": "1912",
+      "onde": "ATLÂNTICO NORTE",
+      "destaques": [
+        "duas",
+        "mil",
+        "metade",
+        "titanic",
+        "imigrante",
+        "nova",
+        "sete",
+        "libras",
+        "terceira",
+        "banheiras",
+        "setecentos",
+        "oitocentas",
+        "primeira",
+        "onze",
+        "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
+        "iceberg",
+        "gelo",
+        "água",
+        "surpresa",
+        "vinte",
+        "dezesseis",
+        "lei",
+        "mulheres",
+        "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
+        "zero",
+        "quinhentas",
+        "aguentaria"
+      ],
+      "planos": [
+        {
+          "set": "ti_navio",
+          "cam": "drone",
+          "card": {
+            "rotulo": "Pessoas a bordo",
+            "num": 2224,
+            "sub": "passageiros e tripulação"
+          }
+        },
+        {
+          "set": "ti_botes",
+          "cam": "metade",
+          "apartir": 9,
+          "p": [
+            0,
+            0.1
+          ],
+          "card": {
+            "rotulo": "Lugares nos botes",
+            "num": 1178,
+            "sub": "pra 2.224 pessoas",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "ti_navio",
+          "cam": "ze",
+          "apartir": 16
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Abril de mil novecentos e doze. Você é imigrante e vai tentar a vida em Nova York. No bolso, a passagem mais barata, de terceira classe, por sete libras. E no cais te espera o maior navio do mundo.",
+      "quando": "ABRIL 1912",
+      "onde": "SOUTHAMPTON, INGLATERRA",
+      "destaques": [
+        "duas",
+        "mil",
+        "metade",
+        "titanic",
+        "imigrante",
+        "nova",
+        "sete",
+        "libras",
+        "terceira",
+        "banheiras",
+        "setecentos",
+        "oitocentas",
+        "primeira",
+        "onze",
+        "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
+        "iceberg",
+        "gelo",
+        "água",
+        "surpresa",
+        "vinte",
+        "dezesseis",
+        "lei",
+        "mulheres",
+        "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
+        "zero",
+        "quinhentas",
+        "aguentaria"
+      ],
+      "planos": [
+        {
+          "set": "ti_cais",
+          "cam": "geral",
+          "p": [
+            0,
+            0.35
+          ]
+        },
+        {
+          "set": "ti_cais",
+          "cam": "passagem",
+          "apartir": 17,
+          "p": [
+            0.35,
+            0.7
+          ],
+          "card": {
+            "rotulo": "Passagem de terceira classe",
+            "valor": "£7",
+            "sub": "a mais barata do navio"
+          }
+        },
+        {
+          "set": "ti_cais",
+          "cam": "casco",
+          "apartir": 29,
+          "p": [
+            0.7,
+            1
+          ],
+          "card": {
+            "rotulo": "Titanic",
+            "valor": "269 METROS",
+            "sub": "o maior navio do mundo"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "Sua cabine fica lá no fundo, longe do convés. Pra uns setecentos passageiros, duas banheiras. Só duas. Lá em cima, uma suíte da primeira classe custou oitocentas e setenta libras.",
+      "quando": "1912",
+      "onde": "TERCEIRA CLASSE",
+      "destaques": [
+        "duas",
+        "mil",
+        "metade",
+        "titanic",
+        "imigrante",
+        "nova",
+        "sete",
+        "libras",
+        "terceira",
+        "banheiras",
+        "setecentos",
+        "oitocentas",
+        "primeira",
+        "onze",
+        "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
+        "iceberg",
+        "gelo",
+        "água",
+        "surpresa",
+        "vinte",
+        "dezesseis",
+        "lei",
+        "mulheres",
+        "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
+        "zero",
+        "quinhentas",
+        "aguentaria"
+      ],
+      "planos": [
+        {
+          "set": "ti_cabine",
+          "cam": "geral"
+        },
+        {
+          "set": "ti_banheira",
+          "cam": "fila",
+          "apartir": 9,
+          "card": {
+            "rotulo": "Banheiras na terceira classe",
+            "valor": "2",
+            "sub": "pra uns 700 passageiros",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "ti_primeira",
+          "cam": "escada",
+          "apartir": 17,
+          "card": {
+            "rotulo": "Suíte da primeira classe",
+            "valor": "£870",
+            "sub": "mais de 100 vezes a sua passagem"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "Quatro dias depois, onze e quarenta de uma noite gelada. No alto do mastro, o vigia vê algo no escuro e dá o alarme. É um iceberg, uma montanha de gelo solta no mar. O navio raspa nele. E a água entra.",
+      "quando": "14 ABR 1912",
+      "onde": "ATLÂNTICO NORTE",
+      "destaques": [
+        "duas",
+        "mil",
+        "metade",
+        "titanic",
+        "imigrante",
+        "nova",
+        "sete",
+        "libras",
+        "terceira",
+        "banheiras",
+        "setecentos",
+        "oitocentas",
+        "primeira",
+        "onze",
+        "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
+        "iceberg",
+        "gelo",
+        "água",
+        "surpresa",
+        "vinte",
+        "dezesseis",
+        "lei",
+        "mulheres",
+        "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
+        "zero",
+        "quinhentas",
+        "aguentaria"
+      ],
+      "planos": [
+        {
+          "set": "ti_gavea",
+          "cam": "vigia",
+          "p": [
+            0,
+            0.5
+          ],
+          "card": {
+            "rotulo": "14 de abril, de noite",
+            "valor": "23h40"
+          }
+        },
+        {
+          "set": "ti_gavea",
+          "cam": "frente",
+          "apartir": 10,
+          "p": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "set": "ti_iceberg",
+          "cam": "geral",
+          "apartir": 24,
+          "p": [
+            0,
+            0.45
+          ],
+          "card": {
+            "rotulo": "Iceberg",
+            "valor": "MONTANHA DE GELO",
+            "sub": "solta no mar",
+            "cor": "#8fd3ff"
+          }
+        },
+        {
+          "set": "ti_iceberg",
+          "cam": "raspa",
+          "apartir": 34,
+          "p": [
+            0.45,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "Aí vem a surpresa. São só vinte botes, com lugar pra mil cento e setenta e oito. E tudo dentro da lei, que pedia só dezesseis. E o primeiro bote desce nem pela metade.",
+      "quando": "15 ABR 1912",
+      "onde": "CONVÉS DOS BOTES",
+      "destaques": [
+        "duas",
+        "mil",
+        "metade",
+        "titanic",
+        "imigrante",
+        "nova",
+        "sete",
+        "libras",
+        "terceira",
+        "banheiras",
+        "setecentos",
+        "oitocentas",
+        "primeira",
+        "onze",
+        "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
+        "iceberg",
+        "gelo",
+        "água",
+        "surpresa",
+        "vinte",
+        "dezesseis",
+        "lei",
+        "mulheres",
+        "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
+        "zero",
+        "quinhentas",
+        "aguentaria"
+      ],
+      "planos": [
+        {
+          "set": "ti_botes",
+          "cam": "geral",
+          "p": [
+            0,
+            0.4
+          ],
+          "card": {
+            "rotulo": "Botes salva-vidas",
+            "num": 20,
+            "sub": "1.178 lugares"
+          }
+        },
+        {
+          "set": "ti_botes",
+          "cam": "lei",
+          "apartir": 17,
+          "p": [
+            0.4,
+            0.6
+          ],
+          "card": {
+            "rotulo": "E estava tudo",
+            "valor": "DENTRO DA LEI",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "ti_botes",
+          "cam": "dezesseis",
+          "apartir": 22,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "A lei pedia",
+            "valor": "16 BOTES",
+            "sub": "o Titanic levava 20"
+          }
+        },
+        {
+          "set": "ti_bote",
+          "cam": "desce",
+          "apartir": 26,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Primeiro bote",
+            "valor": "NEM METADE CHEIO",
+            "sub": "cabiam 65 pessoas",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "A ordem é mulheres e crianças primeiro. Só que você está lá no fundo, perdido num labirinto de corredores. Da primeira classe, sessenta e dois por cento se salvam. Da sua? Só vinte e cinco.",
+      "quando": "15 ABR 1912",
+      "onde": "TERCEIRA CLASSE",
+      "destaques": [
+        "duas",
+        "mil",
+        "metade",
+        "titanic",
+        "imigrante",
+        "nova",
+        "sete",
+        "libras",
+        "terceira",
+        "banheiras",
+        "setecentos",
+        "oitocentas",
+        "primeira",
+        "onze",
+        "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
+        "iceberg",
+        "gelo",
+        "água",
+        "surpresa",
+        "vinte",
+        "dezesseis",
+        "lei",
+        "mulheres",
+        "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
+        "zero",
+        "quinhentas",
+        "aguentaria"
+      ],
+      "planos": [
+        {
+          "set": "ti_bote",
+          "cam": "mulheres",
+          "p": [
+            0,
+            0.02
+          ]
+        },
+        {
+          "set": "ti_corredor",
+          "cam": "ze",
+          "apartir": 7,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "ti_placar",
+          "cam": "primeira",
+          "apartir": 19,
+          "p": [
+            0,
+            0.5
+          ],
+          "card": {
+            "rotulo": "Salvos da primeira classe",
+            "valor": "62%",
+            "cor": "#5ad17a"
+          }
+        },
+        {
+          "set": "ti_placar",
+          "cam": "terceira",
+          "apartir": 29,
+          "p": [
+            0.5,
+            1
+          ],
+          "card": {
+            "rotulo": "Salvos da terceira classe",
+            "valor": "25%",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "Duas e vinte da manhã. O Titanic afunda. A água está a dois graus abaixo de zero. Mais de mil e quinhentas pessoas morrem.",
+      "quando": "15 ABR 1912",
+      "onde": "ATLÂNTICO NORTE",
+      "destaques": [
+        "duas",
+        "mil",
+        "metade",
+        "titanic",
+        "imigrante",
+        "nova",
+        "sete",
+        "libras",
+        "terceira",
+        "banheiras",
+        "setecentos",
+        "oitocentas",
+        "primeira",
+        "onze",
+        "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
+        "iceberg",
+        "gelo",
+        "água",
+        "surpresa",
+        "vinte",
+        "dezesseis",
+        "lei",
+        "mulheres",
+        "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
+        "zero",
+        "quinhentas",
+        "aguentaria"
+      ],
+      "planos": [
+        {
+          "set": "ti_naufragio",
+          "cam": "geral",
+          "p": [
+            0,
+            0.6
+          ],
+          "card": {
+            "rotulo": "15 de abril",
+            "valor": "2h20",
+            "sub": "2 h 40 depois da batida"
+          }
+        },
+        {
+          "set": "ti_agua",
+          "cam": "bote",
+          "apartir": 8,
+          "card": {
+            "rotulo": "Água do mar",
+            "valor": "-2 °C",
+            "cor": "#8fd3ff"
+          }
+        },
+        {
+          "set": "ti_naufragio",
+          "cam": "popa",
+          "apartir": 17,
+          "p": [
+            0.6,
+            1
+          ],
+          "card": {
+            "rotulo": "Mortos",
+            "valor": "MAIS DE 1.500",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "Você pagou sete libras. Os botes davam pra metade. Você aguentaria?",
+      "quando": "1912",
+      "onde": "ATLÂNTICO NORTE",
+      "destaques": [
+        "duas",
+        "mil",
+        "metade",
+        "titanic",
+        "imigrante",
+        "nova",
+        "sete",
+        "libras",
+        "terceira",
+        "banheiras",
+        "setecentos",
+        "oitocentas",
+        "primeira",
+        "onze",
+        "quarenta",
+        "gelada",
+        "escuro",
+        "alarme",
+        "iceberg",
+        "gelo",
+        "água",
+        "surpresa",
+        "vinte",
+        "dezesseis",
+        "lei",
+        "mulheres",
+        "crianças",
+        "labirinto",
+        "sessenta",
+        "cinco",
+        "afunda",
+        "zero",
+        "quinhentas",
+        "aguentaria"
+      ],
+      "planos": [
+        {
+          "set": "ti_fim",
+          "cam": "aereo",
+          "card": {
+            "rotulo": "Sua passagem",
+            "valor": "£7"
+          }
+        },
+        {
+          "set": "ti_fim",
+          "cam": "botes",
+          "apartir": 4,
+          "card": {
+            "rotulo": "Bote pra",
+            "valor": "SÓ METADE",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "ti_fim",
+          "cam": "ze",
+          "apartir": 9
+        }
+      ]
+    }
+  ]
+}

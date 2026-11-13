@@ -12,3 +12,6 @@ Regras:
 - Personagens nunca dentro de parede/terra e nunca na frente da câmera tapando o assunto.
 - Rótulos 3D (`Rotulo`) curtos (1–2 palavras). O próprio componente segura o rótulo dentro da tela.
 Teste com `node tools/qa.mjs <id> qa <números dos planos>` e olhe as imagens antes de entregar.
+Antes de começar, leia `docs/agencia/estilo.md` (o estilo dos vídeos que estão viralizando no nicho: ritmo, cortes, legenda, câmera) e aplique no que for possível.
+
+Barra de qualidade (Fernando, 12/11/2026): peças com detalhe (textura por cor/material, frisos, parafusos, letreiros genéricos, objetos de cena), interiores modelados quando o vídeo explica funcionamento (ex.: robô aspirador com bateria, motor, escovas, sensores), cenários com fundo e profundidade. Nunca superfícies grandes de uma cor só.

@@ -1,11 +1,29 @@
 import React from 'react';
-import {Composition} from 'remotion';
+import {Composition, Still} from 'remotion';
 import {Video, FPS, Roteiro, Timings} from './Video';
 import {Serie, RoteiroSerie} from './v2/Serie';
 import {Construcao, RoteiroConstrucao} from './v3/Construcao';
 import {Obra, RoteiroObra} from './v4/Obra';
+import {Receita, RoteiroReceita} from './cozinha/Receita';
+import {Historia, RoteiroHistoria} from './historia/Historia';
+import roteiroGladiador from '../roteiros/um-dia-como-gladiador-em-roma.json';
+import timingsGladiador from '../public/audio/um-dia-como-gladiador-em-roma/timings.json';
+import roteiroTitanic from '../roteiros/voce-no-titanic-na-noite-do-naufragio.json';
+import timingsTitanic from '../public/audio/voce-no-titanic-na-noite-do-naufragio/timings.json';
+import roteiroPompeia from '../roteiros/voce-vive-em-pompeia-no-dia-da-erupcao.json';
+import timingsPompeia from '../public/audio/voce-vive-em-pompeia-no-dia-da-erupcao/timings.json';
+import roteiroBolo from '../roteiros/bolo-cenoura.json';
+import timingsBolo from '../public/audio/bolo-cenoura/timings.json';
+import roteiroBrownie from '../roteiros/brownie-facil.json';
+import timingsBrownie from '../public/audio/brownie-facil/timings.json';
+import roteiroPizzaFrig from '../roteiros/pizza-de-frigideira.json';
+import timingsPizzaFrig from '../public/audio/pizza-de-frigideira/timings.json';
 import roteiroCasa from '../roteiros/casa-50m2.json';
 import timingsCasa from '../public/audio/casa-50m2/timings.json';
+import roteiroEdicula from '../roteiros/edicula-com-churrasqueira.json';
+import timingsEdicula from '../public/audio/edicula-com-churrasqueira/timings.json';
+import roteiroPiscina from '../roteiros/piscina-de-fibra-6x3-no-quintal.json';
+import timingsPiscina from '../public/audio/piscina-de-fibra-6x3-no-quintal/timings.json';
 import roteiroKit from '../roteiros/kitnet.json';
 import timingsKit from '../public/audio/kitnet/timings.json';
 import roteiroKit2 from '../roteiros/kitnet-v2.json';
@@ -14,6 +32,34 @@ import roteiroAir from '../roteiros/air-fryer.json';
 import timingsAir from '../public/audio/air-fryer/timings.json';
 import roteiroSono from '../roteiros/sem-dormir.json';
 import timingsSono from '../public/audio/sem-dormir/timings.json';
+import {Teste, RoteiroValeAPena} from './valeapena/Teste';
+import roteiroAirFryerVP from '../roteiros/air-fryer-barata-vale-a-pena.json';
+import timingsAirFryerVP from '../public/audio/air-fryer-barata-vale-a-pena/timings.json';
+import {Rico, RoteiroRico} from './rico/Rico';
+import {AvatarTostao, BannerTostao} from './rico/tostao';
+import roteiroSilvio from '../roteiros/como-o-silvio-santos-ficou-rico.json';
+import timingsSilvio from '../public/audio/como-o-silvio-santos-ficou-rico/timings.json';
+import roteiroMcDonald from '../roteiros/como-o-mcdonald-s-ganha-dinheiro-de-verd.json';
+import timingsMcDonald from '../public/audio/como-o-mcdonald-s-ganha-dinheiro-de-verd/timings.json';
+import roteiroCollor from '../roteiros/o-dia-que-o-plano-collor-confiscou-a-poupanca.json';
+import timingsCollor from '../public/audio/o-dia-que-o-plano-collor-confiscou-a-poupanca/timings.json';
+import {Caso, RoteiroCaso} from './caso/Caso';
+import roteiroMH370 from '../roteiros/o-misterio-do-voo-mh370.json';
+import timingsMH370 from '../public/audio/o-misterio-do-voo-mh370/timings.json';
+import roteiroCooper from '../roteiros/o-sequestro-do-aviao-d-b-cooper.json';
+import timingsCooper from '../public/audio/o-sequestro-do-aviao-d-b-cooper/timings.json';
+import roteiroIdentidades from '../roteiros/ela-usou-7-identidades-falsas-e-viveu-as.json';
+import timingsIdentidades from '../public/audio/ela-usou-7-identidades-falsas-e-viveu-as/timings.json';
+import roteiroPaoQueijo from '../roteiros/pao-de-queijo-de-liquidificador.json';
+import timingsPaoQueijo from '../public/audio/pao-de-queijo-de-liquidificador/timings.json';
+import roteiroKitnet25 from '../roteiros/kitnet-de-25-m-para-alugar.json';
+import timingsKitnet25 from '../public/audio/kitnet-de-25-m-para-alugar/timings.json';
+import roteiroViaduto from '../roteiros/quanto-custa-construir-um-viaduto.json';
+import timingsViaduto from '../public/audio/quanto-custa-construir-um-viaduto/timings.json';
+import roteiroRoboVP from '../roteiros/robo-aspirador-de-300-reais-vale-a-pena.json';
+import timingsRoboVP from '../public/audio/robo-aspirador-de-300-reais-vale-a-pena/timings.json';
+import {LabAntesDepois} from './lab/AntesDepois';
+import {LabZeVitrine} from './lab/ZeVitrine';
 
 const total = (t: Timings) => t.cenas.reduce((s, c) => s + Math.round(c.duracao * FPS), 0);
 
@@ -32,6 +78,49 @@ export const Root: React.FC = () => {
         defaultProps={{roteiro: roteiroKit2 as unknown as RoteiroConstrucao, timings: timingsKit2 as Timings, comAudio: true, layout: 'kitnet2'}} />
       <Composition id="casa-50m2" component={Obra} durationInFrames={total(timingsCasa as Timings)} fps={FPS} width={1080} height={1920}
         defaultProps={{roteiro: roteiroCasa as unknown as RoteiroObra, timings: timingsCasa as Timings, comAudio: !(timingsCasa as Timings).estimado}} />
+      <Composition id="edicula-com-churrasqueira" component={Obra} durationInFrames={total(timingsEdicula as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroEdicula as unknown as RoteiroObra, timings: timingsEdicula as Timings, comAudio: !(timingsEdicula as Timings).estimado}} />
+      <Composition id="piscina-de-fibra-6x3-no-quintal" component={Obra} durationInFrames={total(timingsPiscina as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroPiscina as unknown as RoteiroObra, timings: timingsPiscina as Timings, comAudio: !(timingsPiscina as Timings).estimado}} />
+      <Composition id="bolo-cenoura" component={Receita} durationInFrames={total(timingsBolo as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroBolo as unknown as RoteiroReceita, timings: timingsBolo as Timings, comAudio: !(timingsBolo as Timings).estimado}} />
+      <Composition id="brownie-facil" component={Receita} durationInFrames={total(timingsBrownie as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroBrownie as unknown as RoteiroReceita, timings: timingsBrownie as Timings, comAudio: !(timingsBrownie as Timings).estimado}} />
+      <Composition id="pizza-de-frigideira" component={Receita} durationInFrames={total(timingsPizzaFrig as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroPizzaFrig as unknown as RoteiroReceita, timings: timingsPizzaFrig as Timings, comAudio: !(timingsPizzaFrig as Timings).estimado}} />
+      <Composition id="um-dia-como-gladiador-em-roma" component={Historia} durationInFrames={total(timingsGladiador as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroGladiador as unknown as RoteiroHistoria, timings: timingsGladiador as Timings, comAudio: !(timingsGladiador as Timings).estimado}} />
+      <Composition id="voce-no-titanic-na-noite-do-naufragio" component={Historia} durationInFrames={total(timingsTitanic as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroTitanic as unknown as RoteiroHistoria, timings: timingsTitanic as Timings, comAudio: !(timingsTitanic as Timings).estimado}} />
+      <Composition id="voce-vive-em-pompeia-no-dia-da-erupcao" component={Historia} durationInFrames={total(timingsPompeia as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroPompeia as unknown as RoteiroHistoria, timings: timingsPompeia as Timings, comAudio: !(timingsPompeia as Timings).estimado}} />
+      <Composition id="air-fryer-barata-vale-a-pena" component={Teste} durationInFrames={total(timingsAirFryerVP as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroAirFryerVP as unknown as RoteiroValeAPena, timings: timingsAirFryerVP as Timings, comAudio: !(timingsAirFryerVP as Timings).estimado}} />
+      <Still id="avatar-tostao" component={AvatarTostao} width={1080} height={1080} />
+      <Still id="banner-tostao" component={BannerTostao} width={2560} height={1440} />
+      <Composition id="como-o-silvio-santos-ficou-rico" component={Rico} durationInFrames={total(timingsSilvio as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroSilvio as unknown as RoteiroRico, timings: timingsSilvio as Timings, comAudio: !(timingsSilvio as Timings).estimado}} />
+      <Composition id="como-o-mcdonald-s-ganha-dinheiro-de-verd" component={Rico} durationInFrames={total(timingsMcDonald as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroMcDonald as unknown as RoteiroRico, timings: timingsMcDonald as Timings, comAudio: !(timingsMcDonald as Timings).estimado}} />
+      <Composition id="o-dia-que-o-plano-collor-confiscou-a-poupanca" component={Rico} durationInFrames={total(timingsCollor as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroCollor as unknown as RoteiroRico, timings: timingsCollor as Timings, comAudio: !(timingsCollor as Timings).estimado}} />
+      <Composition id="o-misterio-do-voo-mh370" component={Caso} durationInFrames={total(timingsMH370 as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroMH370 as unknown as RoteiroCaso, timings: timingsMH370 as Timings, comAudio: !(timingsMH370 as Timings).estimado}} />
+      <Composition id="o-sequestro-do-aviao-d-b-cooper" component={Caso} durationInFrames={total(timingsCooper as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroCooper as unknown as RoteiroCaso, timings: timingsCooper as Timings, comAudio: !(timingsCooper as Timings).estimado}} />
+      <Composition id="ela-usou-7-identidades-falsas-e-viveu-as" component={Caso} durationInFrames={total(timingsIdentidades as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroIdentidades as unknown as RoteiroCaso, timings: timingsIdentidades as Timings, comAudio: !(timingsIdentidades as Timings).estimado}} />
+      <Composition id="pao-de-queijo-de-liquidificador" component={Receita} durationInFrames={total(timingsPaoQueijo as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroPaoQueijo as unknown as RoteiroReceita, timings: timingsPaoQueijo as Timings, comAudio: !(timingsPaoQueijo as Timings).estimado}} />
+      <Composition id="kitnet-de-25-m-para-alugar" component={Obra} durationInFrames={total(timingsKitnet25 as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroKitnet25 as unknown as RoteiroObra, timings: timingsKitnet25 as Timings, comAudio: !(timingsKitnet25 as Timings).estimado}} />
+      <Composition id="robo-aspirador-de-300-reais-vale-a-pena" component={Teste} durationInFrames={total(timingsRoboVP as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroRoboVP as unknown as RoteiroValeAPena, timings: timingsRoboVP as Timings, comAudio: !(timingsRoboVP as Timings).estimado}} />
+      <Composition id="quanto-custa-construir-um-viaduto" component={Obra} durationInFrames={total(timingsViaduto as Timings)} fps={FPS} width={1080} height={1920}
+        defaultProps={{roteiro: roteiroViaduto as unknown as RoteiroObra, timings: timingsViaduto as Timings, comAudio: !(timingsViaduto as Timings).estimado}} />
+      {/* LAB: teste do novo padrão visual (não é vídeo) */}
+      <Composition id="lab-ze-vitrine" component={LabZeVitrine} durationInFrames={60} fps={FPS} width={1080} height={1920} defaultProps={{cena: 'expressoes' as const}} />
+      <Composition id="lab-antes-depois" component={LabAntesDepois} durationInFrames={90} fps={FPS} width={1080} height={1920} defaultProps={{modo: 'split' as const}} />
     </>
   );
 };

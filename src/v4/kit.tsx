@@ -12,8 +12,9 @@ export const suave = (x: number) => {
   return t * t * (3 - 2 * t);
 };
 
-export const Mat: React.FC<{cor: string; rugoso?: number; map?: THREE.Texture | null; emissivo?: string}> = ({cor, rugoso = 0.9, map, emissivo}) => (
-  <meshStandardMaterial color={cor} flatShading roughness={rugoso} map={map ?? null} emissive={emissivo ?? '#000000'} />
+// padrão visual novo: sombreamento suave (sem flatShading); rugosidade por tipo (0,4 metal/plástico, 0,8 tecido/pintura, 0,95 terra)
+export const Mat: React.FC<{cor: string; rugoso?: number; map?: THREE.Texture | null; emissivo?: string}> = ({cor, rugoso = 0.82, map, emissivo}) => (
+  <meshStandardMaterial color={cor} roughness={rugoso} metalness={rugoso < 0.5 ? 0.15 : 0} map={map ?? null} emissive={emissivo ?? '#000000'} />
 );
 
 type Base = {pos?: V3; rot?: V3 | number; esc?: number | V3};
@@ -28,7 +29,7 @@ export const Caixa: React.FC<Base & {tam: V3; cor: string; map?: THREE.Texture |
 
 export const Cil: React.FC<Base & {r: number; h: number; cor: string; seg?: number; r2?: number}> = ({pos = [0, 0, 0], rot, r, r2, h, cor, seg = 10}) => (
   <mesh position={pos} rotation={rotV(rot)} castShadow receiveShadow>
-    <cylinderGeometry args={[r, r2 ?? r, h, seg]} />
+    <cylinderGeometry args={[r, r2 ?? r, h, seg <= 4 ? seg : Math.max(seg * 2, 20)]} />
     <Mat cor={cor} />
   </mesh>
 );
@@ -44,8 +45,8 @@ export const Barra: React.FC<{a: V3; b: V3; r?: number; cor: string; quadrada?: 
   }, [a[0], a[1], a[2], b[0], b[1], b[2]]);
   return (
     <mesh position={pos} quaternion={quat} castShadow={sombra}>
-      {quadrada ? <boxGeometry args={[r * 2, len, r * 2]} /> : <cylinderGeometry args={[r, r, len, 6]} />}
-      <Mat cor={cor} rugoso={0.6} />
+      {quadrada ? <boxGeometry args={[r * 2, len, r * 2]} /> : <cylinderGeometry args={[r, r, len, 24]} />}
+      <Mat cor={cor} rugoso={0.55} />
     </mesh>
   );
 };
@@ -163,7 +164,7 @@ export const Rotulo: React.FC<{texto: string; ancora: V3; sobe?: number; lado?: 
     <group>
       <Barra a={ancora} b={[lerp(ancora[0], topo[0], vis), lerp(ancora[1], topo[1], vis), lerp(ancora[2], topo[2], vis)]} r={0.02} cor="#1d1b26" sombra={false} />
       <mesh position={ancora}>
-        <sphereGeometry args={[0.06, 8, 8]} />
+        <sphereGeometry args={[0.06, 20, 14]} />
         <meshBasicMaterial color="#1d1b26" />
       </mesh>
       <sprite position={topo} scale={[0.19 * s, 0.045 * s, 1]} renderOrder={10}>
@@ -174,79 +175,9 @@ export const Rotulo: React.FC<{texto: string; ancora: V3; sobe?: number; lado?: 
 };
 
 // ---------- personagens ----------
-export type AcaoBoneco = 'parado' | 'anda' | 'aponta' | 'acena' | 'comemora' | 'cava' | 'martela' | 'pinta' | 'carrega' | 'senta';
-export type Visual = {camisa?: string; colete?: string | null; capacete?: string | null; calca?: string; pele?: string; cabelo?: string};
-export const OBREIRO: Visual = {camisa: '#4f8cff', colete: '#ff8a1f', capacete: '#ffd23f', calca: '#30406b'};
-export const SERVENTE: Visual = {camisa: '#e9e4d8', colete: null, capacete: '#ffffff', calca: '#5b4a3a', pele: '#c98e62'};
-export const ENGENHEIRA: Visual = {camisa: '#ffffff', colete: '#2fbf71', capacete: '#ffffff', calca: '#2b2b3a', pele: '#8d5a3b', cabelo: '#1d1b26'};
-export const MORADOR: Visual = {camisa: '#ff5d73', colete: null, capacete: null, calca: '#2f5d8a', cabelo: '#3b2a20'};
-export const CRIANCA: Visual = {camisa: '#ffd23f', colete: null, capacete: null, calca: '#4f8cff', cabelo: '#6b3e26'};
-
-export const Boneco: React.FC<{pos: V3; rotY?: number; acao?: AcaoBoneco; t: number; v?: Visual; esc?: number; ferramenta?: 'pa' | 'rolo' | 'colher' | 'planta' | 'bloco' | 'martelo' | null}> = ({pos, rotY = 0, acao = 'parado', t, v = OBREIRO, esc = 0.92, ferramenta = null}) => {
-  const {camisa = '#4f8cff', colete = '#ff8a1f', capacete = '#ffd23f', calca = '#30406b', pele = '#ffd2ad', cabelo = '#3b2a20'} = v;
-  const passo = acao === 'anda' ? Math.sin(t * 9) * 0.6 : 0;
-  const pulo = acao === 'comemora' ? Math.abs(Math.sin(t * 6)) * 0.3 : acao === 'anda' ? Math.abs(Math.sin(t * 9)) * 0.04 : 0;
-  let bD = passo * -0.8, bE = passo * 0.8, bDz = -0.15, bEz = 0.15, tronco = 0;
-  if (acao === 'aponta') { bD = -1.5; bDz = -0.1; }
-  if (acao === 'acena') { bDz = -2.6 + Math.sin(t * 10) * 0.35; bD = 0; }
-  if (acao === 'comemora') { bDz = -2.7; bEz = 2.7; }
-  if (acao === 'cava') { const k = (Math.sin(t * 5) + 1) / 2; bD = -0.4 - k * 1.1; bE = -0.4 - k * 1.1; tronco = 0.15 + k * 0.35; }
-  if (acao === 'martela') { bD = -1.2 - Math.abs(Math.sin(t * 8)) * 1.2; tronco = 0.1; }
-  if (acao === 'pinta') { bD = -2.2 + Math.sin(t * 4) * 0.6; bE = -0.3; }
-  if (acao === 'carrega') { bD = -1.1; bE = -1.1; bDz = 0.1; bEz = -0.1; }
-  const pernaY = acao === 'senta' ? 0.25 : 0.28;
-  const prop = (() => {
-    if (ferramenta === 'pa') return (<group position={[0, -0.45, 0.05]} rotation={[0.3, 0, 0]}><Cil pos={[0, 0.1, 0]} r={0.02} h={1.0} cor="#8b5a3c" /><Caixa pos={[0, -0.45, 0]} tam={[0.22, 0.28, 0.03]} cor="#7f8790" /></group>);
-    if (ferramenta === 'rolo') return (<group position={[0, -0.45, 0.05]}><Cil pos={[0, 0.25, 0]} r={0.015} h={0.5} cor="#ddd" /><Cil pos={[0, 0.55, 0]} rot={[0, 0, Math.PI / 2]} r={0.05} h={0.24} cor="#f2f2f2" /></group>);
-    if (ferramenta === 'colher') return (<group position={[0, -0.48, 0.08]}><Cil r={0.02} h={0.1} cor="#8b5a3c" /><Caixa pos={[0, -0.03, 0.09]} tam={[0.12, 0.01, 0.16]} cor="#9aa0aa" /></group>);
-    if (ferramenta === 'martelo') return (<group position={[0, -0.48, 0.05]}><Cil pos={[0, 0, 0.1]} rot={[Math.PI / 2, 0, 0]} r={0.015} h={0.3} cor="#8b5a3c" /><Caixa pos={[0, 0, 0.25]} tam={[0.12, 0.05, 0.05]} cor="#555" /></group>);
-    if (ferramenta === 'bloco') return (<Caixa pos={[0, -0.5, 0.2]} tam={[0.29, 0.19, 0.14]} cor="#d9773e" />);
-    if (ferramenta === 'planta') return (<Caixa pos={[0, -0.5, 0.15]} rot={[-0.6, 0, 0]} tam={[0.5, 0.35, 0.01]} cor="#2f6fd6" />);
-    return null;
-  })();
-  return (
-    <group position={[pos[0], pos[1] + pulo, pos[2]]} rotation={[0, rotY, 0]} scale={esc}>
-      <mesh position={[-0.13, pernaY, 0]} rotation={[acao === 'senta' ? -1.5 : passo, 0, 0]} castShadow><capsuleGeometry args={[0.1, 0.32, 3, 8]} /><Mat cor={calca} /></mesh>
-      <mesh position={[0.13, pernaY, 0]} rotation={[acao === 'senta' ? -1.5 : -passo, 0, 0]} castShadow><capsuleGeometry args={[0.1, 0.32, 3, 8]} /><Mat cor={calca} /></mesh>
-      {acao !== 'senta' && <Caixa pos={[-0.13, 0.05, 0.06]} tam={[0.2, 0.1, 0.3]} cor="#4a3426" />}
-      {acao !== 'senta' && <Caixa pos={[0.13, 0.05, 0.06]} tam={[0.2, 0.1, 0.3]} cor="#4a3426" />}
-      <group position={[0, 0.55, 0]} rotation={[tronco, 0, 0]}>
-        <group position={[0, -0.55, 0]}>
-          <mesh position={[0, 0.78, 0]} castShadow><capsuleGeometry args={[0.27, 0.38, 4, 10]} /><Mat cor={camisa} /></mesh>
-          {colete && (
-            <>
-              <mesh position={[0, 0.78, 0.0]}><cylinderGeometry args={[0.3, 0.3, 0.48, 10, 1, true]} /><meshStandardMaterial color={colete} flatShading side={2} /></mesh>
-              {[0.68, 0.86].map((y) => (<mesh key={y} position={[0, y, 0]}><cylinderGeometry args={[0.305, 0.305, 0.05, 10, 1, true]} /><meshStandardMaterial color="#f4f4f4" side={2} /></mesh>))}
-            </>
-          )}
-          <group position={[0.34, 1.0, 0]} rotation={[bD, 0, bDz]}>
-            <mesh position={[0, -0.22, 0]} castShadow><capsuleGeometry args={[0.08, 0.3, 3, 8]} /><Mat cor={camisa} /></mesh>
-            <mesh position={[0, -0.45, 0]}><sphereGeometry args={[0.09, 8, 8]} /><Mat cor={pele} /></mesh>
-            {prop}
-          </group>
-          <group position={[-0.34, 1.0, 0]} rotation={[bE, 0, bEz]}>
-            <mesh position={[0, -0.22, 0]} castShadow><capsuleGeometry args={[0.08, 0.3, 3, 8]} /><Mat cor={camisa} /></mesh>
-            <mesh position={[0, -0.45, 0]}><sphereGeometry args={[0.09, 8, 8]} /><Mat cor={pele} /></mesh>
-          </group>
-          <group position={[0, 1.5, 0]}>
-            <mesh castShadow><sphereGeometry args={[0.36, 16, 12]} /><Mat cor={pele} /></mesh>
-            {[-0.12, 0.12].map((x) => (<mesh key={x} position={[x, 0.02, 0.32]}><sphereGeometry args={[0.055, 8, 8]} /><meshStandardMaterial color="#1d1b26" /></mesh>))}
-            {[-0.2, 0.2].map((x) => (<mesh key={x} position={[x, -0.1, 0.28]}><sphereGeometry args={[0.05, 8, 8]} /><meshStandardMaterial color="#ff9b8a" /></mesh>))}
-            <mesh position={[0, -0.14, 0.31]} rotation={[0, 0, Math.PI]}><torusGeometry args={[0.07, 0.02, 6, 10, Math.PI]} /><meshStandardMaterial color="#5a1f2b" /></mesh>
-            {capacete ? (
-              <>
-                <mesh position={[0, 0.12, 0]} castShadow><sphereGeometry args={[0.39, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2]} /><Mat cor={capacete} /></mesh>
-                <mesh position={[0, 0.12, 0.08]}><cylinderGeometry args={[0.46, 0.46, 0.04, 16]} /><Mat cor={capacete} /></mesh>
-              </>
-            ) : (
-              <mesh position={[0, 0.08, -0.03]} castShadow><sphereGeometry args={[0.375, 14, 10, 0, Math.PI * 2, 0, Math.PI / 2.1]} /><Mat cor={cabelo} /></mesh>
-            )}
-          </group>
-        </group>
-      </group>
-    </group>
-  );
-};
+// O Boneco agora é o Zé 2.0 (src/estilo/ze.tsx): mesma interface, visual novo aprovado.
+export {Boneco, CHEF, OBREIRO, SERVENTE, ENGENHEIRA, MORADOR, CRIANCA, K_ZE} from '../estilo/ze';
+export type {AcaoBoneco, Visual, Ferramenta, Expressao, ZeProps} from '../estilo/ze';
 
 // ---------- máquinas e materiais de obra ----------
 export const Betoneira: React.FC<{pos: V3; rotY?: number; t: number}> = ({pos, rotY = 0, t}) => (
@@ -297,7 +228,7 @@ export const PilhaBlocos: React.FC<{pos: V3; nx?: number; ny?: number; nz?: numb
 
 export const MonteTerra: React.FC<{pos: V3; esc?: number; cor?: string}> = ({pos, esc = 1, cor = '#a9652f'}) => (
   <mesh position={[pos[0], pos[1], pos[2]]} scale={[esc, esc * 0.55, esc]} castShadow receiveShadow>
-    <coneGeometry args={[0.9, 1.1, 7]} />
+    <coneGeometry args={[0.9, 1.1, 24]} />
     <Mat cor={cor} />
   </mesh>
 );
@@ -305,14 +236,14 @@ export const MonteTerra: React.FC<{pos: V3; esc?: number; cor?: string}> = ({pos
 export const Arvore: React.FC<{pos: V3; esc?: number; cor?: string}> = ({pos, esc = 1, cor = '#3f9b5a'}) => (
   <group position={pos} scale={esc}>
     <Cil pos={[0, 0.6, 0]} r={0.15} r2={0.2} h={1.2} seg={6} cor="#8b5a3c" />
-    <mesh position={[0, 1.9, 0]} castShadow><icosahedronGeometry args={[0.95, 0]} /><Mat cor={cor} /></mesh>
-    <mesh position={[0.4, 2.4, 0.2]} castShadow><icosahedronGeometry args={[0.6, 0]} /><Mat cor={cor} /></mesh>
+    <mesh position={[0, 1.9, 0]} castShadow><icosahedronGeometry args={[0.95, 3]} /><Mat cor={cor} rugoso={0.9} /></mesh>
+    <mesh position={[0.4, 2.4, 0.2]} castShadow><icosahedronGeometry args={[0.6, 3]} /><Mat cor={cor} rugoso={0.9} /></mesh>
   </group>
 );
 
 export const Tufo: React.FC<{pos: V3; esc?: number}> = ({pos, esc = 1}) => (
   <group position={pos} scale={esc}>
-    {[0, 1.2, 2.4, 3.6, 4.8].map((a, i) => (<mesh key={i} position={[Math.cos(a) * 0.06, 0.13, Math.sin(a) * 0.06]} rotation={[Math.cos(a) * 0.4, 0, Math.sin(a) * 0.4]}><coneGeometry args={[0.04, 0.3, 3]} /><Mat cor={i % 2 ? '#6fb35a' : '#5aa04a'} /></mesh>))}
+    {[0, 1.2, 2.4, 3.6, 4.8].map((a, i) => (<mesh key={i} position={[Math.cos(a) * 0.06, 0.13, Math.sin(a) * 0.06]} rotation={[Math.cos(a) * 0.4, 0, Math.sin(a) * 0.4]}><coneGeometry args={[0.04, 0.3, 24]} /><Mat cor={i % 2 ? '#6fb35a' : '#5aa04a'} /></mesh>))}
   </group>
 );
 
@@ -330,7 +261,7 @@ export const Instancias: React.FC<{matrizes: THREE.Matrix4[]; n: number; geo: TH
   });
   return (
     <instancedMesh ref={ref} args={[geo, undefined, Math.max(1, matrizes.length)]} castShadow={sombra} receiveShadow frustumCulled={false}>
-      <meshStandardMaterial color={cor} flatShading roughness={0.85} />
+      <meshStandardMaterial color={cor} roughness={0.82} />
     </instancedMesh>
   );
 };
@@ -357,7 +288,7 @@ export const Chuva: React.FC<{t: number; centro?: V3; raio?: number; n?: number}
 export const Nuvem: React.FC<{pos: V3; esc?: number; cor?: string}> = ({pos, esc = 1, cor = '#ffffff'}) => (
   <group position={pos} scale={esc}>
     {[[0, 0, 0, 1.2], [1.2, -0.2, 0.2, 0.9], [-1.1, -0.25, 0, 0.85], [0.4, 0.5, -0.2, 0.8]].map(([x, y, z, r], i) => (
-      <mesh key={i} position={[x, y, z]}><icosahedronGeometry args={[r, 0]} /><meshStandardMaterial color={cor} flatShading emissive={cor} emissiveIntensity={0.25} /></mesh>
+      <mesh key={i} position={[x, y, z]}><icosahedronGeometry args={[r, 3]} /><meshStandardMaterial color={cor} roughness={1} emissive={cor} emissiveIntensity={0.25} /></mesh>
     ))}
   </group>
 );

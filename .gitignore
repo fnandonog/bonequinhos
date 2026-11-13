@@ -4,3 +4,5 @@ out/
 .env
 __pycache__/
 qa/
+plataforma/dados/
+site/

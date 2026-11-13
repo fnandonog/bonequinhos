@@ -1,0 +1,726 @@
+{
+  "id": "o-sequestro-do-aviao-d-b-cooper",
+  "serie": "Caso Explicado",
+  "perfil": "caso",
+  "titulo": "D.B. COOPER",
+  "linha2": "O sequestro que ninguém resolveu",
+  "quando": "24/11/1971",
+  "onde": "EUA",
+  "voz": "pt-BR-FranciscaNeural",
+  "velocidade": "+10%",
+  "elevenlabs": {
+    "voz_id": "YNOujSUmHtgN6anjqXPf",
+    "modelo": "eleven_multilingual_v2",
+    "ajustes": {
+      "stability": 0.5,
+      "similarity_boost": 0.8,
+      "style": 0.25,
+      "use_speaker_boost": true,
+      "speed": 1
+    }
+  },
+  "fontes": "roteiros/o-sequestro-do-aviao-d-b-cooper.pesquisa.md",
+  "monetizacao": {
+    "afiliados": [
+      "livro: Skyjack – The Hunt for D.B. Cooper (Geoffrey Gray)",
+      "documentário: D.B. Cooper: Where Are You? (Netflix)",
+      "lupa de leitura com luz",
+      "quadro de cortiça + alfinetes (mural de investigação)",
+      "jogo de tabuleiro de investigação criminal"
+    ]
+  },
+  "cenas": [
+    {
+      "id": "c1",
+      "texto": "Um homem ameaçou explodir um avião, levou duzentos mil dólares e pulou de paraquedas, no escuro. Até hoje, ninguém sabe quem ele era.",
+      "quando": "24/11/1971",
+      "onde": "EUA",
+      "destaques": [
+        "bomba",
+        "duzentos",
+        "mil",
+        "ninguém",
+        "quatro",
+        "paraquedas",
+        "trinta",
+        "seis",
+        "pula",
+        "nove",
+        "oito",
+        "cinco",
+        "oitocentos",
+        "fbi",
+        "resgate",
+        "cento",
+        "noventa",
+        "três",
+        "teorias",
+        "morreu",
+        "sobreviveu",
+        "provado",
+        "quarenta",
+        "único",
+        "aposta"
+      ],
+      "planos": [
+        {
+          "set": "db_cabine",
+          "cam": "bilhete",
+          "p": [
+            0.2,
+            0.9
+          ]
+        },
+        {
+          "set": "db_balcao",
+          "cam": "dinheiro",
+          "apartir": 6,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Resgate",
+            "num": 200000,
+            "prefixo": "US$ ",
+            "sub": "Portland → Seattle, 1971"
+          }
+        },
+        {
+          "set": "db_voo_escada",
+          "cam": "tras",
+          "apartir": 10,
+          "p": [
+            0.25,
+            1
+          ]
+        },
+        {
+          "set": "db_quadro",
+          "cam": "retrato",
+          "apartir": 16,
+          "p": [
+            0,
+            0.5
+          ],
+          "card": {
+            "rotulo": "Até hoje",
+            "valor": "NUNCA IDENTIFICADO",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "texto": "Estados Unidos, mil novecentos e setenta e um. Um homem com nome falso, Dan Cooper, pega um voo pra Seattle. No ar, avisa a comissária que tem uma bomba e abre a pasta, cheia de fios. Quer duzentos mil dólares e quatro paraquedas.",
+      "quando": "24/11/1971",
+      "onde": "PORTLAND",
+      "destaques": [
+        "bomba",
+        "duzentos",
+        "mil",
+        "ninguém",
+        "quatro",
+        "paraquedas",
+        "trinta",
+        "seis",
+        "pula",
+        "nove",
+        "oito",
+        "cinco",
+        "oitocentos",
+        "fbi",
+        "resgate",
+        "cento",
+        "noventa",
+        "três",
+        "teorias",
+        "morreu",
+        "sobreviveu",
+        "provado",
+        "quarenta",
+        "único",
+        "aposta"
+      ],
+      "planos": [
+        {
+          "set": "db_aeroporto",
+          "cam": "geral",
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Voo 305",
+            "valor": "PORTLAND → SEATTLE",
+            "sub": "24 nov 1971"
+          }
+        },
+        {
+          "set": "db_balcao",
+          "cam": "geral",
+          "apartir": 8,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Nome na passagem",
+            "valor": "\"DAN COOPER\"",
+            "sub": "nome falso"
+          }
+        },
+        {
+          "set": "db_cabine",
+          "cam": "geral",
+          "apartir": 20,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "O bilhete",
+            "valor": "\"TENHO UMA BOMBA\"",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "db_cabine",
+          "cam": "pasta",
+          "apartir": 29,
+          "p": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "set": "db_dinheiro",
+          "cam": "geral",
+          "apartir": 36,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Resgate",
+            "num": 200000,
+            "prefixo": "US$ ",
+            "sub": "em notas de US$ 20"
+          }
+        },
+        {
+          "set": "db_pista",
+          "cam": "paraquedas",
+          "apartir": 40,
+          "p": [
+            0,
+            0.2
+          ],
+          "card": {
+            "rotulo": "Paraquedas",
+            "num": 4,
+            "sub": "2 principais + 2 reservas"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "texto": "Em Seattle, ele recebe o dinheiro e os paraquedas e solta os trinta e seis passageiros. Fica só com quatro tripulantes. Decola de novo, à noite, e manda voar baixo e devagar, com as rodas pra fora.",
+      "quando": "24/11/1971",
+      "onde": "SEATTLE",
+      "destaques": [
+        "bomba",
+        "duzentos",
+        "mil",
+        "ninguém",
+        "quatro",
+        "paraquedas",
+        "trinta",
+        "seis",
+        "pula",
+        "nove",
+        "oito",
+        "cinco",
+        "oitocentos",
+        "fbi",
+        "resgate",
+        "cento",
+        "noventa",
+        "três",
+        "teorias",
+        "morreu",
+        "sobreviveu",
+        "provado",
+        "quarenta",
+        "único",
+        "aposta"
+      ],
+      "planos": [
+        {
+          "set": "db_pista",
+          "cam": "geral",
+          "p": [
+            0,
+            0.5
+          ],
+          "card": {
+            "rotulo": "Resgate entregue",
+            "valor": "10 MIL NOTAS",
+            "sub": "de US$ 20, fotografadas pelo FBI"
+          }
+        },
+        {
+          "set": "db_pista",
+          "cam": "geral",
+          "apartir": 9,
+          "p": [
+            0.5,
+            1
+          ],
+          "card": {
+            "rotulo": "Passageiros liberados",
+            "num": 36,
+            "sub": "em Seattle"
+          }
+        },
+        {
+          "set": "db_cabine_vazia",
+          "cam": "comissarios",
+          "apartir": 16,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Ficaram a bordo",
+            "num": 4,
+            "sub": "piloto, copiloto, engenheiro e 1 comissária"
+          }
+        },
+        {
+          "set": "db_decola",
+          "cam": "decola",
+          "apartir": 21,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "db_mapa",
+          "cam": "rota",
+          "apartir": 26,
+          "p": [
+            0.05,
+            0.6
+          ],
+          "card": {
+            "rotulo": "Altitude",
+            "valor": "~3.000 m",
+            "sub": "baixo, devagar e com as rodas pra fora"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "texto": "Lá pelas oito da noite, ele amarra o dinheiro no corpo, abre a escada que desce da cauda e pula. Na chuva, no escuro, a nove graus abaixo de zero. Os pilotos só sentem a cauda subir. E ele nunca mais é visto.",
+      "quando": "~20H13",
+      "onde": "OREGON / WASHINGTON",
+      "destaques": [
+        "bomba",
+        "duzentos",
+        "mil",
+        "ninguém",
+        "quatro",
+        "paraquedas",
+        "trinta",
+        "seis",
+        "pula",
+        "nove",
+        "oito",
+        "cinco",
+        "oitocentos",
+        "fbi",
+        "resgate",
+        "cento",
+        "noventa",
+        "três",
+        "teorias",
+        "morreu",
+        "sobreviveu",
+        "provado",
+        "quarenta",
+        "único",
+        "aposta"
+      ],
+      "planos": [
+        {
+          "set": "db_voo_escada",
+          "cam": "lado",
+          "p": [
+            0,
+            0.05
+          ]
+        },
+        {
+          "set": "db_cabine_salto",
+          "cam": "amarra",
+          "apartir": 5,
+          "p": [
+            0,
+            1
+          ]
+        },
+        {
+          "set": "db_voo_escada",
+          "cam": "baixo",
+          "apartir": 11,
+          "p": [
+            0.1,
+            0.6
+          ]
+        },
+        {
+          "set": "db_queda",
+          "cam": "desce",
+          "apartir": 20,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Temperatura no salto",
+            "valor": "−9 °C",
+            "sub": "chuva e escuro total",
+            "cor": "#6fd3ff"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "texto": "Oito anos depois, um menino acha cinco mil e oitocentos dólares apodrecidos na beira de um rio. O FBI tinha fotografado cada nota, e os números batem. O resto nunca apareceu.",
+      "quando": "FEVEREIRO 1980",
+      "onde": "RIO COLUMBIA",
+      "destaques": [
+        "bomba",
+        "duzentos",
+        "mil",
+        "ninguém",
+        "quatro",
+        "paraquedas",
+        "trinta",
+        "seis",
+        "pula",
+        "nove",
+        "oito",
+        "cinco",
+        "oitocentos",
+        "fbi",
+        "resgate",
+        "cento",
+        "noventa",
+        "três",
+        "teorias",
+        "morreu",
+        "sobreviveu",
+        "provado",
+        "quarenta",
+        "único",
+        "aposta"
+      ],
+      "planos": [
+        {
+          "set": "db_mapa",
+          "cam": "tena",
+          "p": [
+            0.85,
+            1.6
+          ],
+          "card": {
+            "rotulo": "Fevereiro de 1980",
+            "valor": "RIO COLUMBIA",
+            "sub": "Brian Ingram, 8 anos"
+          }
+        },
+        {
+          "set": "db_rio",
+          "cam": "geral",
+          "apartir": 6,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Notas achadas no rio",
+            "num": 5800,
+            "prefixo": "US$ ",
+            "sub": "3 maços apodrecidos",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "db_rio",
+          "cam": "notas",
+          "apartir": 17,
+          "p": [
+            0.4,
+            1
+          ],
+          "card": {
+            "rotulo": "Números das notas",
+            "valor": "BATEM",
+            "sub": "são do resgate"
+          }
+        },
+        {
+          "set": "db_dinheiro_falta",
+          "cam": "falta",
+          "apartir": 27,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Nunca apareceram",
+            "num": 194200,
+            "prefixo": "US$ ",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "texto": "Tem três teorias. A mais provável é que morreu na queda, sem treino e com um paraquedas que nem dava pra guiar. Outra diz que sobreviveu e largou o dinheiro, porque as notas eram rastreáveis. A terceira, que fugiu e gastou o resto. Nada foi provado.",
+      "quando": "1971 → HOJE",
+      "onde": "AS TEORIAS",
+      "destaques": [
+        "bomba",
+        "duzentos",
+        "mil",
+        "ninguém",
+        "quatro",
+        "paraquedas",
+        "trinta",
+        "seis",
+        "pula",
+        "nove",
+        "oito",
+        "cinco",
+        "oitocentos",
+        "fbi",
+        "resgate",
+        "cento",
+        "noventa",
+        "três",
+        "teorias",
+        "morreu",
+        "sobreviveu",
+        "provado",
+        "quarenta",
+        "único",
+        "aposta"
+      ],
+      "planos": [
+        {
+          "set": "db_quadro",
+          "cam": "geral",
+          "p": [
+            0,
+            0.3
+          ]
+        },
+        {
+          "set": "db_t1",
+          "cam": "arvore",
+          "apartir": 3,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Teoria 1 · mais provável",
+            "valor": "MORREU NA QUEDA",
+            "sub": "paraquedas que não dava pra guiar",
+            "cor": "#ffd23f"
+          }
+        },
+        {
+          "set": "db_t2",
+          "cam": "margem",
+          "apartir": 22,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Teoria 2",
+            "valor": "SOBREVIVEU",
+            "sub": "largou o dinheiro",
+            "cor": "#ff9f1c"
+          }
+        },
+        {
+          "set": "db_t3",
+          "cam": "praia",
+          "apartir": 35,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Teoria 3 · menos prova",
+            "valor": "GASTOU O RESTO",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "db_quadro",
+          "cam": "ze",
+          "apartir": 43,
+          "p": [
+            0.86,
+            0.98
+          ],
+          "card": {
+            "rotulo": "Até hoje",
+            "valor": "NADA PROVADO",
+            "cor": "#ff5d5d"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "texto": "Em dois mil e dezesseis, o FBI parou de investigar. É o único sequestro de avião de passageiros do país nunca resolvido.",
+      "quando": "JULHO 2016",
+      "onde": "CASO ABERTO",
+      "destaques": [
+        "bomba",
+        "duzentos",
+        "mil",
+        "ninguém",
+        "quatro",
+        "paraquedas",
+        "trinta",
+        "seis",
+        "pula",
+        "nove",
+        "oito",
+        "cinco",
+        "oitocentos",
+        "fbi",
+        "resgate",
+        "cento",
+        "noventa",
+        "três",
+        "teorias",
+        "morreu",
+        "sobreviveu",
+        "provado",
+        "quarenta",
+        "único",
+        "aposta"
+      ],
+      "planos": [
+        {
+          "set": "db_arquivo",
+          "cam": "geral",
+          "p": [
+            0,
+            0.4
+          ],
+          "card": {
+            "rotulo": "O FBI para de investigar",
+            "valor": "JULHO 2016"
+          }
+        },
+        {
+          "set": "db_arquivo",
+          "cam": "carimbo",
+          "apartir": 5,
+          "p": [
+            0.4,
+            1
+          ],
+          "card": {
+            "rotulo": "Investigação",
+            "valor": "45 ANOS",
+            "sub": "1971 → 2016",
+            "cor": "#ff5d5d"
+          }
+        },
+        {
+          "set": "db_voo",
+          "cam": "some",
+          "apartir": 10,
+          "p": [
+            0,
+            1
+          ],
+          "card": {
+            "rotulo": "Nos EUA",
+            "valor": "ÚNICO SEM SOLUÇÃO",
+            "sub": "sequestro de avião comercial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "texto": "E você, em qual teoria aposta?",
+      "quando": "HOJE",
+      "onde": "CASO ABERTO",
+      "destaques": [
+        "bomba",
+        "duzentos",
+        "mil",
+        "ninguém",
+        "quatro",
+        "paraquedas",
+        "trinta",
+        "seis",
+        "pula",
+        "nove",
+        "oito",
+        "cinco",
+        "oitocentos",
+        "fbi",
+        "resgate",
+        "cento",
+        "noventa",
+        "três",
+        "teorias",
+        "morreu",
+        "sobreviveu",
+        "provado",
+        "quarenta",
+        "único",
+        "aposta"
+      ],
+      "planos": [
+        {
+          "set": "db_quadro",
+          "cam": "pergunta",
+          "p": [
+            1,
+            1
+          ],
+          "card": {
+            "rotulo": "E você?",
+            "valor": "QUAL TEORIA?",
+            "sub": "1, 2 ou 3? comenta",
+            "cor": "#ffd23f"
+          }
+        }
+      ]
+    }
+  ],
+  "pagina": {
+    "texto": "🕵️ D.B. Cooper: o sequestro que ninguém resolveu\n\nO QUE ACONTECEU\n• 24/11/1971: um homem usando o nome \"Dan Cooper\" embarca no voo 305 da Northwest, de Portland a Seattle.\n• No ar, passa um bilhete para a comissária dizendo ter uma bomba, mostra fios e cilindros vermelhos na pasta e exige US$ 200.000 (em notas de US$ 20) e 4 paraquedas.\n• Em Seattle recebe o dinheiro (10 mil notas, todas fotografadas pelo FBI) e os paraquedas, e libera os 36 passageiros. Ficam a bordo o piloto, o copiloto, o engenheiro de voo e uma comissária.\n• Lá pelas 20h, sobre a floresta, ele amarra o dinheiro ao corpo, abre a escada traseira do Boeing 727 e pula na chuva e no escuro, a cerca de −9 °C.\n• Em fevereiro de 1980, o menino Brian Ingram, de 8 anos, acha US$ 5.800 em notas do resgate na margem do Rio Columbia. Os outros US$ 194.200 nunca apareceram.\n• Em julho de 2016, depois de 45 anos, o FBI suspendeu a investigação.\n\nAS TEORIAS\n1. Morreu na queda: a mais provável. Sem treino conhecido, com um paraquedas militar que não dava para guiar, à noite e na chuva.\n2. Sobreviveu e largou o dinheiro: sabia que as notas podiam ser rastreadas.\n3. Fugiu e gastou o resto: explica o sumiço, mas não tem prova nenhuma.\n\nNenhuma teoria foi provada. Fontes: FBI (caso NORJAK), Wikipedia \"D. B. Cooper\", Geoffrey Gray, Skyjack (2011)."
+  }
+}

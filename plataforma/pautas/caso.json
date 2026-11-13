@@ -1,0 +1,69 @@
+{
+  "perfil": "caso",
+  "pautas": [
+    {
+      "tema": "O mistério do voo MH370",
+      "status": "usada",
+      "motivo": "1º vídeo do Caso Explicado (o-misterio-do-voo-mh370): pesquisa pronta, caso documentado por relatórios oficiais, rende mapa com rota, linha do tempo e objeto (flaperon), sem violência gráfica"
+    },
+    {
+      "tema": "O caso do Bandido da Luz Vermelha",
+      "status": "nova"
+    },
+    {
+      "tema": "O maior assalto a banco do Brasil (Fortaleza 2005)",
+      "status": "nova"
+    },
+    {
+      "tema": "O mistério do Triângulo das Bermudas",
+      "status": "nova"
+    },
+    {
+      "tema": "O caso Dyatlov",
+      "status": "nova"
+    },
+    {
+      "tema": "O sequestro do avião D.B. Cooper",
+      "status": "usada",
+      "motivo": "D.B. Cooper é o único tema com dois vídeos simultâneos no top 7 do nicho nos últimos 7 dias (437 + 414 views/dia), confirmando demanda reprimida agora; o gancho 'sequestrou um avião, pulou de paraquedas com US$ 200 mil e nunca foi encontrado' entrega número e virada nos 3 primeiros segundos, e o formato true crime não-resolvido retém até o fim porque a resposta final é 'ninguém sabe'; encaixa como afiliado em livros de true crime e documentários do nicho, sem repetir o MH370 já publicado nem depender de violência gráfica."
+    },
+    {
+      "tema": "O mistério do navio Mary Celeste",
+      "status": "nova"
+    },
+    {
+      "tema": "O roubo da Mona Lisa em 1911",
+      "status": "nova"
+    },
+    {
+      "tema": "Ele sequestrou o avião pulou com US$ 200 mil e nunca foi encontrado: 55 anos depois o FBI ainda não sabe",
+      "status": "nova",
+      "motivo": "DB Cooper: dois canais viralizando o mesmo caso simultâneo (355 e 360 views/dia W46) = janela de oportunidade; fuga impossível + caso não resolvido = máxima curiosidade",
+      "sugerida_em": "2026-11-12T10:07:55.797Z"
+    },
+    {
+      "tema": "A noite que a polícia chegou até Dahmer olhou pro menino e foi embora",
+      "status": "nova",
+      "motivo": "polícia devolveu menino pro Dahmer com 371 views/dia W46; caso de maior reconhecimento global no true crime; erro policial = revolta + engajamento",
+      "sugerida_em": "2026-11-12T10:07:55.966Z"
+    },
+    {
+      "tema": "O assalto que durou 5 dias e terminou com 109 reféns",
+      "status": "nova",
+      "motivo": "número específico + escala; mesmo mecanismo do MH370 (239 pessoas, dado concreto) que gerou 1 salvo com 1 único post",
+      "sugerida_em": "2026-11-12T10:35:32.427Z"
+    },
+    {
+      "tema": "Ela usou 7 identidades falsas e viveu assim por 20 anos",
+      "status": "nova",
+      "motivo": "número + mistério de identidade; formato com prova documentada, sem invenção",
+      "sugerida_em": "2026-11-12T10:35:32.596Z"
+    },
+    {
+      "tema": "O veneno que matava 1 em cada 3 sem deixar rastro — caso resolvido 40 anos depois",
+      "status": "nova",
+      "motivo": "número específico + resolução tardia = curiosidade mantida até o fim; caso real documentado",
+      "sugerida_em": "2026-11-12T10:35:32.754Z"
+    }
+  ]
+}
