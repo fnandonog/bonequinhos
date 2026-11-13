@@ -53,6 +53,23 @@ async function shortsDoNicho(p, dias) {
     .slice(0, 15);
 }
 
+// SATURAÇÃO (regra do Fernando, 13/11/2026): antes de produzir, ver se o tema já está cheio de vídeos na internet.
+// Busca Shorts em português do último ano sobre o tema e conta os que pegaram (>= 50 mil views). Custo: ~101 unidades da cota.
+export async function saturacao(tema, {dias = 365, corte = 50000} = {}) {
+  const desde = new Date(Date.now() - dias * 86400000).toISOString();
+  const r = await yt('search', {part: 'id', q: tema, type: 'video', videoDuration: 'short', order: 'relevance',
+    publishedAfter: desde, regionCode: 'BR', relevanceLanguage: 'pt', maxResults: '25'});
+  const ids = (r.items ?? []).map((x) => x.id.videoId);
+  if (!ids.length) return {tema, total: 0, fortes: 0, saturado: false, top: []};
+  const v = await yt('videos', {part: 'snippet,statistics', id: ids.join(',')});
+  const lista = (v.items ?? []).map((x) => ({titulo: x.snippet.title, canal: x.snippet.channelTitle, views: Number(x.statistics.viewCount ?? 0),
+    link: `https://youtube.com/shorts/${x.id}`, pt: /^pt/i.test(x.snippet.defaultAudioLanguage || x.snippet.defaultLanguage || '') || /[ãõç]/i.test(x.snippet.title)}))
+    .filter((x) => x.pt).sort((a, b) => b.views - a.views);
+  const fortes = lista.filter((x) => x.views >= corte).length;
+  // 4 ou mais Shorts em português com 50 mil+ views no último ano = tema já batido
+  return {tema, total: lista.length, fortes, saturado: fortes >= 4, top: lista.slice(0, 5)};
+}
+
 async function googleTrends() {
   const xml = await (await fetch('https://trends.google.com/trending/rss?geo=BR')).text();
   return [...xml.matchAll(/<item>[\s\S]*?<title>([^<]+)<\/title>[\s\S]*?<ht:approx_traffic>([^<]+)<\/ht:approx_traffic>/g)]

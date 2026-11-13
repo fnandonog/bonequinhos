@@ -16,7 +16,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {perfis, fila, pautas, salvarPautas, item, salvarItem, salvarPerfil, RAIZ, env} from './lib/dados.mjs';
 import {analytics, comentarios, salvarComentario} from './sincronizar.mjs';
-import {tendencias} from './tendencias.mjs';
+import {tendencias, saturacao} from './tendencias.mjs';
 
 const [cmd, ...a] = process.argv.slice(2);
 const out = (x) => console.log(typeof x === 'string' ? x : JSON.stringify(x, null, 2));
@@ -66,6 +66,13 @@ switch (cmd) {
       for (const v of (t.perfis?.[p.id] ?? []).slice(0, 10)) out(`- ${v.views_por_dia.toLocaleString('pt-BR')} views/dia · ${v.duracao_s}s · "${v.titulo}" (${v.canal}) ${v.link}`);
     }
     out(`\n## Buscas em alta no Brasil hoje (Google Trends)\n${(t.google_trends ?? []).map((g) => `- ${g.termo} (${g.buscas})`).join('\n')}`);
+    break;
+  }
+  case 'saturacao': {
+    // node plataforma/cli.mjs saturacao "tema" → quantos Shorts em português já existem e se o tema está batido
+    const s = await saturacao(a.join(' '));
+    out(`${s.saturado ? 'SATURADO: escolha outro tema' : 'LIVRE: pouca concorrência'} · ${s.fortes} Shorts pt com 50 mil+ views no último ano (de ${s.total} encontrados)`);
+    for (const v of s.top) out(`- ${v.views.toLocaleString('pt-BR')} views · "${v.titulo}" (${v.canal}) ${v.link}`);
     break;
   }
   case 'retencao': {

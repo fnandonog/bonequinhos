@@ -5,6 +5,7 @@ No Mac, dentro do projeto: `claude` e depois `/video <tema>` (comando em `.claud
 
 | # | Agente | Entrega | Não pode passar adiante se... |
 |---|---|---|---|
+| 0 | `pauteiro` | tema checado com `node plataforma/cli.mjs saturacao "<tema>"` (YouTube Shorts pt do último ano) + busca no TikTok/Instagram | já existe um monte de vídeo igual na internet |
 | 1 | `pesquisador` | `roteiros/<id>.pesquisa.md` com cada número marcado [S]/[C]/[E] e as fontes | algum número do vídeo não tiver origem |
 | 2 | `roteirista` | texto da narração (você, 2ª pessoa), gancho em 3 s, 1 número por frase, final "Parabéns: você construiu..." | passar de ~1.300 caracteres (~65 s) |
 | 2b | `revisor-roteiro` | nota 0–10 em gancho, clareza, ritmo falado e surpresa; APROVADO só com todas ≥ 8 | qualquer nota < 8 |

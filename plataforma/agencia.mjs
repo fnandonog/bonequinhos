@@ -90,7 +90,7 @@ async function escolherPauta(p, d) {
   ESC.batida('pauteiro', 'working', `Escolhendo a melhor pauta de ${p.nome}`);
   try {
     const r = await claude(
-      `Use o agente pauteiro como editor-chefe do perfil "${p.nome}" (${p.nicho}). Escolha a pauta com mais chance de viralizar ` +
+      `Use o agente pauteiro como editor-chefe do perfil "${p.nome}" (${p.nicho}). Antes, rode node plataforma/cli.mjs saturacao "<tema>" em cada candidata e descarte a que já tem muitos vídeos iguais na internet (regra de originalidade do pauteiro). Escolha a pauta com mais chance de viralizar ` +
         `e de vender como afiliado agora. Use os dados: \`node plataforma/cli.mjs tendencias ${p.id}\` e \`node plataforma/cli.mjs retencao ${p.id}\`:\n${novas.map((x, i) => `${i}. ${x.tema}`).join('\n')}\n` +
         `Responda SÓ com JSON: {"escolhida": <número>, "motivo": "uma frase"}`,
       `pauteiro-${p.id}`,
