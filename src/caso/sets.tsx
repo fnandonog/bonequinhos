@@ -12,6 +12,7 @@ import {
   TelaRadar, Vela, W, ZeDetetive, clamp01, lerp, rnd, suave,
 } from './pecas';
 import {SETS_COOPER} from './cooper';
+import {SETS_IDENTIDADES} from './identidades';
 
 export type LuzCaso = 'dia' | 'noite' | 'interior' | 'espaco' | 'nublado' | 'tarde' | 'fundo' | 'mapa';
 export type SetCaso = {
@@ -618,4 +619,7 @@ export const SETS: Record<string, SetCaso> = {
 
   // ===== D.B. COOPER (24/11/1971): cenários em src/caso/cooper.tsx =====
   ...SETS_COOPER,
+
+  // ===== IDENTIDADES (caso genérico — sala de investigação, escritório, concessionária, LA, tribunal) =====
+  ...SETS_IDENTIDADES,
 };
