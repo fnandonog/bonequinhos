@@ -9,7 +9,7 @@
   "voz": "pt-BR-AntonioNeural",
   "velocidade": "+10%",
   "elevenlabs": {
-    "voz_id": "5lrBPYY4YvMbKHTo8kvZ",
+    "voz_id": "acdKA5HckGxoxxvy40dA",
     "modelo": "eleven_multilingual_v2",
     "ajustes": {
       "stability": 0.5,
